@@ -1,0 +1,207 @@
+{
+  "table": {
+    "name": "DuCurioDomainExpiries",
+    "rows": [
+      {
+        "values": {
+          "domain_limit": {
+            "Integer": 3
+          },
+          "effect_id": {
+            "String": "2070"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "limit_parameter": {
+            "Integer": 2
+          },
+          "policy": {
+            "String": "ActiveFutureSelectedDomainsDiscard"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: acquisition initializes remaining entries from the exact parameter. The already entered acquisition domain does not count. Each accepted later public domain selection consumes one entry before encounter generation or new-domain rewards. Pre-selection layer services do not count. On the limiting entry, remove the holding and all lifecycle counters, rather than marking it destroyed. Only active holdings count; destruction pauses, repair resumes without refilling, and replacement or reacquisition starts a fresh allowance. Rejected/duplicate decisions consume nothing and all entry effects, route state and encounter RNG roll back together. Current one-domain-per-layer route only; no inference of original multi-room topology."
+          },
+          "replacement_condition": {
+            "String": "Timing and destroyed-state confidence is low. Alternatives include counting the acquisition domain, continuing during destruction, and expiring after entry rewards. Replace these fields independently when released execution programs or reproducible observations establish them. Keep exact 3/5 limits and discard semantics. Bind any future domain route to this entry boundary; do not count physical graph nodes."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 12
+              },
+              {
+                "Integer": 14
+              },
+              {
+                "Integer": 42
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.curio-domain-expiry.9070"
+          },
+          "state_key": {
+            "String": "divergent-universe.curio-state.9070"
+          },
+          "summary_en": {
+            "String": "Discard after entering 3 domains."
+          },
+          "summary_zh_cn": {
+            "String": "累计进入 3 个领域后丢弃。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_limit": {
+            "Integer": 5
+          },
+          "effect_id": {
+            "String": "2079"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "limit_parameter": {
+            "Integer": 2
+          },
+          "policy": {
+            "String": "ActiveFutureSelectedDomainsDiscard"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: acquisition initializes remaining entries from the exact parameter. The already entered acquisition domain does not count. Each accepted later public domain selection consumes one entry before encounter generation or new-domain rewards. Pre-selection layer services do not count. On the limiting entry, remove the holding and all lifecycle counters, rather than marking it destroyed. Only active holdings count; destruction pauses, repair resumes without refilling, and replacement or reacquisition starts a fresh allowance. Rejected/duplicate decisions consume nothing and all entry effects, route state and encounter RNG roll back together. Current one-domain-per-layer route only; no inference of original multi-room topology."
+          },
+          "replacement_condition": {
+            "String": "Timing and destroyed-state confidence is low. Alternatives include counting the acquisition domain, continuing during destruction, and expiring after entry rewards. Replace these fields independently when released execution programs or reproducible observations establish them. Keep exact 3/5 limits and discard semantics. Bind any future domain route to this entry boundary; do not count physical graph nodes."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 12
+              },
+              {
+                "Integer": 14
+              },
+              {
+                "Integer": 42
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.curio-domain-expiry.9079"
+          },
+          "state_key": {
+            "String": "divergent-universe.curio-state.9079"
+          },
+          "summary_en": {
+            "String": "Discard after entering 5 domains."
+          },
+          "summary_zh_cn": {
+            "String": "累计进入 5 个领域后丢弃。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_limit": {
+            "Integer": 3
+          },
+          "effect_id": {
+            "String": "2071"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "limit_parameter": {
+            "Integer": 2
+          },
+          "policy": {
+            "String": "ActiveFutureSelectedDomainsGrantThenDiscard"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: initialize three remaining entries on acquisition without counting its already entered domain. At an accepted future public domain selection, generate the intrinsic grant from the active positive-allowance pre-entry holding, then consume one allowance and discard all counters at zero before encounter construction and other new-domain rewards. Destroyed holdings neither grant nor count; repair resumes; replacement/reacquisition refill. Trusted zero allowance grants nothing and is removed at the next entry. Internal graph nodes, service choices, rejected and duplicate commands never count. Grant, discard, route and encounter RNG share one rollback boundary."
+          },
+          "replacement_condition": {
+            "String": "Low parity confidence for acquisition-domain counting, pre-entry grant/expiry order, destroyed-state time and route placement. Alternatives include counting the acquisition domain, discarding before its final intrinsic grant and counting while destroyed. Replace independently when released execution or reproducible observations establish them. Keep exact three domains; the current public route offers only two future entries, not full exhaustion."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 55
+              },
+              {
+                "Integer": 56
+              },
+              {
+                "Integer": 57
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.curio-domain-expiry.9071"
+          },
+          "state_key": {
+            "String": "divergent-universe.curio-state.9071"
+          },
+          "summary_en": {
+            "String": "Discard after the third future domain-entry grant."
+          },
+          "summary_zh_cn": {
+            "String": "第三次后续领域入场奖励发放后丢弃。"
+          }
+        }
+      },
+      {
+        "values": {
+          "domain_limit": {
+            "Integer": 3
+          },
+          "effect_id": {
+            "String": "2072"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "limit_parameter": {
+            "Integer": 2
+          },
+          "policy": {
+            "String": "ActiveFutureSelectedDomainsDiscard"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: acquisition initializes three remaining future domain entries without counting the current acquisition domain. Only active holdings consume one allowance at an accepted later domain selection; discard all holding counters on the limiting entry before encounter construction or battle rewards. Internal nodes and battle results never consume this domain counter. Destruction pauses; repair resumes; replacement/reacquisition refill. A trusted zero allowance contributes no victory grant and is removed at the next entry. Domain marker, discard and encounter RNG share one atomic transaction."
+          },
+          "replacement_condition": {
+            "String": "Low confidence for acquisition-domain inclusion, discard-before-new-domain-rewards and destroyed-state counting. Alternatives include counting the current domain, final-domain rewards before discard and counting while destroyed. Replace independently when released execution or reproducible observations establish them; retain exact three domains. Current baseline has only two future entries after initial service acquisition, not full public exhaustion."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 58
+              },
+              {
+                "Integer": 59
+              },
+              {
+                "Integer": 60
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.curio-domain-expiry.9072"
+          },
+          "state_key": {
+            "String": "divergent-universe.curio-state.9072"
+          },
+          "summary_en": {
+            "String": "Discard after three future domain entries."
+          },
+          "summary_zh_cn": {
+            "String": "进入三个后续领域后丢弃。"
+          }
+        }
+      }
+    ]
+  }
+}

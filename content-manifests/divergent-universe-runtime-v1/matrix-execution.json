@@ -1,0 +1,141 @@
+{
+  "schema_revision": "starclock.divergent-universe-matrix-execution.v1",
+  "goal_id": "divergent-universe-runtime-v1",
+  "batch": "G22-P7-B6",
+  "status": "TargetAssignmentDeclaredGameplayExecutionIncomplete",
+  "runtime_release_ready": false,
+  "input_digests": {
+    "runtime_dispositions": {
+      "path": "content-manifests/divergent-universe-runtime-v1/runtime-dispositions.json",
+      "sha256": "e404ce2e652e9298e37a97c904eaf2a69b9d8b3d48496b65b101afb5cf50a949"
+    },
+    "mechanic_dispositions": {
+      "path": "content-manifests/divergent-universe-runtime-v1/mechanic-dispositions.json",
+      "sha256": "1b52d5647cb784b418286a0c046b2d92368748494774314c09bf52b7256e1088"
+    },
+    "batch_ledger": {
+      "path": "content-manifests/divergent-universe-runtime-v1/batch-ledger.json",
+      "sha256": "a7d12fbc81dd5ac9a6c75061dca3d4a308bbb4388d6e5d12b4b535404aa76809"
+    },
+    "verification_contract": {
+      "path": "content-manifests/divergent-universe-runtime-v1/verification-contract.json",
+      "sha256": "d4b8cfa081026f31b3abf5abb92218aa7dcc8f60600e292e99bf65d6e68ded0e"
+    },
+    "baseline_fixture": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/baseline_fixture.rs",
+      "sha256": "df6b304df24f99371426c40d626c1517b8101ec5e95bfdbc48be907f300a0651"
+    },
+    "baseline_replay": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/baseline_replay.rs",
+      "sha256": "81fa5e6a54c5d907f5eac0abf9f0be1588684bb3458bd98f2f60e350c1e8e1df"
+    },
+    "matrix_test": {
+      "path": "crates/starclock-mode-universe/tests/divergent_universe_matrix.rs",
+      "sha256": "a24ec04b93dc13d8d504b75825a738fbfaa2496a26c249ce106acd1b8feeb062"
+    },
+    "package": {
+      "path": "crates/starclock-mode-universe/Cargo.toml",
+      "sha256": "a262f2648381e00a5b35607c3a4dcb73936a1da20cd00fc646e10314d223441d"
+    }
+  },
+  "execution_contract": {
+    "command": "cargo test --release -p starclock-mode-universe --test divergent_universe_matrix -- --ignored --exact generated_legal_matrix_completes_real_battles_and_fresh_replay",
+    "cases": 104,
+    "run_family_cases": {
+      "Ordinary": 52,
+      "Cyclical": 52
+    },
+    "selected_areas": 28,
+    "selected_difficulties": 22,
+    "selected_layers": 11,
+    "runtime_obligation_receipts": 6215,
+    "mechanic_partitions": 13,
+    "semantic_fixtures": 25,
+    "policy_sources": 54
+  },
+  "verification_requirements": {
+    "result": "NotExecutedByGenerator",
+    "baseline_scope": "AreaDifficultyLayerJoinSingleBattleAndFreshReplay",
+    "gameplay_axis_execution": "PendingProductionFixtures",
+    "declaration_is_execution_evidence": false
+  },
+  "axis_assignment_counts": {
+    "entry_records": 2,
+    "finish_conditions": 13,
+    "equation_categories": 4,
+    "equations": 80,
+    "equation_recipes": 80,
+    "equation_progress": 80,
+    "equation_expansion_states": 160,
+    "equation_effects": 25,
+    "equation_replacement_rules": 4,
+    "blessing_paths": 8,
+    "blessings": 414,
+    "blessing_levels": 828,
+    "blessing_groups": 118,
+    "blessing_rewrite_rules": 416,
+    "curio_definitions": 179,
+    "curio_states": 235,
+    "curio_groups": 286,
+    "curio_lifecycle_rules": 179,
+    "curio_pool_membership": 235,
+    "grand_miracles": 17,
+    "grand_miracle_states": 34,
+    "grand_miracle_eligibility": 74,
+    "titan_types": 12,
+    "titan_boons": 84,
+    "titan_talents": 36,
+    "titan_contributions": 120,
+    "mapping_eligibility": 84,
+    "mapping_builds": 95,
+    "protocols": 8,
+    "astronomical_divisions": 9,
+    "star_pioneer_practice": 2,
+    "cognoculi": 9,
+    "permanent_talents": 38,
+    "unlocks": 97,
+    "progression_effects": 38,
+    "weekly_modifiers": 103,
+    "workbenches": 11,
+    "workbench_functions": 6,
+    "gamble_groups": 126,
+    "gamble_units": 89,
+    "curse_chests": 29,
+    "service_npcs": 23,
+    "occurrences": 118,
+    "occurrence_variants": 97,
+    "occurrence_choices": 0,
+    "adventure_outcomes": 32,
+    "areas": 28,
+    "difficulties": 22,
+    "layers": 11,
+    "room_policy_families": 11,
+    "encounter_policy_families": 3,
+    "boss_pool_policy_families": 1,
+    "mechanic_partitions": 13,
+    "semantic_fixtures": 25,
+    "policy_sources": 54,
+    "exclusion_boundaries": 5,
+    "command_boundaries": 8,
+    "run_families": 2,
+    "mapping_unresolved_source_locators": 4,
+    "runtime_obligations": 6215
+  },
+  "assignment_closure": {
+    "obligations": 0,
+    "fixture_families": 0,
+    "research_gaps": 0,
+    "policy_sources": 0,
+    "mechanic_programs": 0,
+    "matrix_cases": 104
+  },
+  "summary": {
+    "matrix_cases": 104,
+    "real_battles": null,
+    "fresh_replays": null,
+    "run_families": 2,
+    "selected_areas": 28,
+    "selected_difficulties": 22,
+    "selected_layers": 11
+  }
+}

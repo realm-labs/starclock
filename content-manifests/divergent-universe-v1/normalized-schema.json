@@ -1,7 +1,7 @@
 {
   "schema_revision": "starclock.divergent-universe-normalized-schema.v1",
   "goal_id": "divergent-universe-reference-v1",
-  "bound_content_manifest_sha256": "5cbfa748406204e2d7a2c10c452ac6a87b3864b76461e85bd449c0739f3fc13e",
+  "bound_content_manifest_sha256": "efe38daabfdcecb9619fc69a01321ce1667fef620cfb054e2c259a59c6e3b074",
   "common_envelope": {
     "required_fields": [
       "id",
@@ -51,9 +51,10 @@
     "ownership": {
       "enum": [
         "DivergentUniverse",
-        "Shared"
+        "Shared",
+        "SharedCandidate"
       ],
-      "candidate_rule": "SharedCandidate manifest obligations cannot become normalized rows until promoted by an exact reconciliation receipt"
+      "candidate_rule": "SharedCandidate may appear only as Cataloged source obligations pending selector proof; this is not content membership or runtime admission"
     },
     "coverage_state": {
       "enum": [
@@ -1343,6 +1344,25 @@
         "difficulty_id",
         "candidate_monster_ids",
         "selection_policy"
+      ]
+    },
+    {
+      "file": "persona-source-obligations.json",
+      "record_kind": "DivergentUniversePersonaSourceObligations",
+      "phase": "P2-B6",
+      "manifest_category_inputs": [
+        "persona_source_obligations"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "source_locator",
+        "source_key",
+        "selector_proof",
+        "parent_sources",
+        "interpretation",
+        "runtime_disposition"
       ]
     },
     {

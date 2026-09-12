@@ -1,123 +1,60 @@
-import crypto from "node:crypto";
+#!/usr/bin/env node
+
 import fs from "node:fs";
 import path from "node:path";
 import process from "node:process";
-import { createRequire } from "node:module";
-import { pathToFileURL } from "node:url";
+import { spawnSync } from "node:child_process";
+import { fileURLToPath } from "node:url";
 
-const root = path.resolve(process.argv[2] ?? ".");
-const output = path.resolve(
-  process.argv[3] ?? "evidence/divergent-universe-reference-v1/rendered",
-);
-assert(!fs.existsSync(output), `refusing to overwrite ${output}`);
-fs.mkdirSync(output, { recursive: true });
-
-const require = createRequire(import.meta.url);
-let artifactEntry;
-try {
-  artifactEntry = require.resolve("@oai/artifact-tool");
-} catch {
-  throw new Error(
-    "@oai/artifact-tool is unavailable; set NODE_PATH to the bundled " +
-      "workspace dependency node_modules directory",
-  );
-}
-const artifactPackage = JSON.parse(fs.readFileSync(
-  path.resolve(path.dirname(artifactEntry), "..", "package.json"),
-  "utf8",
-));
-const { FileBlob, SpreadsheetFile } = await import(
-  pathToFileURL(artifactEntry).href
-);
-const schema = JSON.parse(fs.readFileSync(
+const arguments_ = process.argv.slice(2);
+assert(arguments_.length <= 3,
+  "usage: render-visual-review.mjs [ROOT] [OUTPUT] [BROWSER]");
+const root = path.resolve(arguments_[0]
+  ?? path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../.."));
+const output = path.resolve(root, arguments_[1]
+  ?? ".cache/divergent-universe-visual-review");
+const browser = locateBrowser(arguments_[2]);
+const python = process.env.STARCLOCK_PYTHON
+  ?? (process.platform === "win32" ? "python" : "python3");
+const result = spawnSync(python, [
   path.join(
     root,
-    "config",
-    "divergent-universe-generated",
-    "schema.lock",
+    "tools/divergent-universe-reference/render_visual_review_html.py",
   ),
-  "utf8",
-)).schema;
-const workbookNames = [
-  "DivergentUniverse.xlsx",
-  "DivergentUniverseBindings.xlsx",
-  "DivergentUniverseReview.xlsx",
-];
-const rendered = [];
-let ordinal = 0;
+  root,
+  output,
+  "--browser",
+  browser,
+], {
+  cwd: root,
+  env: { ...process.env, PYTHONDONTWRITEBYTECODE: "1" },
+  stdio: "inherit",
+});
+if (result.error) throw result.error;
+assert(result.status === 0, `visual renderer exited with ${result.status}`);
 
-for (const workbookName of workbookNames) {
-  const input = await FileBlob.load(path.join(
-    root,
-    "config",
-    "divergent-universe",
-    "data",
-    workbookName,
-  ));
-  const workbook = await SpreadsheetFile.importXlsx(input);
-  const tables = schema.tables.filter(
-    (table) => table.source.file === workbookName,
-  );
-  for (const table of tables) {
-    ordinal += 1;
-    const range = `A1:${columnName(table.fields.length)}12`;
-    const image = await workbook.render({
-      sheetName: table.source.sheet,
-      range,
-      format: "png",
-      scale: 1,
-      headers: false,
-    });
-    const bytes = Buffer.from(await image.arrayBuffer());
-    const filename =
-      `${String(ordinal).padStart(2, "0")}-` +
-      `${workbookName.replace(/\.xlsx$/u, "")}-` +
-      `${table.source.sheet}.png`;
-    fs.writeFileSync(path.join(output, filename), bytes);
-    rendered.push({
-      file: workbookName,
-      sheet: table.source.sheet,
-      range,
-      image: filename,
-      sha256: sha256(bytes),
-    });
-  }
-}
-assert(rendered.length === 80, "visual-review sheet denominator differs");
-const manifest = {
-  schema_revision: "starclock.divergent-universe-visual-render.v1",
-  renderer: {
-    name: "@oai/artifact-tool",
-    version: artifactPackage.version,
-    range_policy: "rows 1-12 across every used schema column",
-  },
-  sheet_count: rendered.length,
-  sheets: rendered,
-};
-const manifestBytes = Buffer.from(
-  `${JSON.stringify(manifest, null, 2)}\n`,
-  "utf8",
-);
-fs.writeFileSync(path.join(output, "render-manifest.json"), manifestBytes);
-console.log(
-  `Rendered ${rendered.length} Divergent Universe sheets with ` +
-    `@oai/artifact-tool ${artifactPackage.version}; manifest ` +
-    `${sha256(manifestBytes)}.`,
-);
-
-function columnName(index) {
-  let value = index;
-  let result = "";
-  while (value > 0) {
-    value -= 1;
-    result = String.fromCharCode(65 + (value % 26)) + result;
-    value = Math.floor(value / 26);
-  }
+function locateBrowser(explicit) {
+  const candidates = [
+    explicit,
+    process.env.STARCLOCK_BROWSER,
+    ...(process.platform === "win32" ? [
+      "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe",
+      "C:/Program Files/Microsoft/Edge/Application/msedge.exe",
+      "C:/Program Files/Google/Chrome/Application/chrome.exe",
+      "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe",
+    ] : process.platform === "darwin" ? [
+      "/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge",
+      "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    ] : [
+      "/usr/bin/microsoft-edge",
+      "/usr/bin/google-chrome",
+      "/usr/bin/chromium",
+    ]),
+  ].filter(Boolean).map((candidate) => path.resolve(candidate));
+  const result = candidates.find((candidate) => fs.existsSync(candidate));
+  assert(result,
+    "Edge/Chrome is unavailable; set STARCLOCK_BROWSER or pass BROWSER");
   return result;
-}
-
-function sha256(bytes) {
-  return crypto.createHash("sha256").update(bytes).digest("hex");
 }
 
 function assert(condition, message) {

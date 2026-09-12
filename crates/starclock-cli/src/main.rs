@@ -4,6 +4,7 @@
 
 mod challenge;
 mod currency_wars;
+mod divergent_universe;
 mod event;
 mod gold_gears;
 mod standard;
@@ -91,6 +92,11 @@ fn run(args: Vec<String>) -> Result<(), CliError> {
         }
         [group, command, rest @ ..] if group == "battle" && command == "run" => battle_run(rest),
         [group, command, rest @ ..]
+            if group == "universe" && command == "run" && divergent_universe::requested(rest) =>
+        {
+            divergent_universe::run(rest).map_err(CliError::DivergentUniverse)
+        }
+        [group, command, rest @ ..]
             if group == "universe" && command == "run" && swarm_disaster::requested(rest) =>
         {
             swarm_disaster::run(rest).map_err(CliError::SwarmDisaster)
@@ -104,6 +110,13 @@ fn run(args: Vec<String>) -> Result<(), CliError> {
             universe::run(rest).map_err(CliError::Universe)
         }
         [group, command, rest @ ..]
+            if group == "universe"
+                && command == "coverage"
+                && divergent_universe::requested(rest) =>
+        {
+            divergent_universe::coverage(rest).map_err(CliError::DivergentUniverse)
+        }
+        [group, command, rest @ ..]
             if group == "universe" && command == "coverage" && swarm_disaster::requested(rest) =>
         {
             swarm_disaster::coverage(rest).map_err(CliError::SwarmDisaster)
@@ -115,6 +128,14 @@ fn run(args: Vec<String>) -> Result<(), CliError> {
         }
         [group, command, rest @ ..] if group == "universe" && command == "coverage" => {
             universe::coverage(rest).map_err(CliError::Universe)
+        }
+        [group, scope, command, rest @ ..]
+            if group == "universe"
+                && scope == "config"
+                && command == "validate"
+                && divergent_universe::requested(rest) =>
+        {
+            divergent_universe::config_validate(rest).map_err(CliError::DivergentUniverse)
         }
         [group, scope, command, rest @ ..]
             if group == "universe"
@@ -142,7 +163,7 @@ fn run(args: Vec<String>) -> Result<(), CliError> {
             replay_verify(file, rest)
         }
         _ => Err(CliError::Usage(
-            "starclock config validate [--bundle PATH] [--json] | challenge config validate [--json] | event config validate [--json] | currency-wars config validate [--json] | currency-wars inspect --route ID [--json] | currency-wars coverage [--json] | currency-wars run --route ID --difficulty ID --gambit standard|overclock --seed U64 [--controller baseline] [--replay-out PATH] [--json] | catalog coverage [--goal core-combat-v1] [--category NAME] [--json] | battle run --scenario ID --seed U64 [--controller baseline|replay] [--replay-out PATH] [--json] | universe config validate [--mode gold-and-gears|swarm-disaster] [--json] | universe coverage [--mode gold-and-gears|swarm-disaster] [--json] | universe run (--world ID --difficulty-index N | --mode gold-and-gears|swarm-disaster) --seed U64 [--controller baseline] [--replay-out PATH] [--json] | replay verify FILE [--json] | mcp serve --transport stdio | mcp serve --transport streamable-http --development-loopback --bind IP:PORT --allow-origin ORIGIN",
+            "starclock config validate [--bundle PATH] [--json] | challenge config validate [--json] | event config validate [--json] | currency-wars config validate [--json] | currency-wars inspect --route ID [--json] | currency-wars coverage [--json] | currency-wars run --route ID --difficulty ID --gambit standard|overclock --seed U64 [--controller baseline] [--replay-out PATH] [--json] | catalog coverage [--goal core-combat-v1] [--category NAME] [--json] | battle run --scenario ID --seed U64 [--controller baseline|replay] [--replay-out PATH] [--json] | universe config validate [--mode gold-and-gears|swarm-disaster|divergent-universe] [--json] | universe coverage [--mode gold-and-gears|swarm-disaster|divergent-universe] [--json] | universe run (--world ID --difficulty-index N | --mode gold-and-gears|swarm-disaster|divergent-universe [--family ordinary|cyclical]) --seed U64 [--controller baseline] [--replay-out PATH] [--json] | replay verify FILE [--json] | mcp serve --transport stdio | mcp serve --transport streamable-http --development-loopback --bind IP:PORT --allow-origin ORIGIN",
         )),
     }
 }
@@ -527,6 +548,10 @@ fn replay_verify(file: &str, args: &[String]) -> Result<(), CliError> {
     if currency_wars::is_replay(&bytes) {
         return currency_wars::verify_replay(&bytes, json).map_err(CliError::CurrencyWars);
     }
+    if divergent_universe::is_replay(&bytes) {
+        return divergent_universe::verify_replay(&bytes, json)
+            .map_err(CliError::DivergentUniverse);
+    }
     if swarm_disaster::is_replay(&bytes) {
         return swarm_disaster::verify_replay(&bytes, json).map_err(CliError::SwarmDisaster);
     }
@@ -782,6 +807,7 @@ enum CliError {
     GoldAndGears(gold_gears::GoldAndGearsCliError),
     SwarmDisaster(swarm_disaster::SwarmDisasterCliError),
     CurrencyWars(currency_wars::CurrencyWarsCliError),
+    DivergentUniverse(divergent_universe::DivergentUniverseCliError),
 }
 
 impl CliError {
@@ -800,6 +826,7 @@ impl CliError {
             Self::GoldAndGears(error) => error.exit_code(),
             Self::SwarmDisaster(error) => error.exit_code(),
             Self::CurrencyWars(error) => error.exit_code(),
+            Self::DivergentUniverse(error) => error.exit_code(),
         }
     }
 }
@@ -846,6 +873,7 @@ impl fmt::Display for CliError {
             Self::GoldAndGears(error) => error.fmt(formatter),
             Self::SwarmDisaster(error) => error.fmt(formatter),
             Self::CurrencyWars(error) => error.fmt(formatter),
+            Self::DivergentUniverse(error) => error.fmt(formatter),
         }
     }
 }

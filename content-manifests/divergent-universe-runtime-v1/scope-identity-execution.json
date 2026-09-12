@@ -1,0 +1,113 @@
+{
+  "schema_revision": "starclock.divergent-universe-scope-identity-execution.v1",
+  "goal_id": "divergent-universe-runtime-v1",
+  "batch": "G22-P3-B5",
+  "status": "CompleteLogicalScopesRefreshAndStateIdentityNoBattleCredit",
+  "input_digests": {
+    "runtime_contract": {
+      "path": "content-manifests/divergent-universe-runtime-v1/runtime-contract.json",
+      "sha256": "ccb27239b0d31973c27c48a666916055568355f40736b5887aed50f1b0ba4276"
+    },
+    "runtime_dispositions": {
+      "path": "content-manifests/divergent-universe-runtime-v1/runtime-dispositions.json",
+      "sha256": "1319cb15f7a2e1b9c283549300cf29bb4f2b65d41c759a0c29240570c7fbd2bc"
+    },
+    "batch_ledger": {
+      "path": "content-manifests/divergent-universe-runtime-v1/batch-ledger.json",
+      "sha256": "77e109344b674b1a301708d247e2dcedeace5bc941f789d2ab3529dc5224f467"
+    },
+    "scope_runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/scope.rs",
+      "sha256": "a5b61bf1a1a296488bbe388532548892f186e9937559d8084e77740e0d77c642"
+    },
+    "state_runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/state.rs",
+      "sha256": "946d9d891d871569c556bfb87a63cf790b752dc1a1f7b762ad0e11e0cd2bbd36"
+    },
+    "entry_runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/entry_flow.rs",
+      "sha256": "efadb26272a068aebbad344771126f0870e613475d6314917690d069c7ca8209"
+    },
+    "mapping_runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/mapping.rs",
+      "sha256": "720c8245d8dfb7ee2f9aa6f5f4b51510c7da16ea256bfda0330235f8d7ae3108"
+    },
+    "generic_logical_scope": {
+      "path": "crates/starclock-activity/src/logical_scope.rs",
+      "sha256": "d5285c4c5f24edebfcb95d058b476a8107ca31bbc2a4e967a5ec84ea7ac5e24d"
+    },
+    "generic_transition": {
+      "path": "crates/starclock-activity/src/transaction/movement.rs",
+      "sha256": "a2bf543130c3dd04ce85455020bfdf3eb34040ff9fdcdbffd2c72f46908e1395"
+    },
+    "generic_boundary": {
+      "path": "crates/starclock-activity/src/graph_activity/boundary.rs",
+      "sha256": "c265bf21abf9e1329c4a76205c7f81ea5add732233a27204bf0a408e7489b34e"
+    },
+    "tests": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/tests/mapping_scope.rs",
+      "sha256": "1525758e5d20f0f23b7a6d51e07652187163af8e9123c7450f3e4c258e6d47d5"
+    }
+  },
+  "execution_boundary": {
+    "runtime_owner": "starclock-mode-universe over starclock-activity::GraphActivity",
+    "scope_mapping": [
+      {
+        "authored": "Run",
+        "generic": "Activity"
+      },
+      {
+        "authored": "Plane",
+        "generic": "Section"
+      },
+      {
+        "authored": "NodeVisit",
+        "generic": "Node"
+      },
+      {
+        "authored": "BattleOrExternalAttempt",
+        "generic": "Attempt"
+      }
+    ],
+    "logical_hierarchy": [
+      "Run",
+      "Plane",
+      "Node",
+      "Battle"
+    ],
+    "current_bindings": "Released layer checkpoints enter Run/Plane/Node logical instances. The Battle class is the Node child and maps to generic Attempt; G22-P3-B6 now exercises that declared boundary without retroactively granting P3-B5 battle credit.",
+    "transition_order": "On an accepted layer traversal, SectionStart and NodeStart resets commit before EdgeTraversed; automatic target-node operations and the next offered decision follow in the same deterministic command resolution.",
+    "refresh": "An accepted immutable party change recompiles Mapping against the new participant lock and is bound by a fresh Activity configuration. Rejected refresh inputs and successful fresh compilation never mutate the prior live Activity or caller snapshots.",
+    "rejection": "Stale route commands and invalid refresh inputs preserve canonical bytes and state hash. Generic extension boundaries restore both transaction state and RNG on failure.",
+    "credit": "Scope, ordering, refresh and identity proof only; no battle node, BattleSpec, battle result, rewards, full playable-run or release-gate credit."
+  },
+  "assignment_closure": {
+    "obligations": 0,
+    "fixture_families": 0,
+    "research_gaps": 0,
+    "policy_sources": 0
+  },
+  "capability_probes": [
+    {
+      "id": "logical-scope-hierarchy-reset-and-order",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/mapping_scope.rs",
+      "test": "logical_run_plane_node_and_battle_scopes_reset_in_transition_order",
+      "result": "Passed"
+    },
+    {
+      "id": "party-refresh-fresh-identity-and-old-state-inertness",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/mapping_scope.rs",
+      "test": "party_change_mapping_refresh_creates_fresh_identity_and_never_mutates_old_activity",
+      "result": "Passed"
+    }
+  ],
+  "summary": {
+    "logical_scope_kinds": 4,
+    "generic_scope_kinds": 4,
+    "assigned_obligations": 0,
+    "assigned_fixture_families": 0,
+    "assigned_research_gaps": 0,
+    "assigned_policy_sources": 0,
+    "probes": 2
+  }
+}

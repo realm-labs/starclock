@@ -15,9 +15,12 @@ impl ActivityAgentSessionRegistry {
     ) -> Self {
         Self::with_limits(
             factory,
-            Some(gold_factory),
-            Some(swarm_factory),
-            Some(currency_wars_factory),
+            ActivityModeFactories {
+                gold: Some(gold_factory),
+                swarm: Some(swarm_factory),
+                currency_wars: Some(currency_wars_factory),
+                divergent_universe: None,
+            },
             clock,
             id_source,
             FROZEN_LIMITS,
@@ -32,9 +35,10 @@ impl ActivityAgentSessionRegistry {
     ) -> Self {
         Self::with_limits(
             factory,
-            None,
-            None,
-            Some(currency_wars_factory),
+            ActivityModeFactories {
+                currency_wars: Some(currency_wars_factory),
+                ..ActivityModeFactories::default()
+            },
             clock,
             id_source,
             FROZEN_LIMITS,

@@ -1,0 +1,157 @@
+{
+  "schema_revision": "starclock.divergent-universe-blessing-runtime-execution.v1",
+  "goal_id": "divergent-universe-runtime-v1",
+  "batch": "G22-P4-B4",
+  "status": "CompleteExactBlessingOwnershipLevelRewriteAndGroupExecution",
+  "input_digests": {
+    "paths": {
+      "path": "content-reference/divergent-universe-v1/blessing-paths.json",
+      "sha256": "fe9c3f8a2272ea9825b8ed7251d0b31e1d7fab319a3ea7f8f6130ddd8170dbc7"
+    },
+    "blessings": {
+      "path": "content-reference/divergent-universe-v1/blessings.json",
+      "sha256": "80530b0696bd82d5c929c6a669671297f3da31de5ee93629a0a4c176c5282512"
+    },
+    "levels": {
+      "path": "content-reference/divergent-universe-v1/blessing-levels.json",
+      "sha256": "7fec3fee11ca67cc10ff32d57cb8a6edaa8401ed7a23f7534cc7d3428fb8f23f"
+    },
+    "groups": {
+      "path": "content-reference/divergent-universe-v1/blessing-groups.json",
+      "sha256": "1940a492aa14500999dc02194e7850607c3026a486905ba7ac0eba6cc887c46c"
+    },
+    "rewrites": {
+      "path": "content-reference/divergent-universe-v1/blessing-rewrite-rules.json",
+      "sha256": "0cfc4a3c7eb770d3fdaad816d7d5ee427aca9daddcabb76c6bdaea40f5477f85"
+    },
+    "equation_progress_execution": {
+      "path": "content-manifests/divergent-universe-runtime-v1/equation-progress-execution.json",
+      "sha256": "ae4d44f6788b05e14d9a33798f24e4f62cc30430fe5b128669d9b8e6e5b83b85"
+    },
+    "runtime_dispositions": {
+      "path": "content-manifests/divergent-universe-runtime-v1/runtime-dispositions.json",
+      "sha256": "1319cb15f7a2e1b9c283549300cf29bb4f2b65d41c759a0c29240570c7fbd2bc"
+    },
+    "batch_ledger": {
+      "path": "content-manifests/divergent-universe-runtime-v1/batch-ledger.json",
+      "sha256": "77e109344b674b1a301708d247e2dcedeace5bc941f789d2ab3529dc5224f467"
+    },
+    "catalog_runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/blessing_catalog.rs",
+      "sha256": "d476317bd17fc1a7605682238be62cfb8dc4450ea65663123bf5a7618e93a793"
+    },
+    "command_runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/blessing_runtime.rs",
+      "sha256": "4be2fc82caf4df88493197673c901ca299b8e30761a96605ffb6f17414b25d8b"
+    },
+    "state_runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/state.rs",
+      "sha256": "946d9d891d871569c556bfb87a63cf790b752dc1a1f7b762ad0e11e0cd2bbd36"
+    },
+    "tests": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/tests/blessing_runtime.rs",
+      "sha256": "fd7a4b9583d53c896bb21ceb2041fc8713814c9cf0a716492d02ca4a360b09c1"
+    }
+  },
+  "exact_catalog_boundary": {
+    "paths": 8,
+    "blessing_identities": 414,
+    "levels": 828,
+    "exact_enhancement_rewrites": 414,
+    "closed_groups": 118,
+    "direct_group_level_memberships": 351,
+    "direct_group_subgroup_memberships": 176,
+    "maximum_terminal_group_candidates": 144,
+    "unresolved_group_candidates": 0
+  },
+  "execution_boundary": {
+    "group_candidates": "ExactReleasedSourceOrderFilteredByCurrentOwnershipLevel",
+    "group_weighting": "UnspecifiedAndNoRandomDrawInvented",
+    "accepted_identity_selection": "CallerSuppliedExactStableIDWithoutMembershipPromotion",
+    "acquisition": "AtomicOwnedIdentityInsertAndEquationRefresh",
+    "enhancement": "ExactBaseToEnhancedRewriteWithIdentityContributionPreserved",
+    "replacement": "AtomicInputRemovalOutputInsertAndEquationRefresh",
+    "path_rewrite": "AtomicAcceptedPairWithoutServiceSelectorOrCostClaim",
+    "rejection": "TypedByteIdenticalWithoutRngAdvance",
+    "maximum_owned_identities": 414
+  },
+  "policy_boundary": {
+    "generic_service_policy_rows": 2,
+    "policy_rows_promoted_to_exact": 0,
+    "policy_assignment_credit": 0,
+    "deferred_owner_batch": "G22-P4-B5",
+    "replacement_condition": "Released service programs or reproducible observations must establish selectors, costs and ordering before policy promotion."
+  },
+  "execution_receipt": {
+    "all_414_identities_acquire": "Passed",
+    "all_414_exact_enhancements_execute": "Passed",
+    "all_118_groups_flatten_and_offer_in_exact_order": "Passed",
+    "all_828_level_bindings_parse_exact_parameters": "Passed",
+    "acquisition_refreshes_equation_identity_snapshot_atomically": "Passed",
+    "enhancement_preserves_equation_identity_contribution": "Passed",
+    "replacement_and_path_rewrite_teardown_input_identity": "Passed",
+    "offers_and_accepted_identity_commands_consume_no_rng": "Passed",
+    "stale_active_and_unoffered_rejections_preserve_bytes": "Passed",
+    "fresh_reconstruction_is_equal": "Passed"
+  },
+  "assignment_closure": {
+    "obligations": 1368,
+    "exact_integrated": 1368,
+    "fixture_families": 0,
+    "research_gaps": 0,
+    "policy_sources": 0,
+    "mechanic_programs": 0
+  },
+  "coverage_credit": {
+    "assigned_source_obligations": 1368,
+    "newly_terminal_exact_source_obligations": 1368,
+    "mechanic_programs": 0,
+    "semantic_fixture_families": 0,
+    "research_gaps": 0,
+    "policy_sources": 0,
+    "deferred": "Blessing/Equation battle interactions, simultaneous order and generic service policies remain assigned to G22-P4-B5; offer RNG/caps/empty-pool hardening remains assigned to G22-P4-B6."
+  },
+  "capability_probes": [
+    {
+      "id": "exact-8-414-828-414-118-catalog",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/blessing_runtime.rs",
+      "test": "every_released_blessing_level_enhancement_and_group_closure_compiles",
+      "result": "Passed"
+    },
+    {
+      "id": "all-identities-acquire-and-enhance",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/blessing_runtime.rs",
+      "test": "every_exact_identity_executes_acquisition_and_enhancement",
+      "result": "Passed"
+    },
+    {
+      "id": "all-closed-groups-materialize",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/blessing_runtime.rs",
+      "test": "every_closed_group_materializes_its_exact_ordered_legal_candidates",
+      "result": "Passed"
+    },
+    {
+      "id": "atomic-equation-refresh-and-identity-transforms",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/blessing_runtime.rs",
+      "test": "offer_acquire_enhance_replace_and_rewrite_refresh_equations_atomically",
+      "result": "Passed"
+    },
+    {
+      "id": "rejection-and-fresh-reconstruction",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/blessing_runtime.rs",
+      "test": "blessing_rejections_and_fresh_reconstruction_preserve_state_and_rng",
+      "result": "Passed"
+    }
+  ],
+  "summary": {
+    "assigned_obligations_terminal": 1368,
+    "blessing_identities": 414,
+    "blessing_levels": 828,
+    "exact_enhancement_rewrites": 414,
+    "closed_groups": 118,
+    "assigned_fixture_families": 0,
+    "assigned_research_gaps": 0,
+    "assigned_policy_sources": 0,
+    "probes": 5
+  }
+}

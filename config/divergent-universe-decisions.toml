@@ -1,0 +1,27 @@
+project = { id = "starclock_divergent_universe_decisions" }
+groups = { common = { default = true } }
+views = { default = { contract = "starclock_divergent_universe_decisions/default", groups = ["common"] } }
+includes = ["divergent-universe-decisions/schema.toml"]
+
+[build]
+default_source_format = "xlsx"
+data_root = "divergent-universe-decisions/data"
+view = "default"
+schema_lock = "divergent-universe-decisions-generated/schema.lock"
+excel_templates = "divergent-universe-decisions-generated/templates"
+
+[[build.codegen]]
+target = "rust"
+out = "divergent-universe-decisions-generated/reader"
+format = "never"
+
+[[build.exports]]
+format = "binary"
+out = "divergent-universe-decisions-generated/config.sora"
+
+[[build.exports]]
+format = "json-debug"
+out = "divergent-universe-decisions-generated/debug-json"
+
+[codegen.rust]
+runtime_format = "sora"

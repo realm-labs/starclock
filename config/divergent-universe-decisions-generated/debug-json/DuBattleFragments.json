@@ -1,0 +1,130 @@
+{
+  "table": {
+    "name": "DuBattleFragments",
+    "rows": [
+      {
+        "values": {
+          "amount": {
+            "Integer": 40
+          },
+          "domain": {
+            "String": "Combat"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "policy": {
+            "String": "FixedVerifiedDomainCredit"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: after each verified won battle, credit the authored fixed base amount for the authenticated domain before separate Curio victory grants and Blessing generation. Combat and Aberration proxies grant 40; Elite proxies grant 100. These amounts are engineering choices, not observed game values: they provide a nonzero repeatable combat income with an explicit higher Elite reward while original drop distributions remain unavailable. Apply the existing global fragment-gain pipeline to this credit independently of each Curio credit. Loss/fault grants nothing, Blessing suppression does not suppress fragments, and no reward RNG is drawn. Result verification, carry, all reward stages and automatic advance roll back together. Do not infer domain from source elite flags, enemy count or account reward displays. No boss policy is declared until that route exists."
+          },
+          "replacement_condition": {
+            "String": "Replace each domain amount, fixed versus random distribution, per-battle versus enemy/drop timing, difficulty scaling, occurrence reward stacking and ordering independently when released current-profile drop programs or reproducible observations establish them. Alternatives include per-enemy rewards and integer range sampling. Amount/distribution confidence is low. Current constants and stage inspection do not prove parity; do not credit original program completion from this policy alone."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 14
+              },
+              {
+                "Integer": 24
+              },
+              {
+                "Integer": 39
+              },
+              {
+                "Integer": 41
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.battle-fragments.combat"
+          }
+        }
+      },
+      {
+        "values": {
+          "amount": {
+            "Integer": 100
+          },
+          "domain": {
+            "String": "Elite"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "policy": {
+            "String": "FixedVerifiedDomainCredit"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: after each verified won battle, credit the authored fixed base amount for the authenticated domain before separate Curio victory grants and Blessing generation. Combat and Aberration proxies grant 40; Elite proxies grant 100. These amounts are engineering choices, not observed game values: they provide a nonzero repeatable combat income with an explicit higher Elite reward while original drop distributions remain unavailable. Apply the existing global fragment-gain pipeline to this credit independently of each Curio credit. Loss/fault grants nothing, Blessing suppression does not suppress fragments, and no reward RNG is drawn. Result verification, carry, all reward stages and automatic advance roll back together. Do not infer domain from source elite flags, enemy count or account reward displays. No boss policy is declared until that route exists."
+          },
+          "replacement_condition": {
+            "String": "Replace each domain amount, fixed versus random distribution, per-battle versus enemy/drop timing, difficulty scaling, occurrence reward stacking and ordering independently when released current-profile drop programs or reproducible observations establish them. Alternatives include per-enemy rewards and integer range sampling. Amount/distribution confidence is low. Current constants and stage inspection do not prove parity; do not credit original program completion from this policy alone."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 14
+              },
+              {
+                "Integer": 24
+              },
+              {
+                "Integer": 39
+              },
+              {
+                "Integer": 41
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.battle-fragments.elite"
+          }
+        }
+      },
+      {
+        "values": {
+          "amount": {
+            "Integer": 40
+          },
+          "domain": {
+            "String": "Aberration"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "policy": {
+            "String": "FixedVerifiedDomainCredit"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: after each verified won battle, credit the authored fixed base amount for the authenticated domain before separate Curio victory grants and Blessing generation. Combat and Aberration proxies grant 40; Elite proxies grant 100. These amounts are engineering choices, not observed game values: they provide a nonzero repeatable combat income with an explicit higher Elite reward while original drop distributions remain unavailable. Apply the existing global fragment-gain pipeline to this credit independently of each Curio credit. Loss/fault grants nothing, Blessing suppression does not suppress fragments, and no reward RNG is drawn. Result verification, carry, all reward stages and automatic advance roll back together. Do not infer domain from source elite flags, enemy count or account reward displays. No boss policy is declared until that route exists."
+          },
+          "replacement_condition": {
+            "String": "Replace each domain amount, fixed versus random distribution, per-battle versus enemy/drop timing, difficulty scaling, occurrence reward stacking and ordering independently when released current-profile drop programs or reproducible observations establish them. Alternatives include per-enemy rewards and integer range sampling. Amount/distribution confidence is low. Current constants and stage inspection do not prove parity; do not credit original program completion from this policy alone."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 14
+              },
+              {
+                "Integer": 24
+              },
+              {
+                "Integer": 39
+              },
+              {
+                "Integer": 41
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.battle-fragments.aberration"
+          }
+        }
+      }
+    ]
+  }
+}

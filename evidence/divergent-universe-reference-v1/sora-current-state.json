@@ -1,0 +1,63 @@
+{
+  "schema_revision": "starclock.divergent-universe-sora-state.v1",
+  "toolchain": {
+    "package": "sora-cli",
+    "version": "0.6.1",
+    "crate_sha256": "1e94903eba86640a6c9836ba224c9049152c4d84b6cc57537b79126d124a43af"
+  },
+  "project": {
+    "file": "config/divergent-universe-project.toml",
+    "sha256": "d2a3826e28f0f4ef14c829e64861233d27e962c872a41bcf27f346f6a94fa5fe",
+    "id": "starclock_divergent_universe_reference",
+    "view": "default"
+  },
+  "authoring": {
+    "adapter": "openpyxl==3.1.5",
+    "workbooks": {
+      "DivergentUniverse.xlsx": {
+        "bytes": 976237,
+        "sha256": "bc73a2c6e76e659470ac151c560f0ab61a1e37da7317ee09f9cb74600b5cd33c"
+      },
+      "DivergentUniverseBindings.xlsx": {
+        "bytes": 834840,
+        "sha256": "5ad65ad72145f38b7e22a9cfb1da11fae098c2fc27a2f51b47d7e11c920115f2"
+      },
+      "DivergentUniverseReview.xlsx": {
+        "bytes": 2921953,
+        "sha256": "a7fe036da4d8c996b4db1f9d1769ebc1761d30c5c8c735be6b0f5f8e6f4f9690"
+      }
+    },
+    "semantic_sha256": "4a188229b504894bac81a62d4d0ac5fbea402ddfb055a692efa4349d1242401e"
+  },
+  "generated": {
+    "schema_lock_sha256": "9bb73ea806d3fb13cbec1ad25c010cb1b6e66067978281ea885e58748cde5452",
+    "templates": {
+      "DivergentUniverse.xlsx": {
+        "bytes": 109375,
+        "sha256": "0ed8447c10e533648fa4514a66c48118d87b47c71a39dd8b3973edfc081e651d"
+      },
+      "DivergentUniverseBindings.xlsx": {
+        "bytes": 29017,
+        "sha256": "b8f54ed6aeb9a6fa8754b25a445d23ce62fa580e8ea3480c4db39e74c1c5a1f8"
+      },
+      "DivergentUniverseReview.xlsx": {
+        "bytes": 23760,
+        "sha256": "3c877348d8e44fcb7b40ee32baba4efeec9bba83ccb3ac5eee2dbbae8b371c62"
+      }
+    },
+    "tables": 81,
+    "rows": 28732,
+    "verified_empty_tables": 2,
+    "rust_reader_files": 86,
+    "rust_reader_sha256": "1969efe3c7168c2aaf5aa47dc5cd083f1d44b2505f4a0fc0b4b12e07815fc6f7",
+    "bundle": {
+      "bytes": 26417866,
+      "sha256": "2768fc939dee45c07233136f27c101e3f5a52c1c80ca11ec239dbac9c1a8a993"
+    },
+    "debug_export": {
+      "files": 81,
+      "sha256": "f3b8316b703f3c47ac2ace750c5e5cd3d37083b794417ab897ccb8ecb3c6a3cb"
+    }
+  },
+  "visual_review_sha256": "9eb74401333b337cbf69183188f1f280825423d8890d4f389f54a71326e7035a"
+}

@@ -1,0 +1,211 @@
+{
+  "schema_revision": "starclock.divergent-universe-mapping-execution.v1",
+  "goal_id": "divergent-universe-runtime-v1",
+  "batch": "G22-P3-B4",
+  "status": "CompleteFieldWiseMappingRefreshTeardownNoBattleCredit",
+  "input_digests": {
+    "eligibility": {
+      "path": "content-reference/divergent-universe-v1/arithmetic-mapping-eligibility.json",
+      "sha256": "483cdf801fdd6e87669d3c989dd04455cdb65b1356f70ae5aaf5bd083816b0ce"
+    },
+    "builds": {
+      "path": "content-reference/divergent-universe-v1/arithmetic-mapping-builds.json",
+      "sha256": "2bc056c9751cb70077768f4cc8d6ac70b124e9cf950341312e9a01df928d9e4c"
+    },
+    "rules": {
+      "path": "content-reference/divergent-universe-v1/arithmetic-mapping-rules.json",
+      "sha256": "17ff15d6593808b1f5e2227b3fa1e7f138249bc6f044f17c0c8698430dd203bc"
+    },
+    "runtime_contract": {
+      "path": "content-manifests/divergent-universe-runtime-v1/runtime-contract.json",
+      "sha256": "ccb27239b0d31973c27c48a666916055568355f40736b5887aed50f1b0ba4276"
+    },
+    "runtime_dispositions": {
+      "path": "content-manifests/divergent-universe-runtime-v1/runtime-dispositions.json",
+      "sha256": "1319cb15f7a2e1b9c283549300cf29bb4f2b65d41c759a0c29240570c7fbd2bc"
+    },
+    "batch_ledger": {
+      "path": "content-manifests/divergent-universe-runtime-v1/batch-ledger.json",
+      "sha256": "77e109344b674b1a301708d247e2dcedeace5bc941f789d2ab3529dc5224f467"
+    },
+    "mapping_runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/mapping.rs",
+      "sha256": "720c8245d8dfb7ee2f9aa6f5f4b51510c7da16ea256bfda0330235f8d7ae3108"
+    },
+    "entry_runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/entry_flow.rs",
+      "sha256": "efadb26272a068aebbad344771126f0870e613475d6314917690d069c7ca8209"
+    },
+    "state_runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/state.rs",
+      "sha256": "946d9d891d871569c556bfb87a63cf790b752dc1a1f7b762ad0e11e0cd2bbd36"
+    },
+    "build_substitution": {
+      "path": "crates/starclock-build/src/substitution.rs",
+      "sha256": "ee996736cbbc90775751d5c5ad962a6d78d47b5bfc6b4052c5d7bb9465113369"
+    },
+    "core_catalog_lookup": {
+      "path": "crates/starclock-data/src/catalog_lookup.rs",
+      "sha256": "c34e2430bf6ffdcdce566b2b48e9df55d994b52f86f5918295a1b4175016a96d"
+    },
+    "tests": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/tests/mapping_scope.rs",
+      "sha256": "1525758e5d20f0f23b7a6d51e07652187163af8e9123c7450f3e4c258e6d47d5"
+    }
+  },
+  "execution_boundary": {
+    "runtime_owner": "starclock-mode-universe",
+    "build_owner": "starclock-build",
+    "source_identity": "Upstream AvatarID values remain source locators. Core-catalog joins resolve a Starclock stable form when present; otherwise the immutable caller-provided form binding is explicitly labeled VersionedProjectPolicy and digest-bound.",
+    "substitution": "The shared Build substitution primitive compares progression, abilities, Traces, Eidolon, Light Cone and generic contributions field by field, preserving sufficient caller fields and applying only deficient temporary minimums.",
+    "compilation": "Every selected immutable build compiles through LoadoutCompiler into a fresh CompiledBuild and ResolvedCombatantSpec; receipts and both identities are bound into the Mapping snapshot digest.",
+    "refresh": "Run entry compiles a fresh snapshot; an accepted party change may request deterministic reevaluation against a matching component and participant lock. Prior snapshots and caller specs remain immutable.",
+    "teardown": "Run finalization clears Activity-owned Mapping state. Explicit teardown consumes a snapshot into an auditable removal receipt without mutating account state.",
+    "policy": "Exact per-avatar temporary Trace, Light Cone and Relic loadouts remain unpublished; callers supply immutable versioned minimum specs until the stated replacement condition is satisfied.",
+    "credit": "Arithmetic Mapping build compilation and lifecycle only; no encounter, BattleSpec, real battle, rewards, full playable-run or release-gate credit."
+  },
+  "source_closure": {
+    "eligibility_rows": 84,
+    "mapping_builds": 95,
+    "lifecycle_rules": 7,
+    "eligible_builds": 84,
+    "ineligible_builds": 11,
+    "resolved_public_identities": 91,
+    "unresolved_public_identities": 4,
+    "special_avatar_bindings": 79,
+    "role_buff_parameter_arities": {
+      "4": 41,
+      "5": 34,
+      "6": 18,
+      "7": 2
+    },
+    "source_obligations": 258,
+    "exact_obligations": 84,
+    "policy_obligations": 174
+  },
+  "lifecycle_rules": [
+    {
+      "id": "divergent-universe.mapping-rule.character-level",
+      "selection_timing": "RunEntryOrRefresh",
+      "condition": "CharacterLevelBelowEquilibriumCap",
+      "ordered_operations": [
+        "RaiseCharacterToEquilibriumCap"
+      ],
+      "stronger_build_rule": "PreserveWhenConditionIsFalse",
+      "account_mutation": false
+    },
+    {
+      "id": "divergent-universe.mapping-rule.light-cone",
+      "selection_timing": "Unspecified",
+      "condition": "Unspecified",
+      "ordered_operations": [
+        "Unspecified"
+      ],
+      "stronger_build_rule": "PreserveWhenConditionIsFalse",
+      "account_mutation": false
+    },
+    {
+      "id": "divergent-universe.mapping-rule.refresh",
+      "selection_timing": "RunEntryAndAcceptedPartyChange",
+      "condition": "MappingInputChanged",
+      "ordered_operations": [
+        "ReevaluateOnlyBelowThresholdFields"
+      ],
+      "stronger_build_rule": "PreserveWhenConditionIsFalse",
+      "account_mutation": false
+    },
+    {
+      "id": "divergent-universe.mapping-rule.relics",
+      "selection_timing": "RunEntryOrRefresh",
+      "condition": "RelicTotalEnhancementBelowRequirement",
+      "ordered_operations": [
+        "ReplaceWithCompatibleTemporaryRelics"
+      ],
+      "stronger_build_rule": "PreserveWhenConditionIsFalse",
+      "account_mutation": false
+    },
+    {
+      "id": "divergent-universe.mapping-rule.scope",
+      "selection_timing": "ModeBoundary",
+      "condition": "InsideDivergentUniverse",
+      "ordered_operations": [
+        "ApplyTemporaryMappingState"
+      ],
+      "stronger_build_rule": "PreserveWhenConditionIsFalse",
+      "account_mutation": false
+    },
+    {
+      "id": "divergent-universe.mapping-rule.teardown",
+      "selection_timing": "RunFinalization",
+      "condition": "LeavingDivergentUniverse",
+      "ordered_operations": [
+        "RemoveTemporaryMappingState"
+      ],
+      "stronger_build_rule": "PreserveWhenConditionIsFalse",
+      "account_mutation": false
+    },
+    {
+      "id": "divergent-universe.mapping-rule.traces",
+      "selection_timing": "RunEntryOrRefresh",
+      "condition": "UnlockedTraceInactiveOrBelowRequirement",
+      "ordered_operations": [
+        "ActivateOrRaiseTrace"
+      ],
+      "stronger_build_rule": "PreserveWhenConditionIsFalse",
+      "account_mutation": false
+    }
+  ],
+  "terminal_assignments": {
+    "obligations": 258,
+    "fixture_families": [
+      "divergent-universe.semantic-family.arithmetic-mapping-eligibility",
+      "divergent-universe.semantic-family.arithmetic-mapping-refresh-and-teardown"
+    ],
+    "research_gaps": [
+      "divergent-universe.research-gap.arithmetic-mapping-eligibility",
+      "divergent-universe.research-gap.arithmetic-mapping-refresh-and-teardown"
+    ],
+    "policy_sources": [
+      "source.goal11.project-policy.arithmetic-mapping-build-values",
+      "source.goal11.project-policy.arithmetic-mapping-refresh",
+      "source.goal11.project-policy.semantic-fixture-arithmetic-mapping-eligibility",
+      "source.goal11.project-policy.semantic-fixture-arithmetic-mapping-refresh-and-teardown"
+    ]
+  },
+  "capability_probes": [
+    {
+      "id": "catalog-eligibility-and-identity-closure",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/mapping_scope.rs",
+      "test": "arithmetic_mapping_catalog_closes_eligibility_and_released_identity_denominators",
+      "result": "Passed"
+    },
+    {
+      "id": "field-wise-stronger-owned-preservation",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/mapping_scope.rs",
+      "test": "arithmetic_mapping_preserves_stronger_owned_fields_without_mutating_caller_build",
+      "result": "Passed"
+    },
+    {
+      "id": "eligibility-refresh-and-teardown",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/mapping_scope.rs",
+      "test": "arithmetic_mapping_rejects_ineligible_inputs_and_refreshes_then_tears_down",
+      "result": "Passed"
+    },
+    {
+      "id": "entry-binding-and-terminal-clear",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/mapping_scope.rs",
+      "test": "arithmetic_mapping_is_bound_to_entry_state_and_cleared_at_run_finalization",
+      "result": "Passed"
+    }
+  ],
+  "summary": {
+    "eligibility_rows": 84,
+    "mapping_builds": 95,
+    "lifecycle_rules": 7,
+    "obligations_terminal": 258,
+    "production_fixtures_passed": 2,
+    "executable_research_gaps": 2,
+    "executable_policy_sources": 4,
+    "probes": 4
+  }
+}

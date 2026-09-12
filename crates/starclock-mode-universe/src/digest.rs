@@ -63,6 +63,29 @@ pub(crate) fn bundle_digest(bytes: &[u8]) -> UniverseBundleDigest {
     UniverseBundleDigest::new(Sha256::digest(bytes).into())
 }
 
+/// Private raw SHA-256 surface for mode-owned canonical encoders that retain
+/// an existing byte layout. Keeping the backend here prevents content modules
+/// from acquiring a direct dependency on the hashing implementation.
+pub(crate) struct CanonicalDigestBuilder(Sha256);
+
+impl CanonicalDigestBuilder {
+    pub(crate) fn new() -> Self {
+        Self(Sha256::new())
+    }
+
+    pub(crate) fn digest(bytes: impl AsRef<[u8]>) -> [u8; 32] {
+        Sha256::digest(bytes).into()
+    }
+
+    pub(crate) fn update(&mut self, bytes: impl AsRef<[u8]>) {
+        self.0.update(bytes);
+    }
+
+    pub(crate) fn finalize(self) -> [u8; 32] {
+        self.0.finalize().into()
+    }
+}
+
 pub(crate) struct Encoder(Sha256);
 
 impl Encoder {

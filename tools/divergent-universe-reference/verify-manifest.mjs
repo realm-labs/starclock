@@ -25,6 +25,10 @@ execFileSync(process.execPath, generatorArgs, { cwd: root, stdio: "inherit" });
 const manifest = json(
   "content-manifests/divergent-universe-v1/content-manifest.json",
 );
+const python = process.env.STARCLOCK_PYTHON ?? (process.platform === "win32" ? "python" : "python3");
+execFileSync(python, ["tools/divergent-universe-runtime/persona_reachability.py",
+  "--source-cache", sourceRoot, "--check", "--require-reconciled"],
+{ cwd: root, stdio: "inherit" });
 assert(
   manifest.schema_revision === "starclock.divergent-universe-content-manifest.v1",
   "unsupported Divergent Universe content manifest revision",
@@ -97,6 +101,15 @@ assert(ids("enabled_modules").join(",") === "6002201",
 assert(ids("areas").length === 28, "Tourn3 area denominator drift");
 assert(ids("difficulties").length === 22, "Tourn3 difficulty closure drift");
 assert(ids("layers").length === 11, "Tourn3 layer closure drift");
+assert(ids("persona_source_obligations").length === 547
+  && records("persona_source_obligations").filter(({ selector_proof: proof }) =>
+    proof === "CurrentLayerReference").length === 78
+  && records("persona_source_obligations").filter(({ selector_proof: proof, ownership, reachability }) =>
+    proof === "PendingSelectorProof" && ownership === "SharedCandidate"
+      && reachability === "SourceObligation").length === 469
+  && records("persona_source_obligations").every(({ runtime_disposition: state }) =>
+    state === "Unimplemented"),
+"Persona exact-once source obligations or pending membership drift");
 assert(ids("layer_rooms").length === 0,
   "the source gained a directly matching Tourn3 layer-room row");
 assert(ids("room_reuse_candidates").length === 848

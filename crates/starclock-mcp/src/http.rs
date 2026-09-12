@@ -43,6 +43,7 @@ use rmcp::transport::streamable_http_server::{
 use starclock_agent_api::{
     activity_session::{ActivityAgentSessionFactory, registry::ActivityAgentSessionRegistry},
     currency_wars_activity_session::CurrencyWarsActivityAgentSessionFactory,
+    divergent_universe_activity_session::DivergentUniverseActivityAgentSessionFactory,
     error::{AgentError, AgentErrorCode},
     gold_gears_activity_session::GoldAndGearsActivityAgentSessionFactory,
     schema::SessionId,
@@ -197,6 +198,9 @@ fn build_loopback_app(
         .map_err(|_| HttpServeError::Startup)?;
     let currency_wars_factory = CurrencyWarsActivityAgentSessionFactory::load_production()
         .map_err(|_| HttpServeError::Startup)?;
+    let divergent_universe_factory =
+        DivergentUniverseActivityAgentSessionFactory::load_production()
+            .map_err(|_| HttpServeError::Startup)?;
     let operational_clock = Arc::new(HttpClock::new());
     let session_ids = Arc::new(HttpBattleSessionIds::new());
     let registry = AgentSessionRegistry::new(
@@ -204,14 +208,16 @@ fn build_loopback_app(
         operational_clock.clone(),
         session_ids.clone(),
     );
-    let activity_registry = ActivityAgentSessionRegistry::new_with_all_modes(
-        activity_factory.clone(),
-        gold_factory,
-        swarm_factory,
-        currency_wars_factory,
-        operational_clock.clone(),
-        session_ids,
-    );
+    let activity_registry =
+        ActivityAgentSessionRegistry::new_with_all_modes_including_divergent_universe(
+            activity_factory.clone(),
+            gold_factory,
+            swarm_factory,
+            currency_wars_factory,
+            divergent_universe_factory,
+            operational_clock.clone(),
+            session_ids,
+        );
     let rate_limiter = authorization
         .as_ref()
         .map(|_| McpRateLimiter::new(operational_clock));

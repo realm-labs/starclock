@@ -1,0 +1,122 @@
+{
+  "schema_revision": "starclock.divergent-universe-combat-capability-closure.v1",
+  "goal_id": "divergent-universe-runtime-v1",
+  "batch": "G22-P2-B3",
+  "status": "CompleteNoSharedRustDelta",
+  "input_digests": {
+    "capability_inventory": {
+      "path": "content-manifests/divergent-universe-runtime-v1/capability-inventory.json",
+      "sha256": "6a1aa699ad3a65efa84f2c56cd6a5f9e4fa52f936ecbef6640c05ed951c97119"
+    },
+    "shared_combat_surface": {
+      "paths": [
+        "crates/starclock-combat/src/rule/model.rs",
+        "crates/starclock-combat/src/rule/evaluate.rs",
+        "crates/starclock-combat/src/catalog/selector.rs",
+        "crates/starclock-combat/src/effect/model.rs"
+      ],
+      "sha256": "228a3dac73739494d97e89441d03dee67f9cd6c2aa82a2a5bd94ac1308923aac"
+    }
+  },
+  "decision": {
+    "shared_combat_primitive_additions": [],
+    "rationale": "The current Rule IR already represents ordered selectors, literal/slot/stat/resource/event/shield expressions, contextual conditions, event filters, scoped state, trigger phases, typed effects, damage/heal/shield/toughness/resource/timeline operations, replacement proposals and battle-result rule events. No cross-program Divergent requirement needs a new shared primitive.",
+    "source_operation_boundary": "Source operation names are lowered field by field into current Rule IR; they are never installed as a second source-engine interpreter or accepted merely because a similarly named enum exists.",
+    "mode_boundary": "The three frozen battle-shaped source libraries have no released profile, catalog or config reference outside their paired source/layout files. Their seven source-only operation gaps therefore remain non-authoritative evidence and do not authorize mode handlers.",
+    "unresolved_expression_boundary": "The 29 observed postfix expression shapes remain preserved as non-authoritative source evidence. Raw opcode bytes authorize no runtime evaluation, rounding or RNG draw, and no reachable program consumes them.",
+    "execution_credit": "The generated M01 reachability proof closes the source libraries as ExcludedWithProof and their layout companions as MetadataOnlyAudited; no combat runtime execution is claimed."
+  },
+  "existing_shared_surfaces": [
+    {
+      "id": "typed-rule-expression-condition-operation",
+      "file": "crates/starclock-combat/src/rule/model.rs",
+      "required_fragments": [
+        "pub enum ValueExpr",
+        "pub enum ConditionExpr",
+        "pub enum RuleOperationTemplate"
+      ],
+      "result": "ExistingAndSufficient"
+    },
+    {
+      "id": "event-trigger-and-replacement-boundary",
+      "file": "crates/starclock-combat/src/rule/model.rs",
+      "required_fragments": [
+        "pub enum RuleEventPoint",
+        "pub enum TriggerPhase",
+        "pub struct EventFilter",
+        "ProposeReplacement"
+      ],
+      "result": "ExistingAndSufficient"
+    },
+    {
+      "id": "ordered-selector-boundary",
+      "file": "crates/starclock-combat/src/catalog/selector.rs",
+      "required_fragments": [
+        "pub struct RuleUnitSelector",
+        "pub enum RuleSelectorPredicate",
+        "with_candidate_union"
+      ],
+      "result": "ExistingAndSufficient"
+    },
+    {
+      "id": "typed-effect-and-shield-boundary",
+      "file": "crates/starclock-combat/src/effect/model.rs",
+      "required_fragments": [
+        "pub struct EffectRuntimeDefinition",
+        "with_hp_floor"
+      ],
+      "result": "ExistingAndSufficient"
+    }
+  ],
+  "capability_probes": [
+    {
+      "id": "rule-expression-filter-replacement",
+      "file": "crates/starclock-test-kit/tests/suites/core/combat/rule_ir_contract.rs",
+      "required_fragments": [
+        "formula_stage_queries_and_timeline_filters_preserve_exact_typed_context",
+        "replacement_programs_return_typed_mutation_free_proposals"
+      ],
+      "result": "Passed"
+    },
+    {
+      "id": "rule-selector-runtime",
+      "file": "crates/starclock-test-kit/tests/suites/core/combat/rule_selector_runtime.rs",
+      "required_fragments": [
+        "action_snapshot_selector_observes_pre_hit_life_after_lethal_damage",
+        "empty_pool_policies_have_distinct_runtime_control_flow"
+      ],
+      "result": "Passed"
+    },
+    {
+      "id": "trigger-phase-runtime",
+      "file": "crates/starclock-test-kit/tests/suites/core/combat/ability_program_execution/trigger_phases.rs",
+      "required_fragments": [
+        "production_dispatches_each_supported_post_commit_phase_from_its_observed_event",
+        "once_per_turn_coalesces_hits_and_resets_at_the_next_turn_boundary"
+      ],
+      "result": "Passed"
+    },
+    {
+      "id": "authoritative-operation-services",
+      "file": "crates/starclock-test-kit/tests/suites/core/combat/ability_program_execution/action_break.rs",
+      "required_fragments": [
+        "representative_rule_emissions_use_authoritative_runtime_services"
+      ],
+      "result": "Passed"
+    }
+  ],
+  "mode_owned_capabilities": [],
+  "unresolved_shared_expression_shape_ids": [],
+  "summary": {
+    "combat_programs": 0,
+    "combat_operation_occurrences": 0,
+    "combat_shapes": 0,
+    "combat_shape_dispositions": {},
+    "shared_combat_missing_capabilities": 0,
+    "shared_combat_primitive_additions": 0,
+    "mode_owned_capabilities": 0,
+    "mode_owned_shapes": 0,
+    "unresolved_shared_expression_shapes": 0,
+    "probes": 4
+  }
+}

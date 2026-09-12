@@ -3,6 +3,113 @@
 Starclock maintains only the current source, data, behavior and test outputs.
 Git history is the only historical record.
 
+## Divergent Universe release readiness
+
+The current [Persona domain layout](divergent-universe-domain-layout.md) is now
+typed configuration: 28 current areas join 11 layers and 60 positions, comprising
+21 fixed presets and 39 unspecified positions. Formal/weekly position totals are
+13, 17 or 20 according to the exact area-layer joins. The missing old
+`RogueTournLayerRoom` join does not mean current position records are absent.
+The provisional baseline has not yet been replaced with the current card/deck,
+pass, fixed-room and multi-domain plane execution. These new records are not
+terminal runtime coverage.
+The [base domain-deck compiler](divergent-universe-domain-deck.md) now provides
+shared-Activity whole-hand discard, short hands, refill and section-carried
+piles. Six focused tests cover reconstruction, non-mutating observation,
+fixed-room RNG isolation, binding validation and rejected-command rollback.
+Production binding, initial mask decks and actual room payloads are still
+absent; this compiler adds no terminal source or full-run coverage.
+The reference generators remove the incorrect blanket `RoguePersona` other-mode
+exclusion and retain eleven explicitly reviewed files for row-level accounting.
+The current generated Persona source audit accounts for all 547 rows across
+eleven tables: 78 are reached by current layer references and 469 still need
+selector proof. All 547 are added exactly once to the reference manifest, now
+6,762 obligations across 51 categories without removing existing obligations.
+The membership and exact-once normalized coverage gates pass. The 547 source-only
+records now travel through openpyxl workbooks, Sora and the private Rust reader:
+78 remain Researched and 469 Cataloged, all explicitly Unimplemented. The
+reference package has 6,215 DataReady obligations out of 6,762 (91.91%), not
+complete reference readiness. All 6,762 obligations now reach the runtime ledger
+exactly once. Persona rows retain `PendingSourceReview`, `SourceOnly` catalog
+status and no runtime admission; their batch/family assignment identifies a
+review owner, not an executable semantic binding. Gameplay promotion remains
+incomplete, with no new terminal runtime credit. Four equation keyword and
+parameter obligations also remain `PendingDispositionReview`: an unselected-path
+tag without validated exclusion evidence is insufficient terminal proof.
+The repository-audit verifier passes Persona coverage admission but currently
+fails with `repository-audit ledger drift`; an old all-pass artifact cannot
+establish release readiness.
+Classification-only inventory validation preserves all 2,684 admitted
+path/hash/size tuples; full blob rehash remains unverified because a promisor
+fetch fails. The twelve sources used by the Persona audit are byte-verified.
+
+The Divergent Universe runtime is incomplete. The behavioral audit found that
+637 decision programs and 24 state-lifecycle
+programs compile source-operation names and commit a lifecycle counter, but do
+not execute the corresponding source effects. The
+`RogueTourn_Goup_WaitDialogue` boundary now implements node-scoped completion
+latches and guarded exits through shared Activity operations, but actual
+content binding is still absent from the baseline. The
+[room lifecycle contract](divergent-universe-room-lifecycle.md) records its
+synchronization policy. `release_room_completion_changes_gameplay_beyond_a_lifecycle_marker`
+remains an explicit production-content acceptance test, separate from the
+passing lifecycle integration tests.
+
+The 104-case matrix executes area/difficulty selections and a real battle with
+fresh replay. Other target axes are only collected into ID sets; those counts
+do not prove the assigned content was executed. Full Ordinary/Cyclical gameplay
+and the content-axis matrix therefore remain unverified. CLI coverage reports
+unknown terminal/executable totals and `runtime_release_ready=false` until the
+behavioral audit and implementation are complete. Existing batch receipts are
+insufficient release evidence and must be reconciled with these findings.
+
+The default Ordinary/Cyclical baseline now runs three real proxy battles. Its
+shared pre-offer settlement executes bounded, distinct program stages with fresh
+views after each applied stage, retaining whole-submission state/RNG rollback.
+Base domain fragment credits precede Curio victory grants and normal Blessing
+candidate generation; this order is
+bound into mode configuration identity. This is composition infrastructure, not
+full original domain implementation. The intermediate Curio Blessing stage
+executes the robe's reviewed reward only for an eligible mode-owned binding;
+the first battle is Combat, while later public domain choices can enable it.
+The baseline's
+[authored encounter policy](divergent-universe-layer-battles.md) fixes the first
+stage and independently draws later stages from five explicit weekly-display
+candidates. Offer, assembly and replay bindings are enforced; normal-room
+membership and original elite/boss mechanics remain unproven/unimplemented.
+The selected source stages explicitly carry elite markers; independent public
+domain selection is a deliberate non-parity policy. The public event can now
+produce Dormant Green Miracle and execute its
+[full-HP victory fragment grant](divergent-universe-curio-battle-grants.md),
+including global bonuses and atomic rollback. Its two upgraded forms now have
+[accepted evolution transitions](divergent-universe-curio-evolutions.md), unique
+runtime ownership aliases, immediate grants and current-form victory rewards.
+Its [six public upgrade-event choices](divergent-universe-evolution-events.md)
+now include costs, probability, sacrifice/reward exchange and fresh replay under
+explicit stable multi-treasure layer-placement policy. Other Divine Treasure families,
+original event topology and exact base battle drops remain pending. The
+[base fragment policy](divergent-universe-battle-fragments.md) now credits
+Combat/Aberration 40 and Elite 100 through the global gain pipeline before Curio
+rewards. These amounts are explicitly unverified project choices, not original
+drop-table facts.
+[Curio domain expiry](divergent-universe-curio-domain-expiry.md) now consumes
+exact three/five-entry allowances at future public domain selections. Passive
+bonus states expire before new-domain rewards; state 9071 receives its intrinsic
+60-fragment entry grant before its limiting-entry discard. Acquisition-domain
+counting, grant ordering and destroy/repair timing are explicit project policies.
+The separately admitted paid service produces 9070/9071/9072/9079; original Forge
+placement remains pending. The current short route does not demonstrate a fresh
+holding's full three/five-entry lifetime publicly.
+[Sage's Leaf Robe acquisition](divergent-universe-sage-acquisition.md) now grants
+the exact three tiers of rarity-filtered Blessings, with accepted consecutive
+upgrades and feasibility-checked overlapping reward pools. Its base public
+acquisition, six public upgrade-event choices and replay execute. The separate
+[victory executor](divergent-universe-sage-victory.md) grants 1/2/3 random 1–3-star
+Blessings in controlled Elite/Aberration fixtures, with lifecycle, suppression,
+exhaustion and atomic rollback. Public Elite/Aberration choices now produce
+positive rewards and fresh replay under explicit placement policy; original
+domain topology and enemy programs still prevent a complete-family claim.
+
 ## Input lifetime
 
 - Old replay files, serialized state, API envelopes and generated configuration
@@ -17,8 +124,48 @@ Git history is the only historical record.
 
 ## Current runtime
 
+The shared [final damage boundary](final-damage-boundary.md) supports a distinct
+source-owned multiplicative stage across ordinary and Break damage, without
+altering base stats or source-modifier-bypassing true damage. Continuing Break
+effects resolve source modifiers from the original applier, not the victim's
+turn actor. DU Tawot 9073 binds its authored 50% component to this capability
+under an explicit scope policy and verified-result five-battle lifetime.
+
 - `starclock-combat` owns deterministic single-battle execution.
 - `starclock-activity` owns deterministic cross-battle orchestration.
+- Its generated battle-settlement boundary validates a result, applies mode-owned
+  RNG-backed state operations before destination options are offered, and rolls
+  back the result, carry and RNG together on failure. Divergent Universe uses it
+  for [normal-battle Blessing rewards](divergent-universe-battle-blessings.md):
+  a policy-owned unowned Common/Rare offer, one accepted choice with Equation
+  refresh, reviewed active-state suppression, and eight single-Path wax bonuses
+  with explicitly approximate integer weights. Other battle rewards remain
+  pending; the default baseline now crosses three actual layer battles.
+- Trailblaze Wax's [Equation-acquisition grant](divergent-universe-equation-grants.md)
+  shares the acquire, replacement and first Ordinary vertical-slice boundaries.
+  The authored missing-recipe policy grants available unowned contributions and
+  records a once-per-logical-Domain-visit receipt atomically. Complete public
+  Equation placement and the synthesis occurrence remain pending.
+- Equation progress refresh callers share a pure pre-state/final-input transition
+  planner. Explicit accepted refreshes report newly expanded and no-longer-expanded
+  identities, including removal and re-expansion; enhancement alone adds no edge.
+  These transition facts now drive the separately authored 9074 bounded reward
+  queue inside inventory transactions. Controlled fixtures cover real grants,
+  cascades and limiting discard. Both families also have paid public acquisition,
+  actual expansion-trigger grants and fresh encoded baseline replay; exhaustive
+  producer combinations and original room placement remain pending. See the
+  [expansion transition boundary](divergent-universe-equation-grants.md#expansion-transition-boundary).
+- Both production baseline families now expose an authored
+  [initial Equation choice](divergent-universe-initial-equations.md) before the
+  initial event. The uniform current-Epic-category three-choice pool is explicit
+  project policy, not exact released membership. Acquisition, progress, grants
+  and traversal share one transaction. The default baseline has ten accepted actions
+  and three actual layer battles; complete starting loadouts and room-wide Equation
+  placement remain pending.
+- Its generated-option boundary commits RNG-backed state operations with an
+  offered choice and automatic graph advance, restoring state and RNG on any
+  failure. Divergent Universe uses it for the initial authored event's inventory
+  reward and headless completion transaction; acquisition effects are partial.
 - Standard battle, Memory of Chaos, Pure Fiction, Apocalyptic Shadow, Anomaly
   Arbitration, Standard Universe, Gold and Gears, and Swarm Disaster use the
   shared combat/activity kernels. Galactic Baseballer additionally has a
@@ -454,28 +601,172 @@ golden and Currency Wars project use stable project/view identities and
 schema-local table IDs; the Currency Wars workbook metadata, generated reader
 and 78,607-row bundle have been regenerated under that contract.
 
-The default test profile minimizes compilation and linking for workspace
-crates. Third-party dependencies and the combat hot loop retain light
-optimization. Complete gameplay runs are excluded from default adapter tests
-because they measure end-to-end simulation rather than local API behavior.
+The Divergent Universe reference authoring project also uses the Sora 0.6.1
+project/view contract. Three complete `openpyxl==3.1.5` workbooks generate 81
+tables, 28,732 rows, two verified-empty tables, 86 Rust reader files and a
+26,417,866-byte bundle. Independent clean generations are byte-identical and
+every reader loads the bundle; current identities are recorded in
+`evidence/divergent-universe-reference-v1/sora-current-state.json`. This remains
+a Candidate reference package and provides no Divergent Universe runtime or
+playable-run claim.
 
-The Rust property/corruption corpus runs explicitly with
-`cargo test -p starclock-test-kit --features exhaustive --test exhaustive_suite`.
-Adapter corruption, concurrency and TCP load checks run with
-`cargo test -p starclock-test-kit --test adapter_suite -- --ignored`.
+The Divergent Universe reference manifest contains 6,762 exact-once obligations.
+The compiled reference bundle accounts for all 6,762, including 547 Persona
+source-only obligations. CLI totals come from decoded coverage rows, not a
+hardcoded denominator. The runtime disposition input also accounts for all
+6,762, without granting the source-only rows execution credit. The
+existing reference package retains 669 mechanic programs in 13 bounded
+partitions, 25 semantic fixture families,
+25 research gaps and 54 policy sources. Private typed catalogs, shared Activity
+state, build/battle handoff and CLI/Agent/MCP adapters are present, but catalog
+construction and lifecycle bookkeeping do not establish gameplay parity.
+The Divergent Universe Agent adapter preserves its authenticated offer after a
+rejected reward command: state, public observation, transcript length and
+idempotency cache remain unchanged. A different legal choice can still commit
+using the rejected request's unconsumed key.
 
-Complete dynamic Universe replay reconstruction runs with
-`cargo test -p starclock-test-kit --test universe_suite dynamic_battle_assembly::dynamic_replay_reconstructs_each_snapshot_and_reports_first_divergence -- --exact --ignored`.
+The disposition generator grants no executable credit from batch ordinals.
+It retains 184 metadata/exclusion obligations and six proven non-runtime
+programs as terminal; 6,578 obligations and 663 programs await reviewed
+source or behavioral evidence. This is a verification backlog, not a claim that every
+pending row lacks implementation. Of those programs, 661 are confirmed to
+perform only lifecycle bookkeeping; one room-lifecycle boundary is partially
+implemented without production content binding. Fixture, gap and policy execution claims
+are also pending review.
 
-Complete Agent API gameplay/replay checks run with
-`cargo test -p starclock-agent-api --lib public_offers_complete_real_battles_and_export_fresh_replay -- --ignored`.
-Complete CLI gameplay/replay and text/JSON parity checks run with
-`cargo test -p starclock-cli --test universe_cli -- --ignored`.
+Accepted multi-Curio and multi-Blessing rewards now commit inventory atomically;
+Blessing batches refresh Equation progress in the same transaction. These are
+trusted acquisition boundaries, not event selectors or complete effect
+programs. A separate typed decision workbook now defines three policy-bound
+event choices, eighteen reviewed immediate Curio grants and four global fragment
+gain components alongside battle rewards, initial Equations and layer/encounter
+policies, three full-HP Curio victory grants and four accepted evolution edges
+plus four policy-bound events with twelve options, four domain-gated Curio
+Blessing victory grants, three public domain choices and three base fragment
+policies, four Curio domain-expiry definitions, one intrinsic domain-entry
+fragment grant, two Curio battle-stat/lifetime
+definitions, one Curio battle-healing reaction and four authored Tawot service
+definitions plus one executable Equation-expansion reward definition and 60
+current Persona layout positions across twenty-seven tables and 215
+rows. The [9074 expansion reward](divergent-universe-equation-expansion.md) has
+validated operands and an explicit finite-cascade executor. Fixed public-choice
+vectors in both baseline families pay for the card, trigger an additional
+Blessing through Sage evolution or victory, and verify fresh encoded replay.
+Original room placement and public three-trigger exhaustion remain unverified.
+Fourteen acquisition grant states have
+handbook ownership; four source-unbound upgrade states have separate runtime
+ownership aliases and remain ineligible for direct acquisition or ordinary
+reward pools. Their evolution grants and public Green Miracle and Sage's Leaf
+Robe event producers execute. Public later-layer domain choices now enable the
+robe's victory rewards. Original room placement, domain-specific base drops,
+enemy programs and other Divine Treasure families remain pending. Multiple eligible treasures
+share a bounded, stable-key event sequence at one layer-entry node; guaranteed
+and probabilistic upgrades require the complete successor reward before drawing.
+Ordinary reward predicates now include evolution-owner aliases, matching actual
+candidate exclusion. The private Sora reader and
+domain validation are implemented. The mode factory binds the catalog's digest
+into Activity configuration and baseline replay components. An explicit initial
+occurrence binding now executes all three currency/inventory alternatives with
+unowned, without-replacement policy pools, actual offer filtering and atomic
+grant/choice/headless-completion/door ordering. The baseline places the first
+authored event at logical checkpoint one as a replaceable orchestration policy,
+not observed room-pool membership. Reviewed fixed/proportional fragment grants
+now run with inventory insertion, stable state-key order and floor rounding in
+one transaction. Nine reviewed sealing-wax states now grant the exact path/count
+of Blessings with policy-labeled uniform unowned sampling, aggregate preflight,
+Equation refresh and state/RNG rollback in that same transaction. Event pools
+and initial offer conditions exclude waxes whose mandatory rewards cannot run.
+Reviewed post-battle wax weights and Trailblaze Wax's Equation-acquisition
+grants now execute under the policies linked above. Accepted Equation rewards
+share ownership/progress lowering with internal offers and reject competing
+unconsumed offers. Other acquisition effects and complete public Equation
+placement remain pending; partial acquisition does not establish full event
+completion.
+Fragment credits now share a pipeline for currency commands, gamble coin gains,
+curse chests, event rewards and reviewed acquisition grants. It snapshots the
+original gain once, adds each active component's independently floored bonus,
+clears its node-local scratch slot and rolls back overflow atomically. The four
+component states belong to three handbook identities; 9070/9079 are exclusive
+mode copies. Their [domain expiry](divergent-universe-curio-domain-expiry.md) now
+uses exact three/five-entry allowances and policy-bound future domain selection
+timing, active-only counting and discard. State 9071 also grants its exact 60 fragments on future public domain
+entry through the shared credit pipeline; its third intrinsic grant precedes
+discard under an independent explicit policy. Both families' paid acquisition,
+two future entries, three actual battles and encoded replay execute; controlled
+vectors cover three-entry exhaustion and transactional overflow/late failure.
+The complete three-entry public lifetime and original domain topology remain
+pending. State 9072 now grants its exact one random victory Blessing while active
+with positive domain allowance, using an explicitly policy-selected unowned
+1–3-star pool and all current battle-domain labels. It shares atomic inventory,
+Equation refresh, suppression and later-offer exclusion with the Sage executor,
+without changing the robe's domain rules. Both families' paid acquisition and
+three actual victories replay from fresh inputs; three-entry exhaustion remains
+a controlled vector, not public topology. See [Tawot victory rewards](divergent-universe-tawot-victory.md).
+Normal post-battle Blessing suppression
+executes; price penalties remain pending. Stacking/rounding remains policy.
+The publicly produced state 9068 now contributes its exact 35% SPD component
+through the shared action-order stat resolver and consumes its five-battle
+allowance on policy-bound verified wins/losses. Actual gauge/time tests and both
+families' public acquisition/replay cover this component; controlled vectors
+cover exhaustion. A full five-battle public run and the identity's other states
+remain pending. See [Curio battle stats](divergent-universe-curio-battle-stats.md).
+State 9073 now contributes its exact 50% outgoing final-damage component to
+Direct, DoT, Additional, Elation, Break and Super Break under an explicit
+replaceable scope/stacking policy. Production passive probes verify raw damage,
+flooring and HP/shield effects while preserving locked builds and enemy specs.
+Both families' paid service acquisitions execute three actual proxy battles and
+fresh encoded replay. Destroy/repair, replacement/reacquisition, zero allowance,
+five-result vectors, projected win/loss/fault, duplicate rejection and late
+reward rollback cover the shared lifetime. Complete public five-battle
+exhaustion, original Forge placement and full source programs remain pending.
+State 9069 now heals attacked allies for its exact 20% maximum-HP component
+through shared Rule IR, with explicit first-surviving-ordinary-hit-per-target/action,
+fixed-healing and active-target scope policies. Production passive assembly with
+controlled acquisition/attacks covers multi-hit and repeated-action timing,
+shield absorption, dead anchors, linked-presence selectors, excluded damage,
+lethal hits, destruction/repair and verified lifetime teardown. Production
+summon construction remains separate. Its five-battle
+counter shares the verified-result settlement stage with 9068; original producer
+and complete public exhaustion remain pending. See
+[Curio battle reactions](divergent-universe-curio-battle-reactions.md).
+The [Tawot service table](divergent-universe-tawot-service.md) now validates the
+current event/variant/handbook binding and four policy-authored Forge-level
+purchase configurations with all twelve current states. An explicitly selected
+entry API now executes menu/card loops, persistent three-way offers, paid
+same-owner replacement, cancellation without rerolls and purchase limits.
+All twelve states have paid acquisition evidence. Both families and all four
+levels complete three real proxy battles with fresh in-memory and encoded
+reconstruction. CLI/Agent/MCP accept an explicit optional service level and
+verify exported replays against newly loaded current definitions. Replay entry
+commands bind area, difficulty, service level and initial state; player-selected
+cancel/reopen sequences are preserved through the full 64-opening safe-exit
+bound. Automatic original Forge admission, independently generated repeat
+visits and full candidate effects remain pending.
+No source obligation gains terminal runtime credit. The
+[occurrence reward contract](divergent-universe-occurrence-rewards.md) records
+the selected replaceable policy, current-event binding evidence and remaining
+Activity integration requirements.
 
-The two current Universe seeded matrices run explicitly with
-`cargo test -p starclock-mode-universe seeded_run_tests::frozen_matrix -- --ignored`.
+The baseline graph chooses area/difficulty and an initial Equation, runs the
+authored event, then executes one real proxy battle per logical layer under the
+[explicit layer route policy](divergent-universe-layer-battles.md). Each of the event's three
+branches completes that baseline in both families and verifies through fresh
+replay. Verification executes recorded selections rather than rerunning default
+choices, checking each boundary before advancing. The matrix enumerates
+additional content IDs without executing those
+axes. Ordinary and Cyclical complete-gameplay acceptance therefore remains
+open. The explicit room-completion release test currently fails because the
+separate release fixture has no complete source-content binding; the initial
+partially implemented event does not cover all acquisition effects or physical room
+topology. Ordinary test-suite success is not a
+substitute for this gate.
 
-The machine-readable counterpart is `policy/state.json`.
+Generated execution receipts that infer `Passed` from source fragments or
+batch progress are not release evidence. Their downstream verification and
+input digests require reconciliation after the corrected dispositions. Follow
+the [runtime execution plan](goals/22-divergent-universe-runtime.md), starting
+with actual room/decision transitions and source operand lowering; do not
+resume release acceptance from a purported completed gameplay ledger.
 
 ## Identity audit
 

@@ -2,6 +2,7 @@
 # Do not edit by hand.
 
 [[tables]]
+id = "workbenches"
 name = "DivergentUniverseWorkbenches"
 mode = "map"
 key = "id"
@@ -82,6 +83,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "workbench-functions"
 name = "DivergentUniverseWorkbenchFunctions"
 mode = "map"
 key = "id"
@@ -163,6 +165,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "gamble-groups"
 name = "DivergentUniverseGambleGroups"
 mode = "map"
 key = "id"
@@ -241,6 +244,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "gamble-units"
 name = "DivergentUniverseGambleUnits"
 mode = "map"
 key = "id"
@@ -319,6 +323,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "curse-chests"
 name = "DivergentUniverseCurseChests"
 mode = "map"
 key = "id"
@@ -397,6 +402,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "currencies"
 name = "DivergentUniverseCurrencies"
 mode = "map"
 key = "id"
@@ -478,6 +484,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "service-rules"
 name = "DivergentUniverseServiceRules"
 mode = "map"
 key = "id"
@@ -562,6 +569,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "service-offer-rules"
 name = "DivergentUniverseServiceOfferRules"
 mode = "map"
 key = "id"
@@ -646,6 +654,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "permanent-talents"
 name = "DivergentUniversePermanentTalents"
 mode = "map"
 key = "id"
@@ -732,6 +741,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "unlocks"
 name = "DivergentUniverseUnlocks"
 mode = "map"
 key = "id"
@@ -810,6 +820,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "common-constants"
 name = "DivergentUniverseCommonConstants"
 mode = "map"
 key = "id"
@@ -888,6 +899,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "weekly-modifiers"
 name = "DivergentUniverseWeeklyModifiers"
 mode = "map"
 key = "id"
@@ -969,6 +981,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "room-marks"
 name = "DivergentUniverseRoomMarks"
 mode = "map"
 key = "id"
@@ -1047,6 +1060,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "progression-effects"
 name = "DivergentUniverseProgressionEffects"
 mode = "map"
 key = "id"
@@ -1122,6 +1136,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "pool-membership"
 name = "DivergentUniversePoolMembership"
 mode = "map"
 key = "id"
@@ -1203,6 +1218,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "curio-pool-membership"
 name = "DivergentUniverseCurioPoolMembership"
 mode = "map"
 key = "id"
@@ -1284,6 +1300,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "occurrences"
 name = "DivergentUniverseOccurrences"
 mode = "map"
 key = "id"
@@ -1364,6 +1381,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "occurrence-variants"
 name = "DivergentUniverseOccurrenceVariants"
 mode = "map"
 key = "id"
@@ -1450,6 +1468,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "occurrence-choices"
 name = "DivergentUniverseOccurrenceChoices"
 mode = "map"
 key = "id"
@@ -1534,6 +1553,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "mode-service-npcs"
 name = "DivergentUniverseModeServiceNpcs"
 mode = "map"
 key = "id"
@@ -1612,6 +1632,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "adventure-outcomes"
 name = "DivergentUniverseAdventureOutcomes"
 mode = "map"
 key = "id"
@@ -1690,6 +1711,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "encounter-source-obligations"
 name = "DivergentUniverseEncounterSourceObligations"
 mode = "map"
 key = "id"
@@ -1772,6 +1794,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "encounter-groups"
 name = "DivergentUniverseEncounterGroups"
 mode = "map"
 key = "id"
@@ -1853,6 +1876,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "encounter-waves"
 name = "DivergentUniverseEncounterWaves"
 mode = "map"
 key = "id"
@@ -1935,6 +1959,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "enemy-slots"
 name = "DivergentUniverseEnemySlots"
 mode = "map"
 key = "id"
@@ -2019,6 +2044,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "boss-pools"
 name = "DivergentUniverseBossPools"
 mode = "map"
 key = "id"
@@ -2106,13 +2132,102 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "persona-source-obligations"
+name = "DivergentUniversePersonaSourceObligations"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "DivergentUniverseBindings.xlsx"
+sheet = "T27_PersonaSourceObligations"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 300]
+[[tables.fields]]
+name = "schema_revision"
+type = "string"
+length = [1, 100]
+[[tables.fields]]
+name = "kind"
+type = "string"
+length = [1, 160]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 1000]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 1000]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "ownership"
+type = "enum<DuOwnership>"
+[[tables.fields]]
+name = "coverage_state"
+type = "enum<DuCoverageState>"
+[[tables.fields]]
+name = "evidence_quality"
+type = "enum<DuEvidenceQuality>"
+[[tables.fields]]
+name = "source_refs"
+type = "optional<list<ref<DivergentUniverseSources.id>>>"
+parser = { kind = "split", separator = "|" }
+[[tables.fields]]
+name = "tags"
+type = "optional<list<string>>"
+parser = { kind = "split", separator = "|" }
+[[tables.fields]]
+name = "source_id"
+type = "optional<string>"
+[[tables.fields]]
+name = "source_locator"
+type = "optional<string>"
+[[tables.fields]]
+name = "source_key"
+type = "optional<string>"
+[[tables.fields]]
+name = "selector_proof"
+type = "optional<string>"
+[[tables.fields]]
+name = "parent_sources"
+type = "optional<string>"
+[[tables.fields]]
+name = "interpretation"
+type = "optional<string>"
+[[tables.fields]]
+name = "runtime_disposition"
+type = "optional<string>"
+[[tables.fields]]
+name = "payload_json"
+type = "string"
+length = [1, 1000000]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+id = "mechanic-source-files"
 name = "DivergentUniverseMechanicSourceFiles"
 mode = "map"
 key = "id"
 [tables.source]
 format = "xlsx"
 file = "DivergentUniverseReview.xlsx"
-sheet = "T27_MechanicSourceFiles"
+sheet = "T28_MechanicSourceFiles"
 [[tables.fields]]
 name = "id"
 type = "i32"
@@ -2191,13 +2306,14 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "mechanic-rules"
 name = "DivergentUniverseMechanicRules"
 mode = "map"
 key = "id"
 [tables.source]
 format = "xlsx"
 file = "DivergentUniverseReview.xlsx"
-sheet = "T28_MechanicRules"
+sheet = "T29_MechanicRules"
 [[tables.fields]]
 name = "id"
 type = "i32"

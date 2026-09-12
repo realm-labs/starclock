@@ -8,6 +8,8 @@ mod agent_schema_property_contract;
 mod combat_property_contract;
 #[path = "suites/exhaustive/agent_api/currency_wars_hardening.rs"]
 mod currency_wars_hardening;
+#[path = "suites/divergent_universe/g22-p8-b1/hardening.rs"]
+mod divergent_universe_hardening;
 #[path = "suites/exhaustive/agent_api/gold_gears_hardening.rs"]
 mod gold_gears_hardening;
 #[path = "suites/exhaustive/replay/battle_property_contract.rs"]

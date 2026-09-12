@@ -22,6 +22,15 @@ mod event_generated;
 #[path = "../../../config/currency-wars-generated/rust/mod.rs"]
 mod currency_wars_generated;
 
+#[allow(clippy::enum_variant_names)]
+#[rustfmt::skip]
+#[path = "../../../config/divergent-universe-generated/reader/mod.rs"]
+mod divergent_universe_generated;
+
+#[rustfmt::skip]
+#[path = "../../../config/divergent-universe-decisions-generated/reader/mod.rs"]
+mod divergent_universe_decisions_generated;
+
 mod build_lower;
 pub mod bundle;
 pub mod catalog;
@@ -51,6 +60,29 @@ mod currency_wars_rank;
 #[cfg(test)]
 mod currency_wars_runtime_tests;
 mod currency_wars_service;
+pub mod divergent_universe;
+mod divergent_universe_blessing;
+pub mod divergent_universe_blessing_catalog;
+pub mod divergent_universe_catalog;
+mod divergent_universe_curio;
+pub mod divergent_universe_curio_catalog;
+pub mod divergent_universe_decisions;
+pub mod divergent_universe_domain_layout;
+mod divergent_universe_encounter;
+pub mod divergent_universe_encounter_catalog;
+mod divergent_universe_equation;
+pub mod divergent_universe_equation_catalog;
+mod divergent_universe_flow;
+mod divergent_universe_mapping;
+pub mod divergent_universe_mapping_catalog;
+mod divergent_universe_mechanic;
+pub mod divergent_universe_mechanic_catalog;
+mod divergent_universe_progression;
+pub mod divergent_universe_progression_catalog;
+mod divergent_universe_service;
+pub mod divergent_universe_service_catalog;
+mod divergent_universe_titan;
+pub mod divergent_universe_titan_catalog;
 mod domain_catalog;
 mod effect_lower;
 mod encounter_lower;

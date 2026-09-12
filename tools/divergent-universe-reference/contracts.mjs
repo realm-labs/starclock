@@ -196,6 +196,8 @@ const files = [
   file("boss-pools.json", "P2-B5", [],
     ["area_id", "difficulty_id", "candidate_monster_ids", "selection_policy"]),
 
+  file("persona-source-obligations.json", "P2-B6", ["persona_source_obligations"],
+    ["source_locator", "source_key", "selector_proof", "parent_sources", "interpretation", "runtime_disposition"]),
   file("mechanic-source-files.json", "P2-B6", ["mechanic_source_files"],
     ["source_path", "source_sha256", "mechanic_family", "disposition"]),
   file("mechanic-rules.json", "P2-B6", [],
@@ -253,9 +255,9 @@ const normalizedSchema = {
     summary_en: { type: "string", nonempty: true, mechanical_only: true },
     summary_zh_cn: { type: "string", nonempty: true, mechanical_only: true },
     ownership: {
-      enum: ["DivergentUniverse", "Shared"],
+      enum: ["DivergentUniverse", "Shared", "SharedCandidate"],
       candidate_rule:
-        "SharedCandidate manifest obligations cannot become normalized rows until promoted by an exact reconciliation receipt",
+        "SharedCandidate may appear only as Cataloged source obligations pending selector proof; this is not content membership or runtime admission",
     },
     coverage_state: {
       enum: ["Cataloged", "Researched", "DataReady", "Blocked"],
@@ -420,13 +422,13 @@ const authoringContract = {
     editor: "python-openpyxl",
     editor_version: "3.1.5",
     schema_exporter: "sora-cli",
-    schema_exporter_version: "0.3.0",
+    schema_exporter_version: "0.6.1",
     production_artifact: "sora",
     json_role: "research-staging-debug-only",
     runtime_loading: false,
   },
   isolation: {
-    project: "config/divergent-universe/project.toml",
+    project: "config/divergent-universe-project.toml",
     schema_root: "config/divergent-universe/schema/",
     workbook_root: "config/divergent-universe/workbooks/",
     generated_root: "config/divergent-universe-generated/",
@@ -458,7 +460,7 @@ const authoringContract = {
     data_start_row: 8,
     freeze_panes: "A8",
     auto_filter: true,
-    header_style: "goal11-header-v1",
+    header_style: "divergent-universe-header",
     alternating_rows: true,
     wrapped_text: true,
     deterministic_widths: true,
@@ -504,9 +506,9 @@ const authoringContract = {
       "Block Goal 11 publication; do not edit Goal 08/09/10 workbooks or manifests",
   },
   acceptance: {
-    schema_check: "sora check --project config/divergent-universe/project.toml",
-    schema_build: "sora build --project config/divergent-universe/project.toml",
-    export: "sora export --project config/divergent-universe/project.toml",
+    schema_check: "sora check --project config/divergent-universe-project.toml",
+    schema_build: "sora build --project config/divergent-universe-project.toml",
+    export: "sora export --project config/divergent-universe-project.toml",
     reader_load: "every generated table and row through the isolated reader",
     visual_review: "render and inspect every authored sheet",
     semantic_digest:

@@ -1,0 +1,157 @@
+{
+  "table": {
+    "name": "DuCurioBattleGrants",
+    "rows": [
+      {
+        "values": {
+          "amount_parameter": {
+            "Integer": 2
+          },
+          "amount_per_full_hp": {
+            "Integer": 8
+          },
+          "effect_id": {
+            "String": "2195"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "policy": {
+            "String": "FullHpPresentRosterAfterCarry"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: snapshot the verified post-battle participant carry ledger before any additional mode healing. Count current locked participants only, with Alive/Present status and current HP equal to positive maximum HP. Active Curio status is checked at settlement; absent, destroyed or replaced states grant nothing. Credit one aggregate amount through the ordinary fragment-gain pipeline before the Blessing offer is published. Global active gain bonuses apply once to this aggregate, with their existing independent floor rules. Zero eligible characters produces no credit or RNG. Result validation, carry, credit, offer generation and graph advance are one transaction. Base battle drops, battle-only gain multipliers/suppression, original Occurrence placement and other Divine Treasure producers remain gaps, not zero-effect policies."
+          },
+          "replacement_condition": {
+            "String": "Replace snapshot timing, off-field/defeated participant eligibility, aggregation versus per-character credit, and interaction ordering independently when released execution data or reproducible observations establish them. Exact amount and victory/full-HP trigger remain source-backed. Alternatives include pre-carry HP, post-healing HP and separate per-character rounding; current ordering uses the verified shared settlement boundary and never grants on loss/fault or duplicate results. Confidence in hidden scheduling/stacking is low."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 21
+              },
+              {
+                "Integer": 22
+              },
+              {
+                "Integer": 23
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.curio-battle-grant.dormant-green"
+          },
+          "state_key": {
+            "String": "divergent-universe.curio-state.9195"
+          },
+          "summary_en": {
+            "String": "After victory, active Green Miracle (Dormant) grants eight fragments for each present, living character at full HP."
+          },
+          "summary_zh_cn": {
+            "String": "战斗胜利后，生效中的绿奇迹（休眠）为每名在场、存活且满生命值的角色提供八枚碎片。"
+          }
+        }
+      },
+      {
+        "values": {
+          "amount_parameter": {
+            "Integer": 2
+          },
+          "amount_per_full_hp": {
+            "Integer": 16
+          },
+          "effect_id": {
+            "String": "2196"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "policy": {
+            "String": "FullHpPresentRosterAfterCarry"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: snapshot the verified post-battle participant carry ledger before any additional mode healing. Count current locked participants only, with Alive/Present status and current HP equal to positive maximum HP. Active Curio status is checked at settlement; absent, destroyed or replaced states grant nothing. Credit one aggregate amount through the ordinary fragment-gain pipeline before the Blessing offer is published. Global active gain bonuses apply once to this aggregate, with their existing independent floor rules. Zero eligible characters produces no credit or RNG. Result validation, carry, credit, offer generation and graph advance are one transaction. Base battle drops, battle-only gain multipliers/suppression, original Occurrence placement and other Divine Treasure producers remain gaps, not zero-effect policies."
+          },
+          "replacement_condition": {
+            "String": "Replace snapshot timing, off-field/defeated participant eligibility, aggregation versus per-character credit, and interaction ordering independently when released execution data or reproducible observations establish them. Exact amount and victory/full-HP trigger remain source-backed. Alternatives include pre-carry HP, post-healing HP and separate per-character rounding; current ordering uses the verified shared settlement boundary and never grants on loss/fault or duplicate results. Confidence in hidden scheduling/stacking is low."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 4
+              },
+              {
+                "Integer": 6
+              },
+              {
+                "Integer": 29
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.curio-battle-grant.9196"
+          },
+          "state_key": {
+            "String": "divergent-universe.curio-state.9196"
+          },
+          "summary_en": {
+            "String": "After victory, active evolved Green Miracle grants 16 fragments per qualifying full-HP character."
+          },
+          "summary_zh_cn": {
+            "String": "战斗胜利后，生效中的升级绿奇迹为每名符合条件的满血角色提供 16 碎片。"
+          }
+        }
+      },
+      {
+        "values": {
+          "amount_parameter": {
+            "Integer": 2
+          },
+          "amount_per_full_hp": {
+            "Integer": 32
+          },
+          "effect_id": {
+            "String": "2197"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "policy": {
+            "String": "FullHpPresentRosterAfterCarry"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: snapshot the verified post-battle participant carry ledger before any additional mode healing. Count current locked participants only, with Alive/Present status and current HP equal to positive maximum HP. Active Curio status is checked at settlement; absent, destroyed or replaced states grant nothing. Credit one aggregate amount through the ordinary fragment-gain pipeline before the Blessing offer is published. Global active gain bonuses apply once to this aggregate, with their existing independent floor rules. Zero eligible characters produces no credit or RNG. Result validation, carry, credit, offer generation and graph advance are one transaction. Base battle drops, battle-only gain multipliers/suppression, original Occurrence placement and other Divine Treasure producers remain gaps, not zero-effect policies."
+          },
+          "replacement_condition": {
+            "String": "Replace snapshot timing, off-field/defeated participant eligibility, aggregation versus per-character credit, and interaction ordering independently when released execution data or reproducible observations establish them. Exact amount and victory/full-HP trigger remain source-backed. Alternatives include pre-carry HP, post-healing HP and separate per-character rounding; current ordering uses the verified shared settlement boundary and never grants on loss/fault or duplicate results. Confidence in hidden scheduling/stacking is low."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 4
+              },
+              {
+                "Integer": 6
+              },
+              {
+                "Integer": 29
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.curio-battle-grant.9197"
+          },
+          "state_key": {
+            "String": "divergent-universe.curio-state.9197"
+          },
+          "summary_en": {
+            "String": "After victory, active evolved Green Miracle grants 32 fragments per qualifying full-HP character."
+          },
+          "summary_zh_cn": {
+            "String": "战斗胜利后，生效中的升级绿奇迹为每名符合条件的满血角色提供 32 碎片。"
+          }
+        }
+      }
+    ]
+  }
+}

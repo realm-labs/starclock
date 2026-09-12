@@ -1,0 +1,102 @@
+{
+  "schema_revision": "starclock.divergent-universe-occurrence-execution.v1",
+  "goal_id": "divergent-universe-runtime-v1",
+  "batch": "G22-P6-B1",
+  "status": "CompleteOccurrenceChoiceCostOutcomeAndExternalResultBoundaries",
+  "input_digests": {
+    "occurrences": {
+      "path": "content-reference/divergent-universe-v1/occurrences.json",
+      "sha256": "13d107a707a94e3b48483b31c69c7fd5faa0aa08259a8ae534a6ca5ec29358aa"
+    },
+    "variants": {
+      "path": "content-reference/divergent-universe-v1/occurrence-variants.json",
+      "sha256": "f8cee52829aa66aa3929a749a2322de59525a6c79350e82f8cc07e57d1ce060c"
+    },
+    "choices": {
+      "path": "content-reference/divergent-universe-v1/occurrence-choices.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    "runtime_dispositions": {
+      "path": "content-manifests/divergent-universe-runtime-v1/runtime-dispositions.json",
+      "sha256": "1319cb15f7a2e1b9c283549300cf29bb4f2b65d41c759a0c29240570c7fbd2bc"
+    },
+    "batch_ledger": {
+      "path": "content-manifests/divergent-universe-runtime-v1/batch-ledger.json",
+      "sha256": "77e109344b674b1a301708d247e2dcedeace5bc941f789d2ab3529dc5224f467"
+    },
+    "prior_execution": {
+      "path": "content-manifests/divergent-universe-runtime-v1/contribution-snapshot-execution.json",
+      "sha256": "24ab7fe4059724cb38cef2d563e2642e5df853ac2cb70095fd14091f3be9bf5f"
+    },
+    "data_catalog": {
+      "path": "crates/starclock-data/src/divergent_universe_service_catalog.rs",
+      "sha256": "faa8ff1716e73bb111565c3afd1ef60f506195ba92ccda670daaeed835479241"
+    },
+    "runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/occurrence_runtime.rs",
+      "sha256": "5f7e245e7ebcfb8a35798def14570657539aea9ed3deac83fc02a1392013cc6e"
+    },
+    "tests": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/tests/occurrence_runtime.rs",
+      "sha256": "8e7e6aa1b3aaad612da7f139f0da94393fc49bf66098c533e40433ef01781217"
+    }
+  },
+  "exact_runtime": {
+    "occurrences": 118,
+    "variants": 97,
+    "choice_cost_outcome_programs": 0,
+    "missing_graph_variants": 97
+  },
+  "policy_boundary": {
+    "occurrence_offer": "RejectWithoutOwningDomainOrServiceBinding",
+    "missing_graph": "RejectWithoutMutation",
+    "external_result_kinds": [
+      "DialogueInteraction",
+      "Minigame"
+    ],
+    "observed_choice_cost_outcome_parity_claimed": false,
+    "rng_draws": 0
+  },
+  "execution_receipt": {
+    "exact_identity_variant_and_unlock_bindings_compile": "Passed",
+    "every_unresolved_offer_fails_closed": "Passed",
+    "every_missing_variant_graph_fails_closed": "Passed",
+    "external_results_are_typed_but_unavailable": "Passed",
+    "rejected_paths_preserve_state_and_rng": "Passed"
+  },
+  "assignment_closure": {
+    "obligations": 215,
+    "policy_integrated": 215,
+    "fixture_families": 1,
+    "research_gaps": 1,
+    "policy_sources": 2,
+    "mechanic_programs": 0
+  },
+  "capability_probes": [
+    {
+      "id": "catalog-and-empty-choice-boundary",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/occurrence_runtime.rs",
+      "test": "occurrence_catalog_compiles_exact_identity_variant_and_empty_choice_boundaries",
+      "result": "Passed"
+    },
+    {
+      "id": "all-offers-and-graphs-fail-closed",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/occurrence_runtime.rs",
+      "test": "every_occurrence_offer_and_missing_variant_graph_fails_closed_without_rng_or_mutation",
+      "result": "Passed"
+    },
+    {
+      "id": "typed-external-result-and-mismatch",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/occurrence_runtime.rs",
+      "test": "occurrence_external_result_boundary_is_typed_and_mismatches_reject_first",
+      "result": "Passed"
+    }
+  ],
+  "summary": {
+    "occurrences": 118,
+    "variants": 97,
+    "choices": 0,
+    "terminal_obligations": 215,
+    "probes": 3
+  }
+}

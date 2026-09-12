@@ -1,19 +1,19 @@
 {
   "schema_revision": "starclock.divergent-universe-authoring-contract.v1",
   "goal_id": "divergent-universe-reference-v1",
-  "bound_content_manifest_sha256": "5cbfa748406204e2d7a2c10c452ac6a87b3864b76461e85bd449c0739f3fc13e",
+  "bound_content_manifest_sha256": "efe38daabfdcecb9619fc69a01321ce1667fef620cfb054e2c259a59c6e3b074",
   "authority": {
     "authoritative_format": "xlsx",
     "editor": "python-openpyxl",
     "editor_version": "3.1.5",
     "schema_exporter": "sora-cli",
-    "schema_exporter_version": "0.3.0",
+    "schema_exporter_version": "0.6.1",
     "production_artifact": "sora",
     "json_role": "research-staging-debug-only",
     "runtime_loading": false
   },
   "isolation": {
-    "project": "config/divergent-universe/project.toml",
+    "project": "config/divergent-universe-project.toml",
     "schema_root": "config/divergent-universe/schema/",
     "workbook_root": "config/divergent-universe/workbooks/",
     "generated_root": "config/divergent-universe-generated/",
@@ -44,7 +44,7 @@
     "data_start_row": 8,
     "freeze_panes": "A8",
     "auto_filter": true,
-    "header_style": "goal11-header-v1",
+    "header_style": "divergent-universe-header",
     "alternating_rows": true,
     "wrapped_text": true,
     "deterministic_widths": true,
@@ -132,7 +132,8 @@
         "encounter-groups.json",
         "encounter-waves.json",
         "enemy-slots.json",
-        "boss-pools.json"
+        "boss-pools.json",
+        "persona-source-obligations.json"
       ]
     },
     {
@@ -167,9 +168,9 @@
     "conflict_behavior": "Block Goal 11 publication; do not edit Goal 08/09/10 workbooks or manifests"
   },
   "acceptance": {
-    "schema_check": "sora check --project config/divergent-universe/project.toml",
-    "schema_build": "sora build --project config/divergent-universe/project.toml",
-    "export": "sora export --project config/divergent-universe/project.toml",
+    "schema_check": "sora check --project config/divergent-universe-project.toml",
+    "schema_build": "sora build --project config/divergent-universe-project.toml",
+    "export": "sora export --project config/divergent-universe-project.toml",
     "reader_load": "every generated table and row through the isolated reader",
     "visual_review": "render and inspect every authored sheet",
     "semantic_digest": "canonical cell values, types, validations, sheet order and table identity"

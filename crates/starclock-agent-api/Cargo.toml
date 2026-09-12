@@ -38,6 +38,11 @@ name = "currency_wars_benchmark"
 path = "examples/currency_wars_benchmark.rs"
 required-features = ["benchmark-harness"]
 
+[[example]]
+name = "divergent_universe_benchmark"
+path = "examples/divergent_universe_benchmark.rs"
+required-features = ["benchmark-harness"]
+
 [features]
 benchmark-harness = ["starclock-mode-universe/benchmark-harness"]
 

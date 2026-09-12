@@ -1,10 +1,11 @@
-"""Deterministic Goal 11 openpyxl authoring and structural verification."""
+"""Deterministic Divergent Universe openpyxl authoring and verification."""
 
 from __future__ import annotations
 
 import hashlib
 import json
 import re
+import time
 import zipfile
 from copy import copy
 from datetime import datetime, timezone
@@ -397,7 +398,14 @@ def normalize_archive(path: Path) -> None:
             info.create_system = 0
             info.external_attr = 0
             target.writestr(info, payload, compress_type=zipfile.ZIP_DEFLATED)
-    temporary.replace(path)
+    for attempt in range(20):
+        try:
+            temporary.replace(path)
+            break
+        except PermissionError:
+            if attempt == 19:
+                raise
+            time.sleep(0.1)
 
 
 def prepare_workbook(
@@ -421,14 +429,14 @@ def prepare_workbook(
         write_rows(sheet, values)
         style_sheet(sheet, table, values, enums)
         counts[table["name"]] = len(values)
-    workbook.properties.creator = "Starclock Goal 11 openpyxl bootstrap"
-    workbook.properties.lastModifiedBy = "Starclock Goal 11 openpyxl bootstrap"
+    workbook.properties.creator = "Starclock Divergent Universe authoring"
+    workbook.properties.lastModifiedBy = "Starclock Divergent Universe authoring"
     workbook.properties.created = FIXED_TIME
     workbook.properties.modified = FIXED_TIME
     workbook.calculation.fullCalcOnLoad = False
     workbook.calculation.forceFullCalc = False
     workbook.save(target)
-    normalize_archive(target)
+    workbook.close()
     return counts
 
 
@@ -444,7 +452,10 @@ def author(root: Path, output: Path) -> dict[str, int]:
     schema_value = schema(root)
     tables = schema_value["tables"]
     rows = workbook_rows(root)
-    enums = {enum["name"]: enum["values"] for enum in schema_value["enums"]}
+    enums = {
+        enum["name"]: [value["name"] for value in enum["values"]]
+        for enum in schema_value["enums"]
+    }
     template_root = root / GENERATED_ROOT / "templates"
     counts: dict[str, int] = {}
     for target in targets:
@@ -457,7 +468,6 @@ def author(root: Path, output: Path) -> dict[str, int]:
                 enums,
             )
         )
-    verify(root, output, counts)
     return counts
 
 

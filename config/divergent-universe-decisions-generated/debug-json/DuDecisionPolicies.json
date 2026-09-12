@@ -1,0 +1,48 @@
+{
+  "table": {
+    "name": "DuDecisionPolicies",
+    "rows": [
+      {
+        "values": {
+          "binding": {
+            "String": "VersionedProjectPolicy"
+          },
+          "exhaustion": {
+            "String": "DisableChoice"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "note": {
+            "String": "Apply public 200/2/2 outcomes to the current variant; zero fragment costs. For random rewards, filter current Common/Rare identities, exclude owned, choose one canonical current state per Curio and sample identities uniformly without replacement. Insufficient pool disables that choice; fragment choice remains available."
+          },
+          "replacement_condition": {
+            "String": "Replace individual fields when released current-variant graph or reproducible observations establish binding, costs, rarity mapping, pool/state eligibility, weights or exhaustion behavior."
+          },
+          "sampling": {
+            "String": "UniformUnownedCurrentCatalog"
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 1
+              },
+              {
+                "Integer": 2
+              },
+              {
+                "Integer": 3
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.policy.color.current-options"
+          }
+        }
+      }
+    ]
+  }
+}

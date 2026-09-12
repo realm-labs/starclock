@@ -1,0 +1,2784 @@
+{
+  "schema_revision": "starclock.divergent-universe-runtime-batch-ledger.v1",
+  "goal_id": "divergent-universe-runtime-v1",
+  "generated_by_batch": "G22-P0-B3",
+  "input_digests": {
+    "foundation": {
+      "path": "content-manifests/divergent-universe-runtime-v1/foundation.json",
+      "sha256": "e237abf4ad8bf4212af13a40a159842a9a52d2f39433c2ff2f684b5d50342de3"
+    },
+    "authoring": {
+      "path": "content-manifests/divergent-universe-v1/authoring-contract.json",
+      "sha256": "5fad565f01dbb6db9ba8fc829130aadb0874db274d82e3c55fe2ffd3b83bb88c"
+    },
+    "coverage": {
+      "path": "content-reference/divergent-universe-v1/coverage.json",
+      "sha256": "a28340b36fb90c04636381c86766cfe04e397d92443c202715a644ae6f052bd8"
+    },
+    "mechanics": {
+      "path": "content-reference/divergent-universe-v1/mechanic-rules.json",
+      "sha256": "ff59424df846984c14fb73fb8437fdb561789958f468463eb67061291afe54aa"
+    },
+    "fixtures": {
+      "path": "content-reference/divergent-universe-v1/semantic-fixture-families.json",
+      "sha256": "c4b514bc7f01943806fb988cec085d960b01509f0cc719a4a01168d5d18588ea"
+    },
+    "reviews": {
+      "path": "content-reference/divergent-universe-v1/review-fixtures.json",
+      "sha256": "6556c0e49881b4b53b888b9afd1a94aff8a698caa3fde8697cd9cbf5c1dbb47c"
+    },
+    "gaps": {
+      "path": "content-reference/divergent-universe-v1/research-gaps.json",
+      "sha256": "660aa62a0b066369d33ef36dcab659d6bce024d37291ba7c09837486ad7798f2"
+    },
+    "goal": {
+      "path": "docs/goals/22-divergent-universe-runtime.md",
+      "sha256": "7867d689c35e9aeb48d81533925bf5aee04c74332eba0a3c3dcbb31f6e001765"
+    },
+    "battle_mechanic_reachability": {
+      "path": "content-manifests/divergent-universe-runtime-v1/battle-mechanic-reachability-proof.json",
+      "sha256": "0b549e522777340482f03df47efd3c6d05a7ac40ea4861fb23d49465b69f101d"
+    }
+  },
+  "completed_through": "G22-P2-B5",
+  "next_batch": "G22-P3-B1",
+  "summary": {
+    "batches": 65,
+    "fixed_batches": 52,
+    "generated_mechanic_partitions": 13,
+    "fixture_families": 25,
+    "research_gaps": 25,
+    "policy_sources": 54
+  },
+  "fixture_assignments": [
+    {
+      "fixture_family_id": "divergent-universe.semantic-family.adventure-abstract-outcome",
+      "source_id": "adventure-abstract-outcome",
+      "owner_batch": "G22-P6-B2",
+      "minimum_cases": 1,
+      "must_cover": [
+        "offered abstract result",
+        "eligibility",
+        "no action gameplay simulation"
+      ],
+      "status": "PendingProductionExecution",
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "divergent-universe.semantic-family.area-difficulty-layer-transition",
+      "source_id": "area-difficulty-layer-transition",
+      "owner_batch": "G22-P3-B1",
+      "minimum_cases": 1,
+      "must_cover": [
+        "ordered stage flow",
+        "legal and rejected transition",
+        "difficulty binding"
+      ],
+      "status": "PendingProductionExecution",
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "divergent-universe.semantic-family.arithmetic-mapping-eligibility",
+      "source_id": "arithmetic-mapping-eligibility",
+      "owner_batch": "G22-P3-B4",
+      "minimum_cases": 1,
+      "must_cover": [
+        "eligible character",
+        "ineligible character",
+        "stronger account build boundary"
+      ],
+      "status": "PendingProductionExecution",
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "divergent-universe.semantic-family.arithmetic-mapping-refresh-and-teardown",
+      "source_id": "arithmetic-mapping-refresh-and-teardown",
+      "owner_batch": "G22-P3-B4",
+      "minimum_cases": 1,
+      "must_cover": [
+        "refresh timing",
+        "temporary substitution",
+        "account state unchanged"
+      ],
+      "status": "PendingProductionExecution",
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "divergent-universe.semantic-family.astronomical-division",
+      "source_id": "astronomical-division",
+      "owner_batch": "G22-P3-B2",
+      "minimum_cases": 1,
+      "must_cover": [
+        "progress boundary",
+        "effect activation",
+        "scope"
+      ],
+      "status": "PendingProductionExecution",
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "divergent-universe.semantic-family.battle-visible-and-cross-battle-contribution",
+      "source_id": "battle-visible-and-cross-battle-contribution",
+      "owner_batch": "G22-P6-B4",
+      "minimum_cases": 1,
+      "must_cover": [
+        "BattleSpec contribution",
+        "BattleResult handoff",
+        "cross-battle lifecycle"
+      ],
+      "status": "PendingProductionExecution",
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "divergent-universe.semantic-family.curio-weight-charge-destruction-repair",
+      "source_id": "curio-weight-charge-destruction-repair",
+      "owner_batch": "G22-P5-B1",
+      "minimum_cases": 1,
+      "must_cover": [
+        "weighted eligibility",
+        "charge change",
+        "destroy and repair"
+      ],
+      "status": "PendingProductionExecution",
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "divergent-universe.semantic-family.divergent-blessing-level-and-transform",
+      "source_id": "divergent-blessing-level-and-transform",
+      "owner_batch": "G22-P4-B5",
+      "minimum_cases": 1,
+      "must_cover": [
+        "level state",
+        "enhancement or rewrite",
+        "Equation contribution"
+      ],
+      "status": "PendingProductionExecution",
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "divergent-universe.semantic-family.encounter-wave-and-boss-binding",
+      "source_id": "encounter-wave-and-boss-binding",
+      "owner_batch": "G22-P6-B3",
+      "minimum_cases": 1,
+      "must_cover": [
+        "group selection",
+        "ordered waves",
+        "boss alternative"
+      ],
+      "status": "PendingProductionExecution",
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "divergent-universe.semantic-family.equation-offer-recipe-progress-expansion",
+      "source_id": "equation-offer-recipe-progress-expansion",
+      "owner_batch": "G22-P4-B2",
+      "minimum_cases": 1,
+      "must_cover": [
+        "offer candidate set",
+        "recipe counts",
+        "progress and expansion transition"
+      ],
+      "status": "PendingProductionExecution",
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "divergent-universe.semantic-family.equation-replacement-and-contribution",
+      "source_id": "equation-replacement-and-contribution",
+      "owner_batch": "G22-P4-B3",
+      "minimum_cases": 1,
+      "must_cover": [
+        "replacement",
+        "Blessing ownership change",
+        "contribution refresh"
+      ],
+      "status": "PendingProductionExecution",
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "divergent-universe.semantic-family.finish-and-cross-battle-reset",
+      "source_id": "finish-and-cross-battle-reset",
+      "owner_batch": "G22-P3-B1",
+      "minimum_cases": 1,
+      "must_cover": [
+        "terminal condition",
+        "carry state",
+        "reset state"
+      ],
+      "status": "PendingProductionExecution",
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "divergent-universe.semantic-family.gamble-offer-outcome-and-fallback",
+      "source_id": "gamble-offer-outcome-and-fallback",
+      "owner_batch": "G22-P5-B2",
+      "minimum_cases": 1,
+      "must_cover": [
+        "candidate set",
+        "selected outcome",
+        "no legal candidate"
+      ],
+      "status": "PendingProductionExecution",
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "divergent-universe.semantic-family.golden-blood-titan-choice-and-level",
+      "source_id": "golden-blood-titan-choice-and-level",
+      "owner_batch": "G22-P5-B3",
+      "minimum_cases": 1,
+      "must_cover": [
+        "choice candidates",
+        "level transition",
+        "run and battle contribution"
+      ],
+      "status": "PendingProductionExecution",
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "divergent-universe.semantic-family.grand-miracle-eligibility-and-lifecycle",
+      "source_id": "grand-miracle-eligibility-and-lifecycle",
+      "owner_batch": "G22-P5-B2",
+      "minimum_cases": 1,
+      "must_cover": [
+        "character Path and element eligibility",
+        "activation",
+        "teardown"
+      ],
+      "status": "PendingProductionExecution",
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "divergent-universe.semantic-family.no-legal-candidate-fallback",
+      "source_id": "no-legal-candidate-fallback",
+      "owner_batch": "G22-P4-B6",
+      "minimum_cases": 1,
+      "must_cover": [
+        "empty candidate set",
+        "explicit fallback",
+        "authoritative state preservation"
+      ],
+      "status": "PendingProductionExecution",
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "divergent-universe.semantic-family.occurrence-choice-cost-and-outcome",
+      "source_id": "occurrence-choice-cost-and-outcome",
+      "owner_batch": "G22-P6-B1",
+      "minimum_cases": 1,
+      "must_cover": [
+        "choice condition",
+        "cost",
+        "ordered outcome"
+      ],
+      "status": "PendingProductionExecution",
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "divergent-universe.semantic-family.ordinary-and-cyclical-entry",
+      "source_id": "ordinary-and-cyclical-entry",
+      "owner_batch": "G22-P3-B1",
+      "minimum_cases": 1,
+      "must_cover": [
+        "entry eligibility",
+        "initial resources",
+        "weekly modifier binding"
+      ],
+      "status": "PendingProductionExecution",
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "divergent-universe.semantic-family.permanent-talent-and-unlock",
+      "source_id": "permanent-talent-and-unlock",
+      "owner_batch": "G22-P5-B4",
+      "minimum_cases": 1,
+      "must_cover": [
+        "prerequisite",
+        "unlock transition",
+        "mechanical effect"
+      ],
+      "status": "PendingProductionExecution",
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "divergent-universe.semantic-family.profile-and-module-selection",
+      "source_id": "profile-and-module-selection",
+      "owner_batch": "G22-P3-B1",
+      "minimum_cases": 1,
+      "must_cover": [
+        "TournRogue entry",
+        "module 6002201",
+        "rejected historical module"
+      ],
+      "status": "PendingProductionExecution",
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "divergent-universe.semantic-family.simultaneous-trigger-order",
+      "source_id": "simultaneous-trigger-order",
+      "owner_batch": "G22-P4-B5",
+      "minimum_cases": 1,
+      "must_cover": [
+        "same-phase triggers",
+        "stable priority",
+        "ordered contributions"
+      ],
+      "status": "PendingProductionExecution",
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "divergent-universe.semantic-family.star-pioneer-practice-and-cognoculi",
+      "source_id": "star-pioneer-practice-and-cognoculi",
+      "owner_batch": "G22-P3-B2",
+      "minimum_cases": 1,
+      "must_cover": [
+        "mode eligibility",
+        "available content",
+        "mechanical Cognoculus boundary"
+      ],
+      "status": "PendingProductionExecution",
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "divergent-universe.semantic-family.threshold-protocol",
+      "source_id": "threshold-protocol",
+      "owner_batch": "G22-P3-B2",
+      "minimum_cases": 1,
+      "must_cover": [
+        "entry boundary",
+        "difficulty change",
+        "enemy or numeric contribution"
+      ],
+      "status": "PendingProductionExecution",
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "divergent-universe.semantic-family.weekly-modifier-and-room-service",
+      "source_id": "weekly-modifier-and-room-service",
+      "owner_batch": "G22-P5-B4",
+      "minimum_cases": 1,
+      "must_cover": [
+        "modifier activation",
+        "service eligibility",
+        "cross-battle scope"
+      ],
+      "status": "PendingProductionExecution",
+      "terminal_evidence": "production-lowered execution fixture"
+    },
+    {
+      "fixture_family_id": "divergent-universe.semantic-family.workbench-operation-and-price",
+      "source_id": "workbench-operation-and-price",
+      "owner_batch": "G22-P5-B5",
+      "minimum_cases": 1,
+      "must_cover": [
+        "legal operation",
+        "currency and price",
+        "rejected operation"
+      ],
+      "status": "PendingProductionExecution",
+      "terminal_evidence": "production-lowered execution fixture"
+    }
+  ],
+  "research_gap_assignments": [
+    {
+      "research_gap_id": "divergent-universe.research-gap.adventure-abstract-outcome",
+      "source_id": "adventure-abstract-outcome",
+      "owner_batch": "G22-P6-B2",
+      "state": "PolicyBound",
+      "blocking": false,
+      "affected_data_ids": [
+        "divergent-universe.adventure-outcome.11098010.RogueTurntable"
+      ],
+      "replacement_condition": "Replace policy-bound assertions for adventure-abstract-outcome only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "exact evidence, executable VersionedProjectPolicy, or proven non-runtime scope"
+    },
+    {
+      "research_gap_id": "divergent-universe.research-gap.area-difficulty-layer-transition",
+      "source_id": "area-difficulty-layer-transition",
+      "owner_batch": "G22-P3-B1",
+      "state": "PolicyBound",
+      "blocking": false,
+      "affected_data_ids": [
+        "divergent-universe.area.103",
+        "divergent-universe.difficulty.1001",
+        "divergent-universe.flow.area.103.entry",
+        "divergent-universe.layer.103"
+      ],
+      "replacement_condition": "Replace policy-bound assertions for area-difficulty-layer-transition only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "exact evidence, executable VersionedProjectPolicy, or proven non-runtime scope"
+    },
+    {
+      "research_gap_id": "divergent-universe.research-gap.arithmetic-mapping-eligibility",
+      "source_id": "arithmetic-mapping-eligibility",
+      "owner_batch": "G22-P3-B4",
+      "state": "PolicyBound",
+      "blocking": false,
+      "affected_data_ids": [
+        "divergent-universe.mapping-eligibility.1001"
+      ],
+      "replacement_condition": "Replace policy-bound assertions for arithmetic-mapping-eligibility only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "exact evidence, executable VersionedProjectPolicy, or proven non-runtime scope"
+    },
+    {
+      "research_gap_id": "divergent-universe.research-gap.arithmetic-mapping-refresh-and-teardown",
+      "source_id": "arithmetic-mapping-refresh-and-teardown",
+      "owner_batch": "G22-P3-B4",
+      "state": "PolicyBound",
+      "blocking": false,
+      "affected_data_ids": [
+        "divergent-universe.mapping-build.1001",
+        "divergent-universe.mapping-rule.character-level"
+      ],
+      "replacement_condition": "Replace policy-bound assertions for arithmetic-mapping-refresh-and-teardown only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "exact evidence, executable VersionedProjectPolicy, or proven non-runtime scope"
+    },
+    {
+      "research_gap_id": "divergent-universe.research-gap.astronomical-division",
+      "source_id": "astronomical-division",
+      "owner_batch": "G22-P3-B2",
+      "state": "PolicyBound",
+      "blocking": false,
+      "affected_data_ids": [
+        "divergent-universe.astronomical-division.1"
+      ],
+      "replacement_condition": "Replace policy-bound assertions for astronomical-division only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "exact evidence, executable VersionedProjectPolicy, or proven non-runtime scope"
+    },
+    {
+      "research_gap_id": "divergent-universe.research-gap.battle-visible-and-cross-battle-contribution",
+      "source_id": "battle-visible-and-cross-battle-contribution",
+      "owner_batch": "G22-P6-B4",
+      "state": "PolicyBound",
+      "blocking": false,
+      "affected_data_ids": [
+        "divergent-universe.curio-state.9001",
+        "divergent-universe.protocol.1",
+        "divergent-universe.titan-contribution.boon.10101"
+      ],
+      "replacement_condition": "Replace policy-bound assertions for battle-visible-and-cross-battle-contribution only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "exact evidence, executable VersionedProjectPolicy, or proven non-runtime scope"
+    },
+    {
+      "research_gap_id": "divergent-universe.research-gap.curio-weight-charge-destruction-repair",
+      "source_id": "curio-weight-charge-destruction-repair",
+      "owner_batch": "G22-P5-B1",
+      "state": "PolicyBound",
+      "blocking": false,
+      "affected_data_ids": [
+        "divergent-universe.curio-lifecycle.9001",
+        "divergent-universe.curio-state.9001",
+        "divergent-universe.curio.9001"
+      ],
+      "replacement_condition": "Replace policy-bound assertions for curio-weight-charge-destruction-repair only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "exact evidence, executable VersionedProjectPolicy, or proven non-runtime scope"
+    },
+    {
+      "research_gap_id": "divergent-universe.research-gap.divergent-blessing-level-and-transform",
+      "source_id": "divergent-blessing-level-and-transform",
+      "owner_batch": "G22-P4-B5",
+      "state": "PolicyBound",
+      "blocking": false,
+      "affected_data_ids": [
+        "divergent-universe.blessing-contribution.615130",
+        "divergent-universe.blessing-level.615130.1",
+        "divergent-universe.blessing-rewrite.615130.enhance",
+        "divergent-universe.blessing.615130"
+      ],
+      "replacement_condition": "Replace policy-bound assertions for divergent-blessing-level-and-transform only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "exact evidence, executable VersionedProjectPolicy, or proven non-runtime scope"
+    },
+    {
+      "research_gap_id": "divergent-universe.research-gap.encounter-wave-and-boss-binding",
+      "source_id": "encounter-wave-and-boss-binding",
+      "owner_batch": "G22-P6-B3",
+      "state": "PolicyBound",
+      "blocking": false,
+      "affected_data_ids": [
+        "divergent-universe.boss-pool.weekly.1.final.0",
+        "divergent-universe.encounter-group.300202",
+        "divergent-universe.encounter-wave.83002011.1",
+        "divergent-universe.encounter-wave.83002011.1.slot.1"
+      ],
+      "replacement_condition": "Replace policy-bound assertions for encounter-wave-and-boss-binding only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "exact evidence, executable VersionedProjectPolicy, or proven non-runtime scope"
+    },
+    {
+      "research_gap_id": "divergent-universe.research-gap.equation-offer-recipe-progress-expansion",
+      "source_id": "equation-offer-recipe-progress-expansion",
+      "owner_batch": "G22-P4-B2",
+      "state": "PolicyBound",
+      "blocking": false,
+      "affected_data_ids": [
+        "divergent-universe.equation-offer.1001",
+        "divergent-universe.equation-progress.3102001",
+        "divergent-universe.equation-recipe.3102001",
+        "divergent-universe.equation-state.3102001.expanded",
+        "divergent-universe.equation.3102001"
+      ],
+      "replacement_condition": "Replace policy-bound assertions for equation-offer-recipe-progress-expansion only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "exact evidence, executable VersionedProjectPolicy, or proven non-runtime scope"
+    },
+    {
+      "research_gap_id": "divergent-universe.research-gap.equation-replacement-and-contribution",
+      "source_id": "equation-replacement-and-contribution",
+      "owner_batch": "G22-P4-B3",
+      "state": "PolicyBound",
+      "blocking": false,
+      "affected_data_ids": [
+        "divergent-universe.blessing-contribution.615130",
+        "divergent-universe.equation-transition.acquire"
+      ],
+      "replacement_condition": "Replace policy-bound assertions for equation-replacement-and-contribution only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "exact evidence, executable VersionedProjectPolicy, or proven non-runtime scope"
+    },
+    {
+      "research_gap_id": "divergent-universe.research-gap.finish-and-cross-battle-reset",
+      "source_id": "finish-and-cross-battle-reset",
+      "owner_batch": "G22-P3-B1",
+      "state": "PolicyBound",
+      "blocking": false,
+      "affected_data_ids": [
+        "divergent-universe.finish.3000311",
+        "divergent-universe.flow.area.103.entry"
+      ],
+      "replacement_condition": "Replace policy-bound assertions for finish-and-cross-battle-reset only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "exact evidence, executable VersionedProjectPolicy, or proven non-runtime scope"
+    },
+    {
+      "research_gap_id": "divergent-universe.research-gap.gamble-offer-outcome-and-fallback",
+      "source_id": "gamble-offer-outcome-and-fallback",
+      "owner_batch": "G22-P5-B2",
+      "state": "PolicyBound",
+      "blocking": false,
+      "affected_data_ids": [
+        "divergent-universe.gamble-group.100",
+        "divergent-universe.gamble-unit.101",
+        "divergent-universe.service-offer.curse-chest.1001"
+      ],
+      "replacement_condition": "Replace policy-bound assertions for gamble-offer-outcome-and-fallback only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "exact evidence, executable VersionedProjectPolicy, or proven non-runtime scope"
+    },
+    {
+      "research_gap_id": "divergent-universe.research-gap.golden-blood-titan-choice-and-level",
+      "source_id": "golden-blood-titan-choice-and-level",
+      "owner_batch": "G22-P5-B3",
+      "state": "PolicyBound",
+      "blocking": false,
+      "affected_data_ids": [
+        "divergent-universe.titan-boon.10101",
+        "divergent-universe.titan-choice.aigle.1",
+        "divergent-universe.titan-contribution.boon.10101",
+        "divergent-universe.titan-type.aigle"
+      ],
+      "replacement_condition": "Replace policy-bound assertions for golden-blood-titan-choice-and-level only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "exact evidence, executable VersionedProjectPolicy, or proven non-runtime scope"
+    },
+    {
+      "research_gap_id": "divergent-universe.research-gap.grand-miracle-eligibility-and-lifecycle",
+      "source_id": "grand-miracle-eligibility-and-lifecycle",
+      "owner_batch": "G22-P5-B2",
+      "state": "PolicyBound",
+      "blocking": false,
+      "affected_data_ids": [
+        "divergent-universe.grand-miracle-eligibility.current.1001",
+        "divergent-universe.grand-miracle-state.1001.active",
+        "divergent-universe.grand-miracle.1001"
+      ],
+      "replacement_condition": "Replace policy-bound assertions for grand-miracle-eligibility-and-lifecycle only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "exact evidence, executable VersionedProjectPolicy, or proven non-runtime scope"
+    },
+    {
+      "research_gap_id": "divergent-universe.research-gap.no-legal-candidate-fallback",
+      "source_id": "no-legal-candidate-fallback",
+      "owner_batch": "G22-P4-B6",
+      "state": "PolicyBound",
+      "blocking": false,
+      "affected_data_ids": [
+        "divergent-universe.equation-transition.acquire",
+        "divergent-universe.service-offer.curse-chest.1001",
+        "divergent-universe.service-rule.workbench.1"
+      ],
+      "replacement_condition": "Replace policy-bound assertions for no-legal-candidate-fallback only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "exact evidence, executable VersionedProjectPolicy, or proven non-runtime scope"
+    },
+    {
+      "research_gap_id": "divergent-universe.research-gap.occurrence-choice-cost-and-outcome",
+      "source_id": "occurrence-choice-cost-and-outcome",
+      "owner_batch": "G22-P6-B1",
+      "state": "PolicyBound",
+      "blocking": false,
+      "affected_data_ids": [
+        "divergent-universe.occurrence-variant.700103",
+        "divergent-universe.occurrence.100"
+      ],
+      "replacement_condition": "Replace policy-bound assertions for occurrence-choice-cost-and-outcome only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "exact evidence, executable VersionedProjectPolicy, or proven non-runtime scope"
+    },
+    {
+      "research_gap_id": "divergent-universe.research-gap.ordinary-and-cyclical-entry",
+      "source_id": "ordinary-and-cyclical-entry",
+      "owner_batch": "G22-P3-B1",
+      "state": "PolicyBound",
+      "blocking": false,
+      "affected_data_ids": [
+        "divergent-universe.cyclical-area.20401",
+        "divergent-universe.profile.v1",
+        "divergent-universe.weekly-modifier.1"
+      ],
+      "replacement_condition": "Replace policy-bound assertions for ordinary-and-cyclical-entry only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "exact evidence, executable VersionedProjectPolicy, or proven non-runtime scope"
+    },
+    {
+      "research_gap_id": "divergent-universe.research-gap.permanent-talent-and-unlock",
+      "source_id": "permanent-talent-and-unlock",
+      "owner_batch": "G22-P5-B4",
+      "state": "PolicyBound",
+      "blocking": false,
+      "affected_data_ids": [
+        "divergent-universe.permanent-talent.100",
+        "divergent-universe.progression-effect.talent.100",
+        "divergent-universe.unlock.3000201"
+      ],
+      "replacement_condition": "Replace policy-bound assertions for permanent-talent-and-unlock only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "exact evidence, executable VersionedProjectPolicy, or proven non-runtime scope"
+    },
+    {
+      "research_gap_id": "divergent-universe.research-gap.profile-and-module-selection",
+      "source_id": "profile-and-module-selection",
+      "owner_batch": "G22-P3-B1",
+      "state": "PolicyBound",
+      "blocking": false,
+      "affected_data_ids": [
+        "divergent-universe.entry.title.tournrogue",
+        "divergent-universe.module.6002201",
+        "divergent-universe.profile.v1"
+      ],
+      "replacement_condition": "Replace policy-bound assertions for profile-and-module-selection only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "exact evidence, executable VersionedProjectPolicy, or proven non-runtime scope"
+    },
+    {
+      "research_gap_id": "divergent-universe.research-gap.simultaneous-trigger-order",
+      "source_id": "simultaneous-trigger-order",
+      "owner_batch": "G22-P4-B5",
+      "state": "PolicyBound",
+      "blocking": false,
+      "affected_data_ids": [
+        "divergent-universe.curio-lifecycle.9001",
+        "divergent-universe.titan-contribution.boon.10101"
+      ],
+      "replacement_condition": "Replace policy-bound assertions for simultaneous-trigger-order only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "exact evidence, executable VersionedProjectPolicy, or proven non-runtime scope"
+    },
+    {
+      "research_gap_id": "divergent-universe.research-gap.star-pioneer-practice-and-cognoculi",
+      "source_id": "star-pioneer-practice-and-cognoculi",
+      "owner_batch": "G22-P3-B2",
+      "state": "PolicyBound",
+      "blocking": false,
+      "affected_data_ids": [
+        "divergent-universe.astronomical-mode.practice",
+        "divergent-universe.cognoculi.division.1"
+      ],
+      "replacement_condition": "Replace policy-bound assertions for star-pioneer-practice-and-cognoculi only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "exact evidence, executable VersionedProjectPolicy, or proven non-runtime scope"
+    },
+    {
+      "research_gap_id": "divergent-universe.research-gap.threshold-protocol",
+      "source_id": "threshold-protocol",
+      "owner_batch": "G22-P3-B2",
+      "state": "PolicyBound",
+      "blocking": false,
+      "affected_data_ids": [
+        "divergent-universe.protocol.1"
+      ],
+      "replacement_condition": "Replace policy-bound assertions for threshold-protocol only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "exact evidence, executable VersionedProjectPolicy, or proven non-runtime scope"
+    },
+    {
+      "research_gap_id": "divergent-universe.research-gap.weekly-modifier-and-room-service",
+      "source_id": "weekly-modifier-and-room-service",
+      "owner_batch": "G22-P5-B4",
+      "state": "PolicyBound",
+      "blocking": false,
+      "affected_data_ids": [
+        "divergent-universe.mode-service-npc.700101",
+        "divergent-universe.room-mark.0",
+        "divergent-universe.weekly-modifier.1"
+      ],
+      "replacement_condition": "Replace policy-bound assertions for weekly-modifier-and-room-service only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "exact evidence, executable VersionedProjectPolicy, or proven non-runtime scope"
+    },
+    {
+      "research_gap_id": "divergent-universe.research-gap.workbench-operation-and-price",
+      "source_id": "workbench-operation-and-price",
+      "owner_batch": "G22-P5-B5",
+      "state": "PolicyBound",
+      "blocking": false,
+      "affected_data_ids": [
+        "divergent-universe.currency.cosmic-fragment",
+        "divergent-universe.service-rule.workbench.1",
+        "divergent-universe.workbench-function.1",
+        "divergent-universe.workbench.101"
+      ],
+      "replacement_condition": "Replace policy-bound assertions for workbench-operation-and-price only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "exact evidence, executable VersionedProjectPolicy, or proven non-runtime scope"
+    }
+  ],
+  "policy_assignments": [
+    {
+      "policy_source_id": "source.goal11.project-policy.adventure-external-results",
+      "owner_batch": "G22-P6-B2",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.adventure-abstract-outcome"
+      ],
+      "affected_normalized_files": [
+        "adventure-outcomes.json",
+        "review-fixtures.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 34,
+      "replacement_condition": "A later runtime goal may bind these abstract results to generic Activity operations without adding an Adventure action simulator.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.area-entry-stage-boundary",
+      "owner_batch": "G22-P6-B3",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.encounter-wave-and-boss-binding"
+      ],
+      "affected_normalized_files": [
+        "encounter-source-obligations.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 29,
+      "replacement_condition": "Replace when a released config program binds the exact area and map entry to a RogueMonsterGroup, RogueMonster, or StageConfig row.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.arithmetic-mapping-build-values",
+      "owner_batch": "G22-P3-B4",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.arithmetic-mapping-refresh-and-teardown"
+      ],
+      "affected_normalized_files": [
+        "arithmetic-mapping-builds.json",
+        "arithmetic-mapping-rules.json",
+        "review-fixtures.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 98,
+      "replacement_condition": "Replace per-avatar Unspecified fields when released mapping-info rows or reproducible inspection identifies the exact temporary build.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.arithmetic-mapping-refresh",
+      "owner_batch": "G22-P3-B4",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.arithmetic-mapping-refresh-and-teardown"
+      ],
+      "affected_normalized_files": [
+        "arithmetic-mapping-rules.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 3,
+      "replacement_condition": "Replace when released flow/config evidence or reproducible observations establish refresh checkpoints and simultaneous changes.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.blessing-rewrite",
+      "owner_batch": "G22-P4-B5",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.divergent-blessing-level-and-transform"
+      ],
+      "affected_normalized_files": [
+        "blessing-rewrite-rules.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 3,
+      "replacement_condition": "Replace generic rewrite fields when a released workbench/service program binds exact candidates, costs and fallback.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.curio-groups",
+      "owner_batch": "G22-P5-B1",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.curio-weight-charge-destruction-repair"
+      ],
+      "affected_normalized_files": [
+        "curio-groups.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 287,
+      "replacement_condition": "Replace the empty fail-closed group fields only when a released selector or transitive program binds exact candidates, weights and consumers.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.curio-lifecycle",
+      "owner_batch": "G22-P4-B5",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.battle-visible-and-cross-battle-contribution",
+        "divergent-universe.semantic-family.curio-weight-charge-destruction-repair",
+        "divergent-universe.semantic-family.simultaneous-trigger-order"
+      ],
+      "affected_normalized_files": [
+        "curio-lifecycle-rules.json",
+        "curio-states.json",
+        "review-fixtures.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 418,
+      "replacement_condition": "Replace per-Curio lifecycle fields when a released service/config/ability program proves the exact transition, ordering, scope and fallback.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.curio-offer-pools",
+      "owner_batch": "G22-P5-B1",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.curio-weight-charge-destruction-repair"
+      ],
+      "affected_normalized_files": [
+        "curio-pool-membership.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 236,
+      "replacement_condition": "Replace each unspecified offer weight and eligibility only when a released selector exposes exact group members, weights, exclusions and fallback.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.curse-chest-random-pools",
+      "owner_batch": "G22-P4-B6",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.gamble-offer-outcome-and-fallback",
+        "divergent-universe.semantic-family.no-legal-candidate-fallback"
+      ],
+      "affected_normalized_files": [
+        "curse-chests.json",
+        "review-fixtures.json",
+        "service-offer-rules.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 61,
+      "replacement_condition": "Replace random candidate fields when P2 pool closure or a released chest program binds exact identities and weights.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.encounter-room-selector",
+      "owner_batch": "G22-P6-B3",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.encounter-wave-and-boss-binding"
+      ],
+      "affected_normalized_files": [
+        "encounter-source-obligations.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 849,
+      "replacement_condition": "Replace per room only when released structured data supplies an explicit Tourn3 selection or forward stable-ID closure.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.equation-random-offers",
+      "owner_batch": "G22-P4-B2",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.equation-offer-recipe-progress-expansion"
+      ],
+      "affected_normalized_files": [
+        "equation-offers.json",
+        "review-fixtures.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 138,
+      "replacement_condition": "Replace each Unspecified offer field when released configuration or reproducible observation binds that RandomID.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.equation-transitions",
+      "owner_batch": "G22-P4-B3",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.equation-replacement-and-contribution",
+        "divergent-universe.semantic-family.no-legal-candidate-fallback"
+      ],
+      "affected_normalized_files": [
+        "equation-replacement-rules.json",
+        "review-fixtures.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 7,
+      "replacement_condition": "Replace each policy field when released service programs or reproducible observations establish the exact transition.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.gamble-group-membership",
+      "owner_batch": "G22-P5-B2",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.gamble-offer-outcome-and-fallback"
+      ],
+      "affected_normalized_files": [
+        "gamble-groups.json",
+        "gamble-units.json",
+        "review-fixtures.json",
+        "service-offer-rules.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 341,
+      "replacement_condition": "Replace fail-closed groups and typed source parameters when a released group-unit selector proves exact membership and weights.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.grand-miracle-effects",
+      "owner_batch": "G22-P5-B2",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.grand-miracle-eligibility-and-lifecycle"
+      ],
+      "affected_normalized_files": [
+        "grand-miracle-states.json",
+        "grand-miracles.json",
+        "review-fixtures.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 53,
+      "replacement_condition": "Replace the unresolved effect/state fields when released structured data or an ability program defines each 6334xx binding and lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.occurrence-graphs-missing",
+      "owner_batch": "G22-P6-B1",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.occurrence-choice-cost-and-outcome"
+      ],
+      "affected_normalized_files": [
+        "occurrence-variants.json",
+        "occurrences.json",
+        "review-fixtures.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 217,
+      "replacement_condition": "Replace each missing-graph boundary only when a released source revision contains the exact published path or another released table explicitly binds the variant to its mechanical option graph.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.permanent-talent-prerequisites",
+      "owner_batch": "G22-P5-B4",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.permanent-talent-and-unlock"
+      ],
+      "affected_normalized_files": [
+        "permanent-talents.json",
+        "progression-effects.json",
+        "review-fixtures.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 78,
+      "replacement_condition": "Replace empty prerequisite IDs when a released progression graph defines directed requirements.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.profile",
+      "owner_batch": "G22-P3-B1",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.ordinary-and-cyclical-entry",
+        "divergent-universe.semantic-family.profile-and-module-selection"
+      ],
+      "affected_normalized_files": [
+        "profiles.json",
+        "review-fixtures.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 4,
+      "replacement_condition": "Replace only if a later released profile registry supplies a stronger stable identity.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.room-mark-transitions",
+      "owner_batch": "G22-P5-B4",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.weekly-modifier-and-room-service"
+      ],
+      "affected_normalized_files": [
+        "review-fixtures.json",
+        "room-marks.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 26,
+      "replacement_condition": "Replace empty transition rules when a released room/waypoint program binds the exact mark lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.room-reuse-candidates",
+      "owner_batch": "G22-P3-B1",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.area-difficulty-layer-transition"
+      ],
+      "affected_normalized_files": [
+        "rooms.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 849,
+      "replacement_condition": "Replace each candidate with an exact promotion or exclusion receipt from released stage/config selection evidence.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-adventure-abstract-outcome",
+      "owner_batch": "G22-P6-B2",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.adventure-abstract-outcome"
+      ],
+      "affected_normalized_files": [
+        "research-gaps.json",
+        "review-fixtures.json",
+        "semantic-fixture-families.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 4,
+      "replacement_condition": "Replace policy-bound assertions for adventure-abstract-outcome only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-area-difficulty-layer-transition",
+      "owner_batch": "G22-P3-B1",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.area-difficulty-layer-transition"
+      ],
+      "affected_normalized_files": [
+        "research-gaps.json",
+        "review-fixtures.json",
+        "semantic-fixture-families.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 4,
+      "replacement_condition": "Replace policy-bound assertions for area-difficulty-layer-transition only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-arithmetic-mapping-eligibility",
+      "owner_batch": "G22-P3-B4",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.arithmetic-mapping-eligibility"
+      ],
+      "affected_normalized_files": [
+        "research-gaps.json",
+        "review-fixtures.json",
+        "semantic-fixture-families.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 4,
+      "replacement_condition": "Replace policy-bound assertions for arithmetic-mapping-eligibility only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-arithmetic-mapping-refresh-and-teardown",
+      "owner_batch": "G22-P3-B4",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.arithmetic-mapping-refresh-and-teardown"
+      ],
+      "affected_normalized_files": [
+        "research-gaps.json",
+        "review-fixtures.json",
+        "semantic-fixture-families.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 4,
+      "replacement_condition": "Replace policy-bound assertions for arithmetic-mapping-refresh-and-teardown only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-astronomical-division",
+      "owner_batch": "G22-P3-B2",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.astronomical-division"
+      ],
+      "affected_normalized_files": [
+        "research-gaps.json",
+        "review-fixtures.json",
+        "semantic-fixture-families.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 4,
+      "replacement_condition": "Replace policy-bound assertions for astronomical-division only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-battle-visible-and-cross-battle-contribution",
+      "owner_batch": "G22-P6-B4",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.battle-visible-and-cross-battle-contribution"
+      ],
+      "affected_normalized_files": [
+        "research-gaps.json",
+        "review-fixtures.json",
+        "semantic-fixture-families.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 4,
+      "replacement_condition": "Replace policy-bound assertions for battle-visible-and-cross-battle-contribution only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-curio-weight-charge-destruction-repair",
+      "owner_batch": "G22-P5-B1",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.curio-weight-charge-destruction-repair"
+      ],
+      "affected_normalized_files": [
+        "research-gaps.json",
+        "review-fixtures.json",
+        "semantic-fixture-families.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 4,
+      "replacement_condition": "Replace policy-bound assertions for curio-weight-charge-destruction-repair only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-divergent-blessing-level-and-transform",
+      "owner_batch": "G22-P4-B5",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.divergent-blessing-level-and-transform"
+      ],
+      "affected_normalized_files": [
+        "research-gaps.json",
+        "review-fixtures.json",
+        "semantic-fixture-families.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 4,
+      "replacement_condition": "Replace policy-bound assertions for divergent-blessing-level-and-transform only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-encounter-wave-and-boss-binding",
+      "owner_batch": "G22-P6-B3",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.encounter-wave-and-boss-binding"
+      ],
+      "affected_normalized_files": [
+        "research-gaps.json",
+        "review-fixtures.json",
+        "semantic-fixture-families.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 4,
+      "replacement_condition": "Replace policy-bound assertions for encounter-wave-and-boss-binding only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-equation-offer-recipe-progress-expansion",
+      "owner_batch": "G22-P4-B2",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.equation-offer-recipe-progress-expansion"
+      ],
+      "affected_normalized_files": [
+        "research-gaps.json",
+        "review-fixtures.json",
+        "semantic-fixture-families.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 4,
+      "replacement_condition": "Replace policy-bound assertions for equation-offer-recipe-progress-expansion only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-equation-replacement-and-contribution",
+      "owner_batch": "G22-P4-B3",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.equation-replacement-and-contribution"
+      ],
+      "affected_normalized_files": [
+        "research-gaps.json",
+        "review-fixtures.json",
+        "semantic-fixture-families.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 4,
+      "replacement_condition": "Replace policy-bound assertions for equation-replacement-and-contribution only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-finish-and-cross-battle-reset",
+      "owner_batch": "G22-P3-B1",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.finish-and-cross-battle-reset"
+      ],
+      "affected_normalized_files": [
+        "research-gaps.json",
+        "review-fixtures.json",
+        "semantic-fixture-families.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 4,
+      "replacement_condition": "Replace policy-bound assertions for finish-and-cross-battle-reset only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-gamble-offer-outcome-and-fallback",
+      "owner_batch": "G22-P5-B2",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.gamble-offer-outcome-and-fallback"
+      ],
+      "affected_normalized_files": [
+        "research-gaps.json",
+        "review-fixtures.json",
+        "semantic-fixture-families.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 4,
+      "replacement_condition": "Replace policy-bound assertions for gamble-offer-outcome-and-fallback only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-golden-blood-titan-choice-and-level",
+      "owner_batch": "G22-P5-B3",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.golden-blood-titan-choice-and-level"
+      ],
+      "affected_normalized_files": [
+        "research-gaps.json",
+        "review-fixtures.json",
+        "semantic-fixture-families.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 4,
+      "replacement_condition": "Replace policy-bound assertions for golden-blood-titan-choice-and-level only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-grand-miracle-eligibility-and-lifecycle",
+      "owner_batch": "G22-P5-B2",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.grand-miracle-eligibility-and-lifecycle"
+      ],
+      "affected_normalized_files": [
+        "research-gaps.json",
+        "review-fixtures.json",
+        "semantic-fixture-families.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 4,
+      "replacement_condition": "Replace policy-bound assertions for grand-miracle-eligibility-and-lifecycle only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-no-legal-candidate-fallback",
+      "owner_batch": "G22-P4-B6",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.no-legal-candidate-fallback"
+      ],
+      "affected_normalized_files": [
+        "research-gaps.json",
+        "review-fixtures.json",
+        "semantic-fixture-families.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 4,
+      "replacement_condition": "Replace policy-bound assertions for no-legal-candidate-fallback only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-occurrence-choice-cost-and-outcome",
+      "owner_batch": "G22-P6-B1",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.occurrence-choice-cost-and-outcome"
+      ],
+      "affected_normalized_files": [
+        "research-gaps.json",
+        "review-fixtures.json",
+        "semantic-fixture-families.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 4,
+      "replacement_condition": "Replace policy-bound assertions for occurrence-choice-cost-and-outcome only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-ordinary-and-cyclical-entry",
+      "owner_batch": "G22-P3-B1",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.ordinary-and-cyclical-entry"
+      ],
+      "affected_normalized_files": [
+        "research-gaps.json",
+        "review-fixtures.json",
+        "semantic-fixture-families.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 4,
+      "replacement_condition": "Replace policy-bound assertions for ordinary-and-cyclical-entry only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-permanent-talent-and-unlock",
+      "owner_batch": "G22-P5-B4",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.permanent-talent-and-unlock"
+      ],
+      "affected_normalized_files": [
+        "research-gaps.json",
+        "review-fixtures.json",
+        "semantic-fixture-families.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 4,
+      "replacement_condition": "Replace policy-bound assertions for permanent-talent-and-unlock only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-profile-and-module-selection",
+      "owner_batch": "G22-P3-B1",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.profile-and-module-selection"
+      ],
+      "affected_normalized_files": [
+        "research-gaps.json",
+        "review-fixtures.json",
+        "semantic-fixture-families.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 4,
+      "replacement_condition": "Replace policy-bound assertions for profile-and-module-selection only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-simultaneous-trigger-order",
+      "owner_batch": "G22-P4-B5",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.simultaneous-trigger-order"
+      ],
+      "affected_normalized_files": [
+        "research-gaps.json",
+        "review-fixtures.json",
+        "semantic-fixture-families.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 4,
+      "replacement_condition": "Replace policy-bound assertions for simultaneous-trigger-order only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-star-pioneer-practice-and-cognoculi",
+      "owner_batch": "G22-P3-B2",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.star-pioneer-practice-and-cognoculi"
+      ],
+      "affected_normalized_files": [
+        "research-gaps.json",
+        "review-fixtures.json",
+        "semantic-fixture-families.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 4,
+      "replacement_condition": "Replace policy-bound assertions for star-pioneer-practice-and-cognoculi only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-threshold-protocol",
+      "owner_batch": "G22-P3-B2",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.threshold-protocol"
+      ],
+      "affected_normalized_files": [
+        "research-gaps.json",
+        "review-fixtures.json",
+        "semantic-fixture-families.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 4,
+      "replacement_condition": "Replace policy-bound assertions for threshold-protocol only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-weekly-modifier-and-room-service",
+      "owner_batch": "G22-P5-B4",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.weekly-modifier-and-room-service"
+      ],
+      "affected_normalized_files": [
+        "research-gaps.json",
+        "review-fixtures.json",
+        "semantic-fixture-families.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 4,
+      "replacement_condition": "Replace policy-bound assertions for weekly-modifier-and-room-service only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-workbench-operation-and-price",
+      "owner_batch": "G22-P5-B5",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.workbench-operation-and-price"
+      ],
+      "affected_normalized_files": [
+        "research-gaps.json",
+        "review-fixtures.json",
+        "semantic-fixture-families.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 4,
+      "replacement_condition": "Replace policy-bound assertions for workbench-operation-and-price only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.service-currency-reset",
+      "owner_batch": "G22-P5-B5",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.workbench-operation-and-price"
+      ],
+      "affected_normalized_files": [
+        "currencies.json",
+        "review-fixtures.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 3,
+      "replacement_condition": "Replace Cosmic Fragment lifecycle fields after P2-B4 closes all reachable services and currency operations.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.service-npc-graphs-missing",
+      "owner_batch": "G22-P5-B4",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.weekly-modifier-and-room-service"
+      ],
+      "affected_normalized_files": [
+        "mode-service-npcs.json",
+        "review-fixtures.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 25,
+      "replacement_condition": "Replace each missing service boundary only when a released exact graph or explicit service binding identifies the NPC's operations and choices.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.stage-flow",
+      "owner_batch": "G22-P3-B1",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.area-difficulty-layer-transition",
+        "divergent-universe.semantic-family.finish-and-cross-battle-reset"
+      ],
+      "affected_normalized_files": [
+        "review-fixtures.json",
+        "sources.json",
+        "stage-flow.json"
+      ],
+      "affected_normalized_rows": 114,
+      "replacement_condition": "Replace when released flow configuration or reproducible observations bind room selection, transitions and carry/reset fields.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.stageconfig-candidate-boundary",
+      "owner_batch": "G22-P6-B3",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.encounter-wave-and-boss-binding"
+      ],
+      "affected_normalized_files": [
+        "encounter-source-obligations.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 2,
+      "replacement_condition": "Replace candidate disposition only when a released current-module selector promotes its parent weekly group.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.titan-boon-choices",
+      "owner_batch": "G22-P5-B3",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.golden-blood-titan-choice-and-level"
+      ],
+      "affected_normalized_files": [
+        "review-fixtures.json",
+        "sources.json",
+        "titan-choices.json"
+      ],
+      "affected_normalized_rows": 38,
+      "replacement_condition": "Replace eligibility, timing and fallback when a released selector or service program binds the exact Golden Blood's Boon offer lifecycle.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.unlock-consumers",
+      "owner_batch": "G22-P5-B4",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.permanent-talent-and-unlock"
+      ],
+      "affected_normalized_files": [
+        "review-fixtures.json",
+        "sources.json",
+        "unlocks.json"
+      ],
+      "affected_normalized_rows": 91,
+      "replacement_condition": "Replace empty unlocked-content lists when a released consumer references the exact token.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.weekly-current-selector",
+      "owner_batch": "G22-P3-B1",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.encounter-wave-and-boss-binding",
+        "divergent-universe.semantic-family.ordinary-and-cyclical-entry",
+        "divergent-universe.semantic-family.weekly-modifier-and-room-service"
+      ],
+      "affected_normalized_files": [
+        "boss-pools.json",
+        "encounter-groups.json",
+        "review-fixtures.json",
+        "sources.json",
+        "weekly-modifiers.json"
+      ],
+      "affected_normalized_rows": 768,
+      "replacement_condition": "Promote a weekly row only when an enabled Tourn3 area/module or released schedule explicitly selects its ChallengeID.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.weekly-encounter-display",
+      "owner_batch": "G22-P6-B3",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.encounter-wave-and-boss-binding"
+      ],
+      "affected_normalized_files": [
+        "boss-pools.json",
+        "encounter-groups.json",
+        "encounter-waves.json",
+        "enemy-slots.json",
+        "review-fixtures.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 1224,
+      "replacement_condition": "Promote a display group only when released structured data explicitly selects its ChallengeID for Tourn3/module 6002201.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.wolf-gun-parameter-groups",
+      "owner_batch": "G22-P6-B2",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.adventure-abstract-outcome"
+      ],
+      "affected_normalized_files": [
+        "adventure-outcomes.json",
+        "sources.json"
+      ],
+      "affected_normalized_rows": 7,
+      "replacement_condition": "Replace the empty parameter program when a released table or config explicitly binds Wolf Gun group 101/102 to its thresholds and results.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.workbench-service-selection",
+      "owner_batch": "G22-P4-B6",
+      "affected_fixture_family_ids": [
+        "divergent-universe.semantic-family.no-legal-candidate-fallback",
+        "divergent-universe.semantic-family.workbench-operation-and-price"
+      ],
+      "affected_normalized_files": [
+        "review-fixtures.json",
+        "service-offer-rules.json",
+        "service-rules.json",
+        "sources.json",
+        "workbench-functions.json",
+        "workbenches.json"
+      ],
+      "affected_normalized_rows": 32,
+      "replacement_condition": "Replace empty candidate/weight/price fields only when a released service selector or operation program defines them.",
+      "status": "PendingExecutableDisposition",
+      "terminal_evidence": "executable VersionedProjectPolicy or proven non-runtime scope"
+    }
+  ],
+  "batches": [
+    {
+      "batch": "G22-P0-B1",
+      "phase": 0,
+      "kind": "Fixed",
+      "deliverable": "Promote the isolated Divergent Universe project, schemas, authoring generator, verifiers and generated artifacts from historical Sora 0.3.0 output to current Sora 0.6.1; compile/load every reader and prove deterministic drift.",
+      "ordinal": 1,
+      "prerequisites": [],
+      "status": "Complete",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P0-B2",
+      "phase": 0,
+      "kind": "Fixed",
+      "deliverable": "Verify current reference inputs, pinned source revisions, schema/bundle identities and all current denominators; distinguish source-closure and catalog checks from independently proven executable behavior. Preserve user work and keep project history solely in Git.",
+      "ordinal": 2,
+      "prerequisites": [
+        "G22-P0-B1"
+      ],
+      "status": "Complete",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P0-B3",
+      "phase": 0,
+      "kind": "Fixed",
+      "deliverable": "Generate exact runtime dispositions, mechanic-program partitions and an ordered batch ledger for every obligation, program, semantic family, gap and policy source.",
+      "ordinal": 3,
+      "prerequisites": [
+        "G22-P0-B2"
+      ],
+      "status": "Complete",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P0-B4",
+      "phase": 0,
+      "kind": "Fixed",
+      "deliverable": "Freeze public runtime/API boundaries, component identities, Activity slots/scopes, decisions, BattleSpec/Result handoff, save/load snapshot semantics, handler admission and deterministic fault behavior.",
+      "ordinal": 4,
+      "prerequisites": [
+        "G22-P0-B3"
+      ],
+      "status": "Complete",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P0-B5",
+      "phase": 0,
+      "kind": "Fixed",
+      "deliverable": "Generate the legal seeded matrix, first vertical slice, policy owners, replay component set, performance workloads and native CI expectations.",
+      "ordinal": 5,
+      "prerequisites": [
+        "G22-P0-B4"
+      ],
+      "status": "Complete",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P0-B6",
+      "phase": 0,
+      "kind": "Fixed",
+      "deliverable": "Add status and verification scaffolding and prove that every later batch has prerequisites, focused gates, owned files and terminal evidence targets.",
+      "ordinal": 6,
+      "prerequisites": [
+        "G22-P0-B5"
+      ],
+      "status": "Complete",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P1-B1",
+      "phase": 1,
+      "kind": "Fixed",
+      "deliverable": "Privately load and validate all production Sora tables and rows; bind schema, configuration, content, source and component digests.",
+      "ordinal": 7,
+      "prerequisites": [
+        "G22-P0-B6"
+      ],
+      "status": "Complete",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P1-B2",
+      "phase": 1,
+      "kind": "Fixed",
+      "deliverable": "Lower profiles, module, entries, finish conditions, 28 areas, 22 difficulties, 11 layers, Ordinary/Cyclical identities, flow and carry/reset records.",
+      "ordinal": 8,
+      "prerequisites": [
+        "G22-P1-B1"
+      ],
+      "status": "Complete",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P1-B3",
+      "phase": 1,
+      "kind": "Fixed",
+      "deliverable": "Lower Arithmetic Mapping eligibility, role/build joins, temporary build patches and mapping lifecycles without querying live account data from Activity or combat.",
+      "ordinal": 9,
+      "prerequisites": [
+        "G22-P1-B2"
+      ],
+      "status": "Complete",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P1-B4",
+      "phase": 1,
+      "kind": "Fixed",
+      "deliverable": "Lower all Equation, recipe, progress, expansion, keyword, Blessing, enhancement, rewrite, group and Equation-contribution definitions.",
+      "ordinal": 10,
+      "prerequisites": [
+        "G22-P1-B3"
+      ],
+      "status": "Complete",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P1-B5",
+      "phase": 1,
+      "kind": "Fixed",
+      "deliverable": "Lower Curio, Weighted Curio, Grand Miracle/Hex, Titan, Boon, talent, Protocol, Division and progression definitions.",
+      "ordinal": 11,
+      "prerequisites": [
+        "G22-P1-B4"
+      ],
+      "status": "Complete",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P1-B6",
+      "phase": 1,
+      "kind": "Fixed",
+      "deliverable": "Lower currencies, workbench/gamble/service/Occurrence families, candidate encounter closure, enemy slots and all 669 mechanic-program identities with complete source attribution.",
+      "ordinal": 12,
+      "prerequisites": [
+        "G22-P1-B5"
+      ],
+      "status": "Complete",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P2-B1",
+      "phase": 2,
+      "kind": "Fixed",
+      "deliverable": "Inventory every mechanic expression, selector, trigger, operation, state and lifecycle shape; map each to existing shared support or a named missing capability.",
+      "ordinal": 13,
+      "prerequisites": [
+        "G22-P1-B6"
+      ],
+      "status": "Complete",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P2-B2",
+      "phase": 2,
+      "kind": "Fixed",
+      "deliverable": "Add only generic Activity operations, conditions, inventories, offers, scoped state and lifecycle semantics required by multiple Divergent programs.",
+      "ordinal": 14,
+      "prerequisites": [
+        "G22-P2-B1"
+      ],
+      "status": "Complete",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P2-B3",
+      "phase": 2,
+      "kind": "Fixed",
+      "deliverable": "Add only generic combat selectors, expressions, effects, triggers, operations and result projections required by the program inventory.",
+      "ordinal": 15,
+      "prerequisites": [
+        "G22-P2-B2"
+      ],
+      "status": "Complete",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P2-B4",
+      "phase": 2,
+      "kind": "Fixed",
+      "deliverable": "Extend `starclock-build` only where field-wise temporary mapping cannot be represented by the current generic contribution compiler.",
+      "ordinal": 16,
+      "prerequisites": [
+        "G22-P2-B3"
+      ],
+      "status": "Complete",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P2-B5",
+      "phase": 2,
+      "kind": "Fixed",
+      "deliverable": "Execute shared capability probes, audit mode/content-ID branches and handler metadata, and freeze remaining program partitions; the default admitted native-handler count is zero.",
+      "ordinal": 17,
+      "prerequisites": [
+        "G22-P2-B4"
+      ],
+      "status": "Complete",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P3-B1",
+      "phase": 3,
+      "kind": "Fixed",
+      "deliverable": "Execute Ordinary and Cyclical entry, area/layer flow, bounded room selection, finish conditions and explicit carry/reset behavior.",
+      "ordinal": 18,
+      "prerequisites": [
+        "G22-P2-B5"
+      ],
+      "status": "Ready",
+      "assigned_fixture_families": [
+        "divergent-universe.semantic-family.area-difficulty-layer-transition",
+        "divergent-universe.semantic-family.finish-and-cross-battle-reset",
+        "divergent-universe.semantic-family.ordinary-and-cyclical-entry",
+        "divergent-universe.semantic-family.profile-and-module-selection"
+      ],
+      "assigned_research_gaps": [
+        "divergent-universe.research-gap.area-difficulty-layer-transition",
+        "divergent-universe.research-gap.finish-and-cross-battle-reset",
+        "divergent-universe.research-gap.ordinary-and-cyclical-entry",
+        "divergent-universe.research-gap.profile-and-module-selection"
+      ],
+      "assigned_policy_sources": [
+        "source.goal11.project-policy.profile",
+        "source.goal11.project-policy.room-reuse-candidates",
+        "source.goal11.project-policy.semantic-fixture-area-difficulty-layer-transition",
+        "source.goal11.project-policy.semantic-fixture-finish-and-cross-battle-reset",
+        "source.goal11.project-policy.semantic-fixture-ordinary-and-cyclical-entry",
+        "source.goal11.project-policy.semantic-fixture-profile-and-module-selection",
+        "source.goal11.project-policy.stage-flow",
+        "source.goal11.project-policy.weekly-current-selector"
+      ],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P3-B2",
+      "phase": 3,
+      "kind": "Fixed",
+      "deliverable": "Execute difficulty, Threshold Protocol, Astronomical Division, Star-Pioneer, Practice, Cognoculus and cyclical refresh state.",
+      "ordinal": 19,
+      "prerequisites": [
+        "G22-P3-B1"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [
+        "divergent-universe.semantic-family.astronomical-division",
+        "divergent-universe.semantic-family.star-pioneer-practice-and-cognoculi",
+        "divergent-universe.semantic-family.threshold-protocol"
+      ],
+      "assigned_research_gaps": [
+        "divergent-universe.research-gap.astronomical-division",
+        "divergent-universe.research-gap.star-pioneer-practice-and-cognoculi",
+        "divergent-universe.research-gap.threshold-protocol"
+      ],
+      "assigned_policy_sources": [
+        "source.goal11.project-policy.semantic-fixture-astronomical-division",
+        "source.goal11.project-policy.semantic-fixture-star-pioneer-practice-and-cognoculi",
+        "source.goal11.project-policy.semantic-fixture-threshold-protocol"
+      ],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P3-B3",
+      "phase": 3,
+      "kind": "Fixed",
+      "deliverable": "Execute run currencies, persistent mechanical progression and immutable save/loadout snapshots without mutating account state.",
+      "ordinal": 20,
+      "prerequisites": [
+        "G22-P3-B2"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P3-B4",
+      "phase": 3,
+      "kind": "Fixed",
+      "deliverable": "Compile and refresh Arithmetic Mapping field by field, preserving already-sufficient caller builds and tearing temporary contributions down at the declared boundary.",
+      "ordinal": 21,
+      "prerequisites": [
+        "G22-P3-B3"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [
+        "divergent-universe.semantic-family.arithmetic-mapping-eligibility",
+        "divergent-universe.semantic-family.arithmetic-mapping-refresh-and-teardown"
+      ],
+      "assigned_research_gaps": [
+        "divergent-universe.research-gap.arithmetic-mapping-eligibility",
+        "divergent-universe.research-gap.arithmetic-mapping-refresh-and-teardown"
+      ],
+      "assigned_policy_sources": [
+        "source.goal11.project-policy.arithmetic-mapping-build-values",
+        "source.goal11.project-policy.arithmetic-mapping-refresh",
+        "source.goal11.project-policy.semantic-fixture-arithmetic-mapping-eligibility",
+        "source.goal11.project-policy.semantic-fixture-arithmetic-mapping-refresh-and-teardown"
+      ],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P3-B5",
+      "phase": 3,
+      "kind": "Fixed",
+      "deliverable": "Prove logical Run/Plane/Node/Battle scopes, party-change refresh, transition ordering and accepted/rejected state identity.",
+      "ordinal": 22,
+      "prerequisites": [
+        "G22-P3-B4"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P3-B6",
+      "phase": 3,
+      "kind": "Fixed",
+      "deliverable": "Execute the first production Ordinary vertical slice through entry, mapping, rewards, one real battle, a later layer and terminal settlement.",
+      "ordinal": 23,
+      "prerequisites": [
+        "G22-P3-B5"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P4-B1",
+      "phase": 4,
+      "kind": "Fixed",
+      "deliverable": "Execute Equation offers, eligibility, reroll, acquisition, replacement, discard and no-legal-candidate behavior.",
+      "ordinal": 24,
+      "prerequisites": [
+        "G22-P3-B6"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P4-B2",
+      "phase": 4,
+      "kind": "Fixed",
+      "deliverable": "Execute Path-count recipes, ownership contribution refresh, progress thresholds and expansion state transitions.",
+      "ordinal": 25,
+      "prerequisites": [
+        "G22-P4-B1"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [
+        "divergent-universe.semantic-family.equation-offer-recipe-progress-expansion"
+      ],
+      "assigned_research_gaps": [
+        "divergent-universe.research-gap.equation-offer-recipe-progress-expansion"
+      ],
+      "assigned_policy_sources": [
+        "source.goal11.project-policy.equation-random-offers",
+        "source.goal11.project-policy.semantic-fixture-equation-offer-recipe-progress-expansion"
+      ],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P4-B3",
+      "phase": 4,
+      "kind": "Fixed",
+      "deliverable": "Compile Equation keyword/effect programs and expansion contributions into immutable battle snapshots.",
+      "ordinal": 26,
+      "prerequisites": [
+        "G22-P4-B2"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [
+        "divergent-universe.semantic-family.equation-replacement-and-contribution"
+      ],
+      "assigned_research_gaps": [
+        "divergent-universe.research-gap.equation-replacement-and-contribution"
+      ],
+      "assigned_policy_sources": [
+        "source.goal11.project-policy.equation-transitions",
+        "source.goal11.project-policy.semantic-fixture-equation-replacement-and-contribution"
+      ],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P4-B4",
+      "phase": 4,
+      "kind": "Fixed",
+      "deliverable": "Execute Blessing offers, acquisition, enhancement, rewrite, replacement and group closure over the exact mode-owned identities.",
+      "ordinal": 27,
+      "prerequisites": [
+        "G22-P4-B3"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P4-B5",
+      "phase": 4,
+      "kind": "Fixed",
+      "deliverable": "Execute Blessing and Equation interactions, simultaneous ownership changes, battle effects and teardown without importing unproven shared content.",
+      "ordinal": 28,
+      "prerequisites": [
+        "G22-P4-B4"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [
+        "divergent-universe.semantic-family.divergent-blessing-level-and-transform",
+        "divergent-universe.semantic-family.simultaneous-trigger-order"
+      ],
+      "assigned_research_gaps": [
+        "divergent-universe.research-gap.divergent-blessing-level-and-transform",
+        "divergent-universe.research-gap.simultaneous-trigger-order"
+      ],
+      "assigned_policy_sources": [
+        "source.goal11.project-policy.blessing-rewrite",
+        "source.goal11.project-policy.curio-lifecycle",
+        "source.goal11.project-policy.semantic-fixture-divergent-blessing-level-and-transform",
+        "source.goal11.project-policy.semantic-fixture-simultaneous-trigger-order"
+      ],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P4-B6",
+      "phase": 4,
+      "kind": "Fixed",
+      "deliverable": "Prove offer RNG isolation, stable ordering, caps, empty pools, rejected mutations and fresh reconstruction of Equation/Blessing state.",
+      "ordinal": 29,
+      "prerequisites": [
+        "G22-P4-B5"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [
+        "divergent-universe.semantic-family.no-legal-candidate-fallback"
+      ],
+      "assigned_research_gaps": [
+        "divergent-universe.research-gap.no-legal-candidate-fallback"
+      ],
+      "assigned_policy_sources": [
+        "source.goal11.project-policy.curse-chest-random-pools",
+        "source.goal11.project-policy.semantic-fixture-no-legal-candidate-fallback",
+        "source.goal11.project-policy.workbench-service-selection"
+      ],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P5-B1",
+      "phase": 5,
+      "kind": "Fixed",
+      "deliverable": "Execute Curio acquisition, charges, activation, destruction, repair, replacement and contribution teardown.",
+      "ordinal": 30,
+      "prerequisites": [
+        "G22-P4-B6"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [
+        "divergent-universe.semantic-family.curio-weight-charge-destruction-repair"
+      ],
+      "assigned_research_gaps": [
+        "divergent-universe.research-gap.curio-weight-charge-destruction-repair"
+      ],
+      "assigned_policy_sources": [
+        "source.goal11.project-policy.curio-groups",
+        "source.goal11.project-policy.curio-offer-pools",
+        "source.goal11.project-policy.semantic-fixture-curio-weight-charge-destruction-repair"
+      ],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P5-B2",
+      "phase": 5,
+      "kind": "Fixed",
+      "deliverable": "Execute Weighted Curio, Gamble and Grand Miracle/Hex eligibility and lifecycle through explicit exact or policy-backed candidate sets.",
+      "ordinal": 31,
+      "prerequisites": [
+        "G22-P5-B1"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [
+        "divergent-universe.semantic-family.gamble-offer-outcome-and-fallback",
+        "divergent-universe.semantic-family.grand-miracle-eligibility-and-lifecycle"
+      ],
+      "assigned_research_gaps": [
+        "divergent-universe.research-gap.gamble-offer-outcome-and-fallback",
+        "divergent-universe.research-gap.grand-miracle-eligibility-and-lifecycle"
+      ],
+      "assigned_policy_sources": [
+        "source.goal11.project-policy.gamble-group-membership",
+        "source.goal11.project-policy.grand-miracle-effects",
+        "source.goal11.project-policy.semantic-fixture-gamble-offer-outcome-and-fallback",
+        "source.goal11.project-policy.semantic-fixture-grand-miracle-eligibility-and-lifecycle"
+      ],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P5-B3",
+      "phase": 5,
+      "kind": "Fixed",
+      "deliverable": "Execute all Titan types, Golden Blood's Boon levels/offers and permanent talent prerequisites, costs, stacking and contributions.",
+      "ordinal": 32,
+      "prerequisites": [
+        "G22-P5-B2"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [
+        "divergent-universe.semantic-family.golden-blood-titan-choice-and-level"
+      ],
+      "assigned_research_gaps": [
+        "divergent-universe.research-gap.golden-blood-titan-choice-and-level"
+      ],
+      "assigned_policy_sources": [
+        "source.goal11.project-policy.semantic-fixture-golden-blood-titan-choice-and-level",
+        "source.goal11.project-policy.titan-boon-choices"
+      ],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P5-B4",
+      "phase": 5,
+      "kind": "Fixed",
+      "deliverable": "Execute permanent/weekly mechanical progression, unlock consumers, room marks and declared refresh/carry boundaries.",
+      "ordinal": 33,
+      "prerequisites": [
+        "G22-P5-B3"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [
+        "divergent-universe.semantic-family.permanent-talent-and-unlock",
+        "divergent-universe.semantic-family.weekly-modifier-and-room-service"
+      ],
+      "assigned_research_gaps": [
+        "divergent-universe.research-gap.permanent-talent-and-unlock",
+        "divergent-universe.research-gap.weekly-modifier-and-room-service"
+      ],
+      "assigned_policy_sources": [
+        "source.goal11.project-policy.permanent-talent-prerequisites",
+        "source.goal11.project-policy.room-mark-transitions",
+        "source.goal11.project-policy.semantic-fixture-permanent-talent-and-unlock",
+        "source.goal11.project-policy.semantic-fixture-weekly-modifier-and-room-service",
+        "source.goal11.project-policy.service-npc-graphs-missing",
+        "source.goal11.project-policy.unlock-consumers"
+      ],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P5-B5",
+      "phase": 5,
+      "kind": "Fixed",
+      "deliverable": "Execute workbench transformations, prices, input/output selection, Curse Chest operations and failure-without-mutation behavior.",
+      "ordinal": 34,
+      "prerequisites": [
+        "G22-P5-B4"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [
+        "divergent-universe.semantic-family.workbench-operation-and-price"
+      ],
+      "assigned_research_gaps": [
+        "divergent-universe.research-gap.workbench-operation-and-price"
+      ],
+      "assigned_policy_sources": [
+        "source.goal11.project-policy.semantic-fixture-workbench-operation-and-price",
+        "source.goal11.project-policy.service-currency-reset"
+      ],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P5-B6",
+      "phase": 5,
+      "kind": "Fixed",
+      "deliverable": "Materialize one immutable contribution snapshot binding Mapping, difficulty, Protocol, Equations, Blessings, Curios, Titan and progression state into battle identity.",
+      "ordinal": 35,
+      "prerequisites": [
+        "G22-P5-B5"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P6-B1",
+      "phase": 6,
+      "kind": "Fixed",
+      "deliverable": "Execute Occurrence variants, choices, costs and outcomes; keep unavailable minigames or dialogue interactions at explicit typed external-result boundaries.",
+      "ordinal": 36,
+      "prerequisites": [
+        "G22-P5-B6"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [
+        "divergent-universe.semantic-family.occurrence-choice-cost-and-outcome"
+      ],
+      "assigned_research_gaps": [
+        "divergent-universe.research-gap.occurrence-choice-cost-and-outcome"
+      ],
+      "assigned_policy_sources": [
+        "source.goal11.project-policy.occurrence-graphs-missing",
+        "source.goal11.project-policy.semantic-fixture-occurrence-choice-cost-and-outcome"
+      ],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P6-B2",
+      "phase": 6,
+      "kind": "Fixed",
+      "deliverable": "Execute service NPCs, Adventure settlements, shops, workbench/gamble entry and empty/missing-graph fallbacks.",
+      "ordinal": 37,
+      "prerequisites": [
+        "G22-P6-B1"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [
+        "divergent-universe.semantic-family.adventure-abstract-outcome"
+      ],
+      "assigned_research_gaps": [
+        "divergent-universe.research-gap.adventure-abstract-outcome"
+      ],
+      "assigned_policy_sources": [
+        "source.goal11.project-policy.adventure-external-results",
+        "source.goal11.project-policy.semantic-fixture-adventure-abstract-outcome",
+        "source.goal11.project-policy.wolf-gun-parameter-groups"
+      ],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P6-B3",
+      "phase": 6,
+      "kind": "Fixed",
+      "deliverable": "Resolve room, stage, weekly display, encounter, wave, enemy and boss reachability through exact or explicitly policy-backed production rows.",
+      "ordinal": 38,
+      "prerequisites": [
+        "G22-P6-B2"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [
+        "divergent-universe.semantic-family.encounter-wave-and-boss-binding"
+      ],
+      "assigned_research_gaps": [
+        "divergent-universe.research-gap.encounter-wave-and-boss-binding"
+      ],
+      "assigned_policy_sources": [
+        "source.goal11.project-policy.area-entry-stage-boundary",
+        "source.goal11.project-policy.encounter-room-selector",
+        "source.goal11.project-policy.semantic-fixture-encounter-wave-and-boss-binding",
+        "source.goal11.project-policy.stageconfig-candidate-boundary",
+        "source.goal11.project-policy.weekly-encounter-display"
+      ],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P6-B4",
+      "phase": 6,
+      "kind": "Fixed",
+      "deliverable": "Build concrete immutable `BattleSpec` values from current participants, contribution snapshot, encounter, difficulty and policy identity; validate every assembled battle.",
+      "ordinal": 39,
+      "prerequisites": [
+        "G22-P6-B3"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [
+        "divergent-universe.semantic-family.battle-visible-and-cross-battle-contribution"
+      ],
+      "assigned_research_gaps": [
+        "divergent-universe.research-gap.battle-visible-and-cross-battle-contribution"
+      ],
+      "assigned_policy_sources": [
+        "source.goal11.project-policy.semantic-fixture-battle-visible-and-cross-battle-contribution"
+      ],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P6-B5",
+      "phase": 6,
+      "kind": "Fixed",
+      "deliverable": "Execute atomic battle-result settlement, rewards, progression, carry, retry/failure and the next-node transition.",
+      "ordinal": 40,
+      "prerequisites": [
+        "G22-P6-B4"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P6-B6",
+      "phase": 6,
+      "kind": "Fixed",
+      "deliverable": "Prove stale/rejected assembly and settlement preserve state, RNG and cache semantics; reconstruct transition battles from fresh inputs.",
+      "ordinal": 41,
+      "prerequisites": [
+        "G22-P6-B5"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P6-A01",
+      "phase": 6,
+      "kind": "GeneratedMechanicPartition",
+      "deliverable": "Activity activity-state-lifecycle mechanic partition",
+      "ordinal": 42,
+      "prerequisites": [
+        "G22-P6-B6"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 24
+    },
+    {
+      "batch": "G22-P6-A02",
+      "phase": 6,
+      "kind": "GeneratedMechanicPartition",
+      "deliverable": "Activity activity-decision-lifecycle mechanic partition",
+      "ordinal": 43,
+      "prerequisites": [
+        "G22-P6-A01"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 64
+    },
+    {
+      "batch": "G22-P6-A03",
+      "phase": 6,
+      "kind": "GeneratedMechanicPartition",
+      "deliverable": "Activity activity-decision-lifecycle mechanic partition",
+      "ordinal": 44,
+      "prerequisites": [
+        "G22-P6-A02"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 64
+    },
+    {
+      "batch": "G22-P6-A04",
+      "phase": 6,
+      "kind": "GeneratedMechanicPartition",
+      "deliverable": "Activity activity-decision-lifecycle mechanic partition",
+      "ordinal": 45,
+      "prerequisites": [
+        "G22-P6-A03"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 64
+    },
+    {
+      "batch": "G22-P6-A05",
+      "phase": 6,
+      "kind": "GeneratedMechanicPartition",
+      "deliverable": "Activity activity-decision-lifecycle mechanic partition",
+      "ordinal": 46,
+      "prerequisites": [
+        "G22-P6-A04"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 64
+    },
+    {
+      "batch": "G22-P6-A06",
+      "phase": 6,
+      "kind": "GeneratedMechanicPartition",
+      "deliverable": "Activity activity-decision-lifecycle mechanic partition",
+      "ordinal": 47,
+      "prerequisites": [
+        "G22-P6-A05"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 64
+    },
+    {
+      "batch": "G22-P6-A07",
+      "phase": 6,
+      "kind": "GeneratedMechanicPartition",
+      "deliverable": "Activity activity-decision-lifecycle mechanic partition",
+      "ordinal": 48,
+      "prerequisites": [
+        "G22-P6-A06"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 64
+    },
+    {
+      "batch": "G22-P6-A08",
+      "phase": 6,
+      "kind": "GeneratedMechanicPartition",
+      "deliverable": "Activity activity-decision-lifecycle mechanic partition",
+      "ordinal": 49,
+      "prerequisites": [
+        "G22-P6-A07"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 64
+    },
+    {
+      "batch": "G22-P6-A09",
+      "phase": 6,
+      "kind": "GeneratedMechanicPartition",
+      "deliverable": "Activity activity-decision-lifecycle mechanic partition",
+      "ordinal": 50,
+      "prerequisites": [
+        "G22-P6-A08"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 64
+    },
+    {
+      "batch": "G22-P6-A10",
+      "phase": 6,
+      "kind": "GeneratedMechanicPartition",
+      "deliverable": "Activity activity-decision-lifecycle mechanic partition",
+      "ordinal": 51,
+      "prerequisites": [
+        "G22-P6-A09"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 64
+    },
+    {
+      "batch": "G22-P6-A11",
+      "phase": 6,
+      "kind": "GeneratedMechanicPartition",
+      "deliverable": "Activity activity-decision-lifecycle mechanic partition",
+      "ordinal": 52,
+      "prerequisites": [
+        "G22-P6-A10"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 62
+    },
+    {
+      "batch": "G22-P6-A12",
+      "phase": 6,
+      "kind": "GeneratedMechanicPartition",
+      "deliverable": "Activity activity-external-outcome mechanic partition",
+      "ordinal": 53,
+      "prerequisites": [
+        "G22-P6-A11"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 1
+    },
+    {
+      "batch": "G22-P6-M01",
+      "phase": 6,
+      "kind": "GeneratedMechanicPartition",
+      "deliverable": "Battle battle-program mechanic partition",
+      "ordinal": 54,
+      "prerequisites": [
+        "G22-P6-A12"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 6
+    },
+    {
+      "batch": "G22-P7-B1",
+      "phase": 7,
+      "kind": "Fixed",
+      "deliverable": "Implement a deterministic baseline controller that chooses only offered Activity and battle commands and completes legal Ordinary and Cyclical runs.",
+      "ordinal": 55,
+      "prerequisites": [
+        "G22-P6-M01"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P7-B2",
+      "phase": 7,
+      "kind": "Fixed",
+      "deliverable": "Add `universe run --mode divergent-universe`, configuration validation/coverage and replay export/verify to the CLI.",
+      "ordinal": 56,
+      "prerequisites": [
+        "G22-P7-B1"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P7-B3",
+      "phase": 7,
+      "kind": "Fixed",
+      "deliverable": "Expose bounded Divergent Universe manifests, sessions, observations and offered actions through Agent API without generated rows or private-state leakage.",
+      "ordinal": 57,
+      "prerequisites": [
+        "G22-P7-B2"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P7-B4",
+      "phase": 7,
+      "kind": "Fixed",
+      "deliverable": "Expose the same authoritative sessions through MCP and verify authorization, idempotency, cancellation and bounded event pagination.",
+      "ordinal": 58,
+      "prerequisites": [
+        "G22-P7-B3"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P7-B5",
+      "phase": 7,
+      "kind": "Fixed",
+      "deliverable": "Implement component-addressed fresh replay reconstruction and first-divergence reporting across catalog, Activity, Mapping, contribution snapshot, battle assembly, commands and settlement.",
+      "ordinal": 59,
+      "prerequisites": [
+        "G22-P7-B4"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P7-B6",
+      "phase": 7,
+      "kind": "Fixed",
+      "deliverable": "Execute the generated legal matrix across both run families, assigned difficulties/content systems, mechanic partitions, policies and terminals.",
+      "ordinal": 60,
+      "prerequisites": [
+        "G22-P7-B5"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P8-B1",
+      "phase": 8,
+      "kind": "Fixed",
+      "deliverable": "Add malformed-input, stale-command, property, RNG-isolation, empty-pool, overflow, recursion-budget, save/load and replay-corruption suites.",
+      "ordinal": 61,
+      "prerequisites": [
+        "G22-P7-B6"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P8-B2",
+      "phase": 8,
+      "kind": "Fixed",
+      "deliverable": "Freeze catalog-load, cold/warm assembly, full-run, replay, trigger-heavy, policy-heavy, concurrent-session and invalid-command performance/allocation workloads.",
+      "ordinal": 62,
+      "prerequisites": [
+        "G22-P8-B1"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P8-B3",
+      "phase": 8,
+      "kind": "Fixed",
+      "deliverable": "Run dependency/license, architecture, unsafe, generated drift, workbook/Sora, provenance, handler and prior-release isolation audits.",
+      "ordinal": 63,
+      "prerequisites": [
+        "G22-P8-B2"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P8-B4",
+      "phase": 8,
+      "kind": "Fixed",
+      "deliverable": "Close exact-once runtime coverage for every current obligation, mechanic program, semantic family, gap and policy source; no pending executable item may remain.",
+      "ordinal": 64,
+      "prerequisites": [
+        "G22-P8-B3"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 0
+    },
+    {
+      "batch": "G22-P8-B5",
+      "phase": 8,
+      "kind": "Fixed",
+      "deliverable": "Run native CI and fresh clean-checkout acceptance, update current state summaries and publish `Released` only after every gate passes.",
+      "ordinal": 65,
+      "prerequisites": [
+        "G22-P8-B4"
+      ],
+      "status": "Planned",
+      "assigned_fixture_families": [],
+      "assigned_research_gaps": [],
+      "assigned_policy_sources": [],
+      "assigned_mechanic_programs": 0
+    }
+  ]
+}

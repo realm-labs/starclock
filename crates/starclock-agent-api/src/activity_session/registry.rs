@@ -1,6 +1,7 @@
 //! Owned, quota-bounded Activity session registry.
 
 mod currency_wars;
+mod divergent;
 mod gold;
 mod swarm;
 
@@ -17,6 +18,10 @@ use crate::{
     currency_wars_activity_session::{
         AgentCurrencyWarsManifest, CurrencyWarsActivityAgentSession,
         CurrencyWarsActivityAgentSessionFactory,
+    },
+    divergent_universe_activity_session::{
+        AgentDivergentUniverseManifest, DivergentUniverseActivityAgentSession,
+        DivergentUniverseActivityAgentSessionFactory,
     },
     error::{AgentError, AgentErrorCode},
     gold_gears_activity_session::{
@@ -70,6 +75,15 @@ pub struct RegistryCreateCurrencyWarsSessionRequest {
     pub seed: AgentUInt,
 }
 
+#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+pub struct RegistryCreateDivergentUniverseSessionRequest {
+    pub family: crate::divergent_universe_activity_session::AgentDivergentUniverseRunFamily,
+    pub seed: AgentUInt,
+    /// Optional initial service; validated before admitting a live session.
+    #[serde(default)]
+    pub tawot_forge_level: Option<AgentUInt>,
+}
+
 #[derive(Clone, Copy)]
 struct RegistryLimits {
     global: usize,
@@ -87,6 +101,14 @@ const FROZEN_LIMITS: RegistryLimits = RegistryLimits {
     maximum_lifetime: MAXIMUM_LIFETIME_SECONDS,
 };
 
+#[derive(Default)]
+struct ActivityModeFactories {
+    gold: Option<GoldAndGearsActivityAgentSessionFactory>,
+    swarm: Option<SwarmDisasterActivityAgentSessionFactory>,
+    currency_wars: Option<CurrencyWarsActivityAgentSessionFactory>,
+    divergent_universe: Option<DivergentUniverseActivityAgentSessionFactory>,
+}
+
 #[derive(Clone)]
 pub struct ActivityAgentSessionRegistry {
     inner: Arc<RegistryInner>,
@@ -97,6 +119,7 @@ struct RegistryInner {
     gold_factory: Option<GoldAndGearsActivityAgentSessionFactory>,
     swarm_factory: Option<SwarmDisasterActivityAgentSessionFactory>,
     currency_wars_factory: Option<CurrencyWarsActivityAgentSessionFactory>,
+    divergent_universe_factory: Option<DivergentUniverseActivityAgentSessionFactory>,
     clock: Arc<dyn OperationalClock>,
     id_source: Arc<dyn SessionIdSource>,
     last_clock: AtomicU64,
@@ -212,6 +235,7 @@ enum HostedActivitySession {
     GoldAndGears(GoldAndGearsActivityAgentSession),
     SwarmDisaster(SwarmDisasterActivityAgentSession),
     CurrencyWars(CurrencyWarsActivityAgentSession),
+    DivergentUniverse(DivergentUniverseActivityAgentSession),
 }
 
 impl HostedActivitySession {
@@ -221,6 +245,7 @@ impl HostedActivitySession {
             Self::GoldAndGears(session) => session.observe(),
             Self::SwarmDisaster(session) => session.observe(),
             Self::CurrencyWars(session) => session.observe(),
+            Self::DivergentUniverse(session) => session.observe(),
         }
     }
 
@@ -233,6 +258,7 @@ impl HostedActivitySession {
             Self::GoldAndGears(session) => session.apply_action(request),
             Self::SwarmDisaster(session) => session.apply_action(request),
             Self::CurrencyWars(session) => session.apply_action(request),
+            Self::DivergentUniverse(session) => session.apply_action(request),
         }
     }
 
@@ -242,6 +268,7 @@ impl HostedActivitySession {
             Self::GoldAndGears(session) => session.export_replay(),
             Self::SwarmDisaster(session) => session.export_replay(),
             Self::CurrencyWars(session) => session.export_replay(),
+            Self::DivergentUniverse(session) => session.export_replay(),
         }
     }
 
@@ -251,6 +278,7 @@ impl HostedActivitySession {
         gold: Option<&GoldAndGearsActivityAgentSessionFactory>,
         swarm: Option<&SwarmDisasterActivityAgentSessionFactory>,
         currency_wars: Option<&CurrencyWarsActivityAgentSessionFactory>,
+        divergent_universe: Option<&DivergentUniverseActivityAgentSessionFactory>,
         bytes: &[u8],
     ) -> Result<AgentActivityReplayVerification, AgentError> {
         match self {
@@ -265,6 +293,10 @@ impl HostedActivitySession {
                 currency_wars.ok_or_else(currency_wars_not_configured)?,
                 bytes,
             ),
+            Self::DivergentUniverse(session) => session.verify_replay(
+                divergent_universe.ok_or_else(divergent::divergent_universe_not_configured)?,
+                bytes,
+            ),
         }
     }
 
@@ -274,6 +306,7 @@ impl HostedActivitySession {
             Self::GoldAndGears(session) => session.close(),
             Self::SwarmDisaster(session) => session.close(),
             Self::CurrencyWars(session) => session.close(),
+            Self::DivergentUniverse(session) => session.close(),
         }
     }
 }
@@ -296,14 +329,18 @@ impl ActivityAgentSessionRegistry {
         clock: Arc<dyn OperationalClock>,
         id_source: Arc<dyn SessionIdSource>,
     ) -> Self {
-        Self::with_limits(factory, None, None, None, clock, id_source, FROZEN_LIMITS)
+        Self::with_limits(
+            factory,
+            ActivityModeFactories::default(),
+            clock,
+            id_source,
+            FROZEN_LIMITS,
+        )
     }
 
     fn with_limits(
         factory: ActivityAgentSessionFactory,
-        gold_factory: Option<GoldAndGearsActivityAgentSessionFactory>,
-        swarm_factory: Option<SwarmDisasterActivityAgentSessionFactory>,
-        currency_wars_factory: Option<CurrencyWarsActivityAgentSessionFactory>,
+        modes: ActivityModeFactories,
         clock: Arc<dyn OperationalClock>,
         id_source: Arc<dyn SessionIdSource>,
         limits: RegistryLimits,
@@ -311,9 +348,10 @@ impl ActivityAgentSessionRegistry {
         Self {
             inner: Arc::new(RegistryInner {
                 factory,
-                gold_factory,
-                swarm_factory,
-                currency_wars_factory,
+                gold_factory: modes.gold,
+                swarm_factory: modes.swarm,
+                currency_wars_factory: modes.currency_wars,
+                divergent_universe_factory: modes.divergent_universe,
                 clock,
                 id_source,
                 last_clock: AtomicU64::new(0),
@@ -460,12 +498,14 @@ impl ActivityAgentSessionRegistry {
         let gold_factory = self.inner.gold_factory.clone();
         let swarm_factory = self.inner.swarm_factory.clone();
         let currency_wars_factory = self.inner.currency_wars_factory.clone();
+        let divergent_universe_factory = self.inner.divergent_universe_factory.clone();
         self.with_active(owner, id, |session, _| {
             session.verify_replay(
                 &factory,
                 gold_factory.as_ref(),
                 swarm_factory.as_ref(),
                 currency_wars_factory.as_ref(),
+                divergent_universe_factory.as_ref(),
                 bytes,
             )
         })
@@ -752,6 +792,10 @@ mod tests {
     use crate::{
         activity_session::production_factory_for_tests,
         currency_wars_activity_session::production_factory_for_tests as currency_wars_activity_session_production_factory_for_tests,
+        divergent_universe_activity_session::{
+            AgentDivergentUniverseRunFamily,
+            production_factory_for_tests as divergent_universe_activity_session_production_factory_for_tests,
+        },
         gold_gears_activity_session::production_factory_for_tests as gold_gears_activity_session_production_factory_for_tests,
         schema::IdempotencyKey,
         swarm_disaster_activity_session::production_factory_for_tests as swarm_disaster_activity_session_production_factory_for_tests,
@@ -784,9 +828,7 @@ mod tests {
         (
             ActivityAgentSessionRegistry::with_limits(
                 production_factory_for_tests(),
-                None,
-                None,
-                None,
+                ActivityModeFactories::default(),
                 Arc::new(Clock(AtomicU64::new(0))),
                 ids.clone(),
                 limits,
@@ -799,14 +841,27 @@ mod tests {
         (
             ActivityAgentSessionRegistry::with_limits(
                 production_factory_for_tests(),
-                Some(gold_gears_activity_session_production_factory_for_tests()),
-                Some(swarm_disaster_activity_session_production_factory_for_tests()),
-                Some(currency_wars_activity_session_production_factory_for_tests()),
+                ActivityModeFactories {
+                    gold: Some(gold_gears_activity_session_production_factory_for_tests()),
+                    swarm: Some(swarm_disaster_activity_session_production_factory_for_tests()),
+                    currency_wars: Some(
+                        currency_wars_activity_session_production_factory_for_tests(),
+                    ),
+                    divergent_universe: None,
+                },
                 Arc::new(Clock(AtomicU64::new(0))),
                 ids.clone(),
                 limits,
             ),
             ids,
+        )
+    }
+    fn registry_with_divergent_universe() -> ActivityAgentSessionRegistry {
+        ActivityAgentSessionRegistry::new_with_divergent_universe(
+            production_factory_for_tests(),
+            divergent_universe_activity_session_production_factory_for_tests(),
+            Arc::new(Clock(AtomicU64::new(0))),
+            Arc::new(Ids(AtomicUsize::new(1))),
         )
     }
     fn request() -> RegistryCreateActivitySessionRequest {
@@ -991,6 +1046,54 @@ mod tests {
                 .unwrap_err()
                 .code,
             AgentErrorCode::SessionClosed
+        );
+    }
+
+    #[test]
+    fn divergent_universe_sessions_use_shared_ownership_and_registry_actions() {
+        let registry = registry_with_divergent_universe();
+        let alice = AgentSessionOwner::new("tenant", "alice").unwrap();
+        let bob = AgentSessionOwner::new("tenant", "bob").unwrap();
+        let observation = registry
+            .create_divergent_universe(
+                &alice,
+                RegistryCreateDivergentUniverseSessionRequest {
+                    family: AgentDivergentUniverseRunFamily::Cyclical,
+                    seed: AgentUInt::from_u64(22_201),
+                    tawot_forge_level: None,
+                },
+            )
+            .unwrap();
+        assert_eq!(observation.world.to_u64(), 20_401);
+        assert!(!observation.legal_actions.is_empty());
+        assert_eq!(
+            registry
+                .observe(&bob, &observation.session_id)
+                .unwrap_err()
+                .code,
+            AgentErrorCode::SessionNotOwned
+        );
+        let action = observation.legal_actions[0].clone();
+        let response = registry
+            .apply_action(
+                &alice,
+                PlayActivityActionRequest {
+                    session_id: observation.session_id,
+                    boundary_id: observation.boundary_id.unwrap(),
+                    expected_state_hash: observation.state_hash,
+                    action_token: action.token,
+                    idempotency_key: IdempotencyKey::parse("du_registry_action").unwrap(),
+                },
+            )
+            .unwrap();
+        assert!(response.committed);
+        assert_eq!(
+            registry
+                .divergent_universe_manifest()
+                .unwrap()
+                .families
+                .len(),
+            2
         );
     }
 

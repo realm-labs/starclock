@@ -16,17 +16,17 @@ attaching a no-op rule does not implement gameplay.
 
 ## Starting point
 
-The planning baseline is commit
-`bfaba33b93e6251af0004d8647c0bca5cf03df81`. Before implementation begins,
-`G22-P0-B2` must record the actual execution baseline and regenerate every
-current input count rather than treating this planning commit as permanent.
+`G22-P0-B2` maintains current input identities and denominators. Git history
+records the planning and execution starting points; the working tree does not
+retain launch snapshots or completed-goal receipts as runtime evidence.
 
 The current tree provides:
 
-- the complete Goal 11 Version 4.4 Candidate reference package;
-- three isolated `openpyxl` workbooks, 80 Sora tables, generated readers and a
+- the Version 4.4 Candidate reference package, including source-only records
+  whose selector proof and executable behavior remain incomplete;
+- three isolated `openpyxl` workbooks, 81 Sora tables, generated readers and a
   binary reference bundle;
-- 6,215 exact-once source/content obligations across 50 categories;
+- 6,762 exact-once source/content obligations across 51 categories;
 - 669 typed reference-only mechanic rules, 25 semantic families and 25
   research gaps;
 - 54 explicit `ProjectPolicy` source boundaries with replacement conditions;
@@ -34,20 +34,23 @@ The current tree provides:
   battle assembly, Rule IR, controller, replay and adapter infrastructure; and
 - the current Sora 0.6.1 production toolchain.
 
-Goal 11 is a factual prerequisite, not a runtime implementation. Its final
-bundle contains 27,091 rows and is explicitly `ForbiddenReferenceOnly`; all
-669 mechanic rules have zero runtime executions. Its `DataReady` label means
+The reference package is a factual prerequisite, not a runtime implementation.
+Its current bundle contains 28,732 rows, including 547 source-only Persona
+obligations (78 Researched and 469 Cataloged), all explicitly Unimplemented.
+The reference layer grants no execution credit to its 669 mechanic rules.
+Its 6,215 `DataReady` obligations mean
 that an obligation ended in an exact fact or an explicit policy/exclusion
 boundary. It does not mean that the corresponding behavior is executable.
 
-The starting frozen dimensions are:
+The current input dimensions are:
 
-| Dimension | Goal 11 current input |
+| Dimension | Current reference input |
 |---|---:|
-| Source/content obligations | 6,215 |
-| Manifest categories | 50 |
-| Normalized/Sora families | 80 |
-| Final generated rows | 27,091 |
+| Source/content obligations | 6,762 |
+| Manifest categories | 51 |
+| Normalized/Sora families | 81 |
+| Generated rows | 28,732 |
+| DataReady / source-only obligations | 6,215 / 547 |
 | Mechanic programs | 669 |
 | Semantic fixture families | 25 |
 | Research gaps | 25 |
@@ -314,7 +317,7 @@ count; Phase 0 freezes the actual value before broad implementation.
 | Batch | Deliverable |
 |---|---|
 | `G22-P0-B1` | Promote the isolated Divergent Universe project, schemas, authoring generator, verifiers and generated artifacts from historical Sora 0.3.0 output to current Sora 0.6.1; compile/load every reader and prove deterministic drift. |
-| `G22-P0-B2` | Verify the actual starting commit, Goal 11 completion inputs, source revisions, clean tree and all current denominators; record existing runtime support honestly as shared infrastructure rather than Divergent execution credit. |
+| `G22-P0-B2` | Verify current reference inputs, pinned source revisions, schema/bundle identities and all current denominators; distinguish source-closure and catalog checks from independently proven executable behavior. Preserve user work and keep project history solely in Git. |
 | `G22-P0-B3` | Generate exact runtime dispositions, mechanic-program partitions and an ordered batch ledger for every obligation, program, semantic family, gap and policy source. |
 | `G22-P0-B4` | Freeze public runtime/API boundaries, component identities, Activity slots/scopes, decisions, BattleSpec/Result handoff, save/load snapshot semantics, handler admission and deterministic fault behavior. |
 | `G22-P0-B5` | Generate the legal seeded matrix, first vertical slice, policy owners, replay component set, performance workloads and native CI expectations. |

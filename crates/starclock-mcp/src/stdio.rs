@@ -15,6 +15,7 @@ use rmcp::ServiceExt;
 use starclock_agent_api::{
     activity_session::{ActivityAgentSessionFactory, registry::ActivityAgentSessionRegistry},
     currency_wars_activity_session::CurrencyWarsActivityAgentSessionFactory,
+    divergent_universe_activity_session::DivergentUniverseActivityAgentSessionFactory,
     error::{AgentError, AgentErrorCode},
     gold_gears_activity_session::GoldAndGearsActivityAgentSessionFactory,
     schema::SessionId,
@@ -67,17 +68,22 @@ async fn serve_async() -> Result<(), StdioServeError> {
         .map_err(|_| StdioServeError::Startup)?;
     let currency_wars_factory = CurrencyWarsActivityAgentSessionFactory::load_production()
         .map_err(|_| StdioServeError::Startup)?;
+    let divergent_universe_factory =
+        DivergentUniverseActivityAgentSessionFactory::load_production()
+            .map_err(|_| StdioServeError::Startup)?;
     let clock = Arc::new(LocalClock::new());
     let ids = Arc::new(LocalSessionIds::new());
     let registry = AgentSessionRegistry::new(factory.clone(), clock.clone(), ids.clone());
-    let activity_registry = ActivityAgentSessionRegistry::new_with_all_modes(
-        activity_factory.clone(),
-        gold_factory,
-        swarm_factory,
-        currency_wars_factory,
-        clock,
-        ids,
-    );
+    let activity_registry =
+        ActivityAgentSessionRegistry::new_with_all_modes_including_divergent_universe(
+            activity_factory.clone(),
+            gold_factory,
+            swarm_factory,
+            currency_wars_factory,
+            divergent_universe_factory,
+            clock,
+            ids,
+        );
     let owner = AgentSessionOwner::new("local-stdio", &format!("process-{}", std::process::id()))
         .map_err(|_| StdioServeError::Startup)?;
     let (stdin, stdout) = rmcp::transport::stdio();

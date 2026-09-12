@@ -35,7 +35,7 @@ const fixtureContract = rootJson(
 const expectedFiles = schema.files.map(({ file }) => file).sort();
 const actualFiles = fs.readdirSync(referenceRoot)
   .filter((file) => file.endsWith(".json")).sort();
-assert(expectedFiles.length === 80, "normalized file denominator drift");
+assert(expectedFiles.length === 81, "normalized file denominator drift");
 assert(equal(expectedFiles, actualFiles), "normalized output file set drift");
 
 const allRows = new Map();
@@ -52,7 +52,7 @@ for (const file of expectedFiles) {
         && row.name_zh_cn
         && row.summary_en
         && row.summary_zh_cn
-        && ["DivergentUniverse", "Shared", "OtherMode", "Excluded"].includes(
+        && ["DivergentUniverse", "Shared", "OtherMode", "Excluded", "SharedCandidate"].includes(
           row.ownership,
         )
         && ["Cataloged", "Researched", "DataReady", "Blocked", "Excluded"].includes(
@@ -67,10 +67,10 @@ for (const file of expectedFiles) {
     allRows.set(row.id, { file, row });
   }
 }
-assert(allRows.size === 27091, "global normalized row denominator drift");
+assert(allRows.size === 28732, "global normalized row denominator drift");
 
 const sources = reference("sources.json");
-assert(sources.length === 7624, "source registry denominator drift");
+assert(sources.length === 8171, "source registry denominator drift");
 const sourceIds = new Set(sources.map(({ source_id: id }) => id));
 assert(sourceIds.size === sources.length, "duplicate source registry ID");
 for (const file of expectedFiles)
@@ -120,7 +120,7 @@ const obligations = Object.entries(manifest.categories).flatMap(
     evidenceSha256: record.evidence_sha256,
   })),
 );
-assert(obligations.length === 6215 && coverage.length === 6215,
+assert(obligations.length === 6762 && coverage.length === 6762,
   "coverage denominator drift");
 assert(equal(
   coverage.map((row) =>
@@ -135,7 +135,10 @@ for (const row of coverage) {
   );
   assert(
     obligation
-      && row.state === "DataReady"
+      && (row.manifest_category === "persona_source_obligations"
+        ? ["Cataloged", "Researched"].includes(row.state)
+          && row.disposition === "NormalizedSourceObligationOnly"
+        : row.state === "DataReady")
       && row.source_locator === obligation.locator
       && row.source_evidence_sha256 === obligation.evidenceSha256
       && row.normalized_record_ids.length >= 1
@@ -208,20 +211,21 @@ const summaryRows = reference("manifest.json");
 assert(summaryRows.length === 1, "reference manifest cardinality drift");
 const summary = summaryRows[0];
 assert(
-  summary.frozen_source_obligations === 6215
+  summary.frozen_source_obligations === 6762
     && summary.data_ready_source_obligations === 6215
-    && summary.coverage_percent === "100"
-    && summary.normalized_files.length === 80
-    && Object.keys(summary.record_counts).length === 80
+    && summary.unresolved_source_obligations === 547
+    && summary.coverage_percent === "91.91"
+    && summary.normalized_files.length === 81
+    && Object.keys(summary.record_counts).length === 81
     && summary.mechanic_source_count === 669
     && summary.mechanic_rule_count === 669
-    && summary.source_evidence_count === 7624
+    && summary.source_evidence_count === 8171
     && summary.semantic_fixture_family_count === 25
     && summary.reconciliation_receipt_count === 102
     && summary.nonblocking_research_gap_count === 25
     && summary.blocking_research_gap_count === 0
     && summary.runtime_loading === "ForbiddenReferenceOnly"
-    && summary.candidate_quality === true,
+    && summary.candidate_quality === false,
   "reference manifest summary drift",
 );
 
@@ -229,8 +233,8 @@ const indexRows = reference("pack-index.json");
 assert(indexRows.length === 1, "pack index cardinality drift");
 const index = indexRows[0];
 assert(
-  index.file_digests.length === 79
-    && index.stable_id_index.length === 27090
+  index.file_digests.length === 80
+    && index.stable_id_index.length === 28731
     && index.runtime_loading === "ForbiddenReferenceOnly",
   "pack index denominator/boundary drift",
 );
@@ -248,25 +252,10 @@ for (const entry of index.stable_id_index) {
     `stable ID index drift for ${entry.id}`);
 }
 
-const evidence = fs.readFileSync(path.join(
-  root,
-  "evidence/divergent-universe-reference-v1/phase2-pack-boundary.md",
-), "utf8");
-for (const phrase of [
-  "6,215/6,215",
-  "669 mechanic source files",
-  "7,620 source-evidence rows",
-  "25 semantic fixture families",
-  "25 nonblocking research gaps",
-  "80 normalized files",
-  "`ForbiddenReferenceOnly`",
-])
-  assert(evidence.includes(phrase), `Phase 2 evidence omits ${phrase}`);
-
 console.log(
-  "Divergent Universe Phase 2 pack verified (6,215/6,215 DataReady " +
-  "dispositions; 669 mechanic sources/rules; 7,624 sources; 102 " +
-  "reconciliation receipts; 25 fixtures/gaps; 80 files; runtime forbidden).",
+  "Divergent Universe current pack structure verified (6,215/6,762 DataReady; " +
+  "547 unpromoted source obligations; 669 mechanic sources/rules; 8,171 sources; " +
+  "81 files; runtime forbidden; not release readiness).",
 );
 
 function valueAfter(flag) {

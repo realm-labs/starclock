@@ -1,9 +1,9 @@
 {
   "schema_revision": "starclock.divergent-universe-visual-review.v1",
-  "reviewed_at": "2026-07-29",
+  "reviewed_at": "2026-09-12",
   "renderer": {
-    "name": "@oai/artifact-tool",
-    "version": "2.8.33",
+    "name": "openpyxl-html-chromium",
+    "version": "Microsoft Edge 153.0.4234.32",
     "range_policy": "rows 1-12 across every used schema column"
   },
   "workbooks": [
@@ -84,14 +84,15 @@
         "T23_EncounterGroups",
         "T24_EncounterWaves",
         "T25_EnemySlots",
-        "T26_BossPools"
+        "T26_BossPools",
+        "T27_PersonaSourceObligations"
       ]
     },
     {
       "file": "DivergentUniverseReview.xlsx",
       "sheets": [
-        "T27_MechanicSourceFiles",
-        "T28_MechanicRules",
+        "T28_MechanicSourceFiles",
+        "T29_MechanicRules",
         "T01_Sources",
         "T02_Coverage",
         "T03_ResearchGaps",
@@ -103,36 +104,37 @@
       ]
     }
   ],
-  "sheet_count": 80,
-  "render_manifest_sha256": "31c3f26fc8019979e3b17014835250225fe912ed49aaaef9a406c56a6c5757ea",
+  "sheet_count": 81,
+  "render_manifest_sha256": "f37d4a2859d720634da0f47f2959ef3e510fdcea54792be434a7c8a063babb2e",
   "contact_sheet_sha256": [
-    "0f4e79d30cc35a5d878f32efcc3b30f46ad43b9c93d5192cd277356b016912d8",
-    "df10e461570bd2453d67b953a5e5101a83f3527ed6b8ac423a37829ae4b09a5b",
-    "2f7305a85cdcee07229456a5c164e841db585dfdbd3b9d83d56bf7e40aca7cd4",
-    "9e91418c0b6ae95ad074bfcb275c507403703a8f5b0bb34a4eec20d909397cfd",
-    "351677da31d3747f5c4dc0e69d951a462188f65b89bd247add46ddf3298e4326",
-    "ab7c6be4dbe77fadf8079303ce2045de731828595bb3589461afb3d3655133d3",
-    "cfb6f88e9b502bb84097a83333e0a2aaae5a9e3a63d159e5758cd89687876458",
-    "adca93552d39a4a013d9d281f064891dd5b42e8cff57ef91f36597ce1de799c7",
-    "f912c33f147204b0d52141c26533bee6cabbc7c8081a9c7772397816a03db6f7",
-    "0115c8d2d676882b4e57d4da3fdbce654afee8a10780aa149a092ba93bd49432"
+    "ada40bd0706ae59c5008b644300ec97e2ab508b8eb25af09a70f29f77e31b3dc",
+    "d219dd299ee5010fc905e78a269ec16f97333eee5d1f5a877c1717d6eaecea31",
+    "96245f98f11ebd82e22535e364fb085f27f1a1648321a469a707d6cdde3f2d93",
+    "b8b46ce2dabe811f7c690d4cacc5a4e0355968abf7c1ccf9ca3e7c2eaf2b1ae2",
+    "654e140965828fb9cb85461a07a36ad774fb3ea8791cbfbbf148c03e0d81c6d8",
+    "bd9fd9c0dcf95f337fda92ae9e1adb50c44a16eab202c7b647c04596bbb77c45",
+    "2f5d636031a805a6582968d584960aa55c061565502f1a2f3468884719a88b68",
+    "63b78e92c50188b0ac67966759a01be78d06b689e3ebdb126c80aa5e324d29e5",
+    "b1bcd519fd50fb0c12649ecac148a63408ad7eeda5fc73900ba3a74d18a89133",
+    "e46e67351b91ad4e5eca8d36532df0eb07de702558d10a26f2cb805543afd309",
+    "d62635620e382d7b55896924ad4fd13ba426e3a2d00a673535fb631c35e869e0"
   ],
   "workbook_sha256": {
-    "DivergentUniverse.xlsx": "02857d83207d7faeb11ee6d9586c0b2362380fd32d64ae06c477c7fe6aad20ec",
-    "DivergentUniverseBindings.xlsx": "733b7ff60cf1b6556f69e7310cc6a96c3fff87ff9d55e7bd98f6fc22e91873ca",
-    "DivergentUniverseReview.xlsx": "aedcd5a249a38e607bdc22638bad9ebeb1ebd82e4ed6764b017d7a591fef1fc5"
+    "DivergentUniverse.xlsx": "bc73a2c6e76e659470ac151c560f0ab61a1e37da7317ee09f9cb74600b5cd33c",
+    "DivergentUniverseBindings.xlsx": "5ad65ad72145f38b7e22a9cfb1da11fae098c2fc27a2f51b47d7e11c920115f2",
+    "DivergentUniverseReview.xlsx": "a7fe036da4d8c996b4db1f9d1769ebc1761d30c5c8c735be6b0f5f8e6f4f9690"
   },
-  "workbook_semantic_sha256": "b083e897f1938603dc69dec0c07090b4215d6af7a5c49a19448e23a07d7aba0d",
+  "workbook_semantic_sha256": "4a188229b504894bac81a62d4d0ac5fbea402ddfb055a692efa4349d1242401e",
   "sora_bundle": {
-    "bytes": 24736790,
-    "sha256": "3221d0965292de6bbbd834338c2ff088821200ea22a4b7e7c65afc996444c5cf",
-    "tables": 80,
-    "rows": 27091,
+    "bytes": 26417866,
+    "sha256": "2768fc939dee45c07233136f27c101e3f5a52c1c80ca11ec239dbac9c1a8a993",
+    "tables": 81,
+    "rows": 28732,
     "verified_empty_tables": 2
   },
   "debug_export": {
-    "files": 80,
-    "sha256": "491bcffe6a0cc4a622160cd1fa448219984f1099163cf4ab72a8861e7a3bcd28",
+    "files": 81,
+    "sha256": "f3b8316b703f3c47ac2ace750c5e5cd3d37083b794417ab897ccb8ecb3c6a3cb",
     "digest_algorithm": "SHA-256 over sorted filename, NUL, file bytes, NUL"
   },
   "checks": {

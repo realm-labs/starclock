@@ -1,0 +1,107 @@
+{
+  "schema_revision": "starclock.divergent-universe-battle-assembly-execution.v1",
+  "goal_id": "divergent-universe-runtime-v1",
+  "batch": "G22-P6-B4",
+  "status": "CompleteImmutableCurrentBattleSpecAssemblyAndConstructionValidation",
+  "input_digests": {
+    "encounter_groups": {
+      "path": "content-reference/divergent-universe-v1/encounter-groups.json",
+      "sha256": "9099418d230b8efd86f93c6ec07301ef9d850604d756ca9922731c734b02f01f"
+    },
+    "encounter_waves": {
+      "path": "content-reference/divergent-universe-v1/encounter-waves.json",
+      "sha256": "35b41c016c89e57f8a34eca8f711d2df1f7227c36373a15848df675c13594313"
+    },
+    "enemy_slots": {
+      "path": "content-reference/divergent-universe-v1/enemy-slots.json",
+      "sha256": "a13a696d5d216d9fecee34eba78a42158bc3e9cc7c4cab99d11b36a7ca84b2cd"
+    },
+    "runtime_dispositions": {
+      "path": "content-manifests/divergent-universe-runtime-v1/runtime-dispositions.json",
+      "sha256": "1319cb15f7a2e1b9c283549300cf29bb4f2b65d41c759a0c29240570c7fbd2bc"
+    },
+    "batch_ledger": {
+      "path": "content-manifests/divergent-universe-runtime-v1/batch-ledger.json",
+      "sha256": "77e109344b674b1a301708d247e2dcedeace5bc941f789d2ab3529dc5224f467"
+    },
+    "contribution_execution": {
+      "path": "content-manifests/divergent-universe-runtime-v1/contribution-snapshot-execution.json",
+      "sha256": "24ab7fe4059724cb38cef2d563e2642e5df853ac2cb70095fd14091f3be9bf5f"
+    },
+    "encounter_execution": {
+      "path": "content-manifests/divergent-universe-runtime-v1/encounter-reachability-execution.json",
+      "sha256": "9c2ed84daadaf0aa08175f414a2f9957b0b52d92d18c1dabddc39948d71d1020"
+    },
+    "runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/battle_assembly_runtime.rs",
+      "sha256": "eb90a45ed0dc8bc30f9abf5909806a86a8777c6a4cdd714c7c1debe3d87dec99"
+    },
+    "tests": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/tests/battle_assembly_runtime.rs",
+      "sha256": "0be11fa580c7aaf25d419e19cfb431457348533e49943a1807fa66027a179067"
+    }
+  },
+  "exact_runtime": {
+    "encounter_groups": 43,
+    "encounter_stages": 118,
+    "encounter_waves": 176,
+    "enemy_slots": 385,
+    "representative_wave_shapes": 8,
+    "immutable_identity_components": 7
+  },
+  "policy_boundary": {
+    "encounter_selection": "ExplicitWeeklyDisplayCandidateOnly",
+    "missing_enemy_binding": "CalibratedSharedMinionProxy",
+    "battle_spec_validation": "BattleCreateConstructionValidation",
+    "settlement": "DeferredToG22P6B5",
+    "rng_draws": 0,
+    "observed_enemy_or_encounter_parity_claimed": false
+  },
+  "execution_receipt": {
+    "current_participants_bound": "Passed",
+    "unified_contribution_snapshot_bound": "Passed",
+    "encounter_selection_and_difficulty_bound": "Passed",
+    "policy_identity_bound": "Passed",
+    "every_emitted_battle_spec_construction_validated": "Passed",
+    "stale_snapshots_reject_without_state_or_rng": "Passed"
+  },
+  "assignment_closure": {
+    "obligations": 0,
+    "fixture_families": 1,
+    "research_gaps": 1,
+    "policy_sources": 1,
+    "mechanic_programs": 0
+  },
+  "capability_probes": [
+    {
+      "id": "all-input-identity-and-construction-validation",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/battle_assembly_runtime.rs",
+      "test": "current_battle_assembly_binds_all_inputs_and_is_construction_validated",
+      "result": "Passed"
+    },
+    {
+      "id": "representative-wave-shapes",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/battle_assembly_runtime.rs",
+      "test": "every_representative_wave_shape_materializes_a_valid_battle_spec",
+      "result": "Passed"
+    },
+    {
+      "id": "identity-sensitivity",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/battle_assembly_runtime.rs",
+      "test": "contribution_encounter_difficulty_and_policy_identity_change_assembly_identity",
+      "result": "Passed"
+    },
+    {
+      "id": "stale-snapshot-atomic-rejection",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/battle_assembly_runtime.rs",
+      "test": "stale_contribution_and_encounter_snapshots_reject_without_state_or_rng",
+      "result": "Passed"
+    }
+  ],
+  "summary": {
+    "identity_components": 7,
+    "wave_shapes": 8,
+    "terminal_obligations": 0,
+    "probes": 4
+  }
+}

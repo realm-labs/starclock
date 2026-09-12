@@ -193,7 +193,9 @@ fn independent_stdio_client_proves_discovery_play_errors_cancellation_replay_and
             "starclock://universe/swarm-disaster/manifest",
             "starclock://rules/swarm-disaster",
             "starclock://currency-wars/manifest",
-            "starclock://rules/currency-wars"
+            "starclock://rules/currency-wars",
+            "starclock://universe/divergent-universe/manifest",
+            "starclock://rules/divergent-universe"
         ]
     );
     let templates = client.result("resources/templates/list", json!({}));

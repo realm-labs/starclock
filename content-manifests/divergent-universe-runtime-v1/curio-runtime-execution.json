@@ -1,0 +1,156 @@
+{
+  "schema_revision": "starclock.divergent-universe-curio-runtime-execution.v1",
+  "goal_id": "divergent-universe-runtime-v1",
+  "batch": "G22-P5-B1",
+  "status": "CompleteCurioIdentityStateAndAcceptedLifecycleExecution",
+  "input_digests": {
+    "curios": {
+      "path": "content-reference/divergent-universe-v1/curios.json",
+      "sha256": "e9289025041de2309a6ece8c9d870058255ecf7ebe1061e2e930af7d1102d300"
+    },
+    "curio_states": {
+      "path": "content-reference/divergent-universe-v1/curio-states.json",
+      "sha256": "17e8c908ef893ee7ffedc93ded8b980a231e2f5fc3413c182107b4e33b6b5082"
+    },
+    "curio_groups": {
+      "path": "content-reference/divergent-universe-v1/curio-groups.json",
+      "sha256": "fbd7dcb1ca852d7c6c6a4a90359eade95b13cb5d6b4b42c90b45aae17d4cd366"
+    },
+    "curio_lifecycle": {
+      "path": "content-reference/divergent-universe-v1/curio-lifecycle-rules.json",
+      "sha256": "0895d695f75deb8a234630c18c976edd9f823785c8a19ebc926e5294082fcdd4"
+    },
+    "curio_pool_membership": {
+      "path": "content-reference/divergent-universe-v1/curio-pool-membership.json",
+      "sha256": "13ac1e753cdcf1f4695cd67452c2c9841ffbbaf73ad14975817ebdef73341a8d"
+    },
+    "review_fixtures": {
+      "path": "content-reference/divergent-universe-v1/review-fixtures.json",
+      "sha256": "70fdb15147d046a170c4fe4038ccdd595bfbfef1e00040dba978c74c6b8a26c4"
+    },
+    "research_gaps": {
+      "path": "content-reference/divergent-universe-v1/research-gaps.json",
+      "sha256": "5818c783a5087b7244951f98744372dddd04371f39250bbae5b4db410d956ab0"
+    },
+    "runtime_dispositions": {
+      "path": "content-manifests/divergent-universe-runtime-v1/runtime-dispositions.json",
+      "sha256": "1319cb15f7a2e1b9c283549300cf29bb4f2b65d41c759a0c29240570c7fbd2bc"
+    },
+    "batch_ledger": {
+      "path": "content-manifests/divergent-universe-runtime-v1/batch-ledger.json",
+      "sha256": "77e109344b674b1a301708d247e2dcedeace5bc941f789d2ab3529dc5224f467"
+    },
+    "prior_execution": {
+      "path": "content-manifests/divergent-universe-runtime-v1/equation-blessing-hardening-execution.json",
+      "sha256": "3668e8c0c348795a122e6a6e24b10e78d807d86b427675b0074c857be9eac7b9"
+    },
+    "data_catalog": {
+      "path": "crates/starclock-data/src/divergent_universe_curio_catalog.rs",
+      "sha256": "a2ff8d15d9459bec432bf0eec6fb1bad876b9ab5ef01b61f6aad44731c6c596c"
+    },
+    "data_lowering": {
+      "path": "crates/starclock-data/src/divergent_universe_curio.rs",
+      "sha256": "7b0531afa526e30261319040a9ff2ed5735fdfde82eecb07dc53ae5881b7ece2"
+    },
+    "catalog_runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/curio_catalog.rs",
+      "sha256": "d848cacaff77a9c10aa32b71bf045002a28bafd35b19000c52f39c1e14c03d67"
+    },
+    "lifecycle_runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/curio_runtime.rs",
+      "sha256": "4bc55dc98c0a01f93dfd17f1c1c5643355cfb88b4680ef540b087311017007ed"
+    },
+    "state_slots": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/state.rs",
+      "sha256": "946d9d891d871569c556bfb87a63cf790b752dc1a1f7b762ad0e11e0cd2bbd36"
+    },
+    "tests": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/tests/curio_runtime.rs",
+      "sha256": "31af19684c261f5d7ca6eafb112d74550369b410be20afca5f08062c17202c77"
+    }
+  },
+  "exact_catalog": {
+    "curio_identities": 179,
+    "mode_copy_states": 235,
+    "identity_bound_states": 223,
+    "missing_handbook_identity_states": 12,
+    "effect_bindings": 235,
+    "trigger_bindings": 280,
+    "effect_parameters": 419,
+    "declared_charge_states": 64,
+    "declared_charge_total": 1501
+  },
+  "policy_boundary": {
+    "accepted_lifecycle_operations": [
+      "Acquisition",
+      "Activation",
+      "ChargeChange",
+      "Destruction",
+      "Repair",
+      "Replacement"
+    ],
+    "accuracy": "VersionedProjectPolicyAcceptedStableIdTransitionsNotObservedParity",
+    "unresolved_groups": 286,
+    "exact_consumer_category_groups_without_membership": 12,
+    "catalog_only_memberships": 235,
+    "missing_identity_states_reject": true,
+    "unresolved_group_fallback": "RejectWithoutMutation",
+    "exact_parity_claimed": false,
+    "replacement_condition": "Replace offer membership, weights and per-Curio lifecycle policy only when released programs or reproducible public observations prove them."
+  },
+  "execution_receipt": {
+    "all_bound_states_acquire_or_replace": "Passed",
+    "exact_declared_charges_initialize": "Passed",
+    "activation_uses_exact_trigger_binding": "Passed",
+    "destruction_tears_down_contribution": "Passed",
+    "repair_restores_contribution": "Passed",
+    "replacement_tears_down_prior_identity": "Passed",
+    "all_unresolved_groups_preserve_state_and_rng": "Passed",
+    "missing_identity_states_preserve_state_and_rng": "Passed",
+    "fresh_reconstruction_is_equal": "Passed"
+  },
+  "assignment_closure": {
+    "obligations": 414,
+    "exact_integrated": 179,
+    "policy_integrated": 235,
+    "fixture_families": 1,
+    "research_gaps": 1,
+    "policy_sources": 3,
+    "mechanic_programs": 0
+  },
+  "capability_probes": [
+    {
+      "id": "exact-catalog-and-policy-boundaries",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/curio_runtime.rs",
+      "test": "exact_curio_identity_state_effect_and_policy_catalogs_compile",
+      "result": "Passed"
+    },
+    {
+      "id": "all-bound-identities-and-copy-states",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/curio_runtime.rs",
+      "test": "all_bound_curio_mode_copy_states_execute_accepted_acquisition",
+      "result": "Passed"
+    },
+    {
+      "id": "charge-destruction-repair-replacement-teardown",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/curio_runtime.rs",
+      "test": "semantic_curio_lifecycle_changes_charges_and_tears_down_contribution",
+      "result": "Passed"
+    },
+    {
+      "id": "groups-unbound-state-rejection-and-reconstruction",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/curio_runtime.rs",
+      "test": "unresolved_curio_groups_and_invalid_lifecycle_commands_preserve_state_and_rng",
+      "result": "Passed"
+    }
+  ],
+  "summary": {
+    "curio_identities": 179,
+    "mode_copy_states": 235,
+    "executable_bound_states": 223,
+    "fail_closed_unbound_states": 12,
+    "unresolved_groups": 286,
+    "terminal_obligations": 414,
+    "probes": 4
+  }
+}

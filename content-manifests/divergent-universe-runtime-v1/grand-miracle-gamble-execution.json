@@ -1,0 +1,136 @@
+{
+  "schema_revision": "starclock.divergent-universe-grand-miracle-gamble-execution.v1",
+  "goal_id": "divergent-universe-runtime-v1",
+  "batch": "G22-P5-B2",
+  "status": "CompleteGrandMiracleEligibilityLifecycleAndGambleExecution",
+  "input_digests": {
+    "grand_miracles": {
+      "path": "content-reference/divergent-universe-v1/grand-miracles.json",
+      "sha256": "911721c731e08b37908fef7f6297b90dfe49127f375471f4465d802751454144"
+    },
+    "grand_miracle_eligibility": {
+      "path": "content-reference/divergent-universe-v1/grand-miracle-eligibility.json",
+      "sha256": "bab460a86b64f60b3f387a2aa18ea63e25baa2c4803e98eda8292ae04a29dab5"
+    },
+    "grand_miracle_states": {
+      "path": "content-reference/divergent-universe-v1/grand-miracle-states.json",
+      "sha256": "f0b0773ba10af9c22f535e4fc30e8e5af249882ce320aa8ee72cffae9a7d4e45"
+    },
+    "gamble_groups": {
+      "path": "content-reference/divergent-universe-v1/gamble-groups.json",
+      "sha256": "102be5798eb8b372322efedbc31bbbdfd5b4138404eb2d2ff53741aae544d03a"
+    },
+    "gamble_units": {
+      "path": "content-reference/divergent-universe-v1/gamble-units.json",
+      "sha256": "1af804c0975ba64b2c59a83cd8b70a66218a9e4806062892612281a58f980c56"
+    },
+    "review_fixtures": {
+      "path": "content-reference/divergent-universe-v1/review-fixtures.json",
+      "sha256": "70fdb15147d046a170c4fe4038ccdd595bfbfef1e00040dba978c74c6b8a26c4"
+    },
+    "research_gaps": {
+      "path": "content-reference/divergent-universe-v1/research-gaps.json",
+      "sha256": "5818c783a5087b7244951f98744372dddd04371f39250bbae5b4db410d956ab0"
+    },
+    "runtime_dispositions": {
+      "path": "content-manifests/divergent-universe-runtime-v1/runtime-dispositions.json",
+      "sha256": "1319cb15f7a2e1b9c283549300cf29bb4f2b65d41c759a0c29240570c7fbd2bc"
+    },
+    "batch_ledger": {
+      "path": "content-manifests/divergent-universe-runtime-v1/batch-ledger.json",
+      "sha256": "77e109344b674b1a301708d247e2dcedeace5bc941f789d2ab3529dc5224f467"
+    },
+    "prior_execution": {
+      "path": "content-manifests/divergent-universe-runtime-v1/curio-runtime-execution.json",
+      "sha256": "20851fc502a18e6351461fe31d4c9385f85d200a89a6c836235f81b7451646a3"
+    },
+    "miracle_runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/grand_miracle_runtime.rs",
+      "sha256": "c17e105d233f69060bd35c412aa9a8d33ce3f0ca3b03d9bd8e7891dbb7a1ba0b"
+    },
+    "gamble_runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/gamble_runtime.rs",
+      "sha256": "094be39d94a52c78c5a805c6cb1609f8146c468f4dcb6314bef7c87089604960"
+    },
+    "state_runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/state.rs",
+      "sha256": "946d9d891d871569c556bfb87a63cf790b752dc1a1f7b762ad0e11e0cd2bbd36"
+    },
+    "tests": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/tests/grand_miracle_gamble_runtime.rs",
+      "sha256": "466b9a44d386b8d3542d19af6e8f009ace441c2dfd40ab14c914107139e1161e"
+    }
+  },
+  "exact_and_policy_runtime": {
+    "grand_miracles": 17,
+    "current_exact_eligibility_rules": 17,
+    "historical_non_current_exclusions": 57,
+    "lifecycle_states": 34,
+    "retained_exact_effect_identities": 3,
+    "unresolved_gamble_groups": 126,
+    "exact_coin_units": 2,
+    "unresolved_source_group_units": 87,
+    "exact_coin_total": 60
+  },
+  "policy_boundary": {
+    "grand_miracle_lifecycle_accuracy": "VersionedProjectPolicyAcceptedLifecycleMissingReleasedMazeBuff",
+    "gamble_group_accuracy": "VersionedProjectPolicyFailClosedUnavailableGroupMembership",
+    "unresolved_group_fallback": "RejectWithoutMutation",
+    "reward_rng_draws_for_empty_or_unresolved_work": 0,
+    "exact_parity_claimed": false
+  },
+  "execution_receipt": {
+    "all_current_eligibility_rules_execute": "Passed",
+    "all_grand_miracles_install_activate_and_teardown": "Passed",
+    "exact_coin_units_credit_sixty_total": "Passed",
+    "all_unresolved_units_preserve_state_and_rng": "Passed",
+    "all_unresolved_groups_preserve_state_and_rng": "Passed",
+    "stale_commands_preserve_state": "Passed",
+    "fresh_reconstruction_is_equal": "Passed"
+  },
+  "assignment_closure": {
+    "obligations": 575,
+    "exact_integrated": 2,
+    "policy_integrated": 516,
+    "excluded": 57,
+    "fixture_families": 2,
+    "research_gaps": 2,
+    "policy_sources": 4,
+    "mechanic_programs": 0
+  },
+  "capability_probes": [
+    {
+      "id": "catalog-and-policy-boundaries",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/grand_miracle_gamble_runtime.rs",
+      "test": "grand_miracle_and_gamble_catalogs_compile_exact_policy_boundaries",
+      "result": "Passed"
+    },
+    {
+      "id": "all-grand-miracle-lifecycles",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/grand_miracle_gamble_runtime.rs",
+      "test": "every_grand_miracle_executes_accepted_activation_and_teardown",
+      "result": "Passed"
+    },
+    {
+      "id": "exact-coin-and-unresolved-unit-outcomes",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/grand_miracle_gamble_runtime.rs",
+      "test": "gamble_exact_coin_units_execute_and_unresolved_outcomes_fail_closed",
+      "result": "Passed"
+    },
+    {
+      "id": "all-groups-stale-and-reconstruction",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/grand_miracle_gamble_runtime.rs",
+      "test": "all_gamble_groups_and_stale_grand_miracle_commands_preserve_state_and_rng",
+      "result": "Passed"
+    }
+  ],
+  "summary": {
+    "grand_miracles": 17,
+    "current_eligibility_rules": 17,
+    "historical_exclusions": 57,
+    "gamble_groups": 126,
+    "gamble_units": 89,
+    "terminal_obligations": 575,
+    "probes": 4
+  }
+}

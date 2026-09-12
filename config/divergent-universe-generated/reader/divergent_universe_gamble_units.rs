@@ -58,12 +58,12 @@ impl super::runtime::SoraDecode for DivergentUniverseGambleUnits {
             ownership: <DuOwnership as super::runtime::SoraDecode>::decode(reader)?,
             coverage_state: <DuCoverageState as super::runtime::SoraDecode>::decode(reader)?,
             evidence_quality: <DuEvidenceQuality as super::runtime::SoraDecode>::decode(reader)?,
-            source_refs: <Option<Vec<i32>> as super::runtime::SoraDecode>::decode(reader)?,
-            tags: <Option<Vec<String>> as super::runtime::SoraDecode>::decode(reader)?,
-            source_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            unit_type: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            parameters: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
-            outcome_program: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            source_refs: match reader.read_u8()? { 0 => None, 1 => Some({ let len = reader.read_var_u32()? as usize; let mut values = Vec::with_capacity(len); for _ in 0..len { values.push(<i32 as super::runtime::SoraDecode>::decode(reader)?); } values }), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            tags: match reader.read_u8()? { 0 => None, 1 => Some({ let len = reader.read_var_u32()? as usize; let mut values = Vec::with_capacity(len); for _ in 0..len { values.push(<String as super::runtime::SoraDecode>::decode(reader)?); } values }), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            source_id: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            unit_type: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            parameters: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
+            outcome_program: match reader.read_u8()? { 0 => None, 1 => Some(<String as super::runtime::SoraDecode>::decode(reader)?), value => return Err(super::runtime::SoraReadError::new(format!("invalid option presence {}", value))), },
             payload_json: <String as super::runtime::SoraDecode>::decode(reader)?,
         })
     }

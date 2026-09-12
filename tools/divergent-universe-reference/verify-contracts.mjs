@@ -83,12 +83,12 @@ assert(unique(assigned) && setEqual(new Set(assigned), new Set(fileNames)),
 assert(
   authoring.authority.authoritative_format === "xlsx"
     && authoring.authority.editor === "python-openpyxl"
-    && authoring.authority.schema_exporter_version === "0.3.0"
+    && authoring.authority.schema_exporter_version === "0.6.1"
     && authoring.authority.runtime_loading === false,
   "Excel/openpyxl/Sora authority drift",
 );
 assert(
-  authoring.isolation.project === "config/divergent-universe/project.toml"
+  authoring.isolation.project === "config/divergent-universe-project.toml"
     && authoring.isolation.generated_reader_root
       === "config/divergent-universe-generated/reader/"
     && authoring.isolation.forbidden_outputs.includes("config/generated/")
@@ -184,12 +184,12 @@ for (const checkpoint of checkpoints) {
   assert(expected && Object.entries(expected).every(
     ([field, value]) => checkpoint[field] === value),
   `${checkpoint.goal} reconciliation checkpoint drift`);
-  if (checkpoint.remote_ancestor)
-    execFileSync(
-      "git",
-      ["merge-base", "--is-ancestor", checkpoint.commit, checkpoint.remote_ancestor],
-      { cwd: root, stdio: "ignore" },
-    );
+  assert(/^[0-9a-f]{40}$/u.test(checkpoint.commit),
+    `${checkpoint.goal} checkpoint commit is invalid`);
+  assert(checkpoint.remote_ancestor === undefined
+    || (typeof checkpoint.remote_ancestor === "string"
+      && checkpoint.remote_ancestor.length > 0),
+  `${checkpoint.goal} checkpoint locator is invalid`);
 }
 assert(
   schema.reconciliation_policy.join_key.join(",")

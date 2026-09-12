@@ -14,6 +14,7 @@ const sourceCacheArgs = sourceCacheIndex === -1
 execFileSync(
   process.execPath,
   ["tools/divergent-universe-reference/inventory.mjs", "--check",
+    ...(args.includes("--reclassify") ? ["--reclassify"] : []),
     ...sourceCacheArgs],
   { cwd: root, stdio: "inherit" },
 );
@@ -109,6 +110,11 @@ assert(exclusions.length === inventory.closure.named_other_mode_exclusion_files
   && exclusions.every(({ selected_by: selectedBy }) =>
     selectedBy.includes("prove") || selectedBy.includes("exclusion")),
 "other-mode inventory rows are not fail-closed exclusion evidence");
+const persona = records.filter(({ path: sourcePath }) =>
+  /^ExcelOutput\/RoguePersona[^/]*\.json$/u.test(sourcePath));
+assert(persona.length === 11 && persona.every(({ family }) =>
+  family === "divergent_persona_structured_candidate"),
+"Persona source files were blanket-excluded or silently admitted");
 assert(inventory.selection_contract.denominator_rule
   .includes("no content-row denominator"),
 "source inventory improperly claims a content denominator");

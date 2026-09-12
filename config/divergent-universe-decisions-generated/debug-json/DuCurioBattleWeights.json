@@ -1,0 +1,479 @@
+{
+  "table": {
+    "name": "DuCurioBattleWeights",
+    "rows": [
+      {
+        "values": {
+          "bonus_weight": {
+            "Integer": 3
+          },
+          "effect_id": {
+            "String": "2043"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "path_type": {
+            "String": "126"
+          },
+          "policy": {
+            "String": "ActiveStateAdditiveCandidateWeight"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: at verified settlement, add three to each matching unowned candidate's base weight of one for every active bound state. Use checked integer addition and shared weighted sampling without replacement. Different paths retain independent bonuses; no guaranteed slot or extra RNG stream. Destroyed/replaced states contribute nothing and repair restores the bonus. Existing offers retain their snapshot. This four-to-one candidate-weight ratio is a low-confidence approximation of increased chance, not a measured fourfold Path probability. Other reward sources and Trailblaze Wax Equation triggers are separate."
+          },
+          "replacement_condition": {
+            "String": "Replace magnitude, additive stacking, base rarity weights, eligible reward boundaries and snapshot timing independently when released execution data or reproducible observations establish them. Alternatives include multiplicative weights and guaranteed Path slots; positive additive weights preserve increased chance without inventing a guarantee."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 7
+              },
+              {
+                "Integer": 8
+              },
+              {
+                "Integer": 9
+              },
+              {
+                "Integer": 10
+              },
+              {
+                "Integer": 11
+              },
+              {
+                "Integer": 15
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.curio-battle-weight.9043"
+          },
+          "state_key": {
+            "String": "divergent-universe.curio-state.9043"
+          },
+          "summary_en": {
+            "String": "While active, favor Elation Blessings in normal-battle victory offers; numeric weight is project policy."
+          },
+          "summary_zh_cn": {
+            "String": "生效期间提高普通战斗胜利候选中欢愉祝福的抽取权重；具体数值为项目策略。"
+          }
+        }
+      },
+      {
+        "values": {
+          "bonus_weight": {
+            "Integer": 3
+          },
+          "effect_id": {
+            "String": "2044"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "path_type": {
+            "String": "124"
+          },
+          "policy": {
+            "String": "ActiveStateAdditiveCandidateWeight"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: at verified settlement, add three to each matching unowned candidate's base weight of one for every active bound state. Use checked integer addition and shared weighted sampling without replacement. Different paths retain independent bonuses; no guaranteed slot or extra RNG stream. Destroyed/replaced states contribute nothing and repair restores the bonus. Existing offers retain their snapshot. This four-to-one candidate-weight ratio is a low-confidence approximation of increased chance, not a measured fourfold Path probability. Other reward sources and Trailblaze Wax Equation triggers are separate."
+          },
+          "replacement_condition": {
+            "String": "Replace magnitude, additive stacking, base rarity weights, eligible reward boundaries and snapshot timing independently when released execution data or reproducible observations establish them. Alternatives include multiplicative weights and guaranteed Path slots; positive additive weights preserve increased chance without inventing a guarantee."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 7
+              },
+              {
+                "Integer": 8
+              },
+              {
+                "Integer": 9
+              },
+              {
+                "Integer": 10
+              },
+              {
+                "Integer": 11
+              },
+              {
+                "Integer": 15
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.curio-battle-weight.9044"
+          },
+          "state_key": {
+            "String": "divergent-universe.curio-state.9044"
+          },
+          "summary_en": {
+            "String": "While active, favor The Hunt Blessings in normal-battle victory offers; numeric weight is project policy."
+          },
+          "summary_zh_cn": {
+            "String": "生效期间提高普通战斗胜利候选中巡猎祝福的抽取权重；具体数值为项目策略。"
+          }
+        }
+      },
+      {
+        "values": {
+          "bonus_weight": {
+            "Integer": 3
+          },
+          "effect_id": {
+            "String": "2045"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "path_type": {
+            "String": "125"
+          },
+          "policy": {
+            "String": "ActiveStateAdditiveCandidateWeight"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: at verified settlement, add three to each matching unowned candidate's base weight of one for every active bound state. Use checked integer addition and shared weighted sampling without replacement. Different paths retain independent bonuses; no guaranteed slot or extra RNG stream. Destroyed/replaced states contribute nothing and repair restores the bonus. Existing offers retain their snapshot. This four-to-one candidate-weight ratio is a low-confidence approximation of increased chance, not a measured fourfold Path probability. Other reward sources and Trailblaze Wax Equation triggers are separate."
+          },
+          "replacement_condition": {
+            "String": "Replace magnitude, additive stacking, base rarity weights, eligible reward boundaries and snapshot timing independently when released execution data or reproducible observations establish them. Alternatives include multiplicative weights and guaranteed Path slots; positive additive weights preserve increased chance without inventing a guarantee."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 7
+              },
+              {
+                "Integer": 8
+              },
+              {
+                "Integer": 9
+              },
+              {
+                "Integer": 10
+              },
+              {
+                "Integer": 11
+              },
+              {
+                "Integer": 15
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.curio-battle-weight.9045"
+          },
+          "state_key": {
+            "String": "divergent-universe.curio-state.9045"
+          },
+          "summary_en": {
+            "String": "While active, favor Destruction Blessings in normal-battle victory offers; numeric weight is project policy."
+          },
+          "summary_zh_cn": {
+            "String": "生效期间提高普通战斗胜利候选中毁灭祝福的抽取权重；具体数值为项目策略。"
+          }
+        }
+      },
+      {
+        "values": {
+          "bonus_weight": {
+            "Integer": 3
+          },
+          "effect_id": {
+            "String": "2046"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "path_type": {
+            "String": "121"
+          },
+          "policy": {
+            "String": "ActiveStateAdditiveCandidateWeight"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: at verified settlement, add three to each matching unowned candidate's base weight of one for every active bound state. Use checked integer addition and shared weighted sampling without replacement. Different paths retain independent bonuses; no guaranteed slot or extra RNG stream. Destroyed/replaced states contribute nothing and repair restores the bonus. Existing offers retain their snapshot. This four-to-one candidate-weight ratio is a low-confidence approximation of increased chance, not a measured fourfold Path probability. Other reward sources and Trailblaze Wax Equation triggers are separate."
+          },
+          "replacement_condition": {
+            "String": "Replace magnitude, additive stacking, base rarity weights, eligible reward boundaries and snapshot timing independently when released execution data or reproducible observations establish them. Alternatives include multiplicative weights and guaranteed Path slots; positive additive weights preserve increased chance without inventing a guarantee."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 7
+              },
+              {
+                "Integer": 8
+              },
+              {
+                "Integer": 9
+              },
+              {
+                "Integer": 10
+              },
+              {
+                "Integer": 11
+              },
+              {
+                "Integer": 15
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.curio-battle-weight.9046"
+          },
+          "state_key": {
+            "String": "divergent-universe.curio-state.9046"
+          },
+          "summary_en": {
+            "String": "While active, favor Remembrance Blessings in normal-battle victory offers; numeric weight is project policy."
+          },
+          "summary_zh_cn": {
+            "String": "生效期间提高普通战斗胜利候选中记忆祝福的抽取权重；具体数值为项目策略。"
+          }
+        }
+      },
+      {
+        "values": {
+          "bonus_weight": {
+            "Integer": 3
+          },
+          "effect_id": {
+            "String": "2047"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "path_type": {
+            "String": "122"
+          },
+          "policy": {
+            "String": "ActiveStateAdditiveCandidateWeight"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: at verified settlement, add three to each matching unowned candidate's base weight of one for every active bound state. Use checked integer addition and shared weighted sampling without replacement. Different paths retain independent bonuses; no guaranteed slot or extra RNG stream. Destroyed/replaced states contribute nothing and repair restores the bonus. Existing offers retain their snapshot. This four-to-one candidate-weight ratio is a low-confidence approximation of increased chance, not a measured fourfold Path probability. Other reward sources and Trailblaze Wax Equation triggers are separate."
+          },
+          "replacement_condition": {
+            "String": "Replace magnitude, additive stacking, base rarity weights, eligible reward boundaries and snapshot timing independently when released execution data or reproducible observations establish them. Alternatives include multiplicative weights and guaranteed Path slots; positive additive weights preserve increased chance without inventing a guarantee."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 7
+              },
+              {
+                "Integer": 8
+              },
+              {
+                "Integer": 9
+              },
+              {
+                "Integer": 10
+              },
+              {
+                "Integer": 11
+              },
+              {
+                "Integer": 15
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.curio-battle-weight.9047"
+          },
+          "state_key": {
+            "String": "divergent-universe.curio-state.9047"
+          },
+          "summary_en": {
+            "String": "While active, favor Nihility Blessings in normal-battle victory offers; numeric weight is project policy."
+          },
+          "summary_zh_cn": {
+            "String": "生效期间提高普通战斗胜利候选中虚无祝福的抽取权重；具体数值为项目策略。"
+          }
+        }
+      },
+      {
+        "values": {
+          "bonus_weight": {
+            "Integer": 3
+          },
+          "effect_id": {
+            "String": "2048"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "path_type": {
+            "String": "127"
+          },
+          "policy": {
+            "String": "ActiveStateAdditiveCandidateWeight"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: at verified settlement, add three to each matching unowned candidate's base weight of one for every active bound state. Use checked integer addition and shared weighted sampling without replacement. Different paths retain independent bonuses; no guaranteed slot or extra RNG stream. Destroyed/replaced states contribute nothing and repair restores the bonus. Existing offers retain their snapshot. This four-to-one candidate-weight ratio is a low-confidence approximation of increased chance, not a measured fourfold Path probability. Other reward sources and Trailblaze Wax Equation triggers are separate."
+          },
+          "replacement_condition": {
+            "String": "Replace magnitude, additive stacking, base rarity weights, eligible reward boundaries and snapshot timing independently when released execution data or reproducible observations establish them. Alternatives include multiplicative weights and guaranteed Path slots; positive additive weights preserve increased chance without inventing a guarantee."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 7
+              },
+              {
+                "Integer": 8
+              },
+              {
+                "Integer": 9
+              },
+              {
+                "Integer": 10
+              },
+              {
+                "Integer": 11
+              },
+              {
+                "Integer": 15
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.curio-battle-weight.9048"
+          },
+          "state_key": {
+            "String": "divergent-universe.curio-state.9048"
+          },
+          "summary_en": {
+            "String": "While active, favor Propagation Blessings in normal-battle victory offers; numeric weight is project policy."
+          },
+          "summary_zh_cn": {
+            "String": "生效期间提高普通战斗胜利候选中繁育祝福的抽取权重；具体数值为项目策略。"
+          }
+        }
+      },
+      {
+        "values": {
+          "bonus_weight": {
+            "Integer": 3
+          },
+          "effect_id": {
+            "String": "2049"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "path_type": {
+            "String": "128"
+          },
+          "policy": {
+            "String": "ActiveStateAdditiveCandidateWeight"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: at verified settlement, add three to each matching unowned candidate's base weight of one for every active bound state. Use checked integer addition and shared weighted sampling without replacement. Different paths retain independent bonuses; no guaranteed slot or extra RNG stream. Destroyed/replaced states contribute nothing and repair restores the bonus. Existing offers retain their snapshot. This four-to-one candidate-weight ratio is a low-confidence approximation of increased chance, not a measured fourfold Path probability. Other reward sources and Trailblaze Wax Equation triggers are separate."
+          },
+          "replacement_condition": {
+            "String": "Replace magnitude, additive stacking, base rarity weights, eligible reward boundaries and snapshot timing independently when released execution data or reproducible observations establish them. Alternatives include multiplicative weights and guaranteed Path slots; positive additive weights preserve increased chance without inventing a guarantee."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 7
+              },
+              {
+                "Integer": 8
+              },
+              {
+                "Integer": 9
+              },
+              {
+                "Integer": 10
+              },
+              {
+                "Integer": 11
+              },
+              {
+                "Integer": 15
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.curio-battle-weight.9049"
+          },
+          "state_key": {
+            "String": "divergent-universe.curio-state.9049"
+          },
+          "summary_en": {
+            "String": "While active, favor Erudition Blessings in normal-battle victory offers; numeric weight is project policy."
+          },
+          "summary_zh_cn": {
+            "String": "生效期间提高普通战斗胜利候选中智识祝福的抽取权重；具体数值为项目策略。"
+          }
+        }
+      },
+      {
+        "values": {
+          "bonus_weight": {
+            "Integer": 3
+          },
+          "effect_id": {
+            "String": "2147"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "path_type": {
+            "String": "129"
+          },
+          "policy": {
+            "String": "ActiveStateAdditiveCandidateWeight"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: at verified settlement, add three to each matching unowned candidate's base weight of one for every active bound state. Use checked integer addition and shared weighted sampling without replacement. Different paths retain independent bonuses; no guaranteed slot or extra RNG stream. Destroyed/replaced states contribute nothing and repair restores the bonus. Existing offers retain their snapshot. This four-to-one candidate-weight ratio is a low-confidence approximation of increased chance, not a measured fourfold Path probability. Other reward sources and Trailblaze Wax Equation triggers are separate."
+          },
+          "replacement_condition": {
+            "String": "Replace magnitude, additive stacking, base rarity weights, eligible reward boundaries and snapshot timing independently when released execution data or reproducible observations establish them. Alternatives include multiplicative weights and guaranteed Path slots; positive additive weights preserve increased chance without inventing a guarantee."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 7
+              },
+              {
+                "Integer": 8
+              },
+              {
+                "Integer": 9
+              },
+              {
+                "Integer": 10
+              },
+              {
+                "Integer": 11
+              },
+              {
+                "Integer": 15
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.curio-battle-weight.9147"
+          },
+          "state_key": {
+            "String": "divergent-universe.curio-state.9147"
+          },
+          "summary_en": {
+            "String": "While active, favor Harmony Blessings in normal-battle victory offers; numeric weight is project policy."
+          },
+          "summary_zh_cn": {
+            "String": "生效期间提高普通战斗胜利候选中同谐祝福的抽取权重；具体数值为项目策略。"
+          }
+        }
+      }
+    ]
+  }
+}

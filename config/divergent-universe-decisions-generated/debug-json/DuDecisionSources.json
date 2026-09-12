@@ -1,0 +1,2251 @@
+{
+  "table": {
+    "name": "DuDecisionSources",
+    "rows": [
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-08"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "locator": {
+            "String": "ExcelOutput/RogueTournHandBookEvent.json; EventHandbookID=108"
+          },
+          "note": {
+            "String": "Git blob digest; current handbook identity, not option mechanics."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "15e0e448186b799687a1ef4582e96b40da43888fee5a0e31278eb6cbc29106b9"
+          },
+          "stable_key": {
+            "String": "du.source.color.handbook"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-08"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "locator": {
+            "String": "ExcelOutput/RogueTournNPC.json; RogueNPCID=722601"
+          },
+          "note": {
+            "String": "Git blob digest; published graph absent at pinned revision."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "e3ef2da06848f45704310e1a35ae06390febf7d4e5a6027591912929b4e4c478"
+          },
+          "stable_key": {
+            "String": "du.source.color.variant"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-08"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "locator": {
+            "String": "A Dash of Color / 一抹色彩; three alternative outcomes"
+          },
+          "note": {
+            "String": "Canonical event-list HTML digest. Values reported by community; application to 4.4 is policy, not observed parity."
+          },
+          "quality": {
+            "String": "ObservedCommunity"
+          },
+          "revision": {
+            "String": "92645"
+          },
+          "sha256": {
+            "String": "c0a1e384cd77623e8f95ebcc0ac5491e73bf946890e309fde6dc40bee630adc1"
+          },
+          "stable_key": {
+            "String": "du.source.color.public-options"
+          },
+          "url": {
+            "String": "https://wiki.biligame.com/sr/index.php?title=%E4%BA%8B%E4%BB%B6%E4%B8%80%E8%A7%88&oldid=92645"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-08"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "locator": {
+            "String": "ExcelOutput/RogueTournMiracle.json; MiracleID=9028,9053,9167,9195,9196,9197; TournMode=Tourn3"
+          },
+          "note": {
+            "String": "Exact current mode-copy to effect bindings; no shared-name inference."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "176b17030bdf212920d8a59142cf982916349ee986b574b3e2d3bbdeff81c438"
+          },
+          "stable_key": {
+            "String": "du.source.curio-mode-copy"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-08"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "locator": {
+            "String": "ExcelOutput/RogueMiracleEffect.json; MiracleEffectID=2028,2053,2167,2195,2196,2197; ParamList[0]"
+          },
+          "note": {
+            "String": "Exact effect parameters and description text hashes; full lifecycle is not implemented by an acquisition row."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "fd40b0b35b2735875356681597a532537fb4a98fbcddded501e8d4b4e3eede35"
+          },
+          "stable_key": {
+            "String": "du.source.curio-acquisition-effects"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-08"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "locator": {
+            "String": "TextMap/TextMapEN.json; hashes=2404701295559821740,16761194725868865488,259359941151777850,1741960291225087902,7179292461667666903,2000972934457142612"
+          },
+          "note": {
+            "String": "Released EN text establishes immediate fragment gain; scheduling and rounding remain policy."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "afc6d0ff9eeb20d09042e61c311e60d4ed56e69757f1ac42466ca4840e6ed789"
+          },
+          "stable_key": {
+            "String": "du.source.curio-acquisition-en"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-08"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "locator": {
+            "String": "ExcelOutput/RogueTournMiracle.json; MiracleID=9043..9049,9147,9187; TournMode=Tourn3"
+          },
+          "note": {
+            "String": "Released state/effect/count/path evidence; hidden pool weights, ordering and exhaustion remain explicit policy."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "176b17030bdf212920d8a59142cf982916349ee986b574b3e2d3bbdeff81c438"
+          },
+          "stable_key": {
+            "String": "du.source.wax-mode-copies"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-08"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "locator": {
+            "String": "ExcelOutput/RogueMiracleEffect.json; MiracleEffectID=2043..2049,2147,2187; ParamList[0]"
+          },
+          "note": {
+            "String": "Released state/effect/count/path evidence; hidden pool weights, ordering and exhaustion remain explicit policy."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "fd40b0b35b2735875356681597a532537fb4a98fbcddded501e8d4b4e3eede35"
+          },
+          "stable_key": {
+            "String": "du.source.wax-effects"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-08"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "locator": {
+            "String": "TextMap/TextMapEN.json; hashes=12222930147806732735,16753531798159570738,12337916719786405821,15397308621934325114,3468534171698544820,2964235700804576905,12725242702040094842,15613011178341524346,12763520219546358679"
+          },
+          "note": {
+            "String": "Released state/effect/count/path evidence; hidden pool weights, ordering and exhaustion remain explicit policy."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "afc6d0ff9eeb20d09042e61c311e60d4ed56e69757f1ac42466ca4840e6ed789"
+          },
+          "stable_key": {
+            "String": "du.source.wax-text"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-08"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "locator": {
+            "String": "ExcelOutput/RogueTournBuffType.json; RogueBuffType=121,122,124,125,126,127,128,129"
+          },
+          "note": {
+            "String": "Released state/effect/count/path evidence; hidden pool weights, ordering and exhaustion remain explicit policy."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "f9163c3414bf357c2a66d3a8c26b94e0ffda0a520a233af74d764f09a406c7f5"
+          },
+          "stable_key": {
+            "String": "du.source.wax-path-types"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-08"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "locator": {
+            "String": "ExcelOutput/RogueTournUseBuffType.json; TournMode=Tourn3; UseBuffTypeList"
+          },
+          "note": {
+            "String": "Released state/effect/count/path evidence; hidden pool weights, ordering and exhaustion remain explicit policy."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "506229616f84b385e61608d39541c1da0876e6fbe1b7775bc87f84f0849784f7"
+          },
+          "stable_key": {
+            "String": "du.source.wax-active-paths"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-08"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "locator": {
+            "String": "ExcelOutput/RogueTournMiracle.json; MiracleID=9055,9070,9079,9159; TournMode=Tourn3"
+          },
+          "note": {
+            "String": "Exact state/effect/text facts. Expiry, battle-Blessing suppression and price penalties have separate runtime owners; the gain component alone does not execute them."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "176b17030bdf212920d8a59142cf982916349ee986b574b3e2d3bbdeff81c438"
+          },
+          "stable_key": {
+            "String": "du.source.fragment-gain-states"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-08"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "locator": {
+            "String": "ExcelOutput/RogueMiracleEffect.json; MiracleEffectID=2055,2070,2079,2159; ParamList[0]"
+          },
+          "note": {
+            "String": "Exact state/effect/text facts. Expiry, battle-Blessing suppression and price penalties have separate runtime owners; the gain component alone does not execute them."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "fd40b0b35b2735875356681597a532537fb4a98fbcddded501e8d4b4e3eede35"
+          },
+          "stable_key": {
+            "String": "du.source.fragment-gain-effects"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-08"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "locator": {
+            "String": "TextMap/TextMapEN.json; hashes=9113138745615695677,7205940712072507551,3429135723207096768,4340701535028103385"
+          },
+          "note": {
+            "String": "Exact state/effect/text facts. Expiry, battle-Blessing suppression and price penalties have separate runtime owners; the gain component alone does not execute them."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "afc6d0ff9eeb20d09042e61c311e60d4ed56e69757f1ac42466ca4840e6ed789"
+          },
+          "stable_key": {
+            "String": "du.source.fragment-gain-text"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-08"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "locator": {
+            "String": "ExcelOutput/RogueTournBuff.json; current reference catalog base-level identities and RogueBuffCategory"
+          },
+          "note": {
+            "String": "Exact identity/category records, not evidence for normal-battle pool membership, offer width or weights."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "4bcf0b062941400a7aa4a530b57a5e9e42e4a0a1d8b4a67e90c7886214c27cb7"
+          },
+          "stable_key": {
+            "String": "du.source.battle-blessing-catalog"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-09"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 16
+          },
+          "locator": {
+            "String": "ExcelOutput/RogueMiracleEffect.json; MiracleEffectID=2187; ParamList[1]=3, ParamList[2]=1; MiracleDesc.Hash=12763520219546358679"
+          },
+          "note": {
+            "String": "Exact trigger count and per-Domain limit; missing-recipe sampling, empty-trigger handling, replacement inclusion and logical Domain mapping remain explicit policy."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "fd40b0b35b2735875356681597a532537fb4a98fbcddded501e8d4b4e3eede35"
+          },
+          "stable_key": {
+            "String": "du.source.trailblaze-equation-counts"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-09"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 17
+          },
+          "locator": {
+            "String": "ExcelOutput/RogueTournFormula.json; current reference Equation identities and categories"
+          },
+          "note": {
+            "String": "Exact identity/category records only. Initial placement, pool membership, offer width, weights and application to both run families are project policy, not established by RandomID or by a different iteration's public guide."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "87778b3d411554657e9609d2e364395bcbc55ba38f8b15e1d250e475e81f2598"
+          },
+          "stable_key": {
+            "String": "du.source.initial-equation-catalog"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-09"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 18
+          },
+          "locator": {
+            "String": "ExcelOutput/RogueTournArea.json; current reference area-to-ordered-layer joins"
+          },
+          "note": {
+            "String": "Exact area/layer identities and order only; per-layer battle count, room membership, encounter placement and boss boundaries remain project policy."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "756510177a468130464c27ef382d9ab33a7098dc993022cd8647366cc7c46db8"
+          },
+          "stable_key": {
+            "String": "du.source.layer-battle-route"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-09"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 19
+          },
+          "locator": {
+            "String": "ExcelOutput/RogueMonsterGroup.json; RogueMonsterGroupID=300202; RogueMonsterListAndWeight"
+          },
+          "note": {
+            "String": "Exact group-to-monster-to-stage joins only. Weekly-display candidates do not prove normal-room membership or enabled current-profile selection."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "8abe52c1f9b5fd42eeefaee63ff8bc59c8dd8acc0f18502b5548b353416f2171"
+          },
+          "stable_key": {
+            "String": "du.source.baseline-encounter-group"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-09"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 20
+          },
+          "locator": {
+            "String": "ExcelOutput/RogueMonster.json; RogueMonsterID=3002081,3002111,3002161,3002181,3002191; EventID"
+          },
+          "note": {
+            "String": "Exact group-to-monster-to-stage joins only. Weekly-display candidates do not prove normal-room membership or enabled current-profile selection."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "52f235fecb6aa99d3fe01d4f1ff8c42ac3b7c8fbd53fb77a7bbdae140e056f32"
+          },
+          "stable_key": {
+            "String": "du.source.baseline-encounter-stages"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-09"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 21
+          },
+          "locator": {
+            "String": "ExcelOutput/RogueTournMiracle.json; MiracleID=9195; TournMode=Tourn3; MiracleEffectID=2195; HandbookMiracleID=9155"
+          },
+          "note": {
+            "String": "Exact current owned mode-copy binding; unbound upgrade states 9196/9197 remain outside this executable reward row."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "176b17030bdf212920d8a59142cf982916349ee986b574b3e2d3bbdeff81c438"
+          },
+          "stable_key": {
+            "String": "du.source.green-battle-state"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-09"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 22
+          },
+          "locator": {
+            "String": "ExcelOutput/RogueMiracleEffect.json; MiracleEffectID=2195; ParamList[1]=8"
+          },
+          "note": {
+            "String": "Exact per-full-HP-character amount. Does not establish ordering against healing, global gain modifiers or other battle reward programs."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "fd40b0b35b2735875356681597a532537fb4a98fbcddded501e8d4b4e3eede35"
+          },
+          "stable_key": {
+            "String": "du.source.green-battle-effect"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-09"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 23
+          },
+          "locator": {
+            "String": "TextMap/TextMapEN.json; Hash=1741960291225087902"
+          },
+          "note": {
+            "String": "Released description establishes the victory/full-HP trigger. Occurrence upgrades have separate transition and public-event policy bindings."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "afc6d0ff9eeb20d09042e61c311e60d4ed56e69757f1ac42466ca4840e6ed789"
+          },
+          "stable_key": {
+            "String": "du.source.green-battle-text"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-09"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 24
+          },
+          "locator": {
+            "String": "ExcelOutput/StageConfig.json; StageID=83002081,83002111,83002161,83002181,83002191; StageConfigData._IsEliteBattle=1; StageAbility_RogueEliteLevel_Enhance"
+          },
+          "note": {
+            "String": "Exact elite-stage markers. Baseline normal proxy classification is a deliberate non-parity policy, not absent or uncertain source classification; original elite/boss execution remains pending."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+          },
+          "stable_key": {
+            "String": "du.source.baseline-stage-classification"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-10"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 25
+          },
+          "locator": {
+            "String": "ExcelOutput/RogueMiracleDisplay.json; MiracleDisplayID=256,257,258; name hashes=4410465334307410196,16129282454969858300,10527537750345113790"
+          },
+          "note": {
+            "String": "Exact display/name joins distinguish Dormant, Awakened and Exalted. Name similarity alone does not prove an upgrade edge or handbook membership."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "5937214885a6f3c2f6fcc65870ab7bccd4e4493cffd682dbda75e63ac50ce739"
+          },
+          "stable_key": {
+            "String": "du.source.green-display-names"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-10"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 26
+          },
+          "locator": {
+            "String": "ExcelOutput/RogueTournHandBookEvent.json; EventHandbookID=165,166; NPC=627401,727401; progress=1,2"
+          },
+          "note": {
+            "String": "Exact event/variant/progress identities. Referenced NPC graphs are absent at the pinned revision; costs, probability and execution scheduling are not established."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "15e0e448186b799687a1ef4582e96b40da43888fee5a0e31278eb6cbc29106b9"
+          },
+          "stable_key": {
+            "String": "du.source.divine-treasures-handbook"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-10"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 27
+          },
+          "locator": {
+            "String": "Curio detail table; related Occurrence; fetched HTML bytes"
+          },
+          "note": {
+            "String": "Awakened variant is related to Divine Treasures II. Community iteration binding is not exact current-profile reachability."
+          },
+          "quality": {
+            "String": "ObservedCommunity"
+          },
+          "revision": {
+            "String": "77066"
+          },
+          "sha256": {
+            "String": "d8b52c199ccb711b3b7b286fedec8ab5a3b94c533f8aa4bfc2205bb8b4990184"
+          },
+          "stable_key": {
+            "String": "du.source.green-awakened-public"
+          },
+          "url": {
+            "String": "https://wiki.biligame.com/sr/%E7%BB%BF%E5%A5%87%E8%BF%B9%EF%BC%88%E8%A7%89%E9%86%92%EF%BC%89"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-10"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 28
+          },
+          "locator": {
+            "String": "Curio detail table; related Occurrence; fetched HTML bytes"
+          },
+          "note": {
+            "String": "Exalted variant is related to Divine Treasures III. Page reports 64 per full-HP character, conflicting with pinned 4.4 effect 2197 value 32; only event association is used, never the conflicting amount."
+          },
+          "quality": {
+            "String": "ObservedCommunity"
+          },
+          "revision": {
+            "String": "77072"
+          },
+          "sha256": {
+            "String": "422043bfd73b1900ea25561f22e04340161eabff5fc9113276dfabf7e01e4a9a"
+          },
+          "stable_key": {
+            "String": "du.source.green-exalted-public"
+          },
+          "url": {
+            "String": "https://wiki.biligame.com/sr/%E7%BB%BF%E5%A5%87%E8%BF%B9%EF%BC%88%E5%8D%87%E5%8D%8E%EF%BC%89"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-10"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 29
+          },
+          "locator": {
+            "String": "ExcelOutput/RogueMiracleEffect.json; MiracleEffectID=2196,2197; ParamList[1]=16,32; description hashes=7179292461667666903,2000972934457142612"
+          },
+          "note": {
+            "String": "Exact upgraded full-HP victory amounts. Pinned 4.4 value 32 takes precedence over the conflicting community Exalted value 64."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "fd40b0b35b2735875356681597a532537fb4a98fbcddded501e8d4b4e3eede35"
+          },
+          "stable_key": {
+            "String": "du.source.green-upgrade-victory-amounts"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-10"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 30
+          },
+          "locator": {
+            "String": "Divine Treasures II; three alternative mechanical outcomes; fetched HTML bytes"
+          },
+          "note": {
+            "String": "Public generic Divine Treasure option values; application to current Green Miracle and Sage's Leaf Robe edges is explicit policy. This does not establish exact current-profile room placement, other Divine Treasure mechanics, random-pool weights or hidden trigger ordering."
+          },
+          "quality": {
+            "String": "ObservedCommunity"
+          },
+          "revision": {
+            "String": "95613"
+          },
+          "sha256": {
+            "String": "ee8bbf735b0288f50d3859538d5af1bfe9a3caabe3fdca10ec78aa1a7d5f57d9"
+          },
+          "stable_key": {
+            "String": "du.source.divine-treasures-ii-options"
+          },
+          "url": {
+            "String": "https://wiki.biligame.com/sr/%E7%A5%9E%E8%B5%90%E7%8F%8D%E5%AE%9D%EF%BC%88%E5%85%B6%E4%BA%8C%EF%BC%89"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-10"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 31
+          },
+          "locator": {
+            "String": "Divine Treasures III; three alternative mechanical outcomes; fetched HTML bytes"
+          },
+          "note": {
+            "String": "Public generic Divine Treasure option values; application to current Green Miracle and Sage's Leaf Robe edges is explicit policy. This does not establish exact current-profile room placement, other Divine Treasure mechanics, random-pool weights or hidden trigger ordering."
+          },
+          "quality": {
+            "String": "ObservedCommunity"
+          },
+          "revision": {
+            "String": "77058"
+          },
+          "sha256": {
+            "String": "4a6ef56cb0e117806fa416d85dd5f73b3e1b91a8b907064d25aaebd98d9bd73a"
+          },
+          "stable_key": {
+            "String": "du.source.divine-treasures-iii-options"
+          },
+          "url": {
+            "String": "https://wiki.biligame.com/sr/%E7%A5%9E%E8%B5%90%E7%8F%8D%E5%AE%9D%EF%BC%88%E5%85%B6%E4%B8%89%EF%BC%89"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-12"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 32
+          },
+          "locator": {
+            "String": "ExcelOutput/RogueTournMiracle.json; MiracleID=9192,9193,9194; TournMode=Tourn3; effects=2192,2193,2194; base handbook=9154; upgrade handbook IDs absent"
+          },
+          "note": {
+            "String": "Exact released acquisition count, rarity and named form facts. Hidden pools and transition scheduling remain policy; victory effects and public Divine Treasure placement are not implemented by these rows."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "176b17030bdf212920d8a59142cf982916349ee986b574b3e2d3bbdeff81c438"
+          },
+          "stable_key": {
+            "String": "du.source.sage-states"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-12"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 33
+          },
+          "locator": {
+            "String": "ExcelOutput/RogueMiracleEffect.json; MiracleEffectID=2192,2193,2194; ParamList[0]=1,2,3; acquisition counts only; ParamList[1] belongs to separate victory effects"
+          },
+          "note": {
+            "String": "Exact released acquisition count, rarity and named form facts. Hidden pools and transition scheduling remain policy; victory effects and public Divine Treasure placement are not implemented by these rows."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "fd40b0b35b2735875356681597a532537fb4a98fbcddded501e8d4b4e3eede35"
+          },
+          "stable_key": {
+            "String": "du.source.sage-effects"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-12"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 34
+          },
+          "locator": {
+            "String": "TextMap/TextMapEN.json; description hashes=18402293723530033109,6941038067972437758,1542688008986925663; acquisition rarities=1,2,3 respectively"
+          },
+          "note": {
+            "String": "Exact released acquisition count, rarity and named form facts. Hidden pools and transition scheduling remain policy; victory effects and public Divine Treasure placement are not implemented by these rows."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "afc6d0ff9eeb20d09042e61c311e60d4ed56e69757f1ac42466ca4840e6ed789"
+          },
+          "stable_key": {
+            "String": "du.source.sage-text"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-12"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 35
+          },
+          "locator": {
+            "String": "ExcelOutput/RogueMiracleDisplay.json; MiracleDisplayID=253,254,255; name hashes=3846558292214136969,13442696550144374710,904237867389681142"
+          },
+          "note": {
+            "String": "Exact released acquisition count, rarity and named form facts. Hidden pools and transition scheduling remain policy; victory effects and public Divine Treasure placement are not implemented by these rows."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "5937214885a6f3c2f6fcc65870ab7bccd4e4493cffd682dbda75e63ac50ce739"
+          },
+          "stable_key": {
+            "String": "du.source.sage-names"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-12"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 36
+          },
+          "locator": {
+            "String": "ExcelOutput/RogueMiracleEffect.json; MiracleEffectID=2192,2193,2194; ParamList[1]=1,2,3"
+          },
+          "note": {
+            "String": "Exact victory counts; ParamList[0] is the separate acquisition count."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "fd40b0b35b2735875356681597a532537fb4a98fbcddded501e8d4b4e3eede35"
+          },
+          "stable_key": {
+            "String": "du.source.sage-victory-effects"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-12"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 37
+          },
+          "locator": {
+            "String": "TextMap/TextMapEN.json; hashes=18402293723530033109,6941038067972437758,1542688008986925663; victory room_comp_type:2 and room_comp_type:4; all forms use 1-3-star victory Blessings"
+          },
+          "note": {
+            "String": "Exact domain locators and rarity range. Acquisition rarity is not the victory rarity filter; no normal Combat or Boss domain is listed."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "afc6d0ff9eeb20d09042e61c311e60d4ed56e69757f1ac42466ca4840e6ed789"
+          },
+          "stable_key": {
+            "String": "du.source.sage-victory-text"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-12"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 38
+          },
+          "locator": {
+            "String": "ExcelOutput/RoguePersonaRoomCompType.json; LLICIMBCNPF=2,4; LHLKJIDFLIN=Elite,Encounter; BAAOGIMCALN.Hash=2832393198030600814,2381374495552649823; pinned EN names Elite,Aberration"
+          },
+          "note": {
+            "String": "Exact referenced display joins, not room placement or current-profile encounter membership. Shared source table does not promote other rows to reachable content."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "c0223603c6e5252278dac5224d766f1c4ed60ebe5845b9839b9e3533a8ad76a5"
+          },
+          "stable_key": {
+            "String": "du.source.sage-victory-domains"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-12"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 39
+          },
+          "locator": {
+            "String": "ExcelOutput/RoguePersonaRoomCompType.json; LLICIMBCNPF=3,2,4; LHLKJIDFLIN=Battle,Elite,Encounter; display hashes=7892844363747881325,2832393198030600814,2381374495552649823"
+          },
+          "note": {
+            "String": "Exact Combat/Elite/Aberration labels referenced by released text; not evidence of a current-profile selectable room pool."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "c0223603c6e5252278dac5224d766f1c4ed60ebe5845b9839b9e3533a8ad76a5"
+          },
+          "stable_key": {
+            "String": "du.source.domain-choice-labels"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-12"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 40
+          },
+          "locator": {
+            "String": "ExcelOutput/RogueTournArea.json; HILINOJPLGA=Tourn3; DOKMKLJDCEK.LHLKJIDFLIN=Battle; ordered GLNDIILFKBN layers have no matching RogueTournLayerRoom rows"
+          },
+          "note": {
+            "String": "Exact initial Combat label and layer ordering only. Later domain choices, placement and proxy encounters are independently replaceable policy."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "756510177a468130464c27ef382d9ab33a7098dc993022cd8647366cc7c46db8"
+          },
+          "stable_key": {
+            "String": "du.source.initial-combat-domain"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-12"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 41
+          },
+          "locator": {
+            "String": "ExcelOutput/RogueTournConstCommon.json; all 34 ConstValueName rows inspected; no base battle-fragment amount is declared"
+          },
+          "note": {
+            "String": "Evidence of this inspected table only, not proof that no other source defines drops. Stage markers and account-reward display IDs do not establish run fragment amounts. All authored base amounts are explicit project policy."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "3ad1c238e4adbf89bb614cecba90327cdd1e4fa25386821b13854fab0c3b7901"
+          },
+          "stable_key": {
+            "String": "du.source.battle-fragments.constants-inspection"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-12"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 42
+          },
+          "locator": {
+            "String": "ExcelOutput/RogueMiracleEffect.json; MiracleEffectID=2070,2079; ParamList[1]=3,5; MiracleDesc.Hash=7205940712072507551,3429135723207096768"
+          },
+          "note": {
+            "String": "Released parameters and EN descriptions (source 14) establish discard after 3/5 domain entries. Acquisition-domain counting, destroyed-state time and within-entry ordering are not specified."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "fd40b0b35b2735875356681597a532537fb4a98fbcddded501e8d4b4e3eede35"
+          },
+          "stable_key": {
+            "String": "du.source.curio-domain-expiry.parameters"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-12"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 43
+          },
+          "locator": {
+            "String": "ExcelOutput/RogueTournMiracle.json; MiracleID=9068; TournMode=Tourn3; HandbookMiracleID=9068; MiracleEffectID=2068"
+          },
+          "note": {
+            "String": "Exact current state, magnitude and battle-count limit; stacking, assembly scope and terminal-result counting remain separately authored policy."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "176b17030bdf212920d8a59142cf982916349ee986b574b3e2d3bbdeff81c438"
+          },
+          "stable_key": {
+            "String": "du.source.curio-battle-stat.state"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-12"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 44
+          },
+          "locator": {
+            "String": "ExcelOutput/RogueMiracleEffect.json; MiracleEffectID=2068; ParamList[0]=0.35; ParamList[1]=5"
+          },
+          "note": {
+            "String": "Exact current state, magnitude and battle-count limit; stacking, assembly scope and terminal-result counting remain separately authored policy."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "fd40b0b35b2735875356681597a532537fb4a98fbcddded501e8d4b4e3eede35"
+          },
+          "stable_key": {
+            "String": "du.source.curio-battle-stat.parameters"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-12"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 45
+          },
+          "locator": {
+            "String": "TextMap/TextMapEN.json; hash=16574523273451283809; all-allies SPD and discard after five battles"
+          },
+          "note": {
+            "String": "Exact current state, magnitude and battle-count limit; stacking, assembly scope and terminal-result counting remain separately authored policy."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "afc6d0ff9eeb20d09042e61c311e60d4ed56e69757f1ac42466ca4840e6ed789"
+          },
+          "stable_key": {
+            "String": "du.source.curio-battle-stat.text"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-12"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 52
+          },
+          "locator": {
+            "String": "ExcelOutput/RogueTournMiracle.json; MiracleID=9073; TournMode=Tourn3; HandbookMiracleID=9068; MiracleEffectID=2073"
+          },
+          "note": {
+            "String": "Exact state/effect/operand joins. Damage-class scope, stacking, snapshot and terminal counting remain explicit policy, not observed parity."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "176b17030bdf212920d8a59142cf982916349ee986b574b3e2d3bbdeff81c438"
+          },
+          "stable_key": {
+            "String": "du.source.curio-final-damage.state"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-12"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 53
+          },
+          "locator": {
+            "String": "ExcelOutput/RogueMiracleEffect.json; MiracleEffectID=2073; ParamList[0]=0.5; ParamList[1]=5"
+          },
+          "note": {
+            "String": "Exact state/effect/operand joins. Damage-class scope, stacking, snapshot and terminal counting remain explicit policy, not observed parity."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "fd40b0b35b2735875356681597a532537fb4a98fbcddded501e8d4b4e3eede35"
+          },
+          "stable_key": {
+            "String": "du.source.curio-final-damage.parameters"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-12"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 54
+          },
+          "locator": {
+            "String": "TextMap/TextMapEN.json; hash=7393919144864761857; final damage increase and discard after five battles"
+          },
+          "note": {
+            "String": "Exact state/effect/operand joins. Damage-class scope, stacking, snapshot and terminal counting remain explicit policy, not observed parity."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "afc6d0ff9eeb20d09042e61c311e60d4ed56e69757f1ac42466ca4840e6ed789"
+          },
+          "stable_key": {
+            "String": "du.source.curio-final-damage.text"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-12"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 46
+          },
+          "locator": {
+            "String": "ExcelOutput/RogueTournMiracle.json; MiracleID=9069; TournMode=Tourn3; HandbookMiracleID=9068; MiracleEffectID=2069"
+          },
+          "note": {
+            "String": "Exact current-state healing magnitude and battle allowance. Released text does not establish multi-hit timing, shield-only hits, healing modifiers or source-owner attribution."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "176b17030bdf212920d8a59142cf982916349ee986b574b3e2d3bbdeff81c438"
+          },
+          "stable_key": {
+            "String": "du.source.curio-battle-reaction.state"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-12"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 47
+          },
+          "locator": {
+            "String": "ExcelOutput/RogueMiracleEffect.json; MiracleEffectID=2069; ParamList[0]=0.2; ParamList[1]=5"
+          },
+          "note": {
+            "String": "Exact current-state healing magnitude and battle allowance. Released text does not establish multi-hit timing, shield-only hits, healing modifiers or source-owner attribution."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "fd40b0b35b2735875356681597a532537fb4a98fbcddded501e8d4b4e3eede35"
+          },
+          "stable_key": {
+            "String": "du.source.curio-battle-reaction.parameters"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-12"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 48
+          },
+          "locator": {
+            "String": "TextMap/TextMapEN.json; hash=7916500230569937913; allied attacked target heals twenty percent of Max HP; discard after five battles"
+          },
+          "note": {
+            "String": "Exact current-state healing magnitude and battle allowance. Released text does not establish multi-hit timing, shield-only hits, healing modifiers or source-owner attribution."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "afc6d0ff9eeb20d09042e61c311e60d4ed56e69757f1ac42466ca4840e6ed789"
+          },
+          "stable_key": {
+            "String": "du.source.curio-battle-reaction.text"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-12"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 49
+          },
+          "locator": {
+            "String": "ExcelOutput/RogueTournHandBookEvent.json; EventHandbookID=181; UnlockNPCProgressIDList[0].FDOELDMEBPE=700108"
+          },
+          "note": {
+            "String": "Exact released binding only. The missing option graph does not establish price, Forge eligibility, offer membership, weights or purchase/replacement timing."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "15e0e448186b799687a1ef4582e96b40da43888fee5a0e31278eb6cbc29106b9"
+          },
+          "stable_key": {
+            "String": "du.source.tawot-service.handbook"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-12"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 50
+          },
+          "locator": {
+            "String": "ExcelOutput/RogueTournNPC.json; RogueNPCID=700108; NPCJsonPath=Config/Level/Rogue/RogueNPC/RogueNPC_410/RogueNPC700108.json"
+          },
+          "note": {
+            "String": "Exact released binding only. The missing option graph does not establish price, Forge eligibility, offer membership, weights or purchase/replacement timing."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "e3ef2da06848f45704310e1a35ae06390febf7d4e5a6027591912929b4e4c478"
+          },
+          "stable_key": {
+            "String": "du.source.tawot-service.variant"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-12"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 51
+          },
+          "locator": {
+            "String": "ExcelOutput/RogueTournMiracle.json; MiracleID=9068..9079; each explicitly Tourn3 and HandbookMiracleID=9068"
+          },
+          "note": {
+            "String": "Exact released binding only. The missing option graph does not establish price, Forge eligibility, offer membership, weights or purchase/replacement timing."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "176b17030bdf212920d8a59142cf982916349ee986b574b3e2d3bbdeff81c438"
+          },
+          "stable_key": {
+            "String": "du.source.tawot-service.states"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-12"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 55
+          },
+          "locator": {
+            "String": "ExcelOutput/RogueTournMiracle.json; MiracleID=9071; TournMode=Tourn3; HandbookMiracleID=9068; MiracleEffectID=2071"
+          },
+          "note": {
+            "String": "Exact released state, 60-fragment amount and three-entry limit. Activation, expiry ordering and destroyed-state counting are separately authored policies."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "176b17030bdf212920d8a59142cf982916349ee986b574b3e2d3bbdeff81c438"
+          },
+          "stable_key": {
+            "String": "du.source.curio-domain-grant.state"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-12"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 56
+          },
+          "locator": {
+            "String": "ExcelOutput/RogueMiracleEffect.json; MiracleEffectID=2071; ParamList[0]=60; ParamList[1]=3"
+          },
+          "note": {
+            "String": "Exact released state, 60-fragment amount and three-entry limit. Activation, expiry ordering and destroyed-state counting are separately authored policies."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "fd40b0b35b2735875356681597a532537fb4a98fbcddded501e8d4b4e3eede35"
+          },
+          "stable_key": {
+            "String": "du.source.curio-domain-grant.parameters"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-12"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 57
+          },
+          "locator": {
+            "String": "TextMap/TextMapEN.json; hash=3761031791427163166; domain-entry fragments and three-domain discard"
+          },
+          "note": {
+            "String": "Exact released state, 60-fragment amount and three-entry limit. Activation, expiry ordering and destroyed-state counting are separately authored policies."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "afc6d0ff9eeb20d09042e61c311e60d4ed56e69757f1ac42466ca4840e6ed789"
+          },
+          "stable_key": {
+            "String": "du.source.curio-domain-grant.text"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-12"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 58
+          },
+          "locator": {
+            "String": "ExcelOutput/RogueTournMiracle.json; MiracleID=9072; TournMode=Tourn3; HandbookMiracleID=9068; MiracleEffectID=2072"
+          },
+          "note": {
+            "String": "Exact current state/effect join, one random victory Blessing and three-domain limit. Rarity pool, weights, suppression and within-entry timing remain policy."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "176b17030bdf212920d8a59142cf982916349ee986b574b3e2d3bbdeff81c438"
+          },
+          "stable_key": {
+            "String": "du.source.tawot-victory.state"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-12"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 59
+          },
+          "locator": {
+            "String": "ExcelOutput/RogueMiracleEffect.json; MiracleEffectID=2072; ParamList[0]=1; ParamList[1]=3"
+          },
+          "note": {
+            "String": "Exact current state/effect join, one random victory Blessing and three-domain limit. Rarity pool, weights, suppression and within-entry timing remain policy."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "fd40b0b35b2735875356681597a532537fb4a98fbcddded501e8d4b4e3eede35"
+          },
+          "stable_key": {
+            "String": "du.source.tawot-victory.parameters"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-12"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 60
+          },
+          "locator": {
+            "String": "TextMap/TextMapEN.json; hash=3816091537220261218; victory random Blessing and three-domain discard"
+          },
+          "note": {
+            "String": "Exact current state/effect join, one random victory Blessing and three-domain limit. Rarity pool, weights, suppression and within-entry timing remain policy."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "afc6d0ff9eeb20d09042e61c311e60d4ed56e69757f1ac42466ca4840e6ed789"
+          },
+          "stable_key": {
+            "String": "du.source.tawot-victory.text"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-12"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 61
+          },
+          "locator": {
+            "String": "ExcelOutput/RogueTournMiracle.json; MiracleID=9074; TournMode=Tourn3; HandbookMiracleID=9068; MiracleEffectID=2074"
+          },
+          "note": {
+            "String": "Exact current state/effect join, one random Blessing per Equation expansion and three-trigger discard. Pool, timing, cascades and empty-pool handling remain project policy."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "176b17030bdf212920d8a59142cf982916349ee986b574b3e2d3bbdeff81c438"
+          },
+          "stable_key": {
+            "String": "du.source.equation-expansion.state"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-12"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 62
+          },
+          "locator": {
+            "String": "ExcelOutput/RogueMiracleEffect.json; MiracleEffectID=2074; ParamList[0]=1; ParamList[1]=3"
+          },
+          "note": {
+            "String": "Exact current state/effect join, one random Blessing per Equation expansion and three-trigger discard. Pool, timing, cascades and empty-pool handling remain project policy."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "fd40b0b35b2735875356681597a532537fb4a98fbcddded501e8d4b4e3eede35"
+          },
+          "stable_key": {
+            "String": "du.source.equation-expansion.parameters"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-12"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 63
+          },
+          "locator": {
+            "String": "TextMap/TextMapEN.json; hash=1970395831290142958; expanded Equation grants random Blessing; discard after three triggers"
+          },
+          "note": {
+            "String": "Exact current state/effect join, one random Blessing per Equation expansion and three-trigger discard. Pool, timing, cascades and empty-pool handling remain project policy."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "afc6d0ff9eeb20d09042e61c311e60d4ed56e69757f1ac42466ca4840e6ed789"
+          },
+          "stable_key": {
+            "String": "du.source.equation-expansion.text"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-12"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 64
+          },
+          "locator": {
+            "String": "ExcelOutput/RoguePersonaLayerRoom.json; All rows; CBCHIHEOEGK joins the 11 current Tourn3 area GLNDIILFKBN layer IDs; EEPIDJJJMAH is contiguous within each layer; optional BKHDBIFFIKP joins preset LIIPLGLNPGB"
+          },
+          "note": {
+            "String": "Exact current numeric records and source enum joins. Obfuscated field interpretation is reviewed separately. Absent presets do not prove a random pool, draw cost, repetition rule, or executable room content."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "651989d8fd339eec667791495e6ff608418f7d308990d02d941c698203648998"
+          },
+          "stable_key": {
+            "String": "du.source.domain-layout.positions"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-12"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 65
+          },
+          "locator": {
+            "String": "ExcelOutput/RoguePersonaRoomPreset.json; LIIPLGLNPGB=1001,1002,1003,1004,9007,9008; LLICIMBCNPF joins RoomCompType; AAGKEBFHLMC joins composition level; all six FJIKMHCJMKH lists empty"
+          },
+          "note": {
+            "String": "Exact current numeric records and source enum joins. Obfuscated field interpretation is reviewed separately. Absent presets do not prove a random pool, draw cost, repetition rule, or executable room content."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "a4cc8bbd6e3a4db5fecb62b83a0c5de7ad2f4a9820ad5ae9180b30ae33c346b5"
+          },
+          "stable_key": {
+            "String": "du.source.domain-layout.presets"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-09-12"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 66
+          },
+          "locator": {
+            "String": "ExcelOutput/RoguePersonaRoomCompType.json; LLICIMBCNPF=1,3,6,10,22,23; LHLKJIDFLIN=Boss,Battle,Coin,Respite,Blank,Conversion respectively"
+          },
+          "note": {
+            "String": "Exact current numeric records and source enum joins. Obfuscated field interpretation is reviewed separately. Absent presets do not prove a random pool, draw cost, repetition rule, or executable room content."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "c0223603c6e5252278dac5224d766f1c4ed60ebe5845b9839b9e3533a8ad76a5"
+          },
+          "stable_key": {
+            "String": "du.source.domain-layout.types"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      }
+    ]
+  }
+}

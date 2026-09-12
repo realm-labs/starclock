@@ -1,0 +1,94 @@
+{
+  "schema_revision": "starclock.divergent-universe-cli-execution.v1",
+  "goal_id": "divergent-universe-runtime-v1",
+  "batch": "G22-P7-B2",
+  "status": "CliSurfaceDeclaredBehavioralAuditIncomplete",
+  "runtime_release_ready": false,
+  "input_digests": {
+    "runtime_dispositions": {
+      "path": "content-manifests/divergent-universe-runtime-v1/runtime-dispositions.json",
+      "sha256": "e404ce2e652e9298e37a97c904eaf2a69b9d8b3d48496b65b101afb5cf50a949"
+    },
+    "mechanic_dispositions": {
+      "path": "content-manifests/divergent-universe-runtime-v1/mechanic-dispositions.json",
+      "sha256": "1b52d5647cb784b418286a0c046b2d92368748494774314c09bf52b7256e1088"
+    },
+    "batch_ledger": {
+      "path": "content-manifests/divergent-universe-runtime-v1/batch-ledger.json",
+      "sha256": "a7d12fbc81dd5ac9a6c75061dca3d4a308bbb4388d6e5d12b4b535404aa76809"
+    },
+    "cli": {
+      "path": "crates/starclock-cli/src/divergent_universe.rs",
+      "sha256": "a67a10ceff5a4e40b181c439c75698824dbf3332fe9b313c26429d37a1b3d02f"
+    },
+    "cli_router": {
+      "path": "crates/starclock-cli/src/main.rs",
+      "sha256": "d1c6633e9622832ea4fc52b1f77125440f7a44d567739c7295d8294108697007"
+    },
+    "baseline_fixture": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/baseline_fixture.rs",
+      "sha256": "df6b304df24f99371426c40d626c1517b8101ec5e95bfdbc48be907f300a0651"
+    },
+    "baseline_replay": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/baseline_replay.rs",
+      "sha256": "81fa5e6a54c5d907f5eac0abf9f0be1588684bb3458bd98f2f60e350c1e8e1df"
+    },
+    "tests": {
+      "path": "crates/starclock-cli/tests/divergent_universe_cli.rs",
+      "sha256": "57e17b6ee0aa7a666379d69c41d5ca5733ecfe9e276c1f190c06192f431b8ae8"
+    }
+  },
+  "command_surface": {
+    "mode": "divergent-universe",
+    "run_families": [
+      "ordinary",
+      "cyclical"
+    ],
+    "controller": "baseline",
+    "configuration_components": 9,
+    "configuration_validation": "ProductionSoraAndCoreBundleLoad",
+    "coverage": "BehavioralAuditIncompleteNoTerminalCountClaim",
+    "replay_export": "CanonicalComponentAddressedActivityReplay",
+    "replay_verify": "FreshProductionFixtureExactByteReconstruction"
+  },
+  "verification_requirements": {
+    "command": "cargo test -p starclock-cli --test divergent_universe_cli",
+    "result": "NotExecutedByGenerator",
+    "scope": "CLI smoke and replay checks, not complete gameplay acceptance"
+  },
+  "assignment_closure": {
+    "obligations": 0,
+    "fixture_families": 0,
+    "research_gaps": 0,
+    "policy_sources": 0,
+    "mechanic_programs": 0
+  },
+  "capability_probes": [
+    {
+      "id": "configuration-and-coverage",
+      "file": "crates/starclock-cli/tests/divergent_universe_cli.rs",
+      "test": "divergent_universe_configuration_and_coverage_are_machine_readable",
+      "result": "DeclaredNotExecuted"
+    },
+    {
+      "id": "ordinary-and-cyclical-run-replay",
+      "file": "crates/starclock-cli/tests/divergent_universe_cli.rs",
+      "test": "divergent_universe_both_families_complete_and_replay_verifies",
+      "result": "DeclaredNotExecuted"
+    },
+    {
+      "id": "corruption-and-invalid-options",
+      "file": "crates/starclock-cli/tests/divergent_universe_cli.rs",
+      "test": "divergent_universe_rejects_corrupt_replay_and_invalid_options",
+      "result": "DeclaredNotExecuted"
+    }
+  ],
+  "summary": {
+    "commands": 4,
+    "run_families": 2,
+    "configuration_components": 9,
+    "terminal_obligations": null,
+    "terminal_mechanic_programs": null,
+    "probes": 3
+  }
+}

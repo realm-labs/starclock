@@ -1,0 +1,54 @@
+{
+  "table": {
+    "name": "DuCurioDomainGrants",
+    "rows": [
+      {
+        "values": {
+          "amount": {
+            "Integer": 60
+          },
+          "amount_parameter": {
+            "Integer": 1
+          },
+          "expiry_id": {
+            "Integer": 3
+          },
+          "id": {
+            "Integer": 1
+          },
+          "policy": {
+            "String": "ActivePositiveAllowanceFragmentsBeforeDiscard"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: select active positive-allowance holdings from the authenticated pre-entry view, in stable state-key order. Emit each exact fragment grant through the shared nonrecursive credit pipeline before any entry allowance consumption. Active global fragment modifiers apply using their existing original-base independently-floored policy. The third eligible entry grants before discarding. No grant on acquisition, internal nodes, battles, destroyed/zero holdings or rejected/duplicate choices. Credit overflow or later traversal failure rolls back grants, allowance, route and RNG together."
+          },
+          "replacement_condition": {
+            "String": "Low confidence for intrinsic-grant ordering, acquisition timing, gain-modifier interaction and placement, not for exact 60. Alternatives include final-entry suppression, post-expiry modifier snapshots and exempting triggered income from gain bonuses. Replace fields independently when released execution or reproducible observations establish them. Public Tawot Cards text cross-checks operands but asks for Arcadian Chronicles verification; it is not exact execution evidence. Require real public domain choices, paid acquisition/replay, three-entry operation vectors and rollback tests."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 55
+              },
+              {
+                "Integer": 56
+              },
+              {
+                "Integer": 57
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.curio-domain-grant.9071"
+          },
+          "summary_en": {
+            "String": "Gain 60 fragments on each eligible domain entry."
+          },
+          "summary_zh_cn": {
+            "String": "每次符合条件的领域入场获得 60 碎片。"
+          }
+        }
+      }
+    ]
+  }
+}

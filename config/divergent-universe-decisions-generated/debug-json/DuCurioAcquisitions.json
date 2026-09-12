@@ -1,0 +1,1156 @@
+{
+  "table": {
+    "name": "DuCurioAcquisitions",
+    "rows": [
+      {
+        "values": {
+          "amount": {
+            "String": "300"
+          },
+          "effect_id": {
+            "String": "2028"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "FixedFragments"
+          },
+          "maximum_rarity": "Null",
+          "minimum_rarity": "Null",
+          "parameter_index": {
+            "Integer": 1
+          },
+          "path_types": "Null",
+          "policy": {
+            "String": "StableStateOrderFloorBeforeEachGrant"
+          },
+          "policy_note": {
+            "String": "Execute the reviewed immediate grant once after inventory insertion, in stable state-key order within one accepted batch. Fractional grants read the balance immediately before that grant and floor nonnegative fractional fragments. Other acquisition and gain-modifier effects remain implementation gaps, not no-effect policies."
+          },
+          "replacement_condition": {
+            "String": "Replace batch ordering, balance snapshot or rounding independently when a released execution graph or reproducible observation establishes them; preserve exact amounts and atomic rollback."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 4
+              },
+              {
+                "Integer": 5
+              },
+              {
+                "Integer": 6
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.curio-acquisition.9028"
+          },
+          "state_key": {
+            "String": "divergent-universe.curio-state.9028"
+          },
+          "summary_en": {
+            "String": "Gain 300 fragments on acquisition; later domain debt remains separate."
+          },
+          "summary_zh_cn": {
+            "String": "获取时获得 300 碎片；后续区域债务另行处理。"
+          }
+        }
+      },
+      {
+        "values": {
+          "amount": {
+            "String": "0.4"
+          },
+          "effect_id": {
+            "String": "2053"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "BalanceFraction"
+          },
+          "maximum_rarity": "Null",
+          "minimum_rarity": "Null",
+          "parameter_index": {
+            "Integer": 1
+          },
+          "path_types": "Null",
+          "policy": {
+            "String": "StableStateOrderFloorBeforeEachGrant"
+          },
+          "policy_note": {
+            "String": "Execute the reviewed immediate grant once after inventory insertion, in stable state-key order within one accepted batch. Fractional grants read the balance immediately before that grant and floor nonnegative fractional fragments. Other acquisition and gain-modifier effects remain implementation gaps, not no-effect policies."
+          },
+          "replacement_condition": {
+            "String": "Replace batch ordering, balance snapshot or rounding independently when a released execution graph or reproducible observation establishes them; preserve exact amounts and atomic rollback."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 4
+              },
+              {
+                "Integer": 5
+              },
+              {
+                "Integer": 6
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.curio-acquisition.9053"
+          },
+          "state_key": {
+            "String": "divergent-universe.curio-state.9053"
+          },
+          "summary_en": {
+            "String": "Gain fragments equal to 40% of the current balance on acquisition."
+          },
+          "summary_zh_cn": {
+            "String": "获取时获得当前持有碎片数量 40% 的碎片。"
+          }
+        }
+      },
+      {
+        "values": {
+          "amount": {
+            "String": "500"
+          },
+          "effect_id": {
+            "String": "2167"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "FixedFragments"
+          },
+          "maximum_rarity": "Null",
+          "minimum_rarity": "Null",
+          "parameter_index": {
+            "Integer": 1
+          },
+          "path_types": "Null",
+          "policy": {
+            "String": "StableStateOrderFloorBeforeEachGrant"
+          },
+          "policy_note": {
+            "String": "Execute the reviewed immediate grant once after inventory insertion, in stable state-key order within one accepted batch. Fractional grants read the balance immediately before that grant and floor nonnegative fractional fragments. Other acquisition and gain-modifier effects remain implementation gaps, not no-effect policies."
+          },
+          "replacement_condition": {
+            "String": "Replace batch ordering, balance snapshot or rounding independently when a released execution graph or reproducible observation establishes them; preserve exact amounts and atomic rollback."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 4
+              },
+              {
+                "Integer": 5
+              },
+              {
+                "Integer": 6
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.curio-acquisition.9167"
+          },
+          "state_key": {
+            "String": "divergent-universe.curio-state.9167"
+          },
+          "summary_en": {
+            "String": "Gain 500 fragments on acquisition; domain expiry and penalties remain separate."
+          },
+          "summary_zh_cn": {
+            "String": "获取时获得 500 碎片；区域失效与惩罚另行处理。"
+          }
+        }
+      },
+      {
+        "values": {
+          "amount": {
+            "String": "150"
+          },
+          "effect_id": {
+            "String": "2195"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "FixedFragments"
+          },
+          "maximum_rarity": "Null",
+          "minimum_rarity": "Null",
+          "parameter_index": {
+            "Integer": 1
+          },
+          "path_types": "Null",
+          "policy": {
+            "String": "StableStateOrderFloorBeforeEachGrant"
+          },
+          "policy_note": {
+            "String": "Execute the reviewed immediate grant once after inventory insertion, in stable state-key order within one accepted batch. Fractional grants read the balance immediately before that grant and floor nonnegative fractional fragments. Other acquisition and gain-modifier effects remain implementation gaps, not no-effect policies."
+          },
+          "replacement_condition": {
+            "String": "Replace batch ordering, balance snapshot or rounding independently when a released execution graph or reproducible observation establishes them; preserve exact amounts and atomic rollback."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 4
+              },
+              {
+                "Integer": 5
+              },
+              {
+                "Integer": 6
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.curio-acquisition.9195"
+          },
+          "state_key": {
+            "String": "divergent-universe.curio-state.9195"
+          },
+          "summary_en": {
+            "String": "Green Miracle (Dormant) grants 150 fragments on acquisition."
+          },
+          "summary_zh_cn": {
+            "String": "绿奇迹（休眠）在获取时获得 150 碎片。"
+          }
+        }
+      },
+      {
+        "values": {
+          "amount": {
+            "String": "300"
+          },
+          "effect_id": {
+            "String": "2196"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "FixedFragments"
+          },
+          "maximum_rarity": "Null",
+          "minimum_rarity": "Null",
+          "parameter_index": {
+            "Integer": 1
+          },
+          "path_types": "Null",
+          "policy": {
+            "String": "StableStateOrderFloorBeforeEachGrant"
+          },
+          "policy_note": {
+            "String": "Execute the reviewed immediate grant once after inventory insertion, in stable state-key order within one accepted batch. Fractional grants read the balance immediately before that grant and floor nonnegative fractional fragments. Other acquisition and gain-modifier effects remain implementation gaps, not no-effect policies."
+          },
+          "replacement_condition": {
+            "String": "Replace batch ordering, balance snapshot or rounding independently when a released execution graph or reproducible observation establishes them; preserve exact amounts and atomic rollback."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 4
+              },
+              {
+                "Integer": 5
+              },
+              {
+                "Integer": 6
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.curio-acquisition.9196"
+          },
+          "state_key": {
+            "String": "divergent-universe.curio-state.9196"
+          },
+          "summary_en": {
+            "String": "Green Miracle (Awakened) grants 300 fragments on acquisition."
+          },
+          "summary_zh_cn": {
+            "String": "绿奇迹（觉醒）在获取时获得 300 碎片。"
+          }
+        }
+      },
+      {
+        "values": {
+          "amount": {
+            "String": "600"
+          },
+          "effect_id": {
+            "String": "2197"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "FixedFragments"
+          },
+          "maximum_rarity": "Null",
+          "minimum_rarity": "Null",
+          "parameter_index": {
+            "Integer": 1
+          },
+          "path_types": "Null",
+          "policy": {
+            "String": "StableStateOrderFloorBeforeEachGrant"
+          },
+          "policy_note": {
+            "String": "Execute the reviewed immediate grant once after inventory insertion, in stable state-key order within one accepted batch. Fractional grants read the balance immediately before that grant and floor nonnegative fractional fragments. Other acquisition and gain-modifier effects remain implementation gaps, not no-effect policies."
+          },
+          "replacement_condition": {
+            "String": "Replace batch ordering, balance snapshot or rounding independently when a released execution graph or reproducible observation establishes them; preserve exact amounts and atomic rollback."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 4
+              },
+              {
+                "Integer": 5
+              },
+              {
+                "Integer": 6
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.curio-acquisition.9197"
+          },
+          "state_key": {
+            "String": "divergent-universe.curio-state.9197"
+          },
+          "summary_en": {
+            "String": "Green Miracle (Exalted) grants 600 fragments on acquisition."
+          },
+          "summary_zh_cn": {
+            "String": "绿奇迹（升华）在获取时获得 600 碎片。"
+          }
+        }
+      },
+      {
+        "values": {
+          "amount": {
+            "String": "1"
+          },
+          "effect_id": {
+            "String": "2043"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "PathBlessings"
+          },
+          "maximum_rarity": "Null",
+          "minimum_rarity": "Null",
+          "parameter_index": {
+            "Integer": 1
+          },
+          "path_types": {
+            "List": [
+              {
+                "String": "126"
+              }
+            ]
+          },
+          "policy": {
+            "String": "StableStateOrderUniformUnownedPathRejectExhaustion"
+          },
+          "policy_note": {
+            "String": "In stable state-key and path-key order, sample current path-matching unowned Blessing identities uniformly without replacement across the batch. All rarities are eligible. Before drawing, prove that all mandatory Path and rarity grants have a complete distinct assignment; each draw excludes candidates that would prevent the remaining grants. This conditions mixed-pool draws on feasibility, not on uniform complete assignments. Reject acquisition without RNG/state change if mandatory rewards cannot be completed or a Blessing offer/progress update is pending. Reward pools exclude such unavailable Curios. Coalesce all mandatory Blessing grants after the batch's stable-order fragment effects, then refresh Equation progress once before authored expansion rewards and room completion. Expansion rewards use their separate policy and merge allowance changes into final Curio holdings. Other acquisition effects remain implementation gaps, not no-effect policies."
+          },
+          "replacement_condition": {
+            "String": "Replace hidden membership, rarity weights, batch/path ordering, exhaustion or pending-offer scheduling independently when released execution data or reproducible observations establish them; retain exact path/count and atomic rollback."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 7
+              },
+              {
+                "Integer": 8
+              },
+              {
+                "Integer": 9
+              },
+              {
+                "Integer": 10
+              },
+              {
+                "Integer": 11
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.curio-acquisition.9043"
+          },
+          "state_key": {
+            "String": "divergent-universe.curio-state.9043"
+          },
+          "summary_en": {
+            "String": "On acquisition, grant one random Blessing of Elation; later offer weights or Equation triggers remain separate."
+          },
+          "summary_zh_cn": {
+            "String": "获取时获得欢愉的随机祝福各一个；后续候选权重或方程触发另行处理。"
+          }
+        }
+      },
+      {
+        "values": {
+          "amount": {
+            "String": "1"
+          },
+          "effect_id": {
+            "String": "2044"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "PathBlessings"
+          },
+          "maximum_rarity": "Null",
+          "minimum_rarity": "Null",
+          "parameter_index": {
+            "Integer": 1
+          },
+          "path_types": {
+            "List": [
+              {
+                "String": "124"
+              }
+            ]
+          },
+          "policy": {
+            "String": "StableStateOrderUniformUnownedPathRejectExhaustion"
+          },
+          "policy_note": {
+            "String": "In stable state-key and path-key order, sample current path-matching unowned Blessing identities uniformly without replacement across the batch. All rarities are eligible. Before drawing, prove that all mandatory Path and rarity grants have a complete distinct assignment; each draw excludes candidates that would prevent the remaining grants. This conditions mixed-pool draws on feasibility, not on uniform complete assignments. Reject acquisition without RNG/state change if mandatory rewards cannot be completed or a Blessing offer/progress update is pending. Reward pools exclude such unavailable Curios. Coalesce all mandatory Blessing grants after the batch's stable-order fragment effects, then refresh Equation progress once before authored expansion rewards and room completion. Expansion rewards use their separate policy and merge allowance changes into final Curio holdings. Other acquisition effects remain implementation gaps, not no-effect policies."
+          },
+          "replacement_condition": {
+            "String": "Replace hidden membership, rarity weights, batch/path ordering, exhaustion or pending-offer scheduling independently when released execution data or reproducible observations establish them; retain exact path/count and atomic rollback."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 7
+              },
+              {
+                "Integer": 8
+              },
+              {
+                "Integer": 9
+              },
+              {
+                "Integer": 10
+              },
+              {
+                "Integer": 11
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.curio-acquisition.9044"
+          },
+          "state_key": {
+            "String": "divergent-universe.curio-state.9044"
+          },
+          "summary_en": {
+            "String": "On acquisition, grant one random Blessing of The Hunt; later offer weights or Equation triggers remain separate."
+          },
+          "summary_zh_cn": {
+            "String": "获取时获得巡猎的随机祝福各一个；后续候选权重或方程触发另行处理。"
+          }
+        }
+      },
+      {
+        "values": {
+          "amount": {
+            "String": "1"
+          },
+          "effect_id": {
+            "String": "2045"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "PathBlessings"
+          },
+          "maximum_rarity": "Null",
+          "minimum_rarity": "Null",
+          "parameter_index": {
+            "Integer": 1
+          },
+          "path_types": {
+            "List": [
+              {
+                "String": "125"
+              }
+            ]
+          },
+          "policy": {
+            "String": "StableStateOrderUniformUnownedPathRejectExhaustion"
+          },
+          "policy_note": {
+            "String": "In stable state-key and path-key order, sample current path-matching unowned Blessing identities uniformly without replacement across the batch. All rarities are eligible. Before drawing, prove that all mandatory Path and rarity grants have a complete distinct assignment; each draw excludes candidates that would prevent the remaining grants. This conditions mixed-pool draws on feasibility, not on uniform complete assignments. Reject acquisition without RNG/state change if mandatory rewards cannot be completed or a Blessing offer/progress update is pending. Reward pools exclude such unavailable Curios. Coalesce all mandatory Blessing grants after the batch's stable-order fragment effects, then refresh Equation progress once before authored expansion rewards and room completion. Expansion rewards use their separate policy and merge allowance changes into final Curio holdings. Other acquisition effects remain implementation gaps, not no-effect policies."
+          },
+          "replacement_condition": {
+            "String": "Replace hidden membership, rarity weights, batch/path ordering, exhaustion or pending-offer scheduling independently when released execution data or reproducible observations establish them; retain exact path/count and atomic rollback."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 7
+              },
+              {
+                "Integer": 8
+              },
+              {
+                "Integer": 9
+              },
+              {
+                "Integer": 10
+              },
+              {
+                "Integer": 11
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.curio-acquisition.9045"
+          },
+          "state_key": {
+            "String": "divergent-universe.curio-state.9045"
+          },
+          "summary_en": {
+            "String": "On acquisition, grant one random Blessing of Destruction; later offer weights or Equation triggers remain separate."
+          },
+          "summary_zh_cn": {
+            "String": "获取时获得毁灭的随机祝福各一个；后续候选权重或方程触发另行处理。"
+          }
+        }
+      },
+      {
+        "values": {
+          "amount": {
+            "String": "1"
+          },
+          "effect_id": {
+            "String": "2046"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "PathBlessings"
+          },
+          "maximum_rarity": "Null",
+          "minimum_rarity": "Null",
+          "parameter_index": {
+            "Integer": 1
+          },
+          "path_types": {
+            "List": [
+              {
+                "String": "121"
+              }
+            ]
+          },
+          "policy": {
+            "String": "StableStateOrderUniformUnownedPathRejectExhaustion"
+          },
+          "policy_note": {
+            "String": "In stable state-key and path-key order, sample current path-matching unowned Blessing identities uniformly without replacement across the batch. All rarities are eligible. Before drawing, prove that all mandatory Path and rarity grants have a complete distinct assignment; each draw excludes candidates that would prevent the remaining grants. This conditions mixed-pool draws on feasibility, not on uniform complete assignments. Reject acquisition without RNG/state change if mandatory rewards cannot be completed or a Blessing offer/progress update is pending. Reward pools exclude such unavailable Curios. Coalesce all mandatory Blessing grants after the batch's stable-order fragment effects, then refresh Equation progress once before authored expansion rewards and room completion. Expansion rewards use their separate policy and merge allowance changes into final Curio holdings. Other acquisition effects remain implementation gaps, not no-effect policies."
+          },
+          "replacement_condition": {
+            "String": "Replace hidden membership, rarity weights, batch/path ordering, exhaustion or pending-offer scheduling independently when released execution data or reproducible observations establish them; retain exact path/count and atomic rollback."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 7
+              },
+              {
+                "Integer": 8
+              },
+              {
+                "Integer": 9
+              },
+              {
+                "Integer": 10
+              },
+              {
+                "Integer": 11
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.curio-acquisition.9046"
+          },
+          "state_key": {
+            "String": "divergent-universe.curio-state.9046"
+          },
+          "summary_en": {
+            "String": "On acquisition, grant one random Blessing of Remembrance; later offer weights or Equation triggers remain separate."
+          },
+          "summary_zh_cn": {
+            "String": "获取时获得记忆的随机祝福各一个；后续候选权重或方程触发另行处理。"
+          }
+        }
+      },
+      {
+        "values": {
+          "amount": {
+            "String": "1"
+          },
+          "effect_id": {
+            "String": "2047"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "kind": {
+            "String": "PathBlessings"
+          },
+          "maximum_rarity": "Null",
+          "minimum_rarity": "Null",
+          "parameter_index": {
+            "Integer": 1
+          },
+          "path_types": {
+            "List": [
+              {
+                "String": "122"
+              }
+            ]
+          },
+          "policy": {
+            "String": "StableStateOrderUniformUnownedPathRejectExhaustion"
+          },
+          "policy_note": {
+            "String": "In stable state-key and path-key order, sample current path-matching unowned Blessing identities uniformly without replacement across the batch. All rarities are eligible. Before drawing, prove that all mandatory Path and rarity grants have a complete distinct assignment; each draw excludes candidates that would prevent the remaining grants. This conditions mixed-pool draws on feasibility, not on uniform complete assignments. Reject acquisition without RNG/state change if mandatory rewards cannot be completed or a Blessing offer/progress update is pending. Reward pools exclude such unavailable Curios. Coalesce all mandatory Blessing grants after the batch's stable-order fragment effects, then refresh Equation progress once before authored expansion rewards and room completion. Expansion rewards use their separate policy and merge allowance changes into final Curio holdings. Other acquisition effects remain implementation gaps, not no-effect policies."
+          },
+          "replacement_condition": {
+            "String": "Replace hidden membership, rarity weights, batch/path ordering, exhaustion or pending-offer scheduling independently when released execution data or reproducible observations establish them; retain exact path/count and atomic rollback."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 7
+              },
+              {
+                "Integer": 8
+              },
+              {
+                "Integer": 9
+              },
+              {
+                "Integer": 10
+              },
+              {
+                "Integer": 11
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.curio-acquisition.9047"
+          },
+          "state_key": {
+            "String": "divergent-universe.curio-state.9047"
+          },
+          "summary_en": {
+            "String": "On acquisition, grant one random Blessing of Nihility; later offer weights or Equation triggers remain separate."
+          },
+          "summary_zh_cn": {
+            "String": "获取时获得虚无的随机祝福各一个；后续候选权重或方程触发另行处理。"
+          }
+        }
+      },
+      {
+        "values": {
+          "amount": {
+            "String": "1"
+          },
+          "effect_id": {
+            "String": "2048"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "kind": {
+            "String": "PathBlessings"
+          },
+          "maximum_rarity": "Null",
+          "minimum_rarity": "Null",
+          "parameter_index": {
+            "Integer": 1
+          },
+          "path_types": {
+            "List": [
+              {
+                "String": "127"
+              }
+            ]
+          },
+          "policy": {
+            "String": "StableStateOrderUniformUnownedPathRejectExhaustion"
+          },
+          "policy_note": {
+            "String": "In stable state-key and path-key order, sample current path-matching unowned Blessing identities uniformly without replacement across the batch. All rarities are eligible. Before drawing, prove that all mandatory Path and rarity grants have a complete distinct assignment; each draw excludes candidates that would prevent the remaining grants. This conditions mixed-pool draws on feasibility, not on uniform complete assignments. Reject acquisition without RNG/state change if mandatory rewards cannot be completed or a Blessing offer/progress update is pending. Reward pools exclude such unavailable Curios. Coalesce all mandatory Blessing grants after the batch's stable-order fragment effects, then refresh Equation progress once before authored expansion rewards and room completion. Expansion rewards use their separate policy and merge allowance changes into final Curio holdings. Other acquisition effects remain implementation gaps, not no-effect policies."
+          },
+          "replacement_condition": {
+            "String": "Replace hidden membership, rarity weights, batch/path ordering, exhaustion or pending-offer scheduling independently when released execution data or reproducible observations establish them; retain exact path/count and atomic rollback."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 7
+              },
+              {
+                "Integer": 8
+              },
+              {
+                "Integer": 9
+              },
+              {
+                "Integer": 10
+              },
+              {
+                "Integer": 11
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.curio-acquisition.9048"
+          },
+          "state_key": {
+            "String": "divergent-universe.curio-state.9048"
+          },
+          "summary_en": {
+            "String": "On acquisition, grant one random Blessing of Propagation; later offer weights or Equation triggers remain separate."
+          },
+          "summary_zh_cn": {
+            "String": "获取时获得繁育的随机祝福各一个；后续候选权重或方程触发另行处理。"
+          }
+        }
+      },
+      {
+        "values": {
+          "amount": {
+            "String": "1"
+          },
+          "effect_id": {
+            "String": "2049"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "kind": {
+            "String": "PathBlessings"
+          },
+          "maximum_rarity": "Null",
+          "minimum_rarity": "Null",
+          "parameter_index": {
+            "Integer": 1
+          },
+          "path_types": {
+            "List": [
+              {
+                "String": "128"
+              }
+            ]
+          },
+          "policy": {
+            "String": "StableStateOrderUniformUnownedPathRejectExhaustion"
+          },
+          "policy_note": {
+            "String": "In stable state-key and path-key order, sample current path-matching unowned Blessing identities uniformly without replacement across the batch. All rarities are eligible. Before drawing, prove that all mandatory Path and rarity grants have a complete distinct assignment; each draw excludes candidates that would prevent the remaining grants. This conditions mixed-pool draws on feasibility, not on uniform complete assignments. Reject acquisition without RNG/state change if mandatory rewards cannot be completed or a Blessing offer/progress update is pending. Reward pools exclude such unavailable Curios. Coalesce all mandatory Blessing grants after the batch's stable-order fragment effects, then refresh Equation progress once before authored expansion rewards and room completion. Expansion rewards use their separate policy and merge allowance changes into final Curio holdings. Other acquisition effects remain implementation gaps, not no-effect policies."
+          },
+          "replacement_condition": {
+            "String": "Replace hidden membership, rarity weights, batch/path ordering, exhaustion or pending-offer scheduling independently when released execution data or reproducible observations establish them; retain exact path/count and atomic rollback."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 7
+              },
+              {
+                "Integer": 8
+              },
+              {
+                "Integer": 9
+              },
+              {
+                "Integer": 10
+              },
+              {
+                "Integer": 11
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.curio-acquisition.9049"
+          },
+          "state_key": {
+            "String": "divergent-universe.curio-state.9049"
+          },
+          "summary_en": {
+            "String": "On acquisition, grant one random Blessing of Erudition; later offer weights or Equation triggers remain separate."
+          },
+          "summary_zh_cn": {
+            "String": "获取时获得智识的随机祝福各一个；后续候选权重或方程触发另行处理。"
+          }
+        }
+      },
+      {
+        "values": {
+          "amount": {
+            "String": "1"
+          },
+          "effect_id": {
+            "String": "2147"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "kind": {
+            "String": "PathBlessings"
+          },
+          "maximum_rarity": "Null",
+          "minimum_rarity": "Null",
+          "parameter_index": {
+            "Integer": 1
+          },
+          "path_types": {
+            "List": [
+              {
+                "String": "129"
+              }
+            ]
+          },
+          "policy": {
+            "String": "StableStateOrderUniformUnownedPathRejectExhaustion"
+          },
+          "policy_note": {
+            "String": "In stable state-key and path-key order, sample current path-matching unowned Blessing identities uniformly without replacement across the batch. All rarities are eligible. Before drawing, prove that all mandatory Path and rarity grants have a complete distinct assignment; each draw excludes candidates that would prevent the remaining grants. This conditions mixed-pool draws on feasibility, not on uniform complete assignments. Reject acquisition without RNG/state change if mandatory rewards cannot be completed or a Blessing offer/progress update is pending. Reward pools exclude such unavailable Curios. Coalesce all mandatory Blessing grants after the batch's stable-order fragment effects, then refresh Equation progress once before authored expansion rewards and room completion. Expansion rewards use their separate policy and merge allowance changes into final Curio holdings. Other acquisition effects remain implementation gaps, not no-effect policies."
+          },
+          "replacement_condition": {
+            "String": "Replace hidden membership, rarity weights, batch/path ordering, exhaustion or pending-offer scheduling independently when released execution data or reproducible observations establish them; retain exact path/count and atomic rollback."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 7
+              },
+              {
+                "Integer": 8
+              },
+              {
+                "Integer": 9
+              },
+              {
+                "Integer": 10
+              },
+              {
+                "Integer": 11
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.curio-acquisition.9147"
+          },
+          "state_key": {
+            "String": "divergent-universe.curio-state.9147"
+          },
+          "summary_en": {
+            "String": "On acquisition, grant one random Blessing of Harmony; later offer weights or Equation triggers remain separate."
+          },
+          "summary_zh_cn": {
+            "String": "获取时获得同谐的随机祝福各一个；后续候选权重或方程触发另行处理。"
+          }
+        }
+      },
+      {
+        "values": {
+          "amount": {
+            "String": "1"
+          },
+          "effect_id": {
+            "String": "2187"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "kind": {
+            "String": "PathBlessings"
+          },
+          "maximum_rarity": "Null",
+          "minimum_rarity": "Null",
+          "parameter_index": {
+            "Integer": 1
+          },
+          "path_types": {
+            "List": [
+              {
+                "String": "121"
+              },
+              {
+                "String": "122"
+              },
+              {
+                "String": "124"
+              },
+              {
+                "String": "125"
+              },
+              {
+                "String": "126"
+              },
+              {
+                "String": "127"
+              },
+              {
+                "String": "128"
+              },
+              {
+                "String": "129"
+              }
+            ]
+          },
+          "policy": {
+            "String": "StableStateOrderUniformUnownedPathRejectExhaustion"
+          },
+          "policy_note": {
+            "String": "In stable state-key and path-key order, sample current path-matching unowned Blessing identities uniformly without replacement across the batch. All rarities are eligible. Before drawing, prove that all mandatory Path and rarity grants have a complete distinct assignment; each draw excludes candidates that would prevent the remaining grants. This conditions mixed-pool draws on feasibility, not on uniform complete assignments. Reject acquisition without RNG/state change if mandatory rewards cannot be completed or a Blessing offer/progress update is pending. Reward pools exclude such unavailable Curios. Coalesce all mandatory Blessing grants after the batch's stable-order fragment effects, then refresh Equation progress once before authored expansion rewards and room completion. Expansion rewards use their separate policy and merge allowance changes into final Curio holdings. Other acquisition effects remain implementation gaps, not no-effect policies."
+          },
+          "replacement_condition": {
+            "String": "Replace hidden membership, rarity weights, batch/path ordering, exhaustion or pending-offer scheduling independently when released execution data or reproducible observations establish them; retain exact path/count and atomic rollback."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 7
+              },
+              {
+                "Integer": 8
+              },
+              {
+                "Integer": 9
+              },
+              {
+                "Integer": 10
+              },
+              {
+                "Integer": 11
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.curio-acquisition.9187"
+          },
+          "state_key": {
+            "String": "divergent-universe.curio-state.9187"
+          },
+          "summary_en": {
+            "String": "On acquisition, grant one random Blessing of each current active Path; later offer weights or Equation triggers remain separate."
+          },
+          "summary_zh_cn": {
+            "String": "获取时获得每个当前活动命途的随机祝福各一个；后续候选权重或方程触发另行处理。"
+          }
+        }
+      },
+      {
+        "values": {
+          "amount": {
+            "String": "1"
+          },
+          "effect_id": {
+            "String": "2192"
+          },
+          "id": {
+            "Integer": 16
+          },
+          "kind": {
+            "String": "RarityBlessings"
+          },
+          "maximum_rarity": {
+            "Integer": 1
+          },
+          "minimum_rarity": {
+            "Integer": 1
+          },
+          "parameter_index": {
+            "Integer": 1
+          },
+          "path_types": "Null",
+          "policy": {
+            "String": "FeasibleRarityAssignments"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: after inserting accepted Curio inventory, execute full acquisition rewards in stable state-key order. Use current unowned Blessing identities of the authored rarity with unit weights, without replacement across the complete batch. Before any draw, require a complete distinct assignment for all mandatory Path and rarity grants. At each draw, restrict candidates to those permitting the remaining mandatory grants, then sample uniformly in stable identity order. This is conditional sequential sampling, not uniform sampling of complete assignments. Coalesce mandatory Blessing grants after stable-order fragment effects, refresh Equation progress once, then execute separately authored bounded expansion rewards and merge allowance changes into final Curio holdings. Pending Blessing offers, dirty progress or exhausted mandatory pools reject atomically; never reduce the count or substitute another rarity. Victory grants and public evolution events have separate owners."
+          },
+          "replacement_condition": {
+            "String": "Replace candidate membership, rarity weights, stable ordering, feasibility-conditioned sampling, exhaustion behavior and full versus difference-only evolution grants independently when released graphs or reproducible observations establish them. Alternatives include weighted draws, duplicate conversion and engine-defined reward order. Confidence in hidden scheduling and distribution is low; count and rarity remain exact released fields."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 32
+              },
+              {
+                "Integer": 33
+              },
+              {
+                "Integer": 34
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.curio-acquisition.9192"
+          },
+          "state_key": {
+            "String": "divergent-universe.curio-state.9192"
+          },
+          "summary_en": {
+            "String": "Sage's Leaf Robe (Dormant) grants 1 random 1-star Blessings on acquisition."
+          },
+          "summary_zh_cn": {
+            "String": "贤人叶袍（休眠）获取时获得 1 个随机 1 星祝福。"
+          }
+        }
+      },
+      {
+        "values": {
+          "amount": {
+            "String": "2"
+          },
+          "effect_id": {
+            "String": "2193"
+          },
+          "id": {
+            "Integer": 17
+          },
+          "kind": {
+            "String": "RarityBlessings"
+          },
+          "maximum_rarity": {
+            "Integer": 2
+          },
+          "minimum_rarity": {
+            "Integer": 2
+          },
+          "parameter_index": {
+            "Integer": 1
+          },
+          "path_types": "Null",
+          "policy": {
+            "String": "FeasibleRarityAssignments"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: after inserting accepted Curio inventory, execute full acquisition rewards in stable state-key order. Use current unowned Blessing identities of the authored rarity with unit weights, without replacement across the complete batch. Before any draw, require a complete distinct assignment for all mandatory Path and rarity grants. At each draw, restrict candidates to those permitting the remaining mandatory grants, then sample uniformly in stable identity order. This is conditional sequential sampling, not uniform sampling of complete assignments. Coalesce mandatory Blessing grants after stable-order fragment effects, refresh Equation progress once, then execute separately authored bounded expansion rewards and merge allowance changes into final Curio holdings. Pending Blessing offers, dirty progress or exhausted mandatory pools reject atomically; never reduce the count or substitute another rarity. Victory grants and public evolution events have separate owners."
+          },
+          "replacement_condition": {
+            "String": "Replace candidate membership, rarity weights, stable ordering, feasibility-conditioned sampling, exhaustion behavior and full versus difference-only evolution grants independently when released graphs or reproducible observations establish them. Alternatives include weighted draws, duplicate conversion and engine-defined reward order. Confidence in hidden scheduling and distribution is low; count and rarity remain exact released fields."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 32
+              },
+              {
+                "Integer": 33
+              },
+              {
+                "Integer": 34
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.curio-acquisition.9193"
+          },
+          "state_key": {
+            "String": "divergent-universe.curio-state.9193"
+          },
+          "summary_en": {
+            "String": "Sage's Leaf Robe (Awakened) grants 2 random 2-star Blessings on acquisition."
+          },
+          "summary_zh_cn": {
+            "String": "贤人叶袍（觉醒）获取时获得 2 个随机 2 星祝福。"
+          }
+        }
+      },
+      {
+        "values": {
+          "amount": {
+            "String": "3"
+          },
+          "effect_id": {
+            "String": "2194"
+          },
+          "id": {
+            "Integer": 18
+          },
+          "kind": {
+            "String": "RarityBlessings"
+          },
+          "maximum_rarity": {
+            "Integer": 3
+          },
+          "minimum_rarity": {
+            "Integer": 3
+          },
+          "parameter_index": {
+            "Integer": 1
+          },
+          "path_types": "Null",
+          "policy": {
+            "String": "FeasibleRarityAssignments"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: after inserting accepted Curio inventory, execute full acquisition rewards in stable state-key order. Use current unowned Blessing identities of the authored rarity with unit weights, without replacement across the complete batch. Before any draw, require a complete distinct assignment for all mandatory Path and rarity grants. At each draw, restrict candidates to those permitting the remaining mandatory grants, then sample uniformly in stable identity order. This is conditional sequential sampling, not uniform sampling of complete assignments. Coalesce mandatory Blessing grants after stable-order fragment effects, refresh Equation progress once, then execute separately authored bounded expansion rewards and merge allowance changes into final Curio holdings. Pending Blessing offers, dirty progress or exhausted mandatory pools reject atomically; never reduce the count or substitute another rarity. Victory grants and public evolution events have separate owners."
+          },
+          "replacement_condition": {
+            "String": "Replace candidate membership, rarity weights, stable ordering, feasibility-conditioned sampling, exhaustion behavior and full versus difference-only evolution grants independently when released graphs or reproducible observations establish them. Alternatives include weighted draws, duplicate conversion and engine-defined reward order. Confidence in hidden scheduling and distribution is low; count and rarity remain exact released fields."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 32
+              },
+              {
+                "Integer": 33
+              },
+              {
+                "Integer": 34
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.curio-acquisition.9194"
+          },
+          "state_key": {
+            "String": "divergent-universe.curio-state.9194"
+          },
+          "summary_en": {
+            "String": "Sage's Leaf Robe (Exalted) grants 3 random 3-star Blessings on acquisition."
+          },
+          "summary_zh_cn": {
+            "String": "贤人叶袍（升华）获取时获得 3 个随机 3 星祝福。"
+          }
+        }
+      }
+    ]
+  }
+}

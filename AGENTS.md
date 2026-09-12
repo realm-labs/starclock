@@ -272,6 +272,11 @@ substitute checks.
   `<type>(<optional-scope>): <imperative lowercase description>`.
 - Keep commits focused. Do not mix unrelated formatting, refactoring,
   documentation or generated drift.
+- For the authorized ongoing Divergent Universe execution, commit each
+  responsibility-bounded batch after its applicable checks. Include its code,
+  authored configuration, generated artifacts, tests and current-state updates
+  together; do not accumulate multiple completed batches. This does not
+  authorize pushing or rewriting history.
 - Never use destructive Git commands to discard user work.
 - Preserve the shared workspace `target` directory and incremental caches.
   Do not use unscoped `cargo clean` as routine maintenance.

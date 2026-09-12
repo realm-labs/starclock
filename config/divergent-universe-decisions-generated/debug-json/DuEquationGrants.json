@@ -1,0 +1,72 @@
+{
+  "table": {
+    "name": "DuEquationGrants",
+    "rows": [
+      {
+        "values": {
+          "count": {
+            "Integer": 3
+          },
+          "count_parameter": {
+            "Integer": 2
+          },
+          "domain_limit": {
+            "Integer": 1
+          },
+          "effect_id": {
+            "String": "2187"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "limit_parameter": {
+            "Integer": 3
+          },
+          "policy": {
+            "String": "UniformMissingRecipeAvailableSubsetOnceLogicalDomain"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: normal acquisition and replacement both count as obtaining the new Equation. Sequentially sample uniformly from current unowned identities that contribute to a still-deficient main or sub Path, recomputing deficits after each grant, across all rarities. Stop at the authored count or when none remain. Consume the once budget only when at least one Blessing is granted; already satisfied/exhausted recipes consume neither budget nor RNG. Snapshot active Curio status before acquisition. Track the existing logical Node address and visit, not physical battle/reward nodes. Destroy, repair or reacquisition cannot reset this receipt. All holdings, progress, receipt, offer consumption and RNG commit atomically. Pending Blessing offers reject when a grant would execute; no recursive acquisition triggers are implied."
+          },
+          "replacement_condition": {
+            "String": "Replace replacement-trigger inclusion, candidate membership, rarity/Path weights, deficit scheduling, subset/empty-budget behavior, pending-offer ordering or logical-to-physical Domain binding independently when released execution topology or reproducible observations establish them. Alternatives include all matching Paths even if satisfied, main-first selection, and consuming an empty trigger. Current policy preserves useful missing-recipe grants without inventing duplicates or extra counts; parity confidence is low for these fields."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 7
+              },
+              {
+                "Integer": 9
+              },
+              {
+                "Integer": 10
+              },
+              {
+                "Integer": 11
+              },
+              {
+                "Integer": 15
+              },
+              {
+                "Integer": 16
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.equation-grant.trailblaze"
+          },
+          "state_key": {
+            "String": "divergent-universe.curio-state.9187"
+          },
+          "summary_en": {
+            "String": "While active, obtaining an Equation grants up to three unowned Blessings still needed by its recipe, once per logical Domain visit."
+          },
+          "summary_zh_cn": {
+            "String": "生效期间获得方程时，补充最多三个该方程仍缺少的未拥有祝福；每个逻辑区域访问实例限一次。"
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "table": {
+    "name": "DuBattleRoutes",
+    "rows": [
+      {
+        "values": {
+          "battles_per_layer": {
+            "Integer": 1
+          },
+          "id": {
+            "Integer": 1
+          },
+          "policy": {
+            "String": "OneBattlePerLayerWithDomainChoices"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: bind the first baseline battle to Combat. Before each later layer's encounter, after any Treasure events, offer the three explicitly authored domain labels as a required public Route choice. Set the selected domain once for that logical node, preserve it through battle and reward, and reset it on the next node. Do not promote any source room ID or Tourn2 candidate. Keep the current one-proxy-battle-per-layer route and the separately authored encounter candidate pool. The selected label controls domain-gated effects, including Sage victory grants. All current proxy domains retain the existing provisional Common/Rare base Blessing pool; original domain-specific base rewards, enemy programs, events, room multiplicity and Boss placement remain pending. Raw stage elite flags never select the domain. No adapter-supplied free-form label is accepted."
+          },
+          "replacement_condition": {
+            "String": "Replace later-domain membership, per-layer choices/order, room multiplicity, occurrence scheduling, encounter assignment and base reward policy independently when released current-profile selectors or reproducible observations establish them. Alternatives include random fixed domains, weighted room doors and multi-room planes. Hidden layout and distribution confidence is low; current behavior is an explicit selectable proxy policy, not original room parity."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 18
+              },
+              {
+                "Integer": 39
+              },
+              {
+                "Integer": 40
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.battle-route.logical-layers"
+          },
+          "summary_en": {
+            "String": "Each logical layer executes one proxy battle; the first domain is Combat and later domains are selected through the authored public choices."
+          },
+          "summary_zh_cn": {
+            "String": "每个逻辑层执行一场代理战斗；首个区域为普通战斗，后续区域通过配置的公开选项选择。"
+          }
+        }
+      }
+    ]
+  }
+}

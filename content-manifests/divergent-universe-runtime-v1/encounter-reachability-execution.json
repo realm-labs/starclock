@@ -1,0 +1,137 @@
+{
+  "schema_revision": "starclock.divergent-universe-encounter-reachability-execution.v1",
+  "goal_id": "divergent-universe-runtime-v1",
+  "batch": "G22-P6-B3",
+  "status": "CompleteRoomStageWeeklyEncounterWaveEnemyAndBossReachability",
+  "input_digests": {
+    "rooms": {
+      "path": "content-reference/divergent-universe-v1/rooms.json",
+      "sha256": "0088fc5656df84a340c5f6d55d37ee0c2b9ea022b3646b7cade264cad24ba8d1"
+    },
+    "stage_flow": {
+      "path": "content-reference/divergent-universe-v1/stage-flow.json",
+      "sha256": "a929e1210a336ab0f05ea307607916084af96c4be6c93a253c6a060c3315d5c5"
+    },
+    "weekly_modifiers": {
+      "path": "content-reference/divergent-universe-v1/weekly-modifiers.json",
+      "sha256": "9e2b38ee14fc15328e0aa9d02d3cf5b4ef9f689a6adfa60a1a5cf00dfb10bf18"
+    },
+    "encounter_sources": {
+      "path": "content-reference/divergent-universe-v1/encounter-source-obligations.json",
+      "sha256": "25134b03b1c4dd8c765cfb80113b4e1403800f1871c104264f2a3258542c91bd"
+    },
+    "encounter_groups": {
+      "path": "content-reference/divergent-universe-v1/encounter-groups.json",
+      "sha256": "9099418d230b8efd86f93c6ec07301ef9d850604d756ca9922731c734b02f01f"
+    },
+    "encounter_waves": {
+      "path": "content-reference/divergent-universe-v1/encounter-waves.json",
+      "sha256": "35b41c016c89e57f8a34eca8f711d2df1f7227c36373a15848df675c13594313"
+    },
+    "enemy_slots": {
+      "path": "content-reference/divergent-universe-v1/enemy-slots.json",
+      "sha256": "a13a696d5d216d9fecee34eba78a42158bc3e9cc7c4cab99d11b36a7ca84b2cd"
+    },
+    "boss_pools": {
+      "path": "content-reference/divergent-universe-v1/boss-pools.json",
+      "sha256": "97b38540ef37031a9f100c327aa39f232746b4d2541c33f3facf219d0957679a"
+    },
+    "runtime_dispositions": {
+      "path": "content-manifests/divergent-universe-runtime-v1/runtime-dispositions.json",
+      "sha256": "1319cb15f7a2e1b9c283549300cf29bb4f2b65d41c759a0c29240570c7fbd2bc"
+    },
+    "batch_ledger": {
+      "path": "content-manifests/divergent-universe-runtime-v1/batch-ledger.json",
+      "sha256": "77e109344b674b1a301708d247e2dcedeace5bc941f789d2ab3529dc5224f467"
+    },
+    "prior_execution": {
+      "path": "content-manifests/divergent-universe-runtime-v1/service-adventure-execution.json",
+      "sha256": "836d859ea245fd07343a63c0bf955fe78f9da30959f080fcbba27073e6307102"
+    },
+    "runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/encounter_reachability_runtime.rs",
+      "sha256": "1fcd6f3393031c6a53210b3c2a51e04535f04a86cce46a42819e46d94f153a6d"
+    },
+    "tests": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/tests/encounter_reachability_runtime.rs",
+      "sha256": "de7047c8154c89ac283729439088f31374b7f7e63dfac656914647c8f73a7a78"
+    }
+  },
+  "exact_runtime": {
+    "encounter_sources": 877,
+    "retained_rooms": 848,
+    "stage_flow_rows": 111,
+    "weekly_displays": 103,
+    "encounter_groups": 43,
+    "group_stage_pairs": 184,
+    "unique_stages": 118,
+    "waves": 176,
+    "enemy_slots": 385,
+    "boss_pools": 618,
+    "boss_alternatives": 2982
+  },
+  "policy_boundary": {
+    "area_entry_selector": "RejectWithoutMutation",
+    "room_selector": "RejectWithoutMutation",
+    "stageconfig_closure": "ExactSharedCandidateIdentityClosure",
+    "display_candidate_selection": "ExplicitVersionedProjectPolicyOnly",
+    "weekly_current_selector": "UnavailableAtPinnedRevision",
+    "rng_draws": 0,
+    "observed_reachability_or_selection_parity_claimed": false
+  },
+  "execution_receipt": {
+    "every_source_obligation_terminal": "Passed",
+    "exact_group_wave_slot_closure": "Passed",
+    "every_explicit_group_stage_candidate_selectable": "Passed",
+    "every_weekly_boss_alternative_bound": "Passed",
+    "stale_cross_group_and_unresolved_selectors_reject_atomically": "Passed"
+  },
+  "assignment_closure": {
+    "obligations": 877,
+    "policy_integrated": 876,
+    "shared_integrated": 1,
+    "fixture_families": 1,
+    "research_gaps": 1,
+    "policy_sources": 5,
+    "mechanic_programs": 0
+  },
+  "capability_probes": [
+    {
+      "id": "catalog-and-policy-boundaries",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/encounter_reachability_runtime.rs",
+      "test": "encounter_reachability_catalog_compiles_all_exact_and_policy_boundaries",
+      "result": "Passed"
+    },
+    {
+      "id": "unresolved-area-and-room-selectors",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/encounter_reachability_runtime.rs",
+      "test": "every_unresolved_area_and_room_source_rejects_without_state_or_rng",
+      "result": "Passed"
+    },
+    {
+      "id": "group-stage-wave-enemy-closure",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/encounter_reachability_runtime.rs",
+      "test": "every_group_stage_candidate_closes_to_ordered_waves_and_enemy_slots",
+      "result": "Passed"
+    },
+    {
+      "id": "weekly-boss-alternatives",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/encounter_reachability_runtime.rs",
+      "test": "every_weekly_boss_alternative_binds_matching_group_stage_and_monster",
+      "result": "Passed"
+    },
+    {
+      "id": "stale-and-cross-group-rejection",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/encounter_reachability_runtime.rs",
+      "test": "stale_and_cross_group_candidate_rejections_are_atomic",
+      "result": "Passed"
+    }
+  ],
+  "summary": {
+    "sources": 877,
+    "stages": 118,
+    "boss_pools": 618,
+    "terminal_obligations": 877,
+    "probes": 5
+  }
+}

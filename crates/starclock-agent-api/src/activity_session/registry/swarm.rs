@@ -12,9 +12,11 @@ impl ActivityAgentSessionRegistry {
     ) -> Self {
         Self::with_limits(
             factory,
-            Some(gold_factory),
-            Some(swarm_factory),
-            None,
+            ActivityModeFactories {
+                gold: Some(gold_factory),
+                swarm: Some(swarm_factory),
+                ..ActivityModeFactories::default()
+            },
             clock,
             id_source,
             FROZEN_LIMITS,

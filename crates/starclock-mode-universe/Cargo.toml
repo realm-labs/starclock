@@ -11,6 +11,10 @@ workspace = true
 [features]
 benchmark-harness = []
 
+[[test]]
+name = "divergent_universe_matrix"
+path = "tests/divergent_universe_matrix.rs"
+
 [dependencies]
 serde.workspace = true
 serde_json.workspace = true

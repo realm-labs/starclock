@@ -32,6 +32,7 @@ pub mod curio_runtime;
 pub mod definition;
 pub mod destruction_runtime;
 pub mod digest;
+pub mod divergent_universe;
 pub mod dynamic_battle_assembler;
 pub mod elation_runtime;
 pub mod encounter;

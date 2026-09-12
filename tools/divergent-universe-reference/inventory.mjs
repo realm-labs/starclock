@@ -5,9 +5,13 @@ import { execFileSync } from "node:child_process";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
+import { personaTables } from "./persona-obligations.mjs";
 
 const args = process.argv.slice(2);
 const check = args.includes("--check");
+// Classification-only maintenance preserves already admitted blob facts. It
+// still checks pinned revisions, clean caches and exact selected Git paths.
+const reclassify = args.includes("--reclassify");
 const root = path.resolve(".");
 const sourceCache = path.resolve(option("--source-cache")
   ?? process.env.STARCLOCK_SOURCE_CACHE
@@ -276,7 +280,13 @@ function classify(sourceId, relativePath) {
       selected_by: "RogueDLC table retained to prove Swarm Disaster/framework boundary",
     };
   }
-  if (/^(ActivityRogue|RogueEndless|RoguePersona)/u.test(name)) {
+  if (personaTables.has(name)) {
+    return {
+      family: "divergent_persona_structured_candidate",
+      selected_by: "reviewed current layer joins invalidate blanket exclusion; retain all rows for individual selector proof",
+    };
+  }
+  if (/^(ActivityRogue|RogueEndless)/u.test(name)) {
     return {
       family: "other_mode_exclusion_evidence",
       selected_by: "explicit other-mode table retained to prove ownership exclusion",
@@ -300,6 +310,17 @@ function compareText(left, right) {
 if (standardInventory.records.length !== 2646)
   throw new Error("Goal 03 source inventory denominator drift");
 
+const admitted = reclassify
+  ? JSON.parse(await readFile(output, "utf8"))
+  : undefined;
+if (admitted && sources.some((source) => !admitted.snapshot.repositories.some(
+  (entry) => entry.id === source.id && entry.revision === source.revision
+    && entry.repository === source.repository)))
+  throw new Error("classification-only source admission identity drift");
+const admittedRecords = new Map((admitted?.records ?? []).map((record) =>
+  [`${record.repository}/${record.path}`, record]));
+if (admitted && admittedRecords.size !== admitted.records.length)
+  throw new Error("duplicate admitted source paths");
 const records = [];
 for (const source of sources) {
   const revision = git(source, ["rev-parse", "HEAD"]).trim();
@@ -313,16 +334,23 @@ for (const source of sources) {
     .filter((relativePath) => selected(source.id, relativePath))
     .sort(compareText);
   for (const relativePath of tracked) {
-    const bytes = git(source, ["cat-file", "blob", `HEAD:${relativePath}`], null);
+    const previous = admittedRecords.get(`${source.id}/${relativePath}`);
+    if (reclassify && (!previous || !/^[0-9a-f]{64}$/u.test(previous.sha256)
+        || !Number.isSafeInteger(previous.bytes) || previous.bytes < 0))
+      throw new Error(`classification-only mode cannot admit new source bytes: ${relativePath}`);
+    const bytes = reclassify ? undefined
+      : git(source, ["cat-file", "blob", `HEAD:${relativePath}`], null);
     records.push({
       repository: source.id,
       path: relativePath,
-      sha256: createHash("sha256").update(bytes).digest("hex"),
-      bytes: bytes.length,
+      sha256: reclassify ? previous.sha256 : createHash("sha256").update(bytes).digest("hex"),
+      bytes: reclassify ? previous.bytes : bytes.length,
       ...classify(source.id, relativePath),
     });
   }
 }
+if (reclassify && records.length !== admittedRecords.size)
+  throw new Error("classification-only selected path closure changed");
 records.sort((left, right) =>
   compareText(`${left.repository}/${left.path}`, `${right.repository}/${right.path}`));
 
@@ -371,6 +399,8 @@ const payload = {
   classification_policy: {
     divergent_structured_candidate:
       "RogueTourn structured table requiring row-level module and ownership proof",
+    divergent_persona_structured_candidate:
+      "eleven explicitly reviewed Persona tables; current layer joins prove a subset, other rows remain unresolved obligations rather than exclusions",
     divergent_mechanic_evidence:
       "Divergent Universe direct released ability/layout program",
     divergent_adventure_modifier_evidence:
@@ -476,3 +506,5 @@ console.log(
   `${payload.closure.direct_ability_and_layout_files} direct ability/layout; ` +
   `${payload.closure.occurrence_graph_files} occurrence graphs).`,
 );
+if (reclassify)
+  console.log("Classification-only check: admitted SHA-256/size facts retained; full blob rehash was not performed.");

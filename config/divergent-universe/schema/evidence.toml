@@ -2,6 +2,7 @@
 # Do not edit by hand.
 
 [[tables]]
+id = "sources"
 name = "DivergentUniverseSources"
 mode = "map"
 key = "id"
@@ -89,6 +90,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "coverage"
 name = "DivergentUniverseCoverage"
 mode = "map"
 key = "id"
@@ -174,6 +176,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "research-gaps"
 name = "DivergentUniverseResearchGaps"
 mode = "map"
 key = "id"
@@ -258,6 +261,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "semantic-fixture-families"
 name = "DivergentUniverseSemanticFixtureFamilies"
 mode = "map"
 key = "id"
@@ -333,6 +337,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "review-fixtures"
 name = "DivergentUniverseReviewFixtures"
 mode = "map"
 key = "id"
@@ -421,6 +426,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "reconciliation-receipts"
 name = "DivergentUniverseReconciliationReceipts"
 mode = "map"
 key = "id"
@@ -505,6 +511,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "manifest"
 name = "DivergentUniverseManifest"
 mode = "map"
 key = "id"
@@ -583,6 +590,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "pack-index"
 name = "DivergentUniversePackIndex"
 mode = "map"
 key = "id"

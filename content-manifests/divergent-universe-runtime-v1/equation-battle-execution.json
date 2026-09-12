@@ -1,0 +1,165 @@
+{
+  "schema_revision": "starclock.divergent-universe-equation-battle-execution.v1",
+  "goal_id": "divergent-universe-runtime-v1",
+  "batch": "G22-P4-B3",
+  "status": "CompleteEquationKeywordTransitionAndBattleSnapshotExecution",
+  "input_digests": {
+    "equations": {
+      "path": "content-reference/divergent-universe-v1/equations.json",
+      "sha256": "a1a9a3b4117c09c6bb136880e801a1ea6fdc27259a1091e8689320d62f6f673c"
+    },
+    "effects": {
+      "path": "content-reference/divergent-universe-v1/equation-effects.json",
+      "sha256": "0114a25bc97c9f0afeeb4cf7e8c9c091a1f8deba44c758cbb4df7f0222d13a3e"
+    },
+    "transitions": {
+      "path": "content-reference/divergent-universe-v1/equation-replacement-rules.json",
+      "sha256": "c62f07e10bdc51069f4710274a8c650a9cb2217deaf6574258595e82f8222072"
+    },
+    "progress_execution": {
+      "path": "content-manifests/divergent-universe-runtime-v1/equation-progress-execution.json",
+      "sha256": "ae4d44f6788b05e14d9a33798f24e4f62cc30430fe5b128669d9b8e6e5b83b85"
+    },
+    "runtime_dispositions": {
+      "path": "content-manifests/divergent-universe-runtime-v1/runtime-dispositions.json",
+      "sha256": "1319cb15f7a2e1b9c283549300cf29bb4f2b65d41c759a0c29240570c7fbd2bc"
+    },
+    "batch_ledger": {
+      "path": "content-manifests/divergent-universe-runtime-v1/batch-ledger.json",
+      "sha256": "77e109344b674b1a301708d247e2dcedeace5bc941f789d2ab3529dc5224f467"
+    },
+    "battle_runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/equation_battle.rs",
+      "sha256": "f029cd7bf5360911f29aca9c96af2c53f94de483465a4252d31c2a8b6b2235bc"
+    },
+    "transition_runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/equation_transition.rs",
+      "sha256": "4135c62b2197702219e6d80d2470a8a4c79df49427cf7648d7e5fd58f300c1ca"
+    },
+    "offer_runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/equation_offer.rs",
+      "sha256": "980da5c77baf6808512d8ef51a49747532dd16b4060788631da26b41963bfe8e"
+    },
+    "tests": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/tests/equation_battle.rs",
+      "sha256": "543bbd0c0dbd6f0344c28a5c6b3949753250aa97f926501b2ab9623070cc5845"
+    }
+  },
+  "exact_binding_boundary": {
+    "equations_with_expansion_contributions": 80,
+    "keyword_effect_rows": 25,
+    "current_path_keyword_programs": 23,
+    "excluded_non_current_path_effects": 2,
+    "exact_parameter_atoms": 23,
+    "exact_formula_source_locators": 213,
+    "exact_secondary_maze_buff_locators": 147,
+    "active_contribution_condition": "EquationExpansionStateExpanded",
+    "snapshot_identity": "ComponentDigestPlusSourceActivityStatePlusCanonicalProgramsAndExpandedContributions",
+    "snapshot_mutation": false
+  },
+  "transition_policy_boundary": {
+    "accuracy": "VersionedProjectPolicyNotObservedParity",
+    "policies": [
+      {
+        "operation": "acquire",
+        "ordered_operations": [
+          "AddUnexpandedEquation",
+          "RecomputeRecipeProgress",
+          "ActivateIfSatisfied"
+        ]
+      },
+      {
+        "operation": "discard",
+        "ordered_operations": [
+          "ValidateOwnedInput",
+          "RemoveEquation",
+          "RemoveDerivedState"
+        ]
+      },
+      {
+        "operation": "owned-blessing-refresh",
+        "ordered_operations": [
+          "SortEquationsByStableId",
+          "RecomputeRecipeProgress",
+          "ApplyStateTransitions"
+        ]
+      },
+      {
+        "operation": "replace",
+        "ordered_operations": [
+          "ValidateOwnedInput",
+          "ValidateOfferedOutput",
+          "CommitReplacement"
+        ]
+      }
+    ],
+    "explicit_stable_id_selection": true,
+    "reject_without_mutation": true,
+    "source_transition_rows_promoted_to_exact": 0,
+    "replacement_condition": "Replace each policy field when released service programs or reproducible observations establish the exact transition."
+  },
+  "execution_receipt": {
+    "all_23_current_path_keywords_compile_exact_parameters": "Passed",
+    "two_non_current_path_keywords_remain_excluded": "Passed",
+    "all_four_transition_policies_compile_in_order": "Passed",
+    "acquire_replace_discard_and_refresh_use_atomic_activity_boundaries": "Passed",
+    "expanded_equation_contributes_exact_maze_buff_and_effect_binding": "Passed",
+    "blessing_identity_change_contracts_and_expands_snapshot": "Passed",
+    "equation_replacement_tears_down_prior_snapshot_contribution": "Passed",
+    "snapshot_is_read_only": "Passed",
+    "dirty_progress_rejection_is_byte_identical": "Passed",
+    "fresh_snapshot_reconstruction_equality": "Passed"
+  },
+  "assignment_closure": {
+    "obligations": 114,
+    "exact_integrated": 30,
+    "metadata_only": 80,
+    "excluded": 4,
+    "fixture_families": 1,
+    "research_gaps": 1,
+    "policy_sources": 2
+  },
+  "coverage_credit": {
+    "assigned_source_obligations": 114,
+    "newly_terminal_exact_source_obligations": 30,
+    "mechanic_programs": 0,
+    "semantic_fixture_families": 1,
+    "research_gaps": 1,
+    "policy_sources": 2,
+    "whole_families": [
+      "EquationReplacementAndContributionBattleSnapshot"
+    ],
+    "deferred": "Formula-source combat semantics remain owned by their generated P6 mechanic partitions; simultaneous Blessing/Equation battle interactions remain assigned to G22-P4-B5."
+  },
+  "capability_probes": [
+    {
+      "id": "23-current-keywords-and-four-transitions",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/equation_battle.rs",
+      "test": "exact_current_path_keywords_and_all_transition_policies_compile",
+      "result": "Passed"
+    },
+    {
+      "id": "replacement-refresh-battle-snapshot",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/equation_battle.rs",
+      "test": "equation_replacement_and_blessing_refresh_change_immutable_battle_snapshot",
+      "result": "Passed"
+    },
+    {
+      "id": "dirty-rejection-and-fresh-snapshot-reconstruction",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/equation_battle.rs",
+      "test": "equation_battle_snapshot_rejects_dirty_state_and_reconstructs_fresh",
+      "result": "Passed"
+    }
+  ],
+  "summary": {
+    "assigned_obligations_terminal": 114,
+    "newly_terminal_exact_obligations": 30,
+    "current_path_keyword_programs": 23,
+    "excluded_keyword_effects": 2,
+    "transition_policies": 4,
+    "assigned_fixture_families": 1,
+    "assigned_research_gaps": 1,
+    "assigned_policy_sources": 2,
+    "probes": 3
+  }
+}

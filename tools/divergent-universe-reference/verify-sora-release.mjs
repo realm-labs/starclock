@@ -5,12 +5,15 @@ import path from "node:path";
 import process from "node:process";
 import { spawnSync } from "node:child_process";
 
-const root = path.resolve(process.argv[2] ?? ".");
-const projectRelative = path.join(
-  "config",
-  "divergent-universe",
-  "project.toml",
+const arguments_ = process.argv.slice(2);
+const writeState = arguments_.includes("--write-state");
+assert(arguments_.every((argument) =>
+  argument === "--write-state" || !argument.startsWith("--")),
+"usage: verify-sora-release.mjs [root] [--write-state]");
+const root = path.resolve(
+  arguments_.find((argument) => !argument.startsWith("--")) ?? ".",
 );
+const projectRelative = path.join("config", "divergent-universe-project.toml");
 const generatedRelative = path.join(
   "config",
   "divergent-universe-generated",
@@ -29,7 +32,8 @@ const loader = path.join(
   "bundle-loader",
 );
 const ephemeralGenerated = path.join(loader, "src", "generated");
-const python = process.env.STARCLOCK_PYTHON ?? "python3";
+const python = process.env.STARCLOCK_PYTHON
+  ?? (process.platform === "win32" ? "python" : "python3");
 const sora = locateSora();
 const temporary = fs.mkdtempSync(
   path.join(os.tmpdir(), "starclock-divergent-universe-release-"),
@@ -79,8 +83,8 @@ try {
     if (count === 0) emptyCount += 1;
   }
   assert(
-    schema.tables.length === 80 &&
-      rowCount === 27_091 &&
+    schema.tables.length === 81 &&
+      rowCount === 28_732 &&
       emptyCount === 2,
     "Sora table/row/empty-table denominator differs",
   );
@@ -110,6 +114,7 @@ try {
     ),
   });
   verifyVisualReview(schema.tables, rowCount, emptyCount);
+  verifyCurrentState(schema.tables, rowCount, emptyCount);
   console.log(
     `Divergent Universe Sora release verified (${schema.tables.length} ` +
       `tables, ${rowCount} rows, ${emptyCount} verified-empty tables; ` +
@@ -121,17 +126,91 @@ try {
   fs.rmSync(temporary, { recursive: true, force: true });
 }
 
+function verifyCurrentState(tables, rowCount, emptyCount) {
+  const policy = jsonAt(path.join(root, "policy", "sora-toolchain.json"));
+  const project = path.join(root, projectRelative);
+  const bundle = path.join(committedGenerated, "config.sora");
+  const debugFiles = listFiles(path.join(committedGenerated, "debug-json"))
+    .filter((name) => name.endsWith(".json"));
+  const readerFiles = listFiles(path.join(committedGenerated, "reader"))
+    .filter((name) => name.endsWith(".rs"));
+  const visual = path.join(
+    root,
+    "evidence",
+    "divergent-universe-reference-v1",
+    "visual-review.json",
+  );
+  const state = {
+    schema_revision: "starclock.divergent-universe-sora-state.v1",
+    toolchain: {
+      package: policy.package,
+      version: policy.version,
+      crate_sha256: policy.crate_sha256,
+    },
+    project: {
+      file: projectRelative.replaceAll(path.sep, "/"),
+      sha256: sha256(project),
+      id: "starclock_divergent_universe_reference",
+      view: "default",
+    },
+    authoring: {
+      adapter: "openpyxl==3.1.5",
+      workbooks: Object.fromEntries(workbooks.map((name) => {
+        const file = path.join(committedData, name);
+        return [name, { bytes: fs.statSync(file).size, sha256: sha256(file) }];
+      })),
+      semantic_sha256: jsonAt(visual).workbook_semantic_sha256,
+    },
+    generated: {
+      schema_lock_sha256: sha256(path.join(committedGenerated, "schema.lock")),
+      templates: Object.fromEntries(workbooks.map((name) => {
+        const file = path.join(committedGenerated, "templates", name);
+        return [name, { bytes: fs.statSync(file).size, sha256: sha256(file) }];
+      })),
+      tables: tables.length,
+      rows: rowCount,
+      verified_empty_tables: emptyCount,
+      rust_reader_files: readerFiles.length,
+      rust_reader_sha256: treeDigest(
+        path.join(committedGenerated, "reader"),
+        readerFiles,
+      ),
+      bundle: { bytes: fs.statSync(bundle).size, sha256: sha256(bundle) },
+      debug_export: {
+        files: debugFiles.length,
+        sha256: treeDigest(
+          path.join(committedGenerated, "debug-json"),
+          debugFiles,
+        ),
+      },
+    },
+    visual_review_sha256: sha256(visual),
+  };
+  const output = `${JSON.stringify(state, null, 2)}\n`;
+  const outputPath = path.join(
+    root,
+    "evidence",
+    "divergent-universe-reference-v1",
+    "sora-current-state.json",
+  );
+  if (writeState) {
+    fs.writeFileSync(outputPath, output);
+  } else {
+    assert(fs.existsSync(outputPath),
+      "current Sora state is missing; run with --write-state");
+    assert(fs.readFileSync(outputPath, "utf8") === output,
+      "current Sora state drifted");
+  }
+}
+
 function build(label) {
   const buildRoot = path.join(temporary, `build-${label}`);
-  const projectRoot = path.join(
-    buildRoot,
-    "config",
-    "divergent-universe",
-  );
+  const configRoot = path.join(buildRoot, "config");
+  const projectRoot = path.join(configRoot, "divergent-universe");
   fs.mkdirSync(projectRoot, { recursive: true });
   fs.copyFileSync(
     path.join(root, projectRelative),
-    path.join(projectRoot, "project.toml"),
+    path.join(configRoot, "divergent-universe-project.toml"),
   );
   fs.cpSync(
     path.join(root, "config", "divergent-universe", "schema"),
@@ -152,7 +231,7 @@ function build(label) {
     "--serial",
     "build",
     "--project",
-    path.join(projectRoot, "project.toml"),
+    path.join(configRoot, "divergent-universe-project.toml"),
   ]);
   run(python, [
     "tools/divergent-universe-reference/normalize_xlsx_archives.py",
@@ -217,7 +296,7 @@ function verifyVisualReview(tables, rowCount, emptyCount) {
     "visual-review debug-export identity differs",
   );
   assert(
-    review.contact_sheet_sha256.length === 10 &&
+    review.contact_sheet_sha256.length === Math.ceil(tables.length / 8) &&
       Object.values(review.checks).every((value) => value === true) &&
       Array.isArray(review.defects) &&
       review.defects.length === 0,
@@ -255,7 +334,6 @@ function assertSameGenerated(first, second, committed = false) {
           fs.statSync(path.join(second, relative)).size > 1_000,
         `${committed ? "committed" : "double-build"}/${relative} is empty`,
       );
-      continue;
     }
     assertSame(
       path.join(first, relative),
@@ -266,15 +344,15 @@ function assertSameGenerated(first, second, committed = false) {
 }
 
 function debugTreeDigest(files) {
+  return treeDigest(path.join(committedGenerated, "debug-json"), files);
+}
+
+function treeDigest(directory, files) {
   const digest = crypto.createHash("sha256");
   for (const file of files.toSorted()) {
     digest.update(file);
     digest.update("\0");
-    digest.update(fs.readFileSync(path.join(
-      committedGenerated,
-      "debug-json",
-      file,
-    )));
+    digest.update(fs.readFileSync(path.join(directory, file)));
     digest.update("\0");
   }
   return digest.digest("hex");
@@ -309,17 +387,10 @@ function run(command, arguments_, env = process.env) {
 
 function locateSora() {
   const policy = jsonAt(path.join(root, "policy/sora-toolchain.json"));
-  const candidates = [
-    path.join(root, policy.install_root, "bin", "sora"),
-    path.join(
-      "/Users/mikai/CLionProjects/starclock",
-      policy.install_root,
-      "bin",
-      "sora",
-    ),
-  ];
-  const result = candidates.find((candidate) => fs.existsSync(candidate));
-  if (!result) throw new Error("pinned Sora 0.3.0 is unavailable");
+  const binary = process.platform === "win32" ? "sora.exe" : "sora";
+  const result = path.join(root, policy.install_root, "bin", binary);
+  if (!fs.existsSync(result))
+    throw new Error(`pinned Sora ${policy.version} is unavailable`);
   return result;
 }
 

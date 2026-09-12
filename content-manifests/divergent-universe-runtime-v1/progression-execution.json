@@ -1,0 +1,216 @@
+{
+  "schema_revision": "starclock.divergent-universe-progression-execution.v1",
+  "goal_id": "divergent-universe-runtime-v1",
+  "batch": "G22-P3-B2",
+  "status": "CompleteProgressionStateNoBattleCredit",
+  "input_digests": {
+    "difficulties": {
+      "path": "content-reference/divergent-universe-v1/difficulties.json",
+      "sha256": "a42c4aedd49b07e919214e31681ac87e4051d5c565a0e60a0a2b78e89dbcd7e2"
+    },
+    "protocols": {
+      "path": "content-reference/divergent-universe-v1/protocols.json",
+      "sha256": "49123ceaeb14d94a744e927267b741bacb7d799706d0e3b8bff985b6b08bf069"
+    },
+    "divisions": {
+      "path": "content-reference/divergent-universe-v1/astronomical-divisions.json",
+      "sha256": "57b9f75bd53363b0fc78de523503814b07bd0cc9e58e1b146b7bbdd02cfe00bd"
+    },
+    "modes": {
+      "path": "content-reference/divergent-universe-v1/star-pioneer-practice.json",
+      "sha256": "823e4ef5fa06678ffe3dcd73dd38a854e5f2f15d77dc46f3c575d5ed758243b9"
+    },
+    "cognoculi": {
+      "path": "content-reference/divergent-universe-v1/cognoculi.json",
+      "sha256": "895e8f860c89569ee645bfa0b37290b79b32516e2a22e34e134bcfe5f993ae07"
+    },
+    "runtime_dispositions": {
+      "path": "content-manifests/divergent-universe-runtime-v1/runtime-dispositions.json",
+      "sha256": "1319cb15f7a2e1b9c283549300cf29bb4f2b65d41c759a0c29240570c7fbd2bc"
+    },
+    "batch_ledger": {
+      "path": "content-manifests/divergent-universe-runtime-v1/batch-ledger.json",
+      "sha256": "77e109344b674b1a301708d247e2dcedeace5bc941f789d2ab3529dc5224f467"
+    },
+    "progression_runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/progression.rs",
+      "sha256": "fd2e575df2059d5805ece3170dccc8d6a11955e8cc2d120dbc746b22e2caa4b2"
+    },
+    "entry_runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/entry_flow.rs",
+      "sha256": "efadb26272a068aebbad344771126f0870e613475d6314917690d069c7ca8209"
+    },
+    "state_runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/state.rs",
+      "sha256": "946d9d891d871569c556bfb87a63cf790b752dc1a1f7b762ad0e11e0cd2bbd36"
+    },
+    "tests": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/tests/flow_progression_economy.rs",
+      "sha256": "b340d658289b15b426095c65a7344e5fcb49e230b435c2980f451dea087c450d"
+    }
+  },
+  "execution_boundary": {
+    "runtime_owner": "starclock-mode-universe",
+    "mutation_owner": "starclock-activity::GraphActivity",
+    "difficulty": "Every accepted entry binds the exact ordered released level schedule into immutable run state; no encounter-level selection is invented.",
+    "protocol": "All released rule labels lower through a closed typed enum and all enemy maximum increases use authoritative six-decimal Ratio values.",
+    "progression": "Successful Star-Pioneer finalization advances Cognoculi and the Astronomical Division at the exact boundary through typed Activity operations; Practice preserves both.",
+    "cyclical_refresh": "Cyclical entry requires an exact challenge/epoch snapshot. A changed epoch compiles a fresh Activity identity and cannot mutate an existing run.",
+    "credit": "Difficulty, Protocol and progression state only; no encounter, battle, reward, full playable-run or release-gate credit."
+  },
+  "source_closure": {
+    "difficulties": 22,
+    "protocols": 8,
+    "protocol_difficulty_rules": 19,
+    "protocol_entry_rules": 3,
+    "protocol_berserk_rules": 3,
+    "divisions": 9,
+    "astronomical_modes": 2,
+    "cognoculi_boundaries": 9,
+    "terminal_division": "divergent-universe.astronomical-division.9"
+  },
+  "numeric_vectors": [
+    {
+      "protocol": "divergent-universe.protocol.1",
+      "attack": "0.32",
+      "maximum_hp": "2",
+      "speed": "0.16",
+      "maximum_toughness": null
+    },
+    {
+      "protocol": "divergent-universe.protocol.2",
+      "attack": "0.64",
+      "maximum_hp": "6",
+      "speed": "0.32",
+      "maximum_toughness": null
+    },
+    {
+      "protocol": "divergent-universe.protocol.3",
+      "attack": "0.96",
+      "maximum_hp": "12",
+      "speed": "0.48",
+      "maximum_toughness": null
+    },
+    {
+      "protocol": "divergent-universe.protocol.4",
+      "attack": "1.28",
+      "maximum_hp": "20",
+      "speed": "0.64",
+      "maximum_toughness": null
+    },
+    {
+      "protocol": "divergent-universe.protocol.5",
+      "attack": "1.6",
+      "maximum_hp": "32",
+      "speed": "0.8",
+      "maximum_toughness": null
+    },
+    {
+      "protocol": "divergent-universe.protocol.6",
+      "attack": "1.92",
+      "maximum_hp": "48",
+      "speed": "0.96",
+      "maximum_toughness": "0.2"
+    },
+    {
+      "protocol": "divergent-universe.protocol.7",
+      "attack": "2.24",
+      "maximum_hp": "70",
+      "speed": "1.12",
+      "maximum_toughness": "0.3"
+    },
+    {
+      "protocol": "divergent-universe.protocol.8",
+      "attack": "2.56",
+      "maximum_hp": "100",
+      "speed": "1.28",
+      "maximum_toughness": "0.5"
+    }
+  ],
+  "progression_policy": {
+    "accuracy": "VersionedProjectPolicyExecutableNotObservedParity",
+    "successful_star_pioneer": "Increment current Cognoculi; on reaching the exact progress boundary, advance one Division, reset Cognoculi to zero and never decrease the Division.",
+    "practice": "Require the released Ordinary-difficulty-five unlock and a Protocol not above the current Division cap; preserve Division and Cognoculi.",
+    "failure_retention": {
+      "NoPublishedRetentionHint": "Extinguish current Cognoculi.",
+      "NeverExtinguish": "Preserve current Cognoculi.",
+      "RetainAfterFirstPlaneClear": "Preserve after at least one completed logical layer; otherwise extinguish.",
+      "RetainAfterSecondPlaneClear": "Preserve after at least two completed logical layers; otherwise extinguish."
+    },
+    "replacement_condition": "Replace progression timing, unsuccessful retention and cyclical refresh policy when released structured configuration or reproducible public observations bind the missing selector/order/lifecycle."
+  },
+  "terminal_assignments": {
+    "obligations": 39,
+    "fixture_families": [
+      "divergent-universe.semantic-family.astronomical-division",
+      "divergent-universe.semantic-family.star-pioneer-practice-and-cognoculi",
+      "divergent-universe.semantic-family.threshold-protocol"
+    ],
+    "research_gaps": [
+      "divergent-universe.research-gap.astronomical-division",
+      "divergent-universe.research-gap.star-pioneer-practice-and-cognoculi",
+      "divergent-universe.research-gap.threshold-protocol"
+    ],
+    "policy_sources": [
+      "source.goal11.project-policy.semantic-fixture-astronomical-division",
+      "source.goal11.project-policy.semantic-fixture-star-pioneer-practice-and-cognoculi",
+      "source.goal11.project-policy.semantic-fixture-threshold-protocol"
+    ]
+  },
+  "capability_probes": [
+    {
+      "id": "difficulty-level-schedules",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/flow_progression_economy.rs",
+      "test": "all_twenty_two_difficulties_bind_their_exact_released_level_schedules",
+      "result": "Passed"
+    },
+    {
+      "id": "threshold-protocol-typed-lowering",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/flow_progression_economy.rs",
+      "test": "all_eight_protocols_lower_closed_rules_and_exact_fixed_point_scaling",
+      "result": "Passed"
+    },
+    {
+      "id": "protocol-and-activity-state",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/flow_progression_economy.rs",
+      "test": "difficulty_protocol_and_star_pioneer_progress_execute_in_activity_state",
+      "result": "Passed"
+    },
+    {
+      "id": "practice-eligibility-and-cap",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/flow_progression_economy.rs",
+      "test": "practice_preserves_progress_and_rejects_locked_or_above_cap_protocols",
+      "result": "Passed"
+    },
+    {
+      "id": "division-and-cognoculi-progress",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/flow_progression_economy.rs",
+      "test": "cognoculi_boundary_advances_only_after_the_exact_division_threshold",
+      "result": "Passed"
+    },
+    {
+      "id": "cognoculi-retention-policy",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/flow_progression_economy.rs",
+      "test": "unsuccessful_cognoculi_policy_respects_exact_retention_boundaries",
+      "result": "Passed"
+    },
+    {
+      "id": "cyclical-refresh-identity",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/flow_progression_economy.rs",
+      "test": "cyclical_refresh_is_exact_required_and_changes_fresh_activity_state",
+      "result": "Passed"
+    }
+  ],
+  "summary": {
+    "difficulties": 22,
+    "protocols": 8,
+    "divisions": 9,
+    "astronomical_modes": 2,
+    "cognoculi_boundaries": 9,
+    "obligations_terminal": 39,
+    "production_fixtures_passed": 3,
+    "executable_research_gaps": 3,
+    "executable_policy_sources": 3,
+    "probes": 7
+  }
+}

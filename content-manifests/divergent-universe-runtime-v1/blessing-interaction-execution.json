@@ -1,0 +1,133 @@
+{
+  "schema_revision": "starclock.divergent-universe-blessing-interaction-execution.v1",
+  "goal_id": "divergent-universe-runtime-v1",
+  "batch": "G22-P4-B5",
+  "status": "CompleteBlessingEquationInteractionAndExplicitPolicyExecution",
+  "input_digests": {
+    "levels": {
+      "path": "content-reference/divergent-universe-v1/blessing-levels.json",
+      "sha256": "7fec3fee11ca67cc10ff32d57cb8a6edaa8401ed7a23f7534cc7d3428fb8f23f"
+    },
+    "rewrites": {
+      "path": "content-reference/divergent-universe-v1/blessing-rewrite-rules.json",
+      "sha256": "0cfc4a3c7eb770d3fdaad816d7d5ee427aca9daddcabb76c6bdaea40f5477f85"
+    },
+    "curio_lifecycle": {
+      "path": "content-reference/divergent-universe-v1/curio-lifecycle-rules.json",
+      "sha256": "0895d695f75deb8a234630c18c976edd9f823785c8a19ebc926e5294082fcdd4"
+    },
+    "titan_contributions": {
+      "path": "content-reference/divergent-universe-v1/titan-contributions.json",
+      "sha256": "b69c484c902c826a63903ebfeb0ccda7a7277da5e9fff6958d3354276b412b2c"
+    },
+    "review_fixtures": {
+      "path": "content-reference/divergent-universe-v1/review-fixtures.json",
+      "sha256": "70fdb15147d046a170c4fe4038ccdd595bfbfef1e00040dba978c74c6b8a26c4"
+    },
+    "research_gaps": {
+      "path": "content-reference/divergent-universe-v1/research-gaps.json",
+      "sha256": "5818c783a5087b7244951f98744372dddd04371f39250bbae5b4db410d956ab0"
+    },
+    "blessing_runtime_execution": {
+      "path": "content-manifests/divergent-universe-runtime-v1/blessing-runtime-execution.json",
+      "sha256": "e48c6213a865f7c2a14fbd3fe9fcc09c33848390234efbaa957fc77ca275c8b7"
+    },
+    "equation_battle_execution": {
+      "path": "content-manifests/divergent-universe-runtime-v1/equation-battle-execution.json",
+      "sha256": "e488aa2a5eeeeb8efcc12d04c3cc86d1eb38ee87ccd4704a3e04ea0cc320301e"
+    },
+    "batch_ledger": {
+      "path": "content-manifests/divergent-universe-runtime-v1/batch-ledger.json",
+      "sha256": "77e109344b674b1a301708d247e2dcedeace5bc941f789d2ab3529dc5224f467"
+    },
+    "interaction_runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/blessing_interaction.rs",
+      "sha256": "b1c35efbcf4b9e1c9d1dfd1a2da615c189ada8c018baed07178d2ee81485330f"
+    },
+    "blessing_runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/blessing_runtime.rs",
+      "sha256": "4be2fc82caf4df88493197673c901ca299b8e30761a96605ffb6f17414b25d8b"
+    },
+    "tests": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/tests/blessing_interaction.rs",
+      "sha256": "4193dacd07c6a855e11ae4faaf3c588f94ee9cc8d29d3285dc802ff3b286c239"
+    }
+  },
+  "exact_execution_boundary": {
+    "blessing_level_battle_contributions": 828,
+    "exact_enhancement_rows": 414,
+    "equation_identity_refresh": "AtomicFinalOwnedIdentitySnapshot",
+    "battle_input": "ImmutableBlessingLevelAndEquationSnapshot",
+    "formula_semantics_deferred_to_phase_6": true
+  },
+  "policy_boundary": {
+    "accepted_service_rewrite_rows": 2,
+    "curio_lifecycle_rows": 179,
+    "simultaneous_order": "StableIdAscendingUnlessExactAuthoredOrder",
+    "unproven_curio_transition": "RejectWithoutMutation",
+    "exact_parity_claimed_for_policy_rows": false,
+    "replacement_condition": "Replace each policy only when released structured evidence or reproducible public observation proves its selector, lifecycle or ordering."
+  },
+  "execution_receipt": {
+    "exact_base_and_enhanced_bindings_snapshot": "Passed",
+    "enhancement_changes_level_binding_without_identity_count_change": "Passed",
+    "simultaneous_rewrites_commit_one_final_equation_refresh": "Passed",
+    "removed_bindings_teardown_from_next_snapshot": "Passed",
+    "same_priority_fixture_orders_stable_ids": "Passed",
+    "invalid_simultaneous_sets_reject": "Passed",
+    "all_curio_lifecycle_commands_fail_closed": "Passed",
+    "stale_and_unproven_rejections_preserve_bytes": "Passed",
+    "fresh_runtime_reconstruction_is_equal": "Passed"
+  },
+  "assignment_closure": {
+    "obligations": 0,
+    "exact_integrated": 0,
+    "fixture_families": 2,
+    "research_gaps": 2,
+    "policy_sources": 4,
+    "mechanic_programs": 0
+  },
+  "coverage_credit": {
+    "newly_terminal_source_obligations": 0,
+    "semantic_fixture_families": 2,
+    "research_gaps": 2,
+    "policy_sources": 4,
+    "mechanic_programs": 0,
+    "deferred": "Equation/Blessing offer RNG isolation, caps and empty-pool hardening remain assigned to G22-P4-B6; battle formula programs remain assigned to Phase 6."
+  },
+  "capability_probes": [
+    {
+      "id": "exact-interaction-catalogs",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/blessing_interaction.rs",
+      "test": "blessing_interaction_catalogs_compile_at_exact_denominators",
+      "result": "Passed"
+    },
+    {
+      "id": "level-enhance-and-atomic-rewrite",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/blessing_interaction.rs",
+      "test": "exact_level_enhancement_and_atomic_rewrites_refresh_battle_inputs",
+      "result": "Passed"
+    },
+    {
+      "id": "simultaneous-stable-order",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/blessing_interaction.rs",
+      "test": "simultaneous_policy_orders_stable_ids_and_rejects_invalid_sets",
+      "result": "Passed"
+    },
+    {
+      "id": "curio-reject-and-reconstruct",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/blessing_interaction.rs",
+      "test": "curio_lifecycle_policy_rejects_without_mutation_and_reconstructs_fresh",
+      "result": "Passed"
+    }
+  ],
+  "summary": {
+    "blessing_level_contributions": 828,
+    "service_rewrite_policies": 2,
+    "curio_lifecycle_policies": 179,
+    "assigned_fixture_families": 2,
+    "assigned_research_gaps": 2,
+    "assigned_policy_sources": 4,
+    "probes": 4
+  }
+}

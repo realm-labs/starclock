@@ -1,0 +1,255 @@
+{
+  "schema_revision": "starclock.divergent-universe-performance-execution.v1",
+  "goal_id": "divergent-universe-runtime-v1",
+  "batch": "G22-P8-B2",
+  "status": "ExecutableMeasuredBudgetsFrozen",
+  "timing_is_authoritative_state": false,
+  "allocation_scope": "process except concurrent worker allocations are coordinator-thread-only",
+  "command": "cargo run --release -p starclock-agent-api --example divergent_universe_benchmark --features benchmark-harness",
+  "stable_runner": {
+    "id": "du-win12900k-rust-1.97.0-2026-09-07",
+    "platform": "win32",
+    "architecture": "x64",
+    "os_release": "10.0.26200",
+    "cpu_model": "12th Gen Intel(R) Core(TM) i9-12900K",
+    "logical_processors": 24,
+    "minimum_total_memory_bytes": 64000000000,
+    "rust_host": "x86_64-pc-windows-msvc",
+    "rustc_release": "1.97.0"
+  },
+  "budget_policy": {
+    "stable_runner_elapsed_guard": "two times the three-sample median",
+    "stable_runner_allocation_guard": "125 percent of deterministic measured bytes, except a one-megabyte concurrent coordinator ceiling",
+    "portable_smoke_elapsed_multiplier": 8,
+    "portable_smoke_allocation_multiplier": 2
+  },
+  "workloads": [
+    {
+      "id": "catalog-load",
+      "iterations": 1,
+      "measured_elapsed_ns": [
+        251288500,
+        281100900,
+        269669400
+      ],
+      "median_elapsed_ns": 269669400,
+      "measured_allocation_bytes": 198632199,
+      "stable_elapsed_guard_ns": 539338800,
+      "stable_allocation_guard_bytes": 248290249,
+      "expected_shape": {
+        "cache_hits": 0,
+        "cache_misses": 0,
+        "cache_evictions": 0,
+        "external_actions": 0,
+        "nested_battles": 0,
+        "battle_commands": 0,
+        "battle_events": 0,
+        "policy_candidates_scanned": 0,
+        "replay_bytes": 0
+      },
+      "final_digest": "cc675b71391f5ec7d033396de0b96092c26b31a49d4961e4229f6c4b7f847d03"
+    },
+    {
+      "id": "assembly-cold-warm",
+      "iterations": 2049,
+      "measured_elapsed_ns": [
+        24795900,
+        26918800,
+        25869400
+      ],
+      "median_elapsed_ns": 25869400,
+      "measured_allocation_bytes": 94381940,
+      "stable_elapsed_guard_ns": 51738800,
+      "stable_allocation_guard_bytes": 117977425,
+      "expected_shape": {
+        "cache_hits": 2048,
+        "cache_misses": 1,
+        "cache_evictions": 0,
+        "external_actions": 0,
+        "nested_battles": 0,
+        "battle_commands": 0,
+        "battle_events": 0,
+        "policy_candidates_scanned": 0,
+        "replay_bytes": 0
+      },
+      "final_digest": "44e060f614c628c76f40025dc35b01e43027fe373bc643bf97136bc78b48384d"
+    },
+    {
+      "id": "full-run",
+      "iterations": 2,
+      "measured_elapsed_ns": [
+        43968100,
+        41582400,
+        44953000
+      ],
+      "median_elapsed_ns": 43968100,
+      "measured_allocation_bytes": 52334484,
+      "stable_elapsed_guard_ns": 87936200,
+      "stable_allocation_guard_bytes": 65418105,
+      "expected_shape": {
+        "cache_hits": 0,
+        "cache_misses": 0,
+        "cache_evictions": 0,
+        "external_actions": 6,
+        "nested_battles": 2,
+        "battle_commands": 0,
+        "battle_events": 0,
+        "policy_candidates_scanned": 0,
+        "replay_bytes": 105066
+      },
+      "final_digest": "bb8f8617f37d778bf62fa3dd3b4e522992ef59423db9888a4fef9cdf68c20adf"
+    },
+    {
+      "id": "replay",
+      "iterations": 2,
+      "measured_elapsed_ns": [
+        40107800,
+        43767700,
+        52426000
+      ],
+      "median_elapsed_ns": 43767700,
+      "measured_allocation_bytes": 51401884,
+      "stable_elapsed_guard_ns": 87535400,
+      "stable_allocation_guard_bytes": 64252355,
+      "expected_shape": {
+        "cache_hits": 0,
+        "cache_misses": 0,
+        "cache_evictions": 0,
+        "external_actions": 6,
+        "nested_battles": 2,
+        "battle_commands": 0,
+        "battle_events": 0,
+        "policy_candidates_scanned": 0,
+        "replay_bytes": 105066
+      },
+      "final_digest": "2916d00a6aff629b5974a80544f3ad3c77ea7c547386030c1e02097db13f2f85"
+    },
+    {
+      "id": "trigger-heavy",
+      "iterations": 32,
+      "measured_elapsed_ns": [
+        664116600,
+        706372400,
+        704088200
+      ],
+      "median_elapsed_ns": 704088200,
+      "measured_allocation_bytes": 795049560,
+      "stable_elapsed_guard_ns": 1408176400,
+      "stable_allocation_guard_bytes": 993811950,
+      "expected_shape": {
+        "cache_hits": 0,
+        "cache_misses": 0,
+        "cache_evictions": 0,
+        "external_actions": 96,
+        "nested_battles": 32,
+        "battle_commands": 1680,
+        "battle_events": 15060,
+        "policy_candidates_scanned": 0,
+        "replay_bytes": 0
+      },
+      "final_digest": "e8ebd6508bd7ce8dd8fb3d0f0c653a19952a9b5d807f364b8bf26345c53c1729"
+    },
+    {
+      "id": "policy-heavy",
+      "iterations": 128,
+      "measured_elapsed_ns": [
+        807479000,
+        861867500,
+        844498000
+      ],
+      "median_elapsed_ns": 844498000,
+      "measured_allocation_bytes": 379701248,
+      "stable_elapsed_guard_ns": 1688996000,
+      "stable_allocation_guard_bytes": 474626560,
+      "expected_shape": {
+        "cache_hits": 0,
+        "cache_misses": 0,
+        "cache_evictions": 0,
+        "external_actions": 0,
+        "nested_battles": 0,
+        "battle_commands": 0,
+        "battle_events": 0,
+        "policy_candidates_scanned": 81664,
+        "replay_bytes": 0
+      },
+      "final_digest": "0f44888128c9ee16621916ab53ae9de4f5b012d1a9b980db3eaf9f2b742f2597"
+    },
+    {
+      "id": "concurrent-session",
+      "iterations": 16,
+      "measured_elapsed_ns": [
+        75724900,
+        78099100,
+        80378600
+      ],
+      "median_elapsed_ns": 78099100,
+      "measured_allocation_bytes": 3614,
+      "stable_elapsed_guard_ns": 156198200,
+      "stable_allocation_guard_bytes": 1000000,
+      "expected_shape": {
+        "cache_hits": 0,
+        "cache_misses": 0,
+        "cache_evictions": 0,
+        "external_actions": 48,
+        "nested_battles": 16,
+        "battle_commands": 0,
+        "battle_events": 0,
+        "policy_candidates_scanned": 0,
+        "replay_bytes": 0
+      },
+      "final_digest": "9b9059e76bd3e3ac687464c61a49626548c7fe6ad43aba761fc4d797b84b8306"
+    },
+    {
+      "id": "invalid-command",
+      "iterations": 4096,
+      "measured_elapsed_ns": [
+        9529900,
+        10663400,
+        9676200
+      ],
+      "median_elapsed_ns": 9676200,
+      "measured_allocation_bytes": 40774570,
+      "stable_elapsed_guard_ns": 19352400,
+      "stable_allocation_guard_bytes": 50968213,
+      "expected_shape": {
+        "cache_hits": 0,
+        "cache_misses": 0,
+        "cache_evictions": 0,
+        "external_actions": 0,
+        "nested_battles": 0,
+        "battle_commands": 0,
+        "battle_events": 0,
+        "policy_candidates_scanned": 0,
+        "replay_bytes": 0
+      },
+      "final_digest": "a897c4f08904f129d9afedcab3bc8c937a03717aa6aecb04b40207d6b4dc9631"
+    }
+  ],
+  "summary": {
+    "workloads": 8,
+    "measurement_samples_per_workload": 3,
+    "ordinary_and_cyclical_complete_runs": 2,
+    "warm_assembly_hits": 2048,
+    "trigger_battle_events": 15060,
+    "concurrent_sessions": 16,
+    "invalid_rejections": 4096
+  },
+  "input_digests": {
+    "batch_ledger": {
+      "path": "content-manifests/divergent-universe-runtime-v1/batch-ledger.json",
+      "sha256": "77e109344b674b1a301708d247e2dcedeace5bc941f789d2ab3529dc5224f467"
+    },
+    "verification_contract": {
+      "path": "content-manifests/divergent-universe-runtime-v1/verification-contract.json",
+      "sha256": "5e4df7b8bbdf1d27d2a520d6743e28ff880d6a7442c21bdef8d9a58fcfe75d64"
+    },
+    "package_manifest": {
+      "path": "crates/starclock-agent-api/Cargo.toml",
+      "sha256": "95d9f9cc1b0526f8c5b8b83674719822b7f89512f0141f3a433a9cbadb922630"
+    },
+    "benchmark": {
+      "path": "crates/starclock-agent-api/examples/divergent_universe_benchmark.rs",
+      "sha256": "c8485c0fba240004e5ee4b3885501e66ec35401843971c3cb9eac7d02565e134"
+    }
+  }
+}

@@ -28,6 +28,7 @@
   },
   "classification_policy": {
     "divergent_structured_candidate": "RogueTourn structured table requiring row-level module and ownership proof",
+    "divergent_persona_structured_candidate": "eleven explicitly reviewed Persona tables; current layer joins prove a subset, other rows remain unresolved obligations rather than exclusions",
     "divergent_mechanic_evidence": "Divergent Universe direct released ability/layout program",
     "divergent_adventure_modifier_evidence": "mode-named Adventure modifier retained as abstract outcome evidence",
     "divergent_service_graph_candidate": "mode secret gamble or Curio-composition service graph",
@@ -64,7 +65,7 @@
     "service_graph_files": 3,
     "adventure_graph_files": 13,
     "maze_graph_files": 9,
-    "named_other_mode_exclusion_files": 125,
+    "named_other_mode_exclusion_files": 114,
     "text_and_public_index_files": 11,
     "unclassified_selected_files": 0
   },
@@ -81,6 +82,7 @@
       "divergent_mechanic_evidence": 6,
       "divergent_npc_graph_candidate": 159,
       "divergent_occurrence_graph_candidate": 478,
+      "divergent_persona_structured_candidate": 11,
       "divergent_presentation_account_locator": 18,
       "divergent_service_graph_candidate": 3,
       "divergent_structured_candidate": 44,
@@ -89,7 +91,7 @@
       "gold_and_gears_mechanic_exclusion_evidence": 2,
       "gold_and_gears_structured_exclusion_evidence": 21,
       "localized_text_evidence": 2,
-      "other_mode_exclusion_evidence": 16,
+      "other_mode_exclusion_evidence": 5,
       "presentation_account_exclusion_evidence": 17,
       "public_index_cross_check": 9,
       "shared_level_graph_candidate": 304,
@@ -20820,88 +20822,88 @@
       "path": "ExcelOutput/RoguePersonaConstClient.json",
       "sha256": "df087343ba1c7d0c712cde9af3e6e2c48ec0490960a90e0b13bf4ba92e20e774",
       "bytes": 171,
-      "family": "other_mode_exclusion_evidence",
-      "selected_by": "explicit other-mode table retained to prove ownership exclusion"
+      "family": "divergent_persona_structured_candidate",
+      "selected_by": "reviewed current layer joins invalidate blanket exclusion; retain all rows for individual selector proof"
     },
     {
       "repository": "turnbasedgamedata",
       "path": "ExcelOutput/RoguePersonaConstCommon.json",
       "sha256": "a0d0259f1164be77bdb8a2fc6611ca3d0939ab28476fd1ede81314b57753957e",
       "bytes": 1274,
-      "family": "other_mode_exclusion_evidence",
-      "selected_by": "explicit other-mode table retained to prove ownership exclusion"
+      "family": "divergent_persona_structured_candidate",
+      "selected_by": "reviewed current layer joins invalidate blanket exclusion; retain all rows for individual selector proof"
     },
     {
       "repository": "turnbasedgamedata",
       "path": "ExcelOutput/RoguePersonaLayerRoom.json",
       "sha256": "651989d8fd339eec667791495e6ff608418f7d308990d02d941c698203648998",
       "bytes": 3817,
-      "family": "other_mode_exclusion_evidence",
-      "selected_by": "explicit other-mode table retained to prove ownership exclusion"
+      "family": "divergent_persona_structured_candidate",
+      "selected_by": "reviewed current layer joins invalidate blanket exclusion; retain all rows for individual selector proof"
     },
     {
       "repository": "turnbasedgamedata",
       "path": "ExcelOutput/RoguePersonaRoomAttribute.json",
       "sha256": "5b237f99d0397e5ee6fa7f20115c004dd69dd6e7e32275cf0d3c77a4dc6fc1d3",
       "bytes": 18902,
-      "family": "other_mode_exclusion_evidence",
-      "selected_by": "explicit other-mode table retained to prove ownership exclusion"
+      "family": "divergent_persona_structured_candidate",
+      "selected_by": "reviewed current layer joins invalidate blanket exclusion; retain all rows for individual selector proof"
     },
     {
       "repository": "turnbasedgamedata",
       "path": "ExcelOutput/RoguePersonaRoomCompType.json",
       "sha256": "c0223603c6e5252278dac5224d766f1c4ed60ebe5845b9839b9e3533a8ad76a5",
       "bytes": 7819,
-      "family": "other_mode_exclusion_evidence",
-      "selected_by": "explicit other-mode table retained to prove ownership exclusion"
+      "family": "divergent_persona_structured_candidate",
+      "selected_by": "reviewed current layer joins invalidate blanket exclusion; retain all rows for individual selector proof"
     },
     {
       "repository": "turnbasedgamedata",
       "path": "ExcelOutput/RoguePersonaRoomComposition.json",
       "sha256": "662e0730248b6c80c9b46109a66322b04c356a9482d39216135a0a83f9484929",
       "bytes": 2823,
-      "family": "other_mode_exclusion_evidence",
-      "selected_by": "explicit other-mode table retained to prove ownership exclusion"
+      "family": "divergent_persona_structured_candidate",
+      "selected_by": "reviewed current layer joins invalidate blanket exclusion; retain all rows for individual selector proof"
     },
     {
       "repository": "turnbasedgamedata",
       "path": "ExcelOutput/RoguePersonaRoomPreset.json",
       "sha256": "a4cc8bbd6e3a4db5fecb62b83a0c5de7ad2f4a9820ad5ae9180b30ae33c346b5",
       "bytes": 3408,
-      "family": "other_mode_exclusion_evidence",
-      "selected_by": "explicit other-mode table retained to prove ownership exclusion"
+      "family": "divergent_persona_structured_candidate",
+      "selected_by": "reviewed current layer joins invalidate blanket exclusion; retain all rows for individual selector proof"
     },
     {
       "repository": "turnbasedgamedata",
       "path": "ExcelOutput/RoguePersonaStyle.json",
       "sha256": "49b1c63d1f9dcad5201ae6f6446c01b9f401506b5625c39fc4da4b62378c6834",
       "bytes": 9858,
-      "family": "other_mode_exclusion_evidence",
-      "selected_by": "explicit other-mode table retained to prove ownership exclusion"
+      "family": "divergent_persona_structured_candidate",
+      "selected_by": "reviewed current layer joins invalidate blanket exclusion; retain all rows for individual selector proof"
     },
     {
       "repository": "turnbasedgamedata",
       "path": "ExcelOutput/RoguePersonaStyleGift.json",
       "sha256": "b7358728727b1dbe378502268348eb2f1b442282234811a55d1916b131af42a2",
       "bytes": 117121,
-      "family": "other_mode_exclusion_evidence",
-      "selected_by": "explicit other-mode table retained to prove ownership exclusion"
+      "family": "divergent_persona_structured_candidate",
+      "selected_by": "reviewed current layer joins invalidate blanket exclusion; retain all rows for individual selector proof"
     },
     {
       "repository": "turnbasedgamedata",
       "path": "ExcelOutput/RoguePersonaTalent.json",
       "sha256": "c55965f8fab47c3f0a3a134ba2f1cf09ce3a597402ce3f34098c3ba55aefe208",
       "bytes": 10796,
-      "family": "other_mode_exclusion_evidence",
-      "selected_by": "explicit other-mode table retained to prove ownership exclusion"
+      "family": "divergent_persona_structured_candidate",
+      "selected_by": "reviewed current layer joins invalidate blanket exclusion; retain all rows for individual selector proof"
     },
     {
       "repository": "turnbasedgamedata",
       "path": "ExcelOutput/RoguePersonaTalentGroup.json",
       "sha256": "b3d0d766863fc0349824a1da801a5a7e037dcc3749f5e0cd6bce71d5b802e56a",
       "bytes": 1162,
-      "family": "other_mode_exclusion_evidence",
-      "selected_by": "explicit other-mode table retained to prove ownership exclusion"
+      "family": "divergent_persona_structured_candidate",
+      "selected_by": "reviewed current layer joins invalidate blanket exclusion; retain all rows for individual selector proof"
     },
     {
       "repository": "turnbasedgamedata",

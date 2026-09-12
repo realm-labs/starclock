@@ -1,0 +1,88 @@
+{
+  "schema_revision": "starclock.divergent-universe-battle-transition-hardening-execution.v1",
+  "goal_id": "divergent-universe-runtime-v1",
+  "batch": "G22-P6-B6",
+  "status": "CompleteAtomicRejectionBoundedCacheAndFreshTransitionReconstruction",
+  "input_digests": {
+    "runtime_dispositions": {
+      "path": "content-manifests/divergent-universe-runtime-v1/runtime-dispositions.json",
+      "sha256": "1319cb15f7a2e1b9c283549300cf29bb4f2b65d41c759a0c29240570c7fbd2bc"
+    },
+    "mechanic_dispositions": {
+      "path": "content-manifests/divergent-universe-runtime-v1/mechanic-dispositions.json",
+      "sha256": "629d1061b313381f09f66804da9eca86fdb8e474837a4fb56451696adb9377d4"
+    },
+    "batch_ledger": {
+      "path": "content-manifests/divergent-universe-runtime-v1/batch-ledger.json",
+      "sha256": "77e109344b674b1a301708d247e2dcedeace5bc941f789d2ab3529dc5224f467"
+    },
+    "battle_assembly": {
+      "path": "content-manifests/divergent-universe-runtime-v1/battle-assembly-execution.json",
+      "sha256": "af8f4bce744a7a59f0e17811b0d6dab84bc8b5c7d7b90b02a88c515b03361457"
+    },
+    "battle_settlement": {
+      "path": "content-manifests/divergent-universe-runtime-v1/battle-settlement-execution.json",
+      "sha256": "d8a2e066e5742d15ae9e343046670567f4ced6540961994ec7eed57e80043259"
+    },
+    "runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/battle_assembly_runtime.rs",
+      "sha256": "eb90a45ed0dc8bc30f9abf5909806a86a8777c6a4cdd714c7c1debe3d87dec99"
+    },
+    "tests": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/tests/battle_transition_hardening.rs",
+      "sha256": "6fc1da1eb19f212c08242e888f842b5b1cefe674026985a406dcb59f387f40aa"
+    }
+  },
+  "exact_runtime": {
+    "cache_capacity": 8,
+    "eviction_policy": "DeterministicFifo",
+    "cache_authority": "NonAuthoritativeScratchOnly",
+    "stale_validation_order": "BeforeCacheLookup",
+    "reconstruction_inputs": [
+      "ActivityState",
+      "ContributionSnapshot",
+      "EncounterSelection"
+    ]
+  },
+  "execution_receipt": {
+    "repeated_identity_returns_same_immutable_entry": "Passed",
+    "ninth_distinct_entry_evicts_fifo_at_capacity_eight": "Passed",
+    "cache_clear_preserves_reconstructed_battle_identity": "Passed",
+    "stale_assembly_preserves_state_rng_and_cache_metrics": "Passed",
+    "stale_settlement_preserves_state_rng_and_cache_metrics": "Passed",
+    "accepted_transition_requires_and_accepts_fresh_inputs": "Passed"
+  },
+  "assignment_closure": {
+    "obligations": 0,
+    "fixture_families": 0,
+    "research_gaps": 0,
+    "policy_sources": 0,
+    "mechanic_programs": 0
+  },
+  "capability_probes": [
+    {
+      "id": "bounded-non-authoritative-cache",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/battle_transition_hardening.rs",
+      "test": "repeated_resolution_uses_bounded_non_authoritative_cache_and_clear_is_inert",
+      "result": "Passed"
+    },
+    {
+      "id": "stale-assembly-and-settlement",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/battle_transition_hardening.rs",
+      "test": "stale_assembly_and_settlement_preserve_state_rng_and_cache_semantics",
+      "result": "Passed"
+    },
+    {
+      "id": "fresh-transition-reconstruction",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/battle_transition_hardening.rs",
+      "test": "accepted_transition_reconstructs_battle_only_from_fresh_inputs",
+      "result": "Passed"
+    }
+  ],
+  "summary": {
+    "cache_capacity": 8,
+    "terminal_obligations": 0,
+    "mechanic_programs": 0,
+    "probes": 3
+  }
+}

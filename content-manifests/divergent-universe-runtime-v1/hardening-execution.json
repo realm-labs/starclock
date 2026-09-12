@@ -1,0 +1,145 @@
+{
+  "schema_revision": "starclock.divergent-universe-hardening-execution.v1",
+  "goal_id": "divergent-universe-runtime-v1",
+  "batch": "G22-P8-B1",
+  "status": "CompleteMalformedPropertyRngPoolOverflowBudgetPersistenceReplayHardening",
+  "input_digests": {
+    "runtime_dispositions": {
+      "path": "content-manifests/divergent-universe-runtime-v1/runtime-dispositions.json",
+      "sha256": "1319cb15f7a2e1b9c283549300cf29bb4f2b65d41c759a0c29240570c7fbd2bc"
+    },
+    "mechanic_dispositions": {
+      "path": "content-manifests/divergent-universe-runtime-v1/mechanic-dispositions.json",
+      "sha256": "629d1061b313381f09f66804da9eca86fdb8e474837a4fb56451696adb9377d4"
+    },
+    "batch_ledger": {
+      "path": "content-manifests/divergent-universe-runtime-v1/batch-ledger.json",
+      "sha256": "77e109344b674b1a301708d247e2dcedeace5bc941f789d2ab3529dc5224f467"
+    },
+    "exhaustive_suite": {
+      "path": "crates/starclock-test-kit/tests/exhaustive_suite.rs",
+      "sha256": "3c8fada370dd21923e5eb169e51418ab5b96a2ef6660fd468916791b4fab83e9"
+    },
+    "divergent_hardening": {
+      "path": "crates/starclock-test-kit/tests/suites/divergent_universe/g22-p8-b1/hardening.rs",
+      "sha256": "e14bc26b50cb72f651f597726ed4b4cdda84ab74f0e3a08f6d83de97955c3c29"
+    },
+    "agent_tests": {
+      "path": "crates/starclock-agent-api/src/divergent_universe_activity_session/tests.rs",
+      "sha256": "5959071f870b8f2d5c4c78ed0d3cca2650f41d265998c0245484ad53de7e6ac0"
+    },
+    "equation_hardening": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/tests/equation_offer.rs",
+      "sha256": "6f4e90789afc7a9fa3172de7cc7fb3af7397c3e7ffdc89327e835f58515136da"
+    },
+    "blessing_hardening": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/tests/equation_blessing_hardening.rs",
+      "sha256": "f7f589e28b30fbccae6d90155a72cdb44dfe6743368a89f072160ba063245a7f"
+    },
+    "combat_programs": {
+      "path": "crates/starclock-test-kit/tests/suites/core/combat/ability_program_execution.rs",
+      "sha256": "4cdc0e2c887072cb77f2e76d6d00c5c85eb72d21645114bd248250316c10d331"
+    },
+    "combat_reactions": {
+      "path": "crates/starclock-test-kit/tests/suites/core/combat/reaction_scheduler.rs",
+      "sha256": "6a3728198dbafc5465dfef8cc1de4e8cea71e504c5aadefc3247ac2763b99be1"
+    },
+    "combat_resources": {
+      "path": "crates/starclock-test-kit/tests/suites/core/combat/action_resources.rs",
+      "sha256": "d12ca8c547d250bb7a25624493aa73192ddb700fc7d2b04f4e31a6050088b9d9"
+    }
+  },
+  "test_commands": [
+    "cargo test -p starclock-test-kit --features exhaustive --test exhaustive_suite",
+    "cargo test -p starclock-test-kit",
+    "cargo test -p starclock-mode-universe"
+  ],
+  "execution_receipt": {
+    "exhaustive_suite_31_tests": "Passed",
+    "test_kit_default_405_passed_one_ignored": "Passed",
+    "malformed_input_is_total_bounded_and_repeatable": "Passed",
+    "stale_and_forged_commands_preserve_authority": "Passed",
+    "seed_properties_are_deterministic_and_stream_distinct": "Passed",
+    "empty_pools_draw_nothing_and_preserve_state": "Passed",
+    "checked_overflow_is_reported_at_resource_boundary": "Passed",
+    "recursive_emission_faults_and_rolls_back_at_budget": "Passed",
+    "deep_reaction_chains_do_not_use_call_stack_recursion": "Passed",
+    "canonical_save_load_is_byte_exact_and_reconstructs_fresh": "Passed",
+    "replay_truncation_and_bit_flip_corpora_fail_closed": "Passed"
+  },
+  "assignment_closure": {
+    "obligations": 0,
+    "fixture_families": 0,
+    "research_gaps": 0,
+    "policy_sources": 0,
+    "mechanic_programs": 0
+  },
+  "capability_probes": [
+    {
+      "id": "malformed-and-corrupt-replay",
+      "file": "crates/starclock-test-kit/tests/suites/divergent_universe/g22-p8-b1/hardening.rs",
+      "test": "divergent_universe_malformed_and_corrupt_replays_fail_repeatably",
+      "result": "Passed"
+    },
+    {
+      "id": "seed-property-and-rng-isolation",
+      "file": "crates/starclock-test-kit/tests/suites/divergent_universe/g22-p8-b1/hardening.rs",
+      "test": "divergent_universe_seed_property_is_deterministic_and_stream_distinct",
+      "result": "Passed"
+    },
+    {
+      "id": "canonical-save-load",
+      "file": "crates/starclock-test-kit/tests/suites/divergent_universe/g22-p8-b1/hardening.rs",
+      "test": "divergent_universe_canonical_save_load_round_trip_reconstructs_fresh",
+      "result": "Passed"
+    },
+    {
+      "id": "stale-selection",
+      "file": "crates/starclock-test-kit/tests/suites/divergent_universe/g22-p8-b1/hardening.rs",
+      "test": "divergent_universe_stale_selection_rejects_without_poisoning_valid_replay",
+      "result": "Passed"
+    },
+    {
+      "id": "forged-stale-agent-command",
+      "file": "crates/starclock-agent-api/src/divergent_universe_activity_session/tests.rs",
+      "test": "forged_stale_and_cross_session_actions_preserve_state",
+      "result": "Passed"
+    },
+    {
+      "id": "equation-empty-pool",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/equation_offer.rs",
+      "test": "equation_offer_empty_pool_and_invalid_commands_preserve_state_and_rng",
+      "result": "Passed"
+    },
+    {
+      "id": "blessing-empty-pool",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/equation_blessing_hardening.rs",
+      "test": "every_blessing_group_empty_pool_rejects_without_draw_or_mutation",
+      "result": "Passed"
+    },
+    {
+      "id": "rule-recursion-budget",
+      "file": "crates/starclock-test-kit/tests/suites/core/combat/ability_program_execution.rs",
+      "test": "recursively_emitting_rule_faults_at_the_dispatch_budget_and_rolls_back",
+      "result": "Passed"
+    },
+    {
+      "id": "reaction-chain-budget",
+      "file": "crates/starclock-test-kit/tests/suites/core/combat/reaction_scheduler.rs",
+      "test": "deeply_chained_reactions_fault_at_budget_without_recursive_execution",
+      "result": "Passed"
+    },
+    {
+      "id": "checked-resource-overflow",
+      "file": "crates/starclock-test-kit/tests/suites/core/combat/action_resources.rs",
+      "test": "basic_gain_clamps_at_caps_and_reports_overflow",
+      "result": "Passed"
+    }
+  ],
+  "summary": {
+    "hardening_categories": 9,
+    "probes": 10,
+    "exhaustive_tests": 31,
+    "default_test_kit_passed": 405
+  }
+}

@@ -1,0 +1,145 @@
+{
+  "schema_revision": "starclock.divergent-universe-workbench-curse-execution.v1",
+  "goal_id": "divergent-universe-runtime-v1",
+  "batch": "G22-P5-B5",
+  "status": "CompleteWorkbenchTransformationPriceCurseChestAndFailureExecution",
+  "input_digests": {
+    "workbenches": {
+      "path": "content-reference/divergent-universe-v1/workbenches.json",
+      "sha256": "586481922c76ecacab2f0f21f73fda8eb00989a652b96a652463c65b63ddcfae"
+    },
+    "functions": {
+      "path": "content-reference/divergent-universe-v1/workbench-functions.json",
+      "sha256": "5dfeb6b3185df6ddffbc0a08264fae1b3f0d1be6559f0cf45c1f48b3d37515f5"
+    },
+    "curse_chests": {
+      "path": "content-reference/divergent-universe-v1/curse-chests.json",
+      "sha256": "f27e3cf87fa08354176a3549a070d3200d57d77b423bdb1e88568fbb0b3aa6e9"
+    },
+    "currencies": {
+      "path": "content-reference/divergent-universe-v1/currencies.json",
+      "sha256": "a7eac2497faa99f506b4a832280968b142a615254f84ec4b8e06c2904d930430"
+    },
+    "service_rules": {
+      "path": "content-reference/divergent-universe-v1/service-rules.json",
+      "sha256": "de1c833ac70b8b60e93ee48e9114656ba34d9d7b2089a7bbf509a130e76baf7e"
+    },
+    "review_fixtures": {
+      "path": "content-reference/divergent-universe-v1/review-fixtures.json",
+      "sha256": "70fdb15147d046a170c4fe4038ccdd595bfbfef1e00040dba978c74c6b8a26c4"
+    },
+    "research_gaps": {
+      "path": "content-reference/divergent-universe-v1/research-gaps.json",
+      "sha256": "5818c783a5087b7244951f98744372dddd04371f39250bbae5b4db410d956ab0"
+    },
+    "runtime_dispositions": {
+      "path": "content-manifests/divergent-universe-runtime-v1/runtime-dispositions.json",
+      "sha256": "1319cb15f7a2e1b9c283549300cf29bb4f2b65d41c759a0c29240570c7fbd2bc"
+    },
+    "batch_ledger": {
+      "path": "content-manifests/divergent-universe-runtime-v1/batch-ledger.json",
+      "sha256": "77e109344b674b1a301708d247e2dcedeace5bc941f789d2ab3529dc5224f467"
+    },
+    "prior_execution": {
+      "path": "content-manifests/divergent-universe-runtime-v1/permanent-progression-execution.json",
+      "sha256": "0fa32bce5bccd8f569bfd3dc1333f7c0b0e3774580352cea1e7c689eb0c22519"
+    },
+    "data_catalog": {
+      "path": "crates/starclock-data/src/divergent_universe_service_catalog.rs",
+      "sha256": "faa8ff1716e73bb111565c3afd1ef60f506195ba92ccda670daaeed835479241"
+    },
+    "runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/workbench_curse_runtime.rs",
+      "sha256": "2769f110ad5a64f9ab8db58a6c13840bb4f214e762e5887b719e5ede4c2296e4"
+    },
+    "blessing_runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/blessing_runtime.rs",
+      "sha256": "4be2fc82caf4df88493197673c901ca299b8e30761a96605ffb6f17414b25d8b"
+    },
+    "state": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/state.rs",
+      "sha256": "946d9d891d871569c556bfb87a63cf790b752dc1a1f7b762ad0e11e0cd2bbd36"
+    },
+    "tests": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/tests/workbench_curse_runtime.rs",
+      "sha256": "4fe92ea98c5f0a967c53e6c2e8c1946f8b5d96c501a497c38bd320bd68b69fe5"
+    }
+  },
+  "exact_runtime": {
+    "workbenches": 11,
+    "functions": 6,
+    "curse_chests": 29,
+    "curse_chest_choice_operations": 87,
+    "treasure_chests": 21,
+    "fountain_chests": 8,
+    "exact_fragment_gain_operations": 6,
+    "exact_fragment_spend_operations": 9,
+    "leave_operations": 29
+  },
+  "policy_boundary": {
+    "accepted_transformation": "ExplicitOwnedBaseBlessingEnhancement",
+    "accepted_price": "ExplicitWorkbenchHeatAmountNotObservedParity",
+    "unpublished_transformation_programs": 5,
+    "unpublished_candidate_operation_occurrences": 43,
+    "unresolved_fallback": "RejectWithoutMutation",
+    "curse_chest_amount_selection": "ExplicitAmountWithinReleasedInclusiveBounds",
+    "rng_draws": 0,
+    "observed_price_or_candidate_parity_claimed": false
+  },
+  "execution_receipt": {
+    "workbench_entry_resets_heat_at_accepted_boundary": "Passed",
+    "blessing_enhancement_price_and_receipt_commit_atomically": "Passed",
+    "every_unpublished_transformation_fails_closed": "Passed",
+    "every_curse_chest_leave_fallback_executes": "Passed",
+    "exact_fragment_bounds_and_balance_are_enforced": "Passed",
+    "rejected_operations_preserve_state_and_rng": "Passed"
+  },
+  "assignment_closure": {
+    "obligations": 46,
+    "policy_integrated": 46,
+    "fixture_families": 1,
+    "research_gaps": 1,
+    "policy_sources": 2,
+    "mechanic_programs": 0
+  },
+  "capability_probes": [
+    {
+      "id": "catalog-and-policy-closure",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/workbench_curse_runtime.rs",
+      "test": "workbench_and_curse_chest_catalogs_compile_exact_policy_boundaries",
+      "result": "Passed"
+    },
+    {
+      "id": "atomic-entry-price-and-enhancement",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/workbench_curse_runtime.rs",
+      "test": "accepted_workbench_entry_price_and_blessing_enhancement_commit_atomically",
+      "result": "Passed"
+    },
+    {
+      "id": "all-unpublished-transformations-fail-closed",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/workbench_curse_runtime.rs",
+      "test": "every_unpublished_workbench_transformation_fails_closed_with_explicit_selection",
+      "result": "Passed"
+    },
+    {
+      "id": "all-curse-chests-and-unresolved-candidates",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/workbench_curse_runtime.rs",
+      "test": "all_curse_chests_execute_leave_and_unpublished_candidates_without_rng_or_mutation",
+      "result": "Passed"
+    },
+    {
+      "id": "fragment-bounds-spend-and-rejection",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/workbench_curse_runtime.rs",
+      "test": "curse_chest_fragment_bounds_spend_and_rejection_are_atomic",
+      "result": "Passed"
+    }
+  ],
+  "summary": {
+    "workbenches": 11,
+    "functions": 6,
+    "curse_chests": 29,
+    "choice_operations": 87,
+    "terminal_obligations": 46,
+    "probes": 5
+  }
+}

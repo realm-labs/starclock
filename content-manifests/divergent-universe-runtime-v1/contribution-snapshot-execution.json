@@ -1,0 +1,110 @@
+{
+  "schema_revision": "starclock.divergent-universe-contribution-snapshot-execution.v1",
+  "goal_id": "divergent-universe-runtime-v1",
+  "batch": "G22-P5-B6",
+  "status": "CompleteUnifiedImmutableBattleContributionSnapshot",
+  "input_digests": {
+    "runtime_dispositions": {
+      "path": "content-manifests/divergent-universe-runtime-v1/runtime-dispositions.json",
+      "sha256": "1319cb15f7a2e1b9c283549300cf29bb4f2b65d41c759a0c29240570c7fbd2bc"
+    },
+    "batch_ledger": {
+      "path": "content-manifests/divergent-universe-runtime-v1/batch-ledger.json",
+      "sha256": "77e109344b674b1a301708d247e2dcedeace5bc941f789d2ab3529dc5224f467"
+    },
+    "prior_execution": {
+      "path": "content-manifests/divergent-universe-runtime-v1/workbench-curse-execution.json",
+      "sha256": "7db9aff2b0c5e8dfc4f7e5391418f174647089797d15989936e3065be93b0639"
+    },
+    "mapping_execution": {
+      "path": "content-manifests/divergent-universe-runtime-v1/mapping-execution.json",
+      "sha256": "9509da3d0585858813fb4723a5c313878f45ca1c85279985d4f6ee50f4882822"
+    },
+    "blessing_execution": {
+      "path": "content-manifests/divergent-universe-runtime-v1/blessing-interaction-execution.json",
+      "sha256": "e0243b7b1ff4f46ab99cc6c766929c27184c1cde91482daba80a2dc3d7e18f0c"
+    },
+    "curio_execution": {
+      "path": "content-manifests/divergent-universe-runtime-v1/curio-runtime-execution.json",
+      "sha256": "20851fc502a18e6351461fe31d4c9385f85d200a89a6c836235f81b7451646a3"
+    },
+    "titan_execution": {
+      "path": "content-manifests/divergent-universe-runtime-v1/titan-runtime-execution.json",
+      "sha256": "ed9bb832ac7d1176d91a7ac81e144e42d4d567ad5c906004c899cb969449b6c7"
+    },
+    "progression_execution": {
+      "path": "content-manifests/divergent-universe-runtime-v1/permanent-progression-execution.json",
+      "sha256": "0fa32bce5bccd8f569bfd3dc1333f7c0b0e3774580352cea1e7c689eb0c22519"
+    },
+    "runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/contribution_snapshot.rs",
+      "sha256": "281a2c4068ada7855b1794311b74cfcdcd05a4868391de7c57bff49239c7da14"
+    },
+    "tests": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/tests/contribution_snapshot.rs",
+      "sha256": "81ba8e4ba70446cffdf4f08afea52206d0506a4e19bf85ac6e8051601e0ef8e4"
+    }
+  },
+  "immutable_component_order": [
+    "ArithmeticMapping",
+    "DifficultyAndProtocol",
+    "EquationAndBlessing",
+    "Curio",
+    "Titan",
+    "PermanentProgression"
+  ],
+  "identity_contract": {
+    "component_count": 6,
+    "source_state_hash_bound": true,
+    "configuration_component_digest_bound": true,
+    "battle_technique_digest_materialized": true,
+    "terminal_activity_rejected": true,
+    "missing_or_mismatched_mapping_rejected": true,
+    "rng_draws": 0
+  },
+  "execution_receipt": {
+    "stable_order_and_all_component_digests_bound": "Passed",
+    "exact_difficulty_and_protocol_projection_bound": "Passed",
+    "activity_mutation_refreshes_snapshot_identity": "Passed",
+    "fresh_reconstruction_is_identical": "Passed",
+    "rejected_snapshots_preserve_activity_state": "Passed"
+  },
+  "assignment_closure": {
+    "obligations": 0,
+    "fixture_families": 0,
+    "research_gaps": 0,
+    "policy_sources": 0,
+    "mechanic_programs": 0
+  },
+  "capability_probes": [
+    {
+      "id": "stable-component-order",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/contribution_snapshot.rs",
+      "test": "unified_contribution_snapshot_binds_all_components_in_stable_order",
+      "result": "Passed"
+    },
+    {
+      "id": "difficulty-and-protocol-identity",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/contribution_snapshot.rs",
+      "test": "difficulty_and_protocol_change_unified_snapshot_identity",
+      "result": "Passed"
+    },
+    {
+      "id": "state-refresh-and-reconstruction",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/contribution_snapshot.rs",
+      "test": "contribution_snapshot_is_reproducible_and_tracks_activity_state",
+      "result": "Passed"
+    },
+    {
+      "id": "mapping-and-definition-rejection",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/contribution_snapshot.rs",
+      "test": "contribution_snapshot_rejects_missing_mapping_and_definition_mismatch_without_mutation",
+      "result": "Passed"
+    }
+  ],
+  "summary": {
+    "components": 6,
+    "terminal_obligations": 0,
+    "probes": 4
+  }
+}

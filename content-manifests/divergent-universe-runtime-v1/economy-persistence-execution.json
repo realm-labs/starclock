@@ -1,0 +1,137 @@
+{
+  "schema_revision": "starclock.divergent-universe-economy-persistence-execution.v1",
+  "goal_id": "divergent-universe-runtime-v1",
+  "batch": "G22-P3-B3",
+  "status": "CompleteEconomyPersistenceBoundaryNoLoadReconstructionOrBattleCredit",
+  "input_digests": {
+    "currencies": {
+      "path": "content-reference/divergent-universe-v1/currencies.json",
+      "sha256": "a7eac2497faa99f506b4a832280968b142a615254f84ec4b8e06c2904d930430"
+    },
+    "constants": {
+      "path": "content-reference/divergent-universe-v1/common-constants.json",
+      "sha256": "c4c94355ad8b0296fd26094ec21328afb99f96fda971ad4f7d7de1660a8bbb14"
+    },
+    "runtime_contract": {
+      "path": "content-manifests/divergent-universe-runtime-v1/runtime-contract.json",
+      "sha256": "ccb27239b0d31973c27c48a666916055568355f40736b5887aed50f1b0ba4276"
+    },
+    "runtime_dispositions": {
+      "path": "content-manifests/divergent-universe-runtime-v1/runtime-dispositions.json",
+      "sha256": "1319cb15f7a2e1b9c283549300cf29bb4f2b65d41c759a0c29240570c7fbd2bc"
+    },
+    "batch_ledger": {
+      "path": "content-manifests/divergent-universe-runtime-v1/batch-ledger.json",
+      "sha256": "77e109344b674b1a301708d247e2dcedeace5bc941f789d2ab3529dc5224f467"
+    },
+    "economy_runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/economy.rs",
+      "sha256": "c97ec8618a9f06e5481016c7b724b878f94e12cba35a94abfc96993b4ccc53f5"
+    },
+    "snapshot_runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/snapshot.rs",
+      "sha256": "958ec3d04b0c9e06926b128005e75b0b0a548de1efe8ee23d63e6fb8d4263502"
+    },
+    "entry_runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/entry_flow.rs",
+      "sha256": "efadb26272a068aebbad344771126f0870e613475d6314917690d069c7ca8209"
+    },
+    "state_runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/state.rs",
+      "sha256": "946d9d891d871569c556bfb87a63cf790b752dc1a1f7b762ad0e11e0cd2bbd36"
+    },
+    "tests": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/tests/flow_progression_economy.rs",
+      "sha256": "b340d658289b15b426095c65a7344e5fcb49e230b435c2980f451dea087c450d"
+    }
+  },
+  "execution_boundary": {
+    "runtime_owner": "starclock-mode-universe",
+    "mutation_owner": "starclock-activity::GraphActivity",
+    "currencies": "Both released currency identities, scopes and reset rules lower through closed typed values. Validated credit/spend/reset commands execute atomically through GraphActivity; stale, rule-mismatched and unfunded commands are byte-inert, and run finalization clears the currency map.",
+    "constants": "All 18 simulation-visible common constants lower to checked integer, integer-array or opaque-text values; all 16 account/reward/presentation/test exclusions remain absent from runtime projection.",
+    "caller_snapshot": "Entry requires an immutable account/loadout snapshot sealed to the exact participant lock. Full digests bind the Activity configuration; private slots retain stable state projections.",
+    "save": "Capture is read-only over canonical GraphActivity bytes and validates current component, definition, input, participant, state and envelope digests.",
+    "settlement": "Completed Activities expose immutable progression/account-consumer inputs while retaining no authority to query or mutate account state.",
+    "deferred": "Canonical-byte reconstruction and resume are owned by G22-P7-B5; malformed load/replay suites are owned by G22-P8-B1.",
+    "credit": "Economy, immutable snapshot and settlement boundaries only; no service execution, save reconstruction, encounter, battle, full playable-run or release-gate credit."
+  },
+  "source_closure": {
+    "currencies": 2,
+    "common_constants": 34,
+    "executable_constants": 18,
+    "excluded_constants": 16,
+    "exact_obligations": 18,
+    "excluded_obligations": 16
+  },
+  "currency_lifecycles": [
+    {
+      "id": "divergent-universe.currency.cosmic-fragment",
+      "scope": "Run",
+      "gain_rules": [
+        "CurseChest",
+        "GambleCoinUnit"
+      ],
+      "spend_rules": [
+        "CurseChest",
+        "OtherServicesDeferredToP2B4"
+      ],
+      "reset_rule": "RunEnd"
+    },
+    {
+      "id": "divergent-universe.currency.workbench-heat",
+      "scope": "Workbench",
+      "gain_rules": [
+        "Unspecified"
+      ],
+      "spend_rules": [
+        "EnhanceBlessing"
+      ],
+      "reset_rule": "ResetAtEachWorkbench"
+    }
+  ],
+  "persistence_contract": {
+    "capture": "Save is a read-only canonical snapshot operation and cannot advance state, consume RNG or materialize a new offer.",
+    "future_load": "Load reconstructs fresh immutable catalogs and registries, verifies the exact current component set and all embedded identities, then resumes the same offered decision.",
+    "rejection": "Unknown components, digest mismatch, malformed bounds, stale handoff or noncanonical order fail before a live session exists.",
+    "compatibility": "Only the current tree and current runtime identity are supported; no legacy decoder or migration branch is retained.",
+    "implemented_now": "Read-only capture and fresh-current-input validation before any live reconstructed session exists.",
+    "deferred_to": "G22-P7-B5"
+  },
+  "terminal_assignments": {
+    "obligations": 34,
+    "fixture_families": [],
+    "research_gaps": [],
+    "policy_sources": []
+  },
+  "capability_probes": [
+    {
+      "id": "currency-and-common-constant-lowering",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/flow_progression_economy.rs",
+      "test": "currencies_and_constants_lower_to_closed_typed_runtime_values",
+      "result": "Passed"
+    },
+    {
+      "id": "immutable-input-and-save-snapshot",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/flow_progression_economy.rs",
+      "test": "input_and_save_snapshots_bind_participants_and_capture_without_mutation",
+      "result": "Passed"
+    },
+    {
+      "id": "terminal-settlement-and-run-reset",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/flow_progression_economy.rs",
+      "test": "terminal_settlement_is_immutable_and_run_currency_reset_is_explicit",
+      "result": "Passed"
+    }
+  ],
+  "summary": {
+    "currencies": 2,
+    "executable_constants": 18,
+    "excluded_constants": 16,
+    "obligations_terminal": 34,
+    "production_fixtures_passed": 0,
+    "executable_research_gaps": 0,
+    "executable_policy_sources": 0,
+    "probes": 3
+  }
+}

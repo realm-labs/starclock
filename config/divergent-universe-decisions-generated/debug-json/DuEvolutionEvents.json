@@ -1,0 +1,165 @@
+{
+  "table": {
+    "name": "DuEvolutionEvents",
+    "rows": [
+      {
+        "values": {
+          "evolution_id": {
+            "Integer": 1
+          },
+          "id": {
+            "Integer": 1
+          },
+          "layer_ordinal": {
+            "Integer": 2
+          },
+          "policy": {
+            "String": "ActiveTreasuresAtLayerEntryStableSequence"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: at this authored logical layer in either baseline, process at most three distinct-owner events in stable event-key order, each once. Re-evaluate eligibility after prior choices: an active predecessor and at least one executable option are required. A later event may qualify through a prior reward, but skipped earlier events are not revisited. Skip ineligible events without RNG or player action. Costs precede evolution; the successor's full acquisition grant precedes the separate event grant. Both guaranteed and chance upgrades require the complete mandatory successor reward to be available before RNG; exhaustion disables them, never grants a free failed roll. Chance uses one bounded Reward draw, preserves the old form on failure and consumes the event. Random Curios use unowned canonical identities, unit weights, no replacement, reviewed acquisition preflight and explicit rarity bounds. Snapshot eligibility before sacrifice. Inventory, rewards, all gains, dialogue handoff and next-node pumping commit atomically. No free leave alternative, reroll, healing or extra reward. Original topology and remaining Treasure effects are gaps."
+          },
+          "replacement_condition": {
+            "String": "Replace layer/profile placement, multiple-treasure order and eligibility snapshots, active-only gate, success-reward preflight, default rarity range, weights, pool membership, sacrifice snapshot, grant ordering and probability mapping independently with released graphs or reproducible current-profile observations. Alternatives include a single treasure per event, simultaneous eligibility, random placement, weighted rarity, retained sacrifice eligibility and interleaved rewards. Hidden fields have low confidence; published numeric outcomes are independent community evidence, not exact reachability."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 26
+              },
+              {
+                "Integer": 30
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.evolution-event.green.ii"
+          }
+        }
+      },
+      {
+        "values": {
+          "evolution_id": {
+            "Integer": 2
+          },
+          "id": {
+            "Integer": 2
+          },
+          "layer_ordinal": {
+            "Integer": 3
+          },
+          "policy": {
+            "String": "ActiveTreasuresAtLayerEntryStableSequence"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: at this authored logical layer in either baseline, process at most three distinct-owner events in stable event-key order, each once. Re-evaluate eligibility after prior choices: an active predecessor and at least one executable option are required. A later event may qualify through a prior reward, but skipped earlier events are not revisited. Skip ineligible events without RNG or player action. Costs precede evolution; the successor's full acquisition grant precedes the separate event grant. Both guaranteed and chance upgrades require the complete mandatory successor reward to be available before RNG; exhaustion disables them, never grants a free failed roll. Chance uses one bounded Reward draw, preserves the old form on failure and consumes the event. Random Curios use unowned canonical identities, unit weights, no replacement, reviewed acquisition preflight and explicit rarity bounds. Snapshot eligibility before sacrifice. Inventory, rewards, all gains, dialogue handoff and next-node pumping commit atomically. No free leave alternative, reroll, healing or extra reward. Original topology and remaining Treasure effects are gaps."
+          },
+          "replacement_condition": {
+            "String": "Replace layer/profile placement, multiple-treasure order and eligibility snapshots, active-only gate, success-reward preflight, default rarity range, weights, pool membership, sacrifice snapshot, grant ordering and probability mapping independently with released graphs or reproducible current-profile observations. Alternatives include a single treasure per event, simultaneous eligibility, random placement, weighted rarity, retained sacrifice eligibility and interleaved rewards. Hidden fields have low confidence; published numeric outcomes are independent community evidence, not exact reachability."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 26
+              },
+              {
+                "Integer": 31
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.evolution-event.green.iii"
+          }
+        }
+      },
+      {
+        "values": {
+          "evolution_id": {
+            "Integer": 3
+          },
+          "id": {
+            "Integer": 3
+          },
+          "layer_ordinal": {
+            "Integer": 2
+          },
+          "policy": {
+            "String": "ActiveTreasuresAtLayerEntryStableSequence"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: at this authored logical layer in either baseline, process at most three distinct-owner events in stable event-key order, each once. Re-evaluate eligibility after prior choices: an active predecessor and at least one executable option are required. A later event may qualify through a prior reward, but skipped earlier events are not revisited. Skip ineligible events without RNG or player action. Costs precede evolution; the successor's full acquisition grant precedes the separate event grant. Both guaranteed and chance upgrades require the complete mandatory successor reward to be available before RNG; exhaustion disables them, never grants a free failed roll. Chance uses one bounded Reward draw, preserves the old form on failure and consumes the event. Random Curios use unowned canonical identities, unit weights, no replacement, reviewed acquisition preflight and explicit rarity bounds. Snapshot eligibility before sacrifice. Inventory, rewards, all gains, dialogue handoff and next-node pumping commit atomically. No free leave alternative, reroll, healing or extra reward. Original topology and remaining Treasure effects are gaps."
+          },
+          "replacement_condition": {
+            "String": "Replace layer/profile placement, multiple-treasure order and eligibility snapshots, active-only gate, success-reward preflight, default rarity range, weights, pool membership, sacrifice snapshot, grant ordering and probability mapping independently with released graphs or reproducible current-profile observations. Alternatives include a single treasure per event, simultaneous eligibility, random placement, weighted rarity, retained sacrifice eligibility and interleaved rewards. Hidden fields have low confidence; published numeric outcomes are independent community evidence, not exact reachability."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 26
+              },
+              {
+                "Integer": 30
+              },
+              {
+                "Integer": 32
+              },
+              {
+                "Integer": 34
+              },
+              {
+                "Integer": 35
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.evolution-event.sage.ii"
+          }
+        }
+      },
+      {
+        "values": {
+          "evolution_id": {
+            "Integer": 4
+          },
+          "id": {
+            "Integer": 4
+          },
+          "layer_ordinal": {
+            "Integer": 3
+          },
+          "policy": {
+            "String": "ActiveTreasuresAtLayerEntryStableSequence"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: at this authored logical layer in either baseline, process at most three distinct-owner events in stable event-key order, each once. Re-evaluate eligibility after prior choices: an active predecessor and at least one executable option are required. A later event may qualify through a prior reward, but skipped earlier events are not revisited. Skip ineligible events without RNG or player action. Costs precede evolution; the successor's full acquisition grant precedes the separate event grant. Both guaranteed and chance upgrades require the complete mandatory successor reward to be available before RNG; exhaustion disables them, never grants a free failed roll. Chance uses one bounded Reward draw, preserves the old form on failure and consumes the event. Random Curios use unowned canonical identities, unit weights, no replacement, reviewed acquisition preflight and explicit rarity bounds. Snapshot eligibility before sacrifice. Inventory, rewards, all gains, dialogue handoff and next-node pumping commit atomically. No free leave alternative, reroll, healing or extra reward. Original topology and remaining Treasure effects are gaps."
+          },
+          "replacement_condition": {
+            "String": "Replace layer/profile placement, multiple-treasure order and eligibility snapshots, active-only gate, success-reward preflight, default rarity range, weights, pool membership, sacrifice snapshot, grant ordering and probability mapping independently with released graphs or reproducible current-profile observations. Alternatives include a single treasure per event, simultaneous eligibility, random placement, weighted rarity, retained sacrifice eligibility and interleaved rewards. Hidden fields have low confidence; published numeric outcomes are independent community evidence, not exact reachability."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 26
+              },
+              {
+                "Integer": 31
+              },
+              {
+                "Integer": 32
+              },
+              {
+                "Integer": 34
+              },
+              {
+                "Integer": 35
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.evolution-event.sage.iii"
+          }
+        }
+      }
+    ]
+  }
+}

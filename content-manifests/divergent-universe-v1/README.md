@@ -56,10 +56,27 @@ node tools/divergent-universe-reference/verify-contracts.mjs
 `normalized-schema.json` freezes 80 normalized file families and their
 manifest mappings. `authoring-contract.json` assigns every family exactly once
 to `DivergentUniverse.xlsx`, `DivergentUniverseBindings.xlsx` or
-`DivergentUniverseReview.xlsx`, with independent Sora 0.3.0 project, reader
+`DivergentUniverseReview.xlsx`, with independent Sora 0.6.1 project, reader
 and generated-output paths. `fixture-contract.json` binds all 25 non-shrinking
 semantic fixture families. All three files bind the exact content-manifest
 SHA-256 and must regenerate byte-identically.
+
+The current production authoring and verification path is:
+
+```text
+node tools/divergent-universe-reference/generate-sora-schema.mjs .
+node tools/divergent-universe-reference/generate-sora-artifacts.mjs . --reauthor-workbooks
+node tools/divergent-universe-reference/render-visual-review.mjs
+node tools/divergent-universe-reference/verify-sora-migration.mjs
+node tools/divergent-universe-reference/verify-sora-schema.mjs
+node tools/divergent-universe-reference/verify-sora-release.mjs .
+```
+
+Set `STARCLOCK_PYTHON` to an `openpyxl==3.1.5` interpreter. The visual
+renderer locates Edge or Chrome, or accepts `STARCLOCK_BROWSER`; review the ten
+contact sheets before updating `visual-review.json`. Regenerate
+`sora-current-state.json` only through the release verifier's explicit
+`--write-state` mode after the full gate passes.
 
 The ignored source cache is reproduced through
 `tools/divergent-universe-reference/fetch-sources.sh`. Both repositories must

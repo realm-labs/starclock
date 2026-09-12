@@ -1,0 +1,207 @@
+{
+  "table": {
+    "name": "DuCurioFragmentGains",
+    "rows": [
+      {
+        "values": {
+          "bonus_fraction": {
+            "String": "0.5"
+          },
+          "effect_id": {
+            "String": "2055"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "parameter_index": {
+            "Integer": 1
+          },
+          "policy": {
+            "String": "ActiveStateAdditiveOriginalBaseFloorEachBonus"
+          },
+          "policy_note": {
+            "String": "Snapshot the nonnegative original gain once. Credit it, then add each active state bonus independently in stable state-key order, flooring each bonus from that original base. Bonuses never recursively trigger bonuses. Acquisition batches insert all accepted holdings before gains. Destroyed/replaced states stop contributing immediately; repairs restore contribution. All operations and overflow rejection share the owning transaction. Expiry and price penalties remain implementation gaps, not no-effect policies. Normal-battle Blessing suppression is authored separately."
+          },
+          "replacement_condition": {
+            "String": "Replace additive versus multiplicative stacking, per-bonus rounding, acquisition activation timing and refund applicability independently when released execution data or reproducible observations establish them; exact rates remain source-backed. Current policy includes every positive fragment credit and excludes spends/resets."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 12
+              },
+              {
+                "Integer": 13
+              },
+              {
+                "Integer": 14
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.curio-fragment-gain.9055"
+          },
+          "state_key": {
+            "String": "divergent-universe.curio-state.9055"
+          },
+          "summary_en": {
+            "String": "While active, increase Cosmic Fragment gains by 50%; other effects remain separate."
+          },
+          "summary_zh_cn": {
+            "String": "生效期间使宇宙碎片获取量提高 50%；其他效果另行处理。"
+          }
+        }
+      },
+      {
+        "values": {
+          "bonus_fraction": {
+            "String": "0.5"
+          },
+          "effect_id": {
+            "String": "2070"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "parameter_index": {
+            "Integer": 1
+          },
+          "policy": {
+            "String": "ActiveStateAdditiveOriginalBaseFloorEachBonus"
+          },
+          "policy_note": {
+            "String": "Snapshot the nonnegative original gain once. Credit it, then add each active state bonus independently in stable state-key order, flooring each bonus from that original base. Bonuses never recursively trigger bonuses. Acquisition batches insert all accepted holdings before gains. Destroyed/replaced states stop contributing immediately; repairs restore contribution. All operations and overflow rejection share the owning transaction. Expiry and price penalties remain implementation gaps, not no-effect policies. Normal-battle Blessing suppression is authored separately."
+          },
+          "replacement_condition": {
+            "String": "Replace additive versus multiplicative stacking, per-bonus rounding, acquisition activation timing and refund applicability independently when released execution data or reproducible observations establish them; exact rates remain source-backed. Current policy includes every positive fragment credit and excludes spends/resets."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 12
+              },
+              {
+                "Integer": 13
+              },
+              {
+                "Integer": 14
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.curio-fragment-gain.9070"
+          },
+          "state_key": {
+            "String": "divergent-universe.curio-state.9070"
+          },
+          "summary_en": {
+            "String": "While active, increase Cosmic Fragment gains by 50%; other effects remain separate."
+          },
+          "summary_zh_cn": {
+            "String": "生效期间使宇宙碎片获取量提高 50%；其他效果另行处理。"
+          }
+        }
+      },
+      {
+        "values": {
+          "bonus_fraction": {
+            "String": "0.3"
+          },
+          "effect_id": {
+            "String": "2079"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "parameter_index": {
+            "Integer": 1
+          },
+          "policy": {
+            "String": "ActiveStateAdditiveOriginalBaseFloorEachBonus"
+          },
+          "policy_note": {
+            "String": "Snapshot the nonnegative original gain once. Credit it, then add each active state bonus independently in stable state-key order, flooring each bonus from that original base. Bonuses never recursively trigger bonuses. Acquisition batches insert all accepted holdings before gains. Destroyed/replaced states stop contributing immediately; repairs restore contribution. All operations and overflow rejection share the owning transaction. Expiry and price penalties remain implementation gaps, not no-effect policies. Normal-battle Blessing suppression is authored separately."
+          },
+          "replacement_condition": {
+            "String": "Replace additive versus multiplicative stacking, per-bonus rounding, acquisition activation timing and refund applicability independently when released execution data or reproducible observations establish them; exact rates remain source-backed. Current policy includes every positive fragment credit and excludes spends/resets."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 12
+              },
+              {
+                "Integer": 13
+              },
+              {
+                "Integer": 14
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.curio-fragment-gain.9079"
+          },
+          "state_key": {
+            "String": "divergent-universe.curio-state.9079"
+          },
+          "summary_en": {
+            "String": "While active, increase Cosmic Fragment gains by 30%; other effects remain separate."
+          },
+          "summary_zh_cn": {
+            "String": "生效期间使宇宙碎片获取量提高 30%；其他效果另行处理。"
+          }
+        }
+      },
+      {
+        "values": {
+          "bonus_fraction": {
+            "String": "0.3"
+          },
+          "effect_id": {
+            "String": "2159"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "parameter_index": {
+            "Integer": 1
+          },
+          "policy": {
+            "String": "ActiveStateAdditiveOriginalBaseFloorEachBonus"
+          },
+          "policy_note": {
+            "String": "Snapshot the nonnegative original gain once. Credit it, then add each active state bonus independently in stable state-key order, flooring each bonus from that original base. Bonuses never recursively trigger bonuses. Acquisition batches insert all accepted holdings before gains. Destroyed/replaced states stop contributing immediately; repairs restore contribution. All operations and overflow rejection share the owning transaction. Expiry and price penalties remain implementation gaps, not no-effect policies. Normal-battle Blessing suppression is authored separately."
+          },
+          "replacement_condition": {
+            "String": "Replace additive versus multiplicative stacking, per-bonus rounding, acquisition activation timing and refund applicability independently when released execution data or reproducible observations establish them; exact rates remain source-backed. Current policy includes every positive fragment credit and excludes spends/resets."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 12
+              },
+              {
+                "Integer": 13
+              },
+              {
+                "Integer": 14
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.curio-fragment-gain.9159"
+          },
+          "state_key": {
+            "String": "divergent-universe.curio-state.9159"
+          },
+          "summary_en": {
+            "String": "While active, increase Cosmic Fragment gains by 30%; other effects remain separate."
+          },
+          "summary_zh_cn": {
+            "String": "生效期间使宇宙碎片获取量提高 30%；其他效果另行处理。"
+          }
+        }
+      }
+    ]
+  }
+}

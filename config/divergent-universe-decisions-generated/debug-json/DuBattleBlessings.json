@@ -1,0 +1,71 @@
+{
+  "table": {
+    "name": "DuBattleBlessings",
+    "rows": [
+      {
+        "values": {
+          "id": {
+            "Integer": 1
+          },
+          "maximum_rarity": {
+            "Integer": 2
+          },
+          "minimum_rarity": {
+            "Integer": 1
+          },
+          "offer_width": {
+            "Integer": 3
+          },
+          "policy": {
+            "String": "UniformUnownedSingleSelectionAvailableSubset"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: apply to the explicit baseline normal-battle route in both run families. Use uniform base weights for distinct unowned current Common/Rare identities in stable identity order, apply separately authored active CurioBattleWeights bonuses, and sample up to three without replacement. Present candidates in stable numeric state-key order and accept exactly one. An exhausted or suppressed pool advances without a Blessing. Suppression and weights snapshot active state at verified settlement. Fragment drops, extra selections, base rarity/path weighting, rerolls, elite/boss rewards and other acquisition triggers remain pending, not zero-effect policies. The current public domain-choice route applies this provisional base pool to Combat, Elite and Aberration proxies. Domain-specific higher-rarity base pools and other drops remain pending; separate exact Curio domain rewards execute before this offer."
+          },
+          "replacement_condition": {
+            "String": "Replace individual width, membership, rarity/Path weights, exhausted-pool behavior, suppression snapshot timing and encounter binding when released current execution data or reproducible observations establish them. Do not promote this chosen current-catalog pool to exact membership."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 12
+              },
+              {
+                "Integer": 13
+              },
+              {
+                "Integer": 14
+              },
+              {
+                "Integer": 15
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.battle-blessings.normal"
+          },
+          "summary_en": {
+            "String": "After a normal battle victory, choose one offered unowned base Blessing. Active reviewed suppression prevents the offer."
+          },
+          "summary_zh_cn": {
+            "String": "普通战斗胜利后，从候选中选择一个未拥有的基础祝福；已核实的生效奇物限制会阻止此次奖励。"
+          },
+          "suppression_effects": {
+            "List": [
+              {
+                "String": "2055"
+              }
+            ]
+          },
+          "suppression_states": {
+            "List": [
+              {
+                "String": "divergent-universe.curio-state.9055"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

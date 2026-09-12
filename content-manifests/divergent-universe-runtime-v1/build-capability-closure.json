@@ -1,0 +1,158 @@
+{
+  "schema_revision": "starclock.divergent-universe-build-capability-closure.v1",
+  "goal_id": "divergent-universe-runtime-v1",
+  "batch": "G22-P2-B4",
+  "status": "CompleteNoSharedRustDelta",
+  "input_digests": {
+    "capability_inventory": {
+      "path": "content-manifests/divergent-universe-runtime-v1/capability-inventory.json",
+      "sha256": "6a1aa699ad3a65efa84f2c56cd6a5f9e4fa52f936ecbef6640c05ed951c97119"
+    },
+    "arithmetic_mapping_reference": {
+      "paths": [
+        "content-reference/divergent-universe-v1/arithmetic-mapping-eligibility.json",
+        "content-reference/divergent-universe-v1/arithmetic-mapping-builds.json",
+        "content-reference/divergent-universe-v1/arithmetic-mapping-rules.json",
+        "content-reference/divergent-universe-v1/coverage.json"
+      ],
+      "sha256": "21b07025084cb4827da9ebf1fa3735131fe8511a96b492ea844c0cf5e41ada87"
+    },
+    "shared_build_surface": {
+      "paths": [
+        "crates/starclock-build/src/substitution.rs",
+        "crates/starclock-build/src/spec.rs",
+        "crates/starclock-build/src/contribution.rs",
+        "crates/starclock-build/src/compiler.rs",
+        "crates/starclock-build/src/digest.rs"
+      ],
+      "sha256": "c057b7811d942301595b52d4436173f3e293756165943166feb54bfba52ec0bc"
+    }
+  },
+  "decision": {
+    "shared_build_primitive_additions": [],
+    "rationale": "The existing immutable CombatantBuildSpec, field-wise owned/trial substitution, generic catalog-owned contributions and LoadoutCompiler already represent every fully specified temporary Mapping input. No Build-domain mechanic-program shape or cross-program requirement needs a new shared primitive.",
+    "fieldwise_boundary": "The generic substitution compares progression, abilities, Traces, Eidolon, Light Cone and contribution/Relic fields independently, preserves sufficient owned values, combines set-like fields canonically and emits an auditable source receipt without querying or mutating account state.",
+    "unavailable_data_boundary": "All 95 Mapping build rows explicitly leave the exact temporary loadout unpublished, and four avatar locators lack released AvatarConfig identity. A compiler extension cannot manufacture those identities; Phase 3 must consume reviewed exact or VersionedProjectPolicy inputs and remain fail-closed where no legal mapped spec exists.",
+    "lifecycle_boundary": "Run entry, accepted party-change refresh and final teardown belong to the mode Activity runtime in G22-P3-B4. This batch proves only that their immutable Build-side input/output can use the current generic compiler.",
+    "execution_credit": "None. Every Mapping build and lifecycle row remains runtime_lowered=false; no account snapshot is read, no temporary build is constructed and no contribution is attached to a Divergent battle in this batch."
+  },
+  "existing_shared_surfaces": [
+    {
+      "id": "field-wise-owned-trial-substitution",
+      "file": "crates/starclock-build/src/substitution.rs",
+      "required_fragments": [
+        "pub enum BuildFieldSource",
+        "pub struct OwnedBuildMinimumFacts",
+        "pub fn substitute_owned_or_trial",
+        "fn merge_abilities",
+        "fn merge_traces",
+        "fn select_light_cone"
+      ],
+      "result": "ExistingAndSufficient"
+    },
+    {
+      "id": "immutable-generic-build-input",
+      "file": "crates/starclock-build/src/spec.rs",
+      "required_fragments": [
+        "pub struct CombatantBuildSpec",
+        "pub fn with_contributions",
+        "pub const fn with_relic_stats"
+      ],
+      "result": "ExistingAndSufficient"
+    },
+    {
+      "id": "catalog-owned-contribution-language",
+      "file": "crates/starclock-build/src/contribution.rs",
+      "required_fragments": [
+        "pub enum BuildContributionApplicability",
+        "pub struct BuildContributionDefinition"
+      ],
+      "result": "ExistingAndSufficient"
+    },
+    {
+      "id": "canonical-contribution-compilation",
+      "file": "crates/starclock-build/src/compiler.rs",
+      "required_fragments": [
+        "fn apply_contributions",
+        "ContributionNotApplicable",
+        "ContributionPatchConflict"
+      ],
+      "result": "ExistingAndSufficient"
+    },
+    {
+      "id": "build-and-selection-identity",
+      "file": "crates/starclock-build/src/digest.rs",
+      "required_fragments": [
+        "BuildContributionApplicability::Any",
+        "encode_patches",
+        "spec.contributions()"
+      ],
+      "result": "ExistingAndSufficient"
+    }
+  ],
+  "capability_probes": [
+    {
+      "id": "field-wise-minimum-selection",
+      "file": "crates/starclock-build/src/substitution.rs",
+      "required_fragments": [
+        "absent_owned_build_selects_trial_without_mutation",
+        "owned_build_inherits_stronger_fields_and_receives_field_minimums",
+        "mismatched_forms_are_rejected"
+      ],
+      "result": "Passed"
+    },
+    {
+      "id": "contribution-selection-compilation",
+      "file": "crates/starclock-test-kit/tests/suites/core/build/build_identity.rs",
+      "required_fragments": [
+        "selected_contributions_are_canonical_attributed_and_applicability_checked",
+        "canonical_definition_catalog_build_and_spec_digests_are_stable"
+      ],
+      "result": "Passed"
+    }
+  ],
+  "unresolved_public_identity_build_ids": [
+    "divergent-universe.mapping-build.1014",
+    "divergent-universe.mapping-build.1015",
+    "divergent-universe.mapping-build.1508",
+    "divergent-universe.mapping-build.1509"
+  ],
+  "reference_field_values": {
+    "level": [
+      "EquilibriumLevelCapWhenBelow"
+    ],
+    "trace_state": [
+      "ActivateOrRaiseWhenInactiveOrBelowRequirement"
+    ],
+    "light_cone": [
+      "UnspecifiedConditionAndTemporaryIdentity"
+    ],
+    "relics": [
+      "ReplaceWhenTotalEnhancementBelowRequirement"
+    ],
+    "exact_temporary_loadout": [
+      "Unspecified"
+    ]
+  },
+  "summary": {
+    "mapping_eligibility": 84,
+    "mapping_builds": 95,
+    "mapping_lifecycle_rules": 7,
+    "mapping_source_obligations": 258,
+    "resolved_avatar_builds": 91,
+    "unresolved_avatar_builds": 4,
+    "special_avatar_builds": 79,
+    "role_buff_parameter_arities": {
+      "4": 41,
+      "5": 34,
+      "6": 18,
+      "7": 2
+    },
+    "build_domain_mechanic_programs": 0,
+    "build_domain_shapes": 0,
+    "runtime_lowered_rows": 0,
+    "shared_build_primitive_additions": 0,
+    "shared_surfaces": 5,
+    "probes": 2
+  }
+}

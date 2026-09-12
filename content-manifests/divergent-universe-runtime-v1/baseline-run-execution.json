@@ -1,0 +1,90 @@
+{
+  "schema_revision": "starclock.divergent-universe-baseline-run-execution.v1",
+  "goal_id": "divergent-universe-runtime-v1",
+  "batch": "G22-P7-B1",
+  "status": "CompleteDeterministicOrdinaryAndCyclicalRealBattleRuns",
+  "input_digests": {
+    "runtime_dispositions": {
+      "path": "content-manifests/divergent-universe-runtime-v1/runtime-dispositions.json",
+      "sha256": "1319cb15f7a2e1b9c283549300cf29bb4f2b65d41c759a0c29240570c7fbd2bc"
+    },
+    "mechanic_dispositions": {
+      "path": "content-manifests/divergent-universe-runtime-v1/mechanic-dispositions.json",
+      "sha256": "629d1061b313381f09f66804da9eca86fdb8e474837a4fb56451696adb9377d4"
+    },
+    "batch_ledger": {
+      "path": "content-manifests/divergent-universe-runtime-v1/batch-ledger.json",
+      "sha256": "77e109344b674b1a301708d247e2dcedeace5bc941f789d2ab3529dc5224f467"
+    },
+    "runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/baseline_runtime.rs",
+      "sha256": "29e1e8c6d85f91dde18d783ca9070c5dee28f139c8bcc22581e064a3ee5fd99b"
+    },
+    "entry_flow": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/entry_flow.rs",
+      "sha256": "efadb26272a068aebbad344771126f0870e613475d6314917690d069c7ca8209"
+    },
+    "settlement": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/battle_settlement_runtime.rs",
+      "sha256": "701efeb590b9758af7aceef82a73d936ae22690e4367b8391cdc3b30a4ced786"
+    },
+    "tests": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/tests/baseline_runtime.rs",
+      "sha256": "ce0e040a35aa0fb0ceed4f2251c52b02066426e587c3f9f43a138bd87da83269"
+    }
+  },
+  "exact_runtime": {
+    "run_families": [
+      "Ordinary",
+      "Cyclical"
+    ],
+    "activity_controller": "SharedActivityBaselineControllerOverExactOfferedOptions",
+    "battle_controller": "UniverseNestedBattleExecutorOverExactOfferedCommands",
+    "encounter_policy": "ExplicitReleasedDisplayCandidate",
+    "battle_route": "OneRealNestedBattleAfterFirstLayer",
+    "mutations": "CheckedActivityAndBattleCommandBoundariesOnly"
+  },
+  "execution_receipt": {
+    "ordinary_run_reaches_completed_terminal_through_real_battle": "Passed",
+    "cyclical_run_reaches_completed_terminal_through_real_battle": "Passed",
+    "same_seed_reconstructs_equal_activity_and_battle_hashes": "Passed",
+    "selected_activity_options_belong_to_complete_scored_offer": "Passed",
+    "nested_battle_commands_are_checked_offered_commands": "Passed",
+    "invalid_route_and_definition_reject_without_mutation": "Passed"
+  },
+  "assignment_closure": {
+    "obligations": 0,
+    "fixture_families": 0,
+    "research_gaps": 0,
+    "policy_sources": 0,
+    "mechanic_programs": 0
+  },
+  "capability_probes": [
+    {
+      "id": "ordinary-and-cyclical-real-battle-replay",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/baseline_runtime.rs",
+      "test": "baseline_controller_completes_replay_equal_ordinary_and_cyclical_runs_through_real_battles",
+      "result": "Passed"
+    },
+    {
+      "id": "offered-command-boundary",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/baseline_runtime.rs",
+      "test": "baseline_controller_records_only_scored_offers_and_checked_battle_commands",
+      "result": "Passed"
+    },
+    {
+      "id": "atomic-invalid-route-and-definition",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/baseline_runtime.rs",
+      "test": "baseline_route_and_mismatched_activity_reject_without_mutation",
+      "result": "Passed"
+    }
+  ],
+  "summary": {
+    "run_families": 2,
+    "real_battle_runs": 2,
+    "deterministic_replays": 2,
+    "terminal_obligations": 0,
+    "mechanic_programs": 0,
+    "probes": 3
+  }
+}

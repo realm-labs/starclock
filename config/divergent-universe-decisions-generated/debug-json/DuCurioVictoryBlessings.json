@@ -1,0 +1,313 @@
+{
+  "table": {
+    "name": "DuCurioVictoryBlessings",
+    "rows": [
+      {
+        "values": {
+          "count": {
+            "Integer": 1
+          },
+          "count_parameter": {
+            "Integer": 2
+          },
+          "domains": {
+            "List": [
+              {
+                "String": "Elite"
+              },
+              {
+                "String": "Aberration"
+              }
+            ]
+          },
+          "effect_id": {
+            "String": "2192"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "maximum_rarity": {
+            "Integer": 3
+          },
+          "minimum_rarity": {
+            "Integer": 1
+          },
+          "policy": {
+            "String": "BoundDomainUniformUnownedAvailableSubset"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: require verified victory and the mode-owned domain binding; never infer a domain from enemy stage flags or the generic Encounter decision kind. Only the current active Curio form grants. Apply the same authored post-battle Blessing suppression states as the normal offer. After fragment victory grants and before normal offer generation, sample current unowned base Blessing identities within the exact rarity range, using unit weights in stable identity order without replacement across the entire victory-grant batch. Process grant states in stable order; use the available subset on exhaustion, with zero draws and no substitution when empty. Do not apply sealing-wax offer weights. Commit the final inventory and Equation refresh with all settlement stages and RNG. The production DomainChoices policy enables positive Elite/Aberration contexts through authenticated public choices; original room placement and enemy programs remain pending."
+          },
+          "replacement_condition": {
+            "String": "Replace domain placement, membership, unit weights, state ordering, suppression scope, exhausted-pool subset behavior and settlement timing independently when released graphs or reproducible current-profile observations establish them. Alternatives include per-domain rather than per-battle grants, weighted rarity, fixed reward pools, duplicate conversion and suppression of base drops only. Confidence in hidden distribution/interactions is low; source counts, eligible labels and 1-3-star range remain exact."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 32
+              },
+              {
+                "Integer": 36
+              },
+              {
+                "Integer": 37
+              },
+              {
+                "Integer": 38
+              },
+              {
+                "Integer": 12
+              },
+              {
+                "Integer": 13
+              },
+              {
+                "Integer": 14
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.curio-victory-blessings.9192"
+          },
+          "state_key": {
+            "String": "divergent-universe.curio-state.9192"
+          },
+          "summary_en": {
+            "String": "After victory in an Elite or Aberration domain, active Sage's Leaf Robe grants 1 random 1-3-star Blessings."
+          },
+          "summary_zh_cn": {
+            "String": "精英或异常区域战斗胜利后，生效的贤人叶袍获得 1 个随机 1 至 3 星祝福。"
+          }
+        }
+      },
+      {
+        "values": {
+          "count": {
+            "Integer": 2
+          },
+          "count_parameter": {
+            "Integer": 2
+          },
+          "domains": {
+            "List": [
+              {
+                "String": "Elite"
+              },
+              {
+                "String": "Aberration"
+              }
+            ]
+          },
+          "effect_id": {
+            "String": "2193"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "maximum_rarity": {
+            "Integer": 3
+          },
+          "minimum_rarity": {
+            "Integer": 1
+          },
+          "policy": {
+            "String": "BoundDomainUniformUnownedAvailableSubset"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: require verified victory and the mode-owned domain binding; never infer a domain from enemy stage flags or the generic Encounter decision kind. Only the current active Curio form grants. Apply the same authored post-battle Blessing suppression states as the normal offer. After fragment victory grants and before normal offer generation, sample current unowned base Blessing identities within the exact rarity range, using unit weights in stable identity order without replacement across the entire victory-grant batch. Process grant states in stable order; use the available subset on exhaustion, with zero draws and no substitution when empty. Do not apply sealing-wax offer weights. Commit the final inventory and Equation refresh with all settlement stages and RNG. The production DomainChoices policy enables positive Elite/Aberration contexts through authenticated public choices; original room placement and enemy programs remain pending."
+          },
+          "replacement_condition": {
+            "String": "Replace domain placement, membership, unit weights, state ordering, suppression scope, exhausted-pool subset behavior and settlement timing independently when released graphs or reproducible current-profile observations establish them. Alternatives include per-domain rather than per-battle grants, weighted rarity, fixed reward pools, duplicate conversion and suppression of base drops only. Confidence in hidden distribution/interactions is low; source counts, eligible labels and 1-3-star range remain exact."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 32
+              },
+              {
+                "Integer": 36
+              },
+              {
+                "Integer": 37
+              },
+              {
+                "Integer": 38
+              },
+              {
+                "Integer": 12
+              },
+              {
+                "Integer": 13
+              },
+              {
+                "Integer": 14
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.curio-victory-blessings.9193"
+          },
+          "state_key": {
+            "String": "divergent-universe.curio-state.9193"
+          },
+          "summary_en": {
+            "String": "After victory in an Elite or Aberration domain, active Sage's Leaf Robe grants 2 random 1-3-star Blessings."
+          },
+          "summary_zh_cn": {
+            "String": "精英或异常区域战斗胜利后，生效的贤人叶袍获得 2 个随机 1 至 3 星祝福。"
+          }
+        }
+      },
+      {
+        "values": {
+          "count": {
+            "Integer": 3
+          },
+          "count_parameter": {
+            "Integer": 2
+          },
+          "domains": {
+            "List": [
+              {
+                "String": "Elite"
+              },
+              {
+                "String": "Aberration"
+              }
+            ]
+          },
+          "effect_id": {
+            "String": "2194"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "maximum_rarity": {
+            "Integer": 3
+          },
+          "minimum_rarity": {
+            "Integer": 1
+          },
+          "policy": {
+            "String": "BoundDomainUniformUnownedAvailableSubset"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: require verified victory and the mode-owned domain binding; never infer a domain from enemy stage flags or the generic Encounter decision kind. Only the current active Curio form grants. Apply the same authored post-battle Blessing suppression states as the normal offer. After fragment victory grants and before normal offer generation, sample current unowned base Blessing identities within the exact rarity range, using unit weights in stable identity order without replacement across the entire victory-grant batch. Process grant states in stable order; use the available subset on exhaustion, with zero draws and no substitution when empty. Do not apply sealing-wax offer weights. Commit the final inventory and Equation refresh with all settlement stages and RNG. The production DomainChoices policy enables positive Elite/Aberration contexts through authenticated public choices; original room placement and enemy programs remain pending."
+          },
+          "replacement_condition": {
+            "String": "Replace domain placement, membership, unit weights, state ordering, suppression scope, exhausted-pool subset behavior and settlement timing independently when released graphs or reproducible current-profile observations establish them. Alternatives include per-domain rather than per-battle grants, weighted rarity, fixed reward pools, duplicate conversion and suppression of base drops only. Confidence in hidden distribution/interactions is low; source counts, eligible labels and 1-3-star range remain exact."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 32
+              },
+              {
+                "Integer": 36
+              },
+              {
+                "Integer": 37
+              },
+              {
+                "Integer": 38
+              },
+              {
+                "Integer": 12
+              },
+              {
+                "Integer": 13
+              },
+              {
+                "Integer": 14
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.curio-victory-blessings.9194"
+          },
+          "state_key": {
+            "String": "divergent-universe.curio-state.9194"
+          },
+          "summary_en": {
+            "String": "After victory in an Elite or Aberration domain, active Sage's Leaf Robe grants 3 random 1-3-star Blessings."
+          },
+          "summary_zh_cn": {
+            "String": "精英或异常区域战斗胜利后，生效的贤人叶袍获得 3 个随机 1 至 3 星祝福。"
+          }
+        }
+      },
+      {
+        "values": {
+          "count": {
+            "Integer": 1
+          },
+          "count_parameter": {
+            "Integer": 1
+          },
+          "domains": {
+            "List": [
+              {
+                "String": "Combat"
+              },
+              {
+                "String": "Elite"
+              },
+              {
+                "String": "Aberration"
+              },
+              {
+                "String": "Boss"
+              }
+            ]
+          },
+          "effect_id": {
+            "String": "2072"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "maximum_rarity": {
+            "Integer": 3
+          },
+          "minimum_rarity": {
+            "Integer": 1
+          },
+          "policy": {
+            "String": "PositiveDomainAllowanceUniformUnownedAvailableSubset"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: require a verified victory and the active current holding with positive domain allowance. Admit all current mode-owned battle-domain labels, including Combat/Elite/Aberration/Boss; labels do not establish original room topology. Sample one unowned current base Blessing uniformly from the policy-selected 1-3-star pool, not an exact source rarity range. Use existing Reward purpose 24051 and stable state/identity ordering without replacement across all simultaneous Curio victory grants. Enhanced holdings exclude their base identity. Apply the same active suppression states as ordinary post-battle Blessings; do not apply sealing-wax offer weights. Empty pools grant/draw nothing. Commit holdings and Equation refresh before ordinary offer generation with verified carry, later stages and all RNG in one rollback boundary. Loss/fault/rejected/duplicate results never grant. Battle settlement does not consume the domain allowance."
+          },
+          "replacement_condition": {
+            "String": "Low confidence for pool/rarity, unit weights, suppression scope, grant ordering and exhausted-pool behavior. Alternatives include fixed or weighted rarity pools, duplicate conversion, unsuppressed intrinsic rewards and once-per-domain timing. Replace each field independently when released programs or reproducible observations establish it; retain exact one random victory Blessing and three-domain limit. Public Tawot text cross-checks operands but requests Arcadian Chronicles verification. Require actual inventory/Equation changes, offer exclusion, nonvictory/zero/destroyed controls, fresh paid-acquisition replay and separate expiry vectors; no Boss placement or full public three-entry claim."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 58
+              },
+              {
+                "Integer": 59
+              },
+              {
+                "Integer": 60
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.curio-victory-blessings.9072"
+          },
+          "state_key": {
+            "String": "divergent-universe.curio-state.9072"
+          },
+          "summary_en": {
+            "String": "After each won battle while active with positive domain allowance, gain one random Blessing."
+          },
+          "summary_zh_cn": {
+            "String": "生效且剩余领域次数为正时，每次战斗胜利获得一个随机祝福。"
+          }
+        }
+      }
+    ]
+  }
+}

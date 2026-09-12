@@ -143,7 +143,11 @@ function seedSora(targetRoot) {
   const policy = JSON.parse(
     fs.readFileSync(path.join(root, "policy/sora-toolchain.json"), "utf8"),
   );
-  const relative = path.join(policy.install_root, "bin", "sora");
+  const relative = path.join(
+    policy.install_root,
+    "bin",
+    process.platform === "win32" ? "sora.exe" : "sora",
+  );
   const candidates = [
     path.join(root, relative),
     ...capture("git", ["worktree", "list", "--porcelain"])
@@ -152,7 +156,7 @@ function seedSora(targetRoot) {
       .map((line) => path.join(line.slice("worktree ".length), relative)),
   ];
   const executable = candidates.find((candidate) => fs.existsSync(candidate));
-  assert(executable, "pinned Sora 0.3.0 executable is unavailable");
+  assert(executable, `pinned Sora ${policy.version} executable is unavailable`);
   const destination = path.join(targetRoot, relative);
   fs.mkdirSync(path.dirname(destination), { recursive: true });
   fs.copyFileSync(executable, destination);

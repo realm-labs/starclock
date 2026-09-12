@@ -1,0 +1,114 @@
+{
+  "schema_revision": "starclock.divergent-universe-mcp-execution.v1",
+  "goal_id": "divergent-universe-runtime-v1",
+  "batch": "G22-P7-B4",
+  "status": "CompleteAuthorizedIdempotentCancellableBoundedMcpSessions",
+  "input_digests": {
+    "runtime_dispositions": {
+      "path": "content-manifests/divergent-universe-runtime-v1/runtime-dispositions.json",
+      "sha256": "1319cb15f7a2e1b9c283549300cf29bb4f2b65d41c759a0c29240570c7fbd2bc"
+    },
+    "mechanic_dispositions": {
+      "path": "content-manifests/divergent-universe-runtime-v1/mechanic-dispositions.json",
+      "sha256": "629d1061b313381f09f66804da9eca86fdb8e474837a4fb56451696adb9377d4"
+    },
+    "batch_ledger": {
+      "path": "content-manifests/divergent-universe-runtime-v1/batch-ledger.json",
+      "sha256": "77e109344b674b1a301708d247e2dcedeace5bc941f789d2ab3529dc5224f467"
+    },
+    "agent_api_execution": {
+      "path": "content-manifests/divergent-universe-runtime-v1/agent-api-execution.json",
+      "sha256": "e6b97f02a1550ea5b4b57bd3d406d1665064b41bd2575da5cac80abb083a3a67"
+    },
+    "activity_tools": {
+      "path": "crates/starclock-mcp/src/activity_tools.rs",
+      "sha256": "0423703c8664ea4626e8f095c1e482b2a42b2abe7bcbc468e90713d21ae4f78e"
+    },
+    "resources": {
+      "path": "crates/starclock-mcp/src/resources.rs",
+      "sha256": "ad931a78bd778a6570909172232c5f89195ebeb15e8b23f46938a7916e072ec5"
+    },
+    "authorization": {
+      "path": "crates/starclock-mcp/src/authorization.rs",
+      "sha256": "b45c0f9ec051136e11c0734be35cc9608cd572be6ea24a2c1e60aafeab3e156a"
+    },
+    "stdio": {
+      "path": "crates/starclock-mcp/src/stdio.rs",
+      "sha256": "90ce44be183a1466d62d8993f3e64a1693a1731047ab4cdc60fb19f0b5afacd0"
+    },
+    "http": {
+      "path": "crates/starclock-mcp/src/http.rs",
+      "sha256": "f712f3e04e9bd1f95cc7b53d42c6aabeb72163acbe9a197fbcf13f4e632d5a1b"
+    },
+    "tests": {
+      "path": "crates/starclock-mcp/src/tools/divergent_universe_tests.rs",
+      "sha256": "0408b42fe34ba4092a6828940a46688ba5bb486e3e2fb852cd56181d15916f66"
+    },
+    "authority_tests": {
+      "path": "crates/starclock-mcp/src/http_authority_test.rs",
+      "sha256": "d868ca31b1a422e8911b724e2f015da6aca14a83ba8b0a22d55e9902eded2dd9"
+    }
+  },
+  "protocol_surface": {
+    "transports": [
+      "stdio",
+      "authorized-loopback-http"
+    ],
+    "manifest_resources": 1,
+    "rules_resources": 1,
+    "run_families": [
+      "ordinary",
+      "cyclical"
+    ],
+    "shared_activity_tools": 6,
+    "event_page_maximum": 256,
+    "retained_event_maximum": 8192,
+    "authority": "ValidatedTenantAndPrincipalScopes",
+    "cancellation": "CloseAndMcpCancellationPreserveCommittedIdempotency"
+  },
+  "execution_receipt": {
+    "production_transports_load_divergent_universe": "Passed",
+    "manifest_and_rules_resources_are_bounded": "Passed",
+    "create_observe_play_export_verify_close_are_shared_tools": "Passed",
+    "exact_scope_matrix_covers_every_tool": "Passed",
+    "cross_owner_requests_hide_session_identity": "Passed",
+    "identical_retry_returns_identical_response": "Passed",
+    "cancellation_does_not_rewind_committed_action": "Passed",
+    "event_pagination_is_bounded_and_cursor_driven": "Passed",
+    "terminal_replay_verifies_from_fresh_inputs": "Passed"
+  },
+  "assignment_closure": {
+    "obligations": 0,
+    "fixture_families": 0,
+    "research_gaps": 0,
+    "policy_sources": 0,
+    "mechanic_programs": 0
+  },
+  "capability_probes": [
+    {
+      "id": "tools-resources-idempotency-close-events-replay",
+      "file": "crates/starclock-mcp/src/tools/divergent_universe_tests.rs",
+      "test": "divergent_universe_mcp_is_bounded_idempotent_cancellable_and_replayable",
+      "result": "Passed"
+    },
+    {
+      "id": "http-cross-owner-authority",
+      "file": "crates/starclock-mcp/src/http_authority_test.rs",
+      "test": "divergent_universe_activity_authority_hides_cross_owner_session_state",
+      "result": "Passed"
+    },
+    {
+      "id": "shared-exact-scope-matrix",
+      "file": "crates/starclock-mcp/src/authorization.rs",
+      "test": "exact_scope_matrix_covers_every_frozen_operation",
+      "result": "Passed"
+    }
+  ],
+  "summary": {
+    "transports": 2,
+    "resources": 2,
+    "shared_tools": 6,
+    "event_page_maximum": 256,
+    "probes": 3
+  }
+}

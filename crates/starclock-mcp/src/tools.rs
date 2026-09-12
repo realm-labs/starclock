@@ -902,7 +902,9 @@ mod tests {
                 "starclock://universe/swarm-disaster/manifest",
                 "starclock://rules/swarm-disaster",
                 "starclock://currency-wars/manifest",
-                "starclock://rules/currency-wars"
+                "starclock://rules/currency-wars",
+                "starclock://universe/divergent-universe/manifest",
+                "starclock://rules/divergent-universe"
             ]
         );
         let templates = client.list_all_resource_templates().await.unwrap();
@@ -1255,3 +1257,7 @@ mod gold_gears_tests;
 #[cfg(test)]
 #[path = "tools/swarm_disaster_tests.rs"]
 mod swarm_disaster_tests;
+
+#[cfg(test)]
+#[path = "tools/divergent_universe_tests.rs"]
+mod divergent_universe_tests;

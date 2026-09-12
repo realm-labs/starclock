@@ -4,6 +4,7 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import process from "node:process";
+import { personaObligations } from "./persona-obligations.mjs";
 
 const args = process.argv.slice(2);
 const check = args.includes("--check");
@@ -667,6 +668,12 @@ category(
   })),
 );
 
+category(
+  "persona_source_obligations",
+  "Exact-once records from eleven reviewed Persona tables. Current layer-reference closure proves 78 rows; the remaining 469 require selector proof and are not silently excluded or made executable.",
+  personaObligations(root, sourceRoot, inventory),
+);
+
 const namedModeExclusions = inventory.records
   .filter(({ family }) => family.includes("_exclusion_evidence")
     && family !== "presentation_account_exclusion_evidence")
@@ -761,6 +768,7 @@ const counterGroups = {
       "workbench_functions", "gamble_groups", "gamble_units", "curse_chests",
     ),
   encounter_groups_waves_enemy_slots: group("encounter_source_obligations"),
+  persona_domain_style_talent_sources: group("persona_source_obligations"),
   mechanic_rules: group("mechanic_source_files"),
   semantic_fixtures: group("semantic_fixture_families"),
 };
@@ -805,7 +813,7 @@ const payload = {
     unversioned_mode_tables:
       "mechanically relevant unversioned RogueTourn tables are conservative direct obligations, not proof that every row is active in every module",
     room_reuse:
-      "the source has no Tourn3 room or matching layer-room rows; all Tourn2 rooms freeze as SharedCandidate obligations and P1-B1 must prove or exclude each before DataReady",
+      "legacy RogueTournLayerRoom has no matching current layers; current area references instead join RoguePersonaLayerRoom. Persona rows are separately accounted without promoting the retained Tourn2 room candidates",
     encounters:
       "area entry locators, room candidates and StageConfig freeze source obligations; P2-B5 expands waves, enemy slots and bosses with exact-once parent references",
     fixture_families:
@@ -817,7 +825,6 @@ const payload = {
       "RogueEndless",
       "RogueMagic",
       "RogueNous",
-      "RoguePersona",
     ],
     sub_modes: [
       "ChessRogue",

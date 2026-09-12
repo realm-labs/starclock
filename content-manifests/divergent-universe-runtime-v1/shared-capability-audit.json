@@ -1,0 +1,927 @@
+{
+  "schema_revision": "starclock.divergent-universe-shared-capability-audit.v1",
+  "goal_id": "divergent-universe-runtime-v1",
+  "batch": "G22-P2-B5",
+  "status": "CompleteNoRuntimeExecutionCredit",
+  "source_revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+  "source_access_date": "2026-07-22",
+  "input_digests": {
+    "capability_inventory": {
+      "path": "content-manifests/divergent-universe-runtime-v1/capability-inventory.json",
+      "sha256": "6a1aa699ad3a65efa84f2c56cd6a5f9e4fa52f936ecbef6640c05ed951c97119"
+    },
+    "activity_closure": {
+      "path": "content-manifests/divergent-universe-runtime-v1/activity-capability-closure.json",
+      "sha256": "e2f6d1a4aeb51962504ae3e2f177f407e5cabb08e45b8272a8c17df4c5a7eb67"
+    },
+    "combat_closure": {
+      "path": "content-manifests/divergent-universe-runtime-v1/combat-capability-closure.json",
+      "sha256": "0d1c6c8a0b4eeba76bf12f1454e3e2ab7e70007cbdb4916895197812a607defd"
+    },
+    "build_closure": {
+      "path": "content-manifests/divergent-universe-runtime-v1/build-capability-closure.json",
+      "sha256": "68e4c326134ce1dac98f0471deab76d093da892a0c55a2dcf5a4a913f1a2820b"
+    },
+    "mechanic_dispositions": {
+      "path": "content-manifests/divergent-universe-runtime-v1/mechanic-dispositions.json",
+      "sha256": "629d1061b313381f09f66804da9eca86fdb8e474837a4fb56451696adb9377d4"
+    },
+    "mechanic_partitions": {
+      "path": "content-manifests/divergent-universe-runtime-v1/mechanic-partitions.json",
+      "sha256": "10a9560f08f90fff5a013cb7942f86f6c68c4042f9a4097a46c8dd28e6870cf7"
+    },
+    "runtime_contract": {
+      "path": "content-manifests/divergent-universe-runtime-v1/runtime-contract.json",
+      "sha256": "ccb27239b0d31973c27c48a666916055568355f40736b5887aed50f1b0ba4276"
+    },
+    "native_handler_audit": {
+      "path": "policy/native-handler-audit.json",
+      "sha256": "a8e5834da70b336cc5929fa5fc847a2e161cd4f974cbc5ae3d1348cb4d239172"
+    }
+  },
+  "capability_probes": [
+    {
+      "id": "atomic-state-inventory-offer-and-route",
+      "file": "crates/starclock-test-kit/tests/suites/activity/activity/activity_transaction.rs",
+      "required_fragments": [
+        "ordered_program_commits_slots_inventory_modifiers_graph_and_decision_atomically",
+        "explicit_relocation_obeys_graph_node_and_visit_contracts_without_an_edge"
+      ],
+      "result": "Passed"
+    },
+    {
+      "id": "typed-conditions-and-rejection-identity",
+      "file": "crates/starclock-test-kit/tests/suites/activity/activity/activity_transaction.rs",
+      "required_fragments": [
+        "failed_requirement_rejects_without_changing_any_state",
+        "conditional_executes_one_final_branch_and_preserves_transactionality"
+      ],
+      "result": "Passed"
+    },
+    {
+      "id": "logical-scope-boundary",
+      "file": "crates/starclock-test-kit/tests/suites/activity/activity/logical_scope.rs",
+      "required_fragments": [
+        "physical_nodes_share_one_logical_visit_and_reentry_is_fresh"
+      ],
+      "result": "Passed"
+    },
+    {
+      "id": "external-interaction-transaction",
+      "file": "crates/starclock-test-kit/tests/suites/activity/activity/interaction_runtime.rs",
+      "required_fragments": [
+        "accepted_random_interaction_commits_draw_effect_and_transition_together",
+        "stale_and_faulting_random_interactions_preserve_exact_state_and_rng"
+      ],
+      "result": "Passed"
+    },
+    {
+      "id": "rule-expression-filter-replacement",
+      "file": "crates/starclock-test-kit/tests/suites/core/combat/rule_ir_contract.rs",
+      "required_fragments": [
+        "formula_stage_queries_and_timeline_filters_preserve_exact_typed_context",
+        "replacement_programs_return_typed_mutation_free_proposals"
+      ],
+      "result": "Passed"
+    },
+    {
+      "id": "rule-selector-runtime",
+      "file": "crates/starclock-test-kit/tests/suites/core/combat/rule_selector_runtime.rs",
+      "required_fragments": [
+        "action_snapshot_selector_observes_pre_hit_life_after_lethal_damage",
+        "empty_pool_policies_have_distinct_runtime_control_flow"
+      ],
+      "result": "Passed"
+    },
+    {
+      "id": "trigger-phase-runtime",
+      "file": "crates/starclock-test-kit/tests/suites/core/combat/ability_program_execution/trigger_phases.rs",
+      "required_fragments": [
+        "production_dispatches_each_supported_post_commit_phase_from_its_observed_event",
+        "once_per_turn_coalesces_hits_and_resets_at_the_next_turn_boundary"
+      ],
+      "result": "Passed"
+    },
+    {
+      "id": "authoritative-operation-services",
+      "file": "crates/starclock-test-kit/tests/suites/core/combat/ability_program_execution/action_break.rs",
+      "required_fragments": [
+        "representative_rule_emissions_use_authoritative_runtime_services"
+      ],
+      "result": "Passed"
+    },
+    {
+      "id": "field-wise-minimum-selection",
+      "file": "crates/starclock-build/src/substitution.rs",
+      "required_fragments": [
+        "absent_owned_build_selects_trial_without_mutation",
+        "owned_build_inherits_stronger_fields_and_receives_field_minimums",
+        "mismatched_forms_are_rejected"
+      ],
+      "result": "Passed"
+    },
+    {
+      "id": "contribution-selection-compilation",
+      "file": "crates/starclock-test-kit/tests/suites/core/build/build_identity.rs",
+      "required_fragments": [
+        "selected_contributions_are_canonical_attributed_and_applicability_checked",
+        "canonical_definition_catalog_build_and_spec_digests_are_stable"
+      ],
+      "result": "Passed"
+    },
+    {
+      "id": "static-registry-boundary",
+      "file": "crates/starclock-test-kit/tests/suites/core/rules/registry_contract.rs",
+      "required_fragments": [
+        "production_registry_is_explicitly_empty_after_the_review",
+        "registry_rejects_noncanonical_and_incomplete_static_metadata"
+      ],
+      "result": "Passed"
+    }
+  ],
+  "configuration_program_policy": {
+    "field": "mechanic.configuration_program",
+    "accuracy": "VersionedProjectPolicy",
+    "state": "ProvenNonRuntimeUnreachableAtPinnedRevision",
+    "known_facts": [
+      "Version 4.4 source programs carry postfix Base64 byte sequences with separate fixed-value and dynamic-hash operand pools.",
+      "The pinned Divergent inventory contains nine distinct opcode bytes and 29 distinct postfix sequences.",
+      "Released source structure alone does not prove the complete operator table, numeric rounding or RNG behavior."
+    ],
+    "unresolved_field": "Complete semantics and numeric behavior of all nine observed Version 4.4 postfix opcode bytes.",
+    "selected_behavior": "M01 proves the containing source libraries unreachable from every released Config/ExcelOutput consumer at the pinned revision. Production installs no program or handler and never evaluates raw PostfixBase64, OpCodes or DynamicHashes.",
+    "rejected_alternatives": [
+      "copy the source opcode API into a shared or mode-specific runtime interpreter",
+      "infer opcode meanings from byte frequency, position or another game version",
+      "classify an unresolved executable expression as metadata or lower it to a no-op"
+    ],
+    "ordering": "Each frozen partition retains dependency order and stable mechanic identity; typed lowering owns final operation order.",
+    "rounding": "No rounding is inferred from opcode bytes; every typed formula boundary must declare project rounding explicitly.",
+    "candidate_set": "Only the listed expression shapes and mechanic IDs may use this policy boundary.",
+    "rng_stream": "No RNG draw is authorized by an unresolved postfix expression.",
+    "confidence": "ExactReleasedReachabilityEvidence",
+    "affected_expression_shape_ids": [
+      "divergent-universe.capability-expression.02c19816d24fac7fa5426eee",
+      "divergent-universe.capability-expression.0782e77a9f24543a4c75d370",
+      "divergent-universe.capability-expression.0ae2f6678ae5c5e77727a162",
+      "divergent-universe.capability-expression.0bd1572d3a2fff0c28215a06",
+      "divergent-universe.capability-expression.0df8bc4fe0e39900bc92a260",
+      "divergent-universe.capability-expression.17924d827de7c2e95e306f15",
+      "divergent-universe.capability-expression.1971808fefd4d4afffe5903d",
+      "divergent-universe.capability-expression.19a69df2f5932285c214d0e4",
+      "divergent-universe.capability-expression.22254320511a7afe083ef614",
+      "divergent-universe.capability-expression.252de5935ae3d224ae146b97",
+      "divergent-universe.capability-expression.2b8fc1cf702e63ed20f123a2",
+      "divergent-universe.capability-expression.2d8c15b235da43c11f47fe14",
+      "divergent-universe.capability-expression.30d9bcdeb80dbee8596c37c0",
+      "divergent-universe.capability-expression.4682b057322ae535914b52a0",
+      "divergent-universe.capability-expression.49a03f5a564318317057b9aa",
+      "divergent-universe.capability-expression.5102a52c0e816f126d87fa77",
+      "divergent-universe.capability-expression.59f17a00cfc5d43ac56104d9",
+      "divergent-universe.capability-expression.66ce46baf4826b1812fcc48e",
+      "divergent-universe.capability-expression.70e31284e43eed32c37a0f5a",
+      "divergent-universe.capability-expression.8cc3b8293a45b7502eb46a9c",
+      "divergent-universe.capability-expression.9a08f386f79303df690724f5",
+      "divergent-universe.capability-expression.9c189ae593e76bd3c5cbaebe",
+      "divergent-universe.capability-expression.a43bb05782f136d35e8fb06e",
+      "divergent-universe.capability-expression.b736f853ae5259176075cc43",
+      "divergent-universe.capability-expression.bef947cf3f432efc021c39bb",
+      "divergent-universe.capability-expression.d179e177268f9b05c38578d0",
+      "divergent-universe.capability-expression.e0461269481c09b771c0c0b1",
+      "divergent-universe.capability-expression.e1a504524d13b83757408f35",
+      "divergent-universe.capability-expression.ec182712cc0ad8da26bc36e1"
+    ],
+    "affected_mechanic_ids": [
+      "divergent-universe.mechanic-rule.config-configability-level-level-roguebuff-ability-hex-s1-json",
+      "divergent-universe.mechanic-rule.config-configability-level-level-roguebuff-ability-hex-s3-json",
+      "divergent-universe.mechanic-rule.config-configability-level-level-roguebuff-ability-tourn1-json"
+    ],
+    "affected_partition_ids": [
+      "G22-P6-M01"
+    ],
+    "replacement_condition": "A released profile, catalog or config references one of the frozen ability identities and released evidence proves the required Version 4.4 postfix semantics for typed lowering.",
+    "replacement_trigger": "Verification fails if a frozen ability identity gains an outside reference, or if production Rust gains a raw PostfixExpr, OpCodes or DynamicHashes interpreter."
+  },
+  "mode_owned_gap_assignment": {
+    "state": "FrozenToGeneratedMechanicPartitions",
+    "capabilities": [
+      {
+        "capability": "mode.divergent-universe.activity.operation.add-scene-team-member-buff",
+        "shape_count": 1,
+        "program_count": 1,
+        "shape_ids": [
+          "divergent-universe.capability-operation.868811a02fbeefaaa05b9fb3"
+        ],
+        "sample_mechanic_ids": [
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-roguetourn-group-advtrotterroom-json"
+        ]
+      },
+      {
+        "capability": "mode.divergent-universe.activity.operation.adv-on-button-pressed",
+        "shape_count": 1,
+        "program_count": 1,
+        "shape_ids": [
+          "divergent-universe.capability-operation.95cf769ee6cc753348daba0b"
+        ],
+        "sample_mechanic_ids": [
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advwolfgunmanager-json"
+        ]
+      },
+      {
+        "capability": "mode.divergent-universe.activity.operation.adventure-gameplay-lock",
+        "shape_count": 3,
+        "program_count": 3,
+        "shape_ids": [
+          "divergent-universe.capability-operation.107d1e68453de19bd380c41c",
+          "divergent-universe.capability-operation.724405cdb6cbb59e4626a8e2",
+          "divergent-universe.capability-operation.e2059784ae36543e92c34d87"
+        ],
+        "sample_mechanic_ids": [
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advareamark-json",
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advdesareamark-json",
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advwolfguncase-json"
+        ]
+      },
+      {
+        "capability": "mode.divergent-universe.activity.operation.character-trigger-free-style",
+        "shape_count": 1,
+        "program_count": 1,
+        "shape_ids": [
+          "divergent-universe.capability-operation.979545698f3abfcbb83c1ae3"
+        ],
+        "sample_mechanic_ids": [
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advwolfgunmanager-json"
+        ]
+      },
+      {
+        "capability": "mode.divergent-universe.activity.operation.enable-npcmonster-ai",
+        "shape_count": 2,
+        "program_count": 1,
+        "shape_ids": [
+          "divergent-universe.capability-operation.0491fb9773ee56866cf3587a",
+          "divergent-universe.capability-operation.a7687396b77897b13e6aba14"
+        ],
+        "sample_mechanic_ids": [
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advwolfgunmanager-json"
+        ]
+      },
+      {
+        "capability": "mode.divergent-universe.activity.operation.end-prop-interact",
+        "shape_count": 1,
+        "program_count": 1,
+        "shape_ids": [
+          "divergent-universe.capability-operation.b0908d791d740b1828607820"
+        ],
+        "sample_mechanic_ids": [
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-prop-finaldoor-json"
+        ]
+      },
+      {
+        "capability": "mode.divergent-universe.activity.operation.entity",
+        "shape_count": 1,
+        "program_count": 2,
+        "shape_ids": [
+          "divergent-universe.capability-operation.f1ca45574a62a28987ca9837"
+        ],
+        "sample_mechanic_ids": [
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advwolfguncase-json",
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advwolfgunmanager-json"
+        ]
+      },
+      {
+        "capability": "mode.divergent-universe.activity.operation.group-fetch-local-target",
+        "shape_count": 1,
+        "program_count": 2,
+        "shape_ids": [
+          "divergent-universe.capability-operation.6fc91f70d141d8f46d39e1b7"
+        ],
+        "sample_mechanic_ids": [
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-roguetourn-group-advwolfgunnormalroom-json",
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-roguetourn-group-advwolfgunroom-json"
+        ]
+      },
+      {
+        "capability": "mode.divergent-universe.activity.operation.player-remote-control-other-entity",
+        "shape_count": 2,
+        "program_count": 1,
+        "shape_ids": [
+          "divergent-universe.capability-operation.5d338298755fb7073f3a90e9",
+          "divergent-universe.capability-operation.5f1c05a56e0c47696b1746d1"
+        ],
+        "sample_mechanic_ids": [
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advwolfguncase-json"
+        ]
+      },
+      {
+        "capability": "mode.divergent-universe.activity.operation.prop-close-puzzle",
+        "shape_count": 1,
+        "program_count": 1,
+        "shape_ids": [
+          "divergent-universe.capability-operation.ef7fa39f76b479f0ca0c7af1"
+        ],
+        "sample_mechanic_ids": [
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advwolfguncase-json"
+        ]
+      },
+      {
+        "capability": "mode.divergent-universe.activity.operation.prop-enable-collider",
+        "shape_count": 4,
+        "program_count": 2,
+        "shape_ids": [
+          "divergent-universe.capability-operation.381cb07b8eb37cab1c474def",
+          "divergent-universe.capability-operation.4c9190054d6bea8598ab3f09",
+          "divergent-universe.capability-operation.62e345a7cab73a074d76d1e5",
+          "divergent-universe.capability-operation.8169369a6178413ae29f20f9"
+        ],
+        "sample_mechanic_ids": [
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advareaready-json",
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advwolfgunmanager-json"
+        ]
+      },
+      {
+        "capability": "mode.divergent-universe.activity.operation.prop-init-puzzle",
+        "shape_count": 2,
+        "program_count": 1,
+        "shape_ids": [
+          "divergent-universe.capability-operation.89caa261803442c52ffda37f",
+          "divergent-universe.capability-operation.bba05c843ea428dc35ccfbff"
+        ],
+        "sample_mechanic_ids": [
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advwolfguncase-json"
+        ]
+      },
+      {
+        "capability": "mode.divergent-universe.activity.operation.prop-req-interact",
+        "shape_count": 1,
+        "program_count": 1,
+        "shape_ids": [
+          "divergent-universe.capability-operation.4f201c5300953f37ab82a949"
+        ],
+        "sample_mechanic_ids": [
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advwolfgunmanager-json"
+        ]
+      },
+      {
+        "capability": "mode.divergent-universe.activity.operation.prop-setup-uitrigger",
+        "shape_count": 3,
+        "program_count": 3,
+        "shape_ids": [
+          "divergent-universe.capability-operation.0d80bef539a84f19f9115258",
+          "divergent-universe.capability-operation.31b44fc1e69e99ae45c69e2a",
+          "divergent-universe.capability-operation.82744b5653f9fe38d9b138be"
+        ],
+        "sample_mechanic_ids": [
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advareaready-json",
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-prop-door-json",
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-prop-finaldoor-json"
+        ]
+      },
+      {
+        "capability": "mode.divergent-universe.activity.operation.prop-start-puzzle",
+        "shape_count": 1,
+        "program_count": 1,
+        "shape_ids": [
+          "divergent-universe.capability-operation.d3c057b97c56548c0a745a5a"
+        ],
+        "sample_mechanic_ids": [
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advwolfguncase-json"
+        ]
+      },
+      {
+        "capability": "mode.divergent-universe.activity.operation.prop-state-change-listener-config",
+        "shape_count": 1,
+        "program_count": 2,
+        "shape_ids": [
+          "divergent-universe.capability-operation.4f5284f7347dc5e72cdc1617"
+        ],
+        "sample_mechanic_ids": [
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-prop-door-json",
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-prop-finaldoor-json"
+        ]
+      },
+      {
+        "capability": "mode.divergent-universe.activity.operation.prop-state-change-server-listener-config",
+        "shape_count": 1,
+        "program_count": 1,
+        "shape_ids": [
+          "divergent-universe.capability-operation.b1504e59d6831e84ca28e49a"
+        ],
+        "sample_mechanic_ids": [
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advwolfgunmanager-json"
+        ]
+      },
+      {
+        "capability": "mode.divergent-universe.activity.operation.prop-state-execute",
+        "shape_count": 3,
+        "program_count": 3,
+        "shape_ids": [
+          "divergent-universe.capability-operation.12166a18b69ebef77597637f",
+          "divergent-universe.capability-operation.56f7d2e8f99ba7ee3defa07f",
+          "divergent-universe.capability-operation.ef7c6dcab3c71ce99107699a"
+        ],
+        "sample_mechanic_ids": [
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advareaready-json",
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-prop-door-json",
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-prop-finaldoor-json"
+        ]
+      },
+      {
+        "capability": "mode.divergent-universe.activity.operation.prop-trigger-anim-state",
+        "shape_count": 1,
+        "program_count": 2,
+        "shape_ids": [
+          "divergent-universe.capability-operation.c056086bc48917b883ae80bd"
+        ],
+        "sample_mechanic_ids": [
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-prop-door-json",
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-prop-finaldoor-json"
+        ]
+      },
+      {
+        "capability": "mode.divergent-universe.activity.operation.remove-effect",
+        "shape_count": 1,
+        "program_count": 2,
+        "shape_ids": [
+          "divergent-universe.capability-operation.7a34e8969cfad5288650dd1e"
+        ],
+        "sample_mechanic_ids": [
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advwolfguncase-json",
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advwolfgunmanager-json"
+        ]
+      },
+      {
+        "capability": "mode.divergent-universe.activity.operation.rogue-dlc1-dot3-adventure-room-manage",
+        "shape_count": 1,
+        "program_count": 1,
+        "shape_ids": [
+          "divergent-universe.capability-operation.5fa8cdcbddf58747099883fe"
+        ],
+        "sample_mechanic_ids": [
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advareamark-json"
+        ]
+      },
+      {
+        "capability": "mode.divergent-universe.activity.operation.rogue-dlc1-dot3-adventure-room-prepare",
+        "shape_count": 1,
+        "program_count": 1,
+        "shape_ids": [
+          "divergent-universe.capability-operation.08608e4b15cc7341c555bdca"
+        ],
+        "sample_mechanic_ids": [
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advareaready-json"
+        ]
+      },
+      {
+        "capability": "mode.divergent-universe.activity.operation.rogue-dlc1-dot3-adventure-room-process",
+        "shape_count": 2,
+        "program_count": 4,
+        "shape_ids": [
+          "divergent-universe.capability-operation.c519328fa5a12fed1f1dd56e",
+          "divergent-universe.capability-operation.d5f2c6e49e38fa81e4889af3"
+        ],
+        "sample_mechanic_ids": [
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advareamark-json",
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advdesareamark-json",
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advwolfgunmark-json"
+        ]
+      },
+      {
+        "capability": "mode.divergent-universe.activity.operation.rogue-dlcadvroom-hide-destruct",
+        "shape_count": 2,
+        "program_count": 2,
+        "shape_ids": [
+          "divergent-universe.capability-operation.86c227cd1dae5ff2e1ee25a6",
+          "divergent-universe.capability-operation.b27841f95a5d6457d7c6f035"
+        ],
+        "sample_mechanic_ids": [
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advareamark-json",
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advdesareamark-json"
+        ]
+      },
+      {
+        "capability": "mode.divergent-universe.activity.operation.rogue-dlcadvroom-hide-trotter",
+        "shape_count": 2,
+        "program_count": 1,
+        "shape_ids": [
+          "divergent-universe.capability-operation.225631e66fb11c9fb694e198",
+          "divergent-universe.capability-operation.6ec58d1c662a6dc64dee6940"
+        ],
+        "sample_mechanic_ids": [
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advareamark-json"
+        ]
+      },
+      {
+        "capability": "mode.divergent-universe.activity.operation.set-nav-mesh-state",
+        "shape_count": 2,
+        "program_count": 1,
+        "shape_ids": [
+          "divergent-universe.capability-operation.5f5f00230f59c8e888097285",
+          "divergent-universe.capability-operation.85e69a36194f1d36f812a31b"
+        ],
+        "sample_mechanic_ids": [
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advareaready-json"
+        ]
+      },
+      {
+        "capability": "mode.divergent-universe.activity.operation.start-prop-interact-mode",
+        "shape_count": 1,
+        "program_count": 1,
+        "shape_ids": [
+          "divergent-universe.capability-operation.f65ecac19fee6c7da2e0d97c"
+        ],
+        "sample_mechanic_ids": [
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-prop-finaldoor-json"
+        ]
+      },
+      {
+        "capability": "mode.divergent-universe.activity.operation.trigger-effect",
+        "shape_count": 1,
+        "program_count": 1,
+        "shape_ids": [
+          "divergent-universe.capability-operation.1636a8404751c884aef7491e"
+        ],
+        "sample_mechanic_ids": [
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advwolfgunmanager-json"
+        ]
+      },
+      {
+        "capability": "mode.divergent-universe.activity.operation.trigger-effect-list",
+        "shape_count": 1,
+        "program_count": 1,
+        "shape_ids": [
+          "divergent-universe.capability-operation.c13e760d6e42d0eeffe194ed"
+        ],
+        "sample_mechanic_ids": [
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advwolfgunmanager-json"
+        ]
+      },
+      {
+        "capability": "mode.divergent-universe.activity.operation.trotter",
+        "shape_count": 1,
+        "program_count": 1,
+        "shape_ids": [
+          "divergent-universe.capability-operation.ff0560ef29b2839bf9edf58f"
+        ],
+        "sample_mechanic_ids": [
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advareamark-json"
+        ]
+      },
+      {
+        "capability": "mode.divergent-universe.activity.operation.tutorial-task-unlock",
+        "shape_count": 1,
+        "program_count": 3,
+        "shape_ids": [
+          "divergent-universe.capability-operation.bb13d7f2a1f373148174a3b3"
+        ],
+        "sample_mechanic_ids": [
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advwolfgunmanager-json",
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advwolfgunmark-json",
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advwolfgunmarknomal-json"
+        ]
+      },
+      {
+        "capability": "mode.divergent-universe.activity.operation.wait-battle-win-with-score",
+        "shape_count": 1,
+        "program_count": 1,
+        "shape_ids": [
+          "divergent-universe.capability-operation.e1c4e7924967de951bb5e97f"
+        ],
+        "sample_mechanic_ids": [
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-roguetourn-goup-baseboss-json"
+        ]
+      },
+      {
+        "capability": "mode.divergent-universe.activity.operation.wait-battle-win-with-target-count",
+        "shape_count": 1,
+        "program_count": 1,
+        "shape_ids": [
+          "divergent-universe.capability-operation.198ce31ce786539d58c6a616"
+        ],
+        "sample_mechanic_ids": [
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-roguetourns2-group-baseelite-json"
+        ]
+      },
+      {
+        "capability": "mode.divergent-universe.activity.operation.wait-rogue-adventure-room-first-enter",
+        "shape_count": 1,
+        "program_count": 4,
+        "shape_ids": [
+          "divergent-universe.capability-operation.2c6fdeaba78424441f6fc359"
+        ],
+        "sample_mechanic_ids": [
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-roguetourn-group-advdesroom-json",
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-roguetourn-group-advtrotterroom-json",
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-roguetourn-group-advwolfgunnormalroom-json"
+        ]
+      },
+      {
+        "capability": "mode.divergent-universe.activity.operation.wait-rogue-adventure-room-start",
+        "shape_count": 1,
+        "program_count": 2,
+        "shape_ids": [
+          "divergent-universe.capability-operation.cbc7e59622290e1065f8efec"
+        ],
+        "sample_mechanic_ids": [
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-roguetourn-group-advdesroom-json",
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-roguetourn-group-advtrotterroom-json"
+        ]
+      },
+      {
+        "capability": "mode.divergent-universe.activity.operation.wait-rogue-adventure-room-stop",
+        "shape_count": 1,
+        "program_count": 4,
+        "shape_ids": [
+          "divergent-universe.capability-operation.c8ca2a12e689239ae165a449"
+        ],
+        "sample_mechanic_ids": [
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-roguetourn-group-advdesroom-json",
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-roguetourn-group-advtrotterroom-json",
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-roguetourn-group-advwolfgunnormalroom-json"
+        ]
+      },
+      {
+        "capability": "mode.divergent-universe.activity.operation.wait-rogue-finish-dialogue",
+        "shape_count": 1,
+        "program_count": 1,
+        "shape_ids": [
+          "divergent-universe.capability-operation.dd1fabaaac2c0e5371ad8388"
+        ],
+        "sample_mechanic_ids": [
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-roguetourn-goup-waitdialogue-json"
+        ]
+      },
+      {
+        "capability": "mode.divergent-universe.activity.operation.wait-rogue-room-content-update-finish",
+        "shape_count": 1,
+        "program_count": 3,
+        "shape_ids": [
+          "divergent-universe.capability-operation.7e9ed5d4a72bfbfcab6123e6"
+        ],
+        "sample_mechanic_ids": [
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-roguetourn-goup-monster-json",
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-roguetourn-goup-waitdialogue-json",
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-roguetourn-goup-waitprop-json"
+        ]
+      },
+      {
+        "capability": "mode.divergent-universe.activity.operation.wait-second",
+        "shape_count": 4,
+        "program_count": 6,
+        "shape_ids": [
+          "divergent-universe.capability-operation.1dd60744f5e91ccadc3b609e",
+          "divergent-universe.capability-operation.47f1575dd3d2465131d8e6d7",
+          "divergent-universe.capability-operation.e6eff40dd61698d1b9766dc0",
+          "divergent-universe.capability-operation.fe0f9e61ba68ef329a06ec58"
+        ],
+        "sample_mechanic_ids": [
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advareamark-json",
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advdesareamark-json",
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advtransform-json"
+        ]
+      },
+      {
+        "capability": "mode.divergent-universe.activity.operation.wolf-bro-gun-enable-bullet-time",
+        "shape_count": 2,
+        "program_count": 1,
+        "shape_ids": [
+          "divergent-universe.capability-operation.10689904287490627aeac12e",
+          "divergent-universe.capability-operation.6e69be2749d9f1ff1071bd00"
+        ],
+        "sample_mechanic_ids": [
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advwolfgunmanager-json"
+        ]
+      },
+      {
+        "capability": "mode.divergent-universe.activity.operation.wolf-bro-gun-play-puzzle-modify-energy",
+        "shape_count": 1,
+        "program_count": 1,
+        "shape_ids": [
+          "divergent-universe.capability-operation.ef02fbb60f485caf02578e9e"
+        ],
+        "sample_mechanic_ids": [
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advwolfgunmanager-json"
+        ]
+      },
+      {
+        "capability": "mode.divergent-universe.activity.operation.wolf-bro-gun-play-puzzle-setup-startup-mode",
+        "shape_count": 2,
+        "program_count": 1,
+        "shape_ids": [
+          "divergent-universe.capability-operation.95963068f630aad4aab3529e",
+          "divergent-universe.capability-operation.fe00a0e8a5f9063b7fef2973"
+        ],
+        "sample_mechanic_ids": [
+          "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advwolfguncase-json"
+        ]
+      }
+    ],
+    "affected_shape_ids": [
+      "divergent-universe.capability-operation.0491fb9773ee56866cf3587a",
+      "divergent-universe.capability-operation.08608e4b15cc7341c555bdca",
+      "divergent-universe.capability-operation.0d80bef539a84f19f9115258",
+      "divergent-universe.capability-operation.10689904287490627aeac12e",
+      "divergent-universe.capability-operation.107d1e68453de19bd380c41c",
+      "divergent-universe.capability-operation.12166a18b69ebef77597637f",
+      "divergent-universe.capability-operation.1636a8404751c884aef7491e",
+      "divergent-universe.capability-operation.198ce31ce786539d58c6a616",
+      "divergent-universe.capability-operation.1dd60744f5e91ccadc3b609e",
+      "divergent-universe.capability-operation.225631e66fb11c9fb694e198",
+      "divergent-universe.capability-operation.2c6fdeaba78424441f6fc359",
+      "divergent-universe.capability-operation.31b44fc1e69e99ae45c69e2a",
+      "divergent-universe.capability-operation.381cb07b8eb37cab1c474def",
+      "divergent-universe.capability-operation.47f1575dd3d2465131d8e6d7",
+      "divergent-universe.capability-operation.4c9190054d6bea8598ab3f09",
+      "divergent-universe.capability-operation.4f201c5300953f37ab82a949",
+      "divergent-universe.capability-operation.4f5284f7347dc5e72cdc1617",
+      "divergent-universe.capability-operation.56f7d2e8f99ba7ee3defa07f",
+      "divergent-universe.capability-operation.5d338298755fb7073f3a90e9",
+      "divergent-universe.capability-operation.5f1c05a56e0c47696b1746d1",
+      "divergent-universe.capability-operation.5f5f00230f59c8e888097285",
+      "divergent-universe.capability-operation.5fa8cdcbddf58747099883fe",
+      "divergent-universe.capability-operation.62e345a7cab73a074d76d1e5",
+      "divergent-universe.capability-operation.6e69be2749d9f1ff1071bd00",
+      "divergent-universe.capability-operation.6ec58d1c662a6dc64dee6940",
+      "divergent-universe.capability-operation.6fc91f70d141d8f46d39e1b7",
+      "divergent-universe.capability-operation.724405cdb6cbb59e4626a8e2",
+      "divergent-universe.capability-operation.7a34e8969cfad5288650dd1e",
+      "divergent-universe.capability-operation.7e9ed5d4a72bfbfcab6123e6",
+      "divergent-universe.capability-operation.8169369a6178413ae29f20f9",
+      "divergent-universe.capability-operation.82744b5653f9fe38d9b138be",
+      "divergent-universe.capability-operation.85e69a36194f1d36f812a31b",
+      "divergent-universe.capability-operation.868811a02fbeefaaa05b9fb3",
+      "divergent-universe.capability-operation.86c227cd1dae5ff2e1ee25a6",
+      "divergent-universe.capability-operation.89caa261803442c52ffda37f",
+      "divergent-universe.capability-operation.95963068f630aad4aab3529e",
+      "divergent-universe.capability-operation.95cf769ee6cc753348daba0b",
+      "divergent-universe.capability-operation.979545698f3abfcbb83c1ae3",
+      "divergent-universe.capability-operation.a7687396b77897b13e6aba14",
+      "divergent-universe.capability-operation.b0908d791d740b1828607820",
+      "divergent-universe.capability-operation.b1504e59d6831e84ca28e49a",
+      "divergent-universe.capability-operation.b27841f95a5d6457d7c6f035",
+      "divergent-universe.capability-operation.bb13d7f2a1f373148174a3b3",
+      "divergent-universe.capability-operation.bba05c843ea428dc35ccfbff",
+      "divergent-universe.capability-operation.c056086bc48917b883ae80bd",
+      "divergent-universe.capability-operation.c13e760d6e42d0eeffe194ed",
+      "divergent-universe.capability-operation.c519328fa5a12fed1f1dd56e",
+      "divergent-universe.capability-operation.c8ca2a12e689239ae165a449",
+      "divergent-universe.capability-operation.cbc7e59622290e1065f8efec",
+      "divergent-universe.capability-operation.d3c057b97c56548c0a745a5a",
+      "divergent-universe.capability-operation.d5f2c6e49e38fa81e4889af3",
+      "divergent-universe.capability-operation.dd1fabaaac2c0e5371ad8388",
+      "divergent-universe.capability-operation.e1c4e7924967de951bb5e97f",
+      "divergent-universe.capability-operation.e2059784ae36543e92c34d87",
+      "divergent-universe.capability-operation.e6eff40dd61698d1b9766dc0",
+      "divergent-universe.capability-operation.ef02fbb60f485caf02578e9e",
+      "divergent-universe.capability-operation.ef7c6dcab3c71ce99107699a",
+      "divergent-universe.capability-operation.ef7fa39f76b479f0ca0c7af1",
+      "divergent-universe.capability-operation.f1ca45574a62a28987ca9837",
+      "divergent-universe.capability-operation.f65ecac19fee6c7da2e0d97c",
+      "divergent-universe.capability-operation.fe00a0e8a5f9063b7fef2973",
+      "divergent-universe.capability-operation.fe0f9e61ba68ef329a06ec58",
+      "divergent-universe.capability-operation.ff0560ef29b2839bf9edf58f"
+    ],
+    "affected_mechanic_ids": [
+      "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advareamark-json",
+      "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advareaready-json",
+      "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advdesareamark-json",
+      "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advtransform-json",
+      "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advwolfguncase-json",
+      "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advwolfgunmanager-json",
+      "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advwolfgunmark-json",
+      "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advwolfgunmarknomal-json",
+      "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-advwolfguntransform-json",
+      "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-prop-door-json",
+      "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-maze-roguetourn-prop-finaldoor-json",
+      "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-roguetourn-goup-baseboss-json",
+      "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-roguetourn-goup-monster-json",
+      "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-roguetourn-goup-waitdialogue-json",
+      "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-roguetourn-goup-waitprop-json",
+      "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-roguetourn-group-advdesroom-json",
+      "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-roguetourn-group-advtrotterroom-json",
+      "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-roguetourn-group-advwolfgunnormalroom-json",
+      "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-roguetourn-group-advwolfgunroom-json",
+      "divergent-universe.mechanic-rule.config-level-maze-mazerogue-roguetourn-roguetourns2-group-baseelite-json"
+    ],
+    "affected_partition_ids": [
+      "G22-P6-A01",
+      "G22-P6-A02"
+    ],
+    "lowering_rule": "Resolve in the owning generated partition through typed mode programs, typed external outcomes, an explicit VersionedProjectPolicy or proven non-runtime scope; shared resolvers may not branch on these identities."
+  },
+  "content_id_branch_audit": {
+    "roots": [
+      "crates/starclock-activity/src",
+      "crates/starclock-build/src",
+      "crates/starclock-combat/src",
+      "crates/starclock-rules/src"
+    ],
+    "audited_file_count": 206,
+    "audited_tree_sha256": "927b951b2ce845a11985ccc6e5dc7c76f6363b888cf23306033018e4e6b45231",
+    "forbidden_mode_symbols": [
+      "DivergentUniverse",
+      "divergent_universe",
+      "divergent-universe"
+    ],
+    "forbidden_raw_interpreter_tokens": [
+      "PostfixExpr",
+      "OpCodes",
+      "DynamicHashes"
+    ],
+    "universal_audit": "node tools/repository-check/verify-native-handlers.mjs",
+    "result": "NoDivergentUniverseBranchOrRawPostfixInterpreterInSharedCore"
+  },
+  "native_handler_audit": {
+    "admitted_battle_handlers": 0,
+    "admitted_activity_handlers": 0,
+    "mechanic_static_handler_references": 0,
+    "registry": "crates/starclock-rules/src/registry.rs",
+    "metadata_policy": "policy/native-handler-audit.json",
+    "result": "TypedIrSufficientNoHandlerAdmitted"
+  },
+  "partition_freeze": {
+    "state": "FrozenPendingExecution",
+    "partition_count": 13,
+    "program_count": 669,
+    "partition_set_sha256": "aa823721b8e740508ba89f33c46e49e628f2a7f478b3ac411cc5d5e9bee87193",
+    "partitions": [
+      {
+        "batch": "G22-P6-A01",
+        "program_count": 24,
+        "freeze_sha256": "3498bb5e03ad38ea2bda860043eca290b9069c7b843d613e8a65f967f94b3994"
+      },
+      {
+        "batch": "G22-P6-A02",
+        "program_count": 64,
+        "freeze_sha256": "6914e3176cd0f24ace146f02d8f73987d5810873816d42164210a417f1943625"
+      },
+      {
+        "batch": "G22-P6-A03",
+        "program_count": 64,
+        "freeze_sha256": "343e212a298371626623a470f0b3a45c8c3dd36dff01dce7214c02f0f05b61e5"
+      },
+      {
+        "batch": "G22-P6-A04",
+        "program_count": 64,
+        "freeze_sha256": "9d7cfddba308c7281a95c68d7b81bd9d1639dd84f281c8d9a8320bac0211b97b"
+      },
+      {
+        "batch": "G22-P6-A05",
+        "program_count": 64,
+        "freeze_sha256": "dfe4a0f9ab1161186910c20eb9cf4e675dc825d27aa70307097113351c418acc"
+      },
+      {
+        "batch": "G22-P6-A06",
+        "program_count": 64,
+        "freeze_sha256": "0d5f49f0d3ff754d3851f7c2a830b80296b6b5b9f825b84067434eae354ff8c4"
+      },
+      {
+        "batch": "G22-P6-A07",
+        "program_count": 64,
+        "freeze_sha256": "82b8b81b2e66de8cbc2c1dd08a12bf612ee4d0ecc126924ec79a2b6e98288061"
+      },
+      {
+        "batch": "G22-P6-A08",
+        "program_count": 64,
+        "freeze_sha256": "a76b2c7d1c7459def32954f66c7f9fc18fb0915962a1cbbd6d47d71da6b76565"
+      },
+      {
+        "batch": "G22-P6-A09",
+        "program_count": 64,
+        "freeze_sha256": "47301f48ff4782e582bf452c13208d0649ebe020df0253bd8ea284e951ef7161"
+      },
+      {
+        "batch": "G22-P6-A10",
+        "program_count": 64,
+        "freeze_sha256": "a2a2d8f0f66a88d6207f7b20ac1ae094fb247d3ade8cfa3428145abd84a2ec0c"
+      },
+      {
+        "batch": "G22-P6-A11",
+        "program_count": 62,
+        "freeze_sha256": "f69a9f159cee873da40a979355c0300dde2125d9227fce5e324c45b796afe300"
+      },
+      {
+        "batch": "G22-P6-A12",
+        "program_count": 1,
+        "freeze_sha256": "92a1faf43bcbaefc7e05f29510a00c68b4e46978e0638a8fc148d486a363cdc3"
+      },
+      {
+        "batch": "G22-P6-M01",
+        "program_count": 6,
+        "freeze_sha256": "8db683dc2ec73072e6c6b234ae0114145c61fb0d4da14cffe67e73ce0074975a"
+      }
+    ]
+  },
+  "summary": {
+    "probes": 11,
+    "named_missing_capabilities": 42,
+    "mode_owned_capabilities": 42,
+    "mode_owned_shapes": 63,
+    "mode_affected_mechanic_programs": 20,
+    "unresolved_expression_shapes": 29,
+    "postfix_affected_mechanic_programs": 3,
+    "audited_shared_rust_files": 206,
+    "admitted_native_handlers": 0,
+    "frozen_partitions": 13,
+    "frozen_programs": 669
+  }
+}

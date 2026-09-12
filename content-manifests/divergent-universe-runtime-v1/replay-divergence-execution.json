@@ -1,0 +1,120 @@
+{
+  "schema_revision": "starclock.divergent-universe-replay-divergence-execution.v1",
+  "goal_id": "divergent-universe-runtime-v1",
+  "batch": "G22-P7-B5",
+  "status": "CompleteFreshComponentAddressedReplayAndFirstDivergence",
+  "input_digests": {
+    "runtime_dispositions": {
+      "path": "content-manifests/divergent-universe-runtime-v1/runtime-dispositions.json",
+      "sha256": "1319cb15f7a2e1b9c283549300cf29bb4f2b65d41c759a0c29240570c7fbd2bc"
+    },
+    "mechanic_dispositions": {
+      "path": "content-manifests/divergent-universe-runtime-v1/mechanic-dispositions.json",
+      "sha256": "629d1061b313381f09f66804da9eca86fdb8e474837a4fb56451696adb9377d4"
+    },
+    "batch_ledger": {
+      "path": "content-manifests/divergent-universe-runtime-v1/batch-ledger.json",
+      "sha256": "77e109344b674b1a301708d247e2dcedeace5bc941f789d2ab3529dc5224f467"
+    },
+    "baseline_fixture": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/baseline_fixture.rs",
+      "sha256": "df6b304df24f99371426c40d626c1517b8101ec5e95bfdbc48be907f300a0651"
+    },
+    "baseline_replay": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/baseline_replay.rs",
+      "sha256": "81fa5e6a54c5d907f5eac0abf9f0be1588684bb3458bd98f2f60e350c1e8e1df"
+    },
+    "baseline_tests": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/tests/baseline_runtime.rs",
+      "sha256": "ce0e040a35aa0fb0ceed4f2251c52b02066426e587c3f9f43a138bd87da83269"
+    },
+    "agent_session": {
+      "path": "crates/starclock-agent-api/src/divergent_universe_activity_session.rs",
+      "sha256": "0dfe458dbf331b6430ea163018cce7e6aeb144083eac841bb62a30155bdfcb48"
+    },
+    "agent_tests": {
+      "path": "crates/starclock-agent-api/src/divergent_universe_activity_session/tests.rs",
+      "sha256": "5959071f870b8f2d5c4c78ed0d3cca2650f41d265998c0245484ad53de7e6ac0"
+    },
+    "agent_registry": {
+      "path": "crates/starclock-agent-api/src/activity_session/registry/divergent.rs",
+      "sha256": "d29d0a1cd81fde38027844b2f648696e6fcd5bcefb2429dd59ac0892eda5fa39"
+    },
+    "mcp_tools": {
+      "path": "crates/starclock-mcp/src/activity_tools.rs",
+      "sha256": "0423703c8664ea4626e8f095c1e482b2a42b2abe7bcbc468e90713d21ae4f78e"
+    },
+    "mcp_tests": {
+      "path": "crates/starclock-mcp/src/tools/divergent_universe_tests.rs",
+      "sha256": "0408b42fe34ba4092a6828940a46688ba5bb486e3e2fb852cd56181d15916f66"
+    }
+  },
+  "replay_contract": {
+    "reconstruction": "FreshProductionFixtureFromCanonicalSeedFamilyAndComponents",
+    "component_count": 9,
+    "run_families": [
+      "ordinary",
+      "cyclical"
+    ],
+    "first_divergence_boundaries": [
+      "Catalog",
+      "Activity",
+      "Mapping",
+      "ContributionSnapshot",
+      "BattleAssembly",
+      "ActivityCommand",
+      "BattleCommand",
+      "BattleEvent",
+      "BattleState",
+      "Settlement",
+      "ActivityState"
+    ],
+    "component_address": "CanonicalComponentIndexExpectedAndActualIdentity",
+    "record_address": "CanonicalZeroBasedRecordIndex",
+    "agent_family_binding": "ExactRequestedFamily",
+    "mcp_family_field_scope": "DivergentUniverseOnly"
+  },
+  "execution_receipt": {
+    "both_families_reconstruct_from_fresh_production_inputs": "Passed",
+    "component_identity_mismatch_reports_exact_component": "Passed",
+    "catalog_activity_mapping_and_assembly_components_are_classified": "Passed",
+    "mapping_snapshot_assembly_command_event_state_and_settlement_are_classified": "Passed",
+    "first_mismatching_record_index_is_reported": "Passed",
+    "agent_and_mcp_bind_seed_and_family": "Passed",
+    "non_divergent_modes_reject_family_field": "Passed",
+    "corrupt_replay_is_rejected": "Passed"
+  },
+  "assignment_closure": {
+    "obligations": 0,
+    "fixture_families": 0,
+    "research_gaps": 0,
+    "policy_sources": 0,
+    "mechanic_programs": 0
+  },
+  "capability_probes": [
+    {
+      "id": "fresh-both-families",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/baseline_runtime.rs",
+      "test": "baseline_replay_round_trips_both_families_and_rejects_corruption",
+      "result": "Passed"
+    },
+    {
+      "id": "component-addressed-divergence",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/baseline_runtime.rs",
+      "test": "baseline_replay_reports_component_addressed_first_divergence",
+      "result": "Passed"
+    },
+    {
+      "id": "first-runtime-boundary",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/baseline_runtime.rs",
+      "test": "baseline_replay_reports_every_runtime_boundary_at_the_first_record",
+      "result": "Passed"
+    }
+  ],
+  "summary": {
+    "configuration_components": 9,
+    "run_families": 2,
+    "divergence_boundaries": 11,
+    "probes": 3
+  }
+}

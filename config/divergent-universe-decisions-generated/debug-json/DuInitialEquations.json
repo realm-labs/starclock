@@ -1,0 +1,45 @@
+{
+  "table": {
+    "name": "DuInitialEquations",
+    "rows": [
+      {
+        "values": {
+          "category": {
+            "String": "Epic"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "offer_width": {
+            "Integer": 3
+          },
+          "policy": {
+            "String": "UniformCurrentCategorySingleSelection"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: both normal baseline run families start with a required three-option Equation selection. Use distinct current Epic-category identities, stable identity ordering, unit weights and shared Reward RNG without replacement. Acquire exactly one through the ordinary ownership/progress/acquisition-grant transaction, then enter the existing baseline event. No reroll, hidden candidate, internal offer overwrite or raw graph-choice bypass is permitted. This does not implement missing mask/Titan selection, Great Blessings, initial Blessing batches or complete room placement; they remain gaps, not zero-effect policies. Confidence in placement, category mapping, width, pool membership and weights is low."
+          },
+          "replacement_condition": {
+            "String": "Replace each field independently when pinned released execution data or reproducible observations bind initial selection to this exact current profile. Alternatives include fixed entry-specific pools, other rarity categories, weighted paths and scheduling after entry-specific boons. Current policy provides an explicit playable choice without claiming candidate membership or full starting-loadout parity."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 17
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.initial-equations.current"
+          },
+          "summary_en": {
+            "String": "Choose one initial Equation from a uniformly sampled current Epic-category pool before the baseline event."
+          },
+          "summary_zh_cn": {
+            "String": "基线事件前，从当前 Epic 类别均匀抽取的候选中选择一个初始方程。"
+          }
+        }
+      }
+    ]
+  }
+}

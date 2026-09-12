@@ -1,0 +1,161 @@
+{
+  "schema_revision": "starclock.divergent-universe-battle-mechanic-reachability-proof.v1",
+  "goal_id": "divergent-universe-runtime-v1",
+  "batch": "G22-P6-M01",
+  "status": "CompleteProvenNonRuntimeSourceLibraries",
+  "source_revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+  "searched_roots": [
+    "Config",
+    "ExcelOutput"
+  ],
+  "identity_forms": [
+    "StageAbility_<id>",
+    "standalone numeric ability ID"
+  ],
+  "programs": [
+    {
+      "source": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_HEX_S1.json",
+      "source_sha256": "4fe5cfabc88b31a22d9e5abffd5df5a837e8dcd8fdf033f456b0b6c6952a89d0",
+      "layout": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_HEX_S1.layout.json",
+      "layout_sha256": "1f60626a08ed6208a80852e14084f4459f399002b76073ac7a580024f2bf66c2",
+      "ability_names": [
+        "StageAbility_633001",
+        "StageAbility_633002",
+        "StageAbility_633003",
+        "StageAbility_633004",
+        "StageAbility_633005",
+        "StageAbility_633006",
+        "StageAbility_633007",
+        "StageAbility_633008",
+        "StageAbility_633009",
+        "StageAbility_633010",
+        "StageAbility_633011",
+        "StageAbility_633012",
+        "StageAbility_633013",
+        "StageAbility_633014",
+        "StageAbility_633015",
+        "StageAbility_633016",
+        "StageAbility_633017",
+        "StageAbility_633018",
+        "StageAbility_633019",
+        "StageAbility_633020",
+        "StageAbility_633021",
+        "StageAbility_633022"
+      ],
+      "ability_count": 22,
+      "in_pair_reference_lines": 236,
+      "outside_pair_reference_lines": 0,
+      "disposition": "ExcludedWithProof",
+      "replacement_condition": "Reopen when a released profile, catalog or config outside the source/layout pair references a frozen ability identity."
+    },
+    {
+      "source": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_HEX_S3.json",
+      "source_sha256": "b9d1ba1d0f84adfe04060500eff08a1c2e744e6a7b44968e437237764085e2cb",
+      "layout": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_HEX_S3.layout.json",
+      "layout_sha256": "24fa61a8fdd805c0691cdf852f6c32c9aacddc05edbfee63642cbeede00720de",
+      "ability_names": [
+        "StageAbility_633023",
+        "StageAbility_633024",
+        "StageAbility_633025"
+      ],
+      "ability_count": 3,
+      "in_pair_reference_lines": 25,
+      "outside_pair_reference_lines": 0,
+      "disposition": "ExcludedWithProof",
+      "replacement_condition": "Reopen when a released profile, catalog or config outside the source/layout pair references a frozen ability identity."
+    },
+    {
+      "source": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Tourn1.json",
+      "source_sha256": "6f214f75df9761c5ea693f85772688c24279f83b9b559cc0853a6af20c7e3786",
+      "layout": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Tourn1.layout.json",
+      "layout_sha256": "1c5c7e27fd0c935696619753b7045d3287a901caa395c7af366534124feffd82",
+      "ability_names": [
+        "StageAbility_651106",
+        "StageAbility_651302",
+        "StageAbility_651205",
+        "StageAbility_651407",
+        "StageAbility_651102",
+        "StageAbility_651207",
+        "StageAbility_651301",
+        "StageAbility_651402",
+        "StageAbility_651506",
+        "StageAbility_651101",
+        "StageAbility_651203",
+        "StageAbility_651305",
+        "StageAbility_651406",
+        "StageAbility_651503",
+        "StageAbility_651206",
+        "StageAbility_651208",
+        "StageAbility_651404",
+        "StageAbility_651501",
+        "StageAbility_651103",
+        "StageAbility_651405",
+        "StageAbility_651104",
+        "StageAbility_651201",
+        "StageAbility_651505",
+        "StageAbility_651105",
+        "StageAbility_651504",
+        "StageAbility_651304",
+        "StageAbility_651202",
+        "StageAbility_651306",
+        "StageAbility_651401",
+        "StageAbility_651001",
+        "StageAbility_651002",
+        "StageAbility_651003",
+        "StageAbility_651004",
+        "StageAbility_651005",
+        "StageAbility_651006",
+        "StageAbility_651007",
+        "StageAbility_651008",
+        "StageAbility_651011",
+        "StageAbility_652001",
+        "StageAbility_652002",
+        "StageAbility_652003",
+        "StageAbility_652004",
+        "StageAbility_652005",
+        "StageAbility_652006",
+        "StageAbility_652007",
+        "StageAbility_652008",
+        "StageAbility_652009",
+        "StageAbility_652010",
+        "StageAbility_652011",
+        "StageAbility_652012",
+        "StageAbility_652018"
+      ],
+      "ability_count": 51,
+      "in_pair_reference_lines": 318,
+      "outside_pair_reference_lines": 0,
+      "disposition": "ExcludedWithProof",
+      "replacement_condition": "Reopen when a released profile, catalog or config outside the source/layout pair references a frozen ability identity."
+    }
+  ],
+  "layouts": [
+    {
+      "source": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_HEX_S1.layout.json",
+      "source_sha256": "1f60626a08ed6208a80852e14084f4459f399002b76073ac7a580024f2bf66c2",
+      "disposition": "MetadataOnlyAudited",
+      "runtime_trigger": null
+    },
+    {
+      "source": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_HEX_S3.layout.json",
+      "source_sha256": "24fa61a8fdd805c0691cdf852f6c32c9aacddc05edbfee63642cbeede00720de",
+      "disposition": "MetadataOnlyAudited",
+      "runtime_trigger": null
+    },
+    {
+      "source": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Tourn1.layout.json",
+      "source_sha256": "1c5c7e27fd0c935696619753b7045d3287a901caa395c7af366534124feffd82",
+      "disposition": "MetadataOnlyAudited",
+      "runtime_trigger": null
+    }
+  ],
+  "summary": {
+    "source_programs": 3,
+    "layout_companions": 3,
+    "ability_identities": 76,
+    "in_pair_reference_lines": 579,
+    "outside_pair_reference_lines": 0,
+    "standalone_numeric_reference_lines": 0,
+    "runtime_programs_admitted": 0
+  }
+}

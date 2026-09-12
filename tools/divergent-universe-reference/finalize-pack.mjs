@@ -5,6 +5,7 @@ import path from "node:path";
 import process from "node:process";
 import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
+import { personaReferenceRows } from "./persona-reference.mjs";
 import {
   ACCESS_DATE,
   GAME_VERSION,
@@ -65,6 +66,7 @@ if (
   throw new Error("reconciliation checkpoint evidence envelope drift");
 }
 const finalFiles = new Set([
+  "persona-source-obligations.json",
   "mechanic-source-files.json",
   "mechanic-rules.json",
   "sources.json",
@@ -77,6 +79,9 @@ const finalFiles = new Set([
   "pack-index.json",
 ]);
 const outputs = new Map();
+outputs.set("persona-source-obligations.json", personaReferenceRows(
+  context, manifest.categories.persona_source_obligations.records,
+));
 for (const contract of schema.files) {
   if (finalFiles.has(contract.file)) continue;
   outputs.set(contract.file, await localJson(
@@ -345,6 +350,8 @@ for (const [categoryId, category] of Object.entries(manifest.categories)
     const policyBound = matched.some((row) =>
       row.coverage_state !== "DataReady"
         || row.evidence_quality === "ProjectPolicy");
+    const sourceOnly = matched.every((row) => row.kind === "DivergentUniversePersonaSourceObligation");
+    const coverageState = sourceOnly ? matched[0].coverage_state : "DataReady";
     coverage.push({
       ...context.envelope({
         id:
@@ -354,10 +361,13 @@ for (const [categoryId, category] of Object.entries(manifest.categories)
         nameEn: `${categoryId}/${record.id} Coverage`,
         nameZh: `${categoryId}/${record.id} 覆盖`,
         summaryEn:
-          `Frozen ${categoryId} obligation ${record.id} has a final ${policyBound ? "policy-bound" : "exact"} normalized disposition.`,
+          sourceOnly ? `Source obligation ${record.id} is accounted for without executable promotion.`
+            : `Frozen ${categoryId} obligation ${record.id} has a final ${policyBound ? "policy-bound" : "exact"} normalized disposition.`,
         summaryZh:
-          `冻结的 ${categoryId} 义务 ${record.id} 已获得最终${policyBound ? "策略边界" : "精确"}规范化处置。`,
-        ownership: record.ownership === "Shared" ? "Shared" : "DivergentUniverse",
+          sourceOnly ? `源记录义务 ${record.id} 已纳入对账，尚未晋升为可执行内容。`
+            : `冻结的 ${categoryId} 义务 ${record.id} 已获得最终${policyBound ? "策略边界" : "精确"}规范化处置。`,
+        ownership: sourceOnly ? record.ownership : record.ownership === "Shared" ? "Shared" : "DivergentUniverse",
+        coverageState,
         sourceRefs: [manifestRef],
         tags: ["coverage", categoryId, policyBound ? "policy-bound" : "exact"],
       }),
@@ -367,8 +377,8 @@ for (const [categoryId, category] of Object.entries(manifest.categories)
       source_locator: record.source,
       source_evidence_sha256: record.evidence_sha256,
       normalized_record_ids: matched.map(({ id }) => id),
-      state: "DataReady",
-      disposition: policyBound
+      state: coverageState,
+      disposition: sourceOnly ? "NormalizedSourceObligationOnly" : policyBound
         ? "NormalizedPolicyOrExclusionBoundary"
         : "NormalizedExact",
       blocking_gap_ids: [],
@@ -409,6 +419,8 @@ const recordCounts = Object.fromEntries(schema.files.map(({ file }) => [
     : (outputs.get(file)?.length ?? 0),
 ]));
 const normalizedFiles = schema.files.map(({ file }) => file).sort();
+const readyCoverage = coverage.filter((row) => row.state === "DataReady").length;
+const coverageBasisPoints = BigInt(readyCoverage) * 10000n / BigInt(coverage.length);
 const manifestRow = {
   ...context.envelope({
     id: "divergent-universe.reference-manifest.v1",
@@ -431,8 +443,9 @@ const manifestRow = {
   bilingual_index_revision:
     "7b349e39ee0f6f3bf814567995829b99c95e7a93",
   frozen_source_obligations: manifest.counts.records,
-  data_ready_source_obligations: coverage.length,
-  coverage_percent: "100",
+  data_ready_source_obligations: readyCoverage,
+  unresolved_source_obligations: coverage.length - readyCoverage,
+  coverage_percent: `${coverageBasisPoints / 100n}.${String(coverageBasisPoints % 100n).padStart(2, "0")}`,
   normalized_files: normalizedFiles,
   record_counts: recordCounts,
   mechanic_source_count: mechanicSources.length,
@@ -445,7 +458,7 @@ const manifestRow = {
   blocking_research_gap_count: 0,
   runtime_loading: "ForbiddenReferenceOnly",
   authoring_target: "ExcelOpenPyxlThenSora030",
-  candidate_quality: true,
+  candidate_quality: readyCoverage === coverage.length,
 };
 outputs.set("manifest.json", [manifestRow]);
 
@@ -462,7 +475,7 @@ await writeOrCheck(context, outputs, check);
 console.log(
   `Divergent Universe pack ${check ? "verified" : "finalized"}: ` +
   `${mechanicSources.length} mechanic sources/rules; ${sourceRows.length} ` +
-  `sources; ${coverage.length}/${manifest.counts.records} DataReady coverage; ` +
+  `sources; ${readyCoverage}/${manifest.counts.records} DataReady coverage; ` +
   `${semanticFamilies.length} fixtures/gaps; ${schema.files.length} files.`,
 );
 
@@ -569,7 +582,7 @@ async function readPinnedSource(relative) {
     if (error?.code !== "ENOENT") throw error;
     const raw = execFileSync(
       "git",
-      ["show", `${SOURCE_REVISION}:${relative}`],
+      ["-c", "core.longpaths=true", "show", `${SOURCE_REVISION}:${relative}`],
       {
         cwd: context.sourceRoot,
         encoding: "utf8",

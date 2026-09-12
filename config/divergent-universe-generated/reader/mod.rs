@@ -76,6 +76,7 @@ pub mod divergent_universe_encounter_groups;
 pub mod divergent_universe_encounter_waves;
 pub mod divergent_universe_enemy_slots;
 pub mod divergent_universe_boss_pools;
+pub mod divergent_universe_persona_source_obligations;
 pub mod divergent_universe_mechanic_source_files;
 pub mod divergent_universe_mechanic_rules;
 pub mod divergent_universe_sources;
@@ -88,7 +89,7 @@ pub mod divergent_universe_manifest;
 pub mod divergent_universe_pack_index;
 pub type SoraMap<K, V> = std::collections::HashMap<K, V>;
 
-pub const SCHEMA_FINGERPRINT: &str = "52c2f8123faee5ce";
+pub const SCHEMA_FINGERPRINT: &str = "6dfaf7aba644d1c9";
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum SoraTableShape {
@@ -171,7 +172,7 @@ impl SoraConfig {
             )));
         }
         let mut tables: SoraMap<&'static str, Box<dyn ErasedSoraTable>> =
-            sora_map_with_capacity(80);
+            sora_map_with_capacity(81);
         tables.insert(divergent_universe_profiles::DivergentUniverseProfilesTable::NAME, Box::new(divergent_universe_profiles::DivergentUniverseProfilesTable::from_rows(source.decode_table::<divergent_universe_profiles::DivergentUniverseProfiles>(divergent_universe_profiles::DivergentUniverseProfilesTable::NAME)?)?));
         tables.insert(divergent_universe_modules::DivergentUniverseModulesTable::NAME, Box::new(divergent_universe_modules::DivergentUniverseModulesTable::from_rows(source.decode_table::<divergent_universe_modules::DivergentUniverseModules>(divergent_universe_modules::DivergentUniverseModulesTable::NAME)?)?));
         tables.insert(divergent_universe_entries::DivergentUniverseEntriesTable::NAME, Box::new(divergent_universe_entries::DivergentUniverseEntriesTable::from_rows(source.decode_table::<divergent_universe_entries::DivergentUniverseEntries>(divergent_universe_entries::DivergentUniverseEntriesTable::NAME)?)?));
@@ -242,6 +243,7 @@ impl SoraConfig {
         tables.insert(divergent_universe_encounter_waves::DivergentUniverseEncounterWavesTable::NAME, Box::new(divergent_universe_encounter_waves::DivergentUniverseEncounterWavesTable::from_rows(source.decode_table::<divergent_universe_encounter_waves::DivergentUniverseEncounterWaves>(divergent_universe_encounter_waves::DivergentUniverseEncounterWavesTable::NAME)?)?));
         tables.insert(divergent_universe_enemy_slots::DivergentUniverseEnemySlotsTable::NAME, Box::new(divergent_universe_enemy_slots::DivergentUniverseEnemySlotsTable::from_rows(source.decode_table::<divergent_universe_enemy_slots::DivergentUniverseEnemySlots>(divergent_universe_enemy_slots::DivergentUniverseEnemySlotsTable::NAME)?)?));
         tables.insert(divergent_universe_boss_pools::DivergentUniverseBossPoolsTable::NAME, Box::new(divergent_universe_boss_pools::DivergentUniverseBossPoolsTable::from_rows(source.decode_table::<divergent_universe_boss_pools::DivergentUniverseBossPools>(divergent_universe_boss_pools::DivergentUniverseBossPoolsTable::NAME)?)?));
+        tables.insert(divergent_universe_persona_source_obligations::DivergentUniversePersonaSourceObligationsTable::NAME, Box::new(divergent_universe_persona_source_obligations::DivergentUniversePersonaSourceObligationsTable::from_rows(source.decode_table::<divergent_universe_persona_source_obligations::DivergentUniversePersonaSourceObligations>(divergent_universe_persona_source_obligations::DivergentUniversePersonaSourceObligationsTable::NAME)?)?));
         tables.insert(divergent_universe_mechanic_source_files::DivergentUniverseMechanicSourceFilesTable::NAME, Box::new(divergent_universe_mechanic_source_files::DivergentUniverseMechanicSourceFilesTable::from_rows(source.decode_table::<divergent_universe_mechanic_source_files::DivergentUniverseMechanicSourceFiles>(divergent_universe_mechanic_source_files::DivergentUniverseMechanicSourceFilesTable::NAME)?)?));
         tables.insert(divergent_universe_mechanic_rules::DivergentUniverseMechanicRulesTable::NAME, Box::new(divergent_universe_mechanic_rules::DivergentUniverseMechanicRulesTable::from_rows(source.decode_table::<divergent_universe_mechanic_rules::DivergentUniverseMechanicRules>(divergent_universe_mechanic_rules::DivergentUniverseMechanicRulesTable::NAME)?)?));
         tables.insert(divergent_universe_sources::DivergentUniverseSourcesTable::NAME, Box::new(divergent_universe_sources::DivergentUniverseSourcesTable::from_rows(source.decode_table::<divergent_universe_sources::DivergentUniverseSources>(divergent_universe_sources::DivergentUniverseSourcesTable::NAME)?)?));
@@ -552,6 +554,10 @@ impl SoraConfig {
 
     pub fn divergent_universe_boss_pools(&self) -> &divergent_universe_boss_pools::DivergentUniverseBossPoolsTable {
         self.table(divergent_universe_boss_pools::DivergentUniverseBossPoolsTable::NAME)
+    }
+
+    pub fn divergent_universe_persona_source_obligations(&self) -> &divergent_universe_persona_source_obligations::DivergentUniversePersonaSourceObligationsTable {
+        self.table(divergent_universe_persona_source_obligations::DivergentUniversePersonaSourceObligationsTable::NAME)
     }
 
     pub fn divergent_universe_mechanic_source_files(&self) -> &divergent_universe_mechanic_source_files::DivergentUniverseMechanicSourceFilesTable {

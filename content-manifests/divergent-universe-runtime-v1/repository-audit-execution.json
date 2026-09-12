@@ -1,0 +1,279 @@
+{
+  "schema_revision": "starclock.divergent-universe-repository-audit-execution.v1",
+  "goal_id": "divergent-universe-runtime-v1",
+  "batch": "G22-P8-B3",
+  "status": "AllRepositoryAuditsPassed",
+  "toolchain": {
+    "node": "24.15.0",
+    "sora": "0.6.1",
+    "workbook_editor": "openpyxl==3.1.5"
+  },
+  "categories": [
+    {
+      "id": "dependency-license",
+      "status": "Passed",
+      "command_count": 1
+    },
+    {
+      "id": "architecture",
+      "status": "Passed",
+      "command_count": 2
+    },
+    {
+      "id": "unsafe-source-policy",
+      "status": "Passed",
+      "command_count": 1
+    },
+    {
+      "id": "generated-drift",
+      "status": "Passed",
+      "command_count": 1
+    },
+    {
+      "id": "workbook-sora",
+      "status": "Passed",
+      "command_count": 3
+    },
+    {
+      "id": "provenance",
+      "status": "Passed",
+      "command_count": 2
+    },
+    {
+      "id": "handler",
+      "status": "Passed",
+      "command_count": 1
+    },
+    {
+      "id": "prior-release-isolation",
+      "status": "Passed",
+      "command_count": 1
+    }
+  ],
+  "results": {
+    "dependency_policy": {
+      "locked_registry_packages": 136,
+      "pinned_tools": 6,
+      "workspace_crates": 18,
+      "license_policy_checked": true
+    },
+    "source_policy": {
+      "handwritten_rust_files": 1160,
+      "explicit_public_reexports": 178,
+      "generated_or_vendor_exclusions": 17,
+      "float_forbidden_roots": 3,
+      "unsafe_rust_allowed": false
+    },
+    "architecture": {
+      "audited_shared_rust_files": 206,
+      "divergent_universe_resolver_branches": 0,
+      "raw_postfix_interpreters": 0,
+      "forbidden_runtime_paths": 7
+    },
+    "generated_and_workbooks": {
+      "tables": 80,
+      "rows": 27091,
+      "empty_tables": 2,
+      "workbooks": 3,
+      "reader_files": 85,
+      "bundle_sha256": "9e1b71faca40a8195929cea488f2f5f529f0f791b3cb2b38801abe66ae75d886",
+      "double_generation_byte_identical": true
+    },
+    "provenance": {
+      "obligations": 6215,
+      "data_ready_obligations": 6215,
+      "source_rows": 7624,
+      "source_bindings": 95420,
+      "typed_reference_bindings": 111796,
+      "unresolved": 0
+    },
+    "handlers": {
+      "audited_scopes": 8,
+      "admitted_battle_handlers": 0,
+      "admitted_activity_handlers": 0,
+      "mechanic_static_handler_references": 0
+    },
+    "prior_release_isolation": {
+      "reconciliation_checkpoints": 3,
+      "ambient_branch_state_required": false,
+      "promoted_other_mode_or_excluded_rows": 0,
+      "runtime_loads_normalized_json_or_workbooks": false
+    }
+  },
+  "commands": [
+    {
+      "category": "dependency-license",
+      "command": "node tools/dependency-policy/verify.mjs",
+      "result": "Pass",
+      "rerun_in_verifier": true
+    },
+    {
+      "category": "architecture",
+      "command": "node tools/workspace/verify-dependencies.mjs",
+      "result": "Pass",
+      "rerun_in_verifier": true
+    },
+    {
+      "category": "unsafe-source-policy",
+      "command": "node tools/repository-check/verify-source-policy.mjs",
+      "result": "Pass",
+      "rerun_in_verifier": true
+    },
+    {
+      "category": "handler",
+      "command": "node tools/repository-check/verify-native-handlers.mjs",
+      "result": "Pass",
+      "rerun_in_verifier": true
+    },
+    {
+      "category": "generated-drift",
+      "command": "node tools/repository-check/verify-data.mjs",
+      "result": "Pass",
+      "rerun_in_verifier": true
+    },
+    {
+      "category": "prior-release-isolation",
+      "command": "node tools/divergent-universe-reference/verify-contracts.mjs",
+      "result": "Pass",
+      "rerun_in_verifier": true
+    },
+    {
+      "category": "provenance",
+      "command": "node tools/divergent-universe-reference/verify-pack.mjs --source-cache .cache/content-reference/turnbasedgamedata",
+      "result": "Pass",
+      "rerun_in_verifier": false
+    },
+    {
+      "category": "provenance",
+      "command": "node tools/divergent-universe-reference/audit-release.mjs",
+      "result": "Pass",
+      "rerun_in_verifier": true
+    },
+    {
+      "category": "workbook-sora",
+      "command": "python tools/divergent-universe-reference/verify_workbooks.py . --directory config/divergent-universe/data",
+      "result": "Pass",
+      "rerun_in_verifier": true
+    },
+    {
+      "category": "workbook-sora",
+      "command": "node tools/divergent-universe-reference/verify-sora-schema.mjs",
+      "result": "Pass",
+      "rerun_in_verifier": true
+    },
+    {
+      "category": "workbook-sora",
+      "command": "node tools/divergent-universe-reference/verify-sora-release.mjs",
+      "result": "Pass",
+      "rerun_in_verifier": true
+    },
+    {
+      "category": "architecture",
+      "command": "node tools/divergent-universe-runtime/verify-shared-capability-audit.mjs",
+      "result": "Pass",
+      "rerun_in_verifier": true
+    }
+  ],
+  "input_digests": {
+    "batch_ledger": {
+      "path": "content-manifests/divergent-universe-runtime-v1/batch-ledger.json",
+      "sha256": "77e109344b674b1a301708d247e2dcedeace5bc941f789d2ab3529dc5224f467"
+    },
+    "runtime_contract": {
+      "path": "content-manifests/divergent-universe-runtime-v1/runtime-contract.json",
+      "sha256": "ccb27239b0d31973c27c48a666916055568355f40736b5887aed50f1b0ba4276"
+    },
+    "shared_capability_audit": {
+      "path": "content-manifests/divergent-universe-runtime-v1/shared-capability-audit.json",
+      "sha256": "f08b6027387a1f29c88b4a0677168b6fc3b01fd23714c1dbb21fca1f38fa58df"
+    },
+    "release_audit": {
+      "path": "evidence/divergent-universe-reference-v1/release-audit.json",
+      "sha256": "e081b54490574c58fe239a8847ac3dc1eeb6b24b8692c153c974a038a68e0ae5"
+    },
+    "sora_state": {
+      "path": "evidence/divergent-universe-reference-v1/sora-current-state.json",
+      "sha256": "062fcef1d6ef1249f042627133e65d16fae977aef9550ecd24af13767ee4d966"
+    },
+    "dependency_policy": {
+      "path": "policy/dependency-and-tool-policy.json",
+      "sha256": "2f07f2ba6711fbf4de8a1d6816e4f09c4bfb9ce996584bbe7b34c57812fc3c7b"
+    },
+    "repository_policy": {
+      "path": "policy/repository-checks.json",
+      "sha256": "e5f18d752bf58713ee8bda4b9e19c69f52f2996ad6bc0e6d0d69e1c1398f4bd5"
+    },
+    "native_handler_policy": {
+      "path": "policy/native-handler-audit.json",
+      "sha256": "a8e5834da70b336cc5929fa5fc847a2e161cd4f974cbc5ae3d1348cb4d239172"
+    },
+    "data_checks": {
+      "path": "policy/data-checks.json",
+      "sha256": "cb0e7c42c7cb21023606de4063b66259c7ed535c5778ee6211b5772eaf5ebcf6"
+    },
+    "dependency_verifier": {
+      "path": "tools/dependency-policy/verify.mjs",
+      "sha256": "de9b4178507f7e3becf139ffdfda136fc313a4c4ff2cce61f8a9a05969bb7bb5"
+    },
+    "workspace_dependency_verifier": {
+      "path": "tools/workspace/verify-dependencies.mjs",
+      "sha256": "47e3c8239c08a2789c1c745a415382e6f164cfe5dca29b3388e525a89f4791e3"
+    },
+    "source_policy_verifier": {
+      "path": "tools/repository-check/verify-source-policy.mjs",
+      "sha256": "30ab4a021182787dc9a69caf9b3fa106477ef4bd7d21657c805a8b57eea41d50"
+    },
+    "native_handler_verifier": {
+      "path": "tools/repository-check/verify-native-handlers.mjs",
+      "sha256": "571d4adc594807fa6db1df7e00e2bd14bf5e61ef37a020809ceaf6466f2364ef"
+    },
+    "data_verifier": {
+      "path": "tools/repository-check/verify-data.mjs",
+      "sha256": "a7a887b63e7a1904422a3526e751316247e6872ae0166b83b35b18d3826ba147"
+    },
+    "character_build_schema_verifier": {
+      "path": "tools/config-schema/verify-character-build.mjs",
+      "sha256": "d23761b913ee70dbcccc5ff53a02f65e3360cb9c276b5eb360ae793b7cf01d1e"
+    },
+    "rule_ir_schema_verifier": {
+      "path": "tools/config-schema/verify-rule-ir.mjs",
+      "sha256": "e7dbb80a2242b1c4ddcf2540e03d219e98c91be277c739c90051a2be6b323847"
+    },
+    "standard_encounter_schema_verifier": {
+      "path": "tools/config-schema/verify-standard-encounter.mjs",
+      "sha256": "ae6da1b3337fab631c8c4f3f5b680ba3f4d2fd14602ae721c2a8f3bbdbf0f9c0"
+    },
+    "universe_workbook_common": {
+      "path": "tools/universe-reference/workbook/common.py",
+      "sha256": "3d92e1235e0166a4da6d73b4f998de58976ed221b576f10bca52f3cffd2fadaa"
+    },
+    "reference_contract_verifier": {
+      "path": "tools/divergent-universe-reference/verify-contracts.mjs",
+      "sha256": "59857f779736cafa93ca78630f533a851ddd9085fb6bd9a0dcef5cc4cfb0e3be"
+    },
+    "reference_pack_verifier": {
+      "path": "tools/divergent-universe-reference/verify-pack.mjs",
+      "sha256": "4f7f4de11ababeada7c628c388a391be9f5105e569934e2e1d646a10b791f664"
+    },
+    "release_audit_verifier": {
+      "path": "tools/divergent-universe-reference/audit-release.mjs",
+      "sha256": "ef7c4349f19daf7022414bce544cbf327d087350926e7a98d2b7a322ff37cc8e"
+    },
+    "workbook_verifier": {
+      "path": "tools/divergent-universe-reference/verify_workbooks.py",
+      "sha256": "9142c555c6c734606a5a9df90775575b3949d0befbda06eb8a6f431d894d3cf1"
+    },
+    "sora_schema_verifier": {
+      "path": "tools/divergent-universe-reference/verify-sora-schema.mjs",
+      "sha256": "31008cdb76a9e63afb580eb21299fb8df611912152e9824b07143bb5d29ee4dd"
+    },
+    "sora_release_verifier": {
+      "path": "tools/divergent-universe-reference/verify-sora-release.mjs",
+      "sha256": "9687fd3f4057a88861621119f611dc65d0f64e7a7f99348b4c698409bc92a1c5"
+    },
+    "shared_capability_verifier": {
+      "path": "tools/divergent-universe-runtime/verify-shared-capability-audit.mjs",
+      "sha256": "8f8f6ccf9537da08a4322985351fbc18b4de31d43f02c28ec79f20d3ebbc752d"
+    }
+  }
+}

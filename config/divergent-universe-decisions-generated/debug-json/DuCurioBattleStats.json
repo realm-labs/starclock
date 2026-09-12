@@ -1,0 +1,125 @@
+{
+  "table": {
+    "name": "DuCurioBattleStats",
+    "rows": [
+      {
+        "values": {
+          "battle_limit": {
+            "Integer": 5
+          },
+          "bonus_fraction": {
+            "String": "0.35"
+          },
+          "bonus_parameter": {
+            "Integer": 1
+          },
+          "effect_id": {
+            "String": "2068"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "limit_parameter": {
+            "Integer": 2
+          },
+          "policy": {
+            "String": "BasePercentVerifiedBattleLifetime"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: active holding with positive allowance at immutable battle assembly adds a source-attributed, non-dispellable PercentOfBase speed modifier to every player combatant and its linked unit subjects, not timeline-only actors. Existing build fields, sources and modifiers are preserved; enemy inputs are unchanged. The modifier participates in shared stat/timeline resolution from battle initialization, does not change the locked build and does not mutate Activity during battle. After a verified Won or Lost result, consume one active remaining battle after victory grants and before ordinary Blessing offer generation; discard all holding counters at zero. A trusted zero allowance contributes nothing and is discarded at the next counted result. Faulted/rejected results consume nothing. Destroyed holdings neither contribute nor consume allowance; repair resumes, replacement/reacquisition refills. Domain selections never consume this battle counter."
+          },
+          "replacement_condition": {
+            "String": "Replace percent-of-base stacking, linked-unit propagation, initial activation, defeat/fault counting and end-of-battle ordering independently when released execution programs or reproducible observations establish them. Alternatives include total-speed scaling, roster-only applicability and victory-only counting. These timing/scope choices have low parity confidence. Keep exact 35% and five battles. Other states of identity 9068 retain independent pending dispositions."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 43
+              },
+              {
+                "Integer": 44
+              },
+              {
+                "Integer": 45
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.curio-battle-stat.9068"
+          },
+          "stat": {
+            "String": "Speed"
+          },
+          "state_key": {
+            "String": "divergent-universe.curio-state.9068"
+          },
+          "summary_en": {
+            "String": "All allies gain 35% SPD; discard after five battles."
+          },
+          "summary_zh_cn": {
+            "String": "我方全体速度提高 35%，五场战斗后丢弃。"
+          }
+        }
+      },
+      {
+        "values": {
+          "battle_limit": {
+            "Integer": 5
+          },
+          "bonus_fraction": {
+            "String": "0.5"
+          },
+          "bonus_parameter": {
+            "Integer": 1
+          },
+          "effect_id": {
+            "String": "2073"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "limit_parameter": {
+            "Integer": 2
+          },
+          "policy": {
+            "String": "OutgoingFinalMultiplierVerifiedBattleLifetime"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: an active positive-allowance holding contributes one source-attributed non-dispellable factor of 1.5 at shared DamageFinalMultiply for player Direct, DoT, Additional, Elation, Break and SuperBreak purposes, including linked unit subjects. Each purpose has an independent Product group; other final groups multiply in stable order. The factor applies to unfloored raw damage after the existing damage factors; use checked nearest-ties-even scalar multiplication and floor the resulting applied integer damage. Do not alter locked builds, ATK, damage-boost sums, enemy inputs or timeline-only actors. True damage and other source-modifier-bypassing copied damage stay unamplified; positive absolute damage overrides stay absolute. Continuing Break effects retain their original applier. Verified Won/Lost results consume one allowance; Faulted/rejected/duplicate results do not. Destroy/repair pauses/resumes; replacement and reacquisition refill five; zero allowance does not contribute and is discarded at the next counted result. Domains never count."
+          },
+          "replacement_condition": {
+            "String": "Replace eligible classes, linked-unit scope, independent multiplier stacking, dynamic snapshot, bypass/absolute-override treatment and terminal counting independently when released execution programs or reproducible observations establish them. Alternatives include ordinary-only scope, amplifying true/copied damage, additive final bonuses and victory-only counting. Confidence is low for these hidden choices; exact 50% and five battles are retained. The public Tawot Cards page indexed on 2026-09-12 cross-checks operands but explicitly requests Arcadian Chronicles verification; it is not exact execution evidence. Tests must cover source/target separation, real HP damage, all admitted purposes, lifetime, destroy/repair/replacement and paid-service replay."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 52
+              },
+              {
+                "Integer": 53
+              },
+              {
+                "Integer": 54
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.curio-battle-stat.9073"
+          },
+          "stat": {
+            "String": "FinalDamage"
+          },
+          "state_key": {
+            "String": "divergent-universe.curio-state.9073"
+          },
+          "summary_en": {
+            "String": "Increase final damage by 50%; discard after five battles."
+          },
+          "summary_zh_cn": {
+            "String": "最终伤害提高 50%，五场战斗后丢弃。"
+          }
+        }
+      }
+    ]
+  }
+}

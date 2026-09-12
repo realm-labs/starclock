@@ -1,0 +1,135 @@
+{
+  "schema_revision": "starclock.divergent-universe-equation-blessing-hardening-execution.v1",
+  "goal_id": "divergent-universe-runtime-v1",
+  "batch": "G22-P4-B6",
+  "status": "CompleteEquationBlessingOfferHardeningExecution",
+  "input_digests": {
+    "equation_offers": {
+      "path": "content-reference/divergent-universe-v1/equation-offers.json",
+      "sha256": "bc1907b10ec2ef9b879af7cbbeddabb6a34ac90cdb2cfc9a24949d2e13ae442d"
+    },
+    "blessing_groups": {
+      "path": "content-reference/divergent-universe-v1/blessing-groups.json",
+      "sha256": "1940a492aa14500999dc02194e7850607c3026a486905ba7ac0eba6cc887c46c"
+    },
+    "service_offers": {
+      "path": "content-reference/divergent-universe-v1/service-offer-rules.json",
+      "sha256": "3f8cb57f6bb194b283ee9e92b48c351e7f6e28e7d89eaedc0fe3174a544e2b2e"
+    },
+    "service_rules": {
+      "path": "content-reference/divergent-universe-v1/service-rules.json",
+      "sha256": "de1c833ac70b8b60e93ee48e9114656ba34d9d7b2089a7bbf509a130e76baf7e"
+    },
+    "review_fixtures": {
+      "path": "content-reference/divergent-universe-v1/review-fixtures.json",
+      "sha256": "70fdb15147d046a170c4fe4038ccdd595bfbfef1e00040dba978c74c6b8a26c4"
+    },
+    "research_gaps": {
+      "path": "content-reference/divergent-universe-v1/research-gaps.json",
+      "sha256": "5818c783a5087b7244951f98744372dddd04371f39250bbae5b4db410d956ab0"
+    },
+    "blessing_interaction_execution": {
+      "path": "content-manifests/divergent-universe-runtime-v1/blessing-interaction-execution.json",
+      "sha256": "e0243b7b1ff4f46ab99cc6c766929c27184c1cde91482daba80a2dc3d7e18f0c"
+    },
+    "batch_ledger": {
+      "path": "content-manifests/divergent-universe-runtime-v1/batch-ledger.json",
+      "sha256": "77e109344b674b1a301708d247e2dcedeace5bc941f789d2ab3529dc5224f467"
+    },
+    "hardening_runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/equation_blessing_hardening.rs",
+      "sha256": "4186e4feba4a25ce9a521a285ef8e8608c566f565a2221b47d9c67df682228b6"
+    },
+    "equation_runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/equation_offer.rs",
+      "sha256": "980da5c77baf6808512d8ef51a49747532dd16b4060788631da26b41963bfe8e"
+    },
+    "blessing_runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/blessing_runtime.rs",
+      "sha256": "4be2fc82caf4df88493197673c901ca299b8e30761a96605ffb6f17414b25d8b"
+    },
+    "tests": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/tests/equation_blessing_hardening.rs",
+      "sha256": "f7f589e28b30fbccae6d90155a72cdb44dfe6743368a89f072160ba063245a7f"
+    }
+  },
+  "bounded_execution": {
+    "equation_offer_rows": 136,
+    "equation_identity_cap": 80,
+    "blessing_groups": 118,
+    "blessing_identity_cap": 414,
+    "blessing_group_candidate_cap": 144,
+    "offer_order": "StableIdOrExactClosedGroupSourceOrder",
+    "reward_rng_isolated": true
+  },
+  "policy_boundary": {
+    "empty_candidate_service_rows": 2,
+    "curse_chest_fallback": "LeaveWithoutMutation",
+    "workbench_fallback": "RejectWithoutMutation",
+    "accuracy": "VersionedProjectPolicyFailClosedNoLegalCandidate",
+    "exact_parity_claimed": false,
+    "replacement_condition": "Replace candidate, price, weight and fallback policy fields only when released programs or reproducible public observations prove them."
+  },
+  "execution_receipt": {
+    "equation_empty_pool_draws_zero": "Passed",
+    "blessing_empty_pool_draws_zero_for_all_groups": "Passed",
+    "empty_service_policies_preserve_authoritative_bytes": "Passed",
+    "stale_rejection_preserves_authoritative_bytes": "Passed",
+    "full_equation_cap_is_80": "Passed",
+    "full_blessing_cap_is_414": "Passed",
+    "maximum_group_cap_is_144": "Passed",
+    "snapshot_order_independent_of_acquisition_order": "Passed",
+    "fresh_runtime_reconstruction_is_equal": "Passed"
+  },
+  "assignment_closure": {
+    "obligations": 0,
+    "exact_integrated": 0,
+    "fixture_families": 1,
+    "research_gaps": 1,
+    "policy_sources": 3,
+    "mechanic_programs": 0
+  },
+  "coverage_credit": {
+    "newly_terminal_source_obligations": 0,
+    "semantic_fixture_families": 1,
+    "research_gaps": 1,
+    "policy_sources": 3,
+    "mechanic_programs": 0,
+    "deferred": "Curio identity/state/lifecycle execution begins at G22-P5-B1."
+  },
+  "capability_probes": [
+    {
+      "id": "catalog-caps-and-policies",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/equation_blessing_hardening.rs",
+      "test": "offer_hardening_catalog_and_policy_boundaries_compile",
+      "result": "Passed"
+    },
+    {
+      "id": "service-empty-and-stale-rejection",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/equation_blessing_hardening.rs",
+      "test": "empty_service_policy_and_stale_hash_reject_without_state_or_rng_change",
+      "result": "Passed"
+    },
+    {
+      "id": "all-blessing-group-empty-pools",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/equation_blessing_hardening.rs",
+      "test": "every_blessing_group_empty_pool_rejects_without_draw_or_mutation",
+      "result": "Passed"
+    },
+    {
+      "id": "full-cap-order-and-reconstruction",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/equation_blessing_hardening.rs",
+      "test": "full_caps_use_stable_snapshot_order_and_fresh_reconstruction",
+      "result": "Passed"
+    }
+  ],
+  "summary": {
+    "equation_offer_rows": 136,
+    "blessing_groups": 118,
+    "empty_candidate_service_policies": 2,
+    "assigned_fixture_families": 1,
+    "assigned_research_gaps": 1,
+    "assigned_policy_sources": 3,
+    "probes": 4
+  }
+}

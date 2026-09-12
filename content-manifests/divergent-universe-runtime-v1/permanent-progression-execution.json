@@ -1,0 +1,155 @@
+{
+  "schema_revision": "starclock.divergent-universe-permanent-progression-execution.v1",
+  "goal_id": "divergent-universe-runtime-v1",
+  "batch": "G22-P5-B4",
+  "status": "CompletePermanentWeeklyUnlockRoomAndCarryExecution",
+  "input_digests": {
+    "permanent_talents": {
+      "path": "content-reference/divergent-universe-v1/permanent-talents.json",
+      "sha256": "f018633c9350f2c4e1c4973b834eadb6264ab191135e6fba72229dab937140c4"
+    },
+    "progression_effects": {
+      "path": "content-reference/divergent-universe-v1/progression-effects.json",
+      "sha256": "5198ebe076bc00898766a5a15db17b32bc8cf78c7d83ffc61909b19287b477a2"
+    },
+    "unlocks": {
+      "path": "content-reference/divergent-universe-v1/unlocks.json",
+      "sha256": "81f4703abab5b49e528374dfb89309cf1c78e799d0b91a4bff4a375b9163abf8"
+    },
+    "weekly_modifiers": {
+      "path": "content-reference/divergent-universe-v1/weekly-modifiers.json",
+      "sha256": "9e2b38ee14fc15328e0aa9d02d3cf5b4ef9f689a6adfa60a1a5cf00dfb10bf18"
+    },
+    "room_marks": {
+      "path": "content-reference/divergent-universe-v1/room-marks.json",
+      "sha256": "b54c2daae12f7386de7897a461f0483a475f8c0b2800ee336f94c1ef0d8b7343"
+    },
+    "mode_service_npcs": {
+      "path": "content-reference/divergent-universe-v1/mode-service-npcs.json",
+      "sha256": "7a1e719be8a5fe130b832b1e2874f2dc4fa895a572ced4d1885c1514b621aac5"
+    },
+    "review_fixtures": {
+      "path": "content-reference/divergent-universe-v1/review-fixtures.json",
+      "sha256": "70fdb15147d046a170c4fe4038ccdd595bfbfef1e00040dba978c74c6b8a26c4"
+    },
+    "research_gaps": {
+      "path": "content-reference/divergent-universe-v1/research-gaps.json",
+      "sha256": "5818c783a5087b7244951f98744372dddd04371f39250bbae5b4db410d956ab0"
+    },
+    "runtime_dispositions": {
+      "path": "content-manifests/divergent-universe-runtime-v1/runtime-dispositions.json",
+      "sha256": "1319cb15f7a2e1b9c283549300cf29bb4f2b65d41c759a0c29240570c7fbd2bc"
+    },
+    "batch_ledger": {
+      "path": "content-manifests/divergent-universe-runtime-v1/batch-ledger.json",
+      "sha256": "77e109344b674b1a301708d247e2dcedeace5bc941f789d2ab3529dc5224f467"
+    },
+    "prior_execution": {
+      "path": "content-manifests/divergent-universe-runtime-v1/titan-runtime-execution.json",
+      "sha256": "ed9bb832ac7d1176d91a7ac81e144e42d4d567ad5c906004c899cb969449b6c7"
+    },
+    "data_catalog": {
+      "path": "crates/starclock-data/src/divergent_universe_progression_catalog.rs",
+      "sha256": "3b986e29f0a98765d6c8a3cedcefb7fe9e560265bc3f55000a3c53d0646fdde0"
+    },
+    "runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/permanent_progression_runtime.rs",
+      "sha256": "00c2443ebc6844908e9608848fccfd7a6fdec3b2ed20a9defd37a5eca9bbeddc"
+    },
+    "state": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/state.rs",
+      "sha256": "946d9d891d871569c556bfb87a63cf790b752dc1a1f7b762ad0e11e0cd2bbd36"
+    },
+    "tests": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/tests/permanent_progression_runtime.rs",
+      "sha256": "5a6fba87fc9c669751478bb76badeb2e3704dd9eb09f8b6950b06546784f1011"
+    }
+  },
+  "exact_runtime": {
+    "permanent_talents": 38,
+    "progression_effects": 38,
+    "finish_unlocks": 97,
+    "exact_unlock_consumers": 8,
+    "exact_unlocked_areas": 14,
+    "weekly_modifiers": 103,
+    "room_marks": 24,
+    "missing_service_graphs": 23,
+    "talent_currency_item_id": "281018",
+    "total_talent_cost": 2540,
+    "activity_contributions": 9,
+    "battle_contributions": 29
+  },
+  "policy_boundary": {
+    "prerequisite_direction": "RejectUnprovenDirectionWithoutMutation",
+    "unresolved_unlock_consumers": 89,
+    "weekly_selector": "ExplicitCyclicalEpochSelectionNotObservedParity",
+    "room_mark_transition": "PreserveCurrentMark",
+    "missing_service_graph": "RejectWithoutMutation",
+    "weekly_rng_draws": 0,
+    "observed_selector_or_transition_parity_claimed": false
+  },
+  "lifetime_contract": {
+    "permanent_talents": "ProfileResetOnly",
+    "finish_unlocks": "ProfileResetOnly",
+    "weekly_modifier": "CyclicalEpoch",
+    "room_mark": "Node"
+  },
+  "execution_receipt": {
+    "all_talent_costs_and_contributions_execute": "Passed",
+    "all_finish_unlocks_and_exact_consumers_execute": "Passed",
+    "all_weekly_candidates_execute_by_explicit_policy_selection": "Passed",
+    "all_room_marks_preserve_unpublished_transitions": "Passed",
+    "profile_carry_and_epoch_node_resets_execute": "Passed",
+    "missing_service_graphs_reject_without_mutation": "Passed"
+  },
+  "assignment_closure": {
+    "obligations": 262,
+    "exact_integrated": 8,
+    "policy_integrated": 254,
+    "fixture_families": 2,
+    "research_gaps": 2,
+    "policy_sources": 6,
+    "mechanic_programs": 0
+  },
+  "capability_probes": [
+    {
+      "id": "catalog-and-policy-boundaries",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/permanent_progression_runtime.rs",
+      "test": "permanent_weekly_unlock_and_room_catalogs_compile_exact_policy_boundaries",
+      "result": "Passed"
+    },
+    {
+      "id": "all-talent-costs-and-prerequisite-fallback",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/permanent_progression_runtime.rs",
+      "test": "all_permanent_talents_spend_exact_cost_and_unproven_directions_fail_closed",
+      "result": "Passed"
+    },
+    {
+      "id": "all-finish-unlock-consumers",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/permanent_progression_runtime.rs",
+      "test": "all_finish_unlocks_execute_and_only_exact_consumers_open_current_areas",
+      "result": "Passed"
+    },
+    {
+      "id": "all-weekly-modifiers-and-room-marks",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/permanent_progression_runtime.rs",
+      "test": "all_weekly_modifiers_and_room_marks_execute_accepted_policy_boundaries",
+      "result": "Passed"
+    },
+    {
+      "id": "carry-reset-and-missing-service-fallback",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/permanent_progression_runtime.rs",
+      "test": "weekly_node_profile_carry_and_missing_service_fallbacks_are_explicit",
+      "result": "Passed"
+    }
+  ],
+  "summary": {
+    "talents": 38,
+    "unlocks": 97,
+    "weekly_modifiers": 103,
+    "room_marks": 24,
+    "service_npcs": 23,
+    "terminal_obligations": 262,
+    "probes": 5
+  }
+}

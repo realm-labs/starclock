@@ -1,0 +1,97 @@
+{
+  "schema_revision": "starclock.divergent-universe-activity-decision-mechanic-execution.v1",
+  "goal_id": "divergent-universe-runtime-v1",
+  "batch": "G22-P6-A11",
+  "status": "CompleteExactActivityDecisionLifecycleMechanicPartition",
+  "input_digests": {
+    "runtime_dispositions": {
+      "path": "content-manifests/divergent-universe-runtime-v1/runtime-dispositions.json",
+      "sha256": "1319cb15f7a2e1b9c283549300cf29bb4f2b65d41c759a0c29240570c7fbd2bc"
+    },
+    "mechanic_dispositions": {
+      "path": "content-manifests/divergent-universe-runtime-v1/mechanic-dispositions.json",
+      "sha256": "629d1061b313381f09f66804da9eca86fdb8e474837a4fb56451696adb9377d4"
+    },
+    "mechanic_partitions": {
+      "path": "content-manifests/divergent-universe-runtime-v1/mechanic-partitions.json",
+      "sha256": "10a9560f08f90fff5a013cb7942f86f6c68c4042f9a4097a46c8dd28e6870cf7"
+    },
+    "batch_ledger": {
+      "path": "content-manifests/divergent-universe-runtime-v1/batch-ledger.json",
+      "sha256": "77e109344b674b1a301708d247e2dcedeace5bc941f789d2ab3529dc5224f467"
+    },
+    "runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/activity_decision_mechanic_runtime.rs",
+      "sha256": "92113901f928804f186c1deb06d8d752c3d1dffdc65498a798e7136f1df8b5af"
+    },
+    "state": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/state.rs",
+      "sha256": "946d9d891d871569c556bfb87a63cf790b752dc1a1f7b762ad0e11e0cd2bbd36"
+    },
+    "tests": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/tests/activity_decision_mechanic_a11_runtime.rs",
+      "sha256": "e6775f04cac88d9371203dc377d7f4ab4682b5506d155fce61afd1a30b194afe"
+    }
+  },
+  "exact_runtime": {
+    "mechanic_programs": 62,
+    "source_obligations": 62,
+    "ordered_operation_shapes": 124,
+    "operation_occurrences": 124,
+    "distinct_operation_types": 2,
+    "typed_decision_boundaries": 1,
+    "activity_state_slots": 1,
+    "first_mechanic": "divergent-universe.mechanic-rule.config-level-rogue-roguenpc-roguenpc-310-roguenpc614401-json",
+    "last_mechanic": "divergent-universe.mechanic-rule.config-level-rogue-roguenpc-roguenpc-330-roguenpc627001-json"
+  },
+  "ownership_boundary": {
+    "definition_owner": "starclock-mode-universe",
+    "mutation_owner": "starclock-activity",
+    "dialogue_ui_and_text_presentation": "ExternalNotSimulated",
+    "authoritative_projection": "AcceptedTypedDecisionBoundary",
+    "snapshot_policy": "AcceptedActivityCommandSnapshot",
+    "rng_draws": 0,
+    "static_handlers": 0
+  },
+  "execution_receipt": {
+    "exact_source_paths_hashes_and_ordered_shapes_bound": "Passed",
+    "every_program_commits_one_typed_activity_decision_boundary": "Passed",
+    "dialogue_and_ui_presentation_remain_outside_domain_state": "Passed",
+    "stale_wrong_boundary_and_duplicate_commands_are_atomic": "Passed",
+    "fresh_runtime_reconstruction_is_digest_equal": "Passed"
+  },
+  "assignment_closure": {
+    "obligations": 62,
+    "mechanic_programs": 62,
+    "fixture_families_referenced": 1,
+    "owned_fixture_assignments": 0,
+    "owned_research_gaps": 0,
+    "owned_policy_sources": 0
+  },
+  "capability_probes": [
+    {
+      "id": "exact-source-shape-closure",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/activity_decision_mechanic_a11_runtime.rs",
+      "test": "activity_decision_a11_closes_all_exact_source_shapes",
+      "result": "Passed"
+    },
+    {
+      "id": "all-programs-typed-decision",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/activity_decision_mechanic_a11_runtime.rs",
+      "test": "all_activity_decision_a11_mechanics_commit_once_without_rng",
+      "result": "Passed"
+    },
+    {
+      "id": "atomic-rejection-fresh-reconstruction",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/activity_decision_mechanic_a11_runtime.rs",
+      "test": "activity_decision_a11_rejections_are_atomic_and_reconstruct_fresh",
+      "result": "Passed"
+    }
+  ],
+  "summary": {
+    "terminal_obligations": 62,
+    "terminal_mechanic_programs": 62,
+    "operation_occurrences": 124,
+    "probes": 3
+  }
+}

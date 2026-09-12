@@ -2,6 +2,7 @@
 # Do not edit by hand.
 
 [[tables]]
+id = "equations"
 name = "DivergentUniverseEquations"
 mode = "map"
 key = "id"
@@ -87,6 +88,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "equation-recipes"
 name = "DivergentUniverseEquationRecipes"
 mode = "map"
 key = "id"
@@ -168,6 +170,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "equation-categories"
 name = "DivergentUniverseEquationCategories"
 mode = "map"
 key = "id"
@@ -246,6 +249,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "equation-offers"
 name = "DivergentUniverseEquationOffers"
 mode = "map"
 key = "id"
@@ -327,6 +331,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "equation-progress"
 name = "DivergentUniverseEquationProgress"
 mode = "map"
 key = "id"
@@ -408,6 +413,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "equation-expansion-states"
 name = "DivergentUniverseEquationExpansionStates"
 mode = "map"
 key = "id"
@@ -489,6 +495,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "equation-effects"
 name = "DivergentUniverseEquationEffects"
 mode = "map"
 key = "id"
@@ -570,6 +577,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "equation-replacement-rules"
 name = "DivergentUniverseEquationReplacementRules"
 mode = "map"
 key = "id"
@@ -651,6 +659,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "blessing-paths"
 name = "DivergentUniverseBlessingPaths"
 mode = "map"
 key = "id"
@@ -729,6 +738,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "blessings"
 name = "DivergentUniverseBlessings"
 mode = "map"
 key = "id"
@@ -810,6 +820,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "blessing-levels"
 name = "DivergentUniverseBlessingLevels"
 mode = "map"
 key = "id"
@@ -891,6 +902,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "blessing-groups"
 name = "DivergentUniverseBlessingGroups"
 mode = "map"
 key = "id"
@@ -969,6 +981,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "blessing-rewrite-rules"
 name = "DivergentUniverseBlessingRewriteRules"
 mode = "map"
 key = "id"
@@ -1056,6 +1069,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "blessing-equation-contributions"
 name = "DivergentUniverseBlessingEquationContributions"
 mode = "map"
 key = "id"
@@ -1141,6 +1155,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "curios"
 name = "DivergentUniverseCurios"
 mode = "map"
 key = "id"
@@ -1219,6 +1234,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "curio-states"
 name = "DivergentUniverseCurioStates"
 mode = "map"
 key = "id"
@@ -1300,6 +1316,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "curio-groups"
 name = "DivergentUniverseCurioGroups"
 mode = "map"
 key = "id"
@@ -1378,6 +1395,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "curio-lifecycle-rules"
 name = "DivergentUniverseCurioLifecycleRules"
 mode = "map"
 key = "id"
@@ -1465,6 +1483,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "grand-miracles"
 name = "DivergentUniverseGrandMiracles"
 mode = "map"
 key = "id"
@@ -1546,6 +1565,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "grand-miracle-eligibility"
 name = "DivergentUniverseGrandMiracleEligibility"
 mode = "map"
 key = "id"
@@ -1627,6 +1647,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "grand-miracle-states"
 name = "DivergentUniverseGrandMiracleStates"
 mode = "map"
 key = "id"
@@ -1711,6 +1732,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "titan-types"
 name = "DivergentUniverseTitanTypes"
 mode = "map"
 key = "id"
@@ -1789,6 +1811,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "titan-boons"
 name = "DivergentUniverseTitanBoons"
 mode = "map"
 key = "id"
@@ -1873,6 +1896,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "titan-talents"
 name = "DivergentUniverseTitanTalents"
 mode = "map"
 key = "id"
@@ -1957,6 +1981,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "titan-choices"
 name = "DivergentUniverseTitanChoices"
 mode = "map"
 key = "id"
@@ -2042,6 +2067,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "titan-contributions"
 name = "DivergentUniverseTitanContributions"
 mode = "map"
 key = "id"

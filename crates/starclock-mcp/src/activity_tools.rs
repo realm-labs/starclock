@@ -8,10 +8,12 @@ use starclock_agent_api::{
         PlayActivityActionRequest,
         registry::{
             RegistryCreateActivitySessionRequest, RegistryCreateCurrencyWarsSessionRequest,
+            RegistryCreateDivergentUniverseSessionRequest,
             RegistryCreateGoldAndGearsSessionRequest, RegistryCreateSwarmDisasterSessionRequest,
         },
     },
     currency_wars_activity_session::AgentCurrencyWarsGambit,
+    divergent_universe_activity_session::AgentDivergentUniverseRunFamily,
     error::AgentError,
     schema::{ActionToken, AgentHash, AgentUInt, EventCursor, IdempotencyKey},
     session::AgentSessionOwner,
@@ -27,6 +29,9 @@ use crate::{
 
 #[derive(Debug, Deserialize, JsonSchema)]
 pub(crate) struct CreateUniverseInput {
+    /// Optional explicit DU Tawot service admission; canonical level 2..5.
+    #[serde(default)]
+    pub tawot_forge_level: Option<String>,
     #[serde(default)]
     pub mode: Option<String>,
     #[serde(default)]
@@ -39,6 +44,8 @@ pub(crate) struct CreateUniverseInput {
     pub difficulty_id: Option<String>,
     #[serde(default)]
     pub gambit: Option<String>,
+    #[serde(default)]
+    pub family: Option<String>,
     pub seed: String,
 }
 
@@ -71,6 +78,8 @@ pub(crate) struct VerifyActivityReplayInput {
     pub world: Option<String>,
     #[serde(default)]
     pub difficulty_index: Option<String>,
+    #[serde(default)]
+    pub family: Option<String>,
     pub seed: String,
     pub replay_hex: String,
 }
@@ -119,8 +128,15 @@ impl StarclockMcp {
         input: CreateUniverseInput,
     ) -> Result<ActivityObservationOutput, AgentError> {
         let seed = uint(&input.seed, "The seed is invalid.")?;
-        let observation = match activity_mode(input.mode.as_deref())? {
+        let mode = activity_mode(input.mode.as_deref())?;
+        if input.tawot_forge_level.is_some() && !matches!(mode, ActivityMode::DivergentUniverse) {
+            return Err(invalid_request(
+                "tawot_forge_level is only valid for Divergent Universe.",
+            ));
+        }
+        let observation = match mode {
             ActivityMode::Standard => {
+                reject_divergent_family(input.family.as_deref())?;
                 validate_currency_entry(
                     input.route_id.as_deref(),
                     input.difficulty_id.as_deref(),
@@ -140,6 +156,7 @@ impl StarclockMcp {
                 )?
             }
             ActivityMode::GoldAndGears => {
+                reject_divergent_family(input.family.as_deref())?;
                 validate_gold_entry(input.world.as_deref(), input.difficulty_index.as_deref())?;
                 validate_currency_entry(
                     input.route_id.as_deref(),
@@ -153,6 +170,7 @@ impl StarclockMcp {
                 )?
             }
             ActivityMode::SwarmDisaster => {
+                reject_divergent_family(input.family.as_deref())?;
                 validate_swarm_entry(input.world.as_deref(), input.difficulty_index.as_deref())?;
                 validate_currency_entry(
                     input.route_id.as_deref(),
@@ -166,6 +184,7 @@ impl StarclockMcp {
                 )?
             }
             ActivityMode::CurrencyWars => {
+                reject_divergent_family(input.family.as_deref())?;
                 if input.world.is_some() || input.difficulty_index.is_some() {
                     return Err(invalid_request(
                         "Currency Wars does not accept Universe entry fields.",
@@ -190,6 +209,33 @@ impl StarclockMcp {
                         )?,
                         gambit: currency_wars_gambit(input.gambit.as_deref())?,
                         seed,
+                    },
+                )?
+            }
+            ActivityMode::DivergentUniverse => {
+                if input.world.is_some() || input.difficulty_index.is_some() {
+                    return Err(invalid_request(
+                        "Divergent Universe uses its family-owned fixed entry.",
+                    ));
+                }
+                validate_currency_entry(
+                    input.route_id.as_deref(),
+                    input.difficulty_id.as_deref(),
+                    input.gambit.as_deref(),
+                    false,
+                )?;
+                self.activity_registry.create_divergent_universe(
+                    owner,
+                    RegistryCreateDivergentUniverseSessionRequest {
+                        family: divergent_family(input.family.as_deref())?,
+                        seed,
+                        tawot_forge_level: input
+                            .tawot_forge_level
+                            .as_deref()
+                            .map(|value| {
+                                required_uint(Some(value), "The Tawot Forge level is invalid.")
+                            })
+                            .transpose()?,
                     },
                 )?
             }
@@ -280,7 +326,11 @@ impl StarclockMcp {
     ) -> Result<VerifyActivityReplayOutput, AgentError> {
         let seed = uint(&input.seed, "The seed is invalid.")?;
         let replay = decode_hex_bounded(&input.replay_hex, MAX_REPLAY_IMPORT_BYTES)?;
-        let verification = match activity_mode(input.mode.as_deref())? {
+        let mode = activity_mode(input.mode.as_deref())?;
+        if mode != ActivityMode::DivergentUniverse {
+            reject_divergent_family(input.family.as_deref())?;
+        }
+        let verification = match mode {
             ActivityMode::Standard => self.activity_factory.verify_replay(
                 &required_uint(input.world.as_deref(), "The world is invalid.")?,
                 &required_uint(
@@ -291,11 +341,13 @@ impl StarclockMcp {
                 &replay,
             )?,
             ActivityMode::GoldAndGears => {
+                reject_divergent_family(input.family.as_deref())?;
                 validate_gold_entry(input.world.as_deref(), input.difficulty_index.as_deref())?;
                 self.activity_registry
                     .verify_gold_and_gears_replay(&seed, &replay)?
             }
             ActivityMode::SwarmDisaster => {
+                reject_divergent_family(input.family.as_deref())?;
                 validate_swarm_entry(input.world.as_deref(), input.difficulty_index.as_deref())?;
                 self.activity_registry
                     .verify_swarm_disaster_replay(&seed, &replay)?
@@ -304,6 +356,16 @@ impl StarclockMcp {
                 return Err(invalid_request(
                     "Currency Wars Agent replay verification is not yet available.",
                 ));
+            }
+            ActivityMode::DivergentUniverse => {
+                if input.world.is_some() || input.difficulty_index.is_some() {
+                    return Err(invalid_request(
+                        "Divergent Universe uses its family-owned fixed entry.",
+                    ));
+                }
+                let family = divergent_family(input.family.as_deref())?;
+                self.activity_registry
+                    .verify_divergent_universe_replay(&seed, family, &replay)?
             }
         };
         Ok(VerifyActivityReplayOutput {
@@ -329,6 +391,7 @@ enum ActivityMode {
     GoldAndGears,
     SwarmDisaster,
     CurrencyWars,
+    DivergentUniverse,
 }
 
 fn activity_mode(value: Option<&str>) -> Result<ActivityMode, AgentError> {
@@ -337,7 +400,28 @@ fn activity_mode(value: Option<&str>) -> Result<ActivityMode, AgentError> {
         Some("gold-and-gears") => Ok(ActivityMode::GoldAndGears),
         Some("swarm-disaster") => Ok(ActivityMode::SwarmDisaster),
         Some("currency-wars") => Ok(ActivityMode::CurrencyWars),
+        Some("divergent-universe") => Ok(ActivityMode::DivergentUniverse),
         Some(_) => Err(invalid_request("The Universe mode is invalid.")),
+    }
+}
+
+fn divergent_family(value: Option<&str>) -> Result<AgentDivergentUniverseRunFamily, AgentError> {
+    match value {
+        Some("ordinary") => Ok(AgentDivergentUniverseRunFamily::Ordinary),
+        Some("cyclical") => Ok(AgentDivergentUniverseRunFamily::Cyclical),
+        _ => Err(invalid_request(
+            "The Divergent Universe family must be ordinary or cyclical.",
+        )),
+    }
+}
+
+fn reject_divergent_family(value: Option<&str>) -> Result<(), AgentError> {
+    if value.is_some() {
+        Err(invalid_request(
+            "The family field requires mode divergent-universe.",
+        ))
+    } else {
+        Ok(())
     }
 }
 

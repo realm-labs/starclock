@@ -1,0 +1,185 @@
+{
+  "schema_revision": "starclock.divergent-universe-entry-flow-execution.v1",
+  "goal_id": "divergent-universe-runtime-v1",
+  "batch": "G22-P3-B1",
+  "status": "CompleteEntryFlowNoBattleCredit",
+  "input_digests": {
+    "profiles": {
+      "path": "content-reference/divergent-universe-v1/profiles.json",
+      "sha256": "843b5469df3635ab2eaca696b4de8ff3690e47c300e8706dd28822cb581f02bf"
+    },
+    "entries": {
+      "path": "content-reference/divergent-universe-v1/entries.json",
+      "sha256": "253cd25085228874192da7a443b17bc411a5f8137f5e4bca6eecb5ec39f1c9d2"
+    },
+    "modules": {
+      "path": "content-reference/divergent-universe-v1/modules.json",
+      "sha256": "2a61670b265c8f2f71d6f9b489b5cd86ccd0d43ff051409db1f087ff6f4c88c5"
+    },
+    "finish_conditions": {
+      "path": "content-reference/divergent-universe-v1/finish-conditions.json",
+      "sha256": "16c6047101c8a2ec48f1bcac23e383a021f667eab0f703c7c31979818495d603"
+    },
+    "areas": {
+      "path": "content-reference/divergent-universe-v1/areas.json",
+      "sha256": "1e54fcc6928567a5689475469cab6ecb8320d3152eeca1fc16431692e3e4b2ee"
+    },
+    "difficulties": {
+      "path": "content-reference/divergent-universe-v1/difficulties.json",
+      "sha256": "a42c4aedd49b07e919214e31681ac87e4051d5c565a0e60a0a2b78e89dbcd7e2"
+    },
+    "layers": {
+      "path": "content-reference/divergent-universe-v1/layers.json",
+      "sha256": "74fda5d9667c29705efce20b5a8a4ac82220ade6bed28b84ef617c0221a63297"
+    },
+    "layer_rooms": {
+      "path": "content-reference/divergent-universe-v1/layer-rooms.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    "rooms": {
+      "path": "content-reference/divergent-universe-v1/rooms.json",
+      "sha256": "0088fc5656df84a340c5f6d55d37ee0c2b9ea022b3646b7cade264cad24ba8d1"
+    },
+    "stage_flow": {
+      "path": "content-reference/divergent-universe-v1/stage-flow.json",
+      "sha256": "a929e1210a336ab0f05ea307607916084af96c4be6c93a253c6a060c3315d5c5"
+    },
+    "cyclical_challenges": {
+      "path": "content-reference/divergent-universe-v1/cyclical-challenges.json",
+      "sha256": "7fd664fb0d82b17aaf06e486954b37ebf217134c0c18f3fd74f4c93c2897a9f5"
+    },
+    "runtime_dispositions": {
+      "path": "content-manifests/divergent-universe-runtime-v1/runtime-dispositions.json",
+      "sha256": "1319cb15f7a2e1b9c283549300cf29bb4f2b65d41c759a0c29240570c7fbd2bc"
+    },
+    "batch_ledger": {
+      "path": "content-manifests/divergent-universe-runtime-v1/batch-ledger.json",
+      "sha256": "77e109344b674b1a301708d247e2dcedeace5bc941f789d2ab3529dc5224f467"
+    },
+    "runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/entry_flow.rs",
+      "sha256": "efadb26272a068aebbad344771126f0870e613475d6314917690d069c7ca8209"
+    },
+    "state_runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/state.rs",
+      "sha256": "946d9d891d871569c556bfb87a63cf790b752dc1a1f7b762ad0e11e0cd2bbd36"
+    },
+    "tests": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/tests/flow_progression_economy.rs",
+      "sha256": "b340d658289b15b426095c65a7344e5fcb49e230b435c2980f451dea087c450d"
+    }
+  },
+  "execution_boundary": {
+    "runtime_owner": "starclock-mode-universe",
+    "state_machine_owner": "starclock-activity::GraphActivity",
+    "mutation_path": "Accepted choose_option commands execute typed Activity operations; rejected stale commands preserve canonical state bytes.",
+    "entry_identity": "The exact production Sora component digest, area, difficulty and immutable ParticipantLock digest bind Activity definition/config identity.",
+    "rng": "No draw is consumed because each released layer currently has one deterministic logical checkpoint route.",
+    "credit": "Ordinary/Cyclical entry, ordered layer flow, terminal transition and explicit carry/reset only; no battle, reward, playable-run or release-gate credit."
+  },
+  "catalog_closure": {
+    "profiles": 1,
+    "modules": 1,
+    "entries": 2,
+    "finish_conditions": 13,
+    "areas": 28,
+    "ordinary_areas": 15,
+    "cyclical_areas": 13,
+    "difficulties": 22,
+    "layers": 11,
+    "stage_flow_records": 111,
+    "cyclical_challenges": 13
+  },
+  "room_selection_policy": {
+    "state": "VersionedProjectPolicyExecutable",
+    "selected_behavior": "LogicalLayerCheckpointNoCandidatePromotion",
+    "layer_room_rows": 0,
+    "layers_without_released_room_positions": 11,
+    "retained_shared_candidates": 848,
+    "promoted_candidates": 0,
+    "concrete_offered_rooms": 0,
+    "replacement_condition": "Replace logical checkpoints only when released stage/config selection evidence promotes exact rooms and binds their ordering, weights and fallback."
+  },
+  "finish_and_carry": {
+    "run_terminal": "All authored layers followed by the typed finalization node produce ActivityTerminalOutcome::Completed.",
+    "source_condition_count": 13,
+    "source_condition_boundary": "The compiled run exposes the profile's exact immutable source-condition identities for post-settlement account consumers; Activity does not mutate account progress.",
+    "initial_currency_state": "Empty bounded counter map.",
+    "run_state": "CarryExact until finalization, then clear.",
+    "plane_state": "Reset at section boundaries.",
+    "room_state": "Replace at node boundaries and remain None under the current room policy.",
+    "permanent_unlocks": "Canonical sorted unique input carried exactly through terminal settlement."
+  },
+  "terminal_assignments": {
+    "obligations": 916,
+    "exact_obligations": 56,
+    "policy_obligations": 860,
+    "fixture_families": [
+      "divergent-universe.semantic-family.area-difficulty-layer-transition",
+      "divergent-universe.semantic-family.finish-and-cross-battle-reset",
+      "divergent-universe.semantic-family.ordinary-and-cyclical-entry",
+      "divergent-universe.semantic-family.profile-and-module-selection"
+    ],
+    "research_gaps": [
+      "divergent-universe.research-gap.area-difficulty-layer-transition",
+      "divergent-universe.research-gap.finish-and-cross-battle-reset",
+      "divergent-universe.research-gap.ordinary-and-cyclical-entry",
+      "divergent-universe.research-gap.profile-and-module-selection"
+    ],
+    "policy_sources": [
+      "source.goal11.project-policy.profile",
+      "source.goal11.project-policy.room-reuse-candidates",
+      "source.goal11.project-policy.semantic-fixture-area-difficulty-layer-transition",
+      "source.goal11.project-policy.semantic-fixture-finish-and-cross-battle-reset",
+      "source.goal11.project-policy.semantic-fixture-ordinary-and-cyclical-entry",
+      "source.goal11.project-policy.semantic-fixture-profile-and-module-selection",
+      "source.goal11.project-policy.stage-flow",
+      "source.goal11.project-policy.weekly-current-selector"
+    ]
+  },
+  "capability_probes": [
+    {
+      "id": "ordinary-entry-flow-carry-reset",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/flow_progression_economy.rs",
+      "test": "ordinary_flow_uses_exact_layers_preserves_carry_and_rejects_stale_route",
+      "required_fragments": [
+        "compiled.finish_conditions().len(), 13",
+        "ActivityValue::BoundedCounterMap(Box::new([]))",
+        "assert_eq!(activity.canonical_state_bytes(), before)"
+      ],
+      "result": "Passed"
+    },
+    {
+      "id": "cyclical-entry-and-current-binding",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/flow_progression_economy.rs",
+      "test": "cyclical_flow_binds_exact_weekly_identity_without_promoting_room_candidates",
+      "required_fragments": [
+        "divergent-universe.cyclical-area.20401",
+        "assert!(compiled.weekly_modifier_ids().is_empty())"
+      ],
+      "result": "Passed"
+    },
+    {
+      "id": "entry-rejection-boundary",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/flow_progression_economy.rs",
+      "test": "mismatched_difficulty_and_historical_module_fail_before_activity_exists",
+      "required_fragments": [
+        "DifficultyAreaMismatch",
+        "HistoricalModuleRejected"
+      ],
+      "result": "Passed"
+    }
+  ],
+  "summary": {
+    "areas": 28,
+    "ordinary_areas": 15,
+    "cyclical_areas": 13,
+    "layers": 11,
+    "concrete_offered_rooms": 0,
+    "obligations_terminal": 916,
+    "production_fixtures_passed": 4,
+    "executable_research_gaps": 4,
+    "executable_policy_sources": 8,
+    "probes": 3
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "table": {
+    "name": "DuEncounterPools",
+    "rows": [
+      {
+        "values": {
+          "candidate_stages": {
+            "List": [
+              {
+                "String": "83002081"
+              },
+              {
+                "String": "83002111"
+              },
+              {
+                "String": "83002161"
+              },
+              {
+                "String": "83002181"
+              },
+              {
+                "String": "83002191"
+              }
+            ]
+          },
+          "encounter_group": {
+            "String": "divergent-universe.encounter-group.300202"
+          },
+          "first_stage": {
+            "String": "83002081"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "policy": {
+            "String": "FixedFirstUniformLaterLayersWithReplacement"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: the current stage pool supplies explicit proxies for Combat, Elite and Aberration choices, not original domain-specific encounters. Fix the first stage; draw later stages uniformly in stable order with replacement on shared Encounter RNG. Domain selection is authenticated separately and never inferred from source elite flags. Original enemy programs, room membership and weekly boss selection remain pending."
+          },
+          "replacement_condition": {
+            "String": "Replace later-domain membership, per-layer choices/order, room multiplicity, occurrence scheduling, encounter assignment and base reward policy independently when released current-profile selectors or reproducible observations establish them. Alternatives include random fixed domains, weighted room doors and multi-room planes. Hidden layout and distribution confidence is low; current behavior is an explicit selectable proxy policy, not original room parity."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 19
+              },
+              {
+                "Integer": 20
+              },
+              {
+                "Integer": 24
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.encounter-pool.baseline"
+          },
+          "summary_en": {
+            "String": "Use the first proxy encounter, then draw one candidate per later domain selected by the player."
+          },
+          "summary_zh_cn": {
+            "String": "首层使用固定代理遭遇，后续按玩家选择的区域独立抽取一个候选遭遇。"
+          }
+        }
+      }
+    ]
+  }
+}

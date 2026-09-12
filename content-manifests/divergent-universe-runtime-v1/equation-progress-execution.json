@@ -1,0 +1,137 @@
+{
+  "schema_revision": "starclock.divergent-universe-equation-progress-execution.v1",
+  "goal_id": "divergent-universe-runtime-v1",
+  "batch": "G22-P4-B2",
+  "status": "CompleteExactEquationRecipeProgressExpansionExecution",
+  "input_digests": {
+    "equations": {
+      "path": "content-reference/divergent-universe-v1/equations.json",
+      "sha256": "a1a9a3b4117c09c6bb136880e801a1ea6fdc27259a1091e8689320d62f6f673c"
+    },
+    "recipes": {
+      "path": "content-reference/divergent-universe-v1/equation-recipes.json",
+      "sha256": "af5a987d64c3128a831a2ff1022ccabb6d75e856e2b175a8f6f1ebe70e619854"
+    },
+    "progress": {
+      "path": "content-reference/divergent-universe-v1/equation-progress.json",
+      "sha256": "55c49f51af94dcc7d09b1f29529127ba28fcfbdbcd919dfde2e1385e08b9df2a"
+    },
+    "expansion_states": {
+      "path": "content-reference/divergent-universe-v1/equation-expansion-states.json",
+      "sha256": "92043917a3a42ae87a97f3b7dd8f2da8e5cc737553f3a886319dcd71535a9708"
+    },
+    "contributions": {
+      "path": "content-reference/divergent-universe-v1/blessing-equation-contributions.json",
+      "sha256": "cc0e9811a4f910edd892e118012c757ad933eb22c739c0a78632a50b73f13d71"
+    },
+    "equation_offer_execution": {
+      "path": "content-manifests/divergent-universe-runtime-v1/equation-offer-execution.json",
+      "sha256": "d52991dd41ed75507fed60eccd9b02cbdfe0b3df3a34083832ee17b63d2adb11"
+    },
+    "runtime_dispositions": {
+      "path": "content-manifests/divergent-universe-runtime-v1/runtime-dispositions.json",
+      "sha256": "1319cb15f7a2e1b9c283549300cf29bb4f2b65d41c759a0c29240570c7fbd2bc"
+    },
+    "batch_ledger": {
+      "path": "content-manifests/divergent-universe-runtime-v1/batch-ledger.json",
+      "sha256": "77e109344b674b1a301708d247e2dcedeace5bc941f789d2ab3529dc5224f467"
+    },
+    "runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/equation_progress.rs",
+      "sha256": "4cd51c13e6215a4cfdd011cb10ddf74ab198ca68d3d978be8bf4cf2e7a30230d"
+    },
+    "offer_runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/equation_offer.rs",
+      "sha256": "980da5c77baf6808512d8ef51a49747532dd16b4060788631da26b41963bfe8e"
+    },
+    "state": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/state.rs",
+      "sha256": "946d9d891d871569c556bfb87a63cf790b752dc1a1f7b762ad0e11e0cd2bbd36"
+    },
+    "tests": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/tests/equation_progress.rs",
+      "sha256": "0e4894a461e1be2800916cd45f698da1535c8ac032fd63719de788311a9226fb"
+    }
+  },
+  "exact_runtime_boundary": {
+    "equations": 80,
+    "recipes": 80,
+    "progress_definitions": 80,
+    "expansion_states": 160,
+    "blessing_identity_contributions": 414,
+    "progress_projection": "Two canonical derived counters per owned Equation",
+    "expansion_condition": "MainAndSubRecipeCountsSatisfied",
+    "contraction_condition": "OwnedBlessingSetNoLongerSatisfiesRecipe",
+    "refresh_trigger": "OwnedBlessingIdentitySetChangedOrEquationOwnershipChanged",
+    "enhanced_identity_rule": "BaseAndEnhancedCountEqually",
+    "replacement_order": "RemoveInputIdentityThenAddAcceptedOutputIdentity",
+    "rng_draws": 0
+  },
+  "policy_boundary": {
+    "offer_accuracy": "VersionedProjectPolicyNotObservedParity",
+    "exact_recipe_and_contribution_accuracy": "ExactReleasedStructuredEvidence",
+    "semantic_fixture_accuracy": "VersionedProjectPolicyNotObservedParity",
+    "source_offer_rows_promoted_to_exact": 0,
+    "replacement_condition": "Replace policy-bound offer or fixture assertions only when released configuration or reproducible public observation supplies them."
+  },
+  "execution_receipt": {
+    "all_80_recipes_compiled_and_executed": "Passed",
+    "all_160_expansion_states_reachable_by_exact_threshold_rule": "Passed",
+    "all_414_identity_contributions_compiled": "Passed",
+    "offer_acquisition_refreshes_atomically": "Passed",
+    "replacement_and_discard_refresh_atomically": "Passed",
+    "threshold_expansion_and_contraction": "Passed",
+    "enhanced_identity_does_not_double_count": "Passed",
+    "same_path_identity_replacement_refreshes": "Passed",
+    "stale_unknown_and_unchanged_rejection_atomicity": "Passed",
+    "fresh_reconstruction_equality": "Passed",
+    "equation_progress_rng_isolation": "Passed"
+  },
+  "assignment_closure": {
+    "obligations": 80,
+    "fixture_families": 1,
+    "research_gaps": 1,
+    "policy_sources": 2
+  },
+  "coverage_credit": {
+    "source_obligations": 80,
+    "mechanic_programs": 0,
+    "semantic_fixture_families": 1,
+    "research_gaps": 1,
+    "policy_sources": 2,
+    "whole_families": [
+      "EquationOfferRecipeProgressExpansion"
+    ],
+    "deferred": "Equation keyword/effect, transition and Blessing ownership closure is proven by G22-P4-B3/B4; simultaneous battle interactions remain assigned to G22-P4-B5."
+  },
+  "capability_probes": [
+    {
+      "id": "all-80-recipes-zero-progress",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/equation_progress.rs",
+      "test": "every_released_equation_recipe_executes_exact_zero_progress",
+      "result": "Passed"
+    },
+    {
+      "id": "offer-recipe-threshold-expand-contract",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/equation_progress.rs",
+      "test": "semantic_equation_offer_recipe_progress_and_expansion_fixture_executes",
+      "result": "Passed"
+    },
+    {
+      "id": "rejection-and-fresh-reconstruction",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/equation_progress.rs",
+      "test": "equation_progress_rejections_and_fresh_reconstruction_are_atomic",
+      "result": "Passed"
+    }
+  ],
+  "summary": {
+    "exact_equations_terminal": 80,
+    "exact_recipes_executed": 80,
+    "exact_expansion_states": 160,
+    "exact_blessing_identity_contributions": 414,
+    "assigned_fixture_families": 1,
+    "assigned_research_gaps": 1,
+    "assigned_policy_sources": 2,
+    "probes": 3
+  }
+}

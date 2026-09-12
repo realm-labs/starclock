@@ -308,3 +308,80 @@ async fn currency_wars_activity_authority_cancellation_and_event_cursor_are_exac
     .await;
     assert_eq!(closed["result"]["structuredContent"]["closed"], true);
 }
+
+#[tokio::test]
+async fn divergent_universe_activity_authority_hides_cross_owner_session_state() {
+    let app = authorized_loopback_router(&config(), authority_policy()).unwrap();
+    let initialized = app
+        .clone()
+        .oneshot(with_bearer(
+            request(Method::POST, initialize_body()),
+            "divergent-tenant:divergent-player",
+        ))
+        .await
+        .unwrap();
+    assert_eq!(initialized.status(), StatusCode::OK);
+    let transport_session = initialized.headers()["mcp-session-id"].clone();
+    let create = json!({
+        "jsonrpc":"2.0", "id":30, "method":"tools/call",
+        "params":{"name":"starclock_create_universe","arguments":{
+            "mode":"divergent-universe", "family":"cyclical", "seed":"22401"
+        }}
+    });
+    let created = response_json(
+        app.clone()
+            .oneshot(session_request(
+                create,
+                &transport_session,
+                "divergent-tenant:divergent-player",
+            ))
+            .await
+            .unwrap(),
+    )
+    .await;
+    let session = created["result"]["structuredContent"]["observation"]["session_id"]
+        .as_str()
+        .unwrap()
+        .to_owned();
+    let observe = json!({
+        "jsonrpc":"2.0", "id":31, "method":"tools/call",
+        "params":{"name":"starclock_observe_activity","arguments":{
+            "session_id":session
+        }}
+    });
+    let denied = response_json(
+        app.clone()
+            .oneshot(session_request(
+                observe,
+                &transport_session,
+                "other-tenant:other-player",
+            ))
+            .await
+            .unwrap(),
+    )
+    .await
+    .to_string();
+    assert!(denied.contains("session_not_owned"));
+    assert!(!denied.contains(&session));
+
+    let close = json!({
+        "jsonrpc":"2.0", "id":32, "method":"tools/call",
+        "params":{"name":"starclock_close_activity","arguments":{
+            "session_id":session
+        }}
+    });
+    let closed = response_json(
+        app.oneshot(session_request(
+            close,
+            &transport_session,
+            "divergent-tenant:divergent-player",
+        ))
+        .await
+        .unwrap(),
+    )
+    .await;
+    assert_eq!(
+        closed["result"]["structuredContent"]["closed"],
+        true
+    );
+}

@@ -9,9 +9,12 @@ use starclock_activity::{
     ParticipantUniquenessScope,
 };
 use starclock_combat::{
-    CombatantSpecDigest, Energy, Hp, ResolvedCombatantSpec, ResolvedDefinitionBindings, Speed,
-    StatValue, TeamSide, UnitDefinitionId, UnitLevel, catalog::action::AbilityKind,
+    Battle, BattleSeed, CombatantSpecDigest, Command, Energy, Hp, ResolvedCombatantSpec,
+    ResolvedDefinitionBindings, Scalar, Speed, StatValue, TeamSide, UnitDefinitionId, UnitLevel,
+    catalog::action::AbilityKind,
     formula::model::CombatElement,
+    modifier::model::{FormulaStage, StatKind},
+    rule::model::{RuleValue, ValueExpr},
 };
 use starclock_mode_universe::{
     ability_runtime::{
@@ -698,6 +701,46 @@ fn production_executor_runs_real_nested_battles_and_settles_activity_carry() {
     let materialized = UniverseBattleMaterializer
         .compile(&catalog, &roster, &contributions)
         .unwrap();
+    // This production contribution already contains a 4% SPD passive. The
+    // current goldens bind its actual action-order effect, not just its ID.
+    let spec = materialized.difficulty_specs()[0].battle_spec();
+    for player in spec
+        .participants()
+        .iter()
+        .filter(|entry| entry.side() == TeamSide::Player)
+    {
+        let speed_modifiers = player
+            .combatant()
+            .modifiers()
+            .iter()
+            .filter_map(|id| materialized.combat_catalog().modifier(*id))
+            .filter(|modifier| modifier.stat == StatKind::Spd)
+            .collect::<Vec<_>>();
+        assert_eq!(speed_modifiers.len(), 1);
+        assert_eq!(speed_modifiers[0].stage, FormulaStage::PercentOfBase);
+        assert_eq!(
+            speed_modifiers[0].value,
+            ValueExpr::Literal(RuleValue::Scalar(Scalar::from_scaled(40_000)))
+        );
+        assert_eq!(player.combatant().speed().scaled(), 200_000_000);
+    }
+    let mut probe = Battle::create(
+        Arc::clone(materialized.combat_catalog()),
+        spec.clone(),
+        BattleSeed::new([17; 32]),
+    )
+    .unwrap();
+    let started = probe
+        .apply(Command::StartBattle {
+            decision: probe.decision().unwrap().id(),
+        })
+        .unwrap();
+    assert!(started.fault().is_none());
+    assert_eq!(
+        started.timeline_elapsed_scaled(),
+        48_076_923,
+        "10,000 gauge / 208 SPD, floor to action-value millionths"
+    );
     let world = &catalog.worlds()[0];
     let compiled = StandardUniverseProfile::new(Arc::clone(&catalog))
         .compile(
@@ -774,15 +817,15 @@ fn production_executor_runs_real_nested_battles_and_settles_activity_carry() {
     assert_eq!(
         report.final_state_hash().bytes(),
         [
-            72, 199, 62, 179, 106, 125, 41, 192, 240, 14, 70, 116, 78, 26, 110, 194, 108, 188, 68,
-            142, 106, 95, 57, 142, 231, 65, 95, 197, 188, 2, 14, 1,
+            35, 216, 56, 131, 141, 57, 158, 189, 246, 140, 125, 185, 28, 71, 76, 27, 70, 108, 206,
+            189, 252, 164, 223, 8, 216, 85, 154, 27, 62, 10, 213, 76,
         ]
     );
     assert_eq!(
         executor.reports()[0].event_digest().bytes(),
         [
-            100, 206, 47, 216, 250, 181, 61, 216, 14, 76, 60, 254, 232, 255, 115, 251, 162, 238,
-            48, 179, 45, 173, 145, 170, 148, 117, 203, 22, 60, 156, 247, 237,
+            231, 69, 217, 234, 56, 190, 207, 237, 188, 118, 165, 46, 138, 68, 145, 203, 116, 171,
+            33, 79, 18, 254, 8, 41, 218, 82, 188, 75, 177, 91, 38, 103,
         ]
     );
     assert!(executor.reports().iter().all(|battle| {

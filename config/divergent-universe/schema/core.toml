@@ -3,17 +3,18 @@
 
 [[enums]]
 name = "DuOwnership"
-values = ["DivergentUniverse", "Shared", "OtherMode", "Excluded"]
+values = [{ id = 0, name = "DivergentUniverse" }, { id = 1, name = "Shared" }, { id = 2, name = "OtherMode" }, { id = 3, name = "Excluded" }, { id = 4, name = "SharedCandidate" }]
 
 [[enums]]
 name = "DuCoverageState"
-values = ["Cataloged", "Researched", "DataReady", "Blocked", "Excluded"]
+values = [{ id = 0, name = "Cataloged" }, { id = 1, name = "Researched" }, { id = 2, name = "DataReady" }, { id = 3, name = "Blocked" }, { id = 4, name = "Excluded" }]
 
 [[enums]]
 name = "DuEvidenceQuality"
-values = ["ExactStructured", "ExactPublicText", "ExactOfficialText", "Observed", "ApproximateFromReleasedText", "ProjectPolicy"]
+values = [{ id = 0, name = "ExactStructured" }, { id = 1, name = "ExactPublicText" }, { id = 2, name = "ExactOfficialText" }, { id = 3, name = "Observed" }, { id = 4, name = "ApproximateFromReleasedText" }, { id = 5, name = "ProjectPolicy" }]
 
 [[tables]]
+id = "profiles"
 name = "DivergentUniverseProfiles"
 mode = "map"
 key = "id"
@@ -97,6 +98,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "modules"
 name = "DivergentUniverseModules"
 mode = "map"
 key = "id"
@@ -178,6 +180,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "entries"
 name = "DivergentUniverseEntries"
 mode = "map"
 key = "id"
@@ -256,6 +259,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "finish-conditions"
 name = "DivergentUniverseFinishConditions"
 mode = "map"
 key = "id"
@@ -334,6 +338,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "areas"
 name = "DivergentUniverseAreas"
 mode = "map"
 key = "id"
@@ -417,6 +422,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "difficulties"
 name = "DivergentUniverseDifficulties"
 mode = "map"
 key = "id"
@@ -495,6 +501,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "layers"
 name = "DivergentUniverseLayers"
 mode = "map"
 key = "id"
@@ -570,6 +577,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "layer-rooms"
 name = "DivergentUniverseLayerRooms"
 mode = "map"
 key = "id"
@@ -648,6 +656,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "rooms"
 name = "DivergentUniverseRooms"
 mode = "map"
 key = "id"
@@ -726,6 +735,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "stage-flow"
 name = "DivergentUniverseStageFlow"
 mode = "map"
 key = "id"
@@ -807,6 +817,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "cyclical-challenges"
 name = "DivergentUniverseCyclicalChallenges"
 mode = "map"
 key = "id"
@@ -888,6 +899,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "protocols"
 name = "DivergentUniverseProtocols"
 mode = "map"
 key = "id"
@@ -969,6 +981,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "astronomical-divisions"
 name = "DivergentUniverseAstronomicalDivisions"
 mode = "map"
 key = "id"
@@ -1047,6 +1060,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "star-pioneer-practice"
 name = "DivergentUniverseStarPioneerPractice"
 mode = "map"
 key = "id"
@@ -1128,6 +1142,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "cognoculi"
 name = "DivergentUniverseCognoculi"
 mode = "map"
 key = "id"
@@ -1206,6 +1221,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "arithmetic-mapping-eligibility"
 name = "DivergentUniverseArithmeticMappingEligibility"
 mode = "map"
 key = "id"
@@ -1284,6 +1300,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "arithmetic-mapping-builds"
 name = "DivergentUniverseArithmeticMappingBuilds"
 mode = "map"
 key = "id"
@@ -1371,6 +1388,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
+id = "arithmetic-mapping-rules"
 name = "DivergentUniverseArithmeticMappingRules"
 mode = "map"
 key = "id"

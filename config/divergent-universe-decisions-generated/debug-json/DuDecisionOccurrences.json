@@ -1,0 +1,36 @@
+{
+  "table": {
+    "name": "DuDecisionOccurrences",
+    "rows": [
+      {
+        "values": {
+          "id": {
+            "Integer": 1
+          },
+          "policy_id": {
+            "Integer": 1
+          },
+          "reference_occurrence": {
+            "String": "divergent-universe.occurrence.108"
+          },
+          "reference_variant": {
+            "String": "divergent-universe.occurrence-variant.722601"
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 1
+              },
+              {
+                "Integer": 2
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.occurrence.a-dash-of-color"
+          }
+        }
+      }
+    ]
+  }
+}

@@ -142,6 +142,30 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 121. [Goal 21 Currency Wars runtime plan](goals/21-currency-wars-runtime.md) — exact-once completion plan for production lowering, complete mechanics, real battles, adapters, replay, hardening and release.
 122. [Currency Wars coverage and release contract](currency-wars-coverage-and-release.md) — generated legal matrix, first vertical slice, executable fixture axes, replay identity, performance workloads and native CI target.
 123. [Goal 22 Divergent Universe runtime plan](goals/22-divergent-universe-runtime.md) — production promotion, exact-once mechanic lowering, Ordinary/Cyclical complete runs, replay, adapters, hardening and release.
+124. [Divergent Universe room lifecycle](divergent-universe-room-lifecycle.md) — node-scoped completion gates, transactional exits, explicit synchronization policy and remaining content bindings.
+125. [Divergent Universe occurrence rewards](divergent-universe-occurrence-rewards.md) — atomic reward inventory updates, Equation refresh and the unresolved current-event option binding.
+126. [Divergent Universe Curio acquisition](divergent-universe-curio-acquisition.md) — reviewed immediate grants, exact state/effect joins and explicit ordering/rounding policy.
+127. [Divergent Universe fragment gains](divergent-universe-fragment-gains.md) — shared atomic credit pipeline, active Curio bonuses and explicit stacking/rounding policy.
+    [Curio domain expiry](divergent-universe-curio-domain-expiry.md) defines exact allowances, intrinsic entry grants, policy timing and atomic discard at future domain selection.
+    [Tawot victory Blessing](divergent-universe-tawot-victory.md) binds state 9072 to actual victory inventory and an independent domain allowance.
+128. [Divergent Universe battle Blessings](divergent-universe-battle-blessings.md) — normal-battle reward selection, suppression, transactional acquisition and fresh replay policy.
+129. [Divergent Universe Equation grants](divergent-universe-equation-grants.md) — Trailblaze Wax missing-recipe grants, logical-Domain once accounting and the pure expansion-transition boundary.
+    [Equation-expansion rewards](divergent-universe-equation-expansion.md) covers the 9074 bounded queue, atomic discard and paid public trigger replay in both authored baseline families.
+    [Current Persona domain positions](divergent-universe-domain-layout.md) records the exact current layer/preset joins and the still-unimplemented card-route boundary.
+    [Domain-deck programs](divergent-universe-domain-deck.md) defines the base draw/discard compiler and its remaining production integration boundary.
+130. [Divergent Universe initial Equations](divergent-universe-initial-equations.md) — public starting choice, authored pool policy and atomic acquisition.
+131. [Divergent Universe layer battles](divergent-universe-layer-battles.md) — provisional multi-battle routing, carried resources and repeated reward boundaries.
+132. [Divergent Universe Curio victory grants](divergent-universe-curio-battle-grants.md) — full-HP fragment rewards, lifecycle gates and atomic settlement ordering.
+133. [Divergent Universe Curio evolution](divergent-universe-curio-evolutions.md) — source-separated ownership aliases, accepted transitions and remaining event producers.
+134. [Divergent Universe Divine Treasures events](divergent-universe-evolution-events.md) — twelve public choices, bounded multi-treasure sequencing, costs/probability, sacrifice and selection replay.
+135. [Divergent Universe Sage's Leaf Robe acquisition](divergent-universe-sage-acquisition.md) — rarity rewards, overlapping-pool allocation and accepted upgrades.
+136. [Divergent Universe Sage's Leaf Robe victory rewards](divergent-universe-sage-victory.md) — domain-gated immediate rewards, public domain selection replay and original-placement gaps.
+137. [Divergent Universe base battle fragments](divergent-universe-battle-fragments.md) — explicit domain credit policy, global bonuses and atomic staged settlement.
+138. [Divergent Universe Curio battle stats](divergent-universe-curio-battle-stats.md) — real action-order speed contributions, verified-result lifetime and public-producer boundaries.
+139. [Divergent Universe Curio battle reactions](divergent-universe-curio-battle-reactions.md) — source-attributed attacked-target healing, shared Rule IR timing and controlled-producer boundaries.
+140. [Divergent Universe Tawot service](divergent-universe-tawot-service.md) — explicitly admitted paid selection, cached offers, CLI/Agent/MCP configuration, encoded replay and unfinished original Forge boundaries.
+
+141. [Final damage boundary](final-damage-boundary.md) — source-owned terminal damage factors, original-applier Break queries and pending content admission.
 
 ## Delivery boundary
 

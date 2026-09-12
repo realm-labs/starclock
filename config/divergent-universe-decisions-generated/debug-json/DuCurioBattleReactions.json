@@ -1,0 +1,63 @@
+{
+  "table": {
+    "name": "DuCurioBattleReactions",
+    "rows": [
+      {
+        "values": {
+          "battle_limit": {
+            "Integer": 5
+          },
+          "effect_id": {
+            "String": "2069"
+          },
+          "heal_fraction": {
+            "String": "0.2"
+          },
+          "heal_parameter": {
+            "Integer": 1
+          },
+          "id": {
+            "Integer": 1
+          },
+          "limit_parameter": {
+            "Integer": 2
+          },
+          "policy": {
+            "String": "FirstSurvivingOrdinaryAttackPerTargetAction"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: active positive-allowance holding installs one Mode-source Rule IR observer anchored to the lowest-formation player; anchor defeat does not disable the run-owned effect. At the shared AfterEvent drain, the first surviving ordinary Ability damage event from the opposing side for each target within an action heals that active allied target, including linked units. Shield-only hits count. DoT, Break, additional, true, HP-cost and friendly damage do not. Restore floor(current Max HP * 0.2) through fixed healing without outgoing/incoming healing modifiers; never revive or heal on battle entry. No RNG. End-of-battle allowance uses the same verified Won/Lost active-only settlement as battle stats; Faulted/rejected/duplicate results do not count. Destroy/repair pauses/resumes; replacement/reacquisition refills; domain entry never counts."
+          },
+          "replacement_condition": {
+            "String": "Replace first-surviving-hit timing, eligible attack classes, shield handling, fixed-heal modifiers, stable player anchor and terminal-result counting independently with released execution evidence or reproducible observations. Alternatives include last-hit/after-action healing, only positive HP damage and formula-modified healing. These choices have low parity confidence. Bounded public cross-check https://honkai-star-rail.fandom.com/wiki/Tawot_Cards accessed 2026-09-12 confirms current operands but does not resolve timing; older entry-heal/domain-expiry variants are excluded. Original state producer remains separately pending."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 46
+              },
+              {
+                "Integer": 47
+              },
+              {
+                "Integer": 48
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.curio-battle-reaction.9069"
+          },
+          "state_key": {
+            "String": "divergent-universe.curio-state.9069"
+          },
+          "summary_en": {
+            "String": "After an ally is attacked, restore 20% of their Max HP; discard after five battles."
+          },
+          "summary_zh_cn": {
+            "String": "我方目标受到攻击后回复自身生命上限的 20%，五场战斗后丢弃。"
+          }
+        }
+      }
+    ]
+  }
+}

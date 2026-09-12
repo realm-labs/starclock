@@ -1,0 +1,106 @@
+{
+  "schema_revision": "starclock.divergent-universe-service-adventure-execution.v1",
+  "goal_id": "divergent-universe-runtime-v1",
+  "batch": "G22-P6-B2",
+  "status": "CompleteServiceAdventureShopEntryAndFallbackExecution",
+  "input_digests": {
+    "services": {
+      "path": "content-reference/divergent-universe-v1/mode-service-npcs.json",
+      "sha256": "7a1e719be8a5fe130b832b1e2874f2dc4fa895a572ced4d1885c1514b621aac5"
+    },
+    "offers": {
+      "path": "content-reference/divergent-universe-v1/service-offer-rules.json",
+      "sha256": "3f8cb57f6bb194b283ee9e92b48c351e7f6e28e7d89eaedc0fe3174a544e2b2e"
+    },
+    "adventures": {
+      "path": "content-reference/divergent-universe-v1/adventure-outcomes.json",
+      "sha256": "c1d43570de030fe1183e9edf0b254db617cb3380ed565064fa263c312732bacb"
+    },
+    "runtime_dispositions": {
+      "path": "content-manifests/divergent-universe-runtime-v1/runtime-dispositions.json",
+      "sha256": "1319cb15f7a2e1b9c283549300cf29bb4f2b65d41c759a0c29240570c7fbd2bc"
+    },
+    "batch_ledger": {
+      "path": "content-manifests/divergent-universe-runtime-v1/batch-ledger.json",
+      "sha256": "77e109344b674b1a301708d247e2dcedeace5bc941f789d2ab3529dc5224f467"
+    },
+    "prior_execution": {
+      "path": "content-manifests/divergent-universe-runtime-v1/occurrence-execution.json",
+      "sha256": "c70c99cb70cf54bb8ba3757349adcaeaba95bb4fc779e995fcc58cd9f8fed200"
+    },
+    "runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/service_adventure_runtime.rs",
+      "sha256": "ab79ce850b5ffcecb8a24eef55228bff17557fb27c113fae3c3c734ea507693f"
+    },
+    "tests": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/tests/service_adventure_runtime.rs",
+      "sha256": "c395a9bea6f4932618e2325cf2840f49102e6a23d90294cc4ba551ea45565421"
+    }
+  },
+  "exact_runtime": {
+    "missing_service_graphs": 23,
+    "empty_service_offers": 161,
+    "leave_offer_fallbacks": 29,
+    "reject_offer_fallbacks": 132,
+    "adventures": 32,
+    "adventure_parameter_rows": 30
+  },
+  "policy_boundary": {
+    "action_gameplay": "Excluded",
+    "accepted_input": "AcceptedExternalAdventureResult",
+    "settlement_effect": "TypedTierReceiptOnlyNoInventedReward",
+    "missing_service_graph": "RejectWithoutMutation",
+    "empty_offer": "ReleasedFallback",
+    "rng_draws": 0,
+    "observed_reward_or_action_parity_claimed": false
+  },
+  "execution_receipt": {
+    "every_missing_service_graph_rejects": "Passed",
+    "every_empty_offer_executes_its_fallback": "Passed",
+    "every_adventure_shape_accepts_a_typed_result": "Passed",
+    "threshold_and_reward_tiers_are_validated": "Passed",
+    "duplicate_stale_and_mismatched_results_reject_atomically": "Passed"
+  },
+  "assignment_closure": {
+    "obligations": 55,
+    "external_outcome": 32,
+    "policy_integrated": 23,
+    "fixture_families": 1,
+    "research_gaps": 1,
+    "policy_sources": 3,
+    "mechanic_programs": 0
+  },
+  "capability_probes": [
+    {
+      "id": "catalog-and-policy-boundaries",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/service_adventure_runtime.rs",
+      "test": "service_adventure_catalog_compiles_exact_shapes_and_policy_boundaries",
+      "result": "Passed"
+    },
+    {
+      "id": "all-service-and-offer-fallbacks",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/service_adventure_runtime.rs",
+      "test": "every_missing_service_and_empty_offer_fallback_preserves_state_and_rng",
+      "result": "Passed"
+    },
+    {
+      "id": "all-adventure-shapes",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/service_adventure_runtime.rs",
+      "test": "all_adventure_shapes_settle_typed_external_results_once_without_rng",
+      "result": "Passed"
+    },
+    {
+      "id": "result-kind-and-stale-rejection",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/service_adventure_runtime.rs",
+      "test": "adventure_result_kind_and_stale_hash_rejections_are_atomic",
+      "result": "Passed"
+    }
+  ],
+  "summary": {
+    "services": 23,
+    "offers": 161,
+    "adventures": 32,
+    "terminal_obligations": 55,
+    "probes": 4
+  }
+}

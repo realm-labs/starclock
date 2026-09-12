@@ -177,6 +177,32 @@ impl ActivityBaselineController {
         self.decide_offers(decision.id(), decision.kind(), &offers, hints)
     }
 
+    /// Records one caller-selected option only when it belongs to the exact
+    /// current offer. The complete canonical score set remains attached for
+    /// replay and audit diagnostics, but it does not override the caller.
+    pub fn select_offered(
+        self,
+        decision: &ActivityDecisionView,
+        selected: ActivityOptionId,
+        hints: &ActivityBaselineHints,
+    ) -> Result<ActivityBaselineDecision, ActivityDecisionError> {
+        let offers = decision
+            .options()
+            .iter()
+            .map(|option| (option.id(), option.priority()))
+            .collect::<Vec<_>>();
+        let (_, scores) = score_offers(&offers, hints)?;
+        if !scores.iter().any(|score| score.option() == selected) {
+            return Err(ActivityDecisionError::UnknownOfferedOption);
+        }
+        Ok(ActivityBaselineDecision {
+            decision: decision.id(),
+            kind: decision.kind(),
+            option: selected,
+            scores,
+        })
+    }
+
     /// Scores an already-authorized ordered option set for a mode facade.
     ///
     /// The controller returns only an exact offered option identity; the mode
@@ -272,6 +298,7 @@ pub enum ActivityHintError {
 pub enum ActivityDecisionError {
     EmptyOffer,
     DuplicateOffer,
+    UnknownOfferedOption,
 }
 
 #[cfg(test)]

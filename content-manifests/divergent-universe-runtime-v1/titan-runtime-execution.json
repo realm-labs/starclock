@@ -1,0 +1,132 @@
+{
+  "schema_revision": "starclock.divergent-universe-titan-runtime-execution.v1",
+  "goal_id": "divergent-universe-runtime-v1",
+  "batch": "G22-P5-B3",
+  "status": "CompleteTitanBoonOfferTalentAndContributionExecution",
+  "input_digests": {
+    "titan_types": {
+      "path": "content-reference/divergent-universe-v1/titan-types.json",
+      "sha256": "881eb852e5281b751fb6818ef74be92937e76ea745d60d5d79e5c3be79ea1f5d"
+    },
+    "titan_boons": {
+      "path": "content-reference/divergent-universe-v1/titan-boons.json",
+      "sha256": "93332d444b84b0eeb6161122360e3ff6e1ceb223cf3a1b9a90ca9f0e6cabfe12"
+    },
+    "titan_talents": {
+      "path": "content-reference/divergent-universe-v1/titan-talents.json",
+      "sha256": "0f77822821265732125efb959581db4c9a69720843e0370e82da7a8b0a405cc4"
+    },
+    "titan_choices": {
+      "path": "content-reference/divergent-universe-v1/titan-choices.json",
+      "sha256": "b87a63e0738e7561dacdc867537812ecbd461bdc7290e6654b45af0fdcaf08f5"
+    },
+    "titan_contributions": {
+      "path": "content-reference/divergent-universe-v1/titan-contributions.json",
+      "sha256": "b69c484c902c826a63903ebfeb0ccda7a7277da5e9fff6958d3354276b412b2c"
+    },
+    "review_fixtures": {
+      "path": "content-reference/divergent-universe-v1/review-fixtures.json",
+      "sha256": "70fdb15147d046a170c4fe4038ccdd595bfbfef1e00040dba978c74c6b8a26c4"
+    },
+    "research_gaps": {
+      "path": "content-reference/divergent-universe-v1/research-gaps.json",
+      "sha256": "5818c783a5087b7244951f98744372dddd04371f39250bbae5b4db410d956ab0"
+    },
+    "runtime_dispositions": {
+      "path": "content-manifests/divergent-universe-runtime-v1/runtime-dispositions.json",
+      "sha256": "1319cb15f7a2e1b9c283549300cf29bb4f2b65d41c759a0c29240570c7fbd2bc"
+    },
+    "batch_ledger": {
+      "path": "content-manifests/divergent-universe-runtime-v1/batch-ledger.json",
+      "sha256": "77e109344b674b1a301708d247e2dcedeace5bc941f789d2ab3529dc5224f467"
+    },
+    "prior_execution": {
+      "path": "content-manifests/divergent-universe-runtime-v1/grand-miracle-gamble-execution.json",
+      "sha256": "95e327aa5ab9365b0fb06d4df401c651366aa27b513e9ee7be796416aa24a5e6"
+    },
+    "data_catalog": {
+      "path": "crates/starclock-data/src/divergent_universe_titan_catalog.rs",
+      "sha256": "50a5aced391122f3c82dffb9d9b5ef5696c38cb573ef0308f8672e8dd1bbd908"
+    },
+    "runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/titan_runtime.rs",
+      "sha256": "b9e59c3a010ece1d23fc05137bdbea71cbf751f685c512341fc8c326ad8c25ec"
+    },
+    "state": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/state.rs",
+      "sha256": "946d9d891d871569c556bfb87a63cf790b752dc1a1f7b762ad0e11e0cd2bbd36"
+    },
+    "tests": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/tests/titan_runtime.rs",
+      "sha256": "66af35ed4d40f420b2dad00c52be115e9b70392cab8d4fe914382037e4273135"
+    }
+  },
+  "exact_runtime": {
+    "titan_types": 12,
+    "golden_blood_boons": 84,
+    "boon_choices": 36,
+    "permanent_talent_levels": 36,
+    "contributions": 120,
+    "talent_currency_item_id": "281020",
+    "total_talent_cost": 2700,
+    "activity_contributions": 10,
+    "battle_contributions": 110
+  },
+  "policy_boundary": {
+    "offer_accuracy": "VersionedProjectPolicyAcceptedOfferTimingAndExplicitStableIdSelectionNotObservedParity",
+    "exact_candidate_grouping": true,
+    "no_legal_candidate_fallback": "RejectWithoutMutation",
+    "offer_rng_draws": 0,
+    "exact_offer_timing_parity_claimed": false
+  },
+  "execution_receipt": {
+    "all_titan_types_activate": "Passed",
+    "all_boon_candidates_execute_at_exact_level": "Passed",
+    "all_talent_prerequisites_and_costs_execute": "Passed",
+    "activity_and_battle_contributions_stack_in_stable_order": "Passed",
+    "rejected_and_stale_commands_preserve_state_and_rng": "Passed",
+    "fresh_reconstruction_is_equal": "Passed"
+  },
+  "assignment_closure": {
+    "obligations": 132,
+    "exact_integrated": 132,
+    "fixture_families": 1,
+    "research_gaps": 1,
+    "policy_sources": 2,
+    "mechanic_programs": 0
+  },
+  "capability_probes": [
+    {
+      "id": "catalog-offer-and-contribution-closure",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/titan_runtime.rs",
+      "test": "titan_catalog_compiles_all_exact_rows_and_policy_offer_shapes",
+      "result": "Passed"
+    },
+    {
+      "id": "all-golden-blood-boon-offers",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/titan_runtime.rs",
+      "test": "every_golden_blood_boon_executes_through_its_exact_level_offer",
+      "result": "Passed"
+    },
+    {
+      "id": "all-talent-cost-prerequisite-and-stacking",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/titan_runtime.rs",
+      "test": "all_permanent_titan_talents_enforce_costs_prerequisites_and_stack_contributions",
+      "result": "Passed"
+    },
+    {
+      "id": "rejection-rng-and-replay",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/titan_runtime.rs",
+      "test": "titan_offer_rejections_and_replay_are_state_hash_and_rng_inert",
+      "result": "Passed"
+    }
+  ],
+  "summary": {
+    "titan_types": 12,
+    "boons": 84,
+    "talents": 36,
+    "contributions": 120,
+    "terminal_obligations": 132,
+    "probes": 4
+  }
+}

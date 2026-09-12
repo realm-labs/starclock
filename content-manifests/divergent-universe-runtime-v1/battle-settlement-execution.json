@@ -1,0 +1,92 @@
+{
+  "schema_revision": "starclock.divergent-universe-battle-settlement-execution.v1",
+  "goal_id": "divergent-universe-runtime-v1",
+  "batch": "G22-P6-B5",
+  "status": "CompleteAtomicBattleResultSettlementCarryProgressionAndTransition",
+  "input_digests": {
+    "runtime_dispositions": {
+      "path": "content-manifests/divergent-universe-runtime-v1/runtime-dispositions.json",
+      "sha256": "1319cb15f7a2e1b9c283549300cf29bb4f2b65d41c759a0c29240570c7fbd2bc"
+    },
+    "mechanic_dispositions": {
+      "path": "content-manifests/divergent-universe-runtime-v1/mechanic-dispositions.json",
+      "sha256": "629d1061b313381f09f66804da9eca86fdb8e474837a4fb56451696adb9377d4"
+    },
+    "batch_ledger": {
+      "path": "content-manifests/divergent-universe-runtime-v1/batch-ledger.json",
+      "sha256": "77e109344b674b1a301708d247e2dcedeace5bc941f789d2ab3529dc5224f467"
+    },
+    "battle_assembly": {
+      "path": "content-manifests/divergent-universe-runtime-v1/battle-assembly-execution.json",
+      "sha256": "af8f4bce744a7a59f0e17811b0d6dab84bc8b5c7d7b90b02a88c515b03361457"
+    },
+    "runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/battle_settlement_runtime.rs",
+      "sha256": "701efeb590b9758af7aceef82a73d936ae22690e4367b8391cdc3b30a4ced786"
+    },
+    "tests": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/tests/battle_settlement_runtime.rs",
+      "sha256": "b8b135bb96003cff21c1d884d2efc15f00fbd5a0cca68bfb77ceed6002d202bc"
+    }
+  },
+  "exact_runtime": {
+    "settlement_transactions": 1,
+    "participant_carry_fields": [
+      "Hp",
+      "Energy",
+      "Life",
+      "Presence"
+    ],
+    "completed_battle_count_increment": 1,
+    "next_decision": "Route"
+  },
+  "policy_boundary": {
+    "concrete_reward_program": "UnavailableNoMutation",
+    "progression_carry_and_next_node": "GenericGraphActivityAtomicSettlement",
+    "defeat": "FailedTerminal",
+    "retry": "FreshActivityRequired",
+    "settlement_rng_draws": 0,
+    "observed_reward_parity_claimed": false
+  },
+  "execution_receipt": {
+    "real_nested_battle_result_settled": "Passed",
+    "participant_carry_and_completed_count_committed": "Passed",
+    "next_node_transition_committed": "Passed",
+    "defeat_terminal_and_retry_boundary_enforced": "Passed",
+    "stale_and_duplicate_results_preserve_authoritative_state": "Passed",
+    "unavailable_reward_program_preserves_reward_rng": "Passed"
+  },
+  "assignment_closure": {
+    "obligations": 0,
+    "fixture_families": 0,
+    "research_gaps": 0,
+    "policy_sources": 0,
+    "mechanic_programs": 0
+  },
+  "capability_probes": [
+    {
+      "id": "win-carry-progression-next-node",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/battle_settlement_runtime.rs",
+      "test": "won_battle_settles_carry_progression_and_next_node_atomically",
+      "result": "Passed"
+    },
+    {
+      "id": "defeat-terminal-retry-boundary",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/battle_settlement_runtime.rs",
+      "test": "lost_result_enters_failed_terminal_and_retry_requires_fresh_activity",
+      "result": "Passed"
+    },
+    {
+      "id": "stale-and-duplicate-atomic-rejection",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/battle_settlement_runtime.rs",
+      "test": "duplicate_and_stale_results_reject_without_partial_settlement",
+      "result": "Passed"
+    }
+  ],
+  "summary": {
+    "carry_fields": 4,
+    "terminal_obligations": 0,
+    "mechanic_programs": 0,
+    "probes": 3
+  }
+}

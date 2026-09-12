@@ -1,0 +1,96 @@
+{
+  "table": {
+    "name": "DuDecisionOutcomes",
+    "rows": [
+      {
+        "values": {
+          "amount": {
+            "Integer": 200
+          },
+          "choice_id": {
+            "Integer": 1
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "Fragments"
+          },
+          "maximum_rarity": "Null",
+          "minimum_rarity": "Null",
+          "ordinal": {
+            "Integer": 1
+          },
+          "source_id": {
+            "Integer": 3
+          },
+          "stable_key": {
+            "String": "du.outcome.color.fragments"
+          }
+        }
+      },
+      {
+        "values": {
+          "amount": {
+            "Integer": 2
+          },
+          "choice_id": {
+            "Integer": 2
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "Curios"
+          },
+          "maximum_rarity": {
+            "Integer": 2
+          },
+          "minimum_rarity": {
+            "Integer": 1
+          },
+          "ordinal": {
+            "Integer": 1
+          },
+          "source_id": {
+            "Integer": 3
+          },
+          "stable_key": {
+            "String": "du.outcome.color.curios"
+          }
+        }
+      },
+      {
+        "values": {
+          "amount": {
+            "Integer": 2
+          },
+          "choice_id": {
+            "Integer": 3
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "Blessings"
+          },
+          "maximum_rarity": {
+            "Integer": 2
+          },
+          "minimum_rarity": {
+            "Integer": 1
+          },
+          "ordinal": {
+            "Integer": 1
+          },
+          "source_id": {
+            "Integer": 3
+          },
+          "stable_key": {
+            "String": "du.outcome.color.blessings"
+          }
+        }
+      }
+    ]
+  }
+}

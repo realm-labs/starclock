@@ -13,8 +13,8 @@ execFileSync(process.execPath, [
   root,
 ], { cwd: root, stdio: "inherit" });
 
-const project =
-  path.join(root, "config/divergent-universe/project.toml");
+const project = path.join(root, "config/divergent-universe-project.toml");
+const legacyProject = path.join(root, "config/divergent-universe/project.toml");
 const core = path.join(root, "config/divergent-universe/schema/core.toml");
 const systems =
   path.join(root, "config/divergent-universe/schema/systems.toml");
@@ -28,19 +28,24 @@ const systemsText = fs.readFileSync(systems, "utf8");
 const contentText = fs.readFileSync(content, "utf8");
 const evidenceText = fs.readFileSync(evidence, "utf8");
 assert(projectText.includes(
-  'package = "starclock_divergent_universe_reference_config"',
-), "isolated project package drift");
+  'project = { id = "starclock_divergent_universe_reference" }',
+), "isolated project identity drift");
 assert(projectText.includes(
-  'schema_lock = "../divergent-universe-generated/schema.lock"',
+  'views = { default = { contract = "starclock_divergent_universe_reference/default", groups = ["common"] } }',
+), "isolated project view drift");
+assert(projectText.includes(
+  'schema_lock = "divergent-universe-generated/schema.lock"',
 ), "isolated schema-lock path drift");
 assert(!projectText.includes("config/generated")
-  && !projectText.includes("unknowable-domain"),
+  && !projectText.includes("unknowable-domain")
+  && !projectText.includes("../")
+  && !fs.existsSync(legacyProject),
 "shared/other-mode generated path leak");
 assert((coreText.match(/\[\[tables\]\]/gu) ?? []).length === 18,
   "P3-B1 core table denominator drift");
 assert((systemsText.match(/\[\[tables\]\]/gu) ?? []).length === 26,
   "P3-B2 system table denominator drift");
-assert((contentText.match(/\[\[tables\]\]/gu) ?? []).length === 28,
+assert((contentText.match(/\[\[tables\]\]/gu) ?? []).length === 29,
   "P3-B3 content table denominator drift");
 assert((evidenceText.match(/\[\[tables\]\]/gu) ?? []).length === 8,
   "P3-B4 evidence table denominator drift");
@@ -93,6 +98,7 @@ for (const typedReference of [
     `missing typed system reference ${typedReference}`);
 for (const table of [
   "DivergentUniverseWorkbenches",
+  "DivergentUniversePersonaSourceObligations",
   "DivergentUniverseServiceRules",
   "DivergentUniversePermanentTalents",
   "DivergentUniverseWeeklyModifiers",
@@ -133,6 +139,11 @@ for (const table of [
   assert(evidenceText.includes(`name = "${table}"`), `missing table ${table}`);
 const allSchemaText = [coreText, systemsText, contentText, evidenceText]
   .join("\n");
+const tableCount = (allSchemaText.match(/\[\[tables\]\]/gu) ?? []).length;
+const tableIds = [...allSchemaText.matchAll(/^id = "([^"]+)"$/gmu)]
+  .map((match) => match[1]);
+assert(tableIds.length === tableCount && new Set(tableIds).size === tableCount,
+  "Sora 0.6.1 table IDs are missing or duplicated");
 assert(allSchemaText.includes(
   "optional<list<ref<DivergentUniverseSources.id>>>",
 ), "common source refs are not typed");
@@ -145,8 +156,13 @@ for (const typedReference of [
     `missing typed evidence reference ${typedReference}`);
 
 const sora = locateSora();
-assert(execFileSync(sora, ["--version"], { encoding: "utf8" }).trim()
-  === "sora 0.3.0", "wrong Sora CLI version");
+const toolPolicy = JSON.parse(fs.readFileSync(
+  path.join(root, "policy/sora-toolchain.json"),
+  "utf8",
+));
+assert(toolPolicy.version === "0.6.1"
+  && execFileSync(sora, ["--version"], { encoding: "utf8" }).trim()
+    === `sora ${toolPolicy.version}`, "wrong Sora CLI version");
 execFileSync(sora, [
   "--serial",
   "check",
@@ -159,11 +175,15 @@ execFileSync(process.execPath, [
 ], { cwd: root, stdio: "inherit" });
 const generated = path.join(root, "config/divergent-universe-generated");
 const lock = path.join(generated, "schema.lock");
-const parsedLock = JSON.parse(fs.readFileSync(lock, "utf8")).schema;
-assert(parsedLock.package
-  === "starclock_divergent_universe_reference_config",
-"generated schema-lock package drift");
-assert(parsedLock.tables.length === 80, "generated schema-lock table drift");
+const parsedLock = JSON.parse(fs.readFileSync(lock, "utf8"));
+assert(parsedLock.version === 3
+  && parsedLock.project_id === "starclock_divergent_universe_reference"
+  && parsedLock.contract_id
+    === "starclock_divergent_universe_reference/default"
+  && parsedLock.view === "default",
+"generated schema-lock project/view drift");
+const parsedSchema = parsedLock.schema;
+assert(parsedSchema.tables.length === 81, "generated schema-lock table drift");
 const templates = fs.readdirSync(path.join(generated, "templates")).sort();
 assert(JSON.stringify(templates) === JSON.stringify([
   "DivergentUniverse.xlsx",
@@ -172,7 +192,7 @@ assert(JSON.stringify(templates) === JSON.stringify([
 ]), "isolated Excel template set drift");
 const readerFiles = fs.readdirSync(path.join(generated, "reader"))
   .filter((file) => file.endsWith(".rs")).sort();
-assert(readerFiles.length === 85, "generated Rust reader file count drift");
+assert(readerFiles.length === 86, "generated Rust reader file count drift");
 
 const temporary = fs.mkdtempSync(
   path.join(os.tmpdir(), "starclock-divergent-universe-sora-"),
@@ -180,7 +200,7 @@ const temporary = fs.mkdtempSync(
 try {
   execFileSync(sora, [
     "--serial", "schema-lock", "--project", projectText
-      ? path.join(root, "config/divergent-universe/project.toml")
+      ? project
       : "", "--out", path.join(temporary, "schema.lock"),
   ], { cwd: root, stdio: "inherit" });
   assert(fs.readFileSync(lock).equals(
@@ -190,9 +210,9 @@ try {
   fs.rmSync(temporary, { recursive: true, force: true });
 }
 console.log(
-  "Divergent Universe P3-B4 Sora schema verified (80 isolated tables; typed " +
-  "source/evidence references; deterministic lock, three templates and 85 " +
-  "Rust reader files; Sora 0.3.0).",
+  "Divergent Universe Sora schema verified (81 isolated tables; typed " +
+  "source/evidence references; deterministic lock, three templates and 86 " +
+  "Rust reader files; Sora 0.6.1).",
 );
 
 function locateSora() {
@@ -200,16 +220,10 @@ function locateSora() {
     path.join(root, "policy/sora-toolchain.json"),
     "utf8",
   ));
-  const candidates = [
-    path.join(root, policy.install_root, "bin/sora"),
-    path.join(
-      "/Users/mikai/CLionProjects/starclock",
-      policy.install_root,
-      "bin/sora",
-    ),
-  ];
-  const result = candidates.find((candidate) => fs.existsSync(candidate));
-  if (!result) throw new Error("Sora 0.3.0 executable is unavailable");
+  const binary = process.platform === "win32" ? "sora.exe" : "sora";
+  const result = path.join(root, policy.install_root, "bin", binary);
+  if (!fs.existsSync(result))
+    throw new Error(`Sora ${policy.version} executable is unavailable`);
   return result;
 }
 

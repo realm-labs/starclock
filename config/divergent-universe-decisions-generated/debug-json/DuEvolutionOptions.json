@@ -1,0 +1,643 @@
+{
+  "table": {
+    "name": "DuEvolutionOptions",
+    "rows": [
+      {
+        "values": {
+          "curio_count": {
+            "Integer": 0
+          },
+          "event_id": {
+            "Integer": 1
+          },
+          "fragment_cost": {
+            "Integer": 0
+          },
+          "fragment_grant": {
+            "Integer": 200
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "Evolve"
+          },
+          "maximum_rarity": {
+            "Integer": 3
+          },
+          "minimum_rarity": {
+            "Integer": 1
+          },
+          "name_en": {
+            "String": "Accept the power"
+          },
+          "name_zh_cn": {
+            "String": "接受力量"
+          },
+          "ordinal": {
+            "Integer": 1
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 30
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.evolution-option.green.ii.evolve"
+          },
+          "success_denominator": {
+            "Integer": 1
+          },
+          "success_numerator": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "curio_count": {
+            "Integer": 2
+          },
+          "event_id": {
+            "Integer": 1
+          },
+          "fragment_cost": {
+            "Integer": 0
+          },
+          "fragment_grant": {
+            "Integer": 0
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "RandomCurios"
+          },
+          "maximum_rarity": {
+            "Integer": 3
+          },
+          "minimum_rarity": {
+            "Integer": 1
+          },
+          "name_en": {
+            "String": "Request Curios"
+          },
+          "name_zh_cn": {
+            "String": "请求奇物"
+          },
+          "ordinal": {
+            "Integer": 2
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 30
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.evolution-option.green.ii.curios"
+          },
+          "success_denominator": {
+            "Integer": 1
+          },
+          "success_numerator": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "curio_count": {
+            "Integer": 2
+          },
+          "event_id": {
+            "Integer": 1
+          },
+          "fragment_cost": {
+            "Integer": 0
+          },
+          "fragment_grant": {
+            "Integer": 150
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "Sacrifice"
+          },
+          "maximum_rarity": {
+            "Integer": 3
+          },
+          "minimum_rarity": {
+            "Integer": 1
+          },
+          "name_en": {
+            "String": "Give up the treasure"
+          },
+          "name_zh_cn": {
+            "String": "放弃珍宝"
+          },
+          "ordinal": {
+            "Integer": 3
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 30
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.evolution-option.green.ii.sacrifice"
+          },
+          "success_denominator": {
+            "Integer": 1
+          },
+          "success_numerator": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "curio_count": {
+            "Integer": 0
+          },
+          "event_id": {
+            "Integer": 2
+          },
+          "fragment_cost": {
+            "Integer": 100
+          },
+          "fragment_grant": {
+            "Integer": 0
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "Evolve"
+          },
+          "maximum_rarity": {
+            "Integer": 3
+          },
+          "minimum_rarity": {
+            "Integer": 1
+          },
+          "name_en": {
+            "String": "Pay fragments to evolve"
+          },
+          "name_zh_cn": {
+            "String": "支付碎片升级"
+          },
+          "ordinal": {
+            "Integer": 1
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 31
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.evolution-option.green.iii.evolve"
+          },
+          "success_denominator": {
+            "Integer": 1
+          },
+          "success_numerator": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "curio_count": {
+            "Integer": 0
+          },
+          "event_id": {
+            "Integer": 2
+          },
+          "fragment_cost": {
+            "Integer": 0
+          },
+          "fragment_grant": {
+            "Integer": 0
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "ChanceEvolution"
+          },
+          "maximum_rarity": {
+            "Integer": 3
+          },
+          "minimum_rarity": {
+            "Integer": 1
+          },
+          "name_en": {
+            "String": "Attempt evolution"
+          },
+          "name_zh_cn": {
+            "String": "尝试升级"
+          },
+          "ordinal": {
+            "Integer": 2
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 31
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.evolution-option.green.iii.chance"
+          },
+          "success_denominator": {
+            "Integer": 2
+          },
+          "success_numerator": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "curio_count": {
+            "Integer": 3
+          },
+          "event_id": {
+            "Integer": 2
+          },
+          "fragment_cost": {
+            "Integer": 0
+          },
+          "fragment_grant": {
+            "Integer": 0
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "Sacrifice"
+          },
+          "maximum_rarity": {
+            "Integer": 3
+          },
+          "minimum_rarity": {
+            "Integer": 2
+          },
+          "name_en": {
+            "String": "Exchange the treasure"
+          },
+          "name_zh_cn": {
+            "String": "交换珍宝"
+          },
+          "ordinal": {
+            "Integer": 3
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 31
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.evolution-option.green.iii.sacrifice"
+          },
+          "success_denominator": {
+            "Integer": 1
+          },
+          "success_numerator": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "curio_count": {
+            "Integer": 0
+          },
+          "event_id": {
+            "Integer": 3
+          },
+          "fragment_cost": {
+            "Integer": 0
+          },
+          "fragment_grant": {
+            "Integer": 200
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "Evolve"
+          },
+          "maximum_rarity": {
+            "Integer": 3
+          },
+          "minimum_rarity": {
+            "Integer": 1
+          },
+          "name_en": {
+            "String": "Accept the power"
+          },
+          "name_zh_cn": {
+            "String": "接受力量"
+          },
+          "ordinal": {
+            "Integer": 1
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 30
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.evolution-option.sage.ii.evolve"
+          },
+          "success_denominator": {
+            "Integer": 1
+          },
+          "success_numerator": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "curio_count": {
+            "Integer": 2
+          },
+          "event_id": {
+            "Integer": 3
+          },
+          "fragment_cost": {
+            "Integer": 0
+          },
+          "fragment_grant": {
+            "Integer": 0
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "RandomCurios"
+          },
+          "maximum_rarity": {
+            "Integer": 3
+          },
+          "minimum_rarity": {
+            "Integer": 1
+          },
+          "name_en": {
+            "String": "Request Curios"
+          },
+          "name_zh_cn": {
+            "String": "请求奇物"
+          },
+          "ordinal": {
+            "Integer": 2
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 30
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.evolution-option.sage.ii.curios"
+          },
+          "success_denominator": {
+            "Integer": 1
+          },
+          "success_numerator": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "curio_count": {
+            "Integer": 2
+          },
+          "event_id": {
+            "Integer": 3
+          },
+          "fragment_cost": {
+            "Integer": 0
+          },
+          "fragment_grant": {
+            "Integer": 150
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "Sacrifice"
+          },
+          "maximum_rarity": {
+            "Integer": 3
+          },
+          "minimum_rarity": {
+            "Integer": 1
+          },
+          "name_en": {
+            "String": "Give up the treasure"
+          },
+          "name_zh_cn": {
+            "String": "放弃珍宝"
+          },
+          "ordinal": {
+            "Integer": 3
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 30
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.evolution-option.sage.ii.sacrifice"
+          },
+          "success_denominator": {
+            "Integer": 1
+          },
+          "success_numerator": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "curio_count": {
+            "Integer": 0
+          },
+          "event_id": {
+            "Integer": 4
+          },
+          "fragment_cost": {
+            "Integer": 100
+          },
+          "fragment_grant": {
+            "Integer": 0
+          },
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "Evolve"
+          },
+          "maximum_rarity": {
+            "Integer": 3
+          },
+          "minimum_rarity": {
+            "Integer": 1
+          },
+          "name_en": {
+            "String": "Pay fragments to evolve"
+          },
+          "name_zh_cn": {
+            "String": "支付碎片升级"
+          },
+          "ordinal": {
+            "Integer": 1
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 31
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.evolution-option.sage.iii.evolve"
+          },
+          "success_denominator": {
+            "Integer": 1
+          },
+          "success_numerator": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "curio_count": {
+            "Integer": 0
+          },
+          "event_id": {
+            "Integer": 4
+          },
+          "fragment_cost": {
+            "Integer": 0
+          },
+          "fragment_grant": {
+            "Integer": 0
+          },
+          "id": {
+            "Integer": 11
+          },
+          "kind": {
+            "String": "ChanceEvolution"
+          },
+          "maximum_rarity": {
+            "Integer": 3
+          },
+          "minimum_rarity": {
+            "Integer": 1
+          },
+          "name_en": {
+            "String": "Attempt evolution"
+          },
+          "name_zh_cn": {
+            "String": "尝试升级"
+          },
+          "ordinal": {
+            "Integer": 2
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 31
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.evolution-option.sage.iii.chance"
+          },
+          "success_denominator": {
+            "Integer": 2
+          },
+          "success_numerator": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "curio_count": {
+            "Integer": 3
+          },
+          "event_id": {
+            "Integer": 4
+          },
+          "fragment_cost": {
+            "Integer": 0
+          },
+          "fragment_grant": {
+            "Integer": 0
+          },
+          "id": {
+            "Integer": 12
+          },
+          "kind": {
+            "String": "Sacrifice"
+          },
+          "maximum_rarity": {
+            "Integer": 3
+          },
+          "minimum_rarity": {
+            "Integer": 2
+          },
+          "name_en": {
+            "String": "Exchange the treasure"
+          },
+          "name_zh_cn": {
+            "String": "交换珍宝"
+          },
+          "ordinal": {
+            "Integer": 3
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 31
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.evolution-option.sage.iii.sacrifice"
+          },
+          "success_denominator": {
+            "Integer": 1
+          },
+          "success_numerator": {
+            "Integer": 0
+          }
+        }
+      }
+    ]
+  }
+}

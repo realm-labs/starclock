@@ -17,6 +17,8 @@ mod activity_runtime;
 pub mod activity_session;
 /// Currency Wars sessions over the shared Activity observation/action facade.
 pub mod currency_wars_activity_session;
+/// Divergent Universe sessions over the shared Activity observation/action facade.
+pub mod divergent_universe_activity_session;
 /// Stable protocol-neutral failure vocabulary.
 pub mod error;
 /// Gold and Gears sessions over the shared Activity observation/action facade.

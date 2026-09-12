@@ -48,7 +48,10 @@ const fixtureFamilies = valuesByFile.get("semantic-fixture-families.json");
 const fixtures = valuesByFile.get("review-fixtures.json");
 const rules = valuesByFile.get("mechanic-rules.json");
 const receipts = valuesByFile.get("reconciliation-receipts.json");
-const enums = new Map(sora.enums.map(({ name, values }) => [name, new Set(values)]));
+const enums = new Map(sora.enums.map(({ name, values }) => [
+  name,
+  new Set(values.map((value) => typeof value === "string" ? value : value.name)),
+]));
 const quality = enums.get("DuEvidenceQuality");
 const ownership = enums.get("DuOwnership");
 const coverageStates = enums.get("DuCoverageState");

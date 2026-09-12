@@ -1,0 +1,128 @@
+{
+  "schema_revision": "starclock.divergent-universe-equation-offer-execution.v1",
+  "goal_id": "divergent-universe-runtime-v1",
+  "batch": "G22-P4-B1",
+  "status": "CompletePolicyBackedEquationOfferExecutionNoRecipeFamilyCredit",
+  "input_digests": {
+    "equation_offers": {
+      "path": "content-reference/divergent-universe-v1/equation-offers.json",
+      "sha256": "bc1907b10ec2ef9b879af7cbbeddabb6a34ac90cdb2cfc9a24949d2e13ae442d"
+    },
+    "equations": {
+      "path": "content-reference/divergent-universe-v1/equations.json",
+      "sha256": "a1a9a3b4117c09c6bb136880e801a1ea6fdc27259a1091e8689320d62f6f673c"
+    },
+    "transitions": {
+      "path": "content-reference/divergent-universe-v1/equation-replacement-rules.json",
+      "sha256": "c62f07e10bdc51069f4710274a8c650a9cb2217deaf6574258595e82f8222072"
+    },
+    "runtime_dispositions": {
+      "path": "content-manifests/divergent-universe-runtime-v1/runtime-dispositions.json",
+      "sha256": "1319cb15f7a2e1b9c283549300cf29bb4f2b65d41c759a0c29240570c7fbd2bc"
+    },
+    "batch_ledger": {
+      "path": "content-manifests/divergent-universe-runtime-v1/batch-ledger.json",
+      "sha256": "77e109344b674b1a301708d247e2dcedeace5bc941f789d2ab3529dc5224f467"
+    },
+    "runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/equation_offer.rs",
+      "sha256": "980da5c77baf6808512d8ef51a49747532dd16b4060788631da26b41963bfe8e"
+    },
+    "progress_runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/equation_progress.rs",
+      "sha256": "4cd51c13e6215a4cfdd011cb10ddf74ab198ca68d3d978be8bf4cf2e7a30230d"
+    },
+    "state": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/state.rs",
+      "sha256": "946d9d891d871569c556bfb87a63cf790b752dc1a1f7b762ad0e11e0cd2bbd36"
+    },
+    "tests": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/tests/equation_offer.rs",
+      "sha256": "6f4e90789afc7a9fa3172de7cc7fb3af7397c3e7ffdc89327e835f58515136da"
+    }
+  },
+  "source_boundary": {
+    "released_random_ids": 136,
+    "exact_equations": 80,
+    "transition_policy_rows": 4,
+    "published_candidate_memberships": 0,
+    "published_weight_programs": 0,
+    "source_runtime_lowered_rows": 0
+  },
+  "executable_policy": {
+    "accuracy": "VersionedProjectPolicyNotObservedParity",
+    "candidate_pool": "All exact Version 4.4 Tourn3 Equations not currently owned",
+    "canonical_order": "Equation stable ID before sampling; canonical non-zero state key in Activity slots",
+    "weighting": "UniformIntegerOne",
+    "selection_count": 3,
+    "sampling": "WithoutReplacementWithinOffer",
+    "reroll_limit": 1,
+    "reroll_pool": "FullCurrentEligiblePoolRepetitionAcrossRerollsAllowed",
+    "rng_label": "Reward",
+    "purpose_identity": "OneNonZeroDistinctPurposePerReleasedRandomID",
+    "no_legal_candidate": "RejectBeforeDrawWithoutMutation",
+    "replacement": "ExplicitOwnedInputAndCurrentlyOfferedOutput",
+    "discard": "ExplicitOwnedInputAndDerivedProgressRemoval",
+    "replacement_condition": "Replace each field when released configuration or reproducible observation binds that RandomID or transition."
+  },
+  "execution_receipt": {
+    "all_random_ids_compiled_exact_once": "Passed",
+    "all_random_ids_execute_one_offer": "Passed",
+    "stable_candidate_order": "Passed",
+    "uniform_integer_sampling_without_replacement": "Passed",
+    "reward_rng_isolation": "Passed",
+    "one_reroll_limit": "Passed",
+    "acquire_only_current_offer": "Passed",
+    "explicit_replacement": "Passed",
+    "explicit_discard_and_progress_teardown": "Passed",
+    "empty_pool_no_draw": "Passed",
+    "stale_invalid_and_duplicate_rejection_atomicity": "Passed",
+    "fresh_replay_equality": "Passed"
+  },
+  "assignment_closure": {
+    "obligations": 136,
+    "fixture_families": 0,
+    "research_gaps": 0,
+    "policy_sources": 0
+  },
+  "coverage_credit": {
+    "source_obligations": 136,
+    "mechanic_programs": 0,
+    "semantic_fixture_families": 0,
+    "research_gaps": 0,
+    "policy_sources": 0,
+    "whole_families": [
+      "EquationRandomIDDispatch"
+    ],
+    "deferred": "Recipe/progress/expansion, keyword/transition and Blessing ownership closure are proven by G22-P4-B2/B3/B4; simultaneous Blessing interactions remain assigned to G22-P4-B5."
+  },
+  "capability_probes": [
+    {
+      "id": "all-136-randomids-execute",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/equation_offer.rs",
+      "test": "all_released_equation_random_ids_compile_and_execute_one_policy_offer",
+      "result": "Passed"
+    },
+    {
+      "id": "replay-reroll-acquire-replace-discard",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/equation_offer.rs",
+      "test": "equation_offer_replay_reroll_acquire_replace_and_discard_are_atomic",
+      "result": "Passed"
+    },
+    {
+      "id": "empty-pool-stale-invalid-rejection",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/equation_offer.rs",
+      "test": "equation_offer_empty_pool_and_invalid_commands_preserve_state_and_rng",
+      "result": "Passed"
+    }
+  ],
+  "summary": {
+    "exact_random_ids_terminal": 136,
+    "exact_equations_in_policy_pool": 80,
+    "selection_count": 3,
+    "reroll_limit": 1,
+    "assigned_fixture_families": 0,
+    "assigned_policy_sources": 0,
+    "probes": 3
+  }
+}

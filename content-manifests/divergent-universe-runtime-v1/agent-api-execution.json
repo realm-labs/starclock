@@ -1,0 +1,108 @@
+{
+  "schema_revision": "starclock.divergent-universe-agent-api-execution.v1",
+  "goal_id": "divergent-universe-runtime-v1",
+  "batch": "G22-P7-B3",
+  "status": "CompleteBoundedAgentManifestSessionsObservationsAndActions",
+  "input_digests": {
+    "runtime_dispositions": {
+      "path": "content-manifests/divergent-universe-runtime-v1/runtime-dispositions.json",
+      "sha256": "1319cb15f7a2e1b9c283549300cf29bb4f2b65d41c759a0c29240570c7fbd2bc"
+    },
+    "mechanic_dispositions": {
+      "path": "content-manifests/divergent-universe-runtime-v1/mechanic-dispositions.json",
+      "sha256": "629d1061b313381f09f66804da9eca86fdb8e474837a4fb56451696adb9377d4"
+    },
+    "batch_ledger": {
+      "path": "content-manifests/divergent-universe-runtime-v1/batch-ledger.json",
+      "sha256": "77e109344b674b1a301708d247e2dcedeace5bc941f789d2ab3529dc5224f467"
+    },
+    "cli_execution": {
+      "path": "content-manifests/divergent-universe-runtime-v1/cli-execution.json",
+      "sha256": "858c74bd7b3c8799f6779f24da2b8731a4fdb978069535ed45a5f0125addffba"
+    },
+    "baseline_controller": {
+      "path": "crates/starclock-mode-universe/src/baseline_controller.rs",
+      "sha256": "6089c2e92304cdba0e3faec5cf7d558c494aa8f54e3b058f495fdb3e2ee76732"
+    },
+    "baseline_runtime": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/baseline_runtime.rs",
+      "sha256": "29e1e8c6d85f91dde18d783ca9070c5dee28f139c8bcc22581e064a3ee5fd99b"
+    },
+    "session": {
+      "path": "crates/starclock-agent-api/src/divergent_universe_activity_session.rs",
+      "sha256": "0dfe458dbf331b6430ea163018cce7e6aeb144083eac841bb62a30155bdfcb48"
+    },
+    "session_tests": {
+      "path": "crates/starclock-agent-api/src/divergent_universe_activity_session/tests.rs",
+      "sha256": "5959071f870b8f2d5c4c78ed0d3cca2650f41d265998c0245484ad53de7e6ac0"
+    },
+    "registry": {
+      "path": "crates/starclock-agent-api/src/activity_session/registry.rs",
+      "sha256": "3d1535e23007e561ced7a80d150786452aa0e877c573e5da3a6bad09730744cc"
+    },
+    "registry_adapter": {
+      "path": "crates/starclock-agent-api/src/activity_session/registry/divergent.rs",
+      "sha256": "d29d0a1cd81fde38027844b2f648696e6fcd5bcefb2429dd59ac0892eda5fa39"
+    }
+  },
+  "public_surface": {
+    "manifests": 1,
+    "run_family_summaries": 2,
+    "generated_rows_exposed": false,
+    "private_command_bindings_exposed": false,
+    "observation_projection": "SharedPlayerVisibleActivityProjection",
+    "action_projection": "OpaqueTokenOverExactCurrentOffer",
+    "ownership_and_quota": "SharedActivitySessionRegistry",
+    "replay": "TerminalTranscriptAndFreshProductionVerification"
+  },
+  "execution_receipt": {
+    "ordinary_and_cyclical_manifests_are_bounded": "Passed",
+    "observations_expose_only_player_visible_state": "Passed",
+    "exact_offers_bind_to_opaque_tokens": "Passed",
+    "forged_stale_and_cross_session_actions_are_atomic": "Passed",
+    "idempotent_retry_returns_identical_response": "Passed",
+    "both_families_complete_real_nested_battles": "Passed",
+    "terminal_transcripts_verify_from_fresh_inputs": "Passed",
+    "corrupt_replays_are_rejected": "Passed"
+  },
+  "assignment_closure": {
+    "obligations": 0,
+    "fixture_families": 0,
+    "research_gaps": 0,
+    "policy_sources": 0,
+    "mechanic_programs": 0
+  },
+  "capability_probes": [
+    {
+      "id": "bounded-manifest-and-observation",
+      "file": "crates/starclock-agent-api/src/divergent_universe_activity_session/tests.rs",
+      "test": "manifest_and_observations_are_bounded_without_generated_rows",
+      "result": "Passed"
+    },
+    {
+      "id": "forged-stale-cross-session-atomicity",
+      "file": "crates/starclock-agent-api/src/divergent_universe_activity_session/tests.rs",
+      "test": "forged_stale_and_cross_session_actions_preserve_state",
+      "result": "Passed"
+    },
+    {
+      "id": "both-families-real-battle-replay",
+      "file": "crates/starclock-agent-api/src/divergent_universe_activity_session/tests.rs",
+      "test": "public_offers_complete_both_families_and_export_fresh_replays",
+      "result": "Passed"
+    },
+    {
+      "id": "shared-registry-ownership",
+      "file": "crates/starclock-agent-api/src/activity_session/registry.rs",
+      "test": "divergent_universe_sessions_use_shared_ownership_and_registry_actions",
+      "result": "Passed"
+    }
+  ],
+  "summary": {
+    "manifests": 1,
+    "run_families": 2,
+    "configuration_components": 9,
+    "generated_rows_exposed": 0,
+    "probes": 4
+  }
+}
