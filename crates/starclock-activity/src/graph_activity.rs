@@ -1,5 +1,7 @@
 //! Line-limit exception: the aggregate state machine keeps command ordering and mutation authority together while boundary helpers are split below it.
 mod boundary;
+mod generated_choice;
+mod generated_settlement;
 mod random_offer;
 
 use crate::{

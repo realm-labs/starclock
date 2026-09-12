@@ -627,6 +627,17 @@ impl ActivityTransactionState {
         self.apply_option_with_prefix(option, &[], cause, graph)
     }
 
+    pub(crate) fn pending_option_definition(
+        &self,
+        option: ActivityOptionId,
+    ) -> Option<&ActivityOptionDefinition> {
+        self.pending
+            .as_ref()?
+            .options
+            .iter()
+            .find(|item| item.id() == option)
+    }
+
     pub(crate) fn apply_option_with_prefix(
         &mut self,
         option: ActivityOptionId,

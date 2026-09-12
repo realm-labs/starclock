@@ -217,6 +217,45 @@ BattleResult
 
 ## Activity programs and extensions
 
+### Generated pre-offer battle settlement
+
+`GraphActivity::submit_pending_battle_result_with_generated_boundary` is a
+trusted mode-executor boundary. Result identity, digest, projection and carry
+validation complete before any generator runs. The caller supplies a nonempty,
+ordered sequence of at most 32 distinct program IDs; empty, duplicate or
+oversized sequences reject before submission or callbacks. The generator observes the
+settled metrics, participant carry and destination node, including node-scope
+resets, before that node's program executes or offers a decision. It receives
+current stage ID, original typed settlement outcome and labeled Activity RNG; mode-owned reward
+policies return bounded state-only operations, with no external side effects.
+
+Each stage is applied before the next generator reads a fresh player view.
+The original settlement hash continues to describe the verified pre-stage
+state, not later views. Mode configuration identity binds stage order and
+generator semantics. No stage can independently publish a result or pump the
+destination; this allows an immediate grant to affect later reward eligibility
+without a mode-owned shadow Activity. A nonempty stage has its own command cause
+and ordered events; an empty stage allocates no command.
+
+The generated program cannot offer, traverse, relocate or terminate, including
+inside nested branches. Its operations run through the existing settlement
+extension transaction. The result submission, every stage's operations, RNG draws
+and automatic destination execution share one commit boundary. Generation,
+validation, rejection, mutation faults and destination execution failures all
+restore the complete pre-submission state and RNG, including the pending battle
+and carry ledger. Invalid or duplicate submissions never invoke the generator.
+A verified battle outcome routed to a fault terminal remains a valid settlement;
+that terminal is not confused with a newly faulted extension or node program.
+An empty operation list does not allocate an extra program command. RNG draws
+occur only when explicitly requested by the generator or authored node policy.
+
+This is distinct from `submit_pending_battle_result_with_generated_follow_up`,
+whose callback runs after the first automatic graph advance. Existing static
+boundary and post-advance APIs retain their semantics. None of these generic
+interfaces defines a mode's reward amounts, pools, eligibility or Curio effects.
+
+### Authored operations
+
 Activity nodes use a typed operation IR parallel in discipline to the battle rule IR. Initial operations include slot/resource changes, option generation, graph transition, roster/loadout mutation, modifier inventory changes, clock/metric/objective updates, BattleSpec request, checkpoint, and terminal outcome.
 
 Mode-native extensions contribute an immutable handler/executor bundle that is
@@ -228,6 +267,31 @@ not require editing a central handler match statement. The composed bundle
 revision and digest are authoritative inputs.
 
 Do not add a new core node kind for one event until composition plus a registered handler has proven insufficient. Do not add `if mode_id == ...` to `starclock-activity`.
+
+### Generated option transactions
+
+`GraphActivity::choose_option_with_generated_prefix` is the shared trusted
+executor boundary for an offered choice whose rewards require labeled RNG.
+It validates the expected hash, pending decision and selected option before
+invoking the generator. External outcomes continue through their registered
+interaction handler, not this player-choice boundary.
+
+The generator observes the pre-command player view and Activity RNG streams.
+It returns state-only operations and a caller-owned result, with no external
+side effects. Execution order is the authored random-offer selection prefix,
+the generated prefix, then the selected option. All use the selected option's
+cause and the existing pending-option transaction. The complete operation list
+must pass graph/state binding and nested program budgets; generated operations
+cannot offer, traverse, relocate or terminate, even inside a conditional.
+
+The commit boundary includes automatic graph advancement. Any generation error,
+invalid program, rejected operation, deterministic fault or failed automatic
+advance restores the original authoritative state and RNG, including the
+pending choice and command sequence. Failure publishes no reward result or
+events. This transactional extension does not change ordinary `choose_option`
+fault semantics. It grants no content eligibility or acquisition-effect
+implementation: the owning mode must supply those validated operations and
+bind their definitions into configuration identity.
 
 ## Mode profiles
 

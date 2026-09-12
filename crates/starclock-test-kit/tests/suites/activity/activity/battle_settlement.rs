@@ -1,5 +1,8 @@
 use std::sync::Arc;
 
+#[path = "generated_settlement.rs"]
+mod generated_settlement;
+
 use starclock_activity::{
     ActivityBattlePreparationRequest, ActivityBattleResultContract, ActivityBattleResultSubmission,
     ActivityBattleSettlementError, ActivityBattleStartRequest, ActivityCause, ActivityCondition,
