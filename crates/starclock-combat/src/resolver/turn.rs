@@ -123,7 +123,10 @@ fn begin_turn(
     root: CommandId,
     parent: EventId,
 ) -> Result<TurnStartOutcome, BattleFault> {
-    let advance = plan_next_turn(&txn.state.units, &txn.state.actors)?;
+    let inputs = operation_formula::FormulaInputs::new(txn)?;
+    let advance = plan_next_turn(&txn.state.units, &txn.state.actors, |actor| {
+        inputs.timeline_speed(catalog, txn, actor)
+    })?;
     let parent = match clock::advance(txn, root, parent, advance.elapsed_action_value_scaled)? {
         ClockAdvance::Continue(parent) => parent,
         ClockAdvance::Expired => return Ok(TurnStartOutcome::Boundary),

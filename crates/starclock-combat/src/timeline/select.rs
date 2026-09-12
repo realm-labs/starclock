@@ -5,7 +5,7 @@ use crate::{
     TimelineActorId, UnitId,
     actor::{
         model::LifeState,
-        store::{TimelineActorStore, UnitStore},
+        store::{TimelineActorState, TimelineActorStore, UnitStore},
     },
     battle::fault::{BattleFault, FaultBoundary, FaultKind, FaultPolicy},
     numeric::domain::ActionGauge,
@@ -22,6 +22,7 @@ pub(crate) struct TimelineAdvance {
 pub(crate) fn plan_next_turn(
     units: &UnitStore,
     actors: &TimelineActorStore,
+    mut resolve_speed: impl FnMut(&TimelineActorState) -> Result<Speed, BattleFault>,
 ) -> Result<TimelineAdvance, BattleFault> {
     let candidates = actors
         .iter_by_id()
@@ -39,18 +40,21 @@ pub(crate) fn plan_next_turn(
                 };
                 (ability, origin)
             });
-            Ok((actor.active
+            if !(actor.active
                 && unit.life == LifeState::Alive
                 && unit.presence.is_timeline_eligible()
                 && owner.life == LifeState::Alive
                 && owner.presence.is_active())
-            .then_some((
+            {
+                return Ok(None);
+            }
+            Ok(Some((
                 actor.id,
                 actor.owner,
                 unit_id,
                 automatic,
                 actor.gauge,
-                actor.speed,
+                resolve_speed(actor)?,
                 unit.side,
                 unit.formation,
                 unit.spawn,

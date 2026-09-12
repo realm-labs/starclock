@@ -14,6 +14,24 @@ floors elapsed distance to six decimal places; ineligible actors retain their
 gauge and the selected actor is set to zero explicitly. Completing its normal
 action resets that actor to the full 10,000 gauge before the next selection.
 
+At every ordinary selection the resolver snapshots current modifier, shield and
+effect-stack inputs and resolves `Spd` for `FormulaPurpose::ActionOrder`. Generic
+stat modifiers also apply. This query has the unit's life/presence context but
+no ability, damage tag or target context. Only eligible unit-backed actors are
+queried; timeline-only actors retain their independently authored speed.
+
+The effective scheduling speed is `actor_speed * resolved_spd / base_spd`, using
+one promoted checked quotient rounded to nearest, ties to even. This preserves
+the actor's existing direct break-slowdown ratio and applies it to the resolved
+stat, including flat bonuses. Nonpositive or overflowing results cause the
+normal transactional numeric fault; they are not silently clamped. The resolved
+value is used for selection, all eligible gauge advances and elapsed Action
+Value, but is not written back into the actor's independent speed. Thus
+modifiers never compound between selections, and removing a modifier or
+restoring direct break slowdown takes effect on the next selection. The public
+actor `speed()` projection exposes that independent clock, not a cached stat
+query. Action Gauge remains unchanged when only speed changes.
+
 The active normal turn and a stable action boundary are authoritative state. A
 boundary records its identity, suspended turn and typed continuation: continue
 the selected action or complete the action-owning turn. The resolver returns at

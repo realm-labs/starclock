@@ -84,6 +84,9 @@ pub enum FormulaStage {
     Probability,
     /// Positive absolute final damage. Zero means no override.
     DamageOverride,
+    /// Source-owned multiplier after damage factors, before applied-damage flooring.
+    /// Independent of stat FinalMultiply; neutral value is one, not zero.
+    DamageFinalMultiply,
 }
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]

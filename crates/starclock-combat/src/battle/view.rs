@@ -1156,7 +1156,8 @@ impl TimelineActorView<'_> {
     pub const fn action_gauge(self) -> ActionGauge {
         self.state.gauge
     }
-    /// Returns entry Speed.
+    /// Returns the independent actor speed, including direct break slowdown.
+    /// Stat modifiers are resolved afresh at selection and are not stored here.
     #[must_use]
     pub const fn speed(self) -> Speed {
         self.state.speed

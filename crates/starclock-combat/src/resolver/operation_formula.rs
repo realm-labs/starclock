@@ -1,4 +1,5 @@
 //! Modifier-aware formula preparation separated from authoritative state mutation.
+pub(super) mod final_damage;
 
 use crate::{
     catalog::{
@@ -14,7 +15,8 @@ use std::collections::BTreeMap;
 
 use crate::{
     AbilityId, DamageAmount, EffectCategory, EffectDefinitionId, LifeState, PresenceState,
-    Probability, Ratio, Rounding, Scalar, UnitId,
+    Probability, Ratio, Rounding, Scalar, Speed, UnitId,
+    actor::store::TimelineActorState,
     battle::fault::BattleFault,
     catalog::action::{HealingDefinition, OrdinaryDamageDefinition, ShieldDefinition},
     event::cause::{Cause, CauseActor},
@@ -43,6 +45,49 @@ pub(super) struct FormulaInputs {
 }
 
 impl FormulaInputs {
+    /// Resolves fresh action-order stats without mutating the actor's base clock.
+    /// Timeline-only linked actors retain their explicitly authored speed.
+    pub(super) fn timeline_speed(
+        &self,
+        catalog: &CombatCatalog,
+        txn: &Transaction<'_>,
+        actor: &TimelineActorState,
+    ) -> Result<Speed, BattleFault> {
+        let Some(subject) = actor.unit else {
+            return Ok(actor.speed);
+        };
+        let unit = txn
+            .state
+            .units
+            .get(subject)
+            .ok_or_else(|| invariant_fault(46))?;
+        let mut context = modifier_context(
+            txn,
+            subject,
+            subject,
+            None,
+            formula::model::DamageClass::Direct,
+        )?;
+        // Action order is not a damage query and has no pending ability/target.
+        context.damage_tags = Box::default();
+        context.target = None;
+        let resolved = self
+            .resolver(catalog)
+            .query(
+                StatQuery {
+                    subject,
+                    stat: StatKind::Spd,
+                    purpose: FormulaPurpose::ActionOrder,
+                },
+                &context,
+            )
+            .map_err(|_| numeric_fault(72, unit.base_speed.scaled()))?;
+        actor
+            .speed
+            .checked_resolve_stat(resolved, unit.base_speed)
+            .map_err(|_| numeric_fault(73, resolved.scaled()))
+    }
+
     pub(super) fn new(txn: &Transaction<'_>) -> Result<Self, BattleFault> {
         Ok(Self {
             bases: program::stat_bases(txn)?,
@@ -169,7 +214,11 @@ impl FormulaInputs {
             &source_context,
         )?;
         if override_amount.scaled() <= 0 {
-            return Ok(calculated);
+            if !apply_source_modifiers {
+                return Ok(calculated);
+            }
+            let multiplier = final_damage::multiplier(&resolver, source, purpose, &source_context)?;
+            return final_damage::apply(calculated.raw, multiplier);
         }
         Ok(DamageCalculation {
             raw: override_amount,
@@ -736,8 +785,12 @@ fn formula_source(
     cause: Cause,
     purpose: FormulaPurpose,
 ) -> Result<UnitId, BattleFault> {
-    if purpose == FormulaPurpose::Dot
-        && let Some(applier) = cause.applier()
+    // Continuing effects retain their damage applier even when the immediate
+    // event actor is the victim whose turn is advancing the effect clock.
+    if matches!(
+        purpose,
+        FormulaPurpose::Dot | FormulaPurpose::Break | FormulaPurpose::SuperBreak
+    ) && let Some(applier) = cause.applier()
     {
         return Ok(applier);
     }

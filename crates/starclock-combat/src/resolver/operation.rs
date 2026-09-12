@@ -3,6 +3,7 @@ pub(super) mod fault;
 mod sustain;
 mod weakness;
 
+use super::operation_formula::final_damage::FinalBreakDamage;
 use super::{operation_formula::FormulaInputs, transaction::Transaction};
 
 use super::{
@@ -32,7 +33,7 @@ use crate::{
         model::{CombatElement, DamageClass},
     },
     id::EventId,
-    modifier::model::FormulaStage,
+    modifier::model::{FormulaPurpose, FormulaStage},
     operation::{
         ApplyEffectOp, CreateToughnessLayerOp, DamageOp, HitOperationScratch, Operation,
         ReduceToughnessOp, RemoveEffectsOp, RemoveToughnessLayerOp, SuperBreakOp,
@@ -318,7 +319,6 @@ pub(super) fn execute_toughness_reduction(
                     element: value.break_element,
                     kind: BreakDamageKind::Initial,
                     raw: damage.raw,
-                    calculated: damage.finalized,
                 },
             )?;
         }
@@ -476,7 +476,6 @@ fn execute_super_break(
                 element: operation.definition.element,
                 kind: BreakDamageKind::SuperBreak,
                 raw: damage.raw,
-                calculated: damage.finalized,
             },
         )?;
     }
@@ -490,7 +489,6 @@ struct BreakDamageApplication {
     element: CombatElement,
     kind: BreakDamageKind,
     raw: Scalar,
-    calculated: DamageAmount,
 }
 
 fn apply_break_damage(
@@ -506,8 +504,24 @@ fn apply_break_damage(
         element,
         kind,
         raw,
-        mut calculated,
     } = application;
+    let damage = FormulaInputs::new(txn)?.final_break_damage(
+        catalog,
+        txn,
+        cause,
+        FinalBreakDamage {
+            target,
+            element,
+            raw,
+            purpose: if kind == BreakDamageKind::SuperBreak {
+                FormulaPurpose::SuperBreak
+            } else {
+                FormulaPurpose::Break
+            },
+        },
+    )?;
+    let raw = damage.raw;
+    let mut calculated = damage.finalized;
     let (hp_before, life_before) = txn
         .state
         .units
@@ -625,7 +639,6 @@ pub(super) fn settle_break_effects_at_turn_start(
                     element: effect.plan.element,
                     kind: BreakDamageKind::Effect,
                     raw: damage.raw,
-                    calculated: damage.finalized,
                 },
             )?;
         }

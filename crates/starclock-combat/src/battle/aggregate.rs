@@ -516,6 +516,7 @@ fn enemy_runtime(
 
 #[cfg(test)]
 mod tests {
+    mod timeline_speed;
     use crate::{ActionBoundaryId, DecisionId, Energy};
     use proptest::{
         collection::vec,
@@ -570,6 +571,12 @@ mod tests {
     }
 
     fn fixture_catalog() -> Arc<CombatCatalog> {
+        fixture_catalog_builder()
+            .build()
+            .expect("transaction test catalog is valid")
+    }
+
+    fn fixture_catalog_builder() -> CombatCatalogBuilder {
         let mut builder = CombatCatalogBuilder::new([0x41; 32]);
         for raw in 1..=2 {
             let selector: SelectorId = definition(raw);
@@ -610,7 +617,7 @@ mod tests {
             vec![enemy],
             vec![],
         ));
-        builder.build().expect("transaction test catalog is valid")
+        builder
     }
 
     fn combatant(form: u32, digest: u8) -> ResolvedCombatantSpec {

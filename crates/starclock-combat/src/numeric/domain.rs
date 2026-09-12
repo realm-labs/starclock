@@ -59,6 +59,25 @@ impl Speed {
     pub fn scaled(self) -> i64 {
         self.0.scaled()
     }
+
+    /// Applies the resolved/base stat ratio to the actor's independent speed.
+    /// One promoted quotient preserves existing break slowdown without rounding
+    /// an intermediate ratio or compounding modifiers between selections.
+    pub(crate) fn checked_resolve_stat(
+        self,
+        resolved: Scalar,
+        base: Self,
+    ) -> Result<Self, NumericError> {
+        if resolved.scaled() <= 0 {
+            return Err(NumericError::OutOfDomain);
+        }
+        rounded_quotient(
+            i128::from(self.scaled()) * i128::from(resolved.scaled()),
+            i128::from(base.scaled()),
+            Rounding::NearestTiesEven,
+        )
+        .and_then(Self::from_scaled)
+    }
 }
 
 /// Non-negative fixed-point Action Gauge value.

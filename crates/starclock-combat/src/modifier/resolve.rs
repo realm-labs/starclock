@@ -148,6 +148,9 @@ impl<'a> StatResolver<'a> {
                 && matches_filters(definition, instance, context)
             {
                 let value = self.value(instance, definition, context)?;
+                if query.stage == FormulaStage::DamageFinalMultiply && value.scaled() < 0 {
+                    return Err(ModifierQueryError::Numeric);
+                }
                 groups
                     .entry(definition.stacking_group)
                     .or_default()
@@ -163,7 +166,11 @@ impl<'a> StatResolver<'a> {
                 .expect("registry checked group");
             group_values.push(self.aggregate_group(group, &values)?);
         }
-        let value = sum(group_values.into_iter())?;
+        let value = if query.stage == FormulaStage::DamageFinalMultiply {
+            product(group_values.into_iter())?
+        } else {
+            sum(group_values.into_iter())?
+        };
         apply_bounds(
             value,
             self.instances.iter().filter_map(|instance| {

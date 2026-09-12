@@ -40,6 +40,8 @@ use starclock_combat::{
     rule::model::{RuleSource, RuleValue, SourceClass, ValueExpr},
 };
 
+#[path = "damage_lifecycle/final_damage.rs"]
+mod final_damage;
 #[path = "damage_lifecycle/source_resistance.rs"]
 mod source_resistance;
 
@@ -112,6 +114,7 @@ fn catalog_with_spawn(
     spawn: Option<starclock_combat::catalog::encounter::SpawnProgramDefinition>,
 ) -> Arc<CombatCatalog> {
     let mut builder = CombatCatalogBuilder::new([0x91; 32]);
+    final_damage::extend_catalog(&mut builder);
     builder.add_modifier_group(ModifierStackingGroup {
         id: definition(1),
         aggregation: ModifierAggregation::Sum,
@@ -380,6 +383,11 @@ fn catalog_with_spawn(
             definition(4),
             definition(5),
             definition(6),
+            definition(100),
+            definition(101),
+            definition(102),
+            definition(103),
+            definition(104),
         ],
         vec![],
     ));

@@ -125,3 +125,43 @@ fn formula_finalization_floors_once_then_checks_domain() {
         Err(NumericError::OutOfDomain)
     );
 }
+
+#[test]
+fn timeline_speed_stat_ratio_rounds_once_and_checks_positive_domain() {
+    for (raw, resolved, base, expected) in [
+        (100_000_000, 135_000_000, 100_000_000, 135_000_000),
+        (90_000_000, 135_000_000, 100_000_000, 121_500_000),
+        (100_000_000, 100_000_000, 100_000_000, 100_000_000),
+        (3, 3, 2, 4),
+        (5, 3, 2, 8),
+        (7, 4, 3, 9),
+    ] {
+        let speed = Speed::from_scaled(raw).unwrap();
+        let apply = || {
+            speed.checked_resolve_stat(
+                Scalar::from_scaled(resolved),
+                Speed::from_scaled(base).unwrap(),
+            )
+        };
+        assert_eq!(apply().unwrap().scaled(), expected);
+        assert_eq!(
+            apply().unwrap().scaled(),
+            expected,
+            "selection does not compound the stored clock"
+        );
+    }
+    for (raw, resolved, base, error) in [
+        (100, 0, 100, NumericError::OutOfDomain),
+        (100, -1, 100, NumericError::OutOfDomain),
+        (1, 1, 3, NumericError::OutOfDomain),
+        (i64::MAX, i64::MAX, 1, NumericError::Overflow),
+    ] {
+        assert_eq!(
+            Speed::from_scaled(raw).unwrap().checked_resolve_stat(
+                Scalar::from_scaled(resolved),
+                Speed::from_scaled(base).unwrap()
+            ),
+            Err(error)
+        );
+    }
+}
