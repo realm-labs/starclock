@@ -51,6 +51,7 @@ pub struct DomainDeckSlots {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DomainDeck {
     cards: Box<[DomainCardId]>,
+    initial_draw: Box<[u64]>,
     width: u16,
     purpose: u16,
     slots: DomainDeckSlots,
@@ -220,6 +221,7 @@ impl DomainDeck {
             return Err(DomainDeckError::InvalidSlots);
         }
         Ok(Self {
+            initial_draw: cards.iter().map(|card| card.get()).collect(),
             cards: cards.into_boxed_slice(),
             width,
             purpose,
@@ -233,7 +235,7 @@ impl DomainDeck {
         [
             (
                 self.slots.draw,
-                ActivityValue::OrderedIdSet(self.card_keys()),
+                ActivityValue::OrderedIdSet(self.initial_draw.clone()),
                 false,
                 Some(256),
             ),
@@ -444,6 +446,13 @@ impl DomainDeck {
 
     fn card_keys(&self) -> Box<[u64]> {
         self.cards.iter().map(|card| card.get()).collect()
+    }
+
+    /// An accepted entry choice initializes the partition in the shared graph.
+    /// Until that choice, observation/selection correctly reject the empty deck.
+    pub(super) fn deferred_initialization(mut self) -> Self {
+        self.initial_draw = Box::new([]);
+        self
     }
 
     fn validate_slots(&self, activity: &GraphActivity) -> Result<(), GraphActivityCommandError> {

@@ -136,7 +136,7 @@ fn tawot_replay_rejects_missing_malformed_or_changed_entry_before_player_actions
         .iter()
         .map(|record| (record.kind(), record.payload().to_vec()))
         .collect::<Vec<_>>();
-    for mutation in 0..11 {
+    for mutation in 0..12 {
         let mut changed = original.clone();
         let payload = &mut changed[0].1;
         let size = payload.len();
@@ -147,12 +147,13 @@ fn tawot_replay_rejects_missing_malformed_or_changed_entry_before_player_actions
             3 => payload[3..7].copy_from_slice(&0_u32.to_le_bytes()),
             4 => payload[3..7].copy_from_slice(&u32::MAX.to_le_bytes()),
             5 => payload[7] = 255,
-            6 => payload[size - 2..].copy_from_slice(&1_u16.to_le_bytes()),
-            7 => payload[size - 2..].copy_from_slice(&6_u16.to_le_bytes()),
+            6 => payload[size - 3..size - 1].copy_from_slice(&1_u16.to_le_bytes()),
+            7 => payload[size - 3..size - 1].copy_from_slice(&6_u16.to_le_bytes()),
             8 => {
                 changed.remove(0);
             }
             9 => changed[0].0 = RecordKind::ExpectedActivityState,
+            10 => payload[size - 1] = 2,
             _ => payload.clear(),
         }
         let error = verify_divergent_universe_replay(&encode(decoded.header(), &changed), &fixture)
@@ -167,12 +168,17 @@ fn tawot_replay_rejects_missing_malformed_or_changed_entry_before_player_actions
     for level in [0_u16, 3, 4, 5] {
         let mut changed = original.clone();
         let size = changed[0].1.len();
-        changed[0].1[size - 2..].copy_from_slice(&level.to_le_bytes());
+        changed[0].1[size - 3..size - 1].copy_from_slice(&level.to_le_bytes());
         assert!(
             verify_divergent_universe_replay(&encode(decoded.header(), &changed), &fixture)
                 .is_err()
         );
     }
+    let mut changed = original.clone();
+    *changed[0].1.last_mut().unwrap() = 1;
+    assert!(
+        verify_divergent_universe_replay(&encode(decoded.header(), &changed), &fixture).is_err()
+    );
     let mut changed = original;
     changed[1].1[0] ^= 1;
     let error = verify_divergent_universe_replay(&encode(decoded.header(), &changed), &fixture)

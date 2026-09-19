@@ -66,6 +66,31 @@ fresh-authoring/Sora drift checks validate production export reproduction.
 This policy does not promote the reference manifest's Persona rows or award
 terminal runtime credit. The current source-audit dispositions remain intact.
 
+## Optional entry selection
+
+`DivergentUniverseEntry::with_source_deck_selection` prepends a Preparation
+choice to the shared Activity. The production baseline fixture exposes
+`flow_with_source_deck_selection` for both Ordinary and Cyclical runs. This
+explicit project policy offers all nine authored decks in stable key order;
+it does not sample a released mask pool or claim unlock eligibility or effects.
+Selection itself consumes no RNG. Following entry preparation can consume its
+own reward RNG.
+
+Before selection, the chosen-deck slot and both piles are empty. An accepted
+`choose_source_deck` command initializes the exact distinct card instances and
+advances atomically, including rollback if the next offer fails. Generic raw
+selection cannot bypass the acceptance guard. `selected_source_deck` observes
+the authenticated deck without mutation. Piles persist through the current
+three-battle baseline and remain in its terminal snapshot; a fresh run starts
+empty. No domain draw or room payload is executed by this entry binding. The
+deferred compiler uses a provisional width of three, not released draw-width
+evidence.
+
+Current replay entry bytes require a boolean selection flag, bound by the entry
+identity; malformed, missing or extra bytes reject without a legacy decoder.
+Encoded transcripts reconstruct the selected deck in a fresh production
+fixture. CLI entry selection is not yet exposed.
+
 ## Execution boundary
 
 `domain_deck::DomainDeck` compiles immutable card instances into shared Activity
@@ -116,7 +141,8 @@ Run the focused behavior checks with:
 cargo test -p starclock-mode-universe domain_deck
 ```
 
-The production Ordinary/Cyclical baseline is not yet bound to this compiler.
+The production Ordinary/Cyclical baseline can initialize a source deck through
+the optional entry choice, but its route is not yet bound to the draw compiler.
 Automatic mask/deck selection, the current 60-position layout, actual room payloads,
 fixed-room behavior and public replay/adapter commands remain required before
 domain-deck or full-run release credit. The existing three-battle proxy is not

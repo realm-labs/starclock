@@ -18,6 +18,7 @@ use crate::{
     nested_battle_executor::NestedBattleExecutionReport,
 };
 
+use super::source_deck_selection::NODE as SOURCE_DECK_NODE;
 use super::{
     DivergentUniverseBattleAssemblyError, DivergentUniverseBattleAssemblyPolicy,
     DivergentUniverseBattleSettlementError, DivergentUniverseContributionSnapshotError,
@@ -297,8 +298,17 @@ fn advance_decision(
         });
     }
     if selected.kind() == ActivityDecisionKind::Preparation {
-        flow.choose_initial_equation(activity, state_hash, selected.decision(), selected.option())
-            .map_err(DivergentUniverseBaselineError::ActivityCommand)?;
+        if activity.current_node() == SOURCE_DECK_NODE {
+            flow.choose_source_deck(activity, state_hash, selected.decision(), selected.option())
+        } else {
+            flow.choose_initial_equation(
+                activity,
+                state_hash,
+                selected.decision(),
+                selected.option(),
+            )
+        }
+        .map_err(DivergentUniverseBaselineError::ActivityCommand)?;
         return Ok(DivergentUniverseBaselineStep::ActivityDecision {
             decision: selected,
             state_hash: activity.state_hash(),

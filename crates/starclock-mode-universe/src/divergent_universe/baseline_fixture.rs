@@ -156,6 +156,29 @@ impl DivergentUniverseBaselineFixture {
         difficulty: &str,
         tawot: Option<u16>,
     ) -> Result<DivergentUniverseFlowInstance, DivergentUniverseBaselineFixtureError> {
+        self.flow_for_entry_configuration(family, area, difficulty, tawot, false)
+    }
+
+    /// Optional explicit source-deck choice, without original mask-pool claims.
+    pub fn flow_with_source_deck_selection(
+        &self,
+        family: DivergentUniverseRunFamily,
+    ) -> Result<DivergentUniverseFlowInstance, DivergentUniverseBaselineFixtureError> {
+        let area = match family {
+            DivergentUniverseRunFamily::Ordinary => ORDINARY_AREA,
+            DivergentUniverseRunFamily::Cyclical => CYCLICAL_AREA,
+        };
+        self.flow_for_entry_configuration(family, area, DIFFICULTY, None, true)
+    }
+
+    pub(super) fn flow_for_entry_configuration(
+        &self,
+        family: DivergentUniverseRunFamily,
+        area: &str,
+        difficulty: &str,
+        tawot: Option<u16>,
+        source_deck_selection: bool,
+    ) -> Result<DivergentUniverseFlowInstance, DivergentUniverseBaselineFixtureError> {
         let snapshot = DivergentUniverseInputSnapshot::seal(
             DivergentUniverseAccountSnapshotDigest::new([0x22; 32])
                 .map_err(|_| DivergentUniverseBaselineFixtureError::Snapshot)?,
@@ -188,6 +211,9 @@ impl DivergentUniverseBaselineFixture {
         entry = entry.with_initial_occurrence(occurrence.variant.clone());
         if let Some(level) = tawot {
             entry = entry.with_initial_tawot_service(level);
+        }
+        if source_deck_selection {
+            entry = entry.with_source_deck_selection();
         }
         if family == DivergentUniverseRunFamily::Cyclical {
             let area_source = area

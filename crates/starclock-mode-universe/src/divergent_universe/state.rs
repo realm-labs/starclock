@@ -92,12 +92,13 @@ pub(super) fn compile_state(
     values: EntryStateValues<'_>,
     progression: &CompiledProgression,
     logical_scopes: LogicalScopeDefinitions,
+    additional_slots: Vec<ActivitySlotDefinition>,
 ) -> Result<ActivityStateDefinition, DivergentUniverseEntryFlowError> {
     let family_value = match family {
         DivergentUniverseRunFamily::Ordinary => 1,
         DivergentUniverseRunFamily::Cyclical => 2,
     };
-    let slots = vec![
+    let mut slots = vec![
         integer_slot(
             TAWOT_PURCHASES_SLOT,
             0,
@@ -556,6 +557,7 @@ pub(super) fn compile_state(
             512,
         )?,
     ];
+    slots.extend(additional_slots);
     ActivityStateDefinition::new(slots, Vec::new(), Vec::new())
         .map(|state| state.with_logical_scopes(logical_scopes))
         .map_err(|_| DivergentUniverseEntryFlowError::InvalidActivityDefinition)

@@ -90,6 +90,8 @@ mod sage_acquisition;
 mod sage_events;
 #[path = "tests/sage_victory.rs"]
 mod sage_victory;
+#[path = "tests/source_deck_selection.rs"]
+mod source_deck_selection;
 mod tawot_replay;
 #[path = "tests/tawot_service.rs"]
 mod tawot_service;

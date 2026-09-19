@@ -7,6 +7,7 @@ use starclock_activity::{
 
 use super::battle_route::{LayerBattleAddress, domain_choice_node, layer_entry_node};
 use super::entry_flow::DivergentUniverseEntryFlowError;
+use super::source_deck_selection::NODE as SOURCE_DECK_NODE;
 use super::tawot_service::nodes as tawot_service_nodes;
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -47,6 +48,7 @@ pub(super) fn compile(
     initial_equation: bool,
     all_layers: bool,
     tawot_service: bool,
+    source_deck_selection: bool,
 ) -> Result<LogicalScopeDefinitions, DivergentUniverseEntryFlowError> {
     let maximum_planes = u32::try_from(layer_count)
         .map_err(|_| DivergentUniverseEntryFlowError::InvalidActivityDefinition)?;
@@ -72,6 +74,12 @@ pub(super) fn compile(
         )?,
     ];
     let mut bindings = Vec::with_capacity(layer_count + 1);
+    if source_deck_selection {
+        bindings.push(binding(
+            SOURCE_DECK_NODE,
+            vec![address(DivergentUniverseLogicalScopeKind::Run, 1)?],
+        )?);
+    }
     if tawot_service {
         for physical in tawot_service_nodes() {
             bindings.push(binding(

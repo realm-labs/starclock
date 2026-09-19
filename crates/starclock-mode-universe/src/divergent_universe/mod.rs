@@ -50,6 +50,7 @@ pub mod room_lifecycle;
 mod scope;
 mod service_adventure_runtime;
 mod snapshot;
+mod source_deck_selection;
 mod state;
 mod tawot_service;
 mod titan_runtime;

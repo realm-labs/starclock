@@ -23,6 +23,10 @@ order and duplicates preserved. An additional graph test executes all nine.
 This explicitly policy-bound source selection does not establish a released
 mask offer pool. Automatic mask selection, production route binding and actual
 room payloads remain absent; no terminal source or full-run credit is added.
+An optional Ordinary/Cyclical entry choice now initializes one of the nine
+authored decks in the same Activity. Atomic rejection, cross-battle retention
+and fresh encoded replay are covered; no domain cards are consumed by the
+three-battle proxy. The replay entry payload binds this explicit selection flag.
 The reference generators remove the incorrect blanket `RoguePersona` other-mode
 exclusion and retain eleven explicitly reviewed files for row-level accounting.
 The current generated Persona source audit accounts for all 547 rows across

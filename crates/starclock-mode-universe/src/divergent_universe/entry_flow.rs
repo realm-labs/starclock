@@ -45,6 +45,7 @@ use super::progression::{
     DivergentUniverseAstronomicalEntry, DivergentUniverseCyclicalRefresh,
     DivergentUniverseProgressionProjection, DivergentUniverseProgressionRuntimeError,
 };
+use super::source_deck_selection::SourceDeckSelection;
 use super::state::{EntryStateValues, compile_state};
 use super::tawot_service::TawotService;
 use super::vertical_slice::DivergentUniverseVerticalSliceError;
@@ -79,9 +80,17 @@ pub struct DivergentUniverseEntry {
     initial_occurrence: Option<DivergentUniverseOccurrenceVariantId>,
     initial_equation: bool,
     initial_tawot_service: Option<u16>,
+    source_deck_selection: bool,
 }
 
 impl DivergentUniverseEntry {
+    /// Prepends an explicit choice among the authored source decks. This is a
+    /// headless policy option, not original mask-offer eligibility or effects.
+    #[must_use]
+    pub fn with_source_deck_selection(mut self) -> Self {
+        self.source_deck_selection = true;
+        self
+    }
     /// Explicitly admits a Tawot service after the initial checkpoint, before
     /// its battle. This caller-selected binding does not generate Forge domains.
     /// Levels without authored service data reject at compilation.
@@ -121,6 +130,7 @@ impl DivergentUniverseEntry {
             initial_occurrence: None,
             initial_equation: false,
             initial_tawot_service: None,
+            source_deck_selection: false,
         })
     }
 
@@ -343,6 +353,15 @@ impl DivergentUniverseRuntimeFactory {
             stable_index(catalog.difficulties(), &entry.difficulty, |value| &value.id)?;
         let identity = compile_identity(&self.bundle, self.decisions.digest(), area, &entry);
         let has_runtime_battle = entry.first_ordinary_vertical_slice || entry.runtime_battle_route;
+        let source_deck_selection = entry
+            .source_deck_selection
+            .then(|| SourceDeckSelection::compile(self).map(Arc::new))
+            .transpose()?;
+        let additional_slots = source_deck_selection
+            .as_ref()
+            .map(|selection| selection.slots())
+            .transpose()?
+            .unwrap_or_default();
         let state = compile_state(
             area.run_family(),
             EntryStateValues {
@@ -366,7 +385,9 @@ impl DivergentUniverseRuntimeFactory {
                 entry.initial_equation,
                 entry.layer_battle_route,
                 entry.initial_tawot_service.is_some(),
+                entry.source_deck_selection,
             )?,
+            additional_slots,
         )?;
         let occurrence_binding = entry
             .initial_occurrence
@@ -443,6 +464,11 @@ impl DivergentUniverseRuntimeFactory {
             .layer_battle_route
             .then(|| EvolutionEvents::compile(self, layer_values.len()).map(Arc::new))
             .transpose()?;
+        let graph = if let Some(selection) = &source_deck_selection {
+            selection.attach(graph, &mut programs)?
+        } else {
+            graph
+        };
         if let Some(events) = &evolution_events {
             events.wrap_programs(&mut programs)?;
         }
@@ -466,6 +492,7 @@ impl DivergentUniverseRuntimeFactory {
         )
         .map_err(|_| DivergentUniverseEntryFlowError::InvalidActivityDefinition)?;
         Ok(DivergentUniverseFlowInstance {
+            source_deck_selection,
             definition: Arc::new(definition),
             occurrence_binding,
             tawot_service,
@@ -505,6 +532,7 @@ impl DivergentUniverseRuntimeFactory {
 /// Entry-compiled Activity definition plus exact mode identities.
 #[derive(Clone, Debug)]
 pub struct DivergentUniverseFlowInstance {
+    pub(super) source_deck_selection: Option<Arc<SourceDeckSelection>>,
     pub(super) tawot_service: Option<Arc<TawotService>>,
     pub(super) definition: Arc<GraphActivityDefinition>,
     pub(super) occurrence_binding: Option<Arc<OccurrenceBinding>>,
@@ -625,6 +653,7 @@ fn compile_identity(
         &entry.participants.digest().bytes(),
         &[battle_route_identity(entry)],
         &[u8::from(entry.initial_equation)],
+        &[u8::from(entry.source_deck_selection)],
         &entry.initial_tawot_service.unwrap_or(0).to_le_bytes(),
         entry
             .initial_occurrence
@@ -652,6 +681,7 @@ fn entry_state_digest(entry: &DivergentUniverseEntry) -> [u8; 32] {
     let mut hash = CanonicalDigestBuilder::new();
     digest_part(&mut hash, b"starclock.divergent-universe.entry-state.v1");
     digest_part(&mut hash, &[u8::from(entry.initial_equation)]);
+    digest_part(&mut hash, &[u8::from(entry.source_deck_selection)]);
     digest_part(
         &mut hash,
         &entry.initial_tawot_service.unwrap_or(0).to_le_bytes(),

@@ -314,7 +314,13 @@ pub fn verify_divergent_universe_selected_replay(
         ));
     }
     let flow = fixture
-        .flow_for_configuration(family, area, difficulty, inputs.tawot)
+        .flow_for_entry_configuration(
+            family,
+            area,
+            difficulty,
+            inputs.tawot,
+            inputs.source_deck_selection,
+        )
         .map_err(DivergentUniverseReplayError::Fixture)?;
     let components = fixture
         .components(&flow)
