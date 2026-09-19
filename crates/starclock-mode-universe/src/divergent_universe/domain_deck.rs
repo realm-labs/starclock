@@ -7,6 +7,8 @@
 use std::collections::BTreeSet;
 use std::num::NonZeroU64;
 
+use super::DivergentUniverseRuntimeFactory;
+
 use starclock_activity::{
     ActivityCondition, ActivityDecisionId, ActivityDecisionKind, ActivityEdgeId,
     ActivityExpression, ActivityOperation, ActivityOptionDefinition, ActivityOptionId,
@@ -66,6 +68,7 @@ pub struct DomainDeckObservation {
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum DomainDeckError {
+    UnknownAuthoredDeck,
     InvalidCards,
     InvalidWidth,
     InvalidSlots,
@@ -78,6 +81,40 @@ impl std::fmt::Display for DomainDeckError {
     }
 }
 impl std::error::Error for DomainDeckError {}
+
+impl DivergentUniverseRuntimeFactory {
+    /// Compiles an explicitly selected Sora deck. Selection does not admit the
+    /// source mask to a released offer pool or implement its special effects.
+    /// The owning graph must bind this factory's decision digest and preserve
+    /// the card-instance-to-room mapping in `decision_catalog().domain_decks()`.
+    /// Width remains a caller-selected 1–5 policy; unknown keys fail closed.
+    pub fn compile_domain_deck(
+        &self,
+        key: &str,
+        width: u16,
+        slots: DomainDeckSlots,
+    ) -> Result<DomainDeck, DomainDeckError> {
+        let definition = self
+            .decision_catalog()
+            .domain_decks()
+            .iter()
+            .find(|deck| deck.key.as_ref() == key)
+            .ok_or(DomainDeckError::UnknownAuthoredDeck)?;
+        DomainDeck::new(
+            definition
+                .cards
+                .iter()
+                .map(|card| {
+                    DomainCardId::new(card.instance.get())
+                        .expect("validated nonzero authored card instance")
+                })
+                .collect(),
+            width,
+            24_101,
+            slots,
+        )
+    }
+}
 
 impl DomainDeck {
     /// Projects reserved cards out of the available draw pile without sampling

@@ -521,3 +521,52 @@ fn domain_deck_corrupt_partition_rejects_without_repairing_or_advancing() {
         assert_eq!(activity.canonical_state_bytes(), before);
     }
 }
+
+#[test]
+fn authored_domain_decks_execute_real_sora_instances_with_reconstruction() {
+    let factory = DivergentUniverseRuntimeFactory::production().unwrap();
+    assert!(
+        factory
+            .compile_domain_deck("du.domain-deck.unknown", 3, slots())
+            .is_err()
+    );
+    for authored in factory.decision_catalog().domain_decks() {
+        let deck = factory
+            .compile_domain_deck(&authored.key, 3, slots())
+            .unwrap();
+        let graph = setup(&deck, false);
+        let mut activity = start(Arc::clone(&graph), 321);
+        let mut replay = start(graph, 321);
+        for _ in 0..6 {
+            let offered = activity.player_view().decision().unwrap().clone();
+            let observed = deck.observe(&activity).unwrap();
+            assert_eq!(
+                observed.draw.len() + observed.hand.len() + observed.discard.len(),
+                authored.cards.len()
+            );
+            for card in observed.hand.iter() {
+                assert!(
+                    authored
+                        .cards
+                        .iter()
+                        .any(|row| row.instance.get() == card.get())
+                );
+            }
+            let selected = offered.options()[0].id();
+            let hash = activity.state_hash();
+            deck.choose(&mut activity, hash, offered.id(), selected)
+                .unwrap();
+            let hash = replay.state_hash();
+            let decision = replay.player_view().decision().unwrap().id();
+            deck.choose(&mut replay, hash, decision, selected).unwrap();
+            assert_eq!(
+                activity.canonical_state_bytes(),
+                replay.canonical_state_bytes()
+            );
+            assert_eq!(
+                deck.observe(&activity).unwrap().selected.unwrap().get(),
+                selected.get()
+            );
+        }
+    }
+}

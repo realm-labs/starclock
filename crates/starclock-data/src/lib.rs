@@ -67,6 +67,7 @@ pub mod divergent_universe_catalog;
 mod divergent_universe_curio;
 pub mod divergent_universe_curio_catalog;
 pub mod divergent_universe_decisions;
+pub mod divergent_universe_domain_decks;
 pub mod divergent_universe_domain_layout;
 mod divergent_universe_encounter;
 pub mod divergent_universe_encounter_catalog;

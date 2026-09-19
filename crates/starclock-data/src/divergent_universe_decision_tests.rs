@@ -10,6 +10,8 @@ use std::collections::{BTreeMap, BTreeSet};
 #[path = "divergent_universe_decision_test_transport.rs"]
 mod transport;
 use transport::EditedRows;
+#[path = "divergent_universe_domain_deck_tests.rs"]
+mod domain_decks;
 #[path = "divergent_universe_domain_layout_tests.rs"]
 mod domain_layout;
 
@@ -28,7 +30,7 @@ use super::{
 fn production_decision_workbook_lowers_three_ordered_policy_choices() {
     let reference = load_divergent_universe_bundle().unwrap();
     let catalog = DecisionCatalog::production(&reference).unwrap();
-    assert_eq!(catalog.sources().len(), 66);
+    assert_eq!(catalog.sources().len(), 69);
     expansion_policy::production(&catalog);
     reward_policies::production_battle_stats(&catalog);
     assert_eq!(

@@ -92,6 +92,12 @@ values = [{ id = 0, name = "ActivePreStateUniformUnownedBoundedCascade" }]
 [[enums]]
 name = "DuDomainSlotKind"
 values = [{ id = 0, name = "Unspecified" }, { id = 1, name = "Battle" }, { id = 2, name = "Boss" }, { id = 3, name = "Respite" }, { id = 4, name = "Conversion" }, { id = 5, name = "Blank" }, { id = 6, name = "Coin" }]
+[[enums]]
+name = "DuDomainDeckPolicy"
+values = [{ id = 0, name = "ExplicitSourceDeck" }]
+[[enums]]
+name = "DuDomainCardKind"
+values = [{ id = 0, name = "Battle" }, { id = 1, name = "Encounter" }, { id = 2, name = "Event" }, { id = 3, name = "Coin" }, { id = 4, name = "Shop" }, { id = 5, name = "Reward" }, { id = 6, name = "Adventure" }, { id = 7, name = "Reforge" }, { id = 8, name = "Elite" }]
 [[tables]]
 id = "sources"
 name = "DuDecisionSources"
@@ -1608,6 +1614,99 @@ type = "string"
 length = [1, 4000]
 [[tables.fields]]
 name = "replacement_condition"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "source_ids"
+type = "list<ref<DuDecisionSources.id>>"
+parser = { kind = "split", separator = "|" }
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+[[tables]]
+id = "domaindecks"
+name = "DuDomainDecks"
+mode = "map"
+key = "id"
+[tables.source]
+file = "DivergentUniverseDecisions.xlsx"
+sheet = "DomainDecks"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1,2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "style_source"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "policy"
+type = "enum<DuDomainDeckPolicy>"
+[[tables.fields]]
+name = "card_count"
+type = "i32"
+range = [1,256]
+[[tables.fields]]
+name = "policy_note"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "replacement_condition"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "source_locator"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "source_ids"
+type = "list<ref<DuDecisionSources.id>>"
+parser = { kind = "split", separator = "|" }
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+[[tables]]
+id = "domaincards"
+name = "DuDomainCards"
+mode = "map"
+key = "id"
+[tables.source]
+file = "DivergentUniverseDecisions.xlsx"
+sheet = "DomainCards"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1,2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "deck_id"
+type = "ref<DuDomainDecks.id>"
+[[tables.fields]]
+name = "ordinal"
+type = "i32"
+range = [1,256]
+[[tables.fields]]
+name = "preset_source"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "kind"
+type = "enum<DuDomainCardKind>"
+[[tables.fields]]
+name = "level"
+type = "i32"
+range = [1,5]
+[[tables.fields]]
+name = "source_locator"
 type = "string"
 length = [1, 4000]
 [[tables.fields]]

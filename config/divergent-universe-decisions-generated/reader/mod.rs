@@ -34,6 +34,8 @@ pub mod du_battle_fragment_policy;
 pub mod du_tawot_service_policy;
 pub mod du_expansion_reward_policy;
 pub mod du_domain_slot_kind;
+pub mod du_domain_deck_policy;
+pub mod du_domain_card_kind;
 pub mod du_decision_sources;
 pub mod du_decision_policies;
 pub mod du_decision_occurrences;
@@ -61,9 +63,11 @@ pub mod du_tawot_services;
 pub mod du_curio_domain_grants;
 pub mod du_equation_expansion_rewards;
 pub mod du_domain_layout;
+pub mod du_domain_decks;
+pub mod du_domain_cards;
 pub type SoraMap<K, V> = std::collections::HashMap<K, V>;
 
-pub const SCHEMA_FINGERPRINT: &str = "82306a311516b0f5";
+pub const SCHEMA_FINGERPRINT: &str = "51b0e9710439bbaa";
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum SoraTableShape {
@@ -146,7 +150,7 @@ impl SoraConfig {
             )));
         }
         let mut tables: SoraMap<&'static str, Box<dyn ErasedSoraTable>> =
-            sora_map_with_capacity(27);
+            sora_map_with_capacity(29);
         tables.insert(du_decision_sources::DuDecisionSourcesTable::NAME, Box::new(du_decision_sources::DuDecisionSourcesTable::from_rows(source.decode_table::<du_decision_sources::DuDecisionSources>(du_decision_sources::DuDecisionSourcesTable::NAME)?)?));
         tables.insert(du_decision_policies::DuDecisionPoliciesTable::NAME, Box::new(du_decision_policies::DuDecisionPoliciesTable::from_rows(source.decode_table::<du_decision_policies::DuDecisionPolicies>(du_decision_policies::DuDecisionPoliciesTable::NAME)?)?));
         tables.insert(du_decision_occurrences::DuDecisionOccurrencesTable::NAME, Box::new(du_decision_occurrences::DuDecisionOccurrencesTable::from_rows(source.decode_table::<du_decision_occurrences::DuDecisionOccurrences>(du_decision_occurrences::DuDecisionOccurrencesTable::NAME)?)?));
@@ -174,6 +178,8 @@ impl SoraConfig {
         tables.insert(du_curio_domain_grants::DuCurioDomainGrantsTable::NAME, Box::new(du_curio_domain_grants::DuCurioDomainGrantsTable::from_rows(source.decode_table::<du_curio_domain_grants::DuCurioDomainGrants>(du_curio_domain_grants::DuCurioDomainGrantsTable::NAME)?)?));
         tables.insert(du_equation_expansion_rewards::DuEquationExpansionRewardsTable::NAME, Box::new(du_equation_expansion_rewards::DuEquationExpansionRewardsTable::from_rows(source.decode_table::<du_equation_expansion_rewards::DuEquationExpansionRewards>(du_equation_expansion_rewards::DuEquationExpansionRewardsTable::NAME)?)?));
         tables.insert(du_domain_layout::DuDomainLayoutTable::NAME, Box::new(du_domain_layout::DuDomainLayoutTable::from_rows(source.decode_table::<du_domain_layout::DuDomainLayout>(du_domain_layout::DuDomainLayoutTable::NAME)?)?));
+        tables.insert(du_domain_decks::DuDomainDecksTable::NAME, Box::new(du_domain_decks::DuDomainDecksTable::from_rows(source.decode_table::<du_domain_decks::DuDomainDecks>(du_domain_decks::DuDomainDecksTable::NAME)?)?));
+        tables.insert(du_domain_cards::DuDomainCardsTable::NAME, Box::new(du_domain_cards::DuDomainCardsTable::from_rows(source.decode_table::<du_domain_cards::DuDomainCards>(du_domain_cards::DuDomainCardsTable::NAME)?)?));
         Ok(Self { tables })
     }
 
@@ -302,6 +308,14 @@ impl SoraConfig {
 
     pub fn du_domain_layout(&self) -> &du_domain_layout::DuDomainLayoutTable {
         self.table(du_domain_layout::DuDomainLayoutTable::NAME)
+    }
+
+    pub fn du_domain_decks(&self) -> &du_domain_decks::DuDomainDecksTable {
+        self.table(du_domain_decks::DuDomainDecksTable::NAME)
+    }
+
+    pub fn du_domain_cards(&self) -> &du_domain_cards::DuDomainCardsTable {
+        self.table(du_domain_cards::DuDomainCardsTable::NAME)
     }
 }
 

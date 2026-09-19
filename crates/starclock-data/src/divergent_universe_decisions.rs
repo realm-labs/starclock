@@ -19,6 +19,7 @@ use crate::divergent_universe_decisions_generated::{
     du_decision_reward_kind::DuDecisionRewardKind,
     runtime::{SoraBundle, SoraTableSource},
 };
+use crate::divergent_universe_domain_decks::DomainDeckDefinition;
 use crate::divergent_universe_domain_layout::DomainLayerLayout;
 use crate::divergent_universe_encounter_catalog::DivergentUniverseEncounterGroupId;
 use crate::divergent_universe_equation_catalog::{
@@ -217,6 +218,7 @@ pub struct CurioFragmentGainDefinition {
 /// binary and reference component; equal IDs cannot hide different parameters.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DecisionCatalog {
+    domain_decks: Box<[DomainDeckDefinition]>,
     domain_layout: Box<[DomainLayerLayout]>,
     digest: [u8; 32],
     sources: Box<[DecisionSource]>,
@@ -567,6 +569,10 @@ pub struct InitialEquationPolicy {
 }
 
 impl DecisionCatalog {
+    /// Explicitly selected source decks, not a released mask offer pool.
+    pub fn domain_decks(&self) -> &[DomainDeckDefinition] {
+        &self.domain_decks
+    }
     /// Current-profile position records, not executable room or deck membership.
     pub fn domain_layout(&self) -> &[DomainLayerLayout] {
         &self.domain_layout

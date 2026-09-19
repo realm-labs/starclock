@@ -98,9 +98,9 @@ treasures then take their public guaranteed upgrades; the two later domain
 choices select Elite. Normal Blessing choices prefer an available contribution
 to the selected Equation's still-deficient Path.
 
-- Ordinary seed 481432, first initial Equation: Sage's third-stage acquisition
+- Ordinary seed 155549, second initial Equation: Sage's third-stage acquisition
   grants complete the recipe at its public evolution service.
-- Cyclical seed 294007, first initial Equation: the third battle's Sage victory
+- Cyclical seed 37097, first initial Equation: the third battle's Sage victory
   grants complete the recipe at verified settlement.
 
 Each vector checks one extra unowned Blessing, one additional Reward draw,

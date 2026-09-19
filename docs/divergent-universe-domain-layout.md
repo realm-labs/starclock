@@ -3,8 +3,9 @@
 ## Current boundary
 
 The [base domain-deck compiler](divergent-universe-domain-deck.md) provides shared
-Activity draw/discard programs, but is not yet bound to these production
-positions or initial mask decks. Its isolated graph tests do not establish
+Activity draw/discard programs and nine explicitly selected authored source
+decks, but is not yet bound to these production positions or automatic mask
+selection. Its isolated graph tests do not establish
 production room execution or terminal source coverage.
 
 `DomainLayout` is an openpyxl-authored Sora table containing all 60 current

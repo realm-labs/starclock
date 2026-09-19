@@ -17,8 +17,12 @@ The [base domain-deck compiler](divergent-universe-domain-deck.md) now provides
 shared-Activity whole-hand discard, short hands, refill and section-carried
 piles. Six focused tests cover reconstruction, non-mutating observation,
 fixed-room RNG isolation, binding validation and rejected-command rollback.
-Production binding, initial mask decks and actual room payloads are still
-absent; this compiler adds no terminal source or full-run coverage.
+Nine caller-selected source decks (125 distinct instances, 15 presets) are now
+openpyxl/Sora authored and compiled through the production factory, with source
+order and duplicates preserved. An additional graph test executes all nine.
+This explicitly policy-bound source selection does not establish a released
+mask offer pool. Automatic mask selection, production route binding and actual
+room payloads remain absent; no terminal source or full-run credit is added.
 The reference generators remove the incorrect blanket `RoguePersona` other-mode
 exclusion and retain eleven explicitly reviewed files for row-level accounting.
 The current generated Persona source audit accounts for all 547 rows across

@@ -1,9 +1,12 @@
 # Typed Divergent Universe decisions
 
 This project owns executable decision definitions, not the reference pack's
-identity/evidence catalog. Its 24 tables and 134 rows include policy-bound
+identity/evidence catalog. Its 29 tables and 352 rows include policy-bound
 choices, rewards and reviewed Curio components used by the production Activity
-graph. This is partial executable coverage, not complete gameplay parity.
+graph, plus nine explicitly selected source decks and their 125 distinct card
+instances. Deck compilation is available, but automatic mask selection and
+production domain routing remain unbound. This is partial executable coverage,
+not complete gameplay parity.
 The reference project remains a required current input. This is not a second
 Activity engine or an old-format compatibility path.
 

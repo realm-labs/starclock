@@ -46,6 +46,7 @@ use crate::divergent_universe_decisions_generated::{
     SoraConfig, du_decision_binding::DuDecisionBinding, du_decision_evidence::DuDecisionEvidence,
     du_decision_exhaustion::DuDecisionExhaustion, du_decision_sampling::DuDecisionSampling,
 };
+use crate::divergent_universe_domain_decks;
 use crate::divergent_universe_domain_layout;
 use crate::divergent_universe_service_catalog::{
     DivergentUniverseOccurrenceId, DivergentUniverseOccurrenceVariantId,
@@ -407,6 +408,7 @@ pub(super) fn compile(
     let curio_domain_grants =
         curio_domain_grants::compile(config, reference, &curio_domain_expiries)?;
     Ok(DecisionCatalog {
+        domain_decks: divergent_universe_domain_decks::compile(config)?,
         domain_layout: divergent_universe_domain_layout::compile(config, reference)?,
         digest: [0; 32],
         sources: sources.into_boxed_slice(),
