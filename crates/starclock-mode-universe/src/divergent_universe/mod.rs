@@ -54,6 +54,7 @@ pub mod respite_room;
 pub mod room_lifecycle;
 mod scope;
 mod service_adventure_runtime;
+pub mod shop_purchase;
 mod snapshot;
 mod source_deck_selection;
 mod state;

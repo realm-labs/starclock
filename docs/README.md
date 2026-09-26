@@ -174,6 +174,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 147. [Accepted Workbench Equation overwrite](divergent-universe-workbench-equation-reforge.md) — equal-quality identity replacement, independent escalating price policy and atomic acquisition/expansion rewards.
 148. [Offered fixed Respite Equation overwrite](divergent-universe-respite-equation-reforge.md) — bounded same-quality candidate menus, atomic confirmation and composition with enhancement/Blessing overwrite.
 149. [Workbench Curio synthesis](divergent-universe-curio-synthesis.md) — atomic two-input settlement, owner-unique candidate policy, bounded authenticated cached menus and position-profile controller dispatch; default topology and encoded profile replay remain pending.
+150. [Fixed-stock shop purchases](divergent-universe-shop-purchase.md) — trusted atomic payment, complete acquisition effects and logical-room sold-out state; public menus and original merchant/price policies remain pending.
 
 ## Delivery boundary
 

@@ -188,6 +188,17 @@ controlled test policies, with other payloads still probes. Caller placement/cap
 original pools/weights, NPC admission, default topology and encoded profile replay
 remain pending; this does not establish full-run or complete Curio-effect parity.
 No terminal source/mechanic credit is added.
+An [accepted fixed-stock shop purchase boundary](divergent-universe-shop-purchase.md)
+now validates explicit current rewards/prices and commits Fragment payment,
+mandatory acquisition/Equation effects, logical-room sold-out state and a Run
+receipt atomically. Wax rewards and post-payment Fragment-grant timing are
+executable; stale/invalid/insufficient-fund or late-failing purchases preserve
+bytes/RNG. Stock addresses, fixed prices, base-level rewards, no discounts/refresh
+and snapshot timing are explicit policy, not original merchant membership.
+The API is trusted owning-service settlement, not a public menu. Public offers,
+controller dispatch, original shop data/modifiers, source admission, default
+topology and encoded replay remain pending. No terminal source/mechanic or
+Shop-family/full-run credit is added; workbooks and Sora inputs are unchanged.
 The reference generators remove the incorrect blanket `RoguePersona` other-mode
 exclusion and retain eleven explicitly reviewed files for row-level accounting.
 The current generated Persona source audit accounts for all 547 rows across
