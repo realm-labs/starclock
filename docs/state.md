@@ -27,6 +27,11 @@ An optional Ordinary/Cyclical entry choice now initializes one of the nine
 authored decks in the same Activity. Atomic rejection, cross-battle retention
 and fresh encoded replay are covered; no domain cards are consumed by the
 three-battle proxy. The replay entry payload binds this explicit selection flag.
+The deck compiler also binds each distinct card to its own room-entry edge and
+composes generated entry effects with whole-hand settlement atomically. Tests
+use all nine Sora decks and actual Curio entry income/allowance operations,
+including complete rollback after room initialization failure. Their test room
+probes do not implement room gameplay; production position routing remains unbound.
 The reference generators remove the incorrect blanket `RoguePersona` other-mode
 exclusion and retain eleven explicitly reviewed files for row-level accounting.
 The current generated Persona source audit accounts for all 547 rows across

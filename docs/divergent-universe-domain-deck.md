@@ -100,6 +100,23 @@ bind both the authored content definitions and these programs into its graph;
 the compiler does not load source JSON, create a second state machine or mutate
 an Activity outside accepted commands.
 
+`offer_program_by_card` requires an exact-once binding from every instance to
+an owning room-entry edge. It canonicalizes input order and rejects missing,
+duplicate or foreign instances. Duplicate presets can retain separate card
+identities while sharing one destination. The owning Activity validates edge
+existence and traversal source; the compiler does not infer a room executor
+from a preset or a composition label.
+
+`choose_with_generated_entry` lets the trusted mode executor generate the
+selected domain's entry effects from the authenticated pre-command view and
+labeled RNG. Settlement of the entire displayed hand happens first, followed
+by those effects and the selected card's authored traversal. Entry effects
+cannot change any of the four deck slots or introduce offers, traversal,
+relocation or termination. Failed generation, invalid effects and downstream
+room initialization restore the complete state, offers, events and RNG. The
+returned executor value is available only after a successful commit. Adapters
+continue to submit offered IDs; they do not supply these operations.
+
 Draw/discard piles and the selected instance persist across sections. The hand
 is the authenticated pending Route offer. Internally the unsettled draw slot
 still contains the reserved hand until selection commits; `observe` subtracts
@@ -134,6 +151,14 @@ factory and executes six draw/selection phases for each, preserving instance
 identity, card conservation and exact fresh reconstruction. Data tests reject
 missing cards/decks, wrong counts or order, orphan ownership, invalid preset
 levels, malformed identities and unbound provenance.
+Dispatcher tests bind all nine authored decks to per-kind test room probes,
+retain duplicate instance identities, and reconstruct six draw/selection phases
+across three sections. The same choice transaction executes the production
+Curio 9071 entry operations: actual fragment income and three-entry allowance
+consumption stop at the limiting entry. Late room rejection restores these
+effects and generated Reward RNG along with the entire hand. These tests prove
+dispatch and transaction composition, not the gameplay of the room probes or
+integration with the production 60-position route.
 
 Run the focused behavior checks with:
 

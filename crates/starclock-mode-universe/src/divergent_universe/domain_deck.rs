@@ -7,6 +7,9 @@
 use std::collections::BTreeSet;
 use std::num::NonZeroU64;
 
+#[path = "domain_deck_dispatch.rs"]
+mod dispatch;
+
 use super::DivergentUniverseRuntimeFactory;
 
 use starclock_activity::{
@@ -74,6 +77,7 @@ pub enum DomainDeckError {
     InvalidWidth,
     InvalidSlots,
     InvalidRandomPolicy,
+    InvalidDestinations,
 }
 
 impl std::fmt::Display for DomainDeckError {
@@ -332,32 +336,32 @@ impl DomainDeck {
             options: self
                 .cards
                 .iter()
-                .map(|card| {
-                    ActivityOptionDefinition::new(
-                        option(*card),
-                        0,
-                        contains(self.slots.draw, card.get()),
-                        vec![
-                            ActivityOperation::Require(ActivityCondition::All(
-                                vec![
-                                    ActivityCondition::Boolean(ActivityExpression::Slot(
-                                        self.slots.accepted,
-                                    )),
-                                    ActivityCondition::Equal(
-                                        ActivityExpression::Slot(self.slots.selected),
-                                        ActivityExpression::Literal(ActivityValue::OptionalId(
-                                            Some(card.get()),
-                                        )),
-                                    ),
-                                ]
-                                .into_boxed_slice(),
-                            )),
-                            ActivityOperation::Traverse(next),
-                        ],
-                    )
-                })
+                .map(|card| self.card_option(*card, next))
                 .collect(),
         }]
+    }
+
+    fn card_option(&self, card: DomainCardId, next: ActivityEdgeId) -> ActivityOptionDefinition {
+        ActivityOptionDefinition::new(
+            option(card),
+            0,
+            contains(self.slots.draw, card.get()),
+            vec![
+                ActivityOperation::Require(ActivityCondition::All(
+                    vec![
+                        ActivityCondition::Boolean(ActivityExpression::Slot(self.slots.accepted)),
+                        ActivityCondition::Equal(
+                            ActivityExpression::Slot(self.slots.selected),
+                            ActivityExpression::Literal(ActivityValue::OptionalId(Some(
+                                card.get(),
+                            ))),
+                        ),
+                    ]
+                    .into_boxed_slice(),
+                )),
+                ActivityOperation::Traverse(next),
+            ],
+        )
     }
 
     /// Shared Activity owns Graph RNG, offer persistence and failed-command rollback.
@@ -383,16 +387,8 @@ impl DomainDeck {
         decision: ActivityDecisionId,
         selected: ActivityOptionId,
     ) -> Result<(), GraphActivityCommandError> {
-        self.validate_slots(activity)?;
-        let policy = self
-            .random_offer(activity.current_node())
-            .map_err(|_| invalid())?;
-        if !activity.definition().random_offers().contains(&policy) {
-            return Err(invalid());
-        }
-        activity.choose_option_with_generated_prefix(expected, decision, selected, |view, _| {
-            self.selection_operations(view, selected)
-                .map(|operations| (operations, ()))
+        self.choose_with_generated_entry(activity, expected, decision, selected, |_, _, _| {
+            Ok((Vec::new(), ()))
         })?;
         Ok(())
     }

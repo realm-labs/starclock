@@ -60,6 +60,8 @@ mod decision_rewards;
 mod domain_choices;
 #[path = "tests/domain_deck.rs"]
 mod domain_deck;
+#[path = "tests/domain_deck_dispatch.rs"]
+mod domain_deck_dispatch;
 #[path = "tests/encounter_pool.rs"]
 mod encounter_pool;
 #[path = "tests/equation_expansion.rs"]
