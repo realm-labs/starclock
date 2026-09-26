@@ -95,6 +95,19 @@ impl GraphActivityDefinition {
             .logical_scopes()
             .validate_graph(&graph)
             .map_err(|_| GraphActivityDefinitionError::InvalidLogicalScopes)?;
+        for slot in state.slots() {
+            if let Some(class) = slot.logical_scope()
+                && !state
+                    .logical_scopes()
+                    .classes()
+                    .iter()
+                    .any(|definition| definition.id() == class)
+            {
+                return Err(GraphActivityDefinitionError::InvalidLogicalSlotScope(
+                    slot.id(),
+                ));
+            }
+        }
         for binding in &programs {
             binding
                 .program

@@ -32,6 +32,12 @@ composes generated entry effects with whole-hand settlement atomically. Tests
 use all nine Sora decks and actual Curio entry income/allowance operations,
 including complete rollback after room initialization failure. Their test room
 probes do not implement room gameplay; production position routing remains unbound.
+The shared Activity engine now resets explicitly bound slots when their logical
+scope instance changes, not on every physical node. DU's battle-domain label
+binds to the logical room and survives its choice, encounter, battle and reward
+nodes, while clearing at room exit/reentry. Shared tests cover parent changes,
+stable reset events, declaration/hash validation and downstream rollback;
+the public three-battle baseline still does not execute the current position graph.
 The reference generators remove the incorrect blanket `RoguePersona` other-mode
 exclusion and retain eleven explicitly reviewed files for row-level accounting.
 The current generated Persona source audit accounts for all 547 rows across
@@ -146,6 +152,8 @@ under an explicit scope policy and verified-result five-battle lifetime.
 
 - `starclock-combat` owns deterministic single-battle execution.
 - `starclock-activity` owns deterministic cross-battle orchestration.
+- Graph slots can opt into declared logical-scope reset lifetimes. Unbound
+  slots retain physical resets; one-battle specs reject unsupported bindings.
 - Its generated battle-settlement boundary validates a result, applies mode-owned
   RNG-backed state operations before destination options are offered, and rolls
   back the result, carry and RNG together on failure. Divergent Universe uses it

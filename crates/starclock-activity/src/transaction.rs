@@ -411,6 +411,17 @@ impl ActivityTransactionState {
         }
         if !self.definition.logical_scopes().is_empty() {
             self.logical_scopes.encode(&mut writer);
+            let bindings = self
+                .definition
+                .slots()
+                .iter()
+                .filter_map(|slot| slot.logical_scope().map(|class| (slot.id(), class)))
+                .collect::<Vec<_>>();
+            writer.u32(u32::try_from(bindings.len()).expect("validated slot count fits u32"));
+            for (slot, class) in bindings {
+                writer.u32(slot.get());
+                writer.u32(class.get());
+            }
         }
         writer.u32(self.slots.len() as u32);
         for (slot, value) in &self.slots {

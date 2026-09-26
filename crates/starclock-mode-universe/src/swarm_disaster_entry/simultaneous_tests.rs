@@ -92,7 +92,7 @@ fn five_tiers_move_activate_replace_choose_and_reward_in_one_cause_chain() {
     );
     assert_eq!(
         state_hash(&instance, &state, &rng),
-        "563871aaf93f9d3a53ee5d3c2a656668be5230397c6de81c8eed8a838490c418"
+        "fc889c4a00bf0c839e33e76e222c564a1e8557dafba88a25094af8c1f71c1805"
     );
 }
 

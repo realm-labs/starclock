@@ -2,7 +2,7 @@ use starclock_combat::{BattleSeed, BattleSpec};
 
 use crate::{
     ActivityConfigDigest, ActivityDefinitionDigest, ActivityDefinitionId, ActivityGraphDefinition,
-    ActivitySlotDefinition, ActivityStateDefinition, ActivityStateDefinitionError,
+    ActivitySlotDefinition, ActivitySlotId, ActivityStateDefinition, ActivityStateDefinitionError,
     BattleResultConfiguration, BattleResultIdentity, BattleResultProjection, BattleSequence,
     OneBattleFlow, ParticipantLock, ParticipantLockDigest, ScopeIdentity, codec::CanonicalWriter,
 };
@@ -149,6 +149,8 @@ pub struct ActivitySpec {
 }
 
 impl ActivitySpec {
+    /// Validates a physical one-battle profile. Logical slot bindings are
+    /// rejected; those require a graph definition with declared logical scopes.
     pub fn new(
         identity: ActivityDefinitionIdentity,
         flow: OneBattleFlow,
@@ -157,6 +159,9 @@ impl ActivitySpec {
         projection: BattleResultProjection,
         binding: BattleBinding,
     ) -> Result<Self, ActivitySpecError> {
+        if let Some(slot) = slots.iter().find(|slot| slot.logical_scope().is_some()) {
+            return Err(ActivitySpecError::UnsupportedLogicalScopeSlot(slot.id()));
+        }
         let state =
             ActivityStateDefinition::new(slots, vec![], vec![]).map_err(|error| match error {
                 ActivityStateDefinitionError::DuplicateSlot(_) => ActivitySpecError::DuplicateSlot,
@@ -258,6 +263,7 @@ pub enum BattleBindingError {
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum ActivitySpecError {
+    UnsupportedLogicalScopeSlot(ActivitySlotId),
     DuplicateSlot,
     TooManySlots,
     ParticipantLockMismatch,

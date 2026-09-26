@@ -1,6 +1,6 @@
 use crate::{
     ActivityScope, ActivitySlotId, ActivityStateDefinitionError, ActivityStateSource,
-    ActivityStateVisibility, SlotCarryPolicy, codec::CanonicalWriter,
+    ActivityStateVisibility, LogicalScopeClassId, SlotCarryPolicy, codec::CanonicalWriter,
     state_definition::validate_policy,
 };
 
@@ -101,16 +101,19 @@ pub enum SlotResetPoint {
     AttemptStart = 3,
     BattleStart = 4,
     BattleEnd = 5,
+    /// The bound logical instance changed, including exit and reentry.
+    LogicalScopeChanged = 6,
 }
 
 impl SlotResetPoint {
-    const fn scope(self) -> ActivityScope {
+    const fn scope(self) -> Option<ActivityScope> {
         match self {
-            Self::ActivityStart => ActivityScope::Activity,
-            Self::SectionStart => ActivityScope::Section,
-            Self::NodeStart => ActivityScope::Node,
-            Self::AttemptStart => ActivityScope::Attempt,
-            Self::BattleStart | Self::BattleEnd => ActivityScope::Attempt,
+            Self::ActivityStart => Some(ActivityScope::Activity),
+            Self::SectionStart => Some(ActivityScope::Section),
+            Self::NodeStart => Some(ActivityScope::Node),
+            Self::AttemptStart => Some(ActivityScope::Attempt),
+            Self::BattleStart | Self::BattleEnd => Some(ActivityScope::Attempt),
+            Self::LogicalScopeChanged => None,
         }
     }
 }
@@ -128,6 +131,7 @@ pub struct ActivitySlotDefinition {
     carry: SlotCarryPolicy,
     visibility: ActivityStateVisibility,
     source: Option<ActivityStateSource>,
+    logical_scope: Option<LogicalScopeClassId>,
 }
 
 impl ActivitySlotDefinition {
@@ -237,7 +241,13 @@ impl ActivitySlotDefinition {
         if resets.windows(2).any(|pair| pair[0] >= pair[1]) {
             return Err(SlotDefinitionError::NonCanonicalResets);
         }
-        if resets.iter().any(|point| point.scope() < owner) {
+        if resets.contains(&SlotResetPoint::LogicalScopeChanged) {
+            return Err(SlotDefinitionError::UnboundLogicalScopeReset);
+        }
+        if resets
+            .iter()
+            .any(|point| point.scope().is_some_and(|scope| scope < owner))
+        {
             return Err(SlotDefinitionError::ResetBeforeOwnerLifetime);
         }
         let collection_length = match &initial {
@@ -271,7 +281,26 @@ impl ActivitySlotDefinition {
             carry,
             visibility,
             source,
+            logical_scope: None,
         })
+    }
+
+    /// Binds reset to a logical class instead of physical reset points.
+    /// The initial value is restored when that instance enters, exits or is
+    /// replaced, including reentry of the same address and parent changes.
+    /// Physical traversal inside the same instance preserves the slot. The
+    /// physical owner/carry/visibility contract is retained. The owning graph
+    /// must declare this class; one-battle aggregates do not support this binding.
+    #[must_use]
+    pub fn with_logical_scope(mut self, class: LogicalScopeClassId) -> Self {
+        self.logical_scope = Some(class);
+        self.resets = Box::new([SlotResetPoint::LogicalScopeChanged]);
+        self
+    }
+
+    #[must_use]
+    pub const fn logical_scope(&self) -> Option<LogicalScopeClassId> {
+        self.logical_scope
     }
 
     #[must_use]
@@ -354,6 +383,9 @@ impl ActivitySlotDefinition {
         for reset in &self.resets {
             writer.byte(*reset as u8);
         }
+        if let Some(class) = self.logical_scope {
+            writer.u32(class.get());
+        }
     }
 }
 
@@ -369,6 +401,7 @@ pub enum SlotDefinitionError {
     InvalidCollectionLimit,
     CollectionLimitForScalar,
     SnapshotBeforeOwnerExit,
+    UnboundLogicalScopeReset,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]

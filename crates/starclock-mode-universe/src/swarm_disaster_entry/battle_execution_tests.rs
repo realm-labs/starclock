@@ -63,7 +63,7 @@ fn real_nested_battle_executes_and_settles_verified_carry() {
     );
     assert_eq!(
         digest_hex(settlement.state_hash().bytes()),
-        "263966bb435e9250ca28a6c7028d55f35de3752233bc8a8c5bd2fee9d3ce0d06"
+        "13d9841cb5345de9a248fada5cb2fc54cf8ae87f5b5a5a0b322e8779eb67c2ea"
     );
     assert_eq!(report.outcome(), settlement.outcome());
     assert_eq!(
@@ -140,7 +140,7 @@ fn final_boss_choice_decay_and_completion_settle_atomically() {
     );
     assert_eq!(
         digest_hex(settlement.state_hash().bytes()),
-        "f527ec649673d31e27a96665bcfe0730d86e20a89201867c0f170d57c0eec16d"
+        "c20d189f7d3975d7f23dbe527ba73a8ac3e48ecc420627c59a8b56467b97a035"
     );
     assert!(!settlement.events().is_empty());
     assert_eq!(

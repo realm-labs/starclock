@@ -124,7 +124,7 @@ fn cumulative_start_program_executes_all_six_rule_payloads_without_rng() {
     ));
     assert_eq!(
         state_hash(&instance, &state, &rng),
-        "4581fc1940dcb845a5cc1cd52ca162fe1d74c27f496079bfab9b192df1bb3176"
+        "84af9edde6f8df82bb63009b074510364cf42985e869bcde4e7d39fa33f34d1c"
     );
 }
 
@@ -170,7 +170,7 @@ fn plane_entry_rule_grants_one_negative_curio_per_plane_on_reward_stream() {
     assert_only_reward_advanced(&before, &rng.snapshots(), 3);
     assert_eq!(
         state_hash(&instance, &state, &rng),
-        "54518db2db46b29e3e7a16c4604cd4d393d6e3c346a8e9d2d632dfc9319daa63"
+        "9a8f514e7c21cabdb64c4b80afc336549d2d29ce3c123b931d4dcfd0be86dde0"
     );
 }
 

@@ -599,7 +599,7 @@ fn all_160_curio_rules_execute_through_the_production_fixture() {
     let rng = activity_rng(&instance, 14_505);
     assert_eq!(
         state_hash(&instance, &state, &rng),
-        "0fd7bbf9c4c132ce346b04781ec64648f824d496adc921773bbe0b710192db32"
+        "4ef1d5628eced697dc98148c16fd9685eb0cdcfd930c730edc80ef30352515d3"
     );
 }
 

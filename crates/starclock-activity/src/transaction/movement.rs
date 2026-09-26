@@ -62,6 +62,7 @@ impl ActivityTransactionState {
         }
         self.node_visits.insert(target, next_node_count);
         self.total_visits = next_total;
+        let previous_scopes = self.logical_scopes.active().to_vec();
         self.logical_scopes
             .transition(self.definition.logical_scopes(), target)
             .map_err(|_| ActivityFault::LogicalScopeLimitExceeded)?;
@@ -74,6 +75,7 @@ impl ActivityTransactionState {
         for point in [
             section_changed.then_some(SlotResetPoint::SectionStart),
             Some(SlotResetPoint::NodeStart),
+            Some(SlotResetPoint::LogicalScopeChanged),
         ]
         .into_iter()
         .flatten()
@@ -82,7 +84,22 @@ impl ActivityTransactionState {
                 .definition
                 .slots()
                 .iter()
-                .filter(|definition| definition.resets().contains(&point))
+                .filter(|definition| {
+                    if point != SlotResetPoint::LogicalScopeChanged {
+                        return definition.resets().contains(&point);
+                    }
+                    definition.logical_scope().is_some_and(|class| {
+                        let previous = previous_scopes
+                            .iter()
+                            .find(|instance| instance.address().class() == class);
+                        let current = self
+                            .logical_scopes
+                            .active()
+                            .iter()
+                            .find(|instance| instance.address().class() == class);
+                        previous != current
+                    })
+                })
                 .map(|definition| (definition.id(), definition.initial().clone()))
                 .collect::<Vec<_>>();
             for (slot, initial) in values {

@@ -70,7 +70,7 @@ fn real_nested_battle_executes_and_settles_verified_carry() {
     );
     assert_eq!(
         digest_hex(execution.settlement().state_hash().bytes()),
-        "c420b8ce422aa9df5e43ef201c753e2e5923145e1caed6885851132f0eeef281"
+        "d5a7c971611b00871d233898c01d26ea81628b5eb0ec4ea0b5d2931ec0ee18b2"
     );
 
     assert_eq!(execution.report().outcome(), execution.settlement().outcome());
@@ -198,7 +198,7 @@ fn final_boss_choice_and_extrapolation_execute_before_atomic_plane_completion() 
     );
     assert_eq!(
         digest_hex(execution.settlement().state_hash().bytes()),
-        "0f8b474abe2c7a34b69952110bc3e92c5ea749e08a62c217b6b55a9b8a41a23a"
+        "08097fa8b23a96b6b27c8154abc427ab6ba2714b25b65163f85c4968889e164d"
     );
     assert_eq!(execution.report().outcome(), starclock_activity::BattleOutcome::Won);
     assert!(!execution.post_battle_events().is_empty());

@@ -72,11 +72,11 @@ fn all_five_formal_entries_execute_once_and_stale_programs_reject_atomically() {
     assert_eq!(
         hashes,
         [
-            "01fa4f02481f316e674c0ef7193c7064dda57bbf557518607c3f6acae81ae599",
-            "7d23e40ef7deaae27f9cc7ccb5b96b17d79cfc32f202f4632799da55282ec518",
-            "cf09c44c3c8c08004c87210dae078decea86445870604c556a521956cfe82009",
-            "04ddc5b8b236290a4059b075b2f261d4a9c1b4232b34eaff1ae47180511f8f39",
-            "c2004e3a8a40aa60a7c4405453cdb054150e8d455afd1c77e4b63a89b36edcaa",
+            "6616852351cfcf29b3b5637f76ba25fc6040803d8126ffa91d90cc062ce9a466",
+            "c155b35ba452affbac9ab0234000e83739102103321b9f5afccc7156eeecebbf",
+            "b71b56b89e8117f25b30ba4a398d53985b4895ca8fc8db3a9e2687d7d8b405c1",
+            "8faeb81b5ffd0b9b90bbd3fbb941231a2865c0ca8ecd65b8e67b177d842e503f",
+            "3e8df53165db586ddfd484b6ad42063ed5f5ca341fa739326d7b2a5af5232c3e",
         ]
     );
 }
@@ -114,24 +114,24 @@ fn bonuses_101_through_106_bind_to_the_same_guarded_profile_rule() {
         [
             (
                 101,
-                "eb01fb935e64ae069c97814e915d4104d4432672e8f58a594fd905601077bbee".to_owned(),
+                "ed84fee79c415216be56437e5600b261ddd292f7501ade997764db3b12783c5c".to_owned(),
             ),
             (
                 102,
-                "d7e45e456976ef921a31578130756a7dfb967150dd30829dfdf1e424057dfa59".to_owned(),
+                "2dc54f94440544c449423d89ffa4ca5fffef5d3de357c439f2e52fc57d67e8ce".to_owned(),
             ),
             (
                 103,
-                "88314ba8ab01088954b44f625c093315e7638d96e695eef327385c832268a68d".to_owned(),
+                "a1f9fec89dd48441a3566da06e6ad6fe11c28f66314380caee5101e5e785ef61".to_owned(),
             ),
             (104, "Unaffordable".to_owned()),
             (
                 105,
-                "43bdc02eeceb62a6de9143d004313fa9591f3ef58e3cfbf145872edb303e65f5".to_owned(),
+                "782bd6528989652b52bdde4f5d2274e2fd3390478caa20c23c658720a77b0c3c".to_owned(),
             ),
             (
                 106,
-                "e379683b9b69109cf81f58d350e8ffff52881f93b3a4b89e152bad7237a5ca97".to_owned(),
+                "47c66e54ca6cb9fdb970cdba5db00d5b9b5966d28b575ebc0726f79ec3a162ed".to_owned(),
             ),
         ]
     );

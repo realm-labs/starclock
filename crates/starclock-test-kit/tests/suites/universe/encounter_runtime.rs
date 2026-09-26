@@ -387,8 +387,8 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
     assert_eq!(
         settled.state_hash().bytes(),
         [
-            16, 161, 230, 190, 137, 112, 106, 202, 98, 241, 157, 68, 230, 164, 185, 42, 246, 30,
-            214, 103, 224, 144, 88, 198, 165, 34, 223, 165, 124, 141, 226, 22,
+            94, 120, 158, 168, 72, 223, 75, 52, 180, 19, 104, 136, 73, 245, 138, 51, 19, 112, 157,
+            172, 67, 34, 38, 52, 164, 114, 29, 29, 255, 88, 201, 48,
         ]
     );
     let reward = activity.view();
@@ -659,8 +659,8 @@ fn baseline_runner_uses_offered_options_and_executes_nested_battles_to_terminal(
     assert_eq!(
         report.final_state_hash().bytes(),
         [
-            4, 130, 93, 0, 79, 237, 232, 88, 107, 111, 240, 254, 236, 193, 165, 149, 145, 104, 208,
-            243, 147, 32, 213, 63, 95, 145, 59, 62, 253, 173, 36, 223,
+            181, 35, 177, 117, 95, 121, 229, 96, 182, 249, 232, 112, 111, 60, 224, 68, 220, 89,
+            100, 213, 238, 149, 239, 2, 30, 173, 180, 215, 11, 52, 171, 125,
         ]
     );
     assert_eq!(report.final_state_hash(), activity.view().state_hash());

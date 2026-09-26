@@ -4,12 +4,13 @@ use starclock_activity::{
     Activity, ActivityCommand, ActivityCommandErrorKind, ActivityConfigDigest,
     ActivityDefinitionDigest, ActivityDefinitionId, ActivityDefinitionIdentity, ActivityInstanceId,
     ActivityMasterSeed, ActivityPhase, ActivitySlotDefinition, ActivitySlotId, ActivitySpec,
-    ActivityValue, BattleBinding, BattleOutcome, BattleResult, BattleResultConfiguration,
-    BattleResultDigest, BattleResultIdentity, BattleResultProjection, BuildDigest, EventDigest,
-    LoadoutLockScope, OneBattleFlow, OpaqueParticipantBuild, ParticipantId, ParticipantLock,
-    ParticipantLockDigest, ParticipantLockEntry, ParticipantPolicy, ParticipantSourceKind,
-    ParticipantUniquenessScope, ProjectedValue, ProjectionField, ProjectionId, ResultIdentityField,
-    SlotDefinitionError, SlotResetPoint, TerminalOutcome,
+    ActivitySpecError, ActivityValue, BattleBinding, BattleOutcome, BattleResult,
+    BattleResultConfiguration, BattleResultDigest, BattleResultIdentity, BattleResultProjection,
+    BuildDigest, EventDigest, LoadoutLockScope, LogicalScopeClassId, OneBattleFlow,
+    OpaqueParticipantBuild, ParticipantId, ParticipantLock, ParticipantLockDigest,
+    ParticipantLockEntry, ParticipantPolicy, ParticipantSourceKind, ParticipantUniquenessScope,
+    ProjectedValue, ProjectionField, ProjectionId, ResultIdentityField, SlotDefinitionError,
+    SlotResetPoint, TerminalOutcome,
 };
 use starclock_combat::{
     AbilityId, AssemblyDigest, BattleSpec, BattleStateHash, CombatInputDigest, CombatantSpecDigest,
@@ -21,6 +22,28 @@ use starclock_combat::{
 const DEFINITION_DIGEST: [u8; 32] = [0x11; 32];
 const CONFIG_DIGEST: [u8; 32] = [0x12; 32];
 const SPEC_DIGEST: [u8; 32] = [0x33; 32];
+
+#[test]
+fn one_battle_spec_rejects_logical_slot_binding_without_graph_scope_definitions() {
+    let base = activity_spec();
+    let mut slots = base.slots().to_vec();
+    slots[0] = slots[0]
+        .clone()
+        .with_logical_scope(LogicalScopeClassId::new(1).unwrap());
+    assert_eq!(
+        ActivitySpec::new(
+            base.identity(),
+            base.flow(),
+            slots,
+            base.participants().clone(),
+            base.projection().clone(),
+            base.binding().clone()
+        ),
+        Err(ActivitySpecError::UnsupportedLogicalScopeSlot(id::<
+            ActivitySlotId,
+        >(1)))
+    );
+}
 
 #[test]
 fn one_battle_handoff_accepts_only_the_declared_projection_and_reaches_terminal() {

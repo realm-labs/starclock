@@ -114,6 +114,18 @@ they do not add a new core enum variant per mode. Two semantically independent
 lifetimes must not be collapsed into one alias merely because the original
 four-level mapping lacks a name.
 
+Graph slots may bind their reset lifetime to a declared logical class with
+`ActivitySlotDefinition::with_logical_scope`. This replaces physical reset
+points: traversal within the same active logical instance preserves the value;
+entry, exit, replacement, same-address reentry or a changed parent restores
+the authored initial value. Physical ownership, carry policy and visibility
+remain explicit. Unbound slots retain their physical reset behavior.
+Transitions emit ordinary `SlotReset` events with `LogicalScopeChanged`, in
+stable slot-ID order after physical resets, within the same rollback boundary.
+Logical slot/class bindings enter canonical state identity. Graph construction
+rejects undeclared classes; the one-battle `ActivitySpec` rejects logical slot
+bindings because it does not declare logical scopes.
+
 A state slot declares value type, owner scope, default, bounds, reset/carry policy, visibility, and provenance. A shorter-lived scope cannot write directly into a longer-lived slot unless an explicit projection/aggregation operation permits it.
 
 ## Typed activity state

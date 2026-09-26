@@ -1,6 +1,6 @@
 use crate::{
     ActivityBattleSettlementError, ActivityFault, ActivityHandlerFaultKind,
-    ActivityInteractionBindingError, ActivityPreparationError, ActivityRngError,
+    ActivityInteractionBindingError, ActivityPreparationError, ActivityRngError, ActivitySlotId,
     ActivityTransactionRejection, NodeId,
 };
 
@@ -18,6 +18,7 @@ pub enum GraphActivityDefinitionError {
     DuplicateRandomOffer,
     IncompatibleStateShape,
     InvalidLogicalScopes,
+    InvalidLogicalSlotScope(ActivitySlotId),
     InvalidInteractionBindings(ActivityInteractionBindingError),
 }
 

@@ -5,11 +5,12 @@ use crate::divergent_universe::{
     DivergentUniverseBaselineFixture, DivergentUniverseBaselineRunner,
     DivergentUniverseBaselineStep, DivergentUniverseFlowInstance,
     DivergentUniverseOfferedSelection, encode_divergent_universe_replay,
-    record_divergent_universe_transcript, verify_divergent_universe_replay,
+    record_divergent_universe_transcript, scope::DivergentUniverseLogicalScopeKind,
+    state::BATTLE_DOMAIN_SLOT, verify_divergent_universe_replay,
 };
 use starclock_activity::{
     ActivityDecisionKind, ActivityMasterSeed, ActivityOptionId, ActivityTerminalOutcome,
-    GraphActivity,
+    GraphActivity, SlotResetPoint,
 };
 use starclock_data::divergent_universe_catalog::DivergentUniverseRunFamily;
 use starclock_data::divergent_universe_decisions::BattleRewardDomain;
@@ -53,6 +54,18 @@ fn public_domains_produce_sage_victory_rewards_and_replay_both_families() {
         DivergentUniverseRunFamily::Cyclical,
     ] {
         let flow = fixture.flow(family).unwrap();
+        let domain_slot = flow
+            .definition()
+            .state_definition()
+            .slots()
+            .iter()
+            .find(|slot| slot.id() == BATTLE_DOMAIN_SLOT)
+            .unwrap();
+        assert_eq!(
+            domain_slot.logical_scope(),
+            Some(DivergentUniverseLogicalScopeKind::Node.class_id())
+        );
+        assert_eq!(domain_slot.resets(), &[SlotResetPoint::LogicalScopeChanged]);
         let curios = fixture.factory().curio_runtime().unwrap();
         let blessings = fixture.factory().blessing_runtime().unwrap();
         let (seed, mut activity, mut steps) = (0..2048).find_map(|seed| {

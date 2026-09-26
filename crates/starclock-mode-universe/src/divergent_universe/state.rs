@@ -7,6 +7,7 @@ use starclock_activity::{
 };
 use starclock_data::divergent_universe_catalog::DivergentUniverseRunFamily;
 
+use super::scope::DivergentUniverseLogicalScopeKind;
 use super::{entry_flow::DivergentUniverseEntryFlowError, progression::CompiledProgression};
 
 pub(super) const PROFILE_SLOT: ActivitySlotId = slot(1);
@@ -134,12 +135,12 @@ pub(super) fn compile_state(
         )?,
         optional_slot(
             BATTLE_DOMAIN_SLOT,
-            // This policy has one logical domain per layer/section. Physical
-            // choice, encounter, battle and reward nodes must share its label.
-            ActivityScope::Section,
+            // Choice, encounter, battle and reward share one logical room.
+            ActivityScope::Node,
             SlotCarryPolicy::Reset,
             61,
-        )?,
+        )?
+        .with_logical_scope(DivergentUniverseLogicalScopeKind::Node.class_id()),
         boolean_slot(
             INITIAL_EQUATION_ACCEPTED_SLOT,
             false,

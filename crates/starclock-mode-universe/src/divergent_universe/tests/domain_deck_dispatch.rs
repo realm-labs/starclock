@@ -17,8 +17,9 @@ use starclock_activity::{
     ActivityOptionId, ActivityProgramDefinition, ActivityProgramId, ActivityRandomPolicies,
     ActivityRngLabel, ActivityScope, ActivitySlotDefinition, ActivitySlotId,
     ActivityStateDefinition, ActivityStateSource, ActivityStateVisibility, ActivityTerminalOutcome,
-    ActivityValue, GraphActivity, GraphActivityDefinition, GraphActivityNodeProgram, NodeId,
-    SectionId, SlotCarryPolicy, SlotResetPoint,
+    ActivityValue, GraphActivity, GraphActivityDefinition, GraphActivityNodeProgram,
+    LogicalScopeAddress, LogicalScopeClassDefinition, LogicalScopeClassId, LogicalScopeDefinitions,
+    LogicalScopeNodeBinding, NodeId, SectionId, SlotCarryPolicy, SlotResetPoint,
 };
 use starclock_data::{
     divergent_universe_catalog::DivergentUniverseRunFamily,
@@ -80,12 +81,25 @@ fn graph(
     let mut edges = Vec::new();
     let mut programs = Vec::new();
     let mut offers = Vec::new();
+    let run = LogicalScopeClassId::new(1).unwrap();
+    let plane = LogicalScopeClassId::new(2).unwrap();
+    let domain = LogicalScopeClassId::new(3).unwrap();
+    let run_address = LogicalScopeAddress::new(run, 1).unwrap();
+    let mut bindings = Vec::new();
     for round in 0..6 {
         let section = SectionId::new(round / 2 + 1).unwrap();
         let prepare = node(2 * round + 1);
         let draw = node(2 * round + 2);
         let next = node(2 * round + 3);
         let enter_draw = edge(2 * round + 1);
+        let path = vec![
+            run_address,
+            LogicalScopeAddress::new(plane, u64::from(round / 2 + 1)).unwrap(),
+            LogicalScopeAddress::new(domain, u64::from(round % 2 + 1)).unwrap(),
+        ];
+        for physical in [prepare, draw] {
+            bindings.push(LogicalScopeNodeBinding::new(physical, path.clone()).unwrap());
+        }
         nodes.push(
             ActivityNodeDefinition::new(prepare, section, ActivityNodeKind::Choice, 1).unwrap(),
         );
@@ -122,6 +136,7 @@ fn graph(
             let room = node(100 + round * 10 + kind);
             let enter_room = edge(100 + round * 10 + kind);
             let leave_room = edge(500 + round * 10 + kind);
+            bindings.push(LogicalScopeNodeBinding::new(room, path.clone()).unwrap());
             nodes.push(
                 ActivityNodeDefinition::new(room, section, ActivityNodeKind::Choice, 1).unwrap(),
             );
@@ -176,11 +191,23 @@ fn graph(
         )
         .unwrap(),
     );
+    bindings.push(LogicalScopeNodeBinding::new(node(13), vec![run_address]).unwrap());
+    let scopes = LogicalScopeDefinitions::new(
+        vec![
+            LogicalScopeClassDefinition::new(run, None, 1).unwrap(),
+            LogicalScopeClassDefinition::new(plane, Some(run), 3).unwrap(),
+            LogicalScopeClassDefinition::new(domain, Some(plane), 6).unwrap(),
+        ],
+        bindings,
+    )
+    .unwrap();
     Arc::new(
         GraphActivityDefinition::new(
             base.definition().identity(),
             ActivityGraphDefinition::new(node(1), nodes, edges, 19).unwrap(),
-            ActivityStateDefinition::new(slots, Vec::new(), Vec::new()).unwrap(),
+            ActivityStateDefinition::new(slots, Vec::new(), Vec::new())
+                .unwrap()
+                .with_logical_scopes(scopes),
             Arc::clone(base.definition().participants()),
             programs,
             None,
