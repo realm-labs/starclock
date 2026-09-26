@@ -64,6 +64,8 @@ mod domain_deck;
 mod domain_deck_dispatch;
 #[path = "tests/domain_route.rs"]
 mod domain_route;
+#[path = "tests/encounter_binding.rs"]
+mod encounter_binding;
 #[path = "tests/encounter_pool.rs"]
 mod encounter_pool;
 #[path = "tests/equation_expansion.rs"]

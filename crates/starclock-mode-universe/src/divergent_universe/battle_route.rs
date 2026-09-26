@@ -1,6 +1,9 @@
 //! Mode-owned physical battle addresses and graph-validated routing.
 
-use super::{DivergentUniverseEntryFlowError, DivergentUniverseFlowInstance};
+use super::{
+    DivergentUniverseEntryFlowError, DivergentUniverseFlowInstance,
+    DivergentUniverseLogicalScopeKind,
+};
 use starclock_activity::{
     ActivityEdgeCondition, ActivityNodeKind, ActivityPlayerView, NodeId, SectionId, TerminalOutcome,
 };
@@ -76,6 +79,9 @@ impl DivergentUniverseFlowInstance {
         self.domain_from_view(view).ok().flatten()
     }
 
+    /// Physical addresses do not encode plane or room identity. Encounter and
+    /// its unique Battle target must retain one exact Run/Plane/Room path; the
+    /// Battle may add its own nested scope. Section remains the handoff address.
     pub(super) fn encounter_destination(&self, current: NodeId) -> Option<(NodeId, SectionId)> {
         let graph = self.definition().graph();
         let mut targets = graph
@@ -83,7 +89,34 @@ impl DivergentUniverseFlowInstance {
             .filter_map(|edge| graph.node(edge.to()))
             .filter(|node| node.kind() == ActivityNodeKind::Battle);
         let target = targets.next()?;
-        if targets.next().is_some() {
+        if targets.next().is_some() || graph.node(current)?.section() != target.section() {
+            return None;
+        }
+        let scopes = self.definition().state_definition().logical_scopes();
+        let encounter_path = scopes
+            .bindings()
+            .iter()
+            .find(|binding| binding.node() == current)?
+            .path();
+        let battle_path = scopes
+            .bindings()
+            .iter()
+            .find(|binding| binding.node() == target.id())?
+            .path();
+        let [run, plane, room] = encounter_path else {
+            return None;
+        };
+        if run.class() != DivergentUniverseLogicalScopeKind::Run.class_id()
+            || run.key() != 1
+            || plane.class() != DivergentUniverseLogicalScopeKind::Plane.class_id()
+            || plane.key() != u64::from(target.section().get())
+            || usize::try_from(plane.key()).ok()? > self.layers().len()
+            || room.class() != DivergentUniverseLogicalScopeKind::Node.class_id()
+            || !battle_path.starts_with(encounter_path)
+            || !matches!(battle_path.len(), 3 | 4)
+            || (battle_path.len() == 4
+                && battle_path[3].class() != DivergentUniverseLogicalScopeKind::Battle.class_id())
+        {
             return None;
         }
         Some((target.id(), target.section()))

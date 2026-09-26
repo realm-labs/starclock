@@ -58,6 +58,13 @@ resources. The service level is an explicit caller input, independent of the
 source preset level: current decks only contain level-one Reforge cards and the
 authored Tawot service covers levels 2–5. Automatic Forge admission, default
 position gameplay and full-run readiness remain false; no terminal coverage is added.
+Encounter observation and battle preparation now resolve the unique graph-bound
+Battle target and its shared logical room/plane rather than deriving a layer
+from an encounter's physical ID. Readdressed first/later/Tawot encounters execute
+real proxy battles in both families, including nested Battle scopes; malformed
+and foreign scope definitions reject without changing state, RNG or assembly
+cache. The existing pool policy is unchanged. This handoff regression does not
+establish production position gameplay, original boss membership or full-run readiness.
 The reference generators remove the incorrect blanket `RoguePersona` other-mode
 exclusion and retain eleven explicitly reviewed files for row-level accounting.
 The current generated Persona source audit accounts for all 547 rows across

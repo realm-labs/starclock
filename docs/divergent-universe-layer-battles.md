@@ -19,6 +19,23 @@ implicit full heal between battles. Accepted results, carry, reward RNG and grap
 advance share the existing transaction. A previous battle's result cannot settle
 a later pending battle.
 
+Encounter-pool observation also resolves this graph-bound target rather than
+interpreting the encounter's physical node ID as a layer ordinal. Encounter and
+Battle must share an exact Run/Plane/Room path, with the Plane key matching both
+physical sections and the selected area's layer range. The Battle may add a
+nested Battle scope. Missing paths, room/plane mismatches, multiple outgoing
+Battle edges and foreign state definitions reject before any RNG or assembly
+cache access. This removes the initial Tawot encounter's address special case;
+its first-plane selection is governed by the same graph/scope validation.
+
+Regression tests readdress first, later and Tawot encounters and their Battle
+targets, then execute actual nested battles and fresh command reconstruction in
+both run families, with and without nested Battle scopes. The default authored
+programs, pool membership and RNG policy are unchanged. These are handoff tests
+over the provisional layer route, not original room admission, encoded Persona
+profile replay or complete-run release evidence. Production position payload
+binding and source-specific encounter/boss selection remain incomplete.
+
 Decision source 18 binds `ExcelOutput/RogueTournArea.json` at released 4.4 revision
 `fd978d6ef09f941fba644c731ab54abd6f7c3568` of
 [Dimbreath/turnbasedgamedata](https://gitlab.com/Dimbreath/turnbasedgamedata),

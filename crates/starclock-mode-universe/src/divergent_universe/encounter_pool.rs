@@ -1,6 +1,5 @@
 //! Authored encounter offers; shared Activity owns every random draw and rollback.
 
-use super::tawot_service::ENCOUNTER as TAWOT_ENCOUNTER_NODE;
 use super::{
     DivergentUniverseEntryFlowError, DivergentUniverseFlowInstance, domain_choices::DomainChoices,
     room_lifecycle::exit_condition,
@@ -86,6 +85,8 @@ impl DivergentUniverseFlowInstance {
     /// Returns the sole public encounter's immutable authored group/stage binding.
     /// Does not draw RNG or alter state. A bound pool rejects non-Encounter,
     /// foreign-definition and malformed offers; unbound low-level flows return None.
+    /// Plane selection comes from the unique Battle target's validated shared
+    /// logical room and section, never from an encounter's physical node ID.
     pub fn offered_encounter(
         &self,
         activity: &GraphActivity,
@@ -96,6 +97,7 @@ impl DivergentUniverseFlowInstance {
         let invalid = || GraphActivityCommandError::DecisionNotOffered;
         if activity.definition().identity() != self.definition().identity()
             || activity.definition().graph().digest() != self.definition().graph().digest()
+            || activity.definition().state_definition() != self.definition().state_definition()
         {
             return Err(invalid());
         }
@@ -107,12 +109,10 @@ impl DivergentUniverseFlowInstance {
         let [selected] = decision.options() else {
             return Err(invalid());
         };
-        let layer =
-            if self.tawot_service.is_some() && view.current_node().get() == TAWOT_ENCOUNTER_NODE {
-                1
-            } else {
-                usize::try_from(view.current_node().get()).map_err(|_| invalid())?
-            };
+        let (_, section) = self
+            .encounter_destination(view.current_node())
+            .ok_or_else(invalid)?;
+        let layer = usize::try_from(section.get()).map_err(|_| invalid())?;
         if layer == 0 || layer > self.layers().len() {
             return Err(invalid());
         }
