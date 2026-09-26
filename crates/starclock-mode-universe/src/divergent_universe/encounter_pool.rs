@@ -91,6 +91,9 @@ impl DivergentUniverseFlowInstance {
         &self,
         activity: &GraphActivity,
     ) -> Result<Option<(&DivergentUniverseEncounterGroupId, &str)>, GraphActivityCommandError> {
+        if let Some(rooms) = &self.position_battles {
+            return rooms.offered(self, activity).map(Some);
+        }
         let Some(pool) = &self.encounter_pool else {
             return Ok(None);
         };

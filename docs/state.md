@@ -21,8 +21,8 @@ Nine caller-selected source decks (125 distinct instances, 15 presets) are now
 openpyxl/Sora authored and compiled through the production factory, with source
 order and duplicates preserved. An additional graph test executes all nine.
 This explicitly policy-bound source selection does not establish a released
-mask offer pool. Automatic mask selection, production route binding and actual
-room payloads remain absent; no terminal source or full-run credit is added.
+mask offer pool. Automatic mask selection and complete production room/payload
+binding remain incomplete; no terminal source or full-run credit is added.
 An optional Ordinary/Cyclical entry choice now initializes one of the nine
 authored decks in the same Activity. Atomic rejection, cross-battle retention
 and fresh encoded replay are covered; no domain cards are consumed by the
@@ -65,6 +65,20 @@ real proxy battles in both families, including nested Battle scopes; malformed
 and foreign scope definitions reject without changing state, RNG or assembly
 cache. The existing pool policy is unchanged. This handoff regression does not
 establish production position gameplay, original boss membership or full-run readiness.
+An [explicit battle-room compiler](divergent-universe-position-battles.md) now
+binds current source-position encounter/Battle/reward fragments into an immutable
+mapped flow. Caller-selected group/stage and independent reward domains are
+configuration-bound; all Battle nodes, exact programs/scopes/exits and base state
+declarations are validated. Tests execute repeated real proxy battles within a
+plane in both families, verified drops, fresh command reconstruction, actual
+participant carry, suppressed reward advancement and rejected prior results.
+The unchanged party naturally loses battle six without between-room healing;
+these fixtures do not prove successful completion of the controlled profile.
+Missing authored reward domains reject before compilation; Boss rewards are
+unsupported, not implicitly assigned Combat. Other rooms remain explicit probes.
+Default gameplay, original room/Boss admission, combined service binding and
+encoded source-position replay are still
+incomplete; no terminal source or full-run credit is added.
 The reference generators remove the incorrect blanket `RoguePersona` other-mode
 exclusion and retain eleven explicitly reviewed files for row-level accounting.
 The current generated Persona source audit accounts for all 547 rows across

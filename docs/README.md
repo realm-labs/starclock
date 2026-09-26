@@ -166,6 +166,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 140. [Divergent Universe Tawot service](divergent-universe-tawot-service.md) — explicitly admitted paid selection, cached offers, CLI/Agent/MCP configuration, encoded replay and unfinished original Forge boundaries.
 
 141. [Final damage boundary](final-damage-boundary.md) — source-owned terminal damage factors, original-applier Break queries and pending content admission.
+142. [Divergent Universe source-position battles](divergent-universe-position-battles.md) — explicit candidate/fragment profile binding, real per-room battles, shared rewards/carry and remaining admission/replay boundaries.
 
 ## Delivery boundary
 

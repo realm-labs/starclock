@@ -178,15 +178,19 @@ impl DivergentUniverseFlowInstance {
         Ok(())
     }
 
-    /// Authenticated domain shared by the layer's encounter and its result.
-    /// None means selection has not occurred in the current layer. The current
-    /// one-domain-per-layer policy carries this slot through physical nodes.
+    /// Authenticated domain shared by a bound room's encounter and result.
+    /// Legacy profiles select once per layer; explicit position profiles select
+    /// independently per room. None means no domain is bound at this node.
     pub fn current_battle_domain(
         &self,
         activity: &GraphActivity,
     ) -> Result<Option<BattleRewardDomain>, GraphActivityCommandError> {
         if activity.definition().identity() != self.definition().identity()
             || activity.definition().graph().digest() != self.definition().graph().digest()
+            || self
+                .position_battles
+                .as_ref()
+                .is_some_and(|rooms| !rooms.matches(activity))
         {
             return Err(invalid());
         }
@@ -197,7 +201,9 @@ impl DivergentUniverseFlowInstance {
         &self,
         view: &ActivityPlayerView,
     ) -> Result<Option<BattleRewardDomain>, GraphActivityCommandError> {
-        if let Some(pool) = &self.encounter_pool {
+        if let Some(rooms) = &self.position_battles {
+            rooms.domain(view)
+        } else if let Some(pool) = &self.encounter_pool {
             pool.domains.resolve(view)
         } else if self.has_runtime_battle_route() {
             Ok(Some(BattleRewardDomain::Combat))

@@ -45,6 +45,13 @@ terminals, but cannot mutate deck-owned slots, cross into another fragment,
 skip positions or terminate the run as completed early. Completion guards and
 actual content execution belong to the room compiler, not the route compiler.
 
+An [explicit battle-room compiler](divergent-universe-position-battles.md) now
+supplies an actual encounter/Battle/reward fragment and validated immutable flow
+binding for caller-selected stages and reward domains. It does not admit original
+room pools or source-specific Bosses, fill other missing payloads or replace the
+default baseline. Complete source-position profile construction/replay remains
+incomplete; its real battle tests do not terminalize original room obligations.
+
 Preparation, draw and all physical nodes of a selected room share one logical
 room instance, nested under its actual plane. Internal transitions preserve
 room-bound state, while moving to the next position resets it. Physical Battle

@@ -238,6 +238,10 @@ impl DivergentUniverseFlowInstance {
     ) -> Result<(), GraphActivityCommandError> {
         if activity.definition().identity() != self.definition.identity()
             || activity.definition().graph().digest() != self.definition.graph().digest()
+            || self
+                .position_battles
+                .as_ref()
+                .is_some_and(|rooms| !rooms.matches(activity))
         {
             return Err(invalid());
         }

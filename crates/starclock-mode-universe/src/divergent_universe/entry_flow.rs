@@ -31,6 +31,7 @@ use starclock_data::{
 
 use super::battle_blessings::BattleBlessings;
 use super::battle_fragments::BattleFragments;
+use super::battle_room::BoundBattleRooms;
 use super::curio_battle_grants::CurioBattleGrants;
 use super::curio_battle_reactions::CurioBattleReactions;
 use super::curio_battle_stats::CurioBattleStats;
@@ -60,6 +61,9 @@ pub enum DivergentUniverseRoomPolicy {
     /// Use one logical checkpoint per layer and keep `room=None`; no retained
     /// shared candidate becomes reachable content.
     LogicalLayerCheckpointNoCandidatePromotion,
+    /// Explicitly supplied source-position programs and stage candidates; no
+    /// automatic original room, encounter or boss admission is implied.
+    ExplicitSourcePositionProgramsNoAutomaticAdmission,
 }
 
 /// Caller-owned immutable entry selection.
@@ -492,6 +496,7 @@ impl DivergentUniverseRuntimeFactory {
         )
         .map_err(|_| DivergentUniverseEntryFlowError::InvalidActivityDefinition)?;
         Ok(DivergentUniverseFlowInstance {
+            position_battles: None,
             source_deck_selection,
             definition: Arc::new(definition),
             occurrence_binding,
@@ -532,6 +537,7 @@ impl DivergentUniverseRuntimeFactory {
 /// Entry-compiled Activity definition plus exact mode identities.
 #[derive(Clone, Debug)]
 pub struct DivergentUniverseFlowInstance {
+    pub(super) position_battles: Option<Arc<BoundBattleRooms>>,
     pub(super) source_deck_selection: Option<Arc<SourceDeckSelection>>,
     pub(super) tawot_service: Option<Arc<TawotService>>,
     pub(super) definition: Arc<GraphActivityDefinition>,
@@ -558,7 +564,7 @@ pub struct DivergentUniverseFlowInstance {
     economy: DivergentUniverseEconomyProjection,
     pub(super) permanent_unlocks: Box<[u64]>,
     mapping_snapshot: Option<Arc<super::mapping::DivergentUniverseMappingSnapshot>>,
-    room_policy: DivergentUniverseRoomPolicy,
+    pub(super) room_policy: DivergentUniverseRoomPolicy,
     first_ordinary_vertical_slice: bool,
     runtime_battle_route: bool,
     pub(super) vertical_slice_content:

@@ -243,6 +243,10 @@ impl DivergentUniverseBattleSettlementRuntime {
     {
         if activity.definition().identity() != flow.definition().identity()
             || activity.definition().graph().digest() != flow.definition().graph().digest()
+            || flow
+                .position_battles
+                .as_ref()
+                .is_some_and(|rooms| !rooms.matches(activity))
         {
             return Err(DivergentUniverseBattleSettlementError::DefinitionMismatch);
         }

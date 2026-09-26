@@ -11,6 +11,7 @@ mod battle_assembly_runtime;
 mod battle_blessings;
 mod battle_fragments;
 mod battle_passive_bindings;
+pub mod battle_room;
 mod battle_route;
 mod battle_settlement_runtime;
 mod blessing_catalog;
