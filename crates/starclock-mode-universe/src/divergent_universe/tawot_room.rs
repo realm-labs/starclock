@@ -11,8 +11,8 @@ use std::sync::Arc;
 
 use crate::digest::CanonicalDigestBuilder;
 use crate::divergent_universe::{
-    DivergentUniverseEntryFlowError, DivergentUniverseLogicalScopeKind,
-    DivergentUniverseRuntimeFactory,
+    DivergentUniverseCurioRuntime, DivergentUniverseEntryFlowError,
+    DivergentUniverseLogicalScopeKind, DivergentUniverseRuntimeFactory,
     domain_route::{DomainRoomContext, DomainRoomProgram, DomainRouteError},
     economy::{self, DivergentUniverseEconomyError},
     state::{TAWOT_ACCEPTED_SLOT, TAWOT_OFFER_SLOT, TAWOT_OPENS_SLOT, TAWOT_PURCHASES_SLOT},
@@ -30,13 +30,14 @@ use starclock_activity::{
 use starclock_data::divergent_universe_decisions::TawotServiceDefinition;
 
 /// Immutable executable fragment plus the service that generated its offers.
-/// Include its exact slot declarations and fragment in the owning profile, then
-/// bind the validated whole graph before accepting any service command.
+/// Include its exact slots and fragment through `compile_curio_domain_route`,
+/// then bind the validated whole graph before accepting any service command.
 #[derive(Clone, Debug)]
 pub struct CompiledTawotRoom {
     context: DomainRoomContext,
     service: Arc<TawotService>,
     fragment: DomainRoomProgram,
+    entry_program: GraphActivityNodeProgram,
     slots: Vec<ActivitySlotDefinition>,
     menu: NodeId,
     cards: NodeId,
@@ -50,6 +51,7 @@ pub struct CompiledTawotRoom {
 pub struct TawotRoomCompiler {
     service: Arc<TawotService>,
     factory: DivergentUniverseRuntimeFactory,
+    curios: Arc<DivergentUniverseCurioRuntime>,
 }
 
 /// A trusted mode-executor capability for one exact immutable graph definition.
@@ -109,6 +111,11 @@ impl DivergentUniverseRuntimeFactory {
         Ok(TawotRoomCompiler {
             service: Arc::new(service),
             factory: self.clone(),
+            curios: Arc::new(
+                self.curio_runtime()
+                    .map_err(DomainRouteError::Curio)
+                    .map_err(TawotRoomError::Route)?,
+            ),
         })
     }
 }
@@ -185,16 +192,31 @@ impl TawotRoomCompiler {
             Ok(GraphActivityNodeProgram::new(node, program))
         })
         .collect::<Result<Vec<_>, TawotRoomError>>()?;
+        let fragment = DomainRoomProgram {
+            exit_node: menu,
+            nodes,
+            edges,
+            programs,
+            random_offers: Vec::new(),
+        };
+        let original = &fragment.programs[0];
+        let entry_program = GraphActivityNodeProgram::new(
+            original.node(),
+            ActivityProgramDefinition::new(
+                original.program().id(),
+                self.curios
+                    .compiled_domain_entry_operations(original.program().operations().to_vec())
+                    .map_err(DomainRouteError::Curio)
+                    .map_err(TawotRoomError::Route)?,
+            )
+            .map_err(DomainRouteError::Program)
+            .map_err(TawotRoomError::Route)?,
+        );
         Ok(CompiledTawotRoom {
             context: context.clone(),
             service: Arc::clone(service),
-            fragment: DomainRoomProgram {
-                exit_node: menu,
-                nodes,
-                edges,
-                programs,
-                random_offers: Vec::new(),
-            },
+            fragment,
+            entry_program,
             slots: room_slots()?,
             menu,
             cards,
@@ -212,7 +234,7 @@ impl CompiledTawotRoom {
     pub fn configuration_digest(&self) -> [u8; 32] {
         let mut hash = CanonicalDigestBuilder::new();
         for value in [
-            b"starclock.divergent-universe.explicit-position-tawot-fragment.v1".as_slice(),
+            b"starclock.divergent-universe.explicit-position-tawot-curio-entry.v1".as_slice(),
             &self.component,
             &self.decisions,
             self.context.area.as_str().as_bytes(),
@@ -262,6 +284,8 @@ impl CompiledTawotRoom {
     }
 
     #[must_use]
+    /// Raw contribution; runtime binding requires the entry lifecycle supplied
+    /// by `compile_curio_domain_route`, without counting internal menu/card loops.
     pub fn fragment(&self) -> &DomainRoomProgram {
         &self.fragment
     }
@@ -302,11 +326,14 @@ impl CompiledTawotRoom {
                 .edges
                 .iter()
                 .any(|edge| !graph.edges().contains(edge))
-            || self
-                .fragment
-                .programs
-                .iter()
-                .any(|program| !definition.programs().contains(program))
+            || self.fragment.programs.iter().any(|program| {
+                let expected = if program.node() == self.context.entry_node() {
+                    &self.entry_program
+                } else {
+                    program
+                };
+                !definition.programs().contains(expected)
+            })
             || self
                 .slots
                 .iter()

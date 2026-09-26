@@ -45,6 +45,14 @@ terminals, but cannot mutate deck-owned slots, cross into another fragment,
 skip positions or terminate the run as completed early. Completion guards and
 actual content execution belong to the room compiler, not the route compiler.
 
+Runtime room profiles use `compile_curio_domain_route` to additionally lower the
+[authored Curio entry lifecycle](divergent-universe-curio-domain-expiry.md) at each
+fixed/selected room's single-visit entry. It does not add room payloads. Preparation,
+draw staging, unselected alternatives and internal physical nodes do not consume
+an allowance or grant entry income. Exact battle/Tawot bindings require the
+resulting entry program. The raw composition API above intentionally supplies no
+Curio lifecycle and is not sufficient for these runtime capabilities.
+
 An [explicit battle-room compiler](divergent-universe-position-battles.md) now
 supplies an actual encounter/Battle/reward fragment and validated immutable flow
 binding for caller-selected stages and reward domains. It does not admit original

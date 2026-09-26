@@ -104,7 +104,7 @@ fn scenario(
     let compiler = factory.tawot_room_compiler(service_level).unwrap();
     let mut rooms = Vec::new();
     let mut route = factory
-        .compile_domain_route(base.area(), deck, 3, SLOTS, |context| {
+        .compile_curio_domain_route(base.area(), deck, 3, SLOTS, |context| {
             // Explicit placement at the first two positions in each plane. This
             // does NOT relabel their source composition or infer NPC eligibility.
             if context.position_ordinal <= if reject_next { 3 } else { 2 } {

@@ -168,7 +168,11 @@ bonus states expire before new-domain rewards; state 9071 receives its intrinsic
 counting, grant ordering and destroy/repair timing are explicit project policies.
 The separately admitted paid service produces 9070/9071/9072/9079; original Forge
 placement remains pending. The current short route does not demonstrate a fresh
-holding's full three/five-entry lifetime publicly.
+holding's full three/five-entry lifetime publicly. Explicit source-position
+profiles can now compile the same grants/allowances at each fixed or selected
+room entry. Complete three/five-entry lifetimes, internal-loop exclusion and
+atomic late-failure rollback execute over those graphs with controlled accepted
+acquisitions; original producers and encoded source-position replay remain pending.
 [Sage's Leaf Robe acquisition](divergent-universe-sage-acquisition.md) now grants
 the exact three tiers of rarity-filtered Blessings, with accepted consecutive
 upgrades and feasibility-checked overlapping reward pools. Its base public
@@ -205,8 +209,9 @@ under an explicit scope policy and verified-result five-battle lifetime.
 - Its `RemoveCounter` operation deletes one declared counter-map entry without
   conflating absence with a stored zero. Order/capacity, idempotent absence,
   typed validation, conditional execution and rollback are tested. This supplies
-  a prerequisite for compiled Curio expiry; source-position domain-entry grants
-  and allowances are not yet wired into fixed/selected room entry.
+  the primitive for compiled Curio expiry. Source-position domain-entry grants
+  and allowances now wire into fixed/selected room entry through mode-owned finite
+  programs; battle and Tawot capabilities require their exact entry prefixes.
 - Graph slots can opt into declared logical-scope reset lifetimes. Unbound
   slots retain physical resets; one-battle specs reject unsupported bindings.
 - Its generated battle-settlement boundary validates a result, applies mode-owned

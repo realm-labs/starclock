@@ -121,3 +121,43 @@ choices and late failure rollback. Both families' paid acquisitions execute
 two future domain grants, three actual battles and fresh encoded replay.
 Original multi-domain topology, a full three-entry public lifetime and full
 Tawot source-program disposition remain pending.
+
+## Explicit source-position room entries
+
+`compile_curio_domain_route` lowers the same authored expiry and grant policies
+into finite entry programs over the current position layout. It counts the
+accepted entry of each fixed or selected logical room, not deck preparation,
+the unselected alternatives, service menu/card loops, encounter, battle or
+reward nodes. The underlying `compile_domain_route` remains a pure fragment
+composition API; it does not supply this lifecycle. Runtime battle and Tawot
+bindings require the exact lowered entry program and reject omitted or changed
+prefixes. Room entry must be a single-visit Choice node without internal incoming
+edges. Missing entries and programs exceeding the shared depth/operation limits
+reject during compilation.
+
+This mapping of a fixed source position to a counted domain is an explicit
+low-confidence interpretation of the existing future-domain policy, not observed
+original-game timing. Both fixed and chosen source rooms count once; limiting
+passive states are removed before room content, while 9071 receives its final
+eligible grant through the existing bonus pipeline before removal. Alternatives
+include counting only chosen combat domains, excluding service rooms or applying
+expiry after the room's rewards. Replace this mapping independently when released
+execution or reproducible observations establish it. It does not infer a Forge,
+Boss, Occurrence or encounter producer from a source preset.
+
+The program uses the three existing lifecycle maps and `RemoveCounter`, keeps
+stable state-key order and embeds the continuation in every Conditional branch.
+Destroyed states pause; zero allowance grants nothing and is removed; active
+allowances outside their authored range reject. Credits, counter removal, room
+initialization and any downstream rejection share the ordinary Activity command
+transaction and RNG rollback boundary. Acquisition in an already entered room
+does not count or grant retroactively.
+
+Source-position fixtures cross a real proxy battle before controlled accepted
+acquisition and then execute complete three/five-entry lifetimes, internal service
+loops, pause/repair, reacquisition, zero, final intrinsic income with gain bonuses,
+fresh reconstruction in both run families, omitted-prefix binding rejection and
+base/bonus overflow or later fixed-room failure rollback. Their other payloads
+remain explicit probes. They are not proof of original room admission, paid
+acquisition of every variant, encoded source-position replay or complete runs;
+the default short baseline and its two future entries remain unchanged.

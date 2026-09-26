@@ -6,6 +6,8 @@
 //! missing fragments fail closed. The provisional baseline does not use this
 //! compiler yet. Neither compiling a route nor supplying test probes earns
 //! source-mechanic or full-run coverage.
+//! Runtime profiles use `compile_curio_domain_route` to add the authored Curio
+//! lifecycle at fixed/selected entries; the raw composition API does not add it.
 
 use std::error::Error;
 use std::fmt::{Display, Formatter};
@@ -15,7 +17,10 @@ mod compilation;
 #[path = "domain_route_validation.rs"]
 mod validation;
 
-use crate::divergent_universe::domain_deck::{DomainDeck, DomainDeckError};
+use crate::divergent_universe::{
+    DivergentUniverseCurioRuntimeError,
+    domain_deck::{DomainDeck, DomainDeckError},
+};
 use starclock_activity::{
     ActivityEdgeDefinition, ActivityEdgeId, ActivityGraphDefinition, ActivityGraphDefinitionError,
     ActivityNodeDefinition, ActivityProgramDefinitionError, ActivityRandomOffer,
@@ -135,6 +140,7 @@ pub enum DomainRouteError {
     Deck(DomainDeckError),
     Graph(ActivityGraphDefinitionError),
     Program(ActivityProgramDefinitionError),
+    Curio(DivergentUniverseCurioRuntimeError),
 }
 
 impl Display for DomainRouteError {

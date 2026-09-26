@@ -106,6 +106,14 @@ same plane starts a separate allowance. Initialization and accepted exit both
 clear service-local state. The fragment reserves 64 openings and a final Leave
 path through bounded shared graph nodes and edges.
 
+The owning runtime route uses `compile_curio_domain_route`, which wraps the raw
+fragment's entry with the authored Curio income/allowance policy. Fixed and chosen
+rooms count once; acquisition in the current room and internal menu/card loops
+never count retroactively. Binding requires this exact lowered entry program,
+not the raw fragment initializer alone. Limiting-entry credit/discard and room
+initialization share rollback with the accepted command. This is explicit
+[project-policy timing](divergent-universe-curio-domain-expiry.md), not Forge parity.
+
 `CompiledTawotRoom::bind` validates exact programs, nodes, internal edges,
 successful continuation, logical paths, slot declarations and absence of added
 room-offer policies. `BoundTawotRoom` accepts only offered IDs from that immutable

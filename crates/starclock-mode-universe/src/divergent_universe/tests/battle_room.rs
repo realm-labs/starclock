@@ -168,7 +168,7 @@ fn compile_rooms(
     let deck = &factory.decision_catalog().domain_decks()[0];
     let mut rooms = Vec::new();
     let route = factory
-        .compile_domain_route(base.area(), &deck.key, 3, SLOTS, |context| {
+        .compile_curio_domain_route(base.area(), &deck.key, 3, SLOTS, |context| {
             // Independent explicit placement; do not interpret composition level as
             // a battle count or these candidates as original Boss membership.
             let index = placement(context);

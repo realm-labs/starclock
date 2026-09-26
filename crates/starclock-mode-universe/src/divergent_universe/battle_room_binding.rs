@@ -273,11 +273,14 @@ fn validate_room(
             .edges
             .iter()
             .any(|edge| !graph.edges().contains(edge))
-        || room
-            .fragment
-            .programs
-            .iter()
-            .any(|program| !definition.programs().contains(program))
+        || room.fragment.programs.iter().any(|program| {
+            let expected = if program.node() == context.entry_node() {
+                &room.entry_program
+            } else {
+                program
+            };
+            !definition.programs().contains(expected)
+        })
         || graph.edges().iter().any(|edge| {
             (owns(edge.from())
                 && edge.id() != context.exit_edge()

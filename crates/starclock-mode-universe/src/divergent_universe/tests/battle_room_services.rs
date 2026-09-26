@@ -1,6 +1,9 @@
 //! One bound source-position profile: real battle income pays for Tawot.
 //! Placement and other-room probes are explicit, not original Forge/Boss parity.
 
+#[path = "battle_room_curio_entries.rs"]
+mod curio_entries;
+
 use std::sync::Arc;
 
 use super::{SLOTS, Scenario, advance, base, probe, start};
@@ -67,7 +70,7 @@ fn build_combined(
     let mut rooms = Vec::new();
     let mut services = Vec::new();
     let route = factory
-        .compile_domain_route(
+        .compile_curio_domain_route(
             base.area(),
             &factory.decision_catalog().domain_decks()[0].key,
             3,

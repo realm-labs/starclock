@@ -8,6 +8,8 @@ mod acquisition_effects;
 mod acquisition_rewards;
 #[path = "curio_blessing_plan.rs"]
 mod blessing_plan;
+#[path = "curio_domain_entry_program.rs"]
+mod domain_entry_program;
 #[path = "curio_domain_expiry.rs"]
 mod domain_expiry;
 #[path = "curio_evolution.rs"]

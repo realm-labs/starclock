@@ -35,8 +35,10 @@ coverage. No source obligation is terminalized by composing these fragments.
    occurrence, Equation, Tawot, source-deck-choice and per-layer handlers are
    rejected rather than silently grafted onto unrelated physical addresses.
 2. Reuse `battle_room_compiler(selection)` across explicitly selected positions
-   and alternatives; supply its `fragment()` to `compile_domain_route`. Every
+   and alternatives; supply its raw `fragment()` to `compile_curio_domain_route`. Every
    other reachable room still requires its own truthful executable program.
+   The compiler supplies the authored Curio lifecycle once at each fixed or
+   selected room entry, not at deck staging or internal physical nodes.
 3. Preserve every exact base runtime slot, inventory and modifier declaration,
    add the source deck's slots, and use the route's complete logical scopes.
    To compose paid services, compile `tawot_room_compiler(service_level)` in
@@ -59,7 +61,8 @@ coverage. No source obligation is terminalized by composing these fragments.
 
 Binding requires every Battle node exactly once. Each fragment's nodes,
 programs, internal edges, single successful continuation and logical paths must
-match. A Battle enters its nested Battle scope while the other physical nodes
+match, with the raw entry replaced by its exact lifecycle-prefixed program.
+Omitted or changed entry prefixes reject. A Battle enters its nested Battle scope while the other physical nodes
 retain Run/Plane/Room. Added room random policies, outgoing bypasses and external
 entries into a fragment's encounter, Battle or reward reject. Room-list ordering
 does not affect configuration identity. Base party/state changes, mixed source
@@ -75,7 +78,13 @@ the existing headless controller uses them without another command processor.
 
 ## Runtime semantics
 
-Initialization records the actual layer ordinal/state key and the independently
+Room entry first executes the policy-bound intrinsic Curio grants and domain
+allowance consumption. Limiting states discard before room content, except that
+9071 receives its final eligible intrinsic grant before removal. Fixed and chosen
+rooms count once; destroyed states pause and internal nodes do not count. This
+is [explicit lifecycle policy](divergent-universe-curio-domain-expiry.md), not
+observed original topology. The accepted command rolls entry mutations back if
+later room initialization fails. Initialization then records the actual layer ordinal/state key and the independently
 selected room-bound reward domain, then offers one authenticated encounter.
 Observation returns only its immutable candidate binding. Assembly validates
 that binding before cache access. Preparation resolves the exact graph-bound

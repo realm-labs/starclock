@@ -10,7 +10,8 @@ pub(super) use binding::BoundBattleRooms;
 
 use crate::digest::CanonicalDigestBuilder;
 use crate::divergent_universe::{
-    DivergentUniverseEntryFlowError, DivergentUniverseRuntimeFactory,
+    DivergentUniverseCurioRuntime, DivergentUniverseEntryFlowError,
+    DivergentUniverseRuntimeFactory,
     battle_blessings::BattleBlessings,
     domain_choices::set_domain,
     domain_route::{DomainRoomContext, DomainRoomProgram, DomainRouteError},
@@ -43,6 +44,7 @@ pub struct BattleRoomCompiler {
     factory: DivergentUniverseRuntimeFactory,
     selection: BattleRoomSelection,
     rewards: Arc<BattleBlessings>,
+    curios: Arc<DivergentUniverseCurioRuntime>,
 }
 
 /// One bounded fragment plus its exact configuration and encounter binding.
@@ -51,6 +53,7 @@ pub struct CompiledBattleRoom {
     context: DomainRoomContext,
     selection: BattleRoomSelection,
     fragment: DomainRoomProgram,
+    entry_program: GraphActivityNodeProgram,
     component: [u8; 32],
     decisions: [u8; 32],
     encounter: NodeId,
@@ -109,6 +112,11 @@ impl DivergentUniverseRuntimeFactory {
             factory: self.clone(),
             selection,
             rewards: Arc::new(BattleBlessings::compile(self).map_err(BattleRoomError::Entry)?),
+            curios: Arc::new(
+                self.curio_runtime()
+                    .map_err(DomainRouteError::Curio)
+                    .map_err(BattleRoomError::Route)?,
+            ),
         })
     }
 }
@@ -252,6 +260,26 @@ impl BattleRoomCompiler {
                     .map_err(BattleRoomError::Route)
             })
             .collect::<Result<Vec<_>, _>>()?;
+        let fragment = DomainRoomProgram {
+            exit_node: reward,
+            nodes,
+            edges,
+            programs,
+            random_offers: Vec::new(),
+        };
+        let original = &fragment.programs[0];
+        let entry_program = GraphActivityNodeProgram::new(
+            original.node(),
+            ActivityProgramDefinition::new(
+                original.program().id(),
+                self.curios
+                    .compiled_domain_entry_operations(original.program().operations().to_vec())
+                    .map_err(DomainRouteError::Curio)
+                    .map_err(BattleRoomError::Route)?,
+            )
+            .map_err(DomainRouteError::Program)
+            .map_err(BattleRoomError::Route)?,
+        );
         Ok(CompiledBattleRoom {
             context: context.clone(),
             selection: self.selection.clone(),
@@ -260,13 +288,8 @@ impl BattleRoomCompiler {
             encounter,
             battle,
             reward,
-            fragment: DomainRoomProgram {
-                exit_node: reward,
-                nodes,
-                edges,
-                programs,
-                random_offers: Vec::new(),
-            },
+            fragment,
+            entry_program,
         })
     }
 }
@@ -281,6 +304,8 @@ impl CompiledBattleRoom {
         &self.selection
     }
     #[must_use]
+    /// Raw room contribution for `compile_curio_domain_route`. Binding requires
+    /// that compiler's exact lifecycle-prefixed entry, not this raw initializer.
     pub fn fragment(&self) -> &DomainRoomProgram {
         &self.fragment
     }
@@ -290,7 +315,7 @@ impl CompiledBattleRoom {
     pub fn configuration_digest(&self) -> [u8; 32] {
         let mut hash = CanonicalDigestBuilder::new();
         for value in [
-            b"starclock.divergent-universe.explicit-position-battle-fragment.v1".as_slice(),
+            b"starclock.divergent-universe.explicit-position-battle-curio-entry.v1".as_slice(),
             &self.component,
             &self.decisions,
             self.context.area.as_str().as_bytes(),

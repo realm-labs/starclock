@@ -3,7 +3,8 @@
 use std::collections::BTreeMap;
 
 use crate::divergent_universe::{
-    DivergentUniverseLogicalScopeKind, DivergentUniverseRuntimeFactory,
+    DivergentUniverseCurioRuntime, DivergentUniverseLogicalScopeKind,
+    DivergentUniverseRuntimeFactory,
     domain_deck::{DomainCardId, DomainDeckSlots},
     domain_route::{
         CompiledDomainRoute, DomainRoomComposition, DomainRoomContext, DomainRoomProgram,
@@ -71,6 +72,29 @@ impl Position {
 }
 
 impl DivergentUniverseRuntimeFactory {
+    /// Compiles the explicit source-position route with the authored Curio entry
+    /// policy at every fixed and selected room's single-visit entry program.
+    /// Acquisition does not retroactively count its room; internal battle,
+    /// reward and service nodes do not count. Programs execute in the shared
+    /// transaction, so downstream rejection restores grants, counters and RNG.
+    /// This does not admit original room payloads or encode a replay profile.
+    pub fn compile_curio_domain_route(
+        &self,
+        area: &DivergentUniverseAreaId,
+        deck_key: &str,
+        width: u16,
+        slots: DomainDeckSlots,
+        mut compile_room: impl FnMut(&DomainRoomContext) -> Result<DomainRoomProgram, DomainRouteError>,
+    ) -> Result<CompiledDomainRoute, DomainRouteError> {
+        let curios = self.curio_runtime().map_err(DomainRouteError::Curio)?;
+        self.compile_domain_route(area, deck_key, width, slots, |context| {
+            let mut fragment = compile_room(context)?;
+            validate_fragment(context, &fragment, slots)?;
+            compile_room_entry(&curios, context, &mut fragment)?;
+            Ok(fragment)
+        })
+    }
+
     /// Compiles every position in the selected area's explicit ordered layer
     /// list, using real Sora records. Fixed positions never draw or refill.
     /// Unspecified positions draw only from the explicitly selected source deck;
@@ -309,6 +333,40 @@ impl DivergentUniverseRuntimeFactory {
         }
         Ok(result)
     }
+}
+
+fn compile_room_entry(
+    curios: &DivergentUniverseCurioRuntime,
+    context: &DomainRoomContext,
+    fragment: &mut DomainRoomProgram,
+) -> Result<(), DomainRouteError> {
+    let invalid = || DomainRouteError::InvalidFragment(context.preset_source.clone());
+    if fragment
+        .nodes
+        .iter()
+        .find(|node| node.id() == context.entry_node())
+        .is_none_or(|node| node.kind() != ActivityNodeKind::Choice || node.maximum_visits() != 1)
+        || fragment
+            .edges
+            .iter()
+            .any(|edge| edge.to() == context.entry_node())
+    {
+        return Err(invalid());
+    }
+    let entry = fragment
+        .programs
+        .iter_mut()
+        .find(|program| program.node() == context.entry_node())
+        .ok_or_else(invalid)?;
+    let operations = curios
+        .compiled_domain_entry_operations(entry.program().operations().to_vec())
+        .map_err(DomainRouteError::Curio)?;
+    *entry = GraphActivityNodeProgram::new(
+        entry.node(),
+        ActivityProgramDefinition::new(entry.program().id(), operations)
+            .map_err(DomainRouteError::Program)?,
+    );
+    Ok(())
 }
 
 // Collecting one executable contribution is deliberately separate from source
