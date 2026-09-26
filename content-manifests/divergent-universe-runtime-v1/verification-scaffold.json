@@ -4,15 +4,15 @@
   "batch": "G22-P0-B6",
   "status": "BehavioralAuditIncomplete",
   "input_digests": {
-    "docs/goals/22-divergent-universe-runtime.md": "793a9262876c65e44992157050214397ed6f678febcf960272c620d613f031d5",
-    "content-manifests/divergent-universe-runtime-v1/foundation.json": "8871c35f4b13943c45da77fca1eef4b101ccf2c07e805ae034d96b2612d3dc8a",
-    "content-manifests/divergent-universe-runtime-v1/runtime-dispositions.json": "e404ce2e652e9298e37a97c904eaf2a69b9d8b3d48496b65b101afb5cf50a949",
+    "docs/goals/22-divergent-universe-runtime.md": "7867d689c35e9aeb48d81533925bf5aee04c74332eba0a3c3dcbb31f6e001765",
+    "content-manifests/divergent-universe-runtime-v1/foundation.json": "e237abf4ad8bf4212af13a40a159842a9a52d2f39433c2ff2f684b5d50342de3",
+    "content-manifests/divergent-universe-runtime-v1/runtime-dispositions.json": "dd46a1c5c295ff45242d5bebd7600319687b304339807cd5bfdad14fe4d360b2",
     "content-manifests/divergent-universe-runtime-v1/mechanic-dispositions.json": "1b52d5647cb784b418286a0c046b2d92368748494774314c09bf52b7256e1088",
     "content-manifests/divergent-universe-runtime-v1/mechanic-partitions.json": "954fe4fbf9e9b433684d7c03ca38a3ef6a5b9860380c48c35a2ad3ba1ee8520d",
-    "content-manifests/divergent-universe-runtime-v1/batch-ledger.json": "a7d12fbc81dd5ac9a6c75061dca3d4a308bbb4388d6e5d12b4b535404aa76809",
+    "content-manifests/divergent-universe-runtime-v1/batch-ledger.json": "b920baccd6995259d51c81ea7b489b28b9ef30f7ea3259ba5596bf9c9e873d73",
     "content-manifests/divergent-universe-runtime-v1/runtime-contract.json": "ccb27239b0d31973c27c48a666916055568355f40736b5887aed50f1b0ba4276",
     "content-manifests/divergent-universe-runtime-v1/verification-contract.json": "d4b8cfa081026f31b3abf5abb92218aa7dcc8f60600e292e99bf65d6e68ded0e",
-    "content-manifests/divergent-universe-runtime-v1/shared-capability-audit.json": "f08b6027387a1f29c88b4a0677168b6fc3b01fd23714c1dbb21fca1f38fa58df",
+    "content-manifests/divergent-universe-runtime-v1/shared-capability-audit.json": "7eb3e236cedd1f74f84b9be427e94f77eafbdfe8938973f3a8f4f71df768d778",
     "content-manifests/divergent-universe-runtime-v1/entry-flow-execution.json": "9c1f89366bb80df872fa57e29e64b698592f7da4d764ccbd20ca112e23135ab8",
     "content-manifests/divergent-universe-runtime-v1/progression-execution.json": "1eb234a795cf1ba23861cec74b42b350507293ab8eeb0ae5b09f48c51b9474d0",
     "content-manifests/divergent-universe-runtime-v1/economy-persistence-execution.json": "28ce0048ea4b681b6b3920f419f15b2806381d5bc5a4f36aa01b47328c178ec3",
@@ -84,8 +84,8 @@
       "Ready": 1,
       "Planned": 47
     },
-    "assigned_catalog_obligations": 6215,
-    "assigned_execution_obligations": 6215,
+    "assigned_catalog_obligations": 6762,
+    "assigned_execution_obligations": 6762,
     "assigned_mechanic_programs": 669,
     "assigned_semantic_fixtures": 25,
     "assigned_research_gaps": 25,
@@ -237,7 +237,7 @@
       ],
       "deliverable": "Lower profiles, module, entries, finish conditions, 28 areas, 22 difficulties, 11 layers, Ordinary/Cyclical identities, flow and carry/reset records.",
       "assigned_targets": {
-        "catalog_obligations": 938,
+        "catalog_obligations": 1485,
         "execution_obligations": 0,
         "mechanic_programs": 0,
         "semantic_fixtures": 0,
@@ -288,7 +288,7 @@
       },
       "terminal_evidence": {
         "assigned_counts": {
-          "catalog_obligations": 938,
+          "catalog_obligations": 1485,
           "execution_obligations": 0,
           "mechanic_programs": 0,
           "semantic_fixtures": 0,
@@ -1229,7 +1229,7 @@
       "deliverable": "Execute Ordinary and Cyclical entry, area/layer flow, bounded room selection, finish conditions and explicit carry/reset behavior.",
       "assigned_targets": {
         "catalog_obligations": 0,
-        "execution_obligations": 916,
+        "execution_obligations": 1463,
         "mechanic_programs": 0,
         "semantic_fixtures": 4,
         "research_gaps": 4,
@@ -1318,7 +1318,7 @@
       "terminal_evidence": {
         "assigned_counts": {
           "catalog_obligations": 0,
-          "execution_obligations": 916,
+          "execution_obligations": 1463,
           "mechanic_programs": 0,
           "semantic_fixtures": 4,
           "research_gaps": 4,

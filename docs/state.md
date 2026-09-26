@@ -202,6 +202,11 @@ under an explicit scope policy and verified-result five-battle lifetime.
 
 - `starclock-combat` owns deterministic single-battle execution.
 - `starclock-activity` owns deterministic cross-battle orchestration.
+- Its `RemoveCounter` operation deletes one declared counter-map entry without
+  conflating absence with a stored zero. Order/capacity, idempotent absence,
+  typed validation, conditional execution and rollback are tested. This supplies
+  a prerequisite for compiled Curio expiry; source-position domain-entry grants
+  and allowances are not yet wired into fixed/selected room entry.
 - Graph slots can opt into declared logical-scope reset lifetimes. Unbound
   slots retain physical resets; one-battle specs reject unsupported bindings.
 - Its generated battle-settlement boundary validates a result, applies mode-owned
@@ -356,7 +361,7 @@ under an explicit scope policy and verified-result five-battle lifetime.
   stays in Rule IR. The ten Version 4.4 postfix byte semantics are now the sole
   named shared-capability gap and remain explicitly unresolved rather than
   inferred from historical independent analysis. `G21-P2-B5` executes four
-  shared capability probes, audits 206 Activity/Build/Combat/Rules Rust files
+  shared capability probes, audits 211 Activity/Build/Combat/Rules Rust files
   for mode-ID branches, confirms zero admitted native handlers and freezes all
   43 generated partitions covering 2,367 programs with deterministic digests.
   Its configuration-program `VersionedProjectPolicy` affects 156 expression

@@ -24,11 +24,11 @@
     },
     "mechanic_dispositions": {
       "path": "content-manifests/divergent-universe-runtime-v1/mechanic-dispositions.json",
-      "sha256": "629d1061b313381f09f66804da9eca86fdb8e474837a4fb56451696adb9377d4"
+      "sha256": "1b52d5647cb784b418286a0c046b2d92368748494774314c09bf52b7256e1088"
     },
     "mechanic_partitions": {
       "path": "content-manifests/divergent-universe-runtime-v1/mechanic-partitions.json",
-      "sha256": "10a9560f08f90fff5a013cb7942f86f6c68c4042f9a4097a46c8dd28e6870cf7"
+      "sha256": "954fe4fbf9e9b433684d7c03ca38a3ef6a5b9860380c48c35a2ad3ba1ee8520d"
     },
     "runtime_contract": {
       "path": "content-manifests/divergent-universe-runtime-v1/runtime-contract.json",
@@ -815,8 +815,8 @@
       "crates/starclock-combat/src",
       "crates/starclock-rules/src"
     ],
-    "audited_file_count": 206,
-    "audited_tree_sha256": "927b951b2ce845a11985ccc6e5dc7c76f6363b888cf23306033018e4e6b45231",
+    "audited_file_count": 211,
+    "audited_tree_sha256": "fcb596f3431a9afc892780a6420b29566b70094cd29a414120b5875e839d6dd5",
     "forbidden_mode_symbols": [
       "DivergentUniverse",
       "divergent_universe",
@@ -842,67 +842,67 @@
     "state": "FrozenPendingExecution",
     "partition_count": 13,
     "program_count": 669,
-    "partition_set_sha256": "aa823721b8e740508ba89f33c46e49e628f2a7f478b3ac411cc5d5e9bee87193",
+    "partition_set_sha256": "5875b52dab757163d192d38c963798eb5f389a10648bbdd45f4749ffb4f44b52",
     "partitions": [
       {
         "batch": "G22-P6-A01",
         "program_count": 24,
-        "freeze_sha256": "3498bb5e03ad38ea2bda860043eca290b9069c7b843d613e8a65f967f94b3994"
+        "freeze_sha256": "bb025a8e0439b1c51dfa1543e18ecfba5a3ada3867fa355035c5d7ed53ff83b9"
       },
       {
         "batch": "G22-P6-A02",
         "program_count": 64,
-        "freeze_sha256": "6914e3176cd0f24ace146f02d8f73987d5810873816d42164210a417f1943625"
+        "freeze_sha256": "f25cc9d5b4dc245bcd75630dbb51f3d6630dc9eadb9443a9fce73d38e2e21fe0"
       },
       {
         "batch": "G22-P6-A03",
         "program_count": 64,
-        "freeze_sha256": "343e212a298371626623a470f0b3a45c8c3dd36dff01dce7214c02f0f05b61e5"
+        "freeze_sha256": "b0f374ada5050f62b66dfa5e60db659813853cda4c8b9da139c60dec36ee7bb4"
       },
       {
         "batch": "G22-P6-A04",
         "program_count": 64,
-        "freeze_sha256": "9d7cfddba308c7281a95c68d7b81bd9d1639dd84f281c8d9a8320bac0211b97b"
+        "freeze_sha256": "932a2bdd474fdffffe9ff10ebe23f95419a6d4667d041229561c718b01654e97"
       },
       {
         "batch": "G22-P6-A05",
         "program_count": 64,
-        "freeze_sha256": "dfe4a0f9ab1161186910c20eb9cf4e675dc825d27aa70307097113351c418acc"
+        "freeze_sha256": "ab23e4fd20d29f8c81f86ea1ecee65670c6c5d623b4438473315ef12f9266c03"
       },
       {
         "batch": "G22-P6-A06",
         "program_count": 64,
-        "freeze_sha256": "0d5f49f0d3ff754d3851f7c2a830b80296b6b5b9f825b84067434eae354ff8c4"
+        "freeze_sha256": "82715545368c1ae85d05e6c10759e3889f3db87464859d87619d145cb95c9ea3"
       },
       {
         "batch": "G22-P6-A07",
         "program_count": 64,
-        "freeze_sha256": "82b8b81b2e66de8cbc2c1dd08a12bf612ee4d0ecc126924ec79a2b6e98288061"
+        "freeze_sha256": "711a3bea76b8be124d0fc89ccd1c715ed74dd3a742402482eea2260cc1ff8cd0"
       },
       {
         "batch": "G22-P6-A08",
         "program_count": 64,
-        "freeze_sha256": "a76b2c7d1c7459def32954f66c7f9fc18fb0915962a1cbbd6d47d71da6b76565"
+        "freeze_sha256": "deaa1fd8998d6e3e90b3d29624b1411dfd81fc98696e1c3712e5537124c36259"
       },
       {
         "batch": "G22-P6-A09",
         "program_count": 64,
-        "freeze_sha256": "47301f48ff4782e582bf452c13208d0649ebe020df0253bd8ea284e951ef7161"
+        "freeze_sha256": "d9d07846385fb44ccf2f8cba643cda61197dda5bb379840ef65d1827ac0c6e97"
       },
       {
         "batch": "G22-P6-A10",
         "program_count": 64,
-        "freeze_sha256": "a2a2d8f0f66a88d6207f7b20ac1ae094fb247d3ade8cfa3428145abd84a2ec0c"
+        "freeze_sha256": "b982c7d4c4d70a7259addad758022a07e66af73b41da55c37d63651475b78421"
       },
       {
         "batch": "G22-P6-A11",
         "program_count": 62,
-        "freeze_sha256": "f69a9f159cee873da40a979355c0300dde2125d9227fce5e324c45b796afe300"
+        "freeze_sha256": "0bbb52ca6f816e9ad1bdc0c737e7d9a289f21e835ce5496da4bbab2292d7fc25"
       },
       {
         "batch": "G22-P6-A12",
         "program_count": 1,
-        "freeze_sha256": "92a1faf43bcbaefc7e05f29510a00c68b4e46978e0638a8fc148d486a363cdc3"
+        "freeze_sha256": "065874633e68d9c28c2dafc1fbacb7246af783d908b4cc048ac8b84d252e3723"
       },
       {
         "batch": "G22-P6-M01",
@@ -919,7 +919,7 @@
     "mode_affected_mechanic_programs": 20,
     "unresolved_expression_shapes": 29,
     "postfix_affected_mechanic_programs": 3,
-    "audited_shared_rust_files": 206,
+    "audited_shared_rust_files": 211,
     "admitted_native_handlers": 0,
     "frozen_partitions": 13,
     "frozen_programs": 669

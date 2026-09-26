@@ -436,7 +436,7 @@ fn domain_route_missing_room_program_rejects_instead_of_skipping_source_position
 fn domain_route_rejects_foreign_edges_pile_mutation_early_completion_and_empty_fragments() {
     let factory = DivergentUniverseRuntimeFactory::production().unwrap();
     let deck = &factory.decision_catalog().domain_decks()[0].key;
-    for invalid_kind in 0..11 {
+    for invalid_kind in 0..13 {
         let result = factory.compile_domain_route(&area_id("401"), deck, 3, SLOTS, |context| {
             let mut fragment = probe(context)?;
             match invalid_kind {
@@ -472,6 +472,29 @@ fn domain_route_rejects_foreign_edges_pile_mutation_early_completion_and_empty_f
                     )
                 }
                 6 => fragment.nodes.push(fragment.nodes[0]),
+                11 => {
+                    fragment.programs[0] = program(
+                        context.entry_node(),
+                        vec![ActivityOperation::RemoveCounter {
+                            slot: SLOTS.draw,
+                            key: 99,
+                        }],
+                    )
+                }
+                12 => {
+                    fragment.programs[0] = program(
+                        context.entry_node(),
+                        vec![ActivityOperation::Conditional {
+                            condition: condition(false),
+                            if_true: vec![ActivityOperation::RemoveCounter {
+                                slot: SLOTS.discard,
+                                key: 99,
+                            }]
+                            .into(),
+                            if_false: Box::new([]),
+                        }],
+                    )
+                }
                 7..=10 => {
                     let mut offer = ActivityRandomOffer::new(
                         context.entry_node(),

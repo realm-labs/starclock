@@ -71,6 +71,7 @@ pub(super) fn validate_operations(
             }
             ActivityOperation::InsertOrderedId { id, .. }
             | ActivityOperation::RemoveOrderedId { id, .. } => validate_stable_id(*id)?,
+            ActivityOperation::RemoveCounter { key, .. } => validate_stable_id(*key)?,
             ActivityOperation::SetCounterMap { values, .. } => {
                 if values.iter().any(|(key, _)| *key == 0)
                     || values.windows(2).any(|pair| pair[0].0 >= pair[1].0)

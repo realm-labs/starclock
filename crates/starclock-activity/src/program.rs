@@ -160,6 +160,13 @@ pub enum ActivityOperation {
         key: u64,
         value: ActivityExpression,
     },
+    /// Removes one non-zero key from a bounded counter map, preserving order.
+    /// An absent key is an accepted no-op with no mutation event. Zero values
+    /// remain meaningful entries; SetCounter with zero does not remove them.
+    RemoveCounter {
+        slot: ActivitySlotId,
+        key: u64,
+    },
     /// Replaces a complete canonical counter map at one atomic command boundary.
     SetCounterMap {
         slot: ActivitySlotId,
@@ -327,7 +334,8 @@ fn validate_bindings(
                     return Err(ActivityProgramBindingError::TypeMismatch(*slot));
                 }
             }
-            ActivityOperation::SetCounterMap { slot, .. } => {
+            ActivityOperation::SetCounterMap { slot, .. }
+            | ActivityOperation::RemoveCounter { slot, .. } => {
                 let definition = state
                     .slots()
                     .iter()

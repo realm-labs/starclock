@@ -38,6 +38,21 @@ impl ActivityTransactionState {
         self.commit_counter(id, key, values, cause, events)
     }
 
+    pub(super) fn remove_counter(
+        &mut self,
+        id: ActivitySlotId,
+        key: u64,
+        cause: ActivityCause,
+        events: &mut Vec<ActivityTransactionEvent>,
+    ) -> Result<(), ActivityFault> {
+        let mut values = self.counter_values(id, key)?;
+        let Ok(index) = values.binary_search_by_key(&key, |item| item.0) else {
+            return Ok(());
+        };
+        values.remove(index);
+        self.commit_counter(id, key, values, cause, events)
+    }
+
     fn counter_values(
         &self,
         id: ActivitySlotId,

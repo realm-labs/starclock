@@ -142,6 +142,17 @@ Activity data is not an unrestricted `HashMap<String, Value>`. Each `ActivitySlo
 
 Runtime storage may use a tagged `ActivityValue` union internally, but catalog validation ensures every read, write, comparison, hash, and projection matches the slot definition.
 
+`RemoveCounter { slot, key }` deletes one nonzero stable key from a declared
+bounded counter map, preserving canonical order and freeing one entry of its
+authored capacity. An absent key is an accepted no-op without a mutation event;
+a present key emits `CounterChanged` with its command cause. Zero remains a
+meaningful stored value: `SetCounter` with zero does not delete an entry.
+Construction rejects zero keys; binding rejects missing or non-counter slots.
+The operation participates in ordinary conditional branches, bounded programs
+and command rollback. A later rejected requirement restores the entire state;
+a later deterministic fault restores mutations before committing its documented
+fault transition. This finite primitive does not replace mode lifecycle policy.
+
 Activity programs may end with one checked `Conditional` operation containing
 canonical true/false operation lists. The condition and both branches are
 validated against the same state/graph definition, only one branch executes,

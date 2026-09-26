@@ -494,6 +494,10 @@ fn domain_deck_dispatch_rejects_invalid_commands_and_protected_or_boundary_entry
         })
         .collect::<Vec<_>>();
     invalid.extend([
+        ActivityOperation::RemoveCounter {
+            slot: SLOTS.draw,
+            key: 99,
+        },
         ActivityOperation::Traverse(edge(101)),
         ActivityOperation::Relocate(node(13)),
         ActivityOperation::Terminal(ActivityTerminalOutcome::Completed),
@@ -512,6 +516,15 @@ fn domain_deck_dispatch_rejects_invalid_commands_and_protected_or_boundary_entry
             if_true: vec![ActivityOperation::InsertOrderedId {
                 slot: SLOTS.discard,
                 id: 99,
+            }]
+            .into_boxed_slice(),
+            if_false: Box::new([]),
+        },
+        ActivityOperation::Conditional {
+            condition: condition(false),
+            if_true: vec![ActivityOperation::RemoveCounter {
+                slot: SLOTS.discard,
+                key: 99,
             }]
             .into_boxed_slice(),
             if_false: Box::new([]),

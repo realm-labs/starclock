@@ -86,7 +86,7 @@ export function buildAudit() {
     "mode-owned gap closure drift");
   assert(postfixShapes.length === 29 && postfixMechanics.length === 3,
     "postfix policy denominator drift");
-  assert(auditedFiles.length === 206, "shared Rust audit denominator drift");
+  assert(auditedFiles.length === 211, "shared Rust audit denominator drift");
   assert(partitions.freeze.batch === "G22-P2-B5"
     && partitions.freeze.state === "FrozenPendingExecution",
   "mechanic partitions are not frozen");

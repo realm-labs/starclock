@@ -1,5 +1,7 @@
 mod collection;
 mod condition;
+#[cfg(test)]
+mod counter_removal_tests;
 mod decision;
 mod expression;
 mod extension;
@@ -736,6 +738,9 @@ impl ActivityTransactionState {
             }
             ActivityOperation::SetCounter { slot, key, value } => {
                 self.set_counter(*slot, *key, integer(&self.evaluate(value)?)?, cause, events)?
+            }
+            ActivityOperation::RemoveCounter { slot, key } => {
+                self.remove_counter(*slot, *key, cause, events)?
             }
             ActivityOperation::SetCounterMap { slot, values } => {
                 self.set_slot(*slot, ActivityValue::BoundedCounterMap(values.clone()))?;

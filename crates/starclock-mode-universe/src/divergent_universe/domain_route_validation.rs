@@ -185,6 +185,7 @@ fn operations_allowed(
         | ActivityOperation::AddToSlot { slot, .. }
         | ActivityOperation::AddCounter { slot, .. }
         | ActivityOperation::SetCounter { slot, .. }
+        | ActivityOperation::RemoveCounter { slot, .. }
         | ActivityOperation::SetCounterMap { slot, .. }
         | ActivityOperation::SetOrderedIdSet { slot, .. }
         | ActivityOperation::InsertOrderedId { slot, .. }

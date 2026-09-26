@@ -62,7 +62,7 @@ for (const directory of audit.content_id_branch_audit.roots) {
       assert(!source.includes(token), `${path.relative(root, file)} interprets raw postfix data`);
   }
 }
-assert(audit.content_id_branch_audit.audited_file_count === 206,
+assert(audit.content_id_branch_audit.audited_file_count === 211,
   "shared Rust audit denominator drift");
 assert(audit.native_handler_audit.admitted_battle_handlers === 0
   && audit.native_handler_audit.admitted_activity_handlers === 0
@@ -82,7 +82,7 @@ assert(audit.partition_freeze.partitions.every(({ batch, freeze_sha256: digest }
 
 console.log(
   "Divergent Universe shared capability audit verified "
-    + "(11 probes; 206 shared Rust files; 13 partitions; zero handlers).",
+    + "(11 probes; 211 shared Rust files; 13 partitions; zero handlers).",
 );
 
 function recursiveRustFiles(directory) {

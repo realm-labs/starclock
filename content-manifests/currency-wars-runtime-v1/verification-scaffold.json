@@ -11,7 +11,7 @@
     "content-manifests/currency-wars-runtime-v1/mechanic-partitions.json": "36f2abdea0e99523fb704640b3aef1762c711291f1a6f115bfa5776645dd9b56",
     "content-manifests/currency-wars-runtime-v1/coverage-and-release.json": "c595bccc2bb984e427b99d60ab6746f7cc518020bb20fd36c1290c84766ad62b",
     "content-manifests/currency-wars-runtime-v1/capability-inventory.json": "32e5a13027114eab497756588d850711fad2f7debffcb340d0be489e7b8ce648",
-    "content-manifests/currency-wars-runtime-v1/shared-capability-audit.json": "22d409c948a03d1857eda9819087c3dbbdd7e4d78a373d17c0fdcb02d3540258"
+    "content-manifests/currency-wars-runtime-v1/shared-capability-audit.json": "bdd9ae1c47da8af36d567c52c50a6b54171224eb405284c1ae35bf1d2744a1ba"
   },
   "completion_rule": "A batch becomes Complete only after its focused commands pass and its assigned current-state dispositions, fixtures, policies and behavior artifacts satisfy terminal_evidence. Status text, IDs, catalog rows and no-op handlers are not evidence.",
   "sequencing_rule": "Exactly one batch is InProgress. A batch may start only after every listed prerequisite is Complete in the regenerated ledger.",
