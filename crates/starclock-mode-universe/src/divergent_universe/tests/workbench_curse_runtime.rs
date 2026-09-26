@@ -12,7 +12,7 @@ fn workbench_and_curse_chest_catalogs_compile_exact_policy_boundaries() {
     assert_eq!(runtime.workbenches().len(), 11);
     assert_eq!(runtime.functions().len(), 6);
     assert_eq!(runtime.curse_chests().len(), 29);
-    assert_eq!(runtime.accuracies().len(), 5);
+    assert_eq!(runtime.accuracies().len(), 6);
     assert_eq!(
         runtime
             .functions()
@@ -137,7 +137,7 @@ fn every_unpublished_workbench_transformation_fails_closed_with_explicit_selecti
                 == DivergentUniverseWorkbenchFunctionDisposition::RejectUnpublishedPriceOrCandidateProgram
         })
         .collect::<Vec<_>>();
-    assert_eq!(unresolved.len(), 4);
+    assert_eq!(unresolved.len(), 3);
     for function in unresolved {
         let workbench = runtime
             .workbenches()

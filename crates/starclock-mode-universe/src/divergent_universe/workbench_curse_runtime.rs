@@ -1,5 +1,7 @@
 //! Workbench transformations and Curse Chest operations with explicit policy boundaries.
 
+#[path = "workbench_equation_reforge.rs"]
+pub(super) mod equation_reforge;
 #[path = "workbench_reforge.rs"]
 pub(super) mod reforge;
 
@@ -22,7 +24,8 @@ use super::economy::DivergentUniverseCurrencyRuntime;
 use super::{
     DivergentUniverseBlessingRuntime, DivergentUniverseBlessingRuntimeError,
     DivergentUniverseCurrencyKind, DivergentUniverseEconomyError,
-    DivergentUniverseEconomyProjection, DivergentUniverseRuntimeFactory,
+    DivergentUniverseEconomyProjection, DivergentUniverseEquationOfferRuntime,
+    DivergentUniverseEquationRuntimeError, DivergentUniverseRuntimeFactory,
     state::{CURRENCIES_SLOT, SERVICE_RECEIPTS_SLOT, WORKBENCH_SLOT},
 };
 
@@ -37,6 +40,7 @@ pub enum DivergentUniverseWorkbenchCurseAccuracy {
     VersionedProjectPolicyRejectUnpublishedTransformationCandidates,
     VersionedProjectPolicyExplicitCurseChestAmountWithinReleasedBounds,
     VersionedProjectPolicyAcceptedBlessingReforgeLinearRunPrice,
+    VersionedProjectPolicyAcceptedEquationReforgeLinearRunPrice,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -53,6 +57,7 @@ pub enum DivergentUniverseWorkbenchFunctionKind {
 pub enum DivergentUniverseWorkbenchFunctionDisposition {
     ExecutableAcceptedBlessingEnhancement,
     ExecutableAcceptedBlessingReforgeWithExplicitPolicy,
+    ExecutableAcceptedEquationReforgeWithExplicitPolicy,
     RejectUnpublishedPriceOrCandidateProgram,
 }
 
@@ -195,6 +200,7 @@ pub struct DivergentUniverseWorkbenchCurseRuntime {
     functions: Arc<[DivergentUniverseWorkbenchFunctionRuntime]>,
     curse_chests: Arc<[DivergentUniverseCurseChestRuntimeDefinition]>,
     blessing: Arc<DivergentUniverseBlessingRuntime>,
+    equations: Arc<DivergentUniverseEquationOfferRuntime>,
     heat_key: u64,
     fragment_key: u64,
     fragments: DivergentUniverseCurrencyRuntime,
@@ -215,6 +221,10 @@ impl DivergentUniverseRuntimeFactory {
             self.bundle.service_catalog(),
             &economy,
             Arc::new(blessing),
+            Arc::new(
+                self.equation_offer_runtime()
+                    .map_err(DivergentUniverseWorkbenchCurseError::Equation)?,
+            ),
         )
     }
 }
@@ -277,6 +287,7 @@ impl DivergentUniverseWorkbenchCurseRuntime {
         catalog: &DivergentUniverseServiceCatalog,
         economy: &DivergentUniverseEconomyProjection,
         blessing: Arc<DivergentUniverseBlessingRuntime>,
+        equations: Arc<DivergentUniverseEquationOfferRuntime>,
     ) -> Result<Self, DivergentUniverseWorkbenchCurseError> {
         let workbenches = catalog
             .workbenches()
@@ -320,6 +331,8 @@ impl DivergentUniverseWorkbenchCurseRuntime {
                             DivergentUniverseWorkbenchFunctionDisposition::ExecutableAcceptedBlessingEnhancement,
                         DivergentUniverseWorkbenchFunctionKind::BlessingReforge =>
                             DivergentUniverseWorkbenchFunctionDisposition::ExecutableAcceptedBlessingReforgeWithExplicitPolicy,
+                        DivergentUniverseWorkbenchFunctionKind::EquationReforge =>
+                            DivergentUniverseWorkbenchFunctionDisposition::ExecutableAcceptedEquationReforgeWithExplicitPolicy,
                         _ => DivergentUniverseWorkbenchFunctionDisposition::RejectUnpublishedPriceOrCandidateProgram,
                     },
                 })
@@ -369,6 +382,7 @@ impl DivergentUniverseWorkbenchCurseRuntime {
             functions: functions.into(),
             curse_chests: curse_chests.into(),
             blessing,
+            equations,
             heat_key: economy
                 .currency(DivergentUniverseCurrencyKind::WorkbenchHeat)
                 .key(),
@@ -382,13 +396,14 @@ impl DivergentUniverseWorkbenchCurseRuntime {
     }
 
     #[must_use]
-    pub const fn accuracies(&self) -> [DivergentUniverseWorkbenchCurseAccuracy; 5] {
+    pub const fn accuracies(&self) -> [DivergentUniverseWorkbenchCurseAccuracy; 6] {
         [
             DivergentUniverseWorkbenchCurseAccuracy::ExactReleasedWorkbenchFunctionMembershipAndChoiceParameters,
             DivergentUniverseWorkbenchCurseAccuracy::VersionedProjectPolicyAcceptedWorkbenchEntryAndExplicitPrice,
             DivergentUniverseWorkbenchCurseAccuracy::VersionedProjectPolicyRejectUnpublishedTransformationCandidates,
             DivergentUniverseWorkbenchCurseAccuracy::VersionedProjectPolicyExplicitCurseChestAmountWithinReleasedBounds,
             DivergentUniverseWorkbenchCurseAccuracy::VersionedProjectPolicyAcceptedBlessingReforgeLinearRunPrice,
+            DivergentUniverseWorkbenchCurseAccuracy::VersionedProjectPolicyAcceptedEquationReforgeLinearRunPrice,
         ]
     }
     #[must_use]
@@ -836,6 +851,7 @@ pub enum DivergentUniverseWorkbenchCurseError {
     ActivityCompleted,
     Economy(DivergentUniverseEconomyError),
     Blessing(DivergentUniverseBlessingRuntimeError),
+    Equation(DivergentUniverseEquationRuntimeError),
     Activity(GraphActivityCommandError),
 }
 

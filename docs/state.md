@@ -134,6 +134,15 @@ and a 64-confirmation room budget are configuration-bound project policy.
 Ordinary/Cyclical controlled profiles and baseline dispatch complete three
 real proxy battles with fresh reconstruction. Original selector/price/modifier
 parity, default topology and encoded profile replay remain incomplete.
+Workbench function 3 now has an [accepted Equation overwrite boundary](divergent-universe-workbench-equation-reforge.md):
+owned input and different unowned same-category output, exact current function
+membership, clean derived state and no unrelated Equation/Blessing offer.
+Replacement/teardown, explicit checked Fragment price, independent Run-wide
+function-3 receipt and existing acquisition/expansion Curio rewards share one
+transaction. All 80 identities and five capable Workbenches execute against
+fresh production constructions for both families. Original selectors, public
+menus, prices/modifiers/attempt limits and NPC admission remain pending; no
+terminal source credit is added.
 The reference generators remove the incorrect blanket `RoguePersona` other-mode
 exclusion and retain eleven explicitly reviewed files for row-level accounting.
 The current generated Persona source audit accounts for all 547 rows across

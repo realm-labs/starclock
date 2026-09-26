@@ -92,7 +92,8 @@ overflow reject without mutation. A nearly satisfied
 Equation exercises real expansion and Curio rewards; malformed expansion
 charges reject twice without paying, consuming allowance or RNG.
 
-Other transformations remain fail-closed. Original NPC admission, candidate
+Equation overwrite now has its own [accepted same-quality settlement](divergent-universe-workbench-equation-reforge.md).
+Remaining Curio/Hex transformations remain fail-closed. Original NPC admission, candidate
 offers/weights, exact prices, modifiers, default public room/controller topology and
 encoded profile replay are incomplete. No source/mechanic obligation is
 terminalized by this accepted-settlement boundary.

@@ -171,6 +171,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 144. [Divergent Universe fixed Respite enhancement](divergent-universe-respite-enhancement.md) — optional atomic Heat-funded upgrades, explicit allowance/price/admission policy and remaining room services.
 145. [Accepted Workbench Blessing overwrite](divergent-universe-workbench-reforge.md) — atomic explicit-pair replacement, escalating price policy, Equation refresh and remaining original service boundaries.
 146. [Offered fixed Respite Blessing overwrite](divergent-universe-respite-reforge.md) — policy-backed three-candidate selection alongside enhancement, atomic confirmation and bounded controller dispatch.
+147. [Accepted Workbench Equation overwrite](divergent-universe-workbench-equation-reforge.md) — equal-quality identity replacement, independent escalating price policy and atomic acquisition/expansion rewards.
 
 ## Delivery boundary
 

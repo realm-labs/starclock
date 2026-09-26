@@ -1,5 +1,8 @@
 //! Deterministic Equation offer and ownership command boundaries.
 
+#[path = "equation_rewrite.rs"]
+mod rewrite;
+
 use std::sync::Arc;
 
 use crate::digest::CanonicalDigestBuilder;
@@ -10,7 +13,8 @@ use starclock_activity::{
     GraphActivityCommandError,
 };
 use starclock_data::divergent_universe_equation_catalog::{
-    DivergentUniverseEquationCatalog, DivergentUniverseEquationId, DivergentUniverseEquationOfferId,
+    DivergentUniverseEquationCatalog, DivergentUniverseEquationCategory,
+    DivergentUniverseEquationId, DivergentUniverseEquationOfferId,
 };
 
 use super::{
@@ -72,6 +76,7 @@ impl DivergentUniverseEquationOfferPolicy {
 struct EquationProjection {
     id: DivergentUniverseEquationId,
     state_key: u64,
+    category: DivergentUniverseEquationCategory,
 }
 
 /// Immutable executable projection for all 136 released Equation RandomIDs.
@@ -174,6 +179,7 @@ impl DivergentUniverseEquationOfferRuntime {
             .map(|(index, equation)| EquationProjection {
                 id: equation.id.clone(),
                 state_key: u64::try_from(index + 1).expect("80 Equations fit u64"),
+                category: equation.category,
             })
             .collect::<Vec<_>>();
         let offers = catalog
@@ -818,6 +824,7 @@ pub enum DivergentUniverseEquationRuntimeError {
     AlreadyOwned,
     NotOwned,
     SameEquation,
+    DifferentQuality,
     InvalidState,
     InvalidProgram,
     Progress(DivergentUniverseEquationProgressError),

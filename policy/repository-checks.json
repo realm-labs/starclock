@@ -69,7 +69,7 @@
       { "path": "crates/starclock-mode-currency-wars/src/runtime.rs", "reason": "Private runtime layout abstraction.", "declarations": 3, "symbols": 8, "sha256": "c9e2e9329a56da9f33f9c8dbb3d08b757c422fa2b72b955a787559bd1bd51244" },
       { "path": "crates/starclock-mode-fate-night/src/lib.rs", "reason": "Intentional mode facade.", "declarations": 3, "symbols": 26, "sha256": "812d8502642e247d8f27579414ca5b7e67b18d4ddc1ca95d108e6bddf5bda3c0" },
       { "path": "crates/starclock-mode-standard/src/lib.rs", "reason": "Intentional mode facade.", "declarations": 1, "symbols": 11, "sha256": "8d0a390a8bb26bdf2eb310ef4247df7ee751c42797270f0d4d9c65dee2265bf7" },
-      { "path": "crates/starclock-mode-universe/src/divergent_universe/mod.rs", "reason": "Private Divergent Universe layout abstraction with one intentional public mode surface, including the accepted Workbench overwrite policy.", "declarations": 36, "symbols": 265, "sha256": "6998669f506e5d67ca330d375387350daaf2d67be869bfadee3dbdcbfbb72784" },
+      { "path": "crates/starclock-mode-universe/src/divergent_universe/mod.rs", "reason": "Private Divergent Universe layout abstraction with one intentional public mode surface, including accepted Blessing and Equation Workbench overwrite policies and typed accepted pairs.", "declarations": 37, "symbols": 267, "sha256": "80a8e05d6cdf7c2b462889d19db08fd91b6d2ec6bc352a2eff9f6fa1253cfbdb" },
       { "path": "crates/starclock-mode-universe/src/gold_gears_entry/mod.rs", "reason": "Private Gold and Gears layout abstraction.", "declarations": 14, "symbols": 36, "sha256": "d73f306a980cb93d9036522312bd8c84f0602cda4c55f69d24692853755956a6" }
     ],
     "forbidden_public_api_tokens": ["fixnum::", "rand::", "sha2::"]
