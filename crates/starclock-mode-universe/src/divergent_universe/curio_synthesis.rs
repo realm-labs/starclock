@@ -2,6 +2,8 @@
 
 #[path = "curio_synthesis_offers.rs"]
 pub mod offers;
+#[path = "curio_synthesis_room.rs"]
+pub mod room;
 
 use crate::digest::CanonicalDigestBuilder;
 use crate::divergent_universe::{
@@ -11,7 +13,7 @@ use crate::divergent_universe::{
 };
 use starclock_activity::{
     ActivityExpression, ActivityOperation, ActivityPlayerView, ActivityProgramId,
-    ActivityStateHash, ActivityTransactionEvent, ActivityValue, GraphActivity,
+    ActivityRngStreams, ActivityStateHash, ActivityTransactionEvent, ActivityValue, GraphActivity,
     GraphActivityCommandError, GraphActivityRuntimeError,
 };
 use starclock_data::{
@@ -137,29 +139,13 @@ impl DivergentUniverseRuntimeFactory {
         let view = activity.player_view();
         let result = activity
             .apply_generated_boundary(expected, program, |rng| {
-                let operations = (|| {
-                    validate_selection(&curios, &view, selection)?;
-                    let mut operations = curios
-                        .consumption_acquisition_operations(
-                            &view,
-                            &selection.consumed,
-                            from_ref(&selection.acquired),
-                            rng,
+                let operations = settlement_operations(&curios, &view, selection, receipt, rng)
+                    .map_err(|error| {
+                        generation_error = Some(error);
+                        GraphActivityCommandError::Runtime(
+                            GraphActivityRuntimeError::InvalidBoundaryProgram,
                         )
-                        .map_err(CurioSynthesisError::Curio)?;
-                    operations.push(ActivityOperation::AddCounter {
-                        slot: SERVICE_RECEIPTS_SLOT,
-                        key: receipt,
-                        delta: ActivityExpression::Literal(ActivityValue::BoundedInteger(1)),
-                    });
-                    Ok::<_, CurioSynthesisError>(operations)
-                })()
-                .map_err(|error| {
-                    generation_error = Some(error);
-                    GraphActivityCommandError::Runtime(
-                        GraphActivityRuntimeError::InvalidBoundaryProgram,
-                    )
-                })?;
+                    })?;
                 Ok((operations, ()))
             })
             .map_err(|error| generation_error.unwrap_or(CurioSynthesisError::Activity(error)))?;
@@ -169,6 +155,30 @@ impl DivergentUniverseRuntimeFactory {
             state_hash: activity.state_hash(),
         })
     }
+}
+
+pub(in crate::divergent_universe) fn settlement_operations(
+    curios: &DivergentUniverseCurioRuntime,
+    view: &ActivityPlayerView,
+    selection: &AcceptedCurioSynthesis,
+    receipt: u64,
+    rng: &mut ActivityRngStreams,
+) -> Result<Vec<ActivityOperation>, CurioSynthesisError> {
+    validate_selection(curios, view, selection)?;
+    let mut operations = curios
+        .consumption_acquisition_operations(
+            view,
+            &selection.consumed,
+            from_ref(&selection.acquired),
+            rng,
+        )
+        .map_err(CurioSynthesisError::Curio)?;
+    operations.push(ActivityOperation::AddCounter {
+        slot: SERVICE_RECEIPTS_SLOT,
+        key: receipt,
+        delta: ActivityExpression::Literal(ActivityValue::BoundedInteger(1)),
+    });
+    Ok(operations)
 }
 
 fn validate_selection(

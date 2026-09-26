@@ -172,8 +172,15 @@ fallback, canonical representative state and small-pool behavior are explicit
 policy; observation is RNG-inert and late sampling failure rolls back. Fixed-seed
 vectors and fresh reconstruction bind this policy, not original selector parity.
 Duplicate-owner inventories cannot produce menus or supply two consumed copies.
-Public cached menus/confirmation, original pools/weights, NPC admission and
-numeric attempt caps remain pending. No terminal source/mechanic credit is added.
+A bound shared-graph service now caches first/second input choices and sampled
+outputs, permits cancellation only before drawing, and confirms consumption,
+mandatory rewards, receipt and room count atomically. Its explicit 1..=64 confirmed
+limit and separate 64-opening budget persist across physical menus and reset at
+the next logical room. Every raw choice is gated; fresh exact definitions work,
+and stale/hidden/foreign or downstream-failing commands preserve bytes/RNG.
+Caller placement/caps remain policy. Controller dispatch, original pools/weights,
+NPC admission, default topology and encoded profile replay remain pending.
+No terminal source/mechanic credit is added.
 The reference generators remove the incorrect blanket `RoguePersona` other-mode
 exclusion and retain eleven explicitly reviewed files for row-level accounting.
 The current generated Persona source audit accounts for all 547 rows across

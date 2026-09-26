@@ -15,7 +15,15 @@ impl DivergentUniverseWorkbenchCurseRuntime {
         id: &DivergentUniverseWorkbenchId,
     ) -> Result<u64, DivergentUniverseWorkbenchCurseError> {
         validate_hash(activity, expected)?;
-        let workbench = self.require_current_workbench(activity, id)?;
+        self.require_current_workbench(activity, id)?;
+        self.synthesis_service_keys(id).map(|keys| keys.1)
+    }
+
+    pub(in crate::divergent_universe) fn synthesis_service_keys(
+        &self,
+        id: &DivergentUniverseWorkbenchId,
+    ) -> Result<(u64, u64), DivergentUniverseWorkbenchCurseError> {
+        let workbench = self.workbench(id)?;
         let function = self
             .functions
             .iter()
@@ -32,6 +40,6 @@ impl DivergentUniverseWorkbenchCurseRuntime {
         {
             return Err(DivergentUniverseWorkbenchCurseError::InvalidCatalog);
         }
-        function_receipt_key(function)
+        Ok((workbench.state_key, function_receipt_key(function)?))
     }
 }

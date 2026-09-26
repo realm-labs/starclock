@@ -105,8 +105,9 @@ The explicit policy is:
 Sampling is a trusted host primitive, not an exposed reroll action. Its owning
 service must authenticate the offered command first, cache the sample and require
 confirmation inside the shared generated-choice transaction; failure restores
-RNG. Settlement must revalidate current holdings. This compiler does not yet
-provide that host, cache, confirmation graph, NPC placement or numeric room cap.
+RNG. Settlement must revalidate current holdings. The candidate compiler itself
+does not provide a host; the bounded room capability below now supplies its
+cache and confirmation graph, without original NPC or numeric-limit parity.
 Its digest binds exact production component/decision inputs, accepted settlement,
 candidate policy and draw purpose. Profiles additionally bind placement and caps.
 
@@ -118,6 +119,64 @@ three consumed inputs are rejected alternatives. Confidence in parity is absent.
 Replace these fields when released Version 4.4 graphs or reproducible public
 observations recover their actual eligibility, quality mapping and weights. Tests
 below bind the current policy; they are not original-mechanic completion evidence.
+
+## Bound source-room choice graph
+
+`curio_synthesis::room::CurioSynthesisRoomCompiler` explicitly places an exact
+function-4 Workbench at a caller-selected, validated current source-position
+context. It does not infer NPC membership from Reforge/Respite names or attach
+synthesis to every such card. Production Workbenches 106, 107 and 111 pass;
+unsupported Workbenches, changed contexts, invalid caps and overlapping host
+addresses reject. `compile_curio_domain_route` supplies the exact existing entry
+lifecycle; internal menu movement never counts as another selected domain.
+
+The five physical nodes are entry, service menu, first input, second input and
+confirmation. The menu checks two distinct active equal-quality owners and an
+unowned eligible output using a compact four-way predicate, rather than repeating
+all state pairs in every option. Opening caches the actual legal first inputs;
+selecting one caches compatible second inputs, without RNG or inventory cost.
+Selecting the second draws and caches up to three outputs. Confirmation consumes
+both inputs, acquires the cached output with all current mandatory rewards,
+increments the Run receipt and logical-room completion count, clears the cache
+and returns to the menu in one shared generated-choice transaction.
+
+Pre-draw cancellation clears selections without consuming Curios, charging
+Fragments/Heat or drawing. After sampling, only cached outputs may be confirmed:
+no cancel, leave or reroll action is available. A caller selects a confirmed-use
+limit of 1..=64 per logical room. A separate 64-opening budget bounds cancellation
+loops; cancelled openings consume that budget, not the function receipt. These
+two numeric bounds and mandatory confirmation are explicit policy, not original
+service-limit/payment/cancellation parity. Exhausted or unavailable menus offer
+only leave. Room counters reset only on a new logical room; Run receipts persist.
+
+`CurioSynthesisSlots` declares six disjoint addresses at or above 70: first input,
+second input, cached choices, completed uses, openings and accepted-command gate.
+The first five survive physical menu movement. The gate resets on each physical
+node, and every offered option requires a generated acceptance prefix, including
+cancel/leave. The existing Workbench marker is physically scoped and is restored
+by every menu. Input caches are bounded by the 235 current state rows; confirmed
+output caches must contain one to three distinct eligible ordinary owners.
+
+`CompiledCurioSynthesisRoom::bind` validates exact programs, nodes, internal/exit
+edges, declarations, logical scope paths and absence of injected random policies.
+`BoundCurioSynthesisRoom::offered/choose` authenticates the entire immutable
+definition, accepts fresh structurally identical reconstruction, and rejects
+foreign definitions, nodes, decisions, hidden IDs, stale hashes and raw choices
+without consuming RNG. Rejection after sampling, inventory/reward changes,
+receipt overflow or downstream graph initialization restores canonical bytes.
+The same state-only settlement plan serves this capability and the trusted API;
+there is no nested mutation call, second state machine or skipped reward path.
+
+Room accuracy is
+`VersionedProjectPolicyExplicitPlacementBoundedOpeningsCachedPairMandatoryConfirmation`.
+The room digest binds exact candidate/settlement inputs, selected Workbench,
+placement, namespace, host addresses and both budgets. The owning profile must
+also bind its whole graph, deck, bootstrap inventory and other payloads. The
+public mode API is executable; baseline controller binding/dispatch, default
+topology placement and encoded profile reconstruction are still pending.
+No workbook/schema/bundle or terminal coverage changed. Placement and actual
+numeric limits must be replaced/promoted with provenance-bearing Excel/Sora
+authoring when released graphs or reproducible observations establish them.
 
 ## Released evidence
 
@@ -174,8 +233,18 @@ inventories and state-only draw fixtures are not a public offer/cache graph.
 Duplicate-owner inventory regressions reject both observation and consuming
 two copies, preserving canonical state on repeated attempts in both families.
 
-Original candidate selector/weights and confirmation, numeric attempt limits,
-room/NPC admission, public synthesis menus, default full topology and encoded profile
+Bound-room tests cover both families, all three capable Workbenches, all three
+input qualities, fresh whole-definition state traces, cached mandatory outputs,
+raw/stale/hidden/foreign command rejection, changed-program binding, finite
+pre-draw cancellation, logical-room reset and persistent receipts. Receipt
+failure preserves the cached offer, ownership and RNG. Leaving into a deliberately
+failing next fixed Boss probe restores room/deck/cache/clock state. Other payloads
+are explicitly probes, and initial inventories are trusted fixtures, not source
+rewards or complete nested runs. Neither these tests nor terminal probe traversal
+provide release or original NPC-selector credit.
+
+Original candidate selector/weights, cancellation/confirmation and numeric limits,
+room/NPC admission, controller integration, default full topology and encoded profile
 replay remain incomplete. Weighted Curio recasting/equipment are distinct
 pending functions, not covered by this boundary. No terminal source/mechanic
 credit, complete Curio effects or Workbench-family completion is claimed.
