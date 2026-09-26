@@ -26,6 +26,7 @@ mod curio_victory_blessings;
 pub mod decision_rewards;
 mod domain_choices;
 pub mod domain_deck;
+pub mod domain_route;
 mod economy;
 mod encounter_pool;
 mod encounter_reachability_runtime;

@@ -151,7 +151,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 128. [Divergent Universe battle Blessings](divergent-universe-battle-blessings.md) — normal-battle reward selection, suppression, transactional acquisition and fresh replay policy.
 129. [Divergent Universe Equation grants](divergent-universe-equation-grants.md) — Trailblaze Wax missing-recipe grants, logical-Domain once accounting and the pure expansion-transition boundary.
     [Equation-expansion rewards](divergent-universe-equation-expansion.md) covers the 9074 bounded queue, atomic discard and paid public trigger replay in both authored baseline families.
-    [Current Persona domain positions](divergent-universe-domain-layout.md) records the exact current layer/preset joins and the still-unimplemented card-route boundary.
+    [Current Persona domain positions](divergent-universe-domain-layout.md) records exact layer/preset joins, strict position-graph composition and the remaining production room-payload binding.
     [Domain-deck programs](divergent-universe-domain-deck.md) defines the base draw/discard compiler and its remaining production integration boundary.
 130. [Divergent Universe initial Equations](divergent-universe-initial-equations.md) — public starting choice, authored pool policy and atomic acquisition.
 131. [Divergent Universe layer battles](divergent-universe-layer-battles.md) — provisional multi-battle routing, carried resources and repeated reward boundaries.

@@ -4,9 +4,11 @@
 
 The [base domain-deck compiler](divergent-universe-domain-deck.md) provides shared
 Activity draw/discard programs and nine explicitly selected authored source
-decks, but is not yet bound to these production positions or automatic mask
-selection. Its isolated graph tests do not establish
-production room execution or terminal source coverage.
+decks. The production factory now also compiles these exact positions into a
+shared Activity graph, with an explicitly selected deck and caller-supplied room
+programs. The public baseline does not yet bind its gameplay to this compiler;
+automatic mask selection and complete room payloads remain absent. Tests with
+room probes do not establish production room execution or terminal source coverage.
 
 `DomainLayout` is an openpyxl-authored Sora table containing all 60 current
 Persona layer-position records, joined to the 11 layers used by the current
@@ -21,6 +23,47 @@ No unspecified position is silently replaced with a battle, random room or
 candidate pool. Deck construction, drawing, pass spending, reusable cards,
 level/beacon mutation, fixed-room execution and plane transitions must consume
 these positions through the shared Activity graph before full-run readiness.
+
+## Strict position-graph composition
+
+`DivergentUniverseRuntimeFactory::compile_domain_route` consumes the area's
+explicit ordered layer list and the current Sora `DomainLayout` records. It
+preserves all 5/13/17/20 positions, fixed preset kind and level, and every distinct
+card instance in the selected authored deck. At unspecified positions, copies of
+the same preset share a room executor but retain separate card options. Fixed
+positions neither prepare nor draw a hand. Draw/discard piles carry across plane
+transitions without reinitialization; refill and short hands use the existing
+explicit base-deck policies, not inferred original RNG behavior.
+
+This compiler requires a deterministic, mode-owned `DomainRoomProgram` for every
+reachable preset at every position. It does not supply default handlers, room
+completion signals, candidate pools or rewards. Missing content returns
+`MissingRoomProgram`. Each fragment has a bounded private node/edge/program
+namespace and a single successful continuation to the next exact position.
+Fragments can contain multiple execution nodes and failure/abandonment/fault
+terminals, but cannot mutate deck-owned slots, cross into another fragment,
+skip positions or terminate the run as completed early. Completion guards and
+actual content execution belong to the room compiler, not the route compiler.
+
+Preparation, draw and all physical nodes of a selected room share one logical
+room instance, nested under its actual plane. Internal transitions preserve
+room-bound state, while moving to the next position resets it. Physical Battle
+nodes additionally enter a nested battle scope without replacing the room.
+Canonical graph, program, random-offer, scope and deck contributions must be validated together by
+the owning profile using `GraphActivityDefinition::new`. Its configuration
+identity must bind the exact source/decision digests, explicit deck selection,
+width policy and gameplay inputs. No additional state machine or RNG is introduced.
+
+Focused tests compile all 28 areas against all nine authored decks and check
+exact source positions, fixed presets and instance-to-executor mappings. Shared
+Activity tests traverse the guide and both run families' 13/17/20-position
+layouts, reconstruct identical commands on a fresh activity, preserve piles
+through fixed rooms and plane boundaries, isolate Graph RNG draws, enforce
+logical room lifetimes and roll back failed room initialization. Their supplied
+two-node room probes test route composition only: they are not room gameplay,
+encoded profile replay or full-run release evidence. The current baseline's
+encounter/service/boss content still needs production binding before replacing
+the three-battle proxy. No source obligation is terminalized by this compiler.
 
 ## Admitted released records
 

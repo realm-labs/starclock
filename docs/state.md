@@ -38,6 +38,16 @@ binds to the logical room and survives its choice, encounter, battle and reward
 nodes, while clearing at room exit/reentry. Shared tests cover parent changes,
 stable reset events, declaration/hash validation and downstream rollback;
 the public three-battle baseline still does not execute the current position graph.
+The production factory now compiles an exact area-position graph with an
+explicitly selected source deck and mandatory caller-owned multi-node room
+fragments. All 28 areas/nine decks are checked for exact positions and instance
+bindings. Shared Activity route-probe tests cover guide and Ordinary/Cyclical
+13/17/20-position traversal, fixed-room RNG isolation, cross-plane pile retention,
+logical room resets, deterministic reconstruction and failed-entry rollback.
+Missing room programs, cross-fragment jumps, deck-slot writes and early successful
+termination reject. These probes do not implement room content or encoded profile
+replay; default gameplay remains the three-battle proxy and production payload
+binding/full-run coverage remain incomplete. No terminal source credit is added.
 The reference generators remove the incorrect blanket `RoguePersona` other-mode
 exclusion and retain eleven explicitly reviewed files for row-level accounting.
 The current generated Persona source audit accounts for all 547 rows across
