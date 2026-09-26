@@ -6,8 +6,9 @@
 only at an exact current fixed Respite context. It checks the source layout,
 area/layer/position join and selected Workbench's released `BuffEnhance`
 membership. An altered context, unknown Workbench or transformation-only
-Workbench rejects. An [optional offered overwrite](divergent-universe-respite-reforge.md)
-can now share this room; other Respite services remain incomplete.
+Workbench rejects. Optional offered [Blessing overwrite](divergent-universe-respite-reforge.md)
+and [Equation overwrite](divergent-universe-respite-equation-reforge.md) can share
+this room in either attachment order; remaining Respite services are incomplete.
 
 The source identifies Respite as a non-levelable room offering Equation reset,
 Blessing reset, enhancement and purchase. The Workbench function identifies
@@ -17,8 +18,8 @@ No automatic HP, Energy, technique-point recovery or revival is inferred.
 
 The compiler uses the existing immutable production catalogs, shared Activity
 offers and typed operations. It introduces no mode state machine, RNG stream,
-handler, global slot, content identity or Excel reader. Optional overwrite adds
-four caller-owned declarations through the shared logical/physical scopes.
+handler, global slot, content identity or Excel reader. Each optional overwrite
+adds four disjoint caller-owned declarations through shared logical/physical scopes.
 The selected Workbench and
 numeric policy are explicit host configuration inputs to the existing
 accepted-price boundary, not new factual rows or original selector evidence.
@@ -32,7 +33,8 @@ Accuracy is
 
 - The caller selects one current enhancement-capable Workbench and supplies
   a nonnegative Heat allowance and a positive flat Heat price as checked
-  integers bounded by `i64`. Zero allowance is legal and offers only Leave.
+  integers bounded by `i64`. Zero allowance is legal and disables enhancement;
+  without an eligible optional service it offers only Leave.
 - Entry runs the ordinary Curio domain-entry prefix once, initializes the
   service and replaces its previous Heat with the selected allowance.
   Workbench identity retains its existing physical-node scope: each menu

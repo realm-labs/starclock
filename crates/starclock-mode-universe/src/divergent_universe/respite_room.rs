@@ -3,9 +3,12 @@
 //! not source selectors. Optional overwrite has a separate host policy;
 //! no automatic healing is inferred.
 
+#[path = "respite_equation_reforge.rs"]
+pub mod equation_reforge;
 #[path = "respite_reforge.rs"]
 pub mod reforge;
 
+use equation_reforge::EquationReforgeRoom;
 use reforge::ReforgeRoom;
 use std::{iter::once, sync::Arc};
 
@@ -23,9 +26,9 @@ use starclock_activity::{
     ActivityComparison, ActivityCondition, ActivityDecisionId, ActivityDecisionKind,
     ActivityEdgeCondition, ActivityEdgeDefinition, ActivityExpression, ActivityNodeDefinition,
     ActivityNodeKind, ActivityOperation, ActivityOptionDefinition, ActivityOptionId,
-    ActivityProgramDefinition, ActivityProgramId, ActivityStateHash, ActivityValue, GraphActivity,
-    GraphActivityCommandError, GraphActivityDefinition, GraphActivityNodeProgram,
-    GraphActivityRuntimeError, NodeId,
+    ActivityProgramDefinition, ActivityProgramId, ActivitySlotDefinition, ActivityStateHash,
+    ActivityValue, GraphActivity, GraphActivityCommandError, GraphActivityDefinition,
+    GraphActivityNodeProgram, GraphActivityRuntimeError, NodeId,
 };
 use starclock_data::divergent_universe_domain_layout::FixedDomainKind;
 use starclock_data::divergent_universe_service_catalog::DivergentUniverseWorkbenchId;
@@ -88,7 +91,10 @@ pub struct CompiledRespiteRoom {
     fragment: DomainRoomProgram,
     entry_program: GraphActivityNodeProgram,
     menus: Box<[NodeId]>,
+    enhancement_menus: Box<[NodeId]>,
+    service_slots: Vec<ActivitySlotDefinition>,
     reforge: Option<ReforgeRoom>,
+    equation_reforge: Option<EquationReforgeRoom>,
 }
 
 /// A trusted executor for one exact immutable whole definition. No external
@@ -376,8 +382,11 @@ impl RespiteRoomCompiler {
             compiler: self.clone(),
             context: context.clone(),
             entry_program,
+            enhancement_menus: menus.clone(),
             menus,
+            service_slots: Vec::new(),
             reforge: None,
+            equation_reforge: None,
             fragment: DomainRoomProgram {
                 exit_node: exit,
                 nodes,
@@ -459,6 +468,9 @@ impl CompiledRespiteRoom {
         if let Some(reforge) = &self.reforge {
             hash.update(reforge.configuration_digest());
         }
+        if let Some(reforge) = &self.equation_reforge {
+            hash.update(reforge.configuration_digest());
+        }
         hash.finalize()
     }
     /// Rejects changed programs, missing lifetime prefixes, bypass entry/exit,
@@ -470,12 +482,11 @@ impl CompiledRespiteRoom {
     ) -> Result<(), RespiteRoomError> {
         let owns = |id| self.fragment.nodes.iter().any(|node| node.id() == id);
         let graph = definition.graph();
-        if self.reforge.as_ref().is_some_and(|reforge| {
-            reforge
-                .slots
-                .iter()
-                .any(|slot| !definition.state_definition().slots().contains(slot))
-        }) {
+        if self
+            .service_slots
+            .iter()
+            .any(|slot| !definition.state_definition().slots().contains(slot))
+        {
             return Err(RespiteRoomError::DefinitionMismatch);
         }
         if definition.interactions().is_some()
@@ -590,10 +601,13 @@ impl BoundRespiteRoom {
             ));
         }
         activity.choose_option_with_generated_prefix(expected, decision, option, |view, rng| {
-            let operations = self.room.reforge.as_ref().map_or_else(
+            let mut operations = self.room.reforge.as_ref().map_or_else(
                 || Ok(Vec::new()),
                 |reforge| reforge.generate(view, option, rng),
             )?;
+            if let Some(reforge) = &self.room.equation_reforge {
+                operations.extend(reforge.generate(view, option, rng)?);
+            }
             Ok((operations, ()))
         })?;
         Ok(())

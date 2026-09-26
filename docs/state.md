@@ -140,9 +140,21 @@ membership, clean derived state and no unrelated Equation/Blessing offer.
 Replacement/teardown, explicit checked Fragment price, independent Run-wide
 function-3 receipt and existing acquisition/expansion Curio rewards share one
 transaction. All 80 identities and five capable Workbenches execute against
-fresh production constructions for both families. Original selectors, public
-menus, prices/modifiers/attempt limits and NPC admission remain pending; no
+fresh production constructions for both families. Original selectors,
+prices/modifiers/attempt limits and NPC admission remain pending; no
 terminal source credit is added.
+Fixed Respite optionally exposes [offered Equation overwrite](divergent-universe-respite-equation-reforge.md)
+through the same bound Service executor: all 80 owned identities select up to
+three uniform current unowned same-quality candidates, then atomically confirm
+replacement/payment and existing acquisition/expansion rewards. The caller
+supplies an explicit 1–64 logical-room limit and four disjoint scoped slots.
+Both overwrite services compose with enhancement in either attachment order,
+preserving one Curio entry and Heat lifetime, with independent Run receipts.
+Controlled Ordinary/Cyclical profiles complete three real proxy battles with
+fresh reconstruction; rejected/late-failing confirmation preserves pending
+sampling state and RNG. Original admission/weights/prices/modifiers, remaining
+services, default topology and encoded profile replay remain incomplete.
+No terminal source or full-run credit is added.
 The reference generators remove the incorrect blanket `RoguePersona` other-mode
 exclusion and retain eleven explicitly reviewed files for row-level accounting.
 The current generated Persona source audit accounts for all 547 rows across

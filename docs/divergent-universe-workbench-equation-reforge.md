@@ -30,8 +30,9 @@ This is a trusted service-settlement API, not an untrusted player action.
 The owning service authenticates the pair. It does not generate a public offer,
 sample original selectors, admit a service NPC or supply a player action for a
 pending decision.
-The state-only replacement plan is available only within the mode for a future
-offered-service transaction; shared command processing is not forked.
+The state-only replacement plan is available only within the mode and now backs
+the [optional offered Respite service](divergent-universe-respite-equation-reforge.md);
+shared command processing is not forked.
 
 ## Explicit replaceable price policy
 
@@ -46,8 +47,8 @@ Failure increments neither count nor price. The accuracy label is
 Exact base/increment, rarity-specific prices, original reset scope, cancellation/
 payment timing, per-Workbench attempt limits and discounts/free-attempt Curios
 remain unresolved. These are not silently assigned observed-parity status.
-The tutorial's per-Workbench limit is a separate missing service consumer,
-not proof of a numeric cap or permission to claim a complete player service.
+The offered service supplies an explicit caller-selected logical-room cap;
+the tutorial is not proof of that numeric cap or complete original parity.
 
 Rejecting all calls or granting flat/free swaps are rejected alternatives
 because they omit the known same-quality increasing-cost transformation.
@@ -102,7 +103,8 @@ payment operations; both repeated failures restore exact bytes/RNG, and clearing
 that trusted fixture fault allows the same pair to settle once. Inactive/foreign
 Workbench and completed-run calls also reject without mutation.
 
-Public Equation overwrite menus, original candidates/weights, NPC admission,
-price/modifier/limit consumers, default source-position topology and encoded
+Optional public Equation overwrite menus now exist with explicit policy.
+Original candidates/weights, NPC admission, price/modifier/limit parity,
+default source-position topology and encoded
 profile replay remain incomplete. This accepted boundary grants no terminal
 source/mechanic coverage and does not complete the Workbench family.

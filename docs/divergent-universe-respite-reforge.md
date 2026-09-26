@@ -79,10 +79,13 @@ Selected input, bounded candidate map (three entries) and completion count use
 the existing logical Node scope. The accepted marker uses physical Node reset.
 The four host addresses must be at least 70 and mutually distinct; whole-profile
 construction separately rejects collisions with other caller-owned slots.
+Optional [Equation overwrite](divergent-universe-respite-equation-reforge.md)
+can attach in either order; both services' four-address sets must be disjoint.
 Include `slot_definitions()` before building the shared immutable definition.
 Room validation requires these exact declarations and all added graph programs.
 
-All eleven physical nodes retain the original room's single logical scope.
+All eleven physical nodes (thirteen with Equation overwrite) retain the original
+room's single logical scope.
 The single entry retains the Curio lifecycle prefix and Heat initialization;
 the four enhancement pages, four input pages, candidate output and automatic
 exit never count as additional domains. Enhancement and overwrite share one

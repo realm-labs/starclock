@@ -105,7 +105,7 @@ impl CompiledRespiteRoom {
             .map_err(RespiteRoomError::Workbench)?;
         let first = u16::try_from(self.fragment.nodes.len())
             .map_err(|_| RespiteRoomError::InvalidPolicy)?;
-        let inputs = (0..self.menus.len())
+        let inputs = (0..self.enhancement_menus.len())
             .map(|index| {
                 let index = u16::try_from(index)
                     .ok()
@@ -133,6 +133,7 @@ impl CompiledRespiteRoom {
             receipt,
             workbench: self.compiler.workbench_key,
         };
+        self.add_service_slots(&service.slots)?;
         service.attach(&mut self)?;
         self.menus = self
             .menus
@@ -148,7 +149,22 @@ impl CompiledRespiteRoom {
     /// Exact required room-state declarations; include these before whole-profile binding.
     #[must_use]
     pub fn slot_definitions(&self) -> &[ActivitySlotDefinition] {
-        self.reforge.as_ref().map_or(&[], |reforge| &reforge.slots)
+        &self.service_slots
+    }
+
+    pub(super) fn add_service_slots(
+        &mut self,
+        slots: &[ActivitySlotDefinition],
+    ) -> Result<(), RespiteRoomError> {
+        if slots.iter().any(|slot| {
+            self.service_slots
+                .iter()
+                .any(|existing| existing.id() == slot.id())
+        }) {
+            return Err(RespiteRoomError::InvalidPolicy);
+        }
+        self.service_slots.extend_from_slice(slots);
+        Ok(())
     }
     #[must_use]
     pub fn reforge_input_nodes(&self) -> &[NodeId] {
@@ -165,7 +181,7 @@ impl CompiledRespiteRoom {
 }
 
 impl RespiteReforgeSlots {
-    fn definitions(self) -> Result<Vec<ActivitySlotDefinition>, RespiteRoomError> {
+    pub(super) fn definitions(self) -> Result<Vec<ActivitySlotDefinition>, RespiteRoomError> {
         let ids = [self.selected, self.offers, self.completed, self.accepted];
         if ids.iter().any(|id| id.get() < 70)
             || ids
@@ -443,7 +459,7 @@ fn value(
         .map(|value| value.value())
         .ok_or_else(invalid)
 }
-fn optional(
+pub(super) fn optional(
     view: &ActivityPlayerView,
     slot: ActivitySlotId,
 ) -> Result<Option<u64>, GraphActivityCommandError> {
@@ -452,7 +468,7 @@ fn optional(
         _ => Err(invalid()),
     }
 }
-fn counter(
+pub(super) fn counter(
     view: &ActivityPlayerView,
     slot: ActivitySlotId,
 ) -> Result<&[(u64, i64)], GraphActivityCommandError> {
@@ -461,12 +477,15 @@ fn counter(
         _ => Err(invalid()),
     }
 }
-fn int(view: &ActivityPlayerView, slot: ActivitySlotId) -> Result<i64, GraphActivityCommandError> {
+pub(super) fn int(
+    view: &ActivityPlayerView,
+    slot: ActivitySlotId,
+) -> Result<i64, GraphActivityCommandError> {
     match value(view, slot)? {
         ActivityValue::BoundedInteger(value) => Ok(*value),
         _ => Err(invalid()),
     }
 }
-fn invalid() -> GraphActivityCommandError {
+pub(super) fn invalid() -> GraphActivityCommandError {
     GraphActivityCommandError::Runtime(GraphActivityRuntimeError::InvalidBoundaryProgram)
 }

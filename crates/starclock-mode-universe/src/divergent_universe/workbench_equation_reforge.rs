@@ -8,7 +8,10 @@ use super::{
 };
 use crate::digest::CanonicalDigestBuilder;
 use crate::divergent_universe::state::{CURRENCIES_SLOT, SERVICE_RECEIPTS_SLOT};
-use starclock_activity::{ActivityOperation, ActivityStateHash, ActivityValue, GraphActivity};
+use starclock_activity::{
+    ActivityComparison, ActivityCondition, ActivityExpression, ActivityOperation,
+    ActivityStateHash, ActivityValue, GraphActivity,
+};
 use starclock_data::{
     divergent_universe_equation_catalog::DivergentUniverseEquationId,
     divergent_universe_service_catalog::DivergentUniverseWorkbenchId,
@@ -51,6 +54,44 @@ pub struct DivergentUniverseWorkbenchEquationReforgePolicy {
     price_increment: i64,
 }
 impl DivergentUniverseWorkbenchEquationReforgePolicy {
+    pub(in crate::divergent_universe) fn affordable_condition(
+        &self,
+        fragments: u64,
+        receipt: u64,
+    ) -> ActivityCondition {
+        let count = ActivityExpression::CounterValue {
+            slot: SERVICE_RECEIPTS_SLOT,
+            key: receipt,
+        };
+        let maximum = i64::MAX
+            .checked_sub(self.base_price)
+            .and_then(|value| value.checked_div(self.price_increment))
+            .expect("positive checked policy prices");
+        ActivityCondition::All(
+            vec![
+                ActivityCondition::Compare {
+                    left: count.clone(),
+                    operator: ActivityComparison::LessOrEqual,
+                    right: literal(ActivityValue::BoundedInteger(maximum)),
+                },
+                ActivityCondition::Compare {
+                    left: ActivityExpression::CounterValue {
+                        slot: CURRENCIES_SLOT,
+                        key: fragments,
+                    },
+                    operator: ActivityComparison::GreaterOrEqual,
+                    right: ActivityExpression::Add(
+                        Box::new(literal(ActivityValue::BoundedInteger(self.base_price))),
+                        Box::new(ActivityExpression::Multiply(
+                            Box::new(literal(ActivityValue::BoundedInteger(self.price_increment))),
+                            Box::new(count),
+                        )),
+                    ),
+                },
+            ]
+            .into(),
+        )
+    }
     pub fn new(base: u64, increment: u64) -> Result<Self, DivergentUniverseWorkbenchCurseError> {
         if base == 0 || increment == 0 {
             return Err(DivergentUniverseWorkbenchCurseError::InvalidReforgePolicy);
@@ -85,24 +126,11 @@ impl DivergentUniverseWorkbenchEquationReforgePolicy {
 }
 
 impl DivergentUniverseWorkbenchCurseRuntime {
-    /// Executes one trusted accepted same-quality Equation pair. Requires exact
-    /// active current Workbench/function-3 membership, clean derived state and
-    /// no unrelated Equation/Blessing offer. Replacement, derived teardown,
-    /// Fragment debit, function receipt and acquisition/expansion Curio rewards
-    /// share one generated transaction. Rejections preserve bytes/events/RNG.
-    /// This does not admit an NPC, sample original candidates or offer a player
-    /// command. Its owning service must authenticate the supplied pair.
-    pub fn reforge_equation_policy_accepted(
+    pub(in crate::divergent_universe) fn equation_reforge_service_keys(
         &self,
-        activity: &mut GraphActivity,
-        expected: ActivityStateHash,
         workbench: &DivergentUniverseWorkbenchId,
-        rewrite: &DivergentUniverseAcceptedEquationRewrite,
-        policy: &DivergentUniverseWorkbenchEquationReforgePolicy,
-    ) -> Result<DivergentUniverseWorkbenchCurseResolution, DivergentUniverseWorkbenchCurseError>
-    {
-        validate_hash(activity, expected)?;
-        let workbench = self.require_current_workbench(activity, workbench)?;
+    ) -> Result<(u64, u64), DivergentUniverseWorkbenchCurseError> {
+        let workbench = self.workbench(workbench)?;
         let function = self
             .functions
             .iter()
@@ -121,7 +149,27 @@ impl DivergentUniverseWorkbenchCurseRuntime {
         {
             return Err(DivergentUniverseWorkbenchCurseError::InvalidCatalog);
         }
-        let receipt_key = function_receipt_key(function)?;
+        Ok((self.fragment_key, function_receipt_key(function)?))
+    }
+    /// Executes one trusted accepted same-quality Equation pair. Requires exact
+    /// active current Workbench/function-3 membership, clean derived state and
+    /// no unrelated Equation/Blessing offer. Replacement, derived teardown,
+    /// Fragment debit, function receipt and acquisition/expansion Curio rewards
+    /// share one generated transaction. Rejections preserve bytes/events/RNG.
+    /// This does not admit an NPC, sample original candidates or offer a player
+    /// command. Its owning service must authenticate the supplied pair.
+    pub fn reforge_equation_policy_accepted(
+        &self,
+        activity: &mut GraphActivity,
+        expected: ActivityStateHash,
+        workbench: &DivergentUniverseWorkbenchId,
+        rewrite: &DivergentUniverseAcceptedEquationRewrite,
+        policy: &DivergentUniverseWorkbenchEquationReforgePolicy,
+    ) -> Result<DivergentUniverseWorkbenchCurseResolution, DivergentUniverseWorkbenchCurseError>
+    {
+        validate_hash(activity, expected)?;
+        self.require_current_workbench(activity, workbench)?;
+        let (_, receipt_key) = self.equation_reforge_service_keys(workbench)?;
         let count = u64::try_from(receipt_count(activity, receipt_key)?)
             .map_err(|_| DivergentUniverseWorkbenchCurseError::InvalidState)?;
         let price = checked_amount(policy.price_for_count(count)?)?;

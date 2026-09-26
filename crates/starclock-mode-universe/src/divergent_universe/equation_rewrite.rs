@@ -60,29 +60,13 @@ impl DivergentUniverseEquationOfferRuntime {
         service_operations: Vec<ActivityOperation>,
         rng: &mut ActivityRngStreams,
     ) -> Result<Vec<ActivityOperation>, DivergentUniverseEquationRuntimeError> {
-        if view.terminal().is_some() {
-            return Err(DivergentUniverseEquationRuntimeError::InvalidState);
-        }
-        self.progress
-            .observations_from_view(view)
-            .map_err(DivergentUniverseEquationRuntimeError::Progress)?;
-        let state = StateSnapshot::read_view(view)?;
+        let mut owned = self.rewrite_owned_from_view(view)?.to_vec();
         let value = |id| {
             view.slots()
                 .iter()
                 .find(|slot| slot.id() == id)
                 .map(|slot| slot.value())
         };
-        if state.source.is_some() || !state.offered.is_empty() || state.rerolls != 0 {
-            return Err(DivergentUniverseEquationRuntimeError::OfferAlreadyActive);
-        }
-        if !matches!(
-            value(BLESSING_OFFER_SOURCE_SLOT),
-            Some(ActivityValue::OptionalId(None))
-        ) || !matches!(value(BLESSING_OFFERS_SLOT), Some(ActivityValue::BoundedCounterMap(values)) if values.is_empty())
-        {
-            return Err(DivergentUniverseEquationRuntimeError::OfferAlreadyActive);
-        }
         let removed = self.equation(removed)?;
         let acquired = self.equation(acquired)?;
         if removed.state_key == acquired.state_key {
@@ -91,7 +75,6 @@ impl DivergentUniverseEquationOfferRuntime {
         if removed.category != acquired.category {
             return Err(DivergentUniverseEquationRuntimeError::DifferentQuality);
         }
-        let mut owned = state.owned.to_vec();
         let position = owned
             .binary_search(&removed.state_key)
             .map_err(|_| DivergentUniverseEquationRuntimeError::NotOwned)?;
@@ -120,5 +103,37 @@ impl DivergentUniverseEquationOfferRuntime {
                 .map_err(DivergentUniverseEquationRuntimeError::Activity)?,
         );
         Ok(operations)
+    }
+
+    /// Clean service input snapshot; validates current holdings and rejects all
+    /// unrelated internal offers before candidate sampling, without RNG or writes.
+    pub(in crate::divergent_universe) fn rewrite_owned_from_view(
+        &self,
+        view: &ActivityPlayerView,
+    ) -> Result<Box<[u64]>, DivergentUniverseEquationRuntimeError> {
+        if view.terminal().is_some() {
+            return Err(DivergentUniverseEquationRuntimeError::InvalidState);
+        }
+        self.progress
+            .observations_from_view(view)
+            .map_err(DivergentUniverseEquationRuntimeError::Progress)?;
+        let state = StateSnapshot::read_view(view)?;
+        let value = |id| {
+            view.slots()
+                .iter()
+                .find(|slot| slot.id() == id)
+                .map(|slot| slot.value())
+        };
+        if state.source.is_some() || !state.offered.is_empty() || state.rerolls != 0 {
+            return Err(DivergentUniverseEquationRuntimeError::OfferAlreadyActive);
+        }
+        if !matches!(
+            value(BLESSING_OFFER_SOURCE_SLOT),
+            Some(ActivityValue::OptionalId(None))
+        ) || !matches!(value(BLESSING_OFFERS_SLOT), Some(ActivityValue::BoundedCounterMap(values)) if values.is_empty())
+        {
+            return Err(DivergentUniverseEquationRuntimeError::OfferAlreadyActive);
+        }
+        Ok(state.owned)
     }
 }

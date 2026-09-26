@@ -35,7 +35,7 @@ impl ReforgeRoom {
             Ok::<_, RespiteRoomError>(id)
         };
         let common = self.available();
-        for menu in &room.menus {
+        for menu in &room.enhancement_menus {
             let enter = connect(*menu, self.inputs[0], 414)?;
             let record = room
                 .fragment
@@ -81,7 +81,7 @@ impl ReforgeRoom {
             let menu = self.inputs[page_index];
             let begin = connect(menu, self.output, 64)?;
             let leave = connect(menu, room.fragment.exit_node, 1)?;
-            let enhance = connect(menu, room.menus[0], 414)?;
+            let enhance = connect(menu, room.enhancement_menus[0], 414)?;
             let mut controls = vec![
                 ActivityOptionDefinition::new(
                     option(LEAVE)?,
