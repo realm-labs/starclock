@@ -31,6 +31,15 @@ coverage. No source obligation is terminalized by composing these fragments.
 
 ## Profile construction contract
 
+Fixed Respite positions can now use the optional
+[Heat-funded enhancement fragment](divergent-universe-respite-enhancement.md).
+The owner explicitly selects its Workbench, allowance and price, binds its
+digest into `payload`, and validates the completed definition before binding
+the battle/deck profile, then attaches `bind_position_respite_rooms`. The
+existing controller dispatches its Service choices through the shared
+generated-option transaction, including automatic next-entry rollback.
+Other Respite services and original admission remain incomplete.
+
 1. Compile a plain mapped entry with `with_runtime_battle_route`. Legacy initial
    occurrence, Equation, Tawot, source-deck-choice and per-layer handlers are
    rejected rather than silently grafted onto unrelated physical addresses.

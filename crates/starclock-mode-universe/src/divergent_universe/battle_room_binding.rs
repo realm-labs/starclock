@@ -2,6 +2,8 @@
 
 #[path = "position_domain_deck.rs"]
 mod domain_deck;
+#[path = "position_respite.rs"]
+mod respite;
 
 use std::{collections::BTreeSet, sync::Arc};
 
@@ -13,6 +15,7 @@ use crate::divergent_universe::{
     domain_choices::set_domain,
     domain_deck::DomainDeck,
     occurrence_room::{BoundOccurrenceRoom, CompiledOccurrenceRoom},
+    respite_room::BoundRespiteRoom,
     state::BATTLE_DOMAIN_SLOT,
     tawot_room::{BoundTawotRoom, CompiledTawotRoom},
 };
@@ -34,6 +37,7 @@ pub(in crate::divergent_universe) struct BoundBattleRooms {
     occurrences: Vec<BoundOccurrenceRoom>,
     definition: Arc<GraphActivityDefinition>,
     domain_deck: Option<DomainDeck>,
+    respites: Vec<BoundRespiteRoom>,
 }
 
 impl DivergentUniverseRuntimeFactory {
@@ -304,6 +308,7 @@ impl DivergentUniverseRuntimeFactory {
             return Err(BattleRoomError::InvalidDefinition);
         }
         base.position_battles = Some(Arc::new(BoundBattleRooms {
+            respites: Vec::new(),
             rooms: bound,
             services,
             occurrences,

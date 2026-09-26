@@ -49,6 +49,7 @@ pub mod occurrence_room;
 mod occurrence_runtime;
 mod permanent_progression_runtime;
 mod progression;
+pub mod respite_room;
 pub mod room_lifecycle;
 mod scope;
 mod service_adventure_runtime;

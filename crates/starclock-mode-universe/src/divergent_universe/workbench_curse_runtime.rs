@@ -215,6 +215,34 @@ impl DivergentUniverseRuntimeFactory {
 }
 
 impl DivergentUniverseWorkbenchCurseRuntime {
+    pub(in crate::divergent_universe) fn enhancement_service_keys(
+        &self,
+        workbench: &DivergentUniverseWorkbenchId,
+    ) -> Result<(u64, u64, u64), DivergentUniverseWorkbenchCurseError> {
+        let workbench = self.workbench(workbench)?;
+        let function = self
+            .functions
+            .iter()
+            .find(|function| {
+                function.kind == DivergentUniverseWorkbenchFunctionKind::BlessingEnhance
+            })
+            .ok_or(DivergentUniverseWorkbenchCurseError::InvalidCatalog)?;
+        if !workbench.functions.contains(&function.id) {
+            return Err(DivergentUniverseWorkbenchCurseError::FunctionUnavailable);
+        }
+        if function.price_currency.as_ref() != "WorkbenchHeat"
+            || function.input_policy.as_ref() != "OwnedBaseBlessing"
+            || function.output_policy.as_ref() != "SameIdentityEnhancedBlessing"
+        {
+            return Err(DivergentUniverseWorkbenchCurseError::InvalidCatalog);
+        }
+        Ok((
+            workbench.state_key,
+            self.heat_key,
+            function_receipt_key(function)?,
+        ))
+    }
+
     fn compile(
         catalog: &DivergentUniverseServiceCatalog,
         economy: &DivergentUniverseEconomyProjection,

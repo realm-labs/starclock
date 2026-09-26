@@ -107,6 +107,16 @@ malformed piles and late entry rejection are covered. Larger-profile controller
 work bounds are explicit. Default topology, original admission, encoded-profile
 replay and complete-run release gates remain incomplete, with no terminal
 source credit added.
+Fixed [Respite enhancement](divergent-universe-respite-enhancement.md) now uses
+ordinary Service offers between real proxy battles. Its explicit caller policy
+binds the selected enhancement-capable Workbench, Heat allowance and flat
+price. Entry counts Curio lifetimes once; menu returns preserve Heat. Upgrade,
+debit, receipt and renewed offers commit together, with always-available Leave
+and no inferred healing. Controlled Ordinary/Cyclical profiles reconstruct
+every boundary; all 414 inventory identities have an enhancement fixture.
+Original Respite admission/prices, other services, default profile wiring and
+encoded source-position replay remain incomplete, with no terminal source
+credit added.
 The reference generators remove the incorrect blanket `RoguePersona` other-mode
 exclusion and retain eleven explicitly reviewed files for row-level accounting.
 The current generated Persona source audit accounts for all 547 rows across
