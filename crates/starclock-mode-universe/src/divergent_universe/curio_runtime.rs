@@ -578,7 +578,7 @@ impl DivergentUniverseCurioRuntime {
             .map(Vec::into_boxed_slice)
     }
 
-    fn state(
+    pub(super) fn state(
         &self,
         id: &DivergentUniverseCurioStateId,
     ) -> Result<&DivergentUniverseCurioStateRuntime, DivergentUniverseCurioRuntimeError> {

@@ -10,6 +10,8 @@ include!("tests/grand_miracle_gamble_runtime.rs");
 include!("tests/titan_runtime.rs");
 include!("tests/permanent_progression_runtime.rs");
 include!("tests/workbench_curse_runtime.rs");
+#[path = "tests/curio_synthesis.rs"]
+mod curio_synthesis;
 #[path = "tests/workbench_equation_reforge.rs"]
 mod workbench_equation_reforge;
 #[path = "tests/workbench_reforge.rs"]

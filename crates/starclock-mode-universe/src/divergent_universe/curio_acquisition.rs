@@ -136,6 +136,24 @@ impl DivergentUniverseCurioRuntime {
         states: &[DivergentUniverseCurioStateId],
         rng: &mut ActivityRngStreams,
     ) -> Result<Vec<ActivityOperation>, DivergentUniverseCurioRuntimeError> {
+        self.consumption_acquisition_operations(
+            view,
+            sacrificed.map(from_ref).unwrap_or(&[]),
+            states,
+            rng,
+        )
+    }
+
+    /// Consume active holdings and acquire a batch in one inventory plan.
+    /// Current owners remain excluded from outputs, including consumed owners.
+    /// Immediate rewards retain the original-view snapshot used by acquisition.
+    pub(in crate::divergent_universe) fn consumption_acquisition_operations(
+        &self,
+        view: &ActivityPlayerView,
+        consumed: &[DivergentUniverseCurioStateId],
+        states: &[DivergentUniverseCurioStateId],
+        rng: &mut ActivityRngStreams,
+    ) -> Result<Vec<ActivityOperation>, DivergentUniverseCurioRuntimeError> {
         if states.is_empty() || states.len() > self.catalog.curios.len() {
             return Err(DivergentUniverseCurioRuntimeError::InvalidAcquisitionCount);
         }
@@ -145,8 +163,8 @@ impl DivergentUniverseCurioRuntime {
             .iter()
             .map(|value| value.curio.clone())
             .collect::<Vec<_>>();
-        if let Some(sacrificed) = sacrificed {
-            let definition = self.state(sacrificed)?;
+        for state in consumed {
+            let definition = self.state(state)?;
             self.require_lifecycle(
                 &current,
                 definition.state_key(),

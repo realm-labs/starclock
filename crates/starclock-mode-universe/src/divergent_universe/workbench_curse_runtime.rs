@@ -4,6 +4,8 @@
 pub(super) mod equation_reforge;
 #[path = "workbench_reforge.rs"]
 pub(super) mod reforge;
+#[path = "workbench_synthesis.rs"]
+mod synthesis;
 
 use std::sync::Arc;
 
@@ -58,6 +60,7 @@ pub enum DivergentUniverseWorkbenchFunctionDisposition {
     ExecutableAcceptedBlessingEnhancement,
     ExecutableAcceptedBlessingReforgeWithExplicitPolicy,
     ExecutableAcceptedEquationReforgeWithExplicitPolicy,
+    ExecutableAcceptedCurioSynthesisWithExplicitPolicy,
     RejectUnpublishedPriceOrCandidateProgram,
 }
 
@@ -333,6 +336,8 @@ impl DivergentUniverseWorkbenchCurseRuntime {
                             DivergentUniverseWorkbenchFunctionDisposition::ExecutableAcceptedBlessingReforgeWithExplicitPolicy,
                         DivergentUniverseWorkbenchFunctionKind::EquationReforge =>
                             DivergentUniverseWorkbenchFunctionDisposition::ExecutableAcceptedEquationReforgeWithExplicitPolicy,
+                        DivergentUniverseWorkbenchFunctionKind::CurioCompose =>
+                            DivergentUniverseWorkbenchFunctionDisposition::ExecutableAcceptedCurioSynthesisWithExplicitPolicy,
                         _ => DivergentUniverseWorkbenchFunctionDisposition::RejectUnpublishedPriceOrCandidateProgram,
                     },
                 })

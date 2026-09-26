@@ -23,6 +23,7 @@ mod curio_battle_reactions;
 mod curio_battle_stats;
 mod curio_catalog;
 mod curio_runtime;
+pub mod curio_synthesis;
 mod curio_victory_blessings;
 pub mod decision_rewards;
 mod domain_choices;

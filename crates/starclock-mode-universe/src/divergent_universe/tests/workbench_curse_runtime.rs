@@ -137,7 +137,7 @@ fn every_unpublished_workbench_transformation_fails_closed_with_explicit_selecti
                 == DivergentUniverseWorkbenchFunctionDisposition::RejectUnpublishedPriceOrCandidateProgram
         })
         .collect::<Vec<_>>();
-    assert_eq!(unresolved.len(), 3);
+    assert_eq!(unresolved.len(), 2);
     for function in unresolved {
         let workbench = runtime
             .workbenches()

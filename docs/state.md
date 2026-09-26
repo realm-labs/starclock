@@ -155,6 +155,18 @@ fresh reconstruction; rejected/late-failing confirmation preserves pending
 sampling state and RNG. Original admission/weights/prices/modifiers, remaining
 services, default topology and encoded profile replay remain incomplete.
 No terminal source or full-run credit is added.
+Workbench function 4 now has an [accepted Curio synthesis boundary](divergent-universe-curio-synthesis.md):
+two distinct active equal-quality holdings are consumed for one different
+unowned same/higher-quality output, with all current mandatory acquisition
+rewards and the independent function receipt in one generated transaction.
+Input Curios are the cost; no Fragment/Heat fee is invented. Charges and
+activations are removed, evolved inputs retain owner continuity through
+consumption, and late reward/receipt failure restores exact bytes/RNG.
+Both families, all three capable Workbenches and allowed quality shapes use
+fresh reconstruction; ordinary nonnegative mode-copy inputs have execution
+fixtures. Active-only admission and original-view reward timing are explicit
+policy. Original three-candidate menus, pools/weights, NPC admission and
+numeric attempt caps remain pending. No terminal source/mechanic credit is added.
 The reference generators remove the incorrect blanket `RoguePersona` other-mode
 exclusion and retain eleven explicitly reviewed files for row-level accounting.
 The current generated Persona source audit accounts for all 547 rows across
