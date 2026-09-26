@@ -1,5 +1,8 @@
 //! Workbench transformations and Curse Chest operations with explicit policy boundaries.
 
+#[path = "workbench_reforge.rs"]
+pub mod reforge;
+
 use std::sync::Arc;
 
 use starclock_activity::{
@@ -33,6 +36,7 @@ pub enum DivergentUniverseWorkbenchCurseAccuracy {
     VersionedProjectPolicyAcceptedWorkbenchEntryAndExplicitPrice,
     VersionedProjectPolicyRejectUnpublishedTransformationCandidates,
     VersionedProjectPolicyExplicitCurseChestAmountWithinReleasedBounds,
+    VersionedProjectPolicyAcceptedBlessingReforgeLinearRunPrice,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -48,6 +52,7 @@ pub enum DivergentUniverseWorkbenchFunctionKind {
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum DivergentUniverseWorkbenchFunctionDisposition {
     ExecutableAcceptedBlessingEnhancement,
+    ExecutableAcceptedBlessingReforgeWithExplicitPolicy,
     RejectUnpublishedPriceOrCandidateProgram,
 }
 
@@ -285,10 +290,12 @@ impl DivergentUniverseWorkbenchCurseRuntime {
                     price_currency: value.price_rule.currency.clone(),
                     price_formula: value.price_rule.formula.clone(),
                     price_reset: value.price_rule.reset.clone(),
-                    disposition: if kind == DivergentUniverseWorkbenchFunctionKind::BlessingEnhance {
-                        DivergentUniverseWorkbenchFunctionDisposition::ExecutableAcceptedBlessingEnhancement
-                    } else {
-                        DivergentUniverseWorkbenchFunctionDisposition::RejectUnpublishedPriceOrCandidateProgram
+                    disposition: match kind {
+                        DivergentUniverseWorkbenchFunctionKind::BlessingEnhance =>
+                            DivergentUniverseWorkbenchFunctionDisposition::ExecutableAcceptedBlessingEnhancement,
+                        DivergentUniverseWorkbenchFunctionKind::BlessingReforge =>
+                            DivergentUniverseWorkbenchFunctionDisposition::ExecutableAcceptedBlessingReforgeWithExplicitPolicy,
+                        _ => DivergentUniverseWorkbenchFunctionDisposition::RejectUnpublishedPriceOrCandidateProgram,
                     },
                 })
             })
@@ -350,12 +357,13 @@ impl DivergentUniverseWorkbenchCurseRuntime {
     }
 
     #[must_use]
-    pub const fn accuracies(&self) -> [DivergentUniverseWorkbenchCurseAccuracy; 4] {
+    pub const fn accuracies(&self) -> [DivergentUniverseWorkbenchCurseAccuracy; 5] {
         [
             DivergentUniverseWorkbenchCurseAccuracy::ExactReleasedWorkbenchFunctionMembershipAndChoiceParameters,
             DivergentUniverseWorkbenchCurseAccuracy::VersionedProjectPolicyAcceptedWorkbenchEntryAndExplicitPrice,
             DivergentUniverseWorkbenchCurseAccuracy::VersionedProjectPolicyRejectUnpublishedTransformationCandidates,
             DivergentUniverseWorkbenchCurseAccuracy::VersionedProjectPolicyExplicitCurseChestAmountWithinReleasedBounds,
+            DivergentUniverseWorkbenchCurseAccuracy::VersionedProjectPolicyAcceptedBlessingReforgeLinearRunPrice,
         ]
     }
     #[must_use]
@@ -470,7 +478,7 @@ impl DivergentUniverseWorkbenchCurseRuntime {
             return Err(DivergentUniverseWorkbenchCurseError::InvalidSelection);
         }
         if function.disposition
-            == DivergentUniverseWorkbenchFunctionDisposition::ExecutableAcceptedBlessingEnhancement
+            != DivergentUniverseWorkbenchFunctionDisposition::RejectUnpublishedPriceOrCandidateProgram
         {
             return Err(DivergentUniverseWorkbenchCurseError::WrongFunctionBoundary);
         }
@@ -786,6 +794,7 @@ pub enum DivergentUniverseWorkbenchCurseError {
     UnknownIdentity,
     UnknownChoice,
     InvalidSelection,
+    InvalidReforgePolicy,
     WorkbenchNotActive,
     FunctionUnavailable,
     WrongFunctionBoundary,

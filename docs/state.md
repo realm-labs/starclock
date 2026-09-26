@@ -117,6 +117,13 @@ every boundary; all 414 inventory identities have an enhancement fixture.
 Original Respite admission/prices, other services, default profile wiring and
 encoded source-position replay remain incomplete, with no terminal source
 credit added.
+The [accepted Workbench Blessing overwrite](divergent-universe-workbench-reforge.md)
+boundary commits explicit identity replacement, Fragment payment, increasing
+Run-wide function receipts and Equation/expansion rewards together. Positive
+base/increment prices are host-supplied checked project policy. Current function
+membership is validated; original candidate offers, NPC admission, exact
+prices/modifiers and public room dispatch remain incomplete. No terminal source
+credit is added.
 The reference generators remove the incorrect blanket `RoguePersona` other-mode
 exclusion and retain eleven explicitly reviewed files for row-level accounting.
 The current generated Persona source audit accounts for all 547 rows across

@@ -169,6 +169,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 142. [Divergent Universe source-position battles](divergent-universe-position-battles.md) — explicit candidate/fragment profile binding, real per-room battles, shared rewards/carry and remaining admission/replay boundaries.
 143. [Divergent Universe source-position events](divergent-universe-position-occurrences.md) — exact authored-event binding, atomic rewards/completion, separate Leave and original-membership gaps.
 144. [Divergent Universe fixed Respite enhancement](divergent-universe-respite-enhancement.md) — optional atomic Heat-funded upgrades, explicit allowance/price/admission policy and remaining room services.
+145. [Accepted Workbench Blessing overwrite](divergent-universe-workbench-reforge.md) — atomic explicit-pair replacement, escalating price policy, Equation refresh and remaining original service boundaries.
 
 ## Delivery boundary
 

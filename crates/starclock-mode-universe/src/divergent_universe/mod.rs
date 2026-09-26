@@ -267,6 +267,7 @@ pub use vertical_slice::{
     DivergentUniverseVerticalSliceAccuracy, DivergentUniverseVerticalSliceContent,
     DivergentUniverseVerticalSliceError, DivergentUniverseVerticalSliceTransition,
 };
+pub use workbench_curse_runtime::reforge::DivergentUniverseWorkbenchBlessingReforgePolicy;
 pub use workbench_curse_runtime::{
     DivergentUniverseCurseChestOperation, DivergentUniverseCurseChestRuntimeDefinition,
     DivergentUniverseWorkbenchCurseAccuracy, DivergentUniverseWorkbenchCurseError,
