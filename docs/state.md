@@ -178,8 +178,15 @@ mandatory rewards, receipt and room count atomically. Its explicit 1..=64 confir
 limit and separate 64-opening budget persist across physical menus and reset at
 the next logical room. Every raw choice is gated; fresh exact definitions work,
 and stale/hidden/foreign or downstream-failing commands preserve bytes/RNG.
-Caller placement/caps remain policy. Controller dispatch, original pools/weights,
-NPC admission, default topology and encoded profile replay remain pending.
+The existing position-profile Flow now binds authenticated synthesis capabilities,
+and the baseline controller dispatches all four phases through the shared generated
+choice boundary. Both families reconstruct identical per-boundary states and
+complete three actual nested Boss proxy battles after synthesis. Duplicate,
+repeated, changed-cap/slot and foreign attachments reject; unbound controllers
+cannot execute gated menus. Placement, initial holdings and Boss selection are
+controlled test policies, with other payloads still probes. Caller placement/caps,
+original pools/weights, NPC admission, default topology and encoded profile replay
+remain pending; this does not establish full-run or complete Curio-effect parity.
 No terminal source/mechanic credit is added.
 The reference generators remove the incorrect blanket `RoguePersona` other-mode
 exclusion and retain eleven explicitly reviewed files for row-level accounting.

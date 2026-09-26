@@ -172,8 +172,14 @@ Room accuracy is
 The room digest binds exact candidate/settlement inputs, selected Workbench,
 placement, namespace, host addresses and both budgets. The owning profile must
 also bind its whole graph, deck, bootstrap inventory and other payloads. The
-public mode API is executable; baseline controller binding/dispatch, default
-topology placement and encoded profile reconstruction are still pending.
+public mode API is executable. `bind_position_curio_synthesis_rooms` attaches
+exact factory/context/fragment capabilities to an already immutable battle
+profile; empty, overlapping, foreign and repeated attachments reject. The Flow
+observes/chooses only whole-definition authenticated phases, and the existing
+baseline runner dispatches every phase through that capability. Unbound runners
+cannot bypass the generated command gate. No second controller or state machine
+is introduced. Default topology placement and encoded profile reconstruction
+are still pending.
 No workbook/schema/bundle or terminal coverage changed. Placement and actual
 numeric limits must be replaced/promoted with provenance-bearing Excel/Sora
 authoring when released graphs or reproducible observations establish them.
@@ -243,8 +249,20 @@ are explicitly probes, and initial inventories are trusted fixtures, not source
 rewards or complete nested runs. Neither these tests nor terminal probe traversal
 provide release or original NPC-selector credit.
 
+Controller tests independently construct production fixtures for both families,
+execute opening, input selection, sampling, atomic confirmation and leave, then
+complete three actual nested Boss proxy battles. Canonical bytes agree at every
+boundary with a freshly constructed profile. First selection is RNG-inert,
+second selection draws the cached candidates without consuming inventory, and
+confirmation exchanges two holdings for one and increments the function receipt.
+Changed room caps/slot addresses, duplicate/repeated/foreign attachments and
+raw/unbound/foreign/stale commands reject. Placement at the first source position,
+initial holdings and proxy Boss selection are explicit test policies; all other
+payloads remain probes. This is controller integration evidence, not a complete
+original topology, complete Curio effects or encoded fresh-profile replay.
+
 Original candidate selector/weights, cancellation/confirmation and numeric limits,
-room/NPC admission, controller integration, default full topology and encoded profile
+room/NPC admission, default full topology and encoded profile
 replay remain incomplete. Weighted Curio recasting/equipment are distinct
 pending functions, not covered by this boundary. No terminal source/mechanic
 credit, complete Curio effects or Workbench-family completion is claimed.

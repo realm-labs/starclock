@@ -7,6 +7,8 @@ mod authentication;
 mod availability;
 #[path = "curio_synthesis_room_lifecycle.rs"]
 mod lifecycle;
+#[path = "curio_synthesis_profile.rs"]
+mod profile;
 
 use crate::digest::CanonicalDigestBuilder;
 use crate::divergent_universe::{

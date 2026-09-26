@@ -61,7 +61,7 @@ fn payload() -> ActivityConfigDigest {
     // selected first authored deck, width three and the slot namespace above.
     ActivityConfigDigest::new([0x31; 32]).unwrap()
 }
-fn base(
+pub(super) fn base(
     fixture: &DivergentUniverseBaselineFixture,
     family: DivergentUniverseRunFamily,
 ) -> DivergentUniverseFlowInstance {

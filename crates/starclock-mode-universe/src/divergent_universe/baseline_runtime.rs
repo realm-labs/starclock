@@ -329,6 +329,21 @@ fn advance_decision(
             state_hash: activity.state_hash(),
         });
     }
+    if selected.kind() == ActivityDecisionKind::Service
+        && flow.offered_curio_synthesis(activity).is_some()
+    {
+        flow.choose_curio_synthesis_option(
+            activity,
+            state_hash,
+            selected.decision(),
+            selected.option(),
+        )
+        .map_err(DivergentUniverseBaselineError::ActivityCommand)?;
+        return Ok(DivergentUniverseBaselineStep::ActivityDecision {
+            decision: selected,
+            state_hash: activity.state_hash(),
+        });
+    }
     if selected.kind() == ActivityDecisionKind::Preparation {
         if activity.current_node() == SOURCE_DECK_NODE {
             flow.choose_source_deck(activity, state_hash, selected.decision(), selected.option())

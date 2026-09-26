@@ -1,5 +1,7 @@
 //! Exact fragment/profile binding for the existing battle and reward executors.
 
+#[path = "position_curio_synthesis.rs"]
+mod curio_synthesis;
 #[path = "position_domain_deck.rs"]
 mod domain_deck;
 #[path = "position_respite.rs"]
@@ -12,6 +14,7 @@ use crate::divergent_universe::{
     DivergentUniverseFlowInstance, DivergentUniverseLogicalScopeKind, DivergentUniverseRoomPolicy,
     DivergentUniverseRuntimeFactory,
     battle_room::{BattleRoomError, CompiledBattleRoom},
+    curio_synthesis::room::BoundCurioSynthesisRoom,
     domain_choices::set_domain,
     domain_deck::DomainDeck,
     occurrence_room::{BoundOccurrenceRoom, CompiledOccurrenceRoom},
@@ -38,6 +41,7 @@ pub(in crate::divergent_universe) struct BoundBattleRooms {
     definition: Arc<GraphActivityDefinition>,
     domain_deck: Option<DomainDeck>,
     respites: Vec<BoundRespiteRoom>,
+    synthesis: Vec<BoundCurioSynthesisRoom>,
 }
 
 impl DivergentUniverseRuntimeFactory {
@@ -309,6 +313,7 @@ impl DivergentUniverseRuntimeFactory {
         }
         base.position_battles = Some(Arc::new(BoundBattleRooms {
             respites: Vec::new(),
+            synthesis: Vec::new(),
             rooms: bound,
             services,
             occurrences,

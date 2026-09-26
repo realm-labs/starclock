@@ -104,6 +104,7 @@ pub struct CurioSynthesisRoomCompiler {
 }
 #[derive(Clone, Debug)]
 pub struct CompiledCurioSynthesisRoom {
+    factory: DivergentUniverseRuntimeFactory,
     context: DomainRoomContext,
     service: Arc<SynthesisService>,
     fragment: DomainRoomProgram,
@@ -184,6 +185,7 @@ impl CurioSynthesisRoomCompiler {
                 .map_err(CurioSynthesisRoomError::Synthesis)?,
         )?;
         Ok(CompiledCurioSynthesisRoom {
+            factory: self.factory.clone(),
             context: context.clone(),
             service: Arc::clone(&self.service),
             fragment,
@@ -197,6 +199,16 @@ impl CurioSynthesisRoomCompiler {
     }
 }
 impl CompiledCurioSynthesisRoom {
+    pub(in crate::divergent_universe) fn matches_factory(
+        &self,
+        factory: &DivergentUniverseRuntimeFactory,
+    ) -> bool {
+        self.factory.bundle_identity().component_digest()
+            == factory.bundle_identity().component_digest()
+            && self.factory.decision_catalog().digest() == factory.decision_catalog().digest()
+            && factory.room_context_matches(&self.context)
+    }
+
     #[must_use]
     pub fn context(&self) -> &DomainRoomContext {
         &self.context
