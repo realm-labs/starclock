@@ -1,5 +1,8 @@
 //! Trusted fixed-stock purchases; not original shop admission or player offers.
 
+#[path = "shop_room.rs"]
+pub mod room;
+
 use std::{collections::BTreeSet, num::NonZeroU16, slice::from_ref};
 
 use crate::digest::CanonicalDigestBuilder;

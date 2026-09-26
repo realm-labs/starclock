@@ -18,6 +18,8 @@ mod curio_synthesis_offers;
 mod curio_synthesis_room;
 #[path = "tests/shop_purchase.rs"]
 mod shop_purchase;
+#[path = "tests/shop_room.rs"]
+mod shop_room;
 #[path = "tests/workbench_equation_reforge.rs"]
 mod workbench_equation_reforge;
 #[path = "tests/workbench_reforge.rs"]

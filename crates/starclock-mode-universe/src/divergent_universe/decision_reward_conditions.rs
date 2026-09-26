@@ -8,13 +8,42 @@ use starclock_data::divergent_universe_decisions::{
     CurioAcquisitionGrant, DecisionChoiceId, DecisionReward,
 };
 
-use super::{DecisionRewardError, DecisionRewardRuntime, blessing_rarity, contains, curio_rarity};
+use super::{
+    DecisionRewardError, DecisionRewardRuntime, DivergentUniverseBlessingId, blessing_rarity,
+    contains, curio_rarity,
+};
 use crate::divergent_universe::state::{
     BLESSING_OFFER_SOURCE_SLOT, BLESSING_OFFERS_SLOT, BLESSINGS_SLOT, CURIO_STATES_SLOT,
     CURRENCIES_SLOT, EQUATION_PROGRESS_DIRTY_SLOT,
 };
 
 impl DecisionRewardRuntime {
+    /// Exact selected base-level identity, not an inferred reward/merchant pool.
+    /// Shares the same clean acquisition boundary as sampled Blessing grants.
+    pub(in crate::divergent_universe) fn blessing_identity_availability_condition(
+        &self,
+        id: &DivergentUniverseBlessingId,
+    ) -> Result<ActivityCondition, DecisionRewardError> {
+        let definition = self
+            .blessings
+            .blessings()
+            .iter()
+            .find(|blessing| blessing.id() == id)
+            .ok_or(DecisionRewardError::InvalidCatalog)?;
+        Ok(ActivityCondition::All(
+            vec![
+                clean_blessing_boundary(),
+                ActivityCondition::Equal(
+                    ActivityExpression::CounterValue {
+                        slot: BLESSINGS_SLOT,
+                        key: definition.state_key(),
+                    },
+                    integer(0),
+                ),
+            ]
+            .into(),
+        ))
+    }
     /// Upgrade offers preflight the mandatory successor grant, independently of
     /// its source-unbound ownership alias. Amount overflow still rejects atomically.
     pub(in crate::divergent_universe) fn acquisition_availability_condition(

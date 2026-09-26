@@ -1,4 +1,4 @@
-# Divergent Universe fixed-stock purchase boundary
+# Divergent Universe fixed-stock purchases and bound shop menus
 
 ## Current executable contract
 
@@ -46,6 +46,50 @@ addresses, reward kinds/identities, prices, slot address, bounds, program/receip
 IDs and the explicit snapshot policy. Input vector order is not significant.
 Owning profiles must also bind placement, topology and all other immutable inputs.
 
+## Bound public room menu
+
+`shop_purchase::room::ShopRoomCompiler` supplies a public Shop decision at an
+exact current reviewed `Card(Shop)` context. The factory validates the context's
+source position and preset role; this does not prove an original NPC, stock pool
+or released profile membership. Stock and prices remain explicit caller policy.
+Other room kinds and fabricated contexts reject. Hosts use
+`compile_curio_domain_route`, include the two exact host declarations and bind
+the room digest into their complete immutable profile identity.
+
+The room has one entry and one regenerated menu, using only the shared Activity
+graph. The Curio domain-entry prefix runs once; self-menu transitions do not
+re-enter it. The menu is bounded to stock count plus one visits. Sold-out marks
+survive physical menu moves in the same logical room. No refresh, sampling,
+reroll, discount or duplicate-owner repair service is added.
+
+Admission hides sold-out items, insufficient funds and already-owned rewards,
+including destroyed/evolved Curio owners. Blessing rewards additionally require
+a clean acquisition boundary and sufficient mandatory reward candidates. These
+are deterministic eligibility predicates, not a guarantee that every later
+Equation expansion, checked arithmetic or receipt operation will succeed.
+Compilation and menu observation consume no RNG. Leave is always offered.
+
+`CompiledShopRoom::bind` authenticates exact nodes, entry/menu programs, edges,
+declarations and Run/Plane/Node logical paths. Extra outgoing edges, entry bypass,
+missing Curio prefixes and injected room random policies reject.
+`BoundShopRoom` then authenticates the whole running definition, including
+participants, programs outside the fragment, bootstrap and handler bindings.
+Fresh structurally identical definitions are accepted; identical claimed IDs
+alone are insufficient.
+
+All raw shared choices, including Leave, are gated. The bound `choose` method
+authenticates the offered ID before reward generation and reuses the full
+purchase plan. Payment, mandatory rewards, sold-out state, receipt and regenerated
+menu commit in one generated-choice transaction. Leave and downstream entry also
+share one transaction. Stale, hidden or foreign choices and late failures preserve
+canonical bytes and RNG. A trusted external mutation does not rewrite an old
+offered-ID snapshot: the purchase plan revalidates current eligibility, and the
+next real menu transition recomputes admission.
+
+Room accuracy:
+`VersionedProjectPolicyExplicitStockAtReviewedShopCardsOnePurchasePerItemNoRefresh`.
+It complements, rather than promotes, the fixed-stock purchase policy below.
+
 ## Evidence and explicit replacement policy
 
 Current production Sora catalogs establish the reward identities and existing
@@ -90,8 +134,21 @@ clearing the injected fault allows exactly one purchase. Completed activities
 reject without mutation. The isolated fixture graph supplies no full-run or
 real-battle release evidence.
 
-Public shop menus, Flow/controller dispatch, original merchant stock/weights,
-prices/modifiers, refresh, source-position admission, default topology and encoded
-profile replay remain incomplete. Other missing Curio effects are not inert or
+Bound-menu tests reconstruct identical Ordinary/Cyclical purchase and Leave
+traces from fresh factories, exhaust all 64 stock addresses, check insufficient
+funds and active/destroyed ownership, and hide exhausted mandatory Blessing grants.
+Pending Blessing offers and dirty Equation progress reject stale eligibility
+without draws. Regeneration preserves Activity-scoped dirty-progress exclusion;
+existing physical-node-scoped Blessing offers reset at the menu transition.
+Hostile context, price, program, slot, edge and logical-path changes reject;
+an old capability also
+rejects a foreign external program with unchanged claimed identity. Receipt
+failure after reward planning preserves the current offer; downstream entry
+failure restores scope, inventory and sold-out state. These isolated source-context
+fixtures do not execute nested battles or complete a released profile.
+
+Flow/controller dispatch, original merchant stock/weights, prices/modifiers,
+refresh, original NPC/profile admission, default topology and encoded profile
+replay remain incomplete. Other missing Curio effects are not inert or
 completed by being buyable. This boundary earns no terminal source/mechanic,
 Shop-family or complete-run coverage.

@@ -47,7 +47,7 @@ fn item(raw: u16, reward: ShopReward, price: u64) -> ShopStockItem {
         price,
     }
 }
-fn stock(fixture: &DivergentUniverseBaselineFixture) -> Vec<ShopStockItem> {
+pub(super) fn stock(fixture: &DivergentUniverseBaselineFixture) -> Vec<ShopStockItem> {
     vec![
         item(
             1,

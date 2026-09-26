@@ -195,8 +195,14 @@ receipt atomically. Wax rewards and post-payment Fragment-grant timing are
 executable; stale/invalid/insufficient-fund or late-failing purchases preserve
 bytes/RNG. Stock addresses, fixed prices, base-level rewards, no discounts/refresh
 and snapshot timing are explicit policy, not original merchant membership.
-The API is trusted owning-service settlement, not a public menu. Public offers,
-controller dispatch, original shop data/modifiers, source admission, default
+Bound public Shop-card menus now authenticate reviewed source contexts, exact
+fragments and the whole running definition. They filter funds, holdings and
+mandatory reward eligibility, regenerate after purchases, and always offer gated
+Leave. Payment, reward, sold-out/receipt state and menu/next-entry transitions
+share one transaction; raw, stale, hidden, foreign and late-failing choices are
+byte/RNG inert. Fresh Ordinary/Cyclical isolated fixtures reconstruct identical
+traces and exhaust the 64-item bound, without nested battles or full-run evidence.
+Controller dispatch, original shop data/modifiers, NPC/profile admission, default
 topology and encoded replay remain pending. No terminal source/mechanic or
 Shop-family/full-run credit is added; workbooks and Sora inputs are unchanged.
 The reference generators remove the incorrect blanket `RoguePersona` other-mode
