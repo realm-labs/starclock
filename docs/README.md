@@ -167,6 +167,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 
 141. [Final damage boundary](final-damage-boundary.md) — source-owned terminal damage factors, original-applier Break queries and pending content admission.
 142. [Divergent Universe source-position battles](divergent-universe-position-battles.md) — explicit candidate/fragment profile binding, real per-room battles, shared rewards/carry and remaining admission/replay boundaries.
+143. [Divergent Universe source-position events](divergent-universe-position-occurrences.md) — exact authored-event binding, atomic rewards/completion, separate Leave and original-membership gaps.
 
 ## Delivery boundary
 

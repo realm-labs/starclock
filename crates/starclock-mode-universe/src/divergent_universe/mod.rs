@@ -45,6 +45,7 @@ mod grand_miracle_runtime;
 mod initial_equations;
 mod mapping;
 pub mod occurrence_binding;
+pub mod occurrence_room;
 mod occurrence_runtime;
 mod permanent_progression_runtime;
 mod progression;

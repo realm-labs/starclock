@@ -15,6 +15,7 @@ use crate::divergent_universe::{
     battle_blessings::BattleBlessings,
     domain_choices::set_domain,
     domain_route::{DomainRoomContext, DomainRoomProgram, DomainRouteError},
+    occurrence_room::OccurrenceRoomError,
     state::{LAYER_SEQUENCE_SLOT, LAYER_SLOT},
     tawot_room::TawotRoomError,
 };
@@ -66,6 +67,7 @@ pub enum BattleRoomError {
     Entry(DivergentUniverseEntryFlowError),
     Route(DomainRouteError),
     Service(TawotRoomError),
+    Occurrence(OccurrenceRoomError),
     InvalidEncounter,
     UnsupportedRewardDomain,
     InvalidContext,

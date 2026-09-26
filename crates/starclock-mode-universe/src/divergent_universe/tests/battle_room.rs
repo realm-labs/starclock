@@ -36,6 +36,8 @@ use starclock_data::{
     divergent_universe_domain_layout::FixedDomainKind,
 };
 
+#[path = "battle_room_occurrences.rs"]
+mod occurrences;
 #[path = "battle_room_rewards.rs"]
 mod rewards;
 #[path = "battle_room_services.rs"]

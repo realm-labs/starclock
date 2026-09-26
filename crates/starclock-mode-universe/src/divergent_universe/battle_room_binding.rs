@@ -8,6 +8,7 @@ use crate::divergent_universe::{
     DivergentUniverseRuntimeFactory,
     battle_room::{BattleRoomError, CompiledBattleRoom},
     domain_choices::set_domain,
+    occurrence_room::{BoundOccurrenceRoom, CompiledOccurrenceRoom},
     state::BATTLE_DOMAIN_SLOT,
     tawot_room::{BoundTawotRoom, CompiledTawotRoom},
 };
@@ -26,6 +27,7 @@ use starclock_data::{
 pub(in crate::divergent_universe) struct BoundBattleRooms {
     rooms: Vec<CompiledBattleRoom>,
     services: Vec<BoundTawotRoom>,
+    occurrences: Vec<BoundOccurrenceRoom>,
     definition: Arc<GraphActivityDefinition>,
 }
 
@@ -55,10 +57,32 @@ impl DivergentUniverseRuntimeFactory {
         services: &[CompiledTawotRoom],
         payload: ActivityConfigDigest,
     ) -> Result<ActivityDefinitionIdentity, BattleRoomError> {
+        self.position_room_identity_with_occurrences(base, graph, rooms, services, &[], payload)
+    }
+
+    /// Binds explicitly placed authored events alongside battles and services.
+    /// Event list ordering is not authoritative; original membership is not inferred.
+    pub fn position_room_identity_with_occurrences(
+        &self,
+        base: &DivergentUniverseFlowInstance,
+        graph: &ActivityGraphDefinition,
+        rooms: &[CompiledBattleRoom],
+        services: &[CompiledTawotRoom],
+        occurrences: &[CompiledOccurrenceRoom],
+        payload: ActivityConfigDigest,
+    ) -> Result<ActivityDefinitionIdentity, BattleRoomError> {
         let mut rooms = rooms.iter().collect::<Vec<_>>();
         rooms.sort_by_key(|room| room.context.entry_node());
         let mut services = services.iter().collect::<Vec<_>>();
         services.sort_by_key(|room| room.context().entry_node());
+        let mut occurrences = occurrences.iter().collect::<Vec<_>>();
+        occurrences.sort_by_key(|room| room.context().entry_node());
+        let entries = rooms
+            .iter()
+            .map(|room| room.context.entry_node())
+            .chain(services.iter().map(|room| room.context().entry_node()))
+            .chain(occurrences.iter().map(|room| room.context().entry_node()))
+            .collect::<BTreeSet<_>>();
         if rooms.is_empty()
             || rooms
                 .windows(2)
@@ -72,6 +96,8 @@ impl DivergentUniverseRuntimeFactory {
                 .windows(2)
                 .any(|pair| pair[0].context().entry_node() == pair[1].context().entry_node())
             || services.iter().any(|room| !room.matches_factory(self))
+            || occurrences.iter().any(|room| !room.matches_factory(self))
+            || entries.len() != rooms.len() + services.len() + occurrences.len()
         {
             return Err(BattleRoomError::InvalidDefinition);
         }
@@ -91,6 +117,17 @@ impl DivergentUniverseRuntimeFactory {
             );
             for service in &services {
                 hash.update(service.configuration_digest());
+            }
+        }
+        if !occurrences.is_empty() {
+            hash.update(b"occurrences");
+            hash.update(
+                u32::try_from(occurrences.len())
+                    .map_err(|_| BattleRoomError::InvalidDefinition)?
+                    .to_le_bytes(),
+            );
+            for occurrence in &occurrences {
+                hash.update(occurrence.configuration_digest());
             }
         }
         let definition = ActivityDefinitionDigest::new(hash.finalize())
@@ -135,10 +172,25 @@ impl DivergentUniverseRuntimeFactory {
     /// the existing flow observation/selection APIs and shared transaction engine.
     pub fn bind_position_rooms(
         &self,
+        base: DivergentUniverseFlowInstance,
+        definition: Arc<GraphActivityDefinition>,
+        rooms: &[CompiledBattleRoom],
+        services: &[CompiledTawotRoom],
+        payload: ActivityConfigDigest,
+    ) -> Result<DivergentUniverseFlowInstance, BattleRoomError> {
+        self.bind_position_rooms_with_occurrences(base, definition, rooms, services, &[], payload)
+    }
+
+    /// Validates the immutable whole profile before dispatching source-position
+    /// event commands through the same authored reward transaction as entry events.
+    /// No live rebinding, extra state declarations or room admission is synthesized.
+    pub fn bind_position_rooms_with_occurrences(
+        &self,
         mut base: DivergentUniverseFlowInstance,
         definition: Arc<GraphActivityDefinition>,
         rooms: &[CompiledBattleRoom],
         services: &[CompiledTawotRoom],
+        occurrences: &[CompiledOccurrenceRoom],
         payload: ActivityConfigDigest,
     ) -> Result<DivergentUniverseFlowInstance, BattleRoomError> {
         if !base.has_runtime_battle_route()
@@ -154,7 +206,14 @@ impl DivergentUniverseRuntimeFactory {
             return Err(BattleRoomError::UnsupportedEntry);
         }
         if definition.identity()
-            != self.position_room_identity(&base, definition.graph(), rooms, services, payload)?
+            != self.position_room_identity_with_occurrences(
+                &base,
+                definition.graph(),
+                rooms,
+                services,
+                occurrences,
+                payload,
+            )?
             || definition.participants().as_ref() != base.definition().participants().as_ref()
             || definition.interactions().is_some()
             || base
@@ -204,6 +263,25 @@ impl DivergentUniverseRuntimeFactory {
         for room in &bound {
             validate_room(&base, &definition, room)?;
         }
+        let mut occurrences = occurrences.iter().collect::<Vec<_>>();
+        occurrences.sort_by_key(|room| room.context().entry_node());
+        let occurrences = occurrences
+            .into_iter()
+            .map(|room| {
+                let context = room.context();
+                let plane = context
+                    .plane_ordinal
+                    .checked_sub(1)
+                    .and_then(|value| usize::try_from(value).ok());
+                if context.area != *base.area()
+                    || plane.and_then(|index| base.layers().get(index)) != Some(&context.layer)
+                {
+                    return Err(BattleRoomError::InvalidContext);
+                }
+                room.bind(Arc::clone(&definition))
+                    .map_err(BattleRoomError::Occurrence)
+            })
+            .collect::<Result<Vec<_>, _>>()?;
         let battles = bound
             .iter()
             .map(|room| room.battle)
@@ -223,6 +301,7 @@ impl DivergentUniverseRuntimeFactory {
         base.position_battles = Some(Arc::new(BoundBattleRooms {
             rooms: bound,
             services,
+            occurrences,
             definition: Arc::clone(&definition),
         }));
         base.definition = definition;
@@ -325,6 +404,14 @@ fn validate_room(
 }
 
 impl BoundBattleRooms {
+    pub(in crate::divergent_universe) fn occurrence(
+        &self,
+        activity: &GraphActivity,
+    ) -> Option<&BoundOccurrenceRoom> {
+        self.occurrences
+            .iter()
+            .find(|room| room.offered(activity).is_some())
+    }
     pub(in crate::divergent_universe) fn tawot(
         &self,
         activity: &GraphActivity,

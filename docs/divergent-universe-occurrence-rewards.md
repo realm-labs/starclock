@@ -152,6 +152,12 @@ fixture; these rows are not claimed `DataReady` gameplay.
 
 ## Production selection and remaining work
 
+The same authored executor can now bind to an explicitly selected
+[source-position event room](divergent-universe-position-occurrences.md), with
+exact whole-profile authentication and lifecycle-prefixed entry. This extends
+the initial-checkpoint capability; it does not establish original event pools,
+recover missing NPC graphs or replace default baseline topology.
+
 `decision_rewards::DecisionRewardRuntime` now lowers the current three
 single-outcome choices into checked currency operations or inventory rewards.
 It samples distinct unowned identities in stable project-key order through the

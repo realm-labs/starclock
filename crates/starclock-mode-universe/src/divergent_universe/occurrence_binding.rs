@@ -195,13 +195,31 @@ impl OccurrenceBinding {
         option: ActivityOptionId,
     ) -> Result<ActivityGeneratedBoundaryResolution<DecisionRewardGrant>, OccurrenceExecutionError>
     {
+        self.execute_at_node(
+            activity,
+            expected,
+            decision,
+            option,
+            NodeId::new(1).expect("initial logical checkpoint"),
+        )
+    }
+
+    pub(super) fn execute_at_node(
+        &self,
+        activity: &mut GraphActivity,
+        expected: ActivityStateHash,
+        decision: ActivityDecisionId,
+        option: ActivityOptionId,
+        node: NodeId,
+    ) -> Result<ActivityGeneratedBoundaryResolution<DecisionRewardGrant>, OccurrenceExecutionError>
+    {
         if expected != activity.state_hash() {
             return Err(OccurrenceExecutionError::Activity(
                 GraphActivityCommandError::StaleStateHash,
             ));
         }
         let view = activity.player_view();
-        if view.current_node() != NodeId::new(1).expect("initial logical checkpoint")
+        if view.current_node() != node
             || !view.decision().is_some_and(|offered| {
                 offered.id() == decision
                     && offered.kind() == ActivityDecisionKind::Choice
@@ -259,6 +277,27 @@ impl OccurrenceBinding {
 }
 
 impl DivergentUniverseFlowInstance {
+    /// Non-mutating current authored event observation. Explicit source-position
+    /// placement is not original event-pool membership or a recovered NPC graph.
+    #[must_use]
+    pub fn offered_occurrence(
+        &self,
+        activity: &GraphActivity,
+    ) -> Option<&DivergentUniverseOccurrenceVariantId> {
+        if let Some(rooms) = &self.position_battles {
+            return rooms
+                .occurrence(activity)
+                .and_then(|room| room.offered(activity));
+        }
+        (activity.definition().identity() == self.definition.identity()
+            && activity.current_node() == NodeId::new(1).expect("initial logical checkpoint")
+            && activity
+                .player_view()
+                .decision()
+                .is_some_and(|offer| offer.kind() == ActivityDecisionKind::Choice))
+        .then(|| self.initial_occurrence())
+        .flatten()
+    }
     /// Explicitly bound authored variant, not an original room-pool membership claim.
     #[must_use]
     pub fn initial_occurrence(&self) -> Option<&DivergentUniverseOccurrenceVariantId> {
@@ -279,6 +318,15 @@ impl DivergentUniverseFlowInstance {
         option: ActivityOptionId,
     ) -> Result<ActivityGeneratedBoundaryResolution<DecisionRewardGrant>, OccurrenceExecutionError>
     {
+        if let Some(rooms) = &self.position_battles {
+            let room = rooms
+                .occurrence(activity)
+                .ok_or(OccurrenceExecutionError::NotOffered)?;
+            if !room.matches_factory(factory) {
+                return Err(OccurrenceExecutionError::DefinitionMismatch);
+            }
+            return room.choose(activity, expected, decision, option);
+        }
         let binding = self
             .occurrence_binding
             .as_deref()

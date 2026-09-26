@@ -59,6 +59,14 @@ coverage. No source obligation is terminalized by composing these fragments.
    the combined identity. Binding validates before producing a new immutable flow;
    it never changes an already-running Activity.
 
+Profiles with [explicit authored events](divergent-universe-position-occurrences.md)
+use `occurrence_room_compiler(variant)` and supply the exact event list to
+`position_room_identity_with_occurrences` and
+`bind_position_rooms_with_occurrences`. Current event variants and placements
+are configuration-bound in stable entry order; events, services and battles
+cannot occupy the same entry. These APIs retain the same whole-profile checks
+and do not infer original event admission or fill other missing rooms.
+
 Binding requires every Battle node exactly once. Each fragment's nodes,
 programs, internal edges, single successful continuation and logical paths must
 match, with the raw entry replaced by its exact lifecycle-prefixed program.

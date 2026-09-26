@@ -49,7 +49,7 @@ Runtime room profiles use `compile_curio_domain_route` to additionally lower the
 [authored Curio entry lifecycle](divergent-universe-curio-domain-expiry.md) at each
 fixed/selected room's single-visit entry. It does not add room payloads. Preparation,
 draw staging, unselected alternatives and internal physical nodes do not consume
-an allowance or grant entry income. Exact battle/Tawot bindings require the
+an allowance or grant entry income. Exact battle/Tawot/event bindings require the
 resulting entry program. The raw composition API above intentionally supplies no
 Curio lifecycle and is not sufficient for these runtime capabilities.
 
@@ -59,6 +59,12 @@ binding for caller-selected stages and reward domains. It does not admit origina
 room pools or source-specific Bosses, fill other missing payloads or replace the
 default baseline. Complete source-position profile construction/replay remains
 incomplete; its real battle tests do not terminalize original room obligations.
+
+An [explicit event-room compiler](divergent-universe-position-occurrences.md)
+also supplies the existing authored occurrence choices and rewards at a
+caller-selected position. Completion and door publication share the reward
+transaction; Leave is separate. Original event/card membership and remaining
+room payloads are not inferred, and the default baseline is unchanged.
 
 Preparation, draw and all physical nodes of a selected room share one logical
 room instance, nested under its actual plane. Internal transitions preserve

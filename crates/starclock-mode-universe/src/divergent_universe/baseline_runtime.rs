@@ -325,7 +325,9 @@ fn advance_decision(
             state_hash: activity.state_hash(),
         });
     }
-    if selected.kind() == ActivityDecisionKind::Choice && flow.initial_occurrence().is_some() {
+    if selected.kind() == ActivityDecisionKind::Choice
+        && flow.offered_occurrence(activity).is_some()
+    {
         flow.choose_occurrence_option(
             factory,
             activity,

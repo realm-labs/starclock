@@ -88,6 +88,15 @@ are covered without a starting currency grant or between-room heal.
 Default gameplay, original room/Boss admission and
 encoded source-position replay are still
 incomplete; no terminal source or full-run credit is added.
+Explicit [source-position event fragments](divergent-universe-position-occurrences.md)
+now reuse the authored choice/reward executor in these immutable combined
+profiles. Both families execute all three branches after actual proxy battles,
+fresh reconstruction and repeated event visits through the existing controller.
+Exact variant/program/scope binding, raw/hidden/stale/foreign rejection and
+late reward/RNG rollback are covered. Leave is separately door-gated; a later
+failed entry preserves already committed rewards. Placement/repetition remain
+caller-owned policies, other rooms remain probes, and original event admission,
+default position gameplay and encoded profile replay remain incomplete.
 The reference generators remove the incorrect blanket `RoguePersona` other-mode
 exclusion and retain eleven explicitly reviewed files for row-level accounting.
 The current generated Persona source audit accounts for all 547 rows across
