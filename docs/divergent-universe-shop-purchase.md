@@ -90,6 +90,38 @@ Room accuracy:
 `VersionedProjectPolicyExplicitStockAtReviewedShopCardsOnePurchasePerItemNoRefresh`.
 It complements, rather than promotes, the fixed-stock purchase policy below.
 
+## Position-profile and controller dispatch
+
+`bind_position_shop_rooms` attaches compiled Shop capabilities to an immutable
+position battle profile. It checks current factory inputs, area/layer placement,
+distinct room nodes and each exact fragment against the full definition.
+The profile owner must already include every stock/price/room digest in its
+payload. Empty, duplicate, repeated, foreign, changed-price and changed-slot
+attachments reject; attachment order does not change identity or initial state.
+
+`DivergentUniverseFlowInstance::offered_shop` observes the authenticated current
+menu. `choose_shop_option` uses its bound generated-choice transaction for both
+purchases and Leave. The baseline controller dispatches scored Shop decisions
+through this API. Missing capabilities cannot execute the gated raw menu.
+Observation and failed selections do not grant rewards or advance RNG.
+
+Production-catalog integration fixtures for Ordinary and Cyclical enter Shops
+through actual sampled source-card hands, using a deterministic controller hint
+that prefers Shop cards only when offered. They buy the three explicit test
+items and compare exact payment/reward/receipt behavior and Leave. Each run
+completes three real nested Boss proxy battles, including battles after purchases.
+Independently constructed factories produce
+identical accepted steps and canonical state at every boundary. Insufficient-budget
+menus still leave; receipt overflow after a wax reward draw restores state/RNG
+and can be retried once the injected test fault is cleared.
+
+The insufficient-budget case uses explicit high test prices because battles
+before the first Shop can earn Fragments even from zero initial funds.
+Stock, prices, initial funds, selected source deck/width and Boss proxies are
+explicit fixture policies. Other room payloads remain probes. These integration
+tests establish attached-profile execution, not default topology, encoded profile
+replay, original merchant membership or complete-run release acceptance.
+
 ## Evidence and explicit replacement policy
 
 Current production Sora catalogs establish the reward identities and existing
@@ -147,8 +179,8 @@ failure after reward planning preserves the current offer; downstream entry
 failure restores scope, inventory and sold-out state. These isolated source-context
 fixtures do not execute nested battles or complete a released profile.
 
-Flow/controller dispatch, original merchant stock/weights, prices/modifiers,
-refresh, original NPC/profile admission, default topology and encoded profile
+Original merchant stock/weights, prices/modifiers, refresh, original NPC/profile
+admission, default topology and encoded profile
 replay remain incomplete. Other missing Curio effects are not inert or
 completed by being buyable. This boundary earns no terminal source/mechanic,
 Shop-family or complete-run coverage.

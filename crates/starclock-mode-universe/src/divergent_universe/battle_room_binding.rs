@@ -6,6 +6,8 @@ mod curio_synthesis;
 mod domain_deck;
 #[path = "position_respite.rs"]
 mod respite;
+#[path = "position_shop.rs"]
+mod shop;
 
 use std::{collections::BTreeSet, sync::Arc};
 
@@ -19,6 +21,7 @@ use crate::divergent_universe::{
     domain_deck::DomainDeck,
     occurrence_room::{BoundOccurrenceRoom, CompiledOccurrenceRoom},
     respite_room::BoundRespiteRoom,
+    shop_purchase::room::BoundShopRoom,
     state::BATTLE_DOMAIN_SLOT,
     tawot_room::{BoundTawotRoom, CompiledTawotRoom},
 };
@@ -42,6 +45,7 @@ pub(in crate::divergent_universe) struct BoundBattleRooms {
     domain_deck: Option<DomainDeck>,
     respites: Vec<BoundRespiteRoom>,
     synthesis: Vec<BoundCurioSynthesisRoom>,
+    shops: Vec<BoundShopRoom>,
 }
 
 impl DivergentUniverseRuntimeFactory {
@@ -314,6 +318,7 @@ impl DivergentUniverseRuntimeFactory {
         base.position_battles = Some(Arc::new(BoundBattleRooms {
             respites: Vec::new(),
             synthesis: Vec::new(),
+            shops: Vec::new(),
             rooms: bound,
             services,
             occurrences,

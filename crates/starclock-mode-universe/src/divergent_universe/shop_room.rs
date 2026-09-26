@@ -147,6 +147,17 @@ impl ShopRoomCompiler {
     }
 }
 impl CompiledShopRoom {
+    pub(in crate::divergent_universe) fn matches_factory(
+        &self,
+        factory: &DivergentUniverseRuntimeFactory,
+    ) -> bool {
+        self.compiler.factory.bundle_identity().component_digest()
+            == factory.bundle_identity().component_digest()
+            && self.compiler.factory.decision_catalog().digest()
+                == factory.decision_catalog().digest()
+            && factory.room_context_matches(&self.context)
+    }
+
     #[must_use]
     pub const fn context(&self) -> &DomainRoomContext {
         &self.context

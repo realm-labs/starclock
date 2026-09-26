@@ -5,6 +5,8 @@
 mod authentication;
 #[path = "shop_room_availability.rs"]
 mod availability;
+#[path = "shop_profile.rs"]
+mod profile;
 
 use std::sync::Arc;
 

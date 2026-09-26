@@ -202,7 +202,14 @@ Leave. Payment, reward, sold-out/receipt state and menu/next-entry transitions
 share one transaction; raw, stale, hidden, foreign and late-failing choices are
 byte/RNG inert. Fresh Ordinary/Cyclical isolated fixtures reconstruct identical
 traces and exhaust the 64-item bound, without nested battles or full-run evidence.
-Controller dispatch, original shop data/modifiers, NPC/profile admission, default
+The position-profile Flow and baseline controller now dispatch authenticated
+Shop purchases and Leave. Both families select actual sampled Shop cards, execute
+the three explicit purchases, and finish three real nested Boss proxy battles
+with identical fresh-factory steps and states. Insufficient-budget menus leave; late
+receipt failures preserve state/RNG. Duplicate, repeated, foreign, changed-price
+and changed-slot attachments reject, and unbound controllers cannot bypass gates.
+Stock/funds/deck and Boss choices are test policies; other payloads remain probes.
+Original shop data/modifiers, NPC/profile admission, default
 topology and encoded replay remain pending. No terminal source/mechanic or
 Shop-family/full-run credit is added; workbooks and Sora inputs are unchanged.
 The reference generators remove the incorrect blanket `RoguePersona` other-mode
