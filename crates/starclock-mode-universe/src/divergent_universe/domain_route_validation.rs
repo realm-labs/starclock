@@ -3,13 +3,81 @@
 use std::collections::BTreeSet;
 
 use crate::divergent_universe::{
+    DivergentUniverseRuntimeFactory,
     domain_deck::DomainDeckSlots,
-    domain_route::{DomainRoomContext, DomainRoomProgram, DomainRouteError},
+    domain_route::{DomainRoomComposition, DomainRoomContext, DomainRoomProgram, DomainRouteError},
 };
 use starclock_activity::{
     ActivityNodeKind, ActivityOperation, ActivityProgramDefinition, ActivityProgramId,
     ActivityRngLabel, ActivityTerminalOutcome, NodeId,
 };
+use starclock_data::divergent_universe_domain_layout::DomainPositionKind;
+
+impl DivergentUniverseRuntimeFactory {
+    // Validate factual context joins, never original room-payload admission.
+    pub(in crate::divergent_universe) fn room_context_matches(
+        &self,
+        context: &DomainRoomContext,
+    ) -> bool {
+        let Some(area) = self
+            .bundle
+            .catalog()
+            .areas()
+            .iter()
+            .find(|area| area.id == context.area)
+        else {
+            return false;
+        };
+        let plane = context
+            .plane_ordinal
+            .checked_sub(1)
+            .and_then(|value| usize::try_from(value).ok());
+        let Some(position) = self
+            .decision_catalog()
+            .domain_layout()
+            .iter()
+            .find(|layout| layout.layer == context.layer)
+            .and_then(|layout| {
+                layout.positions.iter().find(|position| {
+                    position.key == context.position_key
+                        && position.ordinal == context.position_ordinal
+                })
+            })
+        else {
+            return false;
+        };
+        if plane.and_then(|index| area.layers.get(index)) != Some(&context.layer)
+            || context.section.get() != context.plane_ordinal
+        {
+            return false;
+        }
+        match (&position.kind, context.composition) {
+            (
+                DomainPositionKind::Fixed {
+                    kind,
+                    preset_source,
+                    level,
+                },
+                DomainRoomComposition::Fixed(actual),
+            ) => {
+                *kind == actual
+                    && preset_source == &context.preset_source
+                    && *level == context.level
+            }
+            (DomainPositionKind::Unspecified, DomainRoomComposition::Card(actual)) => self
+                .decision_catalog()
+                .domain_decks()
+                .iter()
+                .flat_map(|deck| deck.cards.iter())
+                .any(|card| {
+                    card.kind == actual
+                        && card.preset_source == context.preset_source
+                        && card.level == context.level
+                }),
+            _ => false,
+        }
+    }
+}
 
 pub(super) fn validate_fragment(
     context: &DomainRoomContext,

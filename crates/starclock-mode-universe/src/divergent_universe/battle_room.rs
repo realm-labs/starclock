@@ -13,8 +13,9 @@ use crate::divergent_universe::{
     DivergentUniverseEntryFlowError, DivergentUniverseRuntimeFactory,
     battle_blessings::BattleBlessings,
     domain_choices::set_domain,
-    domain_route::{DomainRoomComposition, DomainRoomContext, DomainRoomProgram, DomainRouteError},
+    domain_route::{DomainRoomContext, DomainRoomProgram, DomainRouteError},
     state::{LAYER_SEQUENCE_SLOT, LAYER_SLOT},
+    tawot_room::TawotRoomError,
 };
 use starclock_activity::{
     ActivityCondition, ActivityDecisionKind, ActivityEdgeCondition, ActivityEdgeDefinition,
@@ -24,7 +25,6 @@ use starclock_activity::{
 };
 use starclock_data::{
     divergent_universe_decisions::BattleRewardDomain,
-    divergent_universe_domain_layout::DomainPositionKind,
     divergent_universe_encounter_catalog::DivergentUniverseEncounterGroupId,
 };
 
@@ -62,6 +62,7 @@ pub struct CompiledBattleRoom {
 pub enum BattleRoomError {
     Entry(DivergentUniverseEntryFlowError),
     Route(DomainRouteError),
+    Service(TawotRoomError),
     InvalidEncounter,
     UnsupportedRewardDomain,
     InvalidContext,
@@ -120,7 +121,9 @@ impl BattleRoomCompiler {
         &self,
         context: &DomainRoomContext,
     ) -> Result<CompiledBattleRoom, BattleRoomError> {
-        self.validate_context(context)?;
+        if !self.factory.room_context_matches(context) {
+            return Err(BattleRoomError::InvalidContext);
+        }
         let entry = context.entry_node();
         let encounter = context.node(1).map_err(BattleRoomError::Route)?;
         let battle = context.node(2).map_err(BattleRoomError::Route)?;
@@ -265,71 +268,6 @@ impl BattleRoomCompiler {
                 random_offers: Vec::new(),
             },
         })
-    }
-
-    fn validate_context(&self, context: &DomainRoomContext) -> Result<(), BattleRoomError> {
-        let area = self
-            .factory
-            .bundle
-            .catalog()
-            .areas()
-            .iter()
-            .find(|area| area.id == context.area)
-            .ok_or(BattleRoomError::InvalidContext)?;
-        let plane = context
-            .plane_ordinal
-            .checked_sub(1)
-            .and_then(|value| usize::try_from(value).ok())
-            .ok_or(BattleRoomError::InvalidContext)?;
-        let position = self
-            .factory
-            .decision_catalog()
-            .domain_layout()
-            .iter()
-            .find(|layout| layout.layer == context.layer)
-            .and_then(|layout| {
-                layout.positions.iter().find(|position| {
-                    position.key == context.position_key
-                        && position.ordinal == context.position_ordinal
-                })
-            })
-            .ok_or(BattleRoomError::InvalidContext)?;
-        if area.layers.get(plane) != Some(&context.layer)
-            || context.section.get() != context.plane_ordinal
-        {
-            return Err(BattleRoomError::InvalidContext);
-        }
-        let matches = match (&position.kind, context.composition) {
-            (
-                DomainPositionKind::Fixed {
-                    kind,
-                    preset_source,
-                    level,
-                },
-                DomainRoomComposition::Fixed(actual),
-            ) => {
-                *kind == actual
-                    && preset_source == &context.preset_source
-                    && *level == context.level
-            }
-            (DomainPositionKind::Unspecified, DomainRoomComposition::Card(actual)) => self
-                .factory
-                .decision_catalog()
-                .domain_decks()
-                .iter()
-                .flat_map(|deck| deck.cards.iter())
-                .any(|card| {
-                    card.kind == actual
-                        && card.preset_source == context.preset_source
-                        && card.level == context.level
-                }),
-            _ => false,
-        };
-        if matches {
-            Ok(())
-        } else {
-            Err(BattleRoomError::InvalidContext)
-        }
     }
 }
 

@@ -41,6 +41,11 @@ impl DivergentUniverseFlowInstance {
         &self,
         activity: &GraphActivity,
     ) -> Option<&TawotServiceDefinition> {
+        if let Some(rooms) = &self.position_battles {
+            return rooms
+                .tawot(activity)
+                .and_then(|room| room.offered(activity));
+        }
         if activity.definition().identity() != self.definition().identity()
             || activity.definition().graph().digest() != self.definition().graph().digest()
         {
@@ -72,6 +77,13 @@ impl DivergentUniverseFlowInstance {
     ) -> Result<(), GraphActivityCommandError> {
         if expected != activity.state_hash() {
             return Err(GraphActivityCommandError::StaleStateHash);
+        }
+        if let Some(rooms) = &self.position_battles {
+            rooms
+                .tawot(activity)
+                .ok_or(GraphActivityCommandError::DecisionNotOffered)?
+                .choose(activity, expected, decision, selected)?;
+            return Ok(());
         }
         self.offered_tawot_service(activity)
             .ok_or(GraphActivityCommandError::DecisionNotOffered)?;

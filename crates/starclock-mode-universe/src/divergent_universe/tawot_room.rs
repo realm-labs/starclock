@@ -9,6 +9,7 @@
 
 use std::sync::Arc;
 
+use crate::digest::CanonicalDigestBuilder;
 use crate::divergent_universe::{
     DivergentUniverseEntryFlowError, DivergentUniverseLogicalScopeKind,
     DivergentUniverseRuntimeFactory,
@@ -39,6 +40,8 @@ pub struct CompiledTawotRoom {
     slots: Vec<ActivitySlotDefinition>,
     menu: NodeId,
     cards: NodeId,
+    component: [u8; 32],
+    decisions: [u8; 32],
 }
 
 /// One immutable authored service compiler reused across position alternatives.
@@ -46,6 +49,7 @@ pub struct CompiledTawotRoom {
 #[derive(Clone, Debug)]
 pub struct TawotRoomCompiler {
     service: Arc<TawotService>,
+    factory: DivergentUniverseRuntimeFactory,
 }
 
 /// A trusted mode-executor capability for one exact immutable graph definition.
@@ -62,6 +66,7 @@ pub enum TawotRoomError {
     Economy(DivergentUniverseEconomyError),
     Service(DivergentUniverseEntryFlowError),
     InvalidSlots,
+    InvalidContext,
     DefinitionMismatch,
 }
 
@@ -103,6 +108,7 @@ impl DivergentUniverseRuntimeFactory {
             .map_err(TawotRoomError::Service)?;
         Ok(TawotRoomCompiler {
             service: Arc::new(service),
+            factory: self.clone(),
         })
     }
 }
@@ -114,6 +120,9 @@ impl TawotRoomCompiler {
         &self,
         context: &DomainRoomContext,
     ) -> Result<CompiledTawotRoom, TawotRoomError> {
+        if !self.factory.room_context_matches(context) {
+            return Err(TawotRoomError::InvalidContext);
+        }
         let service = &self.service;
         let entry = context.entry_node();
         let menu = context.node(1).map_err(TawotRoomError::Route)?;
@@ -189,11 +198,52 @@ impl TawotRoomCompiler {
             slots: room_slots()?,
             menu,
             cards,
+            component: self.factory.bundle_identity().component_digest().bytes(),
+            decisions: self.factory.decision_catalog().digest(),
         })
     }
 }
 
 impl CompiledTawotRoom {
+    /// Binds exact source/decision inputs, placement and independently selected
+    /// service level. Identical menu shapes at different levels are not the same
+    /// configuration. This does not establish original Forge admission.
+    #[must_use]
+    pub fn configuration_digest(&self) -> [u8; 32] {
+        let mut hash = CanonicalDigestBuilder::new();
+        for value in [
+            b"starclock.divergent-universe.explicit-position-tawot-fragment.v1".as_slice(),
+            &self.component,
+            &self.decisions,
+            self.context.area.as_str().as_bytes(),
+            self.context.layer.as_str().as_bytes(),
+            self.context.position_key.as_bytes(),
+            self.context.preset_source.as_bytes(),
+        ] {
+            hash.update(
+                u64::try_from(value.len())
+                    .expect("bounded validated input length")
+                    .to_le_bytes(),
+            );
+            hash.update(value);
+        }
+        hash.update(self.context.entry_node().get().to_le_bytes());
+        hash.update(self.context.exit_edge().get().to_le_bytes());
+        hash.update(self.context.successor().get().to_le_bytes());
+        hash.update(self.context.level.to_le_bytes());
+        hash.update(self.definition().forge_level.to_le_bytes());
+        hash.finalize()
+    }
+
+    pub(in crate::divergent_universe) fn matches_factory(
+        &self,
+        factory: &DivergentUniverseRuntimeFactory,
+    ) -> bool {
+        self.component == factory.bundle_identity().component_digest().bytes()
+            && self.decisions == factory.decision_catalog().digest()
+            && factory.room_context_matches(&self.context)
+    }
+
     #[must_use]
     pub fn context(&self) -> &DomainRoomContext {
         &self.context
@@ -234,12 +284,13 @@ impl CompiledTawotRoom {
         });
         if !exit_matches
             || graph.edges().iter().any(|edge| {
-                self.fragment
-                    .nodes
-                    .iter()
-                    .any(|node| node.id() == edge.from())
+                let owns = |id| self.fragment.nodes.iter().any(|node| node.id() == id);
+                (owns(edge.from())
                     && edge.id() != self.context.exit_edge()
-                    && !self.fragment.edges.contains(edge)
+                    && !self.fragment.edges.contains(edge))
+                    || (!owns(edge.from())
+                        && owns(edge.to())
+                        && edge.to() != self.context.entry_node())
             })
             || self
                 .fragment
@@ -278,6 +329,12 @@ impl CompiledTawotRoom {
                     .nodes
                     .iter()
                     .any(|node| node.id() == offer.node())
+            })
+            || definition.random_checkpoints().iter().any(|checkpoint| {
+                self.fragment
+                    .nodes
+                    .iter()
+                    .any(|node| node.id() == checkpoint.node())
             })
         {
             return Err(TawotRoomError::DefinitionMismatch);

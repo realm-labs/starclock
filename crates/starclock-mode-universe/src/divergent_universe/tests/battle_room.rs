@@ -38,6 +38,8 @@ use starclock_data::{
 
 #[path = "battle_room_rewards.rs"]
 mod rewards;
+#[path = "battle_room_services.rs"]
+mod services;
 
 const SLOTS: DomainDeckSlots = DomainDeckSlots {
     draw: slot(66),

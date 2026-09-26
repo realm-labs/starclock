@@ -39,18 +39,22 @@ coverage. No source obligation is terminalized by composing these fragments.
    other reachable room still requires its own truthful executable program.
 3. Preserve every exact base runtime slot, inventory and modifier declaration,
    add the source deck's slots, and use the route's complete logical scopes.
-   Current battle binding does not support replacing the baseline Tawot slot
-   declarations with their room-scoped variants; combined service/profile
-   construction remains separate work.
-4. Compute `battle_room_identity(base, graph, rooms, payload)`. It binds current
+   To compose paid services, compile `tawot_room_compiler(service_level)` in
+   independently selected positions and replace only its four baseline service
+   declarations with the fragment's exact room-scoped variants.
+4. Compute `battle_room_identity(base, graph, rooms, payload)`, or
+   `position_room_identity(base, graph, rooms, services, payload)` for a combined
+   profile. It binds current
    source/decision digests, base Mapping/party/entry/progression configuration,
-   exact graph and stable sorted battle selections. The owner's `payload` must
+   exact graph, stable sorted battle selections and every supplied service's
+   independently selected level and placement. The owner's `payload` must
    bind its exact deck/width, non-battle programs, extra declarations and other
    gameplay policies. It is an owning configuration digest, not a placeholder
    or a compatibility identifier.
 5. Construct the whole `GraphActivityDefinition` with this identity, exact
    programs, declarations, participants, scopes and random offers, then call
-   `bind_battle_rooms`. Binding validates before producing a new immutable flow;
+   `bind_battle_rooms`, or `bind_position_rooms` with the exact services used in
+   the combined identity. Binding validates before producing a new immutable flow;
    it never changes an already-running Activity.
 
 Binding requires every Battle node exactly once. Each fragment's nodes,
@@ -60,6 +64,14 @@ retain Run/Plane/Room. Added room random policies, outgoing bypasses and externa
 entries into a fragment's encounter, Battle or reward reject. Room-list ordering
 does not affect configuration identity. Base party/state changes, mixed source
 digests, legacy handlers and missing/duplicated bindings reject.
+
+Combined binding preserves all non-service base declarations and validates each
+service's complete fragment, logical-room paths, exact slots, current source
+joins and input digests. External edges cannot enter a service's menu/cards
+without its entry initialization. Missing, duplicated or independently changed
+service levels reject. The existing `offered_tawot_service` and
+`choose_tawot_service_option` flow APIs dispatch through the bound capabilities;
+the existing headless controller uses them without another command processor.
 
 ## Runtime semantics
 
@@ -98,3 +110,12 @@ duplicate rejection and zero grants on counterfactual loss/fault.
 Non-battle rooms are explicit test probes, and placement is a controlled caller
 policy. These fixtures are not original room/boss parity, complete source-content reachability or
 encoded-profile/full-run release evidence.
+
+A combined controlled profile executes three real proxy battles and pays for
+three separately initialized Tawot visits using their actual fragment income,
+with no initial currency grant or between-room heal. Both families and all four
+service levels compare every boundary with a separately constructed profile.
+Cancel/reopen preserves cached cards/RNG, raw/stale/hidden/foreign commands are
+inert, and leaving into a deliberately failing next room rolls back the service
+cleanup and transition. Its other rooms remain probes and its independent
+placement is not original Boss/Forge admission or full-run release evidence.

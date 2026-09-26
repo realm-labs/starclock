@@ -80,7 +80,12 @@ three-label legacy menu and original Boss selectors. Tests execute all three
 fixed plane positions in both families with fresh reconstruction, live
 modifiers, suppression, duplicate rejection and zero failure/fault grants.
 Other rooms remain explicit probes.
-Default gameplay, original room/Boss admission, combined service binding and
+Combined source-position profiles now bind exact battle and paid Tawot fragments
+through one immutable flow. Both families and all four service levels use actual
+proxy battle income for repeated paid visits with fresh reconstruction; service
+cache/allowance resets, raw/stale/foreign rejection and failing-next-room rollback
+are covered without a starting currency grant or between-room heal.
+Default gameplay, original room/Boss admission and
 encoded source-position replay are still
 incomplete; no terminal source or full-run credit is added.
 The reference generators remove the incorrect blanket `RoguePersona` other-mode

@@ -110,6 +110,13 @@ path through bounded shared graph nodes and edges.
 successful continuation, logical paths, slot declarations and absence of added
 room-offer policies. `BoundTawotRoom` accepts only offered IDs from that immutable
 whole graph; it also checks separately reconstructed definitions structurally.
+The whole-profile `position_room_identity`/`bind_position_rooms` boundary now
+combines these services with exact battle fragments. Each selected service level
+and placement binds current configuration identity, including levels with the
+same menu shape. The existing flow service APIs and headless controller dispatch
+to the authenticated room capability. Source-context joins are validated before
+compilation; this does not infer original NPC eligibility. External edges into
+menu/cards and added room random checkpoints reject along with offer policies.
 Accepted commands return their shared transaction events. Hidden/raw/stale/foreign
 selections and downstream exit-initialization failures preserve authoritative
 state, cached offers, scopes, events and RNG.
@@ -121,6 +128,12 @@ starting fragments are controlled resource fixtures. Their successful test
 terminals are not original room gameplay, encoded profile replay, automatic NPC
 membership or complete-run release evidence. No additional source obligation is
 terminalized by this composition.
+
+Combined-profile tests additionally pay for repeated source-position visits with
+actual proxy battle income, without a controlled starting-currency grant. Both
+families and all four levels reconstruct the same choices, ownership, carry and
+terminal from fresh definitions. This removes the former service/battle slot
+composition gap, not the original Forge admission or encoded-position replay gap.
 
 Shared graph transitions are `checkpoint → menu ⇄ cards`, followed by
 `menu → encounter → real battle`. The checkpoint retains its occurrence
@@ -134,9 +147,11 @@ encounter policy and immutable assembly; it is not a second battle engine.
 | 64 | Node | Generated-prefix acceptance gate, reset on physical node entry |
 | 65 | Section | Offer-opening budget used, including cancel/reopen |
 
-Service exit clears the cache and counters. The explicit binding currently
-admits one visit in the first section; independently generated repeat visits
-are not yet a public path. Menu/card loops preserve the logical first-domain
+Service exit clears the cache and counters. The initial-entry binding
+admits one visit in the first section. Independently placed repeat visits are
+available through the explicit position-profile construction boundary, not
+through the default CLI/Agent/MCP entry or encoded-position replay.
+Menu/card loops preserve the logical first-domain
 address and never consume Curio domain lifetimes. A technical bound permits
 64 openings per visit, then disables Buy while retaining Leave. Menu/card visit,
 edge and total graph budgets reserve the return and exit path. This is a

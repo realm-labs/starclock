@@ -9,6 +9,7 @@ use crate::divergent_universe::{
     battle_room::{BattleRoomError, CompiledBattleRoom},
     domain_choices::set_domain,
     state::BATTLE_DOMAIN_SLOT,
+    tawot_room::{BoundTawotRoom, CompiledTawotRoom},
 };
 use starclock_activity::{
     ActivityConfigDigest, ActivityDecisionKind, ActivityDefinitionDigest,
@@ -24,6 +25,7 @@ use starclock_data::{
 #[derive(Clone, Debug)]
 pub(in crate::divergent_universe) struct BoundBattleRooms {
     rooms: Vec<CompiledBattleRoom>,
+    services: Vec<BoundTawotRoom>,
     definition: Arc<GraphActivityDefinition>,
 }
 
@@ -39,8 +41,24 @@ impl DivergentUniverseRuntimeFactory {
         rooms: &[CompiledBattleRoom],
         payload: ActivityConfigDigest,
     ) -> Result<ActivityDefinitionIdentity, BattleRoomError> {
+        self.position_room_identity(base, graph, rooms, &[], payload)
+    }
+
+    /// Exact combined battle/Tawot identity. Every independently selected
+    /// service level and placement is bound; list ordering is not significant.
+    /// `payload` still owns all other non-battle programs and deck policies.
+    pub fn position_room_identity(
+        &self,
+        base: &DivergentUniverseFlowInstance,
+        graph: &ActivityGraphDefinition,
+        rooms: &[CompiledBattleRoom],
+        services: &[CompiledTawotRoom],
+        payload: ActivityConfigDigest,
+    ) -> Result<ActivityDefinitionIdentity, BattleRoomError> {
         let mut rooms = rooms.iter().collect::<Vec<_>>();
         rooms.sort_by_key(|room| room.context.entry_node());
+        let mut services = services.iter().collect::<Vec<_>>();
+        services.sort_by_key(|room| room.context().entry_node());
         if rooms.is_empty()
             || rooms
                 .windows(2)
@@ -50,6 +68,10 @@ impl DivergentUniverseRuntimeFactory {
                 room.component != base.component_digest
                     || room.decisions != self.decision_catalog().digest()
             })
+            || services
+                .windows(2)
+                .any(|pair| pair[0].context().entry_node() == pair[1].context().entry_node())
+            || services.iter().any(|room| !room.matches_factory(self))
         {
             return Err(BattleRoomError::InvalidDefinition);
         }
@@ -59,6 +81,17 @@ impl DivergentUniverseRuntimeFactory {
         hash.update(graph.digest().bytes());
         for room in &rooms {
             hash.update(room.configuration_digest());
+        }
+        if !services.is_empty() {
+            hash.update(b"tawot");
+            hash.update(
+                u32::try_from(services.len())
+                    .map_err(|_| BattleRoomError::InvalidDefinition)?
+                    .to_le_bytes(),
+            );
+            for service in &services {
+                hash.update(service.configuration_digest());
+            }
         }
         let definition = ActivityDefinitionDigest::new(hash.finalize())
             .ok_or(BattleRoomError::InvalidDefinition)?;
@@ -86,9 +119,26 @@ impl DivergentUniverseRuntimeFactory {
     /// onto foreign addresses. The caller still supplies every non-battle room.
     pub fn bind_battle_rooms(
         &self,
+        base: DivergentUniverseFlowInstance,
+        definition: Arc<GraphActivityDefinition>,
+        rooms: &[CompiledBattleRoom],
+        payload: ActivityConfigDigest,
+    ) -> Result<DivergentUniverseFlowInstance, BattleRoomError> {
+        self.bind_position_rooms(base, definition, rooms, &[], payload)
+    }
+
+    /// Validates one immutable profile with exactly bound battle and Tawot
+    /// fragments. Only the four supplied service declarations may replace base
+    /// declarations, and only with their exact logical-room policies. All other
+    /// state, participants and battle checks are unchanged. No live rebinding or
+    /// automatic source admission is performed. Service commands are exposed by
+    /// the existing flow observation/selection APIs and shared transaction engine.
+    pub fn bind_position_rooms(
+        &self,
         mut base: DivergentUniverseFlowInstance,
         definition: Arc<GraphActivityDefinition>,
         rooms: &[CompiledBattleRoom],
+        services: &[CompiledTawotRoom],
         payload: ActivityConfigDigest,
     ) -> Result<DivergentUniverseFlowInstance, BattleRoomError> {
         if !base.has_runtime_battle_route()
@@ -104,7 +154,7 @@ impl DivergentUniverseRuntimeFactory {
             return Err(BattleRoomError::UnsupportedEntry);
         }
         if definition.identity()
-            != self.battle_room_identity(&base, definition.graph(), rooms, payload)?
+            != self.position_room_identity(&base, definition.graph(), rooms, services, payload)?
             || definition.participants().as_ref() != base.definition().participants().as_ref()
             || definition.interactions().is_some()
             || base
@@ -112,7 +162,17 @@ impl DivergentUniverseRuntimeFactory {
                 .state_definition()
                 .slots()
                 .iter()
-                .any(|slot| !definition.state_definition().slots().contains(slot))
+                .any(|slot| {
+                    let expected = services
+                        .first()
+                        .and_then(|room| {
+                            room.slot_definitions()
+                                .iter()
+                                .find(|candidate| candidate.id() == slot.id())
+                        })
+                        .unwrap_or(slot);
+                    !definition.state_definition().slots().contains(expected)
+                })
             || definition.state_definition().inventories()
                 != base.definition().state_definition().inventories()
             || definition.state_definition().modifiers()
@@ -120,6 +180,25 @@ impl DivergentUniverseRuntimeFactory {
         {
             return Err(BattleRoomError::InvalidDefinition);
         }
+        let mut services = services.iter().collect::<Vec<_>>();
+        services.sort_by_key(|room| room.context().entry_node());
+        let services = services
+            .into_iter()
+            .map(|room| {
+                let context = room.context();
+                let plane = context
+                    .plane_ordinal
+                    .checked_sub(1)
+                    .and_then(|value| usize::try_from(value).ok());
+                if context.area != *base.area()
+                    || plane.and_then(|index| base.layers().get(index)) != Some(&context.layer)
+                {
+                    return Err(BattleRoomError::InvalidContext);
+                }
+                room.bind(Arc::clone(&definition))
+                    .map_err(BattleRoomError::Service)
+            })
+            .collect::<Result<Vec<_>, _>>()?;
         let mut bound = rooms.to_vec();
         bound.sort_by_key(|room| room.context.entry_node());
         for room in &bound {
@@ -143,6 +222,7 @@ impl DivergentUniverseRuntimeFactory {
         }
         base.position_battles = Some(Arc::new(BoundBattleRooms {
             rooms: bound,
+            services,
             definition: Arc::clone(&definition),
         }));
         base.definition = definition;
@@ -242,6 +322,15 @@ fn validate_room(
 }
 
 impl BoundBattleRooms {
+    pub(in crate::divergent_universe) fn tawot(
+        &self,
+        activity: &GraphActivity,
+    ) -> Option<&BoundTawotRoom> {
+        self.services
+            .iter()
+            .find(|room| room.offered(activity).is_some())
+    }
+
     pub(in crate::divergent_universe) fn matches(&self, activity: &GraphActivity) -> bool {
         let actual = activity.definition();
         Arc::ptr_eq(actual, &self.definition)
