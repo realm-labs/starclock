@@ -15,10 +15,11 @@ catalog's stage-to-group join and reproduces the context's current area, layer,
 position, preset kind and level joins. A missing candidate or changed context
 rejects. This is the existing explicit stage-candidate policy and calibrated
 shared-minion proxy, not original room eligibility, battle count, level effects
-or source-specific Boss execution. Current rewards cover Combat, Elite and
-Aberration only. Boss selection returns `UnsupportedRewardDomain` before profile
-construction; it never falls back to another domain. A caller explicitly placing
-a Combat proxy at a fixed Boss position does not implement the original Boss.
+or source-specific Boss execution. Current rewards cover Combat, Elite,
+Aberration and an [explicit Boss project policy](divergent-universe-battle-fragments.md).
+A missing reward still rejects before construction and never falls back to
+another domain. A caller placing a proxy at a fixed Boss position does not
+implement original Boss behavior, regardless of its independently selected domain.
 
 Placement and use of this single-battle primitive are explicit owner inputs.
 The compiler does not fill missing room handlers, derive battle count from a
@@ -90,7 +91,10 @@ prove natural defeat on the sixth battle with the unchanged baseline party,
 without fabricating victory or healing between rooms. This is not successful
 completion of the eleven-battle controlled profile. Tests additionally
 exercise reward suppression, authenticated next-card selection, stale results,
-malformed contexts, rejected unsupported Boss rewards and profile binding.
+malformed contexts and profile binding. A separate controlled profile binds Boss
+rewards at all three fixed planes in both families and completes actual proxy
+battles with fresh command reconstruction, live gain modifiers, suppression,
+duplicate rejection and zero grants on counterfactual loss/fault.
 Non-battle rooms are explicit test probes, and placement is a controlled caller
 policy. These fixtures are not original room/boss parity, complete source-content reachability or
 encoded-profile/full-run release evidence.

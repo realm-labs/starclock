@@ -3,8 +3,7 @@
 use super::source_keys;
 use crate::{
     divergent_universe_decisions::{
-        BattleFragmentDefinition, BattleFragmentPolicy, BattleRewardDomain, DecisionDataError,
-        DomainChoiceDefinition, key,
+        BattleFragmentDefinition, BattleFragmentPolicy, BattleRewardDomain, DecisionDataError, key,
     },
     divergent_universe_decisions_generated::{
         SoraConfig, du_battle_fragment_policy::DuBattleFragmentPolicy,
@@ -15,7 +14,6 @@ use std::collections::BTreeSet;
 
 pub(super) fn compile(
     config: &SoraConfig,
-    choices: &[DomainChoiceDefinition],
 ) -> Result<Box<[BattleFragmentDefinition]>, DecisionDataError> {
     let mut domains = BTreeSet::new();
     let mut result = Vec::new();
@@ -24,7 +22,7 @@ pub(super) fn compile(
             DuBattleRewardDomain::Combat => BattleRewardDomain::Combat,
             DuBattleRewardDomain::Elite => BattleRewardDomain::Elite,
             DuBattleRewardDomain::Aberration => BattleRewardDomain::Aberration,
-            DuBattleRewardDomain::Boss => return Err(DecisionDataError::InvalidPolicy),
+            DuBattleRewardDomain::Boss => BattleRewardDomain::Boss,
         };
         if row.id <= 0 || !domains.insert(domain) {
             return Err(DecisionDataError::InvalidIdentity);
@@ -49,7 +47,19 @@ pub(super) fn compile(
             sources: source_keys(config, &row.source_ids)?,
         });
     }
-    if domains != choices.iter().map(|choice| choice.domain).collect() {
+    // Reward coverage is independent of the legacy three-label Route offer.
+    // Explicit source-position bindings can select Boss without admitting it
+    // into that offer or inferring a stage/preset selector.
+    if domains
+        != [
+            BattleRewardDomain::Combat,
+            BattleRewardDomain::Elite,
+            BattleRewardDomain::Aberration,
+            BattleRewardDomain::Boss,
+        ]
+        .into_iter()
+        .collect()
+    {
         return Err(DecisionDataError::InvalidPolicy);
     }
     result.sort_by_key(|row| row.domain);

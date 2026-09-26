@@ -74,8 +74,12 @@ plane in both families, verified drops, fresh command reconstruction, actual
 participant carry, suppressed reward advancement and rejected prior results.
 The unchanged party naturally loses battle six without between-room healing;
 these fixtures do not prove successful completion of the controlled profile.
-Missing authored reward domains reject before compilation; Boss rewards are
-unsupported, not implicitly assigned Combat. Other rooms remain explicit probes.
+Missing authored reward domains reject before compilation. Boss now has an
+explicit fixed-100 project-policy base reward, independent of the unchanged
+three-label legacy menu and original Boss selectors. Tests execute all three
+fixed plane positions in both families with fresh reconstruction, live
+modifiers, suppression, duplicate rejection and zero failure/fault grants.
+Other rooms remain explicit probes.
 Default gameplay, original room/Boss admission, combined service binding and
 encoded source-position replay are still
 incomplete; no terminal source or full-run credit is added.
@@ -149,7 +153,7 @@ now include costs, probability, sacrifice/reward exchange and fresh replay under
 explicit stable multi-treasure layer-placement policy. Other Divine Treasure families,
 original event topology and exact base battle drops remain pending. The
 [base fragment policy](divergent-universe-battle-fragments.md) now credits
-Combat/Aberration 40 and Elite 100 through the global gain pipeline before Curio
+Combat/Aberration 40 and Elite/Boss 100 through the global gain pipeline before Curio
 rewards. These amounts are explicitly unverified project choices, not original
 drop-table facts.
 [Curio domain expiry](divergent-universe-curio-domain-expiry.md) now consumes

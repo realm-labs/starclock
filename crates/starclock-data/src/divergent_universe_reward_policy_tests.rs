@@ -567,7 +567,11 @@ pub(super) fn validate(
             (
                 "domain",
                 Value::from("Boss"),
-                DecisionDataError::InvalidPolicy,
+                if table == "DuDomainChoices" {
+                    DecisionDataError::InvalidPolicy
+                } else {
+                    DecisionDataError::InvalidIdentity
+                },
             ),
             (
                 "domain",
@@ -626,6 +630,38 @@ pub(super) fn validate(
             "amount",
             Value::from(amount),
             DecisionDataError::InvalidReward,
+        );
+    }
+    // Exercise the new independent Boss row itself, not only the legacy row.
+    for (field, value, expected) in [
+        ("amount", Value::from(0), DecisionDataError::InvalidReward),
+        (
+            "domain",
+            Value::from("Combat"),
+            DecisionDataError::InvalidIdentity,
+        ),
+        (
+            "policy_note",
+            Value::from(""),
+            DecisionDataError::InvalidPolicy,
+        ),
+        (
+            "replacement_condition",
+            Value::from(""),
+            DecisionDataError::InvalidPolicy,
+        ),
+        (
+            "source_ids",
+            Value::from(vec![999]),
+            DecisionDataError::InvalidReference,
+        ),
+    ] {
+        let mut rows = EditedRows(baseline.clone());
+        rows.0.get_mut("DuBattleFragments").unwrap()[3][field] = value;
+        assert_eq!(
+            compile(&SoraConfig::from_source(&rows).unwrap(), reference),
+            Err(expected),
+            "Boss reward row: {field}"
         );
     }
 }

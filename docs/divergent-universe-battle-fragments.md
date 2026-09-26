@@ -1,10 +1,12 @@
 # Divergent Universe base battle fragments
 
 The production `BattleFragments` sheet declares one fixed base reward for each
-publicly selectable proxy domain: Combat 40, Elite 100, Aberration 40. These
+authenticated proxy reward domain: Combat 40, Elite 100, Aberration 40, Boss 100. These
 amounts are **project policy, not observed game values**. The binary Sora bundle,
 schema and existing mode configuration/replay identity bind the exact table.
-No Boss amount or original enemy/room eligibility is inferred.
+Boss is available only through an explicit immutable position binding; it is
+not added to the legacy three-label domain-choice menu. No original
+enemy/room eligibility is inferred.
 
 ## Evidence and replaceable policy
 
@@ -28,6 +30,19 @@ Alternatives include enemy-specific credits and integer range sampling.
 Replace these fields when released current-profile programs or reproducible
 observations establish them. This policy does not terminalize any original
 program or source obligation.
+
+The fixed Boss position/type join comes from decision source 66's released
+`RoguePersonaRoomCompType` row 1 (`Boss`), not a drop program. On 2026-09-26 the
+pinned constants were re-inspected with the same digest. Bounded public searches
+for Boss base fragments found no independently verifiable Version 4.4 amount;
+the [public domain overview](https://honkai-star-rail.fandom.com/wiki/Divergent_Universe%3A_The_Human_Comedy/Domains)
+could not be retrieved and is not numeric evidence. Boss 100 is a separate
+explicit engineering choice using the existing Elite base rather than inventing
+a larger multiplier. Zero reward, a larger constant and integer range sampling
+remain unproven alternatives. The row records low parity confidence and its
+replacement conditions, including the still-provisional base Blessing pool.
+This reward-domain policy neither implements original Boss AI/phases nor admits
+a stage by preset level or elite flags.
 
 ## Transaction boundary
 
@@ -60,6 +75,14 @@ replacement, Blessing suppression, exact reward draws, stage event order and
 duplicate rejection. Counterfactual loss/fault projections exercise zero grants;
 the Green overflow fixture lets the base stage succeed before a later Curio
 grant fails, then verifies whole-result rollback and a successful retry.
+Separate tests bind the Boss reward policy at all three fixed source planes,
+execute actual proxy battles, and reconstruct commands from fresh definitions
+in both families. Boss modifier/suppression, exact fixed credit, reward-stage
+order, duplicate rejection and counterfactual loss/fault are covered. A Boss
+later-Curio-overflow vector proves rollback of the already successful 100-credit
+stage and pending carry, then successfully retries with no qualifying Curio grant.
+Non-battle positions remain explicit probes; these successful terminals do not establish
+complete original room/Boss gameplay or encoded-profile release coverage.
 
 Original amounts, full domain-specific base drops, multi-enemy reward programs,
 room topology and complete content reachability remain pending under

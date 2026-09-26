@@ -77,7 +77,7 @@ impl std::error::Error for BattleRoomError {}
 
 impl DivergentUniverseRuntimeFactory {
     /// Validates candidate-group membership and an executable authored reward.
-    /// Missing rewards (currently Boss) reject before construction, never fall
+    /// Missing rewards reject before construction, never fall
     /// back. Placement, battle count and domain are explicit caller inputs,
     /// never inferred original room rules. Failure has no state/RNG/cache effects.
     pub fn battle_room_compiler(

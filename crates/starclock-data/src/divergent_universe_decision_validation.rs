@@ -404,7 +404,7 @@ pub(super) fn compile(
         &curio_domain_expiries,
     )?;
     let domain_choices = domain_choices::compile(config)?;
-    let battle_fragments = battle_fragments::compile(config, &domain_choices)?;
+    let battle_fragments = battle_fragments::compile(config)?;
     let curio_domain_grants =
         curio_domain_grants::compile(config, reference, &curio_domain_expiries)?;
     Ok(DecisionCatalog {

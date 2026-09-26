@@ -55,7 +55,8 @@ fn production_decision_workbook_lowers_three_ordered_policy_choices() {
         [
             (BattleRewardDomain::Combat, 40),
             (BattleRewardDomain::Elite, 100),
-            (BattleRewardDomain::Aberration, 40)
+            (BattleRewardDomain::Aberration, 40),
+            (BattleRewardDomain::Boss, 100)
         ]
     );
     assert_eq!(catalog.domain_choices().len(), 3);

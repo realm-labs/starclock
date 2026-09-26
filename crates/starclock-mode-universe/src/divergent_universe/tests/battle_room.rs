@@ -36,6 +36,9 @@ use starclock_data::{
     divergent_universe_domain_layout::FixedDomainKind,
 };
 
+#[path = "battle_room_rewards.rs"]
+mod rewards;
+
 const SLOTS: DomainDeckSlots = DomainDeckSlots {
     draw: slot(66),
     discard: slot(67),
@@ -113,16 +116,42 @@ fn compile_scenario(
     fixture: &DivergentUniverseBaselineFixture,
     family: DivergentUniverseRunFamily,
 ) -> Scenario {
+    compile_rooms(
+        fixture,
+        family,
+        &[
+            BattleRewardDomain::Combat,
+            BattleRewardDomain::Elite,
+            BattleRewardDomain::Aberration,
+        ],
+        |context| {
+            if context.composition == DomainRoomComposition::Fixed(FixedDomainKind::Boss) {
+                // This controlled scenario deliberately retains an independent
+                // Combat proxy even though a Boss reward policy is available.
+                Some(0)
+            } else if context.position_ordinal <= 3
+                && context.composition != DomainRoomComposition::Fixed(FixedDomainKind::Respite)
+            {
+                Some(usize::from(context.position_ordinal - 1))
+            } else {
+                None
+            }
+        },
+    )
+}
+
+fn compile_rooms(
+    fixture: &DivergentUniverseBaselineFixture,
+    family: DivergentUniverseRunFamily,
+    domains: &[BattleRewardDomain],
+    mut placement: impl FnMut(&DomainRoomContext) -> Option<usize>,
+) -> Scenario {
     let base = base(fixture, family);
     let factory = fixture.factory();
     let policy = factory.decision_catalog().encounter_pool();
-    let domains = [
-        BattleRewardDomain::Combat,
-        BattleRewardDomain::Elite,
-        BattleRewardDomain::Aberration,
-    ];
     let compilers = domains
-        .into_iter()
+        .iter()
+        .copied()
         .enumerate()
         .map(|(index, domain)| {
             factory
@@ -140,18 +169,7 @@ fn compile_scenario(
         .compile_domain_route(base.area(), &deck.key, 3, SLOTS, |context| {
             // Independent explicit placement; do not interpret composition level as
             // a battle count or these candidates as original Boss membership.
-            let index =
-                if context.composition == DomainRoomComposition::Fixed(FixedDomainKind::Boss) {
-                    // Boss rewards have no authored policy yet. This position
-                    // uses an explicit Combat proxy, NOT original Boss gameplay.
-                    Some(0)
-                } else if context.position_ordinal <= 3
-                    && context.composition != DomainRoomComposition::Fixed(FixedDomainKind::Respite)
-                {
-                    Some(usize::from(context.position_ordinal - 1))
-                } else {
-                    None
-                };
+            let index = placement(context);
             if let Some(index) = index {
                 let room = compilers[index].compile(context).unwrap();
                 let fragment = room.fragment().clone();
@@ -650,12 +668,6 @@ fn battle_room_profile_binding_rejects_missing_changed_foreign_and_legacy_inputs
             Err(BattleRoomError::InvalidContext)
         ));
     }
-    let mut selection = room.selection().clone();
-    selection.domain = BattleRewardDomain::Boss;
-    assert!(matches!(
-        factory.battle_room_compiler(selection),
-        Err(BattleRoomError::UnsupportedRewardDomain)
-    ));
     let mut selection = room.selection().clone();
     selection.stage = "missing-stage".into();
     assert!(matches!(
