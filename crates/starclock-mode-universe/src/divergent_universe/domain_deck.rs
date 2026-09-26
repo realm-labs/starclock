@@ -122,6 +122,27 @@ impl DivergentUniverseRuntimeFactory {
 }
 
 impl DomainDeck {
+    pub(in crate::divergent_universe) fn matches_authored_source(
+        &self,
+        factory: &DivergentUniverseRuntimeFactory,
+    ) -> bool {
+        self.purpose == 24_101
+            && self.initial_draw == self.card_keys()
+            && factory
+                .decision_catalog()
+                .domain_decks()
+                .iter()
+                .any(|definition| {
+                    let mut keys = definition
+                        .cards
+                        .iter()
+                        .map(|card| card.instance.get())
+                        .collect::<Vec<_>>();
+                    keys.sort_unstable();
+                    keys.as_slice() == self.initial_draw.as_ref()
+                })
+    }
+
     /// Projects reserved cards out of the available draw pile without sampling
     /// or mutation. During fixed rooms there is no hand. Unknown IDs or broken
     /// partition conservation reject instead of fabricating an empty deck.

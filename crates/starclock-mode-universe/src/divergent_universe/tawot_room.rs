@@ -374,6 +374,13 @@ impl CompiledTawotRoom {
 }
 
 impl BoundTawotRoom {
+    pub(in crate::divergent_universe) fn matches_factory(
+        &self,
+        factory: &DivergentUniverseRuntimeFactory,
+    ) -> bool {
+        self.room.matches_factory(factory)
+    }
+
     /// Non-mutating observation; returns None for a foreign graph or any node
     /// other than this room's authenticated menu and cached-card offer.
     #[must_use]

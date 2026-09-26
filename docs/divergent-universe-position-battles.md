@@ -67,6 +67,14 @@ are configuration-bound in stable entry order; events, services and battles
 cannot occupy the same entry. These APIs retain the same whole-profile checks
 and do not infer original event admission or fill other missing rooms.
 
+For source-hand controller dispatch, attach the same complete `CompiledDomainRoute`
+through `bind_position_domain_route` after room binding. It validates exact
+graph/program/scope/slot/random-policy contributions and current authored card
+instances before returning a new immutable flow. The owner payload still binds
+deck and width. The [deck flow contract](divergent-universe-domain-deck.md#source-position-flow-dispatch)
+separates sampled hands from event Leave and other Route commands, so only card
+choices execute whole-hand discard and selected-instance recording.
+
 Binding requires every Battle node exactly once. Each fragment's nodes,
 programs, internal edges, single successful continuation and logical paths must
 match, with the raw entry replaced by its exact lifecycle-prefixed program.

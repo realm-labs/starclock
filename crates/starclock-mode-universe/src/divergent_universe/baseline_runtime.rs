@@ -263,6 +263,23 @@ fn advance_decision(
 ) -> Result<DivergentUniverseBaselineStep, DivergentUniverseBaselineError> {
     if selected.kind() == ActivityDecisionKind::Route
         && flow
+            .has_position_domain_hand(activity)
+            .map_err(DivergentUniverseBaselineError::ActivityCommand)?
+    {
+        flow.choose_position_domain_card(
+            activity,
+            state_hash,
+            selected.decision(),
+            selected.option(),
+        )
+        .map_err(DivergentUniverseBaselineError::ActivityCommand)?;
+        return Ok(DivergentUniverseBaselineStep::ActivityDecision {
+            decision: selected,
+            state_hash: activity.state_hash(),
+        });
+    }
+    if selected.kind() == ActivityDecisionKind::Route
+        && flow
             .offered_battle_domain_choices(activity)
             .map_err(DivergentUniverseBaselineError::ActivityCommand)?
             .is_some()

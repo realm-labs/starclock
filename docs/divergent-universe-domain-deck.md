@@ -93,6 +93,40 @@ fixture. CLI entry selection is not yet exposed.
 
 ## Execution boundary
 
+### Source-position flow dispatch
+
+After binding an immutable battle/service/event profile, call
+`bind_position_domain_route(flow, compiled_route)` with the same complete
+compiled route. It checks the current authored instances and Graph purpose,
+exact graph/programs/logical scopes, four slot declarations and every random
+offer against that profile. Foreign, omitted, changed or already-attached
+bindings reject. The owning profile payload must already bind its explicit
+deck and width; attachment does not change configuration identity or rebind a
+running Activity. It returns a new immutable flow capability.
+
+`position_domain_deck` authenticates the whole definition and observes the
+three piles without RNG or mutation. `has_position_domain_hand` distinguishes
+the sampled hand from fixed rooms and event Leave offers. The existing runner
+dispatches only such Route offers through `choose_position_domain_card`, which
+uses the existing whole-hand settlement transaction. Other route/room/event
+commands keep their existing executors. Curio entry lifetimes are already in
+the target program and are not generated a second time by this dispatcher.
+
+Both families' controlled profiles execute all nine authored decks through
+the shared controller, three real proxy battles, three authored events and
+repeated paid Tawot visits, comparing every boundary with a fresh construction.
+Actual battle/event income pays for services; no starting credit or implicit
+heal is added. Negative tests cover altered bindings, raw/stale/hidden/foreign
+commands, malformed piles and late entry rejection restoring the hand, entry
+income, lifetimes and RNG. The larger controlled graph uses an explicit
+128-step controller work limit; the legacy three-battle policy remains 32.
+These work limits are controller bounds, not game rules.
+
+Other rooms remain explicit probes and placement remains a caller policy.
+Default baseline topology, original selectors and encoded position-profile
+replay are unchanged/incomplete. These runs prove integration, not terminal
+original-room coverage or complete-run release readiness.
+
 `domain_deck::DomainDeck` compiles immutable card instances into shared Activity
 slot definitions, preparation/offer programs and a Graph-labeled random offer.
 Copies of a domain definition need distinct nonzero instance IDs. The owner must

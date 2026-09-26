@@ -97,6 +97,16 @@ late reward/RNG rollback are covered. Leave is separately door-gated; a later
 failed entry preserves already committed rewards. Placement/repetition remain
 caller-owned policies, other rooms remain probes, and original event admission,
 default position gameplay and encoded profile replay remain incomplete.
+Source-position flows now attach an exact authored deck/route capability.
+The existing controller distinguishes sampled hands from event Leave/other
+routes and performs whole-hand settlement through the shared engine. All nine
+decks in both families complete controlled three-battle/event/paid-service
+profiles with fresh step reconstruction and no initial currency/heal grant;
+other rooms remain probes. Changed bindings, raw/stale/hidden/foreign commands,
+malformed piles and late entry rejection are covered. Larger-profile controller
+work bounds are explicit. Default topology, original admission, encoded-profile
+replay and complete-run release gates remain incomplete, with no terminal
+source credit added.
 The reference generators remove the incorrect blanket `RoguePersona` other-mode
 exclusion and retain eleven explicitly reviewed files for row-level accounting.
 The current generated Persona source audit accounts for all 547 rows across

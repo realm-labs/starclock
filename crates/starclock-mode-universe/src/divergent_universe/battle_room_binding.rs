@@ -1,5 +1,8 @@
 //! Exact fragment/profile binding for the existing battle and reward executors.
 
+#[path = "position_domain_deck.rs"]
+mod domain_deck;
+
 use std::{collections::BTreeSet, sync::Arc};
 
 use crate::digest::CanonicalDigestBuilder;
@@ -8,6 +11,7 @@ use crate::divergent_universe::{
     DivergentUniverseRuntimeFactory,
     battle_room::{BattleRoomError, CompiledBattleRoom},
     domain_choices::set_domain,
+    domain_deck::DomainDeck,
     occurrence_room::{BoundOccurrenceRoom, CompiledOccurrenceRoom},
     state::BATTLE_DOMAIN_SLOT,
     tawot_room::{BoundTawotRoom, CompiledTawotRoom},
@@ -29,6 +33,7 @@ pub(in crate::divergent_universe) struct BoundBattleRooms {
     services: Vec<BoundTawotRoom>,
     occurrences: Vec<BoundOccurrenceRoom>,
     definition: Arc<GraphActivityDefinition>,
+    domain_deck: Option<DomainDeck>,
 }
 
 impl DivergentUniverseRuntimeFactory {
@@ -303,6 +308,7 @@ impl DivergentUniverseRuntimeFactory {
             services,
             occurrences,
             definition: Arc::clone(&definition),
+            domain_deck: None,
         }));
         base.definition = definition;
         base.room_policy =

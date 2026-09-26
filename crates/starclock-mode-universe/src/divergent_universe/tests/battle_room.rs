@@ -38,6 +38,8 @@ use starclock_data::{
 
 #[path = "battle_room_occurrences.rs"]
 mod occurrences;
+#[path = "position_domain_deck.rs"]
+mod position_deck;
 #[path = "battle_room_rewards.rs"]
 mod rewards;
 #[path = "battle_room_services.rs"]

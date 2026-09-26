@@ -66,6 +66,12 @@ caller-selected position. Completion and door publication share the reward
 transaction; Leave is separate. Original event/card membership and remaining
 room payloads are not inferred, and the default baseline is unchanged.
 
+An already-bound room profile can attach this complete compiled route through
+`bind_position_domain_route` for [source-hand flow dispatch](divergent-universe-domain-deck.md#source-position-flow-dispatch).
+The existing controller then drives sampled card choices, battles, events and
+services without a test-owned deck executor. This integration does not supply
+the remaining room payloads or replace the default baseline.
+
 Preparation, draw and all physical nodes of a selected room share one logical
 room instance, nested under its actual plane. Internal transitions preserve
 room-bound state, while moving to the next position resets it. Physical Battle
