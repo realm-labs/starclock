@@ -85,6 +85,10 @@ impl DomainRoomContext {
     pub fn exit_edge(&self) -> ActivityEdgeId {
         ActivityEdgeId::new(self.edge_base + 127).expect("compiler checked room namespace")
     }
+
+    pub(super) const fn successor(&self) -> NodeId {
+        self.next
+    }
 }
 
 /// Executable room fragment supplied by the owning content compiler. This can

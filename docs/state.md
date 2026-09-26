@@ -48,6 +48,16 @@ Missing room programs, cross-fragment jumps, deck-slot writes and early successf
 termination reject. These probes do not implement room content or encoded profile
 replay; default gameplay remains the three-battle proxy and production payload
 binding/full-run coverage remain incomplete. No terminal source credit is added.
+An explicitly placed Tawot purchase fragment now executes on these source-position
+graphs through the existing paid service executor. Its immutable compiler can be
+reused across alternatives; allowances and cached offers belong to each logical
+room. Exact graph/program/slot binding, hidden/raw/stale/foreign rejection and
+failed-exit rollback are enforced. Both families' repeated-visit tests execute
+actual Curio purchases while other rooms remain probes with controlled starting
+resources. The service level is an explicit caller input, independent of the
+source preset level: current decks only contain level-one Reforge cards and the
+authored Tawot service covers levels 2–5. Automatic Forge admission, default
+position gameplay and full-run readiness remain false; no terminal coverage is added.
 The reference generators remove the incorrect blanket `RoguePersona` other-mode
 exclusion and retain eleven explicitly reviewed files for row-level accounting.
 The current generated Persona source audit accounts for all 547 rows across

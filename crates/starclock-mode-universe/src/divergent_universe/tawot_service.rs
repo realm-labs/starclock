@@ -32,6 +32,12 @@ const LEAVE: u64 = 2;
 const CANCEL: u64 = 0x7e42_0001;
 const OPEN_LIMIT: u32 = 64;
 
+#[derive(Clone, Copy)]
+pub(super) enum TawotServicePhase {
+    Menu,
+    Cards,
+}
+
 pub(super) fn nodes() -> [NodeId; 3] {
     [node(MENU), node(CARDS), node(ENCOUNTER)]
 }
@@ -45,6 +51,13 @@ pub(super) struct TawotService {
 }
 
 impl TawotService {
+    pub(super) fn definition(&self) -> &TawotServiceDefinition {
+        &self.definition
+    }
+
+    pub(super) const fn open_limit() -> u32 {
+        OPEN_LIMIT
+    }
     pub(super) fn compile(
         factory: &DivergentUniverseRuntimeFactory,
         level: u16,
@@ -196,6 +209,14 @@ impl TawotService {
     }
 
     fn menu(&self) -> Vec<ActivityOperation> {
+        self.menu_program(edge(1), edge(3))
+    }
+
+    pub(super) fn menu_program(
+        &self,
+        open: ActivityEdgeId,
+        leave: ActivityEdgeId,
+    ) -> Vec<ActivityOperation> {
         vec![ActivityOperation::Offer {
             kind: ActivityDecisionKind::Service,
             options: vec![
@@ -212,7 +233,7 @@ impl TawotService {
                         ]
                         .into_boxed_slice(),
                     ),
-                    vec![require_accepted(), ActivityOperation::Traverse(edge(1))],
+                    vec![require_accepted(), ActivityOperation::Traverse(open)],
                 ),
                 option(
                     LEAVE,
@@ -222,7 +243,7 @@ impl TawotService {
                         set(TAWOT_PURCHASES_SLOT, 0),
                         set(TAWOT_OPENS_SLOT, 0),
                         clear_offer(),
-                        ActivityOperation::Traverse(edge(3)),
+                        ActivityOperation::Traverse(leave),
                     ],
                 ),
             ]
@@ -230,6 +251,10 @@ impl TawotService {
         }]
     }
     fn cards(&self) -> Vec<ActivityOperation> {
+        self.cards_program(edge(2))
+    }
+
+    pub(super) fn cards_program(&self, back: ActivityEdgeId) -> Vec<ActivityOperation> {
         let mut options = self
             .states
             .iter()
@@ -246,14 +271,14 @@ impl TawotService {
                         ]
                         .into_boxed_slice(),
                     ),
-                    vec![require_accepted(), ActivityOperation::Traverse(edge(2))],
+                    vec![require_accepted(), ActivityOperation::Traverse(back)],
                 )
             })
             .collect::<Vec<_>>();
         options.push(option(
             CANCEL,
             yes(),
-            vec![require_accepted(), ActivityOperation::Traverse(edge(2))],
+            vec![require_accepted(), ActivityOperation::Traverse(back)],
         ));
         vec![ActivityOperation::Offer {
             kind: ActivityDecisionKind::Reward,

@@ -80,6 +80,48 @@ establish stronger evidence.
 
 ## Execution integration and remaining boundaries
 
+The factory also exposes `tawot_room_compiler(service_level)` and
+`compile_tawot_room(context, service_level)` for explicit placement in the current
+[position graph](divergent-universe-domain-layout.md). The reusable compiler
+shares only immutable service definitions; each graph fragment has its own
+source-position namespace and logical room instance. Its accepted menu/card
+commands use the same payment, sampling, replacement and acquisition executor
+as the existing initial-checkpoint service, not a second service state machine.
+There is no implicit battle after leaving this fragment: it continues to the
+next exact source position supplied by the route compiler.
+
+This API does **not** infer original Forge admission. All nine current authored
+decks contain level-one Reforge cards, whereas the existing Tawot policy only
+covers service levels 2–5. The required caller-selected service level remains
+independent of the preset's level; no card is upgraded, relabeled or silently
+given level-two eligibility. Automatic level-one Forge content and the public
+baseline's production position binding remain incomplete. The factory rejects
+service levels without authored definitions.
+
+The owning profile replaces its four service declarations with the fragment's
+exact declarations: purchases (62), cached offer (63) and opening budget (65)
+bind to the logical room, while the acceptance gate (64) resets on physical node
+entry. Internal menu/card loops preserve counters and cache; another room in the
+same plane starts a separate allowance. Initialization and accepted exit both
+clear service-local state. The fragment reserves 64 openings and a final Leave
+path through bounded shared graph nodes and edges.
+
+`CompiledTawotRoom::bind` validates exact programs, nodes, internal edges,
+successful continuation, logical paths, slot declarations and absence of added
+room-offer policies. `BoundTawotRoom` accepts only offered IDs from that immutable
+whole graph; it also checks separately reconstructed definitions structurally.
+Accepted commands return their shared transaction events. Hidden/raw/stale/foreign
+selections and downstream exit-initialization failures preserve authoritative
+state, cached offers, scopes, events and RNG.
+
+Position-graph tests execute actual paid purchases, cancellation, candidate
+ownership and independent repeated visits for both run families and all four
+authored service policies. Other rooms in these tests are explicit route probes;
+starting fragments are controlled resource fixtures. Their successful test
+terminals are not original room gameplay, encoded profile replay, automatic NPC
+membership or complete-run release evidence. No additional source obligation is
+terminalized by this composition.
+
 Shared graph transitions are `checkpoint → menu ⇄ cards`, followed by
 `menu → encounter → real battle`. The checkpoint retains its occurrence
 grant/finish/door ordering. The extra encounter node resolves the existing first

@@ -53,6 +53,7 @@ mod service_adventure_runtime;
 mod snapshot;
 mod source_deck_selection;
 mod state;
+pub mod tawot_room;
 mod tawot_service;
 mod titan_runtime;
 mod vertical_slice;

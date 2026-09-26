@@ -1,5 +1,8 @@
 //! Visible menu/selection commands preserve service state through shared graph loops.
-use super::{BUY, CANCEL, CARDS, LEAVE, MENU, OPEN_LIMIT, TawotService, clear_offer, invalid, set};
+use super::{
+    BUY, CANCEL, CARDS, LEAVE, MENU, OPEN_LIMIT, TawotService, TawotServicePhase, clear_offer,
+    invalid, set,
+};
 use crate::divergent_universe::{
     DivergentUniverseFlowInstance,
     state::{
@@ -97,9 +100,24 @@ impl TawotService {
         selected: u64,
         rng: &mut ActivityRngStreams,
     ) -> Result<Vec<ActivityOperation>, GraphActivityCommandError> {
-        match (view.current_node().get(), selected) {
-            (MENU, LEAVE) | (CARDS, CANCEL) => Ok(Vec::new()),
-            (MENU, BUY) => {
+        let phase = match view.current_node().get() {
+            MENU => TawotServicePhase::Menu,
+            CARDS => TawotServicePhase::Cards,
+            _ => return Err(invalid()),
+        };
+        self.generate_for_phase(view, selected, rng, phase)
+    }
+
+    pub(in crate::divergent_universe) fn generate_for_phase(
+        &self,
+        view: &ActivityPlayerView,
+        selected: u64,
+        rng: &mut ActivityRngStreams,
+        phase: TawotServicePhase,
+    ) -> Result<Vec<ActivityOperation>, GraphActivityCommandError> {
+        match (phase, selected) {
+            (TawotServicePhase::Menu, LEAVE) | (TawotServicePhase::Cards, CANCEL) => Ok(Vec::new()),
+            (TawotServicePhase::Menu, BUY) => {
                 self.require_funds(view)?;
                 let count = integer(view, TAWOT_PURCHASES_SLOT)?;
                 let opens = integer(view, TAWOT_OPENS_SLOT)?;
@@ -151,7 +169,7 @@ impl TawotService {
                 }
                 Ok(operations)
             }
-            (CARDS, selected) => {
+            (TawotServicePhase::Cards, selected) => {
                 self.require_funds(view)?;
                 if !offer(view)?.contains(&selected) {
                     return Err(invalid());

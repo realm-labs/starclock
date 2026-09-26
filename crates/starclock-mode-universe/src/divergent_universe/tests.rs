@@ -97,6 +97,8 @@ mod sage_victory;
 #[path = "tests/source_deck_selection.rs"]
 mod source_deck_selection;
 mod tawot_replay;
+#[path = "tests/tawot_room.rs"]
+mod tawot_room;
 #[path = "tests/tawot_service.rs"]
 mod tawot_service;
 #[path = "tests/tawot_victory.rs"]
