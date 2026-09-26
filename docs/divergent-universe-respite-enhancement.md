@@ -6,7 +6,8 @@
 only at an exact current fixed Respite context. It checks the source layout,
 area/layer/position join and selected Workbench's released `BuffEnhance`
 membership. An altered context, unknown Workbench or transformation-only
-Workbench rejects. Other Respite services remain incomplete.
+Workbench rejects. An [optional offered overwrite](divergent-universe-respite-reforge.md)
+can now share this room; other Respite services remain incomplete.
 
 The source identifies Respite as a non-levelable room offering Equation reset,
 Blessing reset, enhancement and purchase. The Workbench function identifies
@@ -16,7 +17,9 @@ No automatic HP, Energy, technique-point recovery or revival is inferred.
 
 The compiler uses the existing immutable production catalogs, shared Activity
 offers and typed operations. It introduces no mode state machine, RNG stream,
-handler, slot, content identity or Excel reader. The selected Workbench and
+handler, global slot, content identity or Excel reader. Optional overwrite adds
+four caller-owned declarations through the shared logical/physical scopes.
+The selected Workbench and
 numeric policy are explicit host configuration inputs to the existing
 accepted-price boundary, not new factual rows or original selector evidence.
 Production static price/placement authoring and default-profile admission

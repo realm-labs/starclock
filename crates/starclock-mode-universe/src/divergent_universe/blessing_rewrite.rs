@@ -1,12 +1,15 @@
 //! Accepted identity-set rewrites with service payment in the same transaction.
 
-use starclock_activity::{ActivityOperation, ActivityStateHash, GraphActivity};
+use starclock_activity::{
+    ActivityOperation, ActivityPlayerView, ActivityRngStreams, ActivityStateHash, GraphActivity,
+    GraphActivityCommandError, GraphActivityRuntimeError,
+};
 
 use super::{
     ACCEPTED_REPLACE_MANY_PROGRAM, ACCEPTED_REWRITE_PATH_MANY_PROGRAM, BlessingState,
     DivergentUniverseAcceptedBlessingRewrite, DivergentUniverseBlessingCommandResolution,
     DivergentUniverseBlessingRuntime, DivergentUniverseBlessingRuntimeError,
-    DivergentUniverseBlessingServiceRewriteKind, validate_hash,
+    DivergentUniverseBlessingServiceRewriteKind, program_id, validate_hash,
 };
 use crate::divergent_universe::equation_progress::expansion::ExpansionOfferConsumption;
 use crate::divergent_universe::state::BLESSINGS_SLOT;
@@ -20,14 +23,50 @@ impl DivergentUniverseBlessingRuntime {
         expected: ActivityStateHash,
         kind: DivergentUniverseBlessingServiceRewriteKind,
         rewrites: &[DivergentUniverseAcceptedBlessingRewrite],
-        mut service_operations: Vec<ActivityOperation>,
+        service_operations: Vec<ActivityOperation>,
     ) -> Result<DivergentUniverseBlessingCommandResolution, DivergentUniverseBlessingRuntimeError>
     {
         validate_hash(activity, expected)?;
-        self.validate_clean_progress(activity)?;
-        if self.offer_observation(activity)?.is_some() {
-            return Err(DivergentUniverseBlessingRuntimeError::OfferAlreadyActive);
-        }
+        let view = activity.player_view();
+        let raw = match kind {
+            DivergentUniverseBlessingServiceRewriteKind::Replace => ACCEPTED_REPLACE_MANY_PROGRAM,
+            DivergentUniverseBlessingServiceRewriteKind::RewritePath => {
+                ACCEPTED_REWRITE_PATH_MANY_PROGRAM
+            }
+        };
+        let mut generated_error = None;
+        let result = activity
+            .apply_generated_boundary(expected, program_id(raw), |rng| {
+                self.rewrite_operations(&view, rewrites, service_operations, rng)
+                    .map(|operations| (operations, ()))
+                    .map_err(|error| {
+                        generated_error = Some(error);
+                        GraphActivityCommandError::Runtime(
+                            GraphActivityRuntimeError::InvalidBoundaryProgram,
+                        )
+                    })
+            })
+            .map_err(|error| {
+                generated_error.unwrap_or(DivergentUniverseBlessingRuntimeError::Activity(error))
+            })?;
+        Ok(DivergentUniverseBlessingCommandResolution {
+            owned: self.owned(activity)?,
+            events: result.events().into(),
+            state_hash: result.state_hash(),
+        })
+    }
+
+    /// State-only plan for the same ownership transition inside an offered
+    /// command transaction; expansion draws and downstream traversal share RNG
+    /// rollback with payment. The owning executor validates candidate admission.
+    pub(in crate::divergent_universe) fn rewrite_operations(
+        &self,
+        view: &ActivityPlayerView,
+        rewrites: &[DivergentUniverseAcceptedBlessingRewrite],
+        mut service_operations: Vec<ActivityOperation>,
+        rng: &mut ActivityRngStreams,
+    ) -> Result<Vec<ActivityOperation>, DivergentUniverseBlessingRuntimeError> {
+        self.reward_owned(view)?;
         if rewrites.is_empty() {
             return Err(DivergentUniverseBlessingRuntimeError::NoAcceptedRewrite);
         }
@@ -52,7 +91,7 @@ impl DivergentUniverseBlessingRuntime {
         {
             return Err(DivergentUniverseBlessingRuntimeError::InvalidRewriteSet);
         }
-        let state = BlessingState::read(activity)?;
+        let state = BlessingState::read_view(view)?;
         let mut owned = state.owned.to_vec();
         for (removed, _) in &compiled {
             let position = owned
@@ -73,25 +112,24 @@ impl DivergentUniverseBlessingRuntime {
         }];
         operations.extend(
             self.progress
-                .refresh_operations_for_inputs(&activity.player_view(), &state.equations, &owned)
+                .refresh_operations_for_inputs(view, &state.equations, &owned)
                 .map_err(DivergentUniverseBlessingRuntimeError::Progress)?,
         );
         operations.append(&mut service_operations);
-        self.apply_with_expansion(
-            activity,
-            expected,
-            match kind {
-                DivergentUniverseBlessingServiceRewriteKind::Replace => {
-                    ACCEPTED_REPLACE_MANY_PROGRAM
-                }
-                DivergentUniverseBlessingServiceRewriteKind::RewritePath => {
-                    ACCEPTED_REWRITE_PATH_MANY_PROGRAM
-                }
-            },
-            operations,
-            &owned,
-            ExpansionOfferConsumption::None,
-        )
+        operations.extend(
+            self.expansion
+                .generate(
+                    view,
+                    &state.equations,
+                    &owned,
+                    ExpansionOfferConsumption::None,
+                    rng,
+                )
+                .map_err(DivergentUniverseBlessingRuntimeError::Activity)?
+                .finish(view)
+                .map_err(DivergentUniverseBlessingRuntimeError::Activity)?,
+        );
+        Ok(operations)
     }
 }
 

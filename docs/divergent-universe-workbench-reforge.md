@@ -19,8 +19,9 @@ Payment is not a second transaction after inventory mutation.
 This is not an untrusted player-command interface. The accepted pair comes
 from an owning executor, not a hidden original selector. It does not publish
 or sample original three-candidate offers, admit an NPC to a source room, or
-authorize arbitrary caller inventory changes. The fixed Respite menu currently
-exposes enhancement only and does not call this API.
+authorize arbitrary caller inventory changes. Fixed Respite can now add an
+[optional policy-backed offered overwrite](divergent-universe-respite-reforge.md)
+using the same state-only plan; this accepted API itself does not generate menus.
 
 ## Explicit replaceable price policy
 
@@ -92,6 +93,6 @@ Equation exercises real expansion and Curio rewards; malformed expansion
 charges reject twice without paying, consuming allowance or RNG.
 
 Other transformations remain fail-closed. Original NPC admission, candidate
-offers/weights, exact prices, modifiers, public room/controller dispatch and
+offers/weights, exact prices, modifiers, default public room/controller topology and
 encoded profile replay are incomplete. No source/mechanic obligation is
 terminalized by this accepted-settlement boundary.

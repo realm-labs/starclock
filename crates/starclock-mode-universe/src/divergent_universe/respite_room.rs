@@ -1,7 +1,12 @@
 //! Optional Heat-funded enhancement at an explicitly admitted fixed Respite.
 //! Prices, budget and Workbench admission are caller-owned project policy,
-//! not source selectors. No automatic healing or other Respite service is added.
+//! not source selectors. Optional overwrite has a separate host policy;
+//! no automatic healing is inferred.
 
+#[path = "respite_reforge.rs"]
+pub mod reforge;
+
+use reforge::ReforgeRoom;
 use std::{iter::once, sync::Arc};
 
 use crate::digest::CanonicalDigestBuilder;
@@ -83,6 +88,7 @@ pub struct CompiledRespiteRoom {
     fragment: DomainRoomProgram,
     entry_program: GraphActivityNodeProgram,
     menus: Box<[NodeId]>,
+    reforge: Option<ReforgeRoom>,
 }
 
 /// A trusted executor for one exact immutable whole definition. No external
@@ -371,6 +377,7 @@ impl RespiteRoomCompiler {
             context: context.clone(),
             entry_program,
             menus,
+            reforge: None,
             fragment: DomainRoomProgram {
                 exit_node: exit,
                 nodes,
@@ -449,6 +456,9 @@ impl CompiledRespiteRoom {
         hash.update(self.context.entry_node().get().to_le_bytes());
         hash.update(self.context.exit_edge().get().to_le_bytes());
         hash.update(self.context.successor().get().to_le_bytes());
+        if let Some(reforge) = &self.reforge {
+            hash.update(reforge.configuration_digest());
+        }
         hash.finalize()
     }
     /// Rejects changed programs, missing lifetime prefixes, bypass entry/exit,
@@ -460,6 +470,14 @@ impl CompiledRespiteRoom {
     ) -> Result<(), RespiteRoomError> {
         let owns = |id| self.fragment.nodes.iter().any(|node| node.id() == id);
         let graph = definition.graph();
+        if self.reforge.as_ref().is_some_and(|reforge| {
+            reforge
+                .slots
+                .iter()
+                .any(|slot| !definition.state_definition().slots().contains(slot))
+        }) {
+            return Err(RespiteRoomError::DefinitionMismatch);
+        }
         if definition.interactions().is_some()
             || self
                 .fragment
@@ -571,8 +589,12 @@ impl BoundRespiteRoom {
                 GraphActivityRuntimeError::InvalidBoundaryProgram,
             ));
         }
-        activity.choose_option_with_generated_prefix(expected, decision, option, |_, _| {
-            Ok((Vec::new(), ()))
+        activity.choose_option_with_generated_prefix(expected, decision, option, |view, rng| {
+            let operations = self.room.reforge.as_ref().map_or_else(
+                || Ok(Vec::new()),
+                |reforge| reforge.generate(view, option, rng),
+            )?;
+            Ok((operations, ()))
         })?;
         Ok(())
     }

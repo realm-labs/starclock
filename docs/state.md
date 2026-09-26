@@ -122,8 +122,18 @@ boundary commits explicit identity replacement, Fragment payment, increasing
 Run-wide function receipts and Equation/expansion rewards together. Positive
 base/increment prices are host-supplied checked project policy. Current function
 membership is validated; original candidate offers, NPC admission, exact
-prices/modifiers and public room dispatch remain incomplete. No terminal source
+prices/modifiers and default public topology remain incomplete. No terminal source
 credit is added.
+Fixed Respite now optionally exposes [offered Blessing overwrite](divergent-universe-respite-reforge.md)
+alongside enhancement: all 414 owned identities have paged input execution,
+and an explicitly selected current closed group's unowned base identities
+supply up to three uniform Reward-stream candidates. Confirmation atomically
+pays, replaces, refreshes Equations and settles expansion rewards; cached
+failure preserves the prior sampling boundary. Four caller-owned scoped slots
+and a 64-confirmation room budget are configuration-bound project policy.
+Ordinary/Cyclical controlled profiles and baseline dispatch complete three
+real proxy battles with fresh reconstruction. Original selector/price/modifier
+parity, default topology and encoded profile replay remain incomplete.
 The reference generators remove the incorrect blanket `RoguePersona` other-mode
 exclusion and retain eleven explicitly reviewed files for row-level accounting.
 The current generated Persona source audit accounts for all 547 rows across

@@ -1,13 +1,17 @@
 //! Source Respite enhancement between real proxy battles, not full room parity.
 
 use super::{SLOTS, base, probe};
+#[path = "respite_reforge.rs"]
+mod reforge;
 use crate::digest::CanonicalDigestBuilder;
 use crate::divergent_universe::{
     DivergentUniverseBaselineFixture, DivergentUniverseBaselinePolicy,
     DivergentUniverseBaselineRunner, DivergentUniverseFlowInstance,
+    DivergentUniverseWorkbenchBlessingReforgePolicy,
     battle_room::BattleRoomSelection,
     domain_route::{CompiledDomainRoute, DomainRoomComposition},
     economy::DivergentUniverseCurrencyKind,
+    respite_room::reforge::RespiteReforgeSlots,
     respite_room::{CompiledRespiteRoom, RespiteEnhancementPolicy, RespiteRoomError},
     state::{
         BLESSING_OFFER_SOURCE_SLOT, BLESSING_OFFERS_SLOT, CURIO_CHARGES_SLOT, CURRENCIES_SLOT,
@@ -23,6 +27,7 @@ use starclock_activity::{
     GraphActivityNodeProgram,
 };
 use starclock_data::{
+    divergent_universe_blessing_catalog::DivergentUniverseBlessingGroupId,
     divergent_universe_catalog::DivergentUniverseRunFamily,
     divergent_universe_curio_catalog::DivergentUniverseCurioStateId,
     divergent_universe_decisions::BattleRewardDomain,
@@ -32,6 +37,12 @@ use starclock_data::{
 use std::sync::Arc;
 
 const LEAVE: u64 = u64::MAX;
+const REFORGE_SLOTS: RespiteReforgeSlots = RespiteReforgeSlots {
+    selected: ActivitySlotId::new(70).unwrap(),
+    offers: ActivitySlotId::new(71).unwrap(),
+    completed: ActivitySlotId::new(72).unwrap(),
+    accepted: ActivitySlotId::new(73).unwrap(),
+};
 struct Profile {
     flow: DivergentUniverseFlowInstance,
     unbound: DivergentUniverseFlowInstance,
@@ -43,6 +54,15 @@ fn compile(
     family: DivergentUniverseRunFamily,
     budget: u64,
     price: u64,
+) -> Profile {
+    compile_config(fixture, family, budget, price, None)
+}
+fn compile_config(
+    fixture: &DivergentUniverseBaselineFixture,
+    family: DivergentUniverseRunFamily,
+    budget: u64,
+    price: u64,
+    reforge_group: Option<&DivergentUniverseBlessingGroupId>,
 ) -> Profile {
     let factory = fixture.factory();
     let base = base(fixture, family);
@@ -77,6 +97,16 @@ fn compile(
                 }
                 DomainRoomComposition::Fixed(FixedDomainKind::Respite) => {
                     let room = respite.compile(context).unwrap();
+                    let room = match reforge_group {
+                        Some(group) => room
+                            .with_blessing_reforge(
+                                group,
+                                DivergentUniverseWorkbenchBlessingReforgePolicy::new(7, 3).unwrap(),
+                                REFORGE_SLOTS,
+                            )
+                            .unwrap(),
+                        None => room,
+                    };
                     let fragment = room.fragment().clone();
                     rest = Some(room);
                     Ok(fragment)
@@ -88,6 +118,7 @@ fn compile(
     let respite = rest.unwrap();
     let mut slots = base.definition().state_definition().slots().to_vec();
     slots.extend(route.deck.slot_definitions().unwrap());
+    slots.extend_from_slice(respite.slot_definitions());
     let mut owner = CanonicalDigestBuilder::new();
     owner
         .update(b"du.test.respite.three-boss-proxies.first-deck.width-three.other-payloads-probes");

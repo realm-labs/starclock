@@ -1,7 +1,7 @@
 //! Workbench transformations and Curse Chest operations with explicit policy boundaries.
 
 #[path = "workbench_reforge.rs"]
-pub mod reforge;
+pub(super) mod reforge;
 
 use std::sync::Arc;
 
@@ -220,6 +220,31 @@ impl DivergentUniverseRuntimeFactory {
 }
 
 impl DivergentUniverseWorkbenchCurseRuntime {
+    pub(in crate::divergent_universe) fn reforge_service_keys(
+        &self,
+        id: &DivergentUniverseWorkbenchId,
+    ) -> Result<(u64, u64), DivergentUniverseWorkbenchCurseError> {
+        let workbench = self.workbench(id)?;
+        let function = self
+            .functions
+            .iter()
+            .find(|function| {
+                function.kind == DivergentUniverseWorkbenchFunctionKind::BlessingReforge
+            })
+            .ok_or(DivergentUniverseWorkbenchCurseError::InvalidCatalog)?;
+        if !workbench.functions.contains(&function.id) {
+            return Err(DivergentUniverseWorkbenchCurseError::FunctionUnavailable);
+        }
+        if function.input_policy.as_ref() != "OwnedBlessing"
+            || function.output_policy.as_ref() != "DifferentBlessing"
+            || function.price_formula.as_ref() != "IncreasesWithAcceptedOverwriteCount"
+            || function.price_currency.as_ref() != "UnspecifiedCurrency"
+            || function.price_reset.as_ref() != "Unspecified"
+        {
+            return Err(DivergentUniverseWorkbenchCurseError::InvalidCatalog);
+        }
+        Ok((self.fragment_key, function_receipt_key(function)?))
+    }
     pub(in crate::divergent_universe) fn enhancement_service_keys(
         &self,
         workbench: &DivergentUniverseWorkbenchId,

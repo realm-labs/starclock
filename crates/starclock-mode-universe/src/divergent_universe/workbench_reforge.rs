@@ -1,6 +1,9 @@
 //! Trusted accepted Blessing overwrite; original offer generation remains pending.
 
-use starclock_activity::{ActivityOperation, ActivityStateHash, ActivityValue, GraphActivity};
+use starclock_activity::{
+    ActivityComparison, ActivityCondition, ActivityExpression, ActivityOperation,
+    ActivityStateHash, ActivityValue, GraphActivity,
+};
 use starclock_data::divergent_universe_service_catalog::DivergentUniverseWorkbenchId;
 use std::slice::from_ref;
 
@@ -28,6 +31,44 @@ pub struct DivergentUniverseWorkbenchBlessingReforgePolicy {
 }
 
 impl DivergentUniverseWorkbenchBlessingReforgePolicy {
+    pub(in crate::divergent_universe) fn affordable_condition(
+        &self,
+        fragments: u64,
+        receipt: u64,
+    ) -> ActivityCondition {
+        let count = ActivityExpression::CounterValue {
+            slot: SERVICE_RECEIPTS_SLOT,
+            key: receipt,
+        };
+        let maximum = i64::MAX
+            .checked_sub(self.base_price)
+            .and_then(|value| value.checked_div(self.price_increment))
+            .expect("positive checked policy prices");
+        ActivityCondition::All(
+            vec![
+                ActivityCondition::Compare {
+                    left: count.clone(),
+                    operator: ActivityComparison::LessOrEqual,
+                    right: literal(ActivityValue::BoundedInteger(maximum)),
+                },
+                ActivityCondition::Compare {
+                    left: ActivityExpression::CounterValue {
+                        slot: CURRENCIES_SLOT,
+                        key: fragments,
+                    },
+                    operator: ActivityComparison::GreaterOrEqual,
+                    right: ActivityExpression::Add(
+                        Box::new(literal(ActivityValue::BoundedInteger(self.base_price))),
+                        Box::new(ActivityExpression::Multiply(
+                            Box::new(literal(ActivityValue::BoundedInteger(self.price_increment))),
+                            Box::new(count),
+                        )),
+                    ),
+                },
+            ]
+            .into(),
+        )
+    }
     pub fn new(
         base_price: u64,
         price_increment: u64,
