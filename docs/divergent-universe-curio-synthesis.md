@@ -1,4 +1,4 @@
-# Accepted Workbench Curio synthesis
+# Workbench Curio synthesis settlement and candidate policy
 
 ## Current executable boundary
 
@@ -9,7 +9,7 @@ The active Workbench must contain released function 4: 106, 107 or 111.
 Workbench membership is not proof of room/NPC placement.
 
 The request canonically orders two distinct input state IDs and one different
-output. Both inputs must be current active holdings with identical nonnegative
+output. Both inputs must be current active holdings of distinct owners with identical nonnegative
 quality. The output must have an ordinary current owner, not an evolution-only
 alias, and satisfy the function's same-or-higher-quality constraint. Any current
 owner remains excluded, including the two consumed owners and their other mode
@@ -71,6 +71,54 @@ service boundary over existing Sora definitions. Static selector/limit promotion
 still requires provenance-bearing Excel/openpyxl/Sora authoring. Reference
 `UnspecifiedInputCount` and absent candidates are not silently relabeled exact.
 
+## Immutable candidate compiler
+
+The factory's `curio_synthesis_offers` compiles
+`curio_synthesis::offers::CurioSynthesisOffers` from current production inputs.
+Its read-only `first_inputs`, `second_inputs` and `plan` APIs validate active
+equal-quality holdings without consuming RNG or inventory. Duplicate-owner
+inventories reject, and accepted settlement cannot consume two copies of the
+same identity as its pair. First inputs require another compatible input and a
+nonempty output pool. A plan stores a canonical
+input pair and a bounded, ordered pool; it is not a player command, a cached
+offer or permission to settle a stale view.
+
+Candidate accuracy is
+`VersionedProjectPolicyCurrentOwnersUniformHigherQualityTopTierSameQuality`.
+The explicit policy is:
+
+- Common/Rare inputs admit all strictly higher ordinary qualities; highest
+  quality admits the same quality. Empty pools reject without a lower-quality
+  fallback. The top-tier fallback is not observed original selector parity.
+- Each ordinary current owner contributes its lowest fixed-width state-key
+  eligible base state. Unbound states, negative states and evolution-only aliases
+  are excluded. Catalog membership is not proof of original offer membership.
+- Every current holding excludes its entire owner, including consumed inputs,
+  other mode copies and destroyed/evolved holdings. Multiple copies do not
+  increase an owner's probability or appear as separate outputs.
+- `CurioSynthesisCandidatePlan::sample` uses the shared integer Reward stream,
+  purpose 22564, to sample uniformly without replacement. It returns three
+  candidates, or all remaining owners for pools of one/two. Each sampled owner
+  consumes a draw plus any integer rejection draws; outputs return in canonical
+  state-key order. Observation and empty/invalid plan construction do not draw.
+
+Sampling is a trusted host primitive, not an exposed reroll action. Its owning
+service must authenticate the offered command first, cache the sample and require
+confirmation inside the shared generated-choice transaction; failure restores
+RNG. Settlement must revalidate current holdings. This compiler does not yet
+provide that host, cache, confirmation graph, NPC placement or numeric room cap.
+Its digest binds exact production component/decision inputs, accepted settlement,
+candidate policy and draw purpose. Profiles additionally bind placement and caps.
+
+Original selectors/weights, destroyed-input eligibility, top-tier behavior and
+small-pool behavior remain unavailable. Deterministic owner-uniform sampling
+avoids overweighting duplicate mode copies; lower-quality fallback, refreshing
+held outputs, importing historical weights and treating three candidates as
+three consumed inputs are rejected alternatives. Confidence in parity is absent.
+Replace these fields when released Version 4.4 graphs or reproducible public
+observations recover their actual eligibility, quality mapping and weights. Tests
+below bind the current policy; they are not original-mechanic completion evidence.
+
 ## Released evidence
 
 Pinned released Version 4.4 source:
@@ -113,8 +161,21 @@ Blessing; receipt overflow after inventory/reward operations rejects twice
 without changing bytes/RNG. Clearing the trusted fault permits one settlement.
 Existing single-sacrifice/evolution/acquisition regressions remain intact.
 
-Original candidate sampling/confirmation, numeric attempt limits, room/NPC
-admission, public synthesis menus, default full topology and encoded profile
+Candidate tests use both families and all three input qualities; independently
+reconstructed production definitions produce identical samples and canonical
+state traces. Current fixed-seed vectors bind candidate IDs and draw counts.
+Zero/one/two/three remaining owners exercise explicit depletion behavior.
+Observations are byte/RNG-inert, copies do not overweight owners, destroyed owners
+remain excluded, evolved inputs remain eligible, and sampled output selections
+settle through the existing accepted boundary with its mandatory authored rewards.
+A late receipt overflow after sampling restores bytes/RNG on repeated attempts;
+stale-view plans cannot bypass current settlement eligibility. Trusted test
+inventories and state-only draw fixtures are not a public offer/cache graph.
+Duplicate-owner inventory regressions reject both observation and consuming
+two copies, preserving canonical state on repeated attempts in both families.
+
+Original candidate selector/weights and confirmation, numeric attempt limits,
+room/NPC admission, public synthesis menus, default full topology and encoded profile
 replay remain incomplete. Weighted Curio recasting/equipment are distinct
 pending functions, not covered by this boundary. No terminal source/mechanic
 credit, complete Curio effects or Workbench-family completion is claimed.

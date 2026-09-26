@@ -1,5 +1,8 @@
 //! Trusted function-4 settlement, not original random offers or NPC admission.
 
+#[path = "curio_synthesis_offers.rs"]
+pub mod offers;
+
 use crate::digest::CanonicalDigestBuilder;
 use crate::divergent_universe::{
     DivergentUniverseCurioLifecycleState, DivergentUniverseCurioRuntime,
@@ -60,7 +63,7 @@ pub enum CurioSynthesisAccuracy {
 #[must_use]
 pub fn configuration_digest() -> [u8; 32] {
     let mut hash = CanonicalDigestBuilder::new();
-    hash.update(b"starclock.du.accepted-curio-synthesis.two-active-distinct-inputs.same-or-higher-quality.exclude-current-owners.ordinary-output.no-evolution-only-output.original-view-grants.input-curio-cost.run-function-4-receipt");
+    hash.update(b"starclock.du.accepted-curio-synthesis.two-active-distinct-inputs.distinct-owners.same-or-higher-quality.exclude-current-owners.ordinary-output.no-evolution-only-output.original-view-grants.input-curio-cost.run-function-4-receipt");
     hash.finalize()
 }
 
@@ -108,7 +111,7 @@ impl std::error::Error for CurioSynthesisError {}
 
 impl DivergentUniverseRuntimeFactory {
     /// Settle a trusted selection on an active exact function-4 Workbench.
-    /// Two active current holdings become one different unowned current state
+    /// Two active holdings of distinct owners become one different unowned state
     /// of same/higher quality. Negative Curios and evolution-only outputs reject.
     /// Consume states/charges/activations, acquire with mandatory current rewards,
     /// and increment the independent Run-wide function receipt in one generated
@@ -173,11 +176,32 @@ fn validate_selection(
     view: &ActivityPlayerView,
     selection: &AcceptedCurioSynthesis,
 ) -> Result<(), CurioSynthesisError> {
+    let input_quality = validate_inputs(curios, view, &selection.consumed)?;
+    let output = curios
+        .state(&selection.acquired)
+        .map_err(CurioSynthesisError::Curio)?;
+    if quality(output.category())? < input_quality {
+        return Err(CurioSynthesisError::LowerOutputQuality);
+    }
+    // The inventory planner also rejects missing/evolution-only output identity,
+    // duplicate owners and consumed owners before constructing any reward draws.
+    Ok(())
+}
+
+fn validate_inputs(
+    curios: &DivergentUniverseCurioRuntime,
+    view: &ActivityPlayerView,
+    consumed: &[DivergentUniverseCurioStateId; 2],
+) -> Result<u8, CurioSynthesisError> {
+    if consumed[0] == consumed[1] {
+        return Err(CurioSynthesisError::InvalidSelection);
+    }
     let held = curios
         .owned_from_view(view)
         .map_err(CurioSynthesisError::Curio)?;
     let mut qualities = Vec::new();
-    for id in &selection.consumed {
+    let mut owners = Vec::new();
+    for id in consumed {
         let definition = curios.state(id).map_err(CurioSynthesisError::Curio)?;
         let owned =
             held.iter()
@@ -188,20 +212,16 @@ fn validate_selection(
         if owned.lifecycle() != DivergentUniverseCurioLifecycleState::Active {
             return Err(CurioSynthesisError::InvalidSelection);
         }
+        if owners.contains(owned.curio()) {
+            return Err(CurioSynthesisError::InvalidSelection);
+        }
+        owners.push(owned.curio().clone());
         qualities.push(quality(definition.category())?);
     }
     if qualities[0] != qualities[1] {
         return Err(CurioSynthesisError::DifferentInputQuality);
     }
-    let output = curios
-        .state(&selection.acquired)
-        .map_err(CurioSynthesisError::Curio)?;
-    if quality(output.category())? < qualities[0] {
-        return Err(CurioSynthesisError::LowerOutputQuality);
-    }
-    // The inventory planner also rejects missing/evolution-only output identity,
-    // duplicate owners and consumed owners before constructing any reward draws.
-    Ok(())
+    Ok(qualities[0])
 }
 fn quality(category: DivergentUniverseCurioCategory) -> Result<u8, CurioSynthesisError> {
     match category {

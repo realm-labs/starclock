@@ -173,7 +173,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 146. [Offered fixed Respite Blessing overwrite](divergent-universe-respite-reforge.md) — policy-backed three-candidate selection alongside enhancement, atomic confirmation and bounded controller dispatch.
 147. [Accepted Workbench Equation overwrite](divergent-universe-workbench-equation-reforge.md) — equal-quality identity replacement, independent escalating price policy and atomic acquisition/expansion rewards.
 148. [Offered fixed Respite Equation overwrite](divergent-universe-respite-equation-reforge.md) — bounded same-quality candidate menus, atomic confirmation and composition with enhancement/Blessing overwrite.
-149. [Accepted Workbench Curio synthesis](divergent-universe-curio-synthesis.md) — two-input consumption, same/higher-quality output and atomic mandatory acquisition rewards without an invented cash fee.
+149. [Workbench Curio synthesis](divergent-universe-curio-synthesis.md) — atomic two-input settlement and explicit owner-unique uniform candidate policy; public cached menus remain pending.
 
 ## Delivery boundary
 

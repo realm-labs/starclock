@@ -165,7 +165,14 @@ consumption, and late reward/receipt failure restores exact bytes/RNG.
 Both families, all three capable Workbenches and allowed quality shapes use
 fresh reconstruction; ordinary nonnegative mode-copy inputs have execution
 fixtures. Active-only admission and original-view reward timing are explicit
-policy. Original three-candidate menus, pools/weights, NPC admission and
+policy. An immutable candidate compiler now filters compatible active input
+pairs and samples up to three owner-unique current ordinary outputs uniformly
+using the shared Reward stream. Higher-quality pools, same-quality top-tier
+fallback, canonical representative state and small-pool behavior are explicit
+policy; observation is RNG-inert and late sampling failure rolls back. Fixed-seed
+vectors and fresh reconstruction bind this policy, not original selector parity.
+Duplicate-owner inventories cannot produce menus or supply two consumed copies.
+Public cached menus/confirmation, original pools/weights, NPC admission and
 numeric attempt caps remain pending. No terminal source/mechanic credit is added.
 The reference generators remove the incorrect blanket `RoguePersona` other-mode
 exclusion and retain eleven explicitly reviewed files for row-level accounting.

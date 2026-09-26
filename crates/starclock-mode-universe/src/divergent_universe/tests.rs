@@ -12,6 +12,8 @@ include!("tests/permanent_progression_runtime.rs");
 include!("tests/workbench_curse_runtime.rs");
 #[path = "tests/curio_synthesis.rs"]
 mod curio_synthesis;
+#[path = "tests/curio_synthesis_offers.rs"]
+mod curio_synthesis_offers;
 #[path = "tests/workbench_equation_reforge.rs"]
 mod workbench_equation_reforge;
 #[path = "tests/workbench_reforge.rs"]
