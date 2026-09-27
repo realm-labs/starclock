@@ -2,6 +2,8 @@ use std::sync::Arc;
 
 #[path = "generated_choice.rs"]
 mod generated_choice;
+#[path = "ordinary_choice_advance.rs"]
+mod ordinary_choice;
 
 use starclock_activity::{
     ActivityCondition, ActivityConfigDigest, ActivityDecisionKind, ActivityDefinitionDigest,

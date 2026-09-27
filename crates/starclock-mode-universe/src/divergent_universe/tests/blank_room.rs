@@ -446,6 +446,17 @@ fn blank_room_late_exit_error_preserves_completed_room_offer_bytes_and_rng() {
         assert_eq!(activity.state_hash(), hash);
         assert_eq!(activity.debug_view(), debug);
         assert!(bound.offered(&activity));
+        // Raw authored Leave now has the same returned-error atomicity as the
+        // authenticated generated-choice capability; it cannot lose the offer.
+        assert!(
+            activity
+                .choose_option(hash, decision, ActivityOptionId::new(LEAVE_BLANK).unwrap())
+                .is_err()
+        );
+        assert_eq!(activity.canonical_state_bytes(), bytes);
+        assert_eq!(activity.state_hash(), hash);
+        assert_eq!(activity.debug_view(), debug);
+        assert!(bound.offered(&activity));
     }
 }
 

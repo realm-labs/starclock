@@ -491,6 +491,11 @@ impl GraphActivity {
         )
     }
 
+    /// Applies the authored selection prefix and selected option, then advances
+    /// automatic nodes in one transaction. Every returned error restores the
+    /// original authoritative state, pending offer and RNG. Accepted option or
+    /// downstream faults still commit their documented `Faulted` state/events.
+    /// External results require their separate immutable interaction binding.
     pub fn choose_option(
         &mut self,
         expected_state_hash: ActivityStateHash,
@@ -524,14 +529,26 @@ impl GraphActivity {
             .definition
             .random_offer(self.state.current_node())
             .map_or(&[][..], |policy| policy.selection_prefix.as_ref());
-        let mut events = committed(self.state.apply_option_with_prefix(
+        let mut working_state = self.state.transaction_copy();
+        let mut events = committed(working_state.apply_option_with_prefix(
             option,
             prefix,
             cause,
             &self.definition.graph,
         ))?;
-        events.extend(self.pump().map_err(GraphActivityCommandError::Runtime)?);
-        Ok(events.into_boxed_slice())
+        let original_state = replace(&mut self.state, working_state);
+        let original_rng = self.rng.transaction_copy();
+        match self.pump() {
+            Ok(advanced) => {
+                events.extend(advanced);
+                Ok(events.into_boxed_slice())
+            }
+            Err(error) => {
+                self.state = original_state;
+                self.rng = original_rng;
+                Err(GraphActivityCommandError::Runtime(error))
+            }
+        }
     }
 
     /// Accepts an externally resolved, non-spatial interaction outcome through

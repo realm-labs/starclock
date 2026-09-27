@@ -38,6 +38,14 @@ binds to the logical room and survives its choice, encounter, battle and reward
 nodes, while clearing at room exit/reentry. Shared tests cover parent changes,
 stable reset events, declaration/hash validation and downstream rollback;
 the public three-battle baseline still does not execute the current position graph.
+Ordinary shared Activity choices now include automatic graph advancement in
+their transaction. Returned errors restore the original option, authored
+selection prefix, node/section transitions, visits, events and checkpoint RNG.
+Fresh reconstruction and repeated rejection cover failed requirements,
+ambiguous checkpoints and empty filtered offers. Accepted option/downstream
+`Faulted` semantics remain unchanged. DU's actual fixed Blank Leave also tests
+this raw-command rollback alongside its authenticated capability; this is a
+shared runtime invariant, not additional terminal room/full-run coverage.
 The shared registered-external-result command now includes automatic graph
 advancement in its transaction. Returned errors after a handler and random
 checkpoint restore exact state, both RNG streams, visits and the original

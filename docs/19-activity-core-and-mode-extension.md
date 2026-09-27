@@ -291,6 +291,22 @@ revision and digest are authoritative inputs.
 
 Do not add a new core node kind for one event until composition plus a registered handler has proven insufficient. Do not add `if mode_id == ...` to `starclock-activity`.
 
+### Ordinary option transactions
+
+`GraphActivity::choose_option` applies the authored selection prefix, consumes
+the selected option and advances automatic graph work in one commit boundary.
+Every returned error restores exact authoritative state and RNG, including the
+original pending offer, command sequence, visits, node/section transitions and
+subsequent checkpoint draws. No partial events escape. Stale, wrong-decision,
+unknown-option and rejected-requirement errors retain their existing types.
+External outcomes still require the separate immutable interaction binding.
+
+An accepted option or downstream deterministic fault is not a rejected command:
+ordinary choices retain their existing ordered `Faulted` terminal/events. The
+generated-prefix executor below deliberately has its stricter fault rollback
+policy. Adding returned-error atomicity does not change either fault contract,
+successful option causes, RNG order or current canonical encoding.
+
 ### Registered external result transactions
 
 `GraphActivity::submit_external_outcome` accepts only a currently offered typed
