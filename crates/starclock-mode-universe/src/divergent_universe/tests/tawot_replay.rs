@@ -136,7 +136,24 @@ fn tawot_replay_rejects_missing_malformed_or_changed_entry_before_player_actions
         .iter()
         .map(|record| (record.kind(), record.payload().to_vec()))
         .collect::<Vec<_>>();
-    for mutation in 0..12 {
+    // Locate fields from the two length-prefixed identities. The mandatory
+    // talent list now follows the service/selection fields; these are not tail
+    // offsets and malformed tests must corrupt the intended field.
+    let entry_payload = &original[0].1;
+    let area_size =
+        usize::try_from(u32::from_le_bytes(entry_payload[3..7].try_into().unwrap())).unwrap();
+    let difficulty_length = 7 + area_size;
+    let difficulty_size = usize::try_from(u32::from_le_bytes(
+        entry_payload[difficulty_length..difficulty_length + 4]
+            .try_into()
+            .unwrap(),
+    ))
+    .unwrap();
+    let service = difficulty_length + 4 + difficulty_size;
+    let selection = service + 2;
+    let talent_count = selection + 1;
+    assert_eq!(&entry_payload[talent_count..], &[0, 0]);
+    for mutation in 0..16 {
         let mut changed = original.clone();
         let payload = &mut changed[0].1;
         let size = payload.len();
@@ -147,14 +164,18 @@ fn tawot_replay_rejects_missing_malformed_or_changed_entry_before_player_actions
             3 => payload[3..7].copy_from_slice(&0_u32.to_le_bytes()),
             4 => payload[3..7].copy_from_slice(&u32::MAX.to_le_bytes()),
             5 => payload[7] = 255,
-            6 => payload[size - 3..size - 1].copy_from_slice(&1_u16.to_le_bytes()),
-            7 => payload[size - 3..size - 1].copy_from_slice(&6_u16.to_le_bytes()),
+            6 => payload[service..service + 2].copy_from_slice(&1_u16.to_le_bytes()),
+            7 => payload[service..service + 2].copy_from_slice(&6_u16.to_le_bytes()),
             8 => {
                 changed.remove(0);
             }
             9 => changed[0].0 = RecordKind::ExpectedActivityState,
-            10 => payload[size - 1] = 2,
-            _ => payload.clear(),
+            10 => payload[selection] = 2,
+            11 => payload.clear(),
+            12 => payload[talent_count..].copy_from_slice(&37_u16.to_le_bytes()),
+            13 => payload[talent_count..].copy_from_slice(&u16::MAX.to_le_bytes()),
+            14 => payload[talent_count..].copy_from_slice(&1_u16.to_le_bytes()),
+            _ => payload.truncate(talent_count),
         }
         let error = verify_divergent_universe_replay(&encode(decoded.header(), &changed), &fixture)
             .unwrap_err();
@@ -167,15 +188,14 @@ fn tawot_replay_rejects_missing_malformed_or_changed_entry_before_player_actions
     // Well-formed but different configurations cannot reuse the old identities.
     for level in [0_u16, 3, 4, 5] {
         let mut changed = original.clone();
-        let size = changed[0].1.len();
-        changed[0].1[size - 3..size - 1].copy_from_slice(&level.to_le_bytes());
+        changed[0].1[service..service + 2].copy_from_slice(&level.to_le_bytes());
         assert!(
             verify_divergent_universe_replay(&encode(decoded.header(), &changed), &fixture)
                 .is_err()
         );
     }
     let mut changed = original.clone();
-    *changed[0].1.last_mut().unwrap() = 1;
+    changed[0].1[selection] = 1;
     assert!(
         verify_divergent_universe_replay(&encode(decoded.header(), &changed), &fixture).is_err()
     );

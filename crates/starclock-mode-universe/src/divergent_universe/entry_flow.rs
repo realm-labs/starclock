@@ -49,11 +49,14 @@ use super::progression::{
 use super::source_deck_selection::SourceDeckSelection;
 use super::state::{EntryStateValues, compile_state};
 use super::tawot_service::TawotService;
+use super::titan_entry::{ENTRY_POLICY as TITAN_ENTRY_POLICY, TitanEntry};
+use super::titan_runtime::DivergentUniverseTitanRuntimeError;
 use super::vertical_slice::DivergentUniverseVerticalSliceError;
 use super::{
     economy::{DivergentUniverseEconomyError, DivergentUniverseEconomyProjection},
     snapshot::{DivergentUniverseInputSnapshot, DivergentUniverseSnapshotError},
 };
+use starclock_data::divergent_universe_titan_catalog::DivergentUniverseTitanTalentId;
 
 /// Explicit policy for the released data's missing layer-to-room selector.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -74,6 +77,7 @@ pub struct DivergentUniverseEntry {
     participants: Arc<ParticipantLock>,
     input_snapshot: DivergentUniverseInputSnapshot,
     permanent_unlocks: Box<[u64]>,
+    titan_talents: Box<[DivergentUniverseTitanTalentId]>,
     requested_module: Option<starclock_data::divergent_universe_catalog::DivergentUniverseModuleId>,
     astronomical: Option<DivergentUniverseAstronomicalEntry>,
     cyclical_refresh: Option<DivergentUniverseCyclicalRefresh>,
@@ -88,6 +92,24 @@ pub struct DivergentUniverseEntry {
 }
 
 impl DivergentUniverseEntry {
+    /// Projects caller-owned permanent Titan talents into this run. Known IDs
+    /// and the complete directed prerequisite closure are checked at factory
+    /// compilation. This does not debit account currency or execute unsupported
+    /// talent effects. Duplicate or oversized inputs reject without mutation.
+    /// The supported starting-fragment gain executes once before offers under
+    /// an explicit headless composition policy, not total-entry-currency parity.
+    pub fn with_titan_talents(
+        mut self,
+        mut talents: Vec<DivergentUniverseTitanTalentId>,
+    ) -> Result<Self, DivergentUniverseEntryFlowError> {
+        talents.sort_unstable();
+        if talents.len() > 36 || talents.windows(2).any(|pair| pair[0] == pair[1]) {
+            return Err(DivergentUniverseEntryFlowError::InvalidTitanTalents);
+        }
+        self.titan_talents = talents.into_boxed_slice();
+        Ok(self)
+    }
+
     /// Prepends an explicit choice among the authored source decks. This is a
     /// headless policy option, not original mask-offer eligibility or effects.
     #[must_use]
@@ -124,6 +146,7 @@ impl DivergentUniverseEntry {
             participants,
             input_snapshot,
             permanent_unlocks: permanent_unlocks.into_boxed_slice(),
+            titan_talents: Box::new([]),
             requested_module: None,
             astronomical: None,
             cyclical_refresh: None,
@@ -361,6 +384,7 @@ impl DivergentUniverseRuntimeFactory {
             .source_deck_selection
             .then(|| SourceDeckSelection::compile(self).map(Arc::new))
             .transpose()?;
+        let titan_entry = TitanEntry::compile(self, &entry.titan_talents)?;
         let additional_slots = source_deck_selection
             .as_ref()
             .map(|selection| selection.slots())
@@ -375,6 +399,7 @@ impl DivergentUniverseRuntimeFactory {
                 difficulty: difficulty_value,
                 first_layer: layer_values[0],
                 permanent_unlocks: &entry.permanent_unlocks,
+                titan_talents: &titan_entry.keys,
                 account_loadout_snapshot: entry.input_snapshot.stable_value(),
                 party_snapshot: super::snapshot::participant_stable_value(&entry.participants),
                 mapping_state: entry.mapping_snapshot.as_ref().map_or_else(
@@ -390,6 +415,7 @@ impl DivergentUniverseRuntimeFactory {
                 entry.layer_battle_route,
                 entry.initial_tawot_service.is_some(),
                 entry.source_deck_selection,
+                titan_entry.has_fragment_grant(),
             )?,
             additional_slots,
         )?;
@@ -476,6 +502,7 @@ impl DivergentUniverseRuntimeFactory {
         if let Some(events) = &evolution_events {
             events.wrap_programs(&mut programs)?;
         }
+        let graph = titan_entry.attach(graph, &mut programs, &economy)?;
         let mut offers = initial_equations
             .as_ref()
             .map(|initial| initial.random_offer(graph_start_node(layer_values.len())?))
@@ -525,6 +552,7 @@ impl DivergentUniverseRuntimeFactory {
             progression: progression.projection,
             economy,
             permanent_unlocks: entry.permanent_unlocks,
+            titan_talents: entry.titan_talents,
             mapping_snapshot: entry.mapping_snapshot,
             room_policy: DivergentUniverseRoomPolicy::LogicalLayerCheckpointNoCandidatePromotion,
             first_ordinary_vertical_slice: entry.first_ordinary_vertical_slice,
@@ -563,6 +591,7 @@ pub struct DivergentUniverseFlowInstance {
     pub(super) progression: DivergentUniverseProgressionProjection,
     economy: DivergentUniverseEconomyProjection,
     pub(super) permanent_unlocks: Box<[u64]>,
+    titan_talents: Box<[DivergentUniverseTitanTalentId]>,
     mapping_snapshot: Option<Arc<super::mapping::DivergentUniverseMappingSnapshot>>,
     pub(super) room_policy: DivergentUniverseRoomPolicy,
     first_ordinary_vertical_slice: bool,
@@ -572,6 +601,12 @@ pub struct DivergentUniverseFlowInstance {
 }
 
 impl DivergentUniverseFlowInstance {
+    /// The immutable accepted entry projection, not later in-run unlocks.
+    #[must_use]
+    pub fn entry_titan_talents(&self) -> &[DivergentUniverseTitanTalentId] {
+        &self.titan_talents
+    }
+
     #[must_use]
     pub const fn run_family(&self) -> DivergentUniverseRunFamily {
         self.run_family
@@ -686,6 +721,12 @@ fn compile_identity(
 fn entry_state_digest(entry: &DivergentUniverseEntry) -> [u8; 32] {
     let mut hash = CanonicalDigestBuilder::new();
     digest_part(&mut hash, b"starclock.divergent-universe.entry-state.v1");
+    if !entry.titan_talents.is_empty() {
+        digest_part(&mut hash, TITAN_ENTRY_POLICY);
+        for talent in &entry.titan_talents {
+            digest_part(&mut hash, talent.as_str().as_bytes());
+        }
+    }
     digest_part(&mut hash, &[u8::from(entry.initial_equation)]);
     digest_part(&mut hash, &[u8::from(entry.source_deck_selection)]);
     digest_part(
@@ -783,6 +824,8 @@ pub enum DivergentUniverseEntryFlowError {
     MissingResidentEntry,
     MissingCyclicalBinding,
     InvalidPermanentUnlocks,
+    InvalidTitanTalents,
+    Titan(DivergentUniverseTitanRuntimeError),
     InvalidActivityDefinition,
     EvolutionProgram(ActivityProgramDefinitionError),
     VerticalSliceSelectionMismatch,

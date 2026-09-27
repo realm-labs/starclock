@@ -63,6 +63,7 @@ mod source_deck_selection;
 mod state;
 pub mod tawot_room;
 mod tawot_service;
+mod titan_entry;
 mod titan_runtime;
 mod vertical_slice;
 mod workbench_curse_runtime;

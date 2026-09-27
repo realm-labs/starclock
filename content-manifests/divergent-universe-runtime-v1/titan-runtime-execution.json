@@ -1,5 +1,5 @@
 {
-  "status": "TitanSelectionDescriptorsEffectsPending",
+  "status": "TitanEntryFragmentsPartialOtherEffectsPending",
   "input_digests": {
     "titan_types": {
       "path": "content-reference/divergent-universe-v1/titan-types.json",
@@ -43,11 +43,11 @@
     },
     "runtime": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/titan_runtime.rs",
-      "sha256": "05d5ec78787e5db7fecae0a547fab94e593a27d449b93845cebf8b795ca1989d"
+      "sha256": "c3b943fa80282a62ba6e4f9a539a9ece046ffee877c3635ee52de3c5e3095703"
     },
     "state": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/state.rs",
-      "sha256": "30e6ecff6d57a3363132431738fa00e9c55e5be8c03d5596c55e8936f78114b8"
+      "sha256": "dcb3c7848a2bc49feed9be10eafa056de3b3a493ba8eaf0d2d9bdab39b5c2f65"
     },
     "tests": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/tests/titan_runtime.rs",
@@ -60,6 +60,26 @@
     "battle_assembly_tests": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/tests/battle_assembly_runtime.rs",
       "sha256": "007a032d7517734fc663becfa2d20289ef15a71a0717a2c9295f829104b3ecac"
+    },
+    "entry": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/titan_entry.rs",
+      "sha256": "c5cd46d43e7b9d27bb7515afdd46e9b87d1e126d1508977354ab550c6459f97b"
+    },
+    "entry_flow": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/entry_flow.rs",
+      "sha256": "eed22994072cf55d1e85483aab8225c281f169eadcf96c6ac06d02691c008d61"
+    },
+    "entry_tests": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/tests/titan_entry.rs",
+      "sha256": "3d45472778bca0da143ad1b8f87b39d4e3cbc70f235052bccf45792bdf6a5423"
+    },
+    "entry_codec": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/baseline_replay_entry.rs",
+      "sha256": "eea51c664aad0841bd56f442054e876f99eb7a7c5bb1ceba36d044bc0bce5a86"
+    },
+    "entry_replay_tests": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/tests/tawot_replay.rs",
+      "sha256": "2ee57694d9285df1b3224f211118a92a00e9e5b697ca9bbf267ce94eda5ed8af"
     }
   },
   "reference_shape": {
@@ -82,13 +102,16 @@
   },
   "current_boundary": {
     "selection_and_unlock_state_commands": "PresentRequiresNativeVerification",
-    "contribution_representation": "SourceDescriptorsOnly",
-    "activity_effect_consumers_implemented": false,
+    "contribution_representation": "SourceDescriptorsWithRunEntryFragmentConsumer",
+    "run_entry_fragment_consumer": "PresentRequiresNativeVerification",
+    "run_entry_fragment_talent": "divergent-universe.titan-talent.12302",
+    "run_entry_fragment_gain": "30",
+    "all_activity_effect_consumers_implemented": false,
     "battle_effect_consumers_implemented": false,
     "public_offer_admission_implemented": false,
     "unsupported_current_battle_assembly": "RejectUnimplementedTitanEffectsBeforeCacheLookup",
     "terminal_coverage_credit": 0,
-    "required_next_work": "Lower and execute the 10 Activity and 110 battle contribution effects; bind public offers and independent production/replay fixtures before terminal coverage."
+    "required_next_work": "Execute the remaining 9 Activity and 110 battle contribution effects, including Day/Night prerequisites; bind public offers and complete independent production/replay fixtures before terminal coverage. Entry reconstruction is not a complete-run replay."
   },
   "pending_assignments": {
     "obligations": 132,
@@ -261,6 +284,41 @@
       "id": "all-talent-descriptors-rejected-at-assembly",
       "file": "crates/starclock-mode-universe/src/divergent_universe/tests/battle_assembly_runtime.rs",
       "test": "titan_talent_descriptors_cannot_silently_enter_current_battles"
+    },
+    {
+      "id": "entry-fragments-are-real-spendable-and-once-per-run",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/titan_entry.rs",
+      "test": "titan_entry_fragments_are_eventful_once_per_run_and_spendable_in_both_families"
+    },
+    {
+      "id": "entry-progression-input-rejection",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/titan_entry.rs",
+      "test": "titan_entry_rejects_duplicates_unknown_ids_and_incomplete_prerequisites"
+    },
+    {
+      "id": "no-retroactive-fragments-after-unlock",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/titan_entry.rs",
+      "test": "titan_entry_late_unlock_does_not_retroactively_grant_starting_fragments"
+    },
+    {
+      "id": "entry-before-optional-offers",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/titan_entry.rs",
+      "test": "titan_entry_grants_before_source_deck_and_equation_offers_without_recredit"
+    },
+    {
+      "id": "bounded-canonical-entry-payload",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/baseline_replay_entry.rs",
+      "test": "titan_entry_payload_requires_bounded_canonical_talent_ids"
+    },
+    {
+      "id": "fresh-production-entry-reconstruction",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/baseline_replay_entry.rs",
+      "test": "titan_entry_payload_reconstructs_fresh_production_entry_state_and_events"
+    },
+    {
+      "id": "encoded-current-entry-rejects-malformed-fields",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/tawot_replay.rs",
+      "test": "tawot_replay_rejects_missing_malformed_or_changed_entry_before_player_actions"
     }
   ],
   "summary": {
@@ -270,6 +328,6 @@
     "contributions": 120,
     "pending_obligations": 132,
     "terminal_coverage_credit": 0,
-    "native_test_targets": 6
+    "native_test_targets": 13
   }
 }

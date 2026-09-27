@@ -544,6 +544,22 @@ impl DivergentUniverseTitanRuntime {
     pub fn talents(&self) -> &[DivergentUniverseTitanTalentRuntime] {
         &self.talents
     }
+
+    pub(super) fn entry_talent_keys(
+        &self,
+        ids: &[DivergentUniverseTitanTalentId],
+    ) -> Result<Box<[u64]>, DivergentUniverseTitanRuntimeError> {
+        let mut keys = ids
+            .iter()
+            .map(|id| self.talent(id).map(|talent| talent.key))
+            .collect::<Result<Vec<_>, _>>()?;
+        keys.sort_unstable();
+        if keys.windows(2).any(|pair| pair[0] == pair[1]) {
+            return Err(DivergentUniverseTitanRuntimeError::InvalidState);
+        }
+        self.validate_owned_talents(&keys)?;
+        Ok(keys.into_boxed_slice())
+    }
     #[must_use]
     pub fn choices(&self) -> &[DivergentUniverseGoldenBloodOffer] {
         &self.choices

@@ -11,13 +11,15 @@ const output = "content-manifests/divergent-universe-runtime-v1/titan-runtime-ex
 const artifact = buildTitanRuntimeExecution();
 
 assert(text(output) === pretty(artifact), "Titan runtime artifact drift");
-assert(artifact.status === "TitanSelectionDescriptorsEffectsPending"
-  && artifact.current_boundary.contribution_representation === "SourceDescriptorsOnly"
-  && !artifact.current_boundary.activity_effect_consumers_implemented
+assert(artifact.status === "TitanEntryFragmentsPartialOtherEffectsPending"
+  && artifact.current_boundary.contribution_representation === "SourceDescriptorsWithRunEntryFragmentConsumer"
+  && artifact.current_boundary.run_entry_fragment_consumer === "PresentRequiresNativeVerification"
+  && artifact.current_boundary.run_entry_fragment_gain === "30"
+  && !artifact.current_boundary.all_activity_effect_consumers_implemented
   && !artifact.current_boundary.battle_effect_consumers_implemented
   && !artifact.current_boundary.public_offer_admission_implemented
   && artifact.current_boundary.terminal_coverage_credit === 0,
-"Titan descriptors must not imply executed effects");
+"partial Titan entry effects must not imply complete runtime execution");
 assert(equal(artifact.summary, {
   titan_types: 12,
   boons: 84,
@@ -25,7 +27,7 @@ assert(equal(artifact.summary, {
   contributions: 120,
   pending_obligations: 132,
   terminal_coverage_credit: 0,
-  native_test_targets: 6,
+  native_test_targets: 13,
 }), "Titan runtime summary drift");
 assert(artifact.pending_assignments.obligation_ids.length === 132
   && new Set(artifact.pending_assignments.obligation_ids).size === 132,

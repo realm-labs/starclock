@@ -84,6 +84,7 @@ pub(super) struct EntryStateValues<'a> {
     pub(super) difficulty: u64,
     pub(super) first_layer: u64,
     pub(super) permanent_unlocks: &'a [u64],
+    pub(super) titan_talents: &'a [u64],
     pub(super) account_loadout_snapshot: u64,
     pub(super) party_snapshot: u64,
     pub(super) mapping_state: Box<[(u64, i64)]>,
@@ -424,7 +425,7 @@ pub(super) fn compile_state(
         )?,
         set_slot_with_limit(
             TITAN_TALENTS_SLOT,
-            Vec::new(),
+            values.titan_talents.to_vec(),
             ActivityScope::Activity,
             SlotCarryPolicy::CarryExact,
             41,

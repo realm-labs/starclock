@@ -25,7 +25,9 @@ test("current descriptors preserve all pending obligations without pass receipts
   assert.equal(artifact.reference_shape.activity_contributions, 10);
   assert.equal(artifact.reference_shape.battle_contributions, 110);
   assert.equal(artifact.reference_shape.total_talent_cost, "2700");
-  assert.equal(artifact.native_test_targets.length, 6);
+  assert.equal(artifact.native_test_targets.length, 13);
+  assert.equal(artifact.current_boundary.run_entry_fragment_gain, "30");
+  assert.equal(artifact.current_boundary.all_activity_effect_consumers_implemented, false);
   for (const forbidden of ["execution_receipt", "capability_probes"])
     assert.equal(Object.hasOwn(artifact, forbidden), false);
   assert.ok(artifact.native_test_targets.every((target) => !Object.hasOwn(target, "result")));
@@ -61,4 +63,11 @@ test("removing the assembly rejection cannot retain a current guard claim", () =
     file.endsWith("battle_assembly_runtime.rs") && !file.includes("/tests/")
       ? read(file).replace("if !contribution.titan().contributions().is_empty()", "if false")
       : read(file) }), /must reject unsupported Titan effect descriptors/u);
+});
+
+test("removing the actual entry currency operation cannot retain its consumer inventory", () => {
+  assert.throws(() => buildTitanRuntimeExecution({ read: (file) =>
+    file.endsWith("/titan_entry.rs") && !file.includes("/tests/")
+      ? read(file).replace("credit_operations(self.fragments)", "credit_operations(0)")
+      : read(file) }), /missing entry fragment/u);
 });

@@ -320,6 +320,7 @@ pub fn verify_divergent_universe_selected_replay(
             difficulty,
             inputs.tawot,
             inputs.source_deck_selection,
+            &inputs.titan_talents,
         )
         .map_err(DivergentUniverseReplayError::Fixture)?;
     let components = fixture

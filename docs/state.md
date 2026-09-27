@@ -23,10 +23,16 @@ current total rather than the old pre-Persona 6,215 subset. The
 [Titan effect boundary](divergent-universe-titan-effects.md) now has a current
 descriptor inventory instead of a generated pass receipt. Its 132 obligations,
 one semantic family/gap and two policy sources remain pending. Selection records
-and exact unlock costs do not execute the 10 Activity and 110 battle contribution
-effects. Current battle assembly rejects selected descriptors before cache lookup
+and exact unlock costs do not execute contribution effects. One of the 10 Activity
+effects now executes: an immutable caller-owned Titan talent projection validates
+the complete prerequisite closure and grants the released +30 starting Cosmic
+Fragments once, through eventful economy operations before offers. Later unlocks
+do not grant it retroactively. Canonical entry payloads bind these IDs; fresh
+production entry reconstruction matches state/events. This does not prove complete
+Titan runs or the original total starting currency. The other 9 Activity and 110
+battle effects remain pending. Current battle assembly still rejects selected descriptors before cache lookup
 without changing state or RNG; native tests cover every Boon and talent in both
-run families. Public Titan offer admission and actual effects remain required.
+run families. Public Titan offer admission and the remaining effects remain required.
 The full release gates remain open.
 
 The current [Persona domain layout](divergent-universe-domain-layout.md) is now

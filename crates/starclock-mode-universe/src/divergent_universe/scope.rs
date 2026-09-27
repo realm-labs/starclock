@@ -9,6 +9,7 @@ use super::battle_route::{LayerBattleAddress, domain_choice_node, layer_entry_no
 use super::entry_flow::DivergentUniverseEntryFlowError;
 use super::source_deck_selection::NODE as SOURCE_DECK_NODE;
 use super::tawot_service::nodes as tawot_service_nodes;
+use super::titan_entry::NODE as TITAN_ENTRY_NODE;
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub enum DivergentUniverseLogicalScopeKind {
@@ -49,6 +50,7 @@ pub(super) fn compile(
     all_layers: bool,
     tawot_service: bool,
     source_deck_selection: bool,
+    titan_entry: bool,
 ) -> Result<LogicalScopeDefinitions, DivergentUniverseEntryFlowError> {
     let maximum_planes = u32::try_from(layer_count)
         .map_err(|_| DivergentUniverseEntryFlowError::InvalidActivityDefinition)?;
@@ -74,6 +76,12 @@ pub(super) fn compile(
         )?,
     ];
     let mut bindings = Vec::with_capacity(layer_count + 1);
+    if titan_entry {
+        bindings.push(binding(
+            TITAN_ENTRY_NODE,
+            vec![address(DivergentUniverseLogicalScopeKind::Run, 1)?],
+        )?);
+    }
     if source_deck_selection {
         bindings.push(binding(
             SOURCE_DECK_NODE,

@@ -26,6 +26,11 @@ const inputs = {
   tests: "crates/starclock-mode-universe/src/divergent_universe/tests/titan_runtime.rs",
   battle_assembly: "crates/starclock-mode-universe/src/divergent_universe/battle_assembly_runtime.rs",
   battle_assembly_tests: "crates/starclock-mode-universe/src/divergent_universe/tests/battle_assembly_runtime.rs",
+  entry: "crates/starclock-mode-universe/src/divergent_universe/titan_entry.rs",
+  entry_flow: "crates/starclock-mode-universe/src/divergent_universe/entry_flow.rs",
+  entry_tests: "crates/starclock-mode-universe/src/divergent_universe/tests/titan_entry.rs",
+  entry_codec: "crates/starclock-mode-universe/src/divergent_universe/baseline_replay_entry.rs",
+  entry_replay_tests: "crates/starclock-mode-universe/src/divergent_universe/tests/tawot_replay.rs",
 };
 
 export function buildTitanRuntimeExecution({ read = text } = {}) {
@@ -115,6 +120,10 @@ export function buildTitanRuntimeExecution({ read = text } = {}) {
       "unlock_talent_accepted", "MissingTalentPrerequisite", "snapshot_digest"],
     state: ["TITAN_TYPE_SLOT", "TITAN_BOONS_SLOT", "TITAN_TALENTS_SLOT",
       "TITAN_TALENT_CURRENCY_SLOT"],
+    entry: ["RunEntry", "starting_cosmic_fragments", "entry_talent_keys",
+      "credit_operations(self.fragments)", "ActivityOperation::Traverse(edge)"],
+    entry_flow: ["with_titan_talents", "titan_entry.attach", "TITAN_ENTRY_POLICY"],
+    entry_codec: ["titan_talents", "count > 36", "pair[0] >= pair[1]"],
   };
   for (const [name, fragments] of Object.entries(sourceChecks)) {
     const source = read(inputs[name]);
@@ -134,6 +143,20 @@ export function buildTitanRuntimeExecution({ read = text } = {}) {
       "titan_boon_descriptors_cannot_silently_enter_current_battles", inputs.battle_assembly_tests),
     target("all-talent-descriptors-rejected-at-assembly",
       "titan_talent_descriptors_cannot_silently_enter_current_battles", inputs.battle_assembly_tests),
+    target("entry-fragments-are-real-spendable-and-once-per-run",
+      "titan_entry_fragments_are_eventful_once_per_run_and_spendable_in_both_families", inputs.entry_tests),
+    target("entry-progression-input-rejection",
+      "titan_entry_rejects_duplicates_unknown_ids_and_incomplete_prerequisites", inputs.entry_tests),
+    target("no-retroactive-fragments-after-unlock",
+      "titan_entry_late_unlock_does_not_retroactively_grant_starting_fragments", inputs.entry_tests),
+    target("entry-before-optional-offers",
+      "titan_entry_grants_before_source_deck_and_equation_offers_without_recredit", inputs.entry_tests),
+    target("bounded-canonical-entry-payload",
+      "titan_entry_payload_requires_bounded_canonical_talent_ids", inputs.entry_codec),
+    target("fresh-production-entry-reconstruction",
+      "titan_entry_payload_reconstructs_fresh_production_entry_state_and_events", inputs.entry_codec),
+    target("encoded-current-entry-rejects-malformed-fields",
+      "tawot_replay_rejects_missing_malformed_or_changed_entry_before_player_actions", inputs.entry_replay_tests),
   ];
   for (const value of targets)
     assert(read(value.file).includes(`fn ${value.test}(`), `missing Titan test target ${value.id}`);
@@ -143,7 +166,7 @@ export function buildTitanRuntimeExecution({ read = text } = {}) {
   "current assembly must reject unsupported Titan effect descriptors");
 
   return {
-    status: "TitanSelectionDescriptorsEffectsPending",
+    status: "TitanEntryFragmentsPartialOtherEffectsPending",
     input_digests: Object.fromEntries(Object.entries(inputs).map(([name, file]) => [
       name, { path: file, sha256: crypto.createHash("sha256").update(read(file)).digest("hex") },
     ])),
@@ -170,13 +193,16 @@ export function buildTitanRuntimeExecution({ read = text } = {}) {
     },
     current_boundary: {
       selection_and_unlock_state_commands: "PresentRequiresNativeVerification",
-      contribution_representation: "SourceDescriptorsOnly",
-      activity_effect_consumers_implemented: false,
+      contribution_representation: "SourceDescriptorsWithRunEntryFragmentConsumer",
+      run_entry_fragment_consumer: "PresentRequiresNativeVerification",
+      run_entry_fragment_talent: "divergent-universe.titan-talent.12302",
+      run_entry_fragment_gain: "30",
+      all_activity_effect_consumers_implemented: false,
       battle_effect_consumers_implemented: false,
       public_offer_admission_implemented: false,
       unsupported_current_battle_assembly: "RejectUnimplementedTitanEffectsBeforeCacheLookup",
       terminal_coverage_credit: 0,
-      required_next_work: "Lower and execute the 10 Activity and 110 battle contribution effects; bind public offers and independent production/replay fixtures before terminal coverage.",
+      required_next_work: "Execute the remaining 9 Activity and 110 battle contribution effects, including Day/Night prerequisites; bind public offers and complete independent production/replay fixtures before terminal coverage. Entry reconstruction is not a complete-run replay.",
     },
     pending_assignments: {
       obligations: dispositions.length,

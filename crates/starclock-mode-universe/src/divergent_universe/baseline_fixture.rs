@@ -20,6 +20,7 @@ use starclock_data::{
         DivergentUniverseDifficultyId, DivergentUniverseRunFamily,
     },
     divergent_universe_mapping_catalog::DivergentUniverseAvatarLocator,
+    divergent_universe_titan_catalog::DivergentUniverseTitanTalentId,
 };
 use starclock_replay::{
     component::{
@@ -156,7 +157,7 @@ impl DivergentUniverseBaselineFixture {
         difficulty: &str,
         tawot: Option<u16>,
     ) -> Result<DivergentUniverseFlowInstance, DivergentUniverseBaselineFixtureError> {
-        self.flow_for_entry_configuration(family, area, difficulty, tawot, false)
+        self.flow_for_entry_configuration(family, area, difficulty, tawot, false, &[])
     }
 
     /// Optional explicit source-deck choice, without original mask-pool claims.
@@ -168,7 +169,7 @@ impl DivergentUniverseBaselineFixture {
             DivergentUniverseRunFamily::Ordinary => ORDINARY_AREA,
             DivergentUniverseRunFamily::Cyclical => CYCLICAL_AREA,
         };
-        self.flow_for_entry_configuration(family, area, DIFFICULTY, None, true)
+        self.flow_for_entry_configuration(family, area, DIFFICULTY, None, true, &[])
     }
 
     pub(super) fn flow_for_entry_configuration(
@@ -178,6 +179,7 @@ impl DivergentUniverseBaselineFixture {
         difficulty: &str,
         tawot: Option<u16>,
         source_deck_selection: bool,
+        titan_talents: &[DivergentUniverseTitanTalentId],
     ) -> Result<DivergentUniverseFlowInstance, DivergentUniverseBaselineFixtureError> {
         let snapshot = DivergentUniverseInputSnapshot::seal(
             DivergentUniverseAccountSnapshotDigest::new([0x22; 32])
@@ -195,6 +197,8 @@ impl DivergentUniverseBaselineFixture {
             snapshot,
             Vec::new(),
         )
+        .map_err(DivergentUniverseBaselineFixtureError::Entry)?
+        .with_titan_talents(titan_talents.to_vec())
         .map_err(DivergentUniverseBaselineFixtureError::Entry)?
         .with_mapping_snapshot(Arc::clone(&self.mapping))
         .with_layer_battle_route()

@@ -8,6 +8,8 @@ include!("tests/equation_blessing_hardening.rs");
 include!("tests/curio_runtime.rs");
 include!("tests/gamble_runtime.rs");
 include!("tests/titan_runtime.rs");
+#[path = "tests/titan_entry.rs"]
+mod titan_entry;
 include!("tests/permanent_progression_runtime.rs");
 include!("tests/workbench_curse_runtime.rs");
 #[path = "tests/curio_synthesis.rs"]
