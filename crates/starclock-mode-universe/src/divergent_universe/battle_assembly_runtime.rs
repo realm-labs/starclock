@@ -181,6 +181,8 @@ impl DivergentUniverseBattleAssemblyRuntime {
     /// Resolves an immutable battle through a bounded scratch cache. Input
     /// validation runs before lookup, and the cache is excluded from Activity
     /// state, RNG, configuration identity and replay authority.
+    /// Selected Titan contributions are rejected until their effects have an
+    /// executable lowering; a contribution digest alone is not an effect.
     pub fn resolve_current_battle(
         &self,
         flow: &DivergentUniverseFlowInstance,
@@ -370,6 +372,12 @@ impl DivergentUniverseBattleAssemblyRuntime {
         {
             return Err(DivergentUniverseBattleAssemblyError::StaleStateHash);
         }
+        // Both battle and Activity-scoped Titan effects remain descriptors.
+        // Reject before cache lookup instead of silently building a no-effect
+        // battle whose only difference is its input identity.
+        if !contribution.titan().contributions().is_empty() {
+            return Err(DivergentUniverseBattleAssemblyError::UnimplementedTitanEffects);
+        }
         if encounter.waves().is_empty() {
             return Err(DivergentUniverseBattleAssemblyError::InvalidEncounter);
         }
@@ -497,6 +505,7 @@ pub enum DivergentUniverseBattleAssemblyError {
     DefinitionMismatch,
     ActivityCompleted,
     StaleStateHash,
+    UnimplementedTitanEffects,
     MappingRequired,
     InvalidPlayerParticipants,
     InvalidEncounter,

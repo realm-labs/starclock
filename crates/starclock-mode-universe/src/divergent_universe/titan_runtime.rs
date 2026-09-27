@@ -1,4 +1,8 @@
-//! Titan selection, Golden Blood Boon offers and permanent Titan talents.
+//! Titan selection records, Golden Blood Boon offers and talent unlock costs.
+//!
+//! Contribution snapshots preserve source descriptors, not executed effects.
+//! Current battle assembly rejects selected descriptors until effect lowering
+//! exists. These trusted selection APIs do not establish public run admission.
 
 use std::sync::Arc;
 

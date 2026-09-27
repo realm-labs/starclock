@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+// Current selection/descriptor inventory, not a runtime execution receipt.
 import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
@@ -19,14 +20,16 @@ const inputs = {
   research_gaps: `${referenceRoot}/research-gaps.json`,
   runtime_dispositions: `${runtimeRoot}/runtime-dispositions.json`,
   batch_ledger: `${runtimeRoot}/batch-ledger.json`,
-  prior_execution: `${runtimeRoot}/grand-miracle-gamble-execution.json`,
   data_catalog: "crates/starclock-data/src/divergent_universe_titan_catalog.rs",
   runtime: "crates/starclock-mode-universe/src/divergent_universe/titan_runtime.rs",
   state: "crates/starclock-mode-universe/src/divergent_universe/state.rs",
   tests: "crates/starclock-mode-universe/src/divergent_universe/tests/titan_runtime.rs",
+  battle_assembly: "crates/starclock-mode-universe/src/divergent_universe/battle_assembly_runtime.rs",
+  battle_assembly_tests: "crates/starclock-mode-universe/src/divergent_universe/tests/battle_assembly_runtime.rs",
 };
 
-export function buildTitanRuntimeExecution() {
+export function buildTitanRuntimeExecution({ read = text } = {}) {
+  const json = (file) => JSON.parse(read(file));
   const types = json(inputs.titan_types);
   const boons = json(inputs.titan_boons);
   const talents = json(inputs.titan_talents);
@@ -35,7 +38,6 @@ export function buildTitanRuntimeExecution() {
   const dispositions = json(inputs.runtime_dispositions).obligations.filter(
     ({ execution_partition: batch }) => batch === "G22-P5-B3");
   const ledger = json(inputs.batch_ledger);
-  const prior = json(inputs.prior_execution);
   const fixtures = json(inputs.review_fixtures).filter(
     ({ source_id: id }) => id === "golden-blood-titan-choice-and-level");
   const gaps = json(inputs.research_gaps).filter(
@@ -80,6 +82,8 @@ export function buildTitanRuntimeExecution() {
       runtime_lowered: lowered }) => cost.length === 1 && cost[0].item_id === "281020"
       && excluded && !lowered),
   "Titan permanent talent cost or prerequisite drift");
+  const totalTalentCost = talents.reduce((sum, { cost }) => sum + BigInt(cost[0].amount), 0n).toString();
+  assert(totalTalentCost === "2700", "Titan total talent cost drift");
   assert(acyclicTalentGraph(talents), "Titan talent prerequisite graph drift");
   assert(boonContributions.length === 84 && talentContributions.length === 36
     && boonContributions.every(({ scope, teardown, ordered_effects: effects,
@@ -93,20 +97,18 @@ export function buildTitanRuntimeExecution() {
     { Activity: 10, Battle: 26 }), "Titan talent contribution scope drift");
   assert(dispositions.length === 132
     && dispositions.every(({ target_disposition: target, runtime_status: status }) =>
-      target === "ExactIntegrated" && status === "Terminal"),
-  "P5-B3 obligation closure drift");
+      target === "ExactIntegrated" && status === "Pending"),
+  "Titan descriptors cannot receive terminal runtime coverage");
+  const currentIds = [...types, ...boons, ...talents].map(({ id }) => id).sort();
+  const assignedIds = dispositions.flatMap(({ normalized_record_ids: ids }) => ids).sort();
+  assert(equal(currentIds, assignedIds), "Titan exact-once source/definition closure drift");
   assert(fixtures.length === 1 && gaps.length === 1
     && fixtureAssignments.length === 1 && gapAssignments.length === 1
     && policies.length === 2, "P5-B3 assigned target denominator drift");
-  assert(fixtureAssignments.every(({ status }) => status === "ProductionExecutionPassed")
-    && gapAssignments.every(({ status }) => status === "VersionedProjectPolicyExecutable")
-    && policies.every(({ status }) => status === "VersionedProjectPolicyExecutable"),
-  "P5-B3 assigned target terminal drift");
-  assert(ledger.completed_through === "G22-P8-B3" && ledger.next_batch === "G22-P8-B4",
-    "Titan runtime ledger drift");
-  assert(prior.batch === "G22-P5-B2"
-    && prior.status === "CompleteGrandMiracleEligibilityLifecycleAndGambleExecution",
-  "Grand Miracle/Gamble prerequisite drift");
+  assert(fixtureAssignments.every(({ status }) => status === "PendingProductionExecution")
+    && gapAssignments.every(({ status }) => status === "PendingExecutableDisposition")
+    && policies.every(({ status }) => status === "PendingExecutableDisposition"),
+  "Titan descriptor fixtures/policies must remain pending execution");
 
   const sourceChecks = {
     runtime: ["activate_type_accepted", "next_offer", "accept_boon_accepted",
@@ -115,41 +117,44 @@ export function buildTitanRuntimeExecution() {
       "TITAN_TALENT_CURRENCY_SLOT"],
   };
   for (const [name, fragments] of Object.entries(sourceChecks)) {
-    const source = text(inputs[name]);
+    const source = read(inputs[name]);
     for (const fragment of fragments)
       assert(source.includes(fragment), `missing ${name} fragment ${fragment}`);
   }
-  const probes = [
-    probe("catalog-offer-and-contribution-closure",
+  const targets = [
+    target("catalog-offer-and-descriptor-closure",
       "titan_catalog_compiles_all_exact_rows_and_policy_offer_shapes"),
-    probe("all-golden-blood-boon-offers",
+    target("all-golden-blood-selection-records",
       "every_golden_blood_boon_executes_through_its_exact_level_offer"),
-    probe("all-talent-cost-prerequisite-and-stacking",
+    target("all-talent-cost-prerequisite-and-descriptor-order",
       "all_permanent_titan_talents_enforce_costs_prerequisites_and_stack_contributions"),
-    probe("rejection-rng-and-replay",
+    target("selection-rejection-rng-and-reconstruction",
       "titan_offer_rejections_and_replay_are_state_hash_and_rng_inert"),
+    target("all-boon-descriptors-rejected-at-assembly",
+      "titan_boon_descriptors_cannot_silently_enter_current_battles", inputs.battle_assembly_tests),
+    target("all-talent-descriptors-rejected-at-assembly",
+      "titan_talent_descriptors_cannot_silently_enter_current_battles", inputs.battle_assembly_tests),
   ];
-  const testSource = text(inputs.tests);
-  for (const value of probes)
-    assert(testSource.includes(value.test), `missing Titan probe ${value.id}`);
+  for (const value of targets)
+    assert(read(value.file).includes(`fn ${value.test}(`), `missing Titan test target ${value.id}`);
+  const assembly = read(inputs.battle_assembly);
+  assert(assembly.includes("if !contribution.titan().contributions().is_empty()")
+    && assembly.includes("return Err(DivergentUniverseBattleAssemblyError::UnimplementedTitanEffects)"),
+  "current assembly must reject unsupported Titan effect descriptors");
 
   return {
-    schema_revision: "starclock.divergent-universe-titan-runtime-execution.v1",
-    goal_id: "divergent-universe-runtime-v1",
-    batch: "G22-P5-B3",
-    status: "CompleteTitanBoonOfferTalentAndContributionExecution",
+    status: "TitanSelectionDescriptorsEffectsPending",
     input_digests: Object.fromEntries(Object.entries(inputs).map(([name, file]) => [
-      name, { path: file, sha256: sha256(file) },
+      name, { path: file, sha256: crypto.createHash("sha256").update(read(file)).digest("hex") },
     ])),
-    exact_runtime: {
+    reference_shape: {
       titan_types: types.length,
       golden_blood_boons: boons.length,
       boon_choices: choices.length,
       permanent_talent_levels: talents.length,
       contributions: contributions.length,
       talent_currency_item_id: "281020",
-      total_talent_cost: talents.reduce(
-        (total, { cost }) => total + Number(cost[0].amount), 0),
+      total_talent_cost: totalTalentCost,
       activity_contributions: talentContributions.filter(
         ({ scope }) => scope === "Activity").length,
       battle_contributions: boonContributions.length + talentContributions.filter(
@@ -163,30 +168,33 @@ export function buildTitanRuntimeExecution() {
       offer_rng_draws: 0,
       exact_offer_timing_parity_claimed: false,
     },
-    execution_receipt: {
-      all_titan_types_activate: "Passed",
-      all_boon_candidates_execute_at_exact_level: "Passed",
-      all_talent_prerequisites_and_costs_execute: "Passed",
-      activity_and_battle_contributions_stack_in_stable_order: "Passed",
-      rejected_and_stale_commands_preserve_state_and_rng: "Passed",
-      fresh_reconstruction_is_equal: "Passed",
+    current_boundary: {
+      selection_and_unlock_state_commands: "PresentRequiresNativeVerification",
+      contribution_representation: "SourceDescriptorsOnly",
+      activity_effect_consumers_implemented: false,
+      battle_effect_consumers_implemented: false,
+      public_offer_admission_implemented: false,
+      unsupported_current_battle_assembly: "RejectUnimplementedTitanEffectsBeforeCacheLookup",
+      terminal_coverage_credit: 0,
+      required_next_work: "Lower and execute the 10 Activity and 110 battle contribution effects; bind public offers and independent production/replay fixtures before terminal coverage.",
     },
-    assignment_closure: {
+    pending_assignments: {
       obligations: dispositions.length,
-      exact_integrated: dispositions.length,
+      obligation_ids: dispositions.map(({ obligation_id: id }) => id).sort(),
       fixture_families: fixtureAssignments.length,
       research_gaps: gapAssignments.length,
       policy_sources: policies.length,
       mechanic_programs: 0,
     },
-    capability_probes: probes,
+    native_test_targets: targets,
     summary: {
       titan_types: types.length,
       boons: boons.length,
       talents: talents.length,
       contributions: contributions.length,
-      terminal_obligations: dispositions.length,
-      probes: probes.length,
+      pending_obligations: dispositions.length,
+      terminal_coverage_credit: 0,
+      native_test_targets: targets.length,
     },
   };
 }
@@ -214,12 +222,8 @@ function countBy(values, keyOf) {
     numeric: true,
   })));
 }
-function probe(id, test) { return { id, file: inputs.tests, test, result: "Passed" }; }
-function json(file) { return JSON.parse(text(file)); }
+function target(id, test, file = inputs.tests) { return { id, file, test }; }
 function text(file) { return fs.readFileSync(path.join(root, file), "utf8"); }
-function sha256(file) {
-  return crypto.createHash("sha256").update(fs.readFileSync(path.join(root, file))).digest("hex");
-}
 function pretty(value) { return `${JSON.stringify(value, null, 2)}\n`; }
 function equal(left, right) { return JSON.stringify(left) === JSON.stringify(right); }
 function assert(condition, message) { if (!condition) throw new Error(message); }
@@ -228,9 +232,9 @@ if (fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
   const serialized = pretty(buildTitanRuntimeExecution());
   if (process.argv.includes("--check")) {
     assert(text(output) === serialized, `${output} is stale`);
-    console.log("Divergent Universe Titan runtime execution is current.");
+    console.log("Divergent Universe Titan descriptor inventory is current; no execution credit.");
   } else {
     fs.writeFileSync(path.join(root, output), serialized);
-    console.log("Generated Divergent Universe Titan runtime execution evidence.");
+    console.log("Generated current Titan descriptor inventory; 132 obligations remain pending.");
   }
 }

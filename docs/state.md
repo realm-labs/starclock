@@ -19,9 +19,15 @@ payload remain unimplemented. The current
 taxonomy/Gamble inventory emits no execution receipt or terminal coverage credit;
 the two accepted Coin units and unresolved Gamble rejection behavior remain.
 The verification scaffold retains all 6,762 obligations; its validator uses that
-current total rather than the old pre-Persona 6,215 subset. The separate Titan
-audit producer currently fails its obligation-closure assertion; its existing
-report is not current behavioral evidence and the full release gates remain open.
+current total rather than the old pre-Persona 6,215 subset. The
+[Titan effect boundary](divergent-universe-titan-effects.md) now has a current
+descriptor inventory instead of a generated pass receipt. Its 132 obligations,
+one semantic family/gap and two policy sources remain pending. Selection records
+and exact unlock costs do not execute the 10 Activity and 110 battle contribution
+effects. Current battle assembly rejects selected descriptors before cache lookup
+without changing state or RNG; native tests cover every Boon and talent in both
+run families. Public Titan offer admission and actual effects remain required.
+The full release gates remain open.
 
 The current [Persona domain layout](divergent-universe-domain-layout.md) is now
 typed configuration: 28 current areas join 11 layers and 60 positions, comprising

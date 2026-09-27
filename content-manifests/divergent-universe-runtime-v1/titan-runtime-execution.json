@@ -1,8 +1,5 @@
 {
-  "schema_revision": "starclock.divergent-universe-titan-runtime-execution.v1",
-  "goal_id": "divergent-universe-runtime-v1",
-  "batch": "G22-P5-B3",
-  "status": "CompleteTitanBoonOfferTalentAndContributionExecution",
+  "status": "TitanSelectionDescriptorsEffectsPending",
   "input_digests": {
     "titan_types": {
       "path": "content-reference/divergent-universe-v1/titan-types.json",
@@ -18,7 +15,7 @@
     },
     "titan_choices": {
       "path": "content-reference/divergent-universe-v1/titan-choices.json",
-      "sha256": "b87a63e0738e7561dacdc867537812ecbd461bdc7290e6654b45af0fdcaf08f5"
+      "sha256": "3c7c6ed972fca51b3704d5659be3c2763d8083a0d8b0b21a345ed12fd5641dbb"
     },
     "titan_contributions": {
       "path": "content-reference/divergent-universe-v1/titan-contributions.json",
@@ -26,23 +23,19 @@
     },
     "review_fixtures": {
       "path": "content-reference/divergent-universe-v1/review-fixtures.json",
-      "sha256": "70fdb15147d046a170c4fe4038ccdd595bfbfef1e00040dba978c74c6b8a26c4"
+      "sha256": "6953c67370eb15d4074023158f6d508ef287d9d8fdbab4427c18a204ad50ad5c"
     },
     "research_gaps": {
       "path": "content-reference/divergent-universe-v1/research-gaps.json",
-      "sha256": "5818c783a5087b7244951f98744372dddd04371f39250bbae5b4db410d956ab0"
+      "sha256": "fba861ab5f4221e1134145566ab47327a79cd3101193171d7a75bd665ec1db0f"
     },
     "runtime_dispositions": {
       "path": "content-manifests/divergent-universe-runtime-v1/runtime-dispositions.json",
-      "sha256": "1319cb15f7a2e1b9c283549300cf29bb4f2b65d41c759a0c29240570c7fbd2bc"
+      "sha256": "200bec4e10de2359ae8d1383174d5cc88f4b1e44ba3ad00e24bf414cfe7f5524"
     },
     "batch_ledger": {
       "path": "content-manifests/divergent-universe-runtime-v1/batch-ledger.json",
-      "sha256": "77e109344b674b1a301708d247e2dcedeace5bc941f789d2ab3529dc5224f467"
-    },
-    "prior_execution": {
-      "path": "content-manifests/divergent-universe-runtime-v1/grand-miracle-gamble-execution.json",
-      "sha256": "95e327aa5ab9365b0fb06d4df401c651366aa27b513e9ee7be796416aa24a5e6"
+      "sha256": "b1c552a4be276b9c70c6bef4c52cb3f62847a2bb297b533ac705e9d4334ad5fd"
     },
     "data_catalog": {
       "path": "crates/starclock-data/src/divergent_universe_titan_catalog.rs",
@@ -50,25 +43,33 @@
     },
     "runtime": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/titan_runtime.rs",
-      "sha256": "b9e59c3a010ece1d23fc05137bdbea71cbf751f685c512341fc8c326ad8c25ec"
+      "sha256": "05d5ec78787e5db7fecae0a547fab94e593a27d449b93845cebf8b795ca1989d"
     },
     "state": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/state.rs",
-      "sha256": "946d9d891d871569c556bfb87a63cf790b752dc1a1f7b762ad0e11e0cd2bbd36"
+      "sha256": "30e6ecff6d57a3363132431738fa00e9c55e5be8c03d5596c55e8936f78114b8"
     },
     "tests": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/tests/titan_runtime.rs",
       "sha256": "66af35ed4d40f420b2dad00c52be115e9b70392cab8d4fe914382037e4273135"
+    },
+    "battle_assembly": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/battle_assembly_runtime.rs",
+      "sha256": "8174edddf1a401af565711029d2a775f2ede974b65c78f138fd2177e070fa36d"
+    },
+    "battle_assembly_tests": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/tests/battle_assembly_runtime.rs",
+      "sha256": "007a032d7517734fc663becfa2d20289ef15a71a0717a2c9295f829104b3ecac"
     }
   },
-  "exact_runtime": {
+  "reference_shape": {
     "titan_types": 12,
     "golden_blood_boons": 84,
     "boon_choices": 36,
     "permanent_talent_levels": 36,
     "contributions": 120,
     "talent_currency_item_id": "281020",
-    "total_talent_cost": 2700,
+    "total_talent_cost": "2700",
     "activity_contributions": 10,
     "battle_contributions": 110
   },
@@ -79,46 +80,187 @@
     "offer_rng_draws": 0,
     "exact_offer_timing_parity_claimed": false
   },
-  "execution_receipt": {
-    "all_titan_types_activate": "Passed",
-    "all_boon_candidates_execute_at_exact_level": "Passed",
-    "all_talent_prerequisites_and_costs_execute": "Passed",
-    "activity_and_battle_contributions_stack_in_stable_order": "Passed",
-    "rejected_and_stale_commands_preserve_state_and_rng": "Passed",
-    "fresh_reconstruction_is_equal": "Passed"
+  "current_boundary": {
+    "selection_and_unlock_state_commands": "PresentRequiresNativeVerification",
+    "contribution_representation": "SourceDescriptorsOnly",
+    "activity_effect_consumers_implemented": false,
+    "battle_effect_consumers_implemented": false,
+    "public_offer_admission_implemented": false,
+    "unsupported_current_battle_assembly": "RejectUnimplementedTitanEffectsBeforeCacheLookup",
+    "terminal_coverage_credit": 0,
+    "required_next_work": "Lower and execute the 10 Activity and 110 battle contribution effects; bind public offers and independent production/replay fixtures before terminal coverage."
   },
-  "assignment_closure": {
+  "pending_assignments": {
     "obligations": 132,
-    "exact_integrated": 132,
+    "obligation_ids": [
+      "divergent-universe.coverage.titan-bless-levels.10101-1.56f083d3b1fa",
+      "divergent-universe.coverage.titan-bless-levels.10201-2.0994da768afe",
+      "divergent-universe.coverage.titan-bless-levels.10202-2.34a462ee1e3f",
+      "divergent-universe.coverage.titan-bless-levels.10203-2.d835101bef11",
+      "divergent-universe.coverage.titan-bless-levels.10301-3.135c3f32842d",
+      "divergent-universe.coverage.titan-bless-levels.10302-3.6504b750b982",
+      "divergent-universe.coverage.titan-bless-levels.10303-3.eef2891bf9f2",
+      "divergent-universe.coverage.titan-bless-levels.11101-1.52858a7a5051",
+      "divergent-universe.coverage.titan-bless-levels.11201-2.95b571f1fd69",
+      "divergent-universe.coverage.titan-bless-levels.11202-2.eeda41dd0996",
+      "divergent-universe.coverage.titan-bless-levels.11203-2.43f01ce7e54d",
+      "divergent-universe.coverage.titan-bless-levels.11301-3.a779a16aa34c",
+      "divergent-universe.coverage.titan-bless-levels.11302-3.b46f5b845d8c",
+      "divergent-universe.coverage.titan-bless-levels.11303-3.324ffcc08626",
+      "divergent-universe.coverage.titan-bless-levels.12101-1.da945081d56e",
+      "divergent-universe.coverage.titan-bless-levels.12201-2.b85a51bb7c90",
+      "divergent-universe.coverage.titan-bless-levels.12202-2.7c9b455dbf2c",
+      "divergent-universe.coverage.titan-bless-levels.12203-2.9aeb1927e229",
+      "divergent-universe.coverage.titan-bless-levels.12301-3.cce5b608956d",
+      "divergent-universe.coverage.titan-bless-levels.12302-3.d4b3297d9a86",
+      "divergent-universe.coverage.titan-bless-levels.12303-3.d9cc6738a97a",
+      "divergent-universe.coverage.titan-bless-levels.13101-1.f4a32b233d1c",
+      "divergent-universe.coverage.titan-bless-levels.13201-2.96592d127bd8",
+      "divergent-universe.coverage.titan-bless-levels.13202-2.1ac350e37a22",
+      "divergent-universe.coverage.titan-bless-levels.13203-2.cd7a679c0ea2",
+      "divergent-universe.coverage.titan-bless-levels.13301-3.85cc79ebe356",
+      "divergent-universe.coverage.titan-bless-levels.13302-3.f0f36194e020",
+      "divergent-universe.coverage.titan-bless-levels.13303-3.dd556534b235",
+      "divergent-universe.coverage.titan-bless-levels.14101-1.33d6329e0fe3",
+      "divergent-universe.coverage.titan-bless-levels.14201-2.fb3c5ac8bbe0",
+      "divergent-universe.coverage.titan-bless-levels.14202-2.b0c39db383fb",
+      "divergent-universe.coverage.titan-bless-levels.14203-2.12a91088ac11",
+      "divergent-universe.coverage.titan-bless-levels.14301-3.cf360e59fdf3",
+      "divergent-universe.coverage.titan-bless-levels.14302-3.310a2b9afd6b",
+      "divergent-universe.coverage.titan-bless-levels.14303-3.faae886d268c",
+      "divergent-universe.coverage.titan-bless-levels.15101-1.2001b4f7c0f0",
+      "divergent-universe.coverage.titan-bless-levels.15201-2.d1e479ec08fc",
+      "divergent-universe.coverage.titan-bless-levels.15202-2.3604b501f945",
+      "divergent-universe.coverage.titan-bless-levels.15203-2.b1286729bccf",
+      "divergent-universe.coverage.titan-bless-levels.15301-3.925bfe2610a4",
+      "divergent-universe.coverage.titan-bless-levels.15302-3.0122e858ea79",
+      "divergent-universe.coverage.titan-bless-levels.15303-3.14e3b3e3a992",
+      "divergent-universe.coverage.titan-bless-levels.16101-1.b15e0d5bb7b0",
+      "divergent-universe.coverage.titan-bless-levels.16201-2.a267054771e1",
+      "divergent-universe.coverage.titan-bless-levels.16202-2.aa4d11777c08",
+      "divergent-universe.coverage.titan-bless-levels.16203-2.960833d487a9",
+      "divergent-universe.coverage.titan-bless-levels.16301-3.09c6762bfa9c",
+      "divergent-universe.coverage.titan-bless-levels.16302-3.f94e6e583d08",
+      "divergent-universe.coverage.titan-bless-levels.16303-3.d7ef5f91d539",
+      "divergent-universe.coverage.titan-bless-levels.17101-1.6ca376750c45",
+      "divergent-universe.coverage.titan-bless-levels.17201-2.d5034155c1a6",
+      "divergent-universe.coverage.titan-bless-levels.17202-2.633da3d040de",
+      "divergent-universe.coverage.titan-bless-levels.17203-2.506d227c05c3",
+      "divergent-universe.coverage.titan-bless-levels.17301-3.5075cff947e1",
+      "divergent-universe.coverage.titan-bless-levels.17302-3.6420ea67b7fb",
+      "divergent-universe.coverage.titan-bless-levels.17303-3.5113d322cb07",
+      "divergent-universe.coverage.titan-bless-levels.18101-1.d2fe1343399c",
+      "divergent-universe.coverage.titan-bless-levels.18201-2.58a91fb9fa3a",
+      "divergent-universe.coverage.titan-bless-levels.18202-2.718e13ee016a",
+      "divergent-universe.coverage.titan-bless-levels.18203-2.0a92f2227e2b",
+      "divergent-universe.coverage.titan-bless-levels.18301-3.7080997fd428",
+      "divergent-universe.coverage.titan-bless-levels.18302-3.a566899e63f7",
+      "divergent-universe.coverage.titan-bless-levels.18303-3.0fd2e440e9fe",
+      "divergent-universe.coverage.titan-bless-levels.19101-1.80d50e8329c6",
+      "divergent-universe.coverage.titan-bless-levels.19201-2.a4be4f6b86b0",
+      "divergent-universe.coverage.titan-bless-levels.19202-2.6cf017fac70b",
+      "divergent-universe.coverage.titan-bless-levels.19203-2.d7a546ea31d3",
+      "divergent-universe.coverage.titan-bless-levels.19301-3.b9484c6fc695",
+      "divergent-universe.coverage.titan-bless-levels.19302-3.aaef74f06f99",
+      "divergent-universe.coverage.titan-bless-levels.19303-3.1655280afa95",
+      "divergent-universe.coverage.titan-bless-levels.20101-1.af1c11798664",
+      "divergent-universe.coverage.titan-bless-levels.20201-2.07abbd390fad",
+      "divergent-universe.coverage.titan-bless-levels.20202-2.298224be06a9",
+      "divergent-universe.coverage.titan-bless-levels.20203-2.2b9b737dc757",
+      "divergent-universe.coverage.titan-bless-levels.20301-3.62e0e5075f2b",
+      "divergent-universe.coverage.titan-bless-levels.20302-3.78fe5a035a97",
+      "divergent-universe.coverage.titan-bless-levels.20303-3.30aaa71f3c1d",
+      "divergent-universe.coverage.titan-bless-levels.21101-1.f41854f6e606",
+      "divergent-universe.coverage.titan-bless-levels.21201-2.d3a09f869309",
+      "divergent-universe.coverage.titan-bless-levels.21202-2.9dea9151eb4f",
+      "divergent-universe.coverage.titan-bless-levels.21203-2.4a8ab6d60d02",
+      "divergent-universe.coverage.titan-bless-levels.21301-3.02d56b348dd6",
+      "divergent-universe.coverage.titan-bless-levels.21302-3.02911f21b585",
+      "divergent-universe.coverage.titan-bless-levels.21303-3.ac350e583bbb",
+      "divergent-universe.coverage.titan-talent-levels.12001-1.8a94006b0821",
+      "divergent-universe.coverage.titan-talent-levels.12002-2.e423df6630ae",
+      "divergent-universe.coverage.titan-talent-levels.12003-3.10d73c39857f",
+      "divergent-universe.coverage.titan-talent-levels.12101-1.b0c83597c708",
+      "divergent-universe.coverage.titan-talent-levels.12102-2.b563d1eef1a6",
+      "divergent-universe.coverage.titan-talent-levels.12103-3.66960767e2bd",
+      "divergent-universe.coverage.titan-talent-levels.12201-1.43e7775674fb",
+      "divergent-universe.coverage.titan-talent-levels.12202-2.fca131366d85",
+      "divergent-universe.coverage.titan-talent-levels.12203-3.fd4cf83c92d5",
+      "divergent-universe.coverage.titan-talent-levels.12301-1.4bb63bd9cca7",
+      "divergent-universe.coverage.titan-talent-levels.12302-2.9bf625f83960",
+      "divergent-universe.coverage.titan-talent-levels.12303-3.32828a16ce5d",
+      "divergent-universe.coverage.titan-talent-levels.12401-1.44e8f7b3d029",
+      "divergent-universe.coverage.titan-talent-levels.12402-2.759d2a4b05af",
+      "divergent-universe.coverage.titan-talent-levels.12403-3.837e8542c904",
+      "divergent-universe.coverage.titan-talent-levels.12501-1.442b89aee4da",
+      "divergent-universe.coverage.titan-talent-levels.12502-2.61df27f03b62",
+      "divergent-universe.coverage.titan-talent-levels.12503-3.ed8ac93f5993",
+      "divergent-universe.coverage.titan-talent-levels.12601-1.83f2105e9ac5",
+      "divergent-universe.coverage.titan-talent-levels.12602-2.42696878eaa8",
+      "divergent-universe.coverage.titan-talent-levels.12603-3.496e8b365812",
+      "divergent-universe.coverage.titan-talent-levels.12701-1.87d46b70617e",
+      "divergent-universe.coverage.titan-talent-levels.12702-2.497ce35dcfe7",
+      "divergent-universe.coverage.titan-talent-levels.12703-3.e81611fbc3d6",
+      "divergent-universe.coverage.titan-talent-levels.12801-1.4e995a3fed77",
+      "divergent-universe.coverage.titan-talent-levels.12802-2.ef070a5028ab",
+      "divergent-universe.coverage.titan-talent-levels.12803-3.02f1f78c2720",
+      "divergent-universe.coverage.titan-talent-levels.12901-1.d5ae8afcc36a",
+      "divergent-universe.coverage.titan-talent-levels.12902-2.4df60f41d605",
+      "divergent-universe.coverage.titan-talent-levels.12903-3.03f40864055d",
+      "divergent-universe.coverage.titan-talent-levels.13001-1.11f450d773a1",
+      "divergent-universe.coverage.titan-talent-levels.13002-2.8eb905181207",
+      "divergent-universe.coverage.titan-talent-levels.13003-3.dc4a5c680881",
+      "divergent-universe.coverage.titan-talent-levels.13101-1.1de9c26ffc50",
+      "divergent-universe.coverage.titan-talent-levels.13102-2.01b64d773aa1",
+      "divergent-universe.coverage.titan-talent-levels.13103-3.722a42c42b19",
+      "divergent-universe.coverage.titan-types.aigle.d42551c201a2",
+      "divergent-universe.coverage.titan-types.cerces.5caac57d48a4",
+      "divergent-universe.coverage.titan-types.georia.9204abddfb88",
+      "divergent-universe.coverage.titan-types.ianos.fc05700287b0",
+      "divergent-universe.coverage.titan-types.kephale.373464e2ebeb",
+      "divergent-universe.coverage.titan-types.moneta.2edf70887105",
+      "divergent-universe.coverage.titan-types.nikadory.7010cdfcedb0",
+      "divergent-universe.coverage.titan-types.olonyx.62146ad49374",
+      "divergent-universe.coverage.titan-types.phageina.7a3f30640347",
+      "divergent-universe.coverage.titan-types.talentum.b837ddf5ad46",
+      "divergent-universe.coverage.titan-types.xenatos.ae7b06454356",
+      "divergent-universe.coverage.titan-types.zagreus.021a12634dd9"
+    ],
     "fixture_families": 1,
     "research_gaps": 1,
     "policy_sources": 2,
     "mechanic_programs": 0
   },
-  "capability_probes": [
+  "native_test_targets": [
     {
-      "id": "catalog-offer-and-contribution-closure",
+      "id": "catalog-offer-and-descriptor-closure",
       "file": "crates/starclock-mode-universe/src/divergent_universe/tests/titan_runtime.rs",
-      "test": "titan_catalog_compiles_all_exact_rows_and_policy_offer_shapes",
-      "result": "Passed"
+      "test": "titan_catalog_compiles_all_exact_rows_and_policy_offer_shapes"
     },
     {
-      "id": "all-golden-blood-boon-offers",
+      "id": "all-golden-blood-selection-records",
       "file": "crates/starclock-mode-universe/src/divergent_universe/tests/titan_runtime.rs",
-      "test": "every_golden_blood_boon_executes_through_its_exact_level_offer",
-      "result": "Passed"
+      "test": "every_golden_blood_boon_executes_through_its_exact_level_offer"
     },
     {
-      "id": "all-talent-cost-prerequisite-and-stacking",
+      "id": "all-talent-cost-prerequisite-and-descriptor-order",
       "file": "crates/starclock-mode-universe/src/divergent_universe/tests/titan_runtime.rs",
-      "test": "all_permanent_titan_talents_enforce_costs_prerequisites_and_stack_contributions",
-      "result": "Passed"
+      "test": "all_permanent_titan_talents_enforce_costs_prerequisites_and_stack_contributions"
     },
     {
-      "id": "rejection-rng-and-replay",
+      "id": "selection-rejection-rng-and-reconstruction",
       "file": "crates/starclock-mode-universe/src/divergent_universe/tests/titan_runtime.rs",
-      "test": "titan_offer_rejections_and_replay_are_state_hash_and_rng_inert",
-      "result": "Passed"
+      "test": "titan_offer_rejections_and_replay_are_state_hash_and_rng_inert"
+    },
+    {
+      "id": "all-boon-descriptors-rejected-at-assembly",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/battle_assembly_runtime.rs",
+      "test": "titan_boon_descriptors_cannot_silently_enter_current_battles"
+    },
+    {
+      "id": "all-talent-descriptors-rejected-at-assembly",
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/battle_assembly_runtime.rs",
+      "test": "titan_talent_descriptors_cannot_silently_enter_current_battles"
     }
   ],
   "summary": {
@@ -126,7 +268,8 @@
     "boons": 84,
     "talents": 36,
     "contributions": 120,
-    "terminal_obligations": 132,
-    "probes": 4
+    "pending_obligations": 132,
+    "terminal_coverage_credit": 0,
+    "native_test_targets": 6
   }
 }

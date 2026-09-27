@@ -5,15 +5,15 @@
   "input_digests": {
     "foundation": {
       "path": "content-manifests/divergent-universe-runtime-v1/foundation.json",
-      "sha256": "e237abf4ad8bf4212af13a40a159842a9a52d2f39433c2ff2f684b5d50342de3"
+      "sha256": "604ca42794df712ca017c1f23b992c0bd8a3cc4e8cdf55300425791bce0d7a1f"
     },
     "authoring": {
       "path": "content-manifests/divergent-universe-v1/authoring-contract.json",
-      "sha256": "5fad565f01dbb6db9ba8fc829130aadb0874db274d82e3c55fe2ffd3b83bb88c"
+      "sha256": "7847007257fe39cedc2d419893a58f01c168e18a14927f50377b6c0246d701c4"
     },
     "coverage": {
       "path": "content-reference/divergent-universe-v1/coverage.json",
-      "sha256": "a28340b36fb90c04636381c86766cfe04e397d92443c202715a644ae6f052bd8"
+      "sha256": "58a3b466889aca7027a250bcfa71d2a985c627b31749ba60228b6679db2110df"
     },
     "mechanics": {
       "path": "content-reference/divergent-universe-v1/mechanic-rules.json",
@@ -21,19 +21,19 @@
     },
     "fixtures": {
       "path": "content-reference/divergent-universe-v1/semantic-fixture-families.json",
-      "sha256": "c4b514bc7f01943806fb988cec085d960b01509f0cc719a4a01168d5d18588ea"
+      "sha256": "aa4afc5af676a80ce4467a8bc73f98af0f469fa62e6b606027859403e654998b"
     },
     "reviews": {
       "path": "content-reference/divergent-universe-v1/review-fixtures.json",
-      "sha256": "6556c0e49881b4b53b888b9afd1a94aff8a698caa3fde8697cd9cbf5c1dbb47c"
+      "sha256": "6953c67370eb15d4074023158f6d508ef287d9d8fdbab4427c18a204ad50ad5c"
     },
     "gaps": {
       "path": "content-reference/divergent-universe-v1/research-gaps.json",
-      "sha256": "660aa62a0b066369d33ef36dcab659d6bce024d37291ba7c09837486ad7798f2"
+      "sha256": "fba861ab5f4221e1134145566ab47327a79cd3101193171d7a75bd665ec1db0f"
     },
     "goal": {
       "path": "docs/goals/22-divergent-universe-runtime.md",
-      "sha256": "7867d689c35e9aeb48d81533925bf5aee04c74332eba0a3c3dcbb31f6e001765"
+      "sha256": "12e0029e965fab9ed72ede4ba523daed9059d9f90f101d82533b869dc0943f26"
     },
     "battle_mechanic_reachability": {
       "path": "content-manifests/divergent-universe-runtime-v1/battle-mechanic-reachability-proof.json",
@@ -592,9 +592,9 @@
       "state": "PolicyBound",
       "blocking": false,
       "affected_data_ids": [
-        "divergent-universe.grand-miracle-eligibility.current.1001",
-        "divergent-universe.grand-miracle-state.1001.active",
-        "divergent-universe.grand-miracle.1001"
+        "divergent-universe.weighted-curio-eligibility.current.1001",
+        "divergent-universe.weighted-curio-state.1001.active",
+        "divergent-universe.weighted-curio.1001"
       ],
       "replacement_condition": "Replace policy-bound assertions for grand-miracle-eligibility-and-lifecycle only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
       "status": "PendingExecutableDisposition",
@@ -966,10 +966,10 @@
         "divergent-universe.semantic-family.grand-miracle-eligibility-and-lifecycle"
       ],
       "affected_normalized_files": [
-        "grand-miracle-states.json",
-        "grand-miracles.json",
         "review-fixtures.json",
-        "sources.json"
+        "sources.json",
+        "weighted-curio-states.json",
+        "weighted-curios.json"
       ],
       "affected_normalized_rows": 53,
       "replacement_condition": "Replace the unresolved effect/state fields when released structured data or an ability program defines each 6334xx binding and lifecycle.",

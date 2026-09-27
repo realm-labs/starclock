@@ -216,3 +216,160 @@ fn stale_contribution_and_encounter_snapshots_reject_without_state_or_rng() {
     assert_eq!(activity.canonical_state_bytes(), before);
     assert_eq!(reward_draws(&activity), draws);
 }
+
+mod titan_effect_guard {
+    use crate::divergent_universe::{
+        DivergentUniverseBaselineFixture, DivergentUniverseBattleAssemblyError,
+        DivergentUniverseBattleAssemblyPolicy, DivergentUniverseBattleAssemblyRuntime,
+        DivergentUniverseContributionSnapshotRuntime,
+        DivergentUniverseEncounterReachabilityRuntime, DivergentUniverseFlowInstance,
+        tests::instance,
+    };
+    use starclock_activity::{ActivityMasterSeed, GraphActivity};
+    use starclock_data::{
+        catalog::SimulationCatalog, divergent_universe_catalog::DivergentUniverseRunFamily,
+    };
+
+    #[test]
+    fn titan_boon_descriptors_cannot_silently_enter_current_battles() {
+        let fixture = DivergentUniverseBaselineFixture::production().expect("production inputs");
+        let factory = fixture.factory();
+        let titan = factory.titan_runtime().expect("Titan definitions");
+        let snapshots = factory
+            .contribution_snapshot_runtime()
+            .expect("snapshot runtime");
+        let reachability = factory
+            .encounter_reachability_runtime()
+            .expect("encounter definitions");
+        let assembly = factory.battle_assembly_runtime();
+        for family in [
+            DivergentUniverseRunFamily::Ordinary,
+            DivergentUniverseRunFamily::Cyclical,
+        ] {
+            let flow = fixture.flow(family).expect("mapped family flow");
+            for target in titan.boons() {
+                let mut activity = flow
+                    .start(instance(582), ActivityMasterSeed::from_u64(98))
+                    .expect("fresh activity")
+                    .into_activity();
+                let hash = activity.state_hash();
+                titan
+                    .activate_type_accepted(&mut activity, hash, target.titan_type())
+                    .expect("record type selection");
+                for level in 1..=target.level() {
+                    let offer = titan.next_offer(&activity).expect("next source offer");
+                    let selected = if level == target.level() {
+                        target.id()
+                    } else {
+                        &offer.candidates()[0]
+                    };
+                    let hash = activity.state_hash();
+                    titan
+                        .accept_boon_accepted(&mut activity, hash, selected)
+                        .expect("record accepted Boon");
+                }
+                reject_titan_descriptors(
+                    &flow,
+                    &activity,
+                    fixture.core(),
+                    &snapshots,
+                    &reachability,
+                    &assembly,
+                );
+            }
+        }
+    }
+
+    #[test]
+    fn titan_talent_descriptors_cannot_silently_enter_current_battles() {
+        let fixture = DivergentUniverseBaselineFixture::production().expect("production inputs");
+        let factory = fixture.factory();
+        let titan = factory.titan_runtime().expect("Titan definitions");
+        let snapshots = factory
+            .contribution_snapshot_runtime()
+            .expect("snapshot runtime");
+        let reachability = factory
+            .encounter_reachability_runtime()
+            .expect("encounter definitions");
+        let assembly = factory.battle_assembly_runtime();
+        for family in [
+            DivergentUniverseRunFamily::Ordinary,
+            DivergentUniverseRunFamily::Cyclical,
+        ] {
+            let flow = fixture.flow(family).expect("mapped family flow");
+            let mut activity = flow
+                .start(instance(583), ActivityMasterSeed::from_u64(99))
+                .expect("fresh activity")
+                .into_activity();
+            let hash = activity.state_hash();
+            titan
+                .credit_talent_currency_accepted(&mut activity, hash, 2700)
+                .expect("authored total cost");
+            let mut remaining = titan.talents().iter().collect::<Vec<_>>();
+            let mut owned = std::collections::BTreeSet::new();
+            while !remaining.is_empty() {
+                let index = remaining
+                    .iter()
+                    .position(|talent| {
+                        talent
+                            .predecessor()
+                            .is_none_or(|predecessor| owned.contains(predecessor))
+                    })
+                    .expect("acyclic source prerequisites");
+                let talent = remaining.remove(index);
+                let hash = activity.state_hash();
+                titan
+                    .unlock_talent_accepted(&mut activity, hash, talent.id())
+                    .expect("record unlock and exact cost");
+                owned.insert(talent.id().clone());
+                reject_titan_descriptors(
+                    &flow,
+                    &activity,
+                    fixture.core(),
+                    &snapshots,
+                    &reachability,
+                    &assembly,
+                );
+            }
+        }
+    }
+
+    fn reject_titan_descriptors(
+        flow: &DivergentUniverseFlowInstance,
+        activity: &GraphActivity,
+        core: &SimulationCatalog,
+        snapshots: &DivergentUniverseContributionSnapshotRuntime,
+        reachability: &DivergentUniverseEncounterReachabilityRuntime,
+        assembly: &DivergentUniverseBattleAssemblyRuntime,
+    ) {
+        let contribution = snapshots
+            .snapshot(flow, activity)
+            .expect("descriptor snapshot");
+        assert!(!contribution.titan().contributions().is_empty());
+        let group = reachability
+            .groups()
+            .iter()
+            .find(|group| !group.candidate_stage_ids().is_empty())
+            .expect("current reviewed encounter candidate");
+        let encounter = reachability
+            .select_stage_candidate(
+                activity,
+                activity.state_hash(),
+                group.id(),
+                &group.candidate_stage_ids()[0],
+            )
+            .expect("current encounter snapshot");
+        let before = activity.canonical_state_bytes();
+        let cache = assembly.cache_metrics().expect("cache metrics");
+        for _ in 0..2 {
+            assert_eq!(assembly.materialize_current_battle(flow, activity, core, &contribution, &encounter,
+            DivergentUniverseBattleAssemblyPolicy::ExplicitWeeklyDisplayCandidateWithCalibratedSharedMinionProxy)
+            .expect_err("descriptor is not an executable effect"), DivergentUniverseBattleAssemblyError::UnimplementedTitanEffects);
+            assert_eq!(assembly.resolve_current_battle(flow, activity, core, &contribution, &encounter,
+            DivergentUniverseBattleAssemblyPolicy::ExplicitWeeklyDisplayCandidateWithCalibratedSharedMinionProxy)
+            .expect_err("cache cannot admit unsupported effects"), DivergentUniverseBattleAssemblyError::UnimplementedTitanEffects);
+            assert_eq!(activity.canonical_state_bytes(), before);
+            assert_eq!(assembly.cache_metrics().expect("cache metrics"), cache);
+        }
+    }
+}

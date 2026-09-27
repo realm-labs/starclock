@@ -63,14 +63,13 @@ preserving authoritative state and RNG. Native tests verify those behaviors;
 the inventory generator checks test-target existence and never emits a pass
 receipt or promotes 575 catalog/reference obligations to terminal runtime coverage.
 Other audit producers are not granted a completion prerequisite by this inventory.
-In particular, the Titan execution producer currently rejects its obligation
-closure before regeneration; its existing report is not fresh behavioral proof.
-Repairing that separate audit and its downstream digest closure remains required
-before the full release gates can pass.
-The current diagnostic command is
-`node tools/divergent-universe-runtime/generate-titan-runtime-execution.mjs`;
-it returns `Error: P5-B3 obligation closure drift`. The scoped taxonomy inventory
-checks and native Cargo tests do not substitute for that unresolved release audit.
+The separate [Titan inventory](divergent-universe-titan-effects.md) now records
+its 132 pending obligations without pass receipts or terminal credit. Its
+selection and unlock commands preserve descriptors; they do not execute the
+120 contribution effects. Current battle assembly rejects those descriptors.
+The remaining effect consumers, public admission, semantic/policy acceptance
+and downstream release audits are still required. Passing either current
+inventory does not establish a completion prerequisite for another producer.
 
 ## Verification
 
