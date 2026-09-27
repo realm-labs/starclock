@@ -107,6 +107,9 @@ values = [{ id = 0, name = "Blessing" }, { id = 1, name = "Curio" }]
 [[enums]]
 name = "DuCoinRewardPolicy"
 values = [{ id = 0, name = "FixedSingleChestCreditNoAmusementFacilities" }]
+[[enums]]
+name = "DuRewardOccurrencePolicy"
+values = [{ id = 0, name = "SingleExplicitRewardOnlySubstituteNoPoolSampling" }]
 [[tables]]
 id = "sources"
 name = "DuDecisionSources"
@@ -1838,6 +1841,60 @@ length = [1, 4000]
 [[tables.fields]]
 name = "policy"
 type = "enum<DuCoinRewardPolicy>"
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "policy_note"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "replacement_condition"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "source_ids"
+type = "list<ref<DuDecisionSources.id>>"
+parser = { kind = "split", separator = "|" }
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+[[tables]]
+id = "rewardoccurrences"
+name = "DuRewardOccurrences"
+mode = "map"
+key = "id"
+[tables.source]
+file = "DivergentUniverseDecisions.xlsx"
+sheet = "RewardOccurrences"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1,2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "preset_source"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "level"
+type = "i32"
+range = [1,5]
+[[tables.fields]]
+name = "occurrence_id"
+type = "ref<DuDecisionOccurrences.id>"
+[[tables.fields]]
+name = "policy"
+type = "enum<DuRewardOccurrencePolicy>"
 [[tables.fields]]
 name = "summary_en"
 type = "string"

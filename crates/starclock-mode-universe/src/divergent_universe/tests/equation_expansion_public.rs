@@ -222,14 +222,14 @@ fn expansion_rewards_paid_public_fixed_vectors() {
     for (family, seed, initial, boundary) in [
         (
             DivergentUniverseRunFamily::Ordinary,
-            753937,
-            2,
+            2049984,
+            1,
             ActivityDecisionKind::Service,
         ),
         (
             DivergentUniverseRunFamily::Cyclical,
-            345327,
-            1,
+            59624,
+            0,
             ActivityDecisionKind::Encounter,
         ),
     ] {
@@ -331,7 +331,9 @@ fn expansion_rewards_search_paid_public_trigger() {
             .unwrap()
             .id;
         let mut found = false;
-        for seed in 0..2_000_000 {
+        // Explicit discovery only: rare paid service-boundary triggers need a
+        // wider bounded corpus after current configuration identities change.
+        for seed in 0..8_000_000 {
             if seed % 10_000 == 0 {
                 eprintln!("public expansion search: {family:?} seed={seed}");
             }

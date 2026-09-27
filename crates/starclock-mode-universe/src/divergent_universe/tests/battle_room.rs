@@ -379,7 +379,7 @@ fn battle_room_source_positions_execute_multiple_real_battles_with_exact_drops_n
         observed_counts,
         [
             (DivergentUniverseRunFamily::Ordinary, 6, 6),
-            (DivergentUniverseRunFamily::Cyclical, 7, 7),
+            (DivergentUniverseRunFamily::Cyclical, 6, 6),
         ]
     );
 }

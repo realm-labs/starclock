@@ -29,10 +29,14 @@ use crate::divergent_universe_service_catalog::{
     DivergentUniverseOccurrenceId, DivergentUniverseOccurrenceVariantId,
 };
 use coin_rewards::CoinRewardDefinition;
+use reward_occurrences::RewardOccurrenceDefinition;
 use shop::ShopStockDefinition;
 
 #[path = "divergent_universe_coin_reward_data.rs"]
 pub mod coin_rewards;
+
+#[path = "divergent_universe_reward_occurrence_data.rs"]
+pub mod reward_occurrences;
 
 #[path = "divergent_universe_shop_data.rs"]
 pub mod shop;
@@ -227,6 +231,7 @@ pub struct CurioFragmentGainDefinition {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DecisionCatalog {
     coin_rewards: Box<[CoinRewardDefinition]>,
+    reward_occurrences: Box<[RewardOccurrenceDefinition]>,
     shop_stocks: Box<[ShopStockDefinition]>,
     domain_decks: Box<[DomainDeckDefinition]>,
     domain_layout: Box<[DomainLayerLayout]>,
@@ -582,6 +587,12 @@ impl DecisionCatalog {
     /// Explicit chest-only policy at reviewed Wealth presets; facilities are separate.
     pub fn coin_rewards(&self) -> &[CoinRewardDefinition] {
         &self.coin_rewards
+    }
+
+    #[must_use]
+    /// Immutable explicit Reward-card substitutions, not original occurrence pools.
+    pub fn reward_occurrences(&self) -> &[RewardOccurrenceDefinition] {
+        &self.reward_occurrences
     }
     /// Sora-authored explicit stock/price policies, not recovered merchant pools.
     pub fn shop_stocks(&self) -> &[ShopStockDefinition] {

@@ -57,7 +57,7 @@ use super::{
     DecisionExhaustion, DecisionOccurrence, DecisionOutcome, DecisionPolicy, DecisionPolicyKind,
     DecisionSource, key, reward, unique,
 };
-use super::{coin_rewards, shop};
+use super::{coin_rewards, reward_occurrences, shop};
 
 pub(super) fn compile(
     config: &SoraConfig,
@@ -68,6 +68,12 @@ pub(super) fn compile(
             .du_coin_rewards()
             .ordered_rows()
             .map(|row| row.stable_key.as_str())
+            .chain(
+                config
+                    .du_reward_occurrences()
+                    .ordered_rows()
+                    .map(|row| row.stable_key.as_str()),
+            )
             .chain(
                 config
                     .du_shop_stocks()
@@ -428,6 +434,7 @@ pub(super) fn compile(
         curio_domain_grants::compile(config, reference, &curio_domain_expiries)?;
     Ok(DecisionCatalog {
         coin_rewards: coin_rewards::compile(config)?,
+        reward_occurrences: reward_occurrences::compile(config, &occurrences)?,
         shop_stocks: shop::compile(config, reference)?,
         domain_decks: divergent_universe_domain_decks::compile(config)?,
         domain_layout: divergent_universe_domain_layout::compile(config, reference)?,

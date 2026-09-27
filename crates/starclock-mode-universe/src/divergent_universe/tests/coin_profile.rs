@@ -46,7 +46,7 @@ fn compile(
     let coin = factory
         .coin_room_compiler(ActivitySlotId::new(72).unwrap())
         .unwrap();
-    compile_with_compiler(source, family, 0, shop, Some(coin))
+    compile_with_compiler(source, family, 0, shop, Some(coin), None)
 }
 fn policy(
     source: &DivergentUniverseBaselineFixture,

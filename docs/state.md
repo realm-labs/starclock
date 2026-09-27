@@ -73,7 +73,7 @@ declarations are validated. Tests execute repeated real proxy battles within a
 plane in both families, verified drops, fresh command reconstruction, actual
 participant carry, suppressed reward advancement and rejected prior results.
 Under current configuration-bound vectors, the unchanged party naturally loses
-battle six in Ordinary and battle seven in Cyclical without between-room healing;
+battle six in both Ordinary and Cyclical without between-room healing;
 these fixtures do not prove successful completion of the controlled profile.
 Missing authored reward domains reject before compilation. Boss now has an
 explicit fixed-100 project-policy base reward, independent of the unchanged
@@ -231,6 +231,19 @@ canonical reconstruction. Chest amounts/count/timing are explicitly replaceable
 policy. Amusement facilities, original reward selectors and mask/NPC admission,
 default topology and encoded source-position replay remain pending. Other payloads
 remain probes; no terminal source/mechanic, Wealth-family or full-run credit is added.
+An [authored Reward-card occurrence boundary](divergent-universe-reward-occurrences.md)
+now binds reviewed level-one preset 1010 to one explicitly selected free
+reward-only substitute. Production Sora validation rejects unadmitted/paid/empty
+bindings; the typed selection key participates in the compiled room identity.
+Both families select actual sampled Reward cards, execute all three existing
+reward choices through the shared acquisition engine, finish before opening
+doors and leave via a separate command. Repeated logical rooms reset completion;
+fresh factories reconstruct identical transactions, steps and canonical states
+through three real nested Boss proxy battles. Raw, stale, repeated and overflow
+choices are inert, and overflow is retryable. Original candidate membership,
+higher levels, fixed/NPC admission, default topology and encoded source-position
+replay remain pending. Other payloads are probes; no terminal source/mechanic,
+Reward-family or complete-run credit is added.
 The reference generators remove the incorrect blanket `RoguePersona` other-mode
 exclusion and retain eleven explicitly reviewed files for row-level accounting.
 The current generated Persona source audit accounts for all 547 rows across

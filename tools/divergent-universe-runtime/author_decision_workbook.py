@@ -24,6 +24,7 @@ from domain_layout_rows import append_domain_layout
 from domain_deck_rows import append_domain_decks
 from shop_stock_rows import append_shop_stocks
 from coin_reward_rows import append_coin_rewards
+from reward_occurrence_rows import append_reward_occurrences
 
 
 def rows() -> dict[str, list[list[object]]]:
@@ -294,6 +295,7 @@ def rows() -> dict[str, list[list[object]]]:
     append_domain_decks(data)
     append_shop_stocks(data)
     append_coin_rewards(data)
+    append_reward_occurrences(data)
     return data
 
 

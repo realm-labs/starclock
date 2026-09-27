@@ -5,6 +5,8 @@
 mod authentication;
 #[path = "coin_profile.rs"]
 mod coins;
+#[path = "reward_profile.rs"]
+mod rewards;
 
 use std::sync::Arc;
 
@@ -20,6 +22,8 @@ use crate::divergent_universe::{
     battle_room::BattleRoomSelection,
     coin_room::{CoinRoomCompiler, CompiledCoinRoom},
     domain_route::DomainRoomComposition,
+    occurrence_room::CompiledOccurrenceRoom,
+    reward_occurrence_room::RewardOccurrenceRoomCompiler,
     shop_purchase::{
         ShopStockItem,
         room::{CompiledShopRoom, ShopRoomCompiler, ShopRoomError},
@@ -74,6 +78,7 @@ fn shop_controller_authored_stock_requires_current_key_and_binds_selection_ident
     );
 }
 struct Profile {
+    occurrences: Vec<CompiledOccurrenceRoom>,
     coins: Vec<CompiledCoinRoom>,
     flow: DivergentUniverseFlowInstance,
     unbound: DivergentUniverseFlowInstance,
@@ -91,7 +96,7 @@ fn compile(
         .factory()
         .authored_shop_room_compiler(&id, SLOTS)
         .unwrap();
-    compile_with_compiler(source, family, budget, compiler, None)
+    compile_with_compiler(source, family, budget, compiler, None, None)
 }
 
 fn compile_with_stock(
@@ -101,7 +106,7 @@ fn compile_with_stock(
     items: Vec<ShopStockItem>,
 ) -> Profile {
     let compiler = source.factory().shop_room_compiler(items, SLOTS).unwrap();
-    compile_with_compiler(source, family, budget, compiler, None)
+    compile_with_compiler(source, family, budget, compiler, None, None)
 }
 
 fn compile_with_compiler(
@@ -110,6 +115,7 @@ fn compile_with_compiler(
     budget: u64,
     shop: ShopRoomCompiler,
     coin: Option<CoinRoomCompiler>,
+    reward: Option<RewardOccurrenceRoomCompiler>,
 ) -> Profile {
     let factory = source.factory();
     let base = base(source, family);
@@ -124,6 +130,7 @@ fn compile_with_compiler(
     let mut battles = Vec::new();
     let mut rooms = Vec::new();
     let mut coins = Vec::new();
+    let mut occurrences = Vec::new();
     let deck = &factory.decision_catalog().domain_decks()[0].key;
     let mut route = factory
         .compile_curio_domain_route(base.area(), deck, 3, DECK, |context| {
@@ -147,6 +154,13 @@ fn compile_with_compiler(
                 let room = coin.compile(context).unwrap();
                 let fragment = room.fragment().clone();
                 coins.push(room);
+                Ok(fragment)
+            } else if let Some(reward) = &reward
+                && context.composition == DomainRoomComposition::Card(DomainCardKind::Reward)
+            {
+                let room = reward.compile(context).unwrap();
+                let fragment = room.fragment().clone();
+                occurrences.push(room);
                 Ok(fragment)
             } else {
                 probe(context)
@@ -235,7 +249,14 @@ fn compile_with_compiler(
     }
     let payload = ActivityConfigDigest::new(owner.finalize()).unwrap();
     let identity = factory
-        .battle_room_identity(&base, &route.graph, &battles, payload)
+        .position_room_identity_with_occurrences(
+            &base,
+            &route.graph,
+            &battles,
+            &[],
+            &occurrences,
+            payload,
+        )
         .unwrap();
     let definition = Arc::new(
         GraphActivityDefinition::new(
@@ -252,7 +273,14 @@ fn compile_with_compiler(
         .unwrap(),
     );
     let flow = factory
-        .bind_battle_rooms(base, definition, &battles, payload)
+        .bind_position_rooms_with_occurrences(
+            base,
+            definition,
+            &battles,
+            &[],
+            &occurrences,
+            payload,
+        )
         .unwrap();
     let flow = factory.bind_position_domain_route(flow, &route).unwrap();
     let unbound = flow.clone();
@@ -263,6 +291,7 @@ fn compile_with_compiler(
         factory.bind_position_coin_rooms(flow, &coins).unwrap()
     };
     Profile {
+        occurrences,
         coins,
         flow,
         unbound,

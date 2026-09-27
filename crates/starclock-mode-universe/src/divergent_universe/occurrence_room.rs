@@ -17,6 +17,7 @@ use starclock_activity::{
     ActivityOptionId, ActivityProgramDefinition, ActivityProgramId, ActivityStateHash,
     ActivityValue, GraphActivity, GraphActivityDefinition, GraphActivityNodeProgram, NodeId,
 };
+use starclock_data::divergent_universe_decisions::reward_occurrences::RewardOccurrenceId;
 use starclock_data::divergent_universe_service_catalog::DivergentUniverseOccurrenceVariantId;
 use std::sync::Arc;
 
@@ -32,6 +33,7 @@ pub struct OccurrenceRoomCompiler {
 /// validated whole profile before accepting an event selection.
 #[derive(Clone, Debug)]
 pub struct CompiledOccurrenceRoom {
+    authored_reward: Option<RewardOccurrenceId>,
     context: DomainRoomContext,
     binding: Arc<OccurrenceBinding>,
     fragment: DomainRoomProgram,
@@ -141,6 +143,7 @@ impl OccurrenceRoomCompiler {
             .map_err(OccurrenceRoomError::Route)?,
         );
         Ok(CompiledOccurrenceRoom {
+            authored_reward: None,
             context: context.clone(),
             binding: Arc::clone(&self.binding),
             entry_program,
@@ -194,6 +197,17 @@ impl OccurrenceRoomCompiler {
 }
 
 impl CompiledOccurrenceRoom {
+    pub(super) fn with_authored_reward_selection(mut self, id: RewardOccurrenceId) -> Self {
+        self.authored_reward = Some(id);
+        self
+    }
+
+    /// Absent for explicitly caller-placed events; present for Sora Reward admission.
+    #[must_use]
+    pub fn authored_reward_selection(&self) -> Option<&RewardOccurrenceId> {
+        self.authored_reward.as_ref()
+    }
+
     #[must_use]
     pub fn context(&self) -> &DomainRoomContext {
         &self.context
@@ -214,6 +228,15 @@ impl CompiledOccurrenceRoom {
         hash.update(b"starclock.divergent-universe.explicit-position-occurrence.v1");
         hash.update(self.component);
         hash.update(self.decisions);
+        if let Some(selection) = &self.authored_reward {
+            hash.update(b"authored-reward-selection");
+            hash.update(
+                u64::try_from(selection.as_str().len())
+                    .expect("bounded key")
+                    .to_le_bytes(),
+            );
+            hash.update(selection.as_str().as_bytes());
+        }
         for value in [
             self.context.area.as_str(),
             self.context.layer.as_str(),
