@@ -11,6 +11,7 @@ const runtimeRoot = "content-manifests/divergent-universe-runtime-v1";
 const referenceRoot = "content-reference/divergent-universe-v1";
 const output = `${runtimeRoot}/titan-runtime-execution.json`;
 const inputs = {
+  modules: `${referenceRoot}/modules.json`,
   titan_types: `${referenceRoot}/titan-types.json`,
   titan_boons: `${referenceRoot}/titan-boons.json`,
   titan_talents: `${referenceRoot}/titan-talents.json`,
@@ -35,6 +36,7 @@ const inputs = {
 
 export function buildTitanRuntimeExecution({ read = text } = {}) {
   const json = (file) => JSON.parse(read(file));
+  const modules = json(inputs.modules);
   const types = json(inputs.titan_types);
   const boons = json(inputs.titan_boons);
   const talents = json(inputs.titan_talents);
@@ -57,6 +59,18 @@ export function buildTitanRuntimeExecution({ read = text } = {}) {
     ({ activation }) => activation === "AcceptedGoldenBloodBoon");
   const talentContributions = contributions.filter(
     ({ activation }) => activation === "TalentUnlocked");
+
+  assert(modules.length === 1 && modules[0].source_id === "6002201"
+    && modules[0].sub_mode === "TournRogue" && modules[0].tourn_mode === "Tourn3"
+    && modules[0].main_tourn_id === 3 && modules[0].sub_tourn_id === 1,
+  "current module selection drift requires a Titan reachability review");
+  // A new selector field requires evidence review; matching its spelling or value
+  // alone cannot promote retained rows into current-profile membership.
+  const selectorFields = ["module_id", "module_ids", "tourn_mode", "tourn_modes",
+    "profile_id", "profile_ids", "membership_evidence", "reachability_proof"];
+  assert([...types, ...boons, ...talents].every((row) =>
+    selectorFields.every((field) => !Object.hasOwn(row, field))),
+  "new Titan selector evidence requires a reachability review");
 
   assert(types.length === 12 && boons.length === 84 && talents.length === 36
     && choices.length === 36 && contributions.length === 120,
@@ -187,9 +201,23 @@ export function buildTitanRuntimeExecution({ read = text } = {}) {
       offer_accuracy:
         "VersionedProjectPolicyAcceptedOfferTimingAndExplicitStableIdSelectionNotObservedParity",
       exact_candidate_grouping: true,
+      candidate_grouping_scope: "RetainedSourceChildJoinsNotCurrentProfileMembership",
       no_legal_candidate_fallback: "RejectWithoutMutation",
       offer_rng_draws: 0,
       exact_offer_timing_parity_claimed: false,
+    },
+    profile_boundary: {
+      current_module_id: modules[0].id,
+      current_module_source_id: modules[0].source_id,
+      current_tourn_mode: modules[0].tourn_mode,
+      module_source_refs: modules[0].source_refs,
+      titan_current_profile_reachability: "Unproven",
+      admitted_current_profile_selector_proofs: 0,
+      retained_source_rows_are_membership_evidence: false,
+      caller_owned_entry_projection_proves_membership: false,
+      current_profile_gameplay_parity_claimed: false,
+      non_runtime_exclusion_proven: false,
+      replacement_condition: "Review a released module/profile-to-Titan selector or explicit policy-backed admission, then bind production execution and fresh replay. Retained tables and trusted caller input alone are insufficient.",
     },
     current_boundary: {
       selection_and_unlock_state_commands: "PresentRequiresNativeVerification",
@@ -202,7 +230,7 @@ export function buildTitanRuntimeExecution({ read = text } = {}) {
       public_offer_admission_implemented: false,
       unsupported_current_battle_assembly: "RejectUnimplementedTitanEffectsBeforeCacheLookup",
       terminal_coverage_credit: 0,
-      required_next_work: "Execute the remaining 9 Activity and 110 battle contribution effects, including Day/Night prerequisites; bind public offers and complete independent production/replay fixtures before terminal coverage. Entry reconstruction is not a complete-run replay.",
+      required_next_work: "Resolve current-profile reachability without removing the 132 pending obligations. Execute the remaining 9 Activity and 110 battle contribution effects, including Day/Night prerequisites, under reviewed exact or explicitly policy-backed admission; bind public offers and independent production/replay fixtures before terminal coverage. Entry reconstruction is not a complete-run replay.",
     },
     pending_assignments: {
       obligations: dispositions.length,

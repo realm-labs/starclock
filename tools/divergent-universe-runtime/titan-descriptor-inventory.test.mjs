@@ -28,6 +28,11 @@ test("current descriptors preserve all pending obligations without pass receipts
   assert.equal(artifact.native_test_targets.length, 13);
   assert.equal(artifact.current_boundary.run_entry_fragment_gain, "30");
   assert.equal(artifact.current_boundary.all_activity_effect_consumers_implemented, false);
+  assert.equal(artifact.profile_boundary.titan_current_profile_reachability, "Unproven");
+  assert.equal(artifact.profile_boundary.current_tourn_mode, "Tourn3");
+  assert.equal(artifact.profile_boundary.admitted_current_profile_selector_proofs, 0);
+  assert.equal(artifact.profile_boundary.current_profile_gameplay_parity_claimed, false);
+  assert.equal(artifact.profile_boundary.non_runtime_exclusion_proven, false);
   for (const forbidden of ["execution_receipt", "capability_probes"])
     assert.equal(Object.hasOwn(artifact, forbidden), false);
   assert.ok(artifact.native_test_targets.every((target) => !Object.hasOwn(target, "result")));
@@ -70,4 +75,26 @@ test("removing the actual entry currency operation cannot retain its consumer in
     file.endsWith("/titan_entry.rs") && !file.includes("/tests/")
       ? read(file).replace("credit_operations(self.fragments)", "credit_operations(0)")
       : read(file) }), /missing entry fragment/u);
+});
+
+test("current module changes require renewed reachability review", () => {
+  for (const mutate of [
+    (rows) => { rows[0].tourn_mode = "Tourn2"; },
+    (rows) => { rows[0].source_id = "6002101"; },
+    (rows) => { rows.push({ ...rows[0] }); },
+  ]) {
+    assert.throws(() => buildTitanRuntimeExecution(changedJson(
+      "content-reference/divergent-universe-v1/modules.json", mutate,
+    )), /module selection drift requires a Titan reachability review/u);
+  }
+});
+
+test("a retained row with a matching selector value is not an admitted proof", () => {
+  for (const file of ["titan-types.json", "titan-boons.json", "titan-talents.json"]) {
+    const injected = changedJson(`content-reference/divergent-universe-v1/${file}`, (rows) => {
+      rows[0].tourn_mode = "Tourn3";
+    });
+    assert.throws(() => buildTitanRuntimeExecution(injected),
+      /new Titan selector evidence requires a reachability review/u);
+  }
 });

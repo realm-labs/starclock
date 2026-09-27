@@ -6,6 +6,33 @@ source descriptors rather than executable Activity or battle effects.
 This is an incomplete part of the [complete runtime goal](goals/22-divergent-universe-runtime.md),
 not a smaller acceptance target.
 
+## Current-profile reachability remains unproven
+
+The admitted [module record](../content-reference/divergent-universe-v1/modules.json)
+selects `6002201 / Tourn3`, main tournament 3 and sub tournament 1. Its released
+4.4 source is `ExcelOutput/RogueTournModule.json`, locator 7, revision
+`fd978d6ef09f941fba644c731ab54abd6f7c3568`, file SHA-256
+`b37c35ad4760d5c42d57c426d8b5ed84431176e5afc5d7bc390418e57b4691bc`.
+The Titan type/Boon/talent records retain exact source facts and child joins,
+but the current inventory contains no admitted selector proof connecting them
+to that module. Retention in the same released dataset, `DivergentUniverse`
+ownership, `DataReady`, and exact child grouping do not establish membership.
+
+The optional caller-owned talent projection executes a deterministic headless
+composition over those retained facts. Caller input is not released-profile
+selector evidence, and its +30 consumer must not be presented as proven current
+4.4 gameplay parity. Public Titan offer admission remains absent. This finding
+also does **not** prove that the rows are non-runtime exclusions: all 132 source
+obligations, the family/gap and two policy sources remain pending and required.
+No denominator, scope or terminal target changes.
+
+Replace this boundary only after reviewing a released module/profile-to-Titan
+selector or explicit policy-backed admission and binding it to production
+execution and fresh replay. New module selection or selector fields force an
+inventory review rather than silently promoting matching IDs. Day/Night timing
+and consumers likewise need their own released evidence or visible policy;
+the presence of a `Day`/`Night` descriptor is not an implementation.
+
 ## Current production data and behavior
 
 The real Sora reference bundle lowers 12 types, 84 Golden Blood's Boons,

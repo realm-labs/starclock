@@ -33,6 +33,11 @@ Titan runs or the original total starting currency. The other 9 Activity and 110
 battle effects remain pending. Current battle assembly still rejects selected descriptors before cache lookup
 without changing state or RNG; native tests cover every Boon and talent in both
 run families. Public Titan offer admission and the remaining effects remain required.
+Current module `6002201 / Tourn3` is now bound in the Titan inventory. No admitted
+selector proves Titan reachability from that profile; retained source tables and
+the caller-owned projection are not membership evidence or current-game parity.
+Unproven reachability also does not prove a non-runtime exclusion: all 132
+obligations and original acceptance targets remain pending and unchanged.
 The full release gates remain open.
 
 The current [Persona domain layout](divergent-universe-domain-layout.md) is now

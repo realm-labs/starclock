@@ -1,6 +1,10 @@
 {
   "status": "TitanEntryFragmentsPartialOtherEffectsPending",
   "input_digests": {
+    "modules": {
+      "path": "content-reference/divergent-universe-v1/modules.json",
+      "sha256": "2a61670b265c8f2f71d6f9b489b5cd86ccd0d43ff051409db1f087ff6f4c88c5"
+    },
     "titan_types": {
       "path": "content-reference/divergent-universe-v1/titan-types.json",
       "sha256": "881eb852e5281b751fb6818ef74be92937e76ea745d60d5d79e5c3be79ea1f5d"
@@ -96,9 +100,36 @@
   "policy_boundary": {
     "offer_accuracy": "VersionedProjectPolicyAcceptedOfferTimingAndExplicitStableIdSelectionNotObservedParity",
     "exact_candidate_grouping": true,
+    "candidate_grouping_scope": "RetainedSourceChildJoinsNotCurrentProfileMembership",
     "no_legal_candidate_fallback": "RejectWithoutMutation",
     "offer_rng_draws": 0,
     "exact_offer_timing_parity_claimed": false
+  },
+  "profile_boundary": {
+    "current_module_id": "divergent-universe.module.6002201",
+    "current_module_source_id": "6002201",
+    "current_tourn_mode": "Tourn3",
+    "module_source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournmodule-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournModule.json",
+        "locator": "7",
+        "sha256": "b37c35ad4760d5c42d57c426d8b5ed84431176e5afc5d7bc390418e57b4691bc",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "titan_current_profile_reachability": "Unproven",
+    "admitted_current_profile_selector_proofs": 0,
+    "retained_source_rows_are_membership_evidence": false,
+    "caller_owned_entry_projection_proves_membership": false,
+    "current_profile_gameplay_parity_claimed": false,
+    "non_runtime_exclusion_proven": false,
+    "replacement_condition": "Review a released module/profile-to-Titan selector or explicit policy-backed admission, then bind production execution and fresh replay. Retained tables and trusted caller input alone are insufficient."
   },
   "current_boundary": {
     "selection_and_unlock_state_commands": "PresentRequiresNativeVerification",
@@ -111,7 +142,7 @@
     "public_offer_admission_implemented": false,
     "unsupported_current_battle_assembly": "RejectUnimplementedTitanEffectsBeforeCacheLookup",
     "terminal_coverage_credit": 0,
-    "required_next_work": "Execute the remaining 9 Activity and 110 battle contribution effects, including Day/Night prerequisites; bind public offers and complete independent production/replay fixtures before terminal coverage. Entry reconstruction is not a complete-run replay."
+    "required_next_work": "Resolve current-profile reachability without removing the 132 pending obligations. Execute the remaining 9 Activity and 110 battle contribution effects, including Day/Night prerequisites, under reviewed exact or explicitly policy-backed admission; bind public offers and independent production/replay fixtures before terminal coverage. Entry reconstruction is not a complete-run replay."
   },
   "pending_assignments": {
     "obligations": 132,

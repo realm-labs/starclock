@@ -20,6 +20,15 @@ assert(artifact.status === "TitanEntryFragmentsPartialOtherEffectsPending"
   && !artifact.current_boundary.public_offer_admission_implemented
   && artifact.current_boundary.terminal_coverage_credit === 0,
 "partial Titan entry effects must not imply complete runtime execution");
+assert(artifact.profile_boundary.current_module_source_id === "6002201"
+  && artifact.profile_boundary.current_tourn_mode === "Tourn3"
+  && artifact.profile_boundary.titan_current_profile_reachability === "Unproven"
+  && artifact.profile_boundary.admitted_current_profile_selector_proofs === 0
+  && !artifact.profile_boundary.retained_source_rows_are_membership_evidence
+  && !artifact.profile_boundary.caller_owned_entry_projection_proves_membership
+  && !artifact.profile_boundary.current_profile_gameplay_parity_claimed
+  && !artifact.profile_boundary.non_runtime_exclusion_proven,
+"retained Titan facts prove neither current-profile admission nor exclusion");
 assert(equal(artifact.summary, {
   titan_types: 12,
   boons: 84,
