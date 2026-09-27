@@ -1,9 +1,9 @@
 {
   "schema_revision": "starclock.divergent-universe-visual-review.v1",
-  "reviewed_at": "2026-09-12",
+  "reviewed_at": "2026-09-27",
   "renderer": {
     "name": "openpyxl-html-chromium",
-    "version": "Microsoft Edge 153.0.4234.32",
+    "version": "Microsoft Edge 154.0.4258.37",
     "range_policy": "rows 1-12 across every used schema column"
   },
   "workbooks": [
@@ -46,9 +46,9 @@
         "T16_CurioStates",
         "T17_CurioGroups",
         "T18_CurioLifecycleRules",
-        "T19_GrandMiracles",
-        "T20_GrandMiracleEligibility",
-        "T21_GrandMiracleStates",
+        "T19_WeightedCurios",
+        "T20_WeightedCurioEligibility",
+        "T21_WeightedCurioStates",
         "T22_TitanTypes",
         "T23_TitanBoons",
         "T24_TitanTalents",
@@ -105,36 +105,36 @@
     }
   ],
   "sheet_count": 81,
-  "render_manifest_sha256": "f37d4a2859d720634da0f47f2959ef3e510fdcea54792be434a7c8a063babb2e",
+  "render_manifest_sha256": "7897194e79d6d9f63d59420791c040d6f4031474104bc7350fda564d843cf44b",
   "contact_sheet_sha256": [
     "ada40bd0706ae59c5008b644300ec97e2ab508b8eb25af09a70f29f77e31b3dc",
     "d219dd299ee5010fc905e78a269ec16f97333eee5d1f5a877c1717d6eaecea31",
     "96245f98f11ebd82e22535e364fb085f27f1a1648321a469a707d6cdde3f2d93",
     "b8b46ce2dabe811f7c690d4cacc5a4e0355968abf7c1ccf9ca3e7c2eaf2b1ae2",
-    "654e140965828fb9cb85461a07a36ad774fb3ea8791cbfbbf148c03e0d81c6d8",
+    "8dd4adb3d4d4c301cf9f1e754333569a9db9ae4ebb397272563fa1cb925b6e67",
     "bd9fd9c0dcf95f337fda92ae9e1adb50c44a16eab202c7b647c04596bbb77c45",
     "2f5d636031a805a6582968d584960aa55c061565502f1a2f3468884719a88b68",
     "63b78e92c50188b0ac67966759a01be78d06b689e3ebdb126c80aa5e324d29e5",
     "b1bcd519fd50fb0c12649ecac148a63408ad7eeda5fc73900ba3a74d18a89133",
     "e46e67351b91ad4e5eca8d36532df0eb07de702558d10a26f2cb805543afd309",
-    "d62635620e382d7b55896924ad4fd13ba426e3a2d00a673535fb631c35e869e0"
+    "c4b48145305e21ad7827729f63d0164ab50e464254ce756427b0da8b3e60da5b"
   ],
   "workbook_sha256": {
-    "DivergentUniverse.xlsx": "bc73a2c6e76e659470ac151c560f0ab61a1e37da7317ee09f9cb74600b5cd33c",
+    "DivergentUniverse.xlsx": "abe61da7a1d3153615f84117df6ff73adf64565ae04aea363d18118b56beff7e",
     "DivergentUniverseBindings.xlsx": "5ad65ad72145f38b7e22a9cfb1da11fae098c2fc27a2f51b47d7e11c920115f2",
-    "DivergentUniverseReview.xlsx": "a7fe036da4d8c996b4db1f9d1769ebc1761d30c5c8c735be6b0f5f8e6f4f9690"
+    "DivergentUniverseReview.xlsx": "bdde85b3c47c7223f864cca2ae1b337b21f8d8fc90aa74666beba53e65cb24a5"
   },
-  "workbook_semantic_sha256": "4a188229b504894bac81a62d4d0ac5fbea402ddfb055a692efa4349d1242401e",
+  "workbook_semantic_sha256": "894510ae60740bbed1a78961132d8b6da4aee5373b8432dc3cc8d7eb183e44c3",
   "sora_bundle": {
-    "bytes": 26417866,
-    "sha256": "2768fc939dee45c07233136f27c101e3f5a52c1c80ca11ec239dbac9c1a8a993",
+    "bytes": 26419703,
+    "sha256": "a39cec41d7c09485e096daa2b99fd8625f5b14b1e530a037d720eaccb1a99455",
     "tables": 81,
     "rows": 28732,
     "verified_empty_tables": 2
   },
   "debug_export": {
     "files": 81,
-    "sha256": "f3b8316b703f3c47ac2ace750c5e5cd3d37083b794417ab897ccb8ecb3c6a3cb",
+    "sha256": "d26004fbba1e9343ddfad6ca57e216891e8ae40462a15560c066b9f01007df35",
     "digest_algorithm": "SHA-256 over sorted filename, NUL, file bytes, NUL"
   },
   "checks": {

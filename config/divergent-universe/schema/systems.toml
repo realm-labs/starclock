@@ -1483,14 +1483,14 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
-id = "grand-miracles"
-name = "DivergentUniverseGrandMiracles"
+id = "weighted-curios"
+name = "DivergentUniverseWeightedCurios"
 mode = "map"
 key = "id"
 [tables.source]
 format = "xlsx"
 file = "DivergentUniverse.xlsx"
-sheet = "T19_GrandMiracles"
+sheet = "T19_WeightedCurios"
 [[tables.fields]]
 name = "id"
 type = "i32"
@@ -1543,6 +1543,9 @@ parser = { kind = "split", separator = "|" }
 [[tables.fields]]
 name = "source_id"
 type = "optional<string>"
+[[tables.fields]]
+name = "content_kind"
+type = "enum<DuHexContentKind>"
 [[tables.fields]]
 name = "display_id"
 type = "optional<string>"
@@ -1565,14 +1568,14 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
-id = "grand-miracle-eligibility"
-name = "DivergentUniverseGrandMiracleEligibility"
+id = "weighted-curio-eligibility"
+name = "DivergentUniverseWeightedCurioEligibility"
 mode = "map"
 key = "id"
 [tables.source]
 format = "xlsx"
 file = "DivergentUniverse.xlsx"
-sheet = "T20_GrandMiracleEligibility"
+sheet = "T20_WeightedCurioEligibility"
 [[tables.fields]]
 name = "id"
 type = "i32"
@@ -1626,8 +1629,8 @@ parser = { kind = "split", separator = "|" }
 name = "source_id"
 type = "optional<string>"
 [[tables.fields]]
-name = "grand_miracle_id"
-type = "optional<ref<DivergentUniverseGrandMiracles.id>>"
+name = "weighted_curio_id"
+type = "optional<ref<DivergentUniverseWeightedCurios.id>>"
 [[tables.fields]]
 name = "character_path"
 type = "optional<string>"
@@ -1647,14 +1650,14 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
-id = "grand-miracle-states"
-name = "DivergentUniverseGrandMiracleStates"
+id = "weighted-curio-states"
+name = "DivergentUniverseWeightedCurioStates"
 mode = "map"
 key = "id"
 [tables.source]
 format = "xlsx"
 file = "DivergentUniverse.xlsx"
-sheet = "T21_GrandMiracleStates"
+sheet = "T21_WeightedCurioStates"
 [[tables.fields]]
 name = "id"
 type = "i32"
@@ -1708,8 +1711,8 @@ parser = { kind = "split", separator = "|" }
 name = "source_id"
 type = "optional<string>"
 [[tables.fields]]
-name = "grand_miracle_id"
-type = "optional<ref<DivergentUniverseGrandMiracles.id>>"
+name = "weighted_curio_id"
+type = "optional<ref<DivergentUniverseWeightedCurios.id>>"
 [[tables.fields]]
 name = "state"
 type = "optional<string>"

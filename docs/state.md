@@ -9,9 +9,13 @@ The [Hex source taxonomy boundary](divergent-universe-hex-content-taxonomy.md)
 classifies the 17 current `RogueTournHex` references as Weighted Curios, not Grand
 Miracles. The owned catalog rejects the wrong classification. The flag-only
 Grand Miracle runtime has been removed; reference installation/activation flags
-are not gameplay effects. Current reference/workbook/Sora transport names still
-need alignment. Weighted Curio loadout/effects, actual Grand Miracle source
-selection/effects and the Forge room payload remain unimplemented. The current
+are not gameplay effects. Reference keys, owned types, worksheets, schema,
+generated readers and the real Sora bundle now use Weighted Curio names, with
+validated typed classification and current/excluded eligibility scopes. Original
+source-obligation IDs and Grand Miracle fixture semantics still require a separate
+audit; genuine Grand Miracle acceptance is not reduced. Weighted Curio loadout
+and effects, actual Grand Miracle source selection/effects and the Forge room
+payload remain unimplemented. The current
 taxonomy/Gamble inventory emits no execution receipt or terminal coverage credit;
 the two accepted Coin units and unresolved Gamble rejection behavior remain.
 The verification scaffold retains all 6,762 obligations; its validator uses that
@@ -910,8 +914,8 @@ and 78,607-row bundle have been regenerated under that contract.
 
 The Divergent Universe reference authoring project also uses the Sora 0.6.1
 project/view contract. Three complete `openpyxl==3.1.5` workbooks generate 81
-tables, 28,732 rows, two verified-empty tables, 86 Rust reader files and a
-26,417,866-byte bundle. Independent clean generations are byte-identical and
+tables, 28,732 rows, two verified-empty tables, 87 Rust reader files and a
+26,419,703-byte bundle. Independent clean generations are byte-identical and
 every reader loads the bundle; current identities are recorded in
 `evidence/divergent-universe-reference-v1/sora-current-state.json`. This remains
 a Candidate reference package and provides no Divergent Universe runtime or

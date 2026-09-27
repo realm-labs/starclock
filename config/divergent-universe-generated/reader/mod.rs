@@ -3,6 +3,7 @@
 #![allow(dead_code)]
 
 pub mod runtime;
+pub mod du_hex_content_kind;
 pub mod du_ownership;
 pub mod du_coverage_state;
 pub mod du_evidence_quality;
@@ -42,9 +43,9 @@ pub mod divergent_universe_curios;
 pub mod divergent_universe_curio_states;
 pub mod divergent_universe_curio_groups;
 pub mod divergent_universe_curio_lifecycle_rules;
-pub mod divergent_universe_grand_miracles;
-pub mod divergent_universe_grand_miracle_eligibility;
-pub mod divergent_universe_grand_miracle_states;
+pub mod divergent_universe_weighted_curios;
+pub mod divergent_universe_weighted_curio_eligibility;
+pub mod divergent_universe_weighted_curio_states;
 pub mod divergent_universe_titan_types;
 pub mod divergent_universe_titan_boons;
 pub mod divergent_universe_titan_talents;
@@ -89,7 +90,7 @@ pub mod divergent_universe_manifest;
 pub mod divergent_universe_pack_index;
 pub type SoraMap<K, V> = std::collections::HashMap<K, V>;
 
-pub const SCHEMA_FINGERPRINT: &str = "6dfaf7aba644d1c9";
+pub const SCHEMA_FINGERPRINT: &str = "65b0c0933faf3686";
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum SoraTableShape {
@@ -209,9 +210,9 @@ impl SoraConfig {
         tables.insert(divergent_universe_curio_states::DivergentUniverseCurioStatesTable::NAME, Box::new(divergent_universe_curio_states::DivergentUniverseCurioStatesTable::from_rows(source.decode_table::<divergent_universe_curio_states::DivergentUniverseCurioStates>(divergent_universe_curio_states::DivergentUniverseCurioStatesTable::NAME)?)?));
         tables.insert(divergent_universe_curio_groups::DivergentUniverseCurioGroupsTable::NAME, Box::new(divergent_universe_curio_groups::DivergentUniverseCurioGroupsTable::from_rows(source.decode_table::<divergent_universe_curio_groups::DivergentUniverseCurioGroups>(divergent_universe_curio_groups::DivergentUniverseCurioGroupsTable::NAME)?)?));
         tables.insert(divergent_universe_curio_lifecycle_rules::DivergentUniverseCurioLifecycleRulesTable::NAME, Box::new(divergent_universe_curio_lifecycle_rules::DivergentUniverseCurioLifecycleRulesTable::from_rows(source.decode_table::<divergent_universe_curio_lifecycle_rules::DivergentUniverseCurioLifecycleRules>(divergent_universe_curio_lifecycle_rules::DivergentUniverseCurioLifecycleRulesTable::NAME)?)?));
-        tables.insert(divergent_universe_grand_miracles::DivergentUniverseGrandMiraclesTable::NAME, Box::new(divergent_universe_grand_miracles::DivergentUniverseGrandMiraclesTable::from_rows(source.decode_table::<divergent_universe_grand_miracles::DivergentUniverseGrandMiracles>(divergent_universe_grand_miracles::DivergentUniverseGrandMiraclesTable::NAME)?)?));
-        tables.insert(divergent_universe_grand_miracle_eligibility::DivergentUniverseGrandMiracleEligibilityTable::NAME, Box::new(divergent_universe_grand_miracle_eligibility::DivergentUniverseGrandMiracleEligibilityTable::from_rows(source.decode_table::<divergent_universe_grand_miracle_eligibility::DivergentUniverseGrandMiracleEligibility>(divergent_universe_grand_miracle_eligibility::DivergentUniverseGrandMiracleEligibilityTable::NAME)?)?));
-        tables.insert(divergent_universe_grand_miracle_states::DivergentUniverseGrandMiracleStatesTable::NAME, Box::new(divergent_universe_grand_miracle_states::DivergentUniverseGrandMiracleStatesTable::from_rows(source.decode_table::<divergent_universe_grand_miracle_states::DivergentUniverseGrandMiracleStates>(divergent_universe_grand_miracle_states::DivergentUniverseGrandMiracleStatesTable::NAME)?)?));
+        tables.insert(divergent_universe_weighted_curios::DivergentUniverseWeightedCuriosTable::NAME, Box::new(divergent_universe_weighted_curios::DivergentUniverseWeightedCuriosTable::from_rows(source.decode_table::<divergent_universe_weighted_curios::DivergentUniverseWeightedCurios>(divergent_universe_weighted_curios::DivergentUniverseWeightedCuriosTable::NAME)?)?));
+        tables.insert(divergent_universe_weighted_curio_eligibility::DivergentUniverseWeightedCurioEligibilityTable::NAME, Box::new(divergent_universe_weighted_curio_eligibility::DivergentUniverseWeightedCurioEligibilityTable::from_rows(source.decode_table::<divergent_universe_weighted_curio_eligibility::DivergentUniverseWeightedCurioEligibility>(divergent_universe_weighted_curio_eligibility::DivergentUniverseWeightedCurioEligibilityTable::NAME)?)?));
+        tables.insert(divergent_universe_weighted_curio_states::DivergentUniverseWeightedCurioStatesTable::NAME, Box::new(divergent_universe_weighted_curio_states::DivergentUniverseWeightedCurioStatesTable::from_rows(source.decode_table::<divergent_universe_weighted_curio_states::DivergentUniverseWeightedCurioStates>(divergent_universe_weighted_curio_states::DivergentUniverseWeightedCurioStatesTable::NAME)?)?));
         tables.insert(divergent_universe_titan_types::DivergentUniverseTitanTypesTable::NAME, Box::new(divergent_universe_titan_types::DivergentUniverseTitanTypesTable::from_rows(source.decode_table::<divergent_universe_titan_types::DivergentUniverseTitanTypes>(divergent_universe_titan_types::DivergentUniverseTitanTypesTable::NAME)?)?));
         tables.insert(divergent_universe_titan_boons::DivergentUniverseTitanBoonsTable::NAME, Box::new(divergent_universe_titan_boons::DivergentUniverseTitanBoonsTable::from_rows(source.decode_table::<divergent_universe_titan_boons::DivergentUniverseTitanBoons>(divergent_universe_titan_boons::DivergentUniverseTitanBoonsTable::NAME)?)?));
         tables.insert(divergent_universe_titan_talents::DivergentUniverseTitanTalentsTable::NAME, Box::new(divergent_universe_titan_talents::DivergentUniverseTitanTalentsTable::from_rows(source.decode_table::<divergent_universe_titan_talents::DivergentUniverseTitanTalents>(divergent_universe_titan_talents::DivergentUniverseTitanTalentsTable::NAME)?)?));
@@ -420,16 +421,16 @@ impl SoraConfig {
         self.table(divergent_universe_curio_lifecycle_rules::DivergentUniverseCurioLifecycleRulesTable::NAME)
     }
 
-    pub fn divergent_universe_grand_miracles(&self) -> &divergent_universe_grand_miracles::DivergentUniverseGrandMiraclesTable {
-        self.table(divergent_universe_grand_miracles::DivergentUniverseGrandMiraclesTable::NAME)
+    pub fn divergent_universe_weighted_curios(&self) -> &divergent_universe_weighted_curios::DivergentUniverseWeightedCuriosTable {
+        self.table(divergent_universe_weighted_curios::DivergentUniverseWeightedCuriosTable::NAME)
     }
 
-    pub fn divergent_universe_grand_miracle_eligibility(&self) -> &divergent_universe_grand_miracle_eligibility::DivergentUniverseGrandMiracleEligibilityTable {
-        self.table(divergent_universe_grand_miracle_eligibility::DivergentUniverseGrandMiracleEligibilityTable::NAME)
+    pub fn divergent_universe_weighted_curio_eligibility(&self) -> &divergent_universe_weighted_curio_eligibility::DivergentUniverseWeightedCurioEligibilityTable {
+        self.table(divergent_universe_weighted_curio_eligibility::DivergentUniverseWeightedCurioEligibilityTable::NAME)
     }
 
-    pub fn divergent_universe_grand_miracle_states(&self) -> &divergent_universe_grand_miracle_states::DivergentUniverseGrandMiracleStatesTable {
-        self.table(divergent_universe_grand_miracle_states::DivergentUniverseGrandMiracleStatesTable::NAME)
+    pub fn divergent_universe_weighted_curio_states(&self) -> &divergent_universe_weighted_curio_states::DivergentUniverseWeightedCurioStatesTable {
+        self.table(divergent_universe_weighted_curio_states::DivergentUniverseWeightedCurioStatesTable::NAME)
     }
 
     pub fn divergent_universe_titan_types(&self) -> &divergent_universe_titan_types::DivergentUniverseTitanTypesTable {

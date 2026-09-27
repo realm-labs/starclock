@@ -32,13 +32,15 @@ node tools/divergent-universe-reference/verify-manifest.mjs \
   --source-cache <cache-root>
 ```
 
-The manifest freezes 6,215 exact source obligations in 50 categories:
-4,507 mode-owned, one proven shared StageConfig root and 1,707 fail-closed
-shared candidates. The current released selector is `TournRogue` /
+The manifest freezes 6,762 exact source obligations in 51 categories, including
+547 independently accounted Persona source-only obligations. The current
+released selector is `TournRogue` /
 `Tourn3`, activity module `6002201`, main tournament 3, sub-tournament 1.
 There are no `Tourn3` room rows or matching layer-room rows in the fixed
 snapshot, so all 848 `Tourn2` room rows remain `SharedCandidate` obligations
-until P1-B1 proves or excludes each through stage/config reachability.
+until stage/config reachability proves or excludes each. Current Persona layout
+separately binds 11 layers and 60 positions; the missing old join does not mean
+current domain positions are absent.
 
 A `RogueTourn` prefix, module number, ID range, adjacent record or matching
 localized name never grants membership; shared records require an explicit
@@ -53,7 +55,7 @@ node tools/divergent-universe-reference/contracts.mjs --check
 node tools/divergent-universe-reference/verify-contracts.mjs
 ```
 
-`normalized-schema.json` freezes 80 normalized file families and their
+`normalized-schema.json` freezes 81 normalized file families and their
 manifest mappings. `authoring-contract.json` assigns every family exactly once
 to `DivergentUniverse.xlsx`, `DivergentUniverseBindings.xlsx` or
 `DivergentUniverseReview.xlsx`, with independent Sora 0.6.1 project, reader
@@ -66,17 +68,29 @@ The current production authoring and verification path is:
 ```text
 node tools/divergent-universe-reference/generate-sora-schema.mjs .
 node tools/divergent-universe-reference/generate-sora-artifacts.mjs . --reauthor-workbooks
-node tools/divergent-universe-reference/render-visual-review.mjs
+node tools/divergent-universe-reference/render-visual-review.mjs . <new-render-directory>
+node tools/divergent-universe-reference/record-visual-review.mjs <new-render-directory> YYYY-MM-DD --confirm-reviewed
 node tools/divergent-universe-reference/verify-sora-migration.mjs
-node tools/divergent-universe-reference/verify-sora-schema.mjs
+node tools/divergent-universe-reference/verify-sora-schema.mjs --check-generated
 node tools/divergent-universe-reference/verify-sora-release.mjs .
 ```
 
 Set `STARCLOCK_PYTHON` to an `openpyxl==3.1.5` interpreter. The visual
-renderer locates Edge or Chrome, or accepts `STARCLOCK_BROWSER`; review the ten
-contact sheets before updating `visual-review.json`. Regenerate
+renderer locates Edge or Chrome, or accepts `STARCLOCK_BROWSER`; inspect all eleven
+contact sheets and changed worksheets at readable resolution before explicitly
+recording `visual-review.json`. Run artifact regeneration before Rust checks;
+`--check-generated` validates the current schema and deterministic lock without
+replacing the output directory. Regenerate
 `sora-current-state.json` only through the release verifier's explicit
 `--write-state` mode after the full gate passes.
+
+For interrupted long checks, `--verify-existing <isolated-build-directory>`
+can verify two independently authored and exported `build-a`/`build-b` targets
+inside `.cache/divergent-universe-release-check/build-*`. It does not author or
+export anything and preserves those targets. Both project/schema inputs must
+match the current tree; all workbook, double-export, current-output, visual-review
+and native reader-loading checks still run. A cache directory alone is never
+evidence that a build completed.
 
 The ignored source cache is reproduced through
 `tools/divergent-universe-reference/fetch-sources.sh`. Both repositories must

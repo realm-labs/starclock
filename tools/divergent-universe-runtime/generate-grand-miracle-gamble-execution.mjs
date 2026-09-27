@@ -10,9 +10,9 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..")
 const ref = "content-reference/divergent-universe-v1";
 const output = "content-manifests/divergent-universe-runtime-v1/grand-miracle-gamble-execution.json";
 const inputs = {
-  hex_references: `${ref}/grand-miracles.json`,
-  hex_eligibility: `${ref}/grand-miracle-eligibility.json`,
-  hex_states: `${ref}/grand-miracle-states.json`,
+  hex_references: `${ref}/weighted-curios.json`,
+  hex_eligibility: `${ref}/weighted-curio-eligibility.json`,
+  hex_states: `${ref}/weighted-curio-states.json`,
   gamble_groups: `${ref}/gamble-groups.json`,
   gamble_units: `${ref}/gamble-units.json`,
   curio_catalog: "crates/starclock-data/src/divergent_universe_curio_catalog.rs",
@@ -35,7 +35,10 @@ export function buildGrandMiracleGambleExecution() {
   const coins = units.filter((row) => row.outcome_program.operation === "GainRunCurrency");
   assert(hex.length === 17 && current.length === 17 && otherMode.length === 57
     && states.length === 34, "Hex reference denominator drift");
-  assert(hex.every((row) => !row.runtime_lowered && row.source_refs.some((source) =>
+  assert(hex.every((row) => row.content_kind === "WeightedCurio"
+    && row.kind === "DivergentUniverseWeightedCurio"
+    && row.id.startsWith("divergent-universe.weighted-curio.")
+    && !row.runtime_lowered && row.source_refs.some((source) =>
     source.path === "ExcelOutput/RogueTournHex.json" && source.revision === revision)),
   "Hex source/reference boundary drift");
   assert(groups.length === 126 && groups.every((row) => row.unit_ids.length === 0
@@ -45,8 +48,8 @@ export function buildGrandMiracleGambleExecution() {
     && equal(coins.map((row) => row.outcome_program.amount), ["20", "40"]),
   "Gamble Coin source drift");
   assert(text(inputs.curio_lowering).includes(
-    "content_kind: DivergentUniverseHexContentKind::WeightedCurio"),
-  "owned Hex lowering must classify Weighted Curios");
+    "content_kind(r.content_kind, &v.content_kind)?"),
+  "owned Hex lowering must bind the authored column and payload classification");
   assert(text(inputs.curio_catalog).includes(
     "Hex references are Weighted Curios, not Grand Miracles"),
   "owned catalog must reject Grand Miracle classification of Hex references");
@@ -85,7 +88,8 @@ export function buildGrandMiracleGambleExecution() {
         sha256: "afc6d0ff9eeb20d09042e61c311e60d4ed56e69757f1ac42466ca4840e6ed789" },
     },
     current_boundary: {
-      reference_transport_names_aligned: false,
+      reference_transport_names_aligned: true,
+      source_obligation_and_fixture_labels_aligned: false,
       owned_hex_semantic_classification: true,
       grand_miracles_admitted_from_hex: 0,
       weighted_curio_loadout_implemented: false,
@@ -93,7 +97,7 @@ export function buildGrandMiracleGambleExecution() {
       grand_miracle_runtime_implemented: false,
       forge_room_payload_implemented: false,
       terminal_coverage_credit: 0,
-      required_next_work: "Align reference/workbook/Sora taxonomy, then implement real loadout and effects; establish Grand Miracle selectors independently.",
+      required_next_work: "Implement real Weighted Curio loadout and effects; establish Grand Miracle selectors independently and repair its separate source/fixture audit labels without shrinking obligations.",
     },
     summary: { weighted_curio_references: hex.length,
       current_hex_eligibility_rules: current.length,

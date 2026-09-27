@@ -44,16 +44,16 @@ stable_id!(
     "divergent-universe.curio-catalog."
 );
 stable_id!(
-    DivergentUniverseGrandMiracleId,
-    "divergent-universe.grand-miracle."
+    DivergentUniverseWeightedCurioId,
+    "divergent-universe.weighted-curio."
 );
 stable_id!(
-    DivergentUniverseGrandMiracleEligibilityId,
-    "divergent-universe.grand-miracle-eligibility."
+    DivergentUniverseWeightedCurioEligibilityId,
+    "divergent-universe.weighted-curio-eligibility."
 );
 stable_id!(
-    DivergentUniverseGrandMiracleStateId,
-    "divergent-universe.grand-miracle-state."
+    DivergentUniverseWeightedCurioStateId,
+    "divergent-universe.weighted-curio-state."
 );
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
@@ -127,13 +127,13 @@ pub struct DivergentUniverseCurioPoolMembershipDefinition {
     pub runtime_lowered: bool,
 }
 #[derive(Clone, Debug, Eq, PartialEq)]
-pub struct DivergentUniverseGrandMiracleDefinition {
-    /// Semantic classification of the pinned source, independent of the
-    /// reference transport's currently misnamed table and stable-key namespace.
+pub struct DivergentUniverseWeightedCurioDefinition {
+    /// Sora-authored source classification, validated against the payload and
+    /// the current Hex source selector. This is not runtime effect admission.
     pub content_kind: DivergentUniverseHexContentKind,
-    pub id: DivergentUniverseGrandMiracleId,
-    pub states: Box<[DivergentUniverseGrandMiracleStateId]>,
-    pub eligibility_rules: Box<[DivergentUniverseGrandMiracleEligibilityId]>,
+    pub id: DivergentUniverseWeightedCurioId,
+    pub states: Box<[DivergentUniverseWeightedCurioStateId]>,
+    pub eligibility_rules: Box<[DivergentUniverseWeightedCurioEligibilityId]>,
     pub maze_buff_id: Box<str>,
     pub maze_buff_resolution: Box<str>,
     pub effect_ids: Box<[Box<str>]>,
@@ -149,9 +149,9 @@ pub enum DivergentUniverseHexContentKind {
     GrandMiracle,
 }
 #[derive(Clone, Debug, Eq, PartialEq)]
-pub struct DivergentUniverseGrandMiracleEligibilityDefinition {
-    pub id: DivergentUniverseGrandMiracleEligibilityId,
-    pub miracle: Option<DivergentUniverseGrandMiracleId>,
+pub struct DivergentUniverseWeightedCurioEligibilityDefinition {
+    pub id: DivergentUniverseWeightedCurioEligibilityId,
+    pub weighted_curio: Option<DivergentUniverseWeightedCurioId>,
     pub selector_scope: Box<str>,
     pub character_paths: Box<[Box<str>]>,
     pub elements: Box<[Box<str>]>,
@@ -159,9 +159,9 @@ pub struct DivergentUniverseGrandMiracleEligibilityDefinition {
     pub runtime_lowered: bool,
 }
 #[derive(Clone, Debug, Eq, PartialEq)]
-pub struct DivergentUniverseGrandMiracleStateDefinition {
-    pub id: DivergentUniverseGrandMiracleStateId,
-    pub miracle: DivergentUniverseGrandMiracleId,
+pub struct DivergentUniverseWeightedCurioStateDefinition {
+    pub id: DivergentUniverseWeightedCurioStateId,
+    pub weighted_curio: DivergentUniverseWeightedCurioId,
     pub state: Box<str>,
     pub activation: Box<str>,
     pub duration: Box<str>,
@@ -178,9 +178,9 @@ pub struct DivergentUniverseCurioCatalogParts {
     pub groups: Vec<DivergentUniverseCurioGroupDefinition>,
     pub lifecycle: Vec<DivergentUniverseCurioLifecycleDefinition>,
     pub pool_membership: Vec<DivergentUniverseCurioPoolMembershipDefinition>,
-    pub miracles: Vec<DivergentUniverseGrandMiracleDefinition>,
-    pub miracle_eligibility: Vec<DivergentUniverseGrandMiracleEligibilityDefinition>,
-    pub miracle_states: Vec<DivergentUniverseGrandMiracleStateDefinition>,
+    pub weighted_curios: Vec<DivergentUniverseWeightedCurioDefinition>,
+    pub weighted_curio_eligibility: Vec<DivergentUniverseWeightedCurioEligibilityDefinition>,
+    pub weighted_curio_states: Vec<DivergentUniverseWeightedCurioStateDefinition>,
     pub source_obligations: usize,
 }
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -198,12 +198,12 @@ impl DivergentUniverseCurioCatalog {
             (p.groups.len(), 286),
             (p.lifecycle.len(), 179),
             (p.pool_membership.len(), 235),
-            (p.miracles.len(), 17),
-            (p.miracle_eligibility.len(), 74),
-            (p.miracle_states.len(), 34),
+            (p.weighted_curios.len(), 17),
+            (p.weighted_curio_eligibility.len(), 74),
+            (p.weighted_curio_states.len(), 34),
         ];
         if counts.iter().any(|(actual, expected)| actual != expected) {
-            return Err(error("Curio/Grand Miracle table denominator drift"));
+            return Err(error("Curio/Weighted Curio table denominator drift"));
         }
         if p.source_obligations != 774 {
             return Err(error("Curio source obligation closure drift"));
@@ -213,10 +213,11 @@ impl DivergentUniverseCurioCatalog {
         p.groups.sort_unstable_by(|a, b| a.id.cmp(&b.id));
         p.lifecycle.sort_unstable_by(|a, b| a.id.cmp(&b.id));
         p.pool_membership.sort_unstable_by(|a, b| a.id.cmp(&b.id));
-        p.miracles.sort_unstable_by(|a, b| a.id.cmp(&b.id));
-        p.miracle_eligibility
+        p.weighted_curios.sort_unstable_by(|a, b| a.id.cmp(&b.id));
+        p.weighted_curio_eligibility
             .sort_unstable_by(|a, b| a.id.cmp(&b.id));
-        p.miracle_states.sort_unstable_by(|a, b| a.id.cmp(&b.id));
+        p.weighted_curio_states
+            .sort_unstable_by(|a, b| a.id.cmp(&b.id));
         validate(&p)?;
         Ok(Self { parts: p })
     }
@@ -243,16 +244,18 @@ impl DivergentUniverseCurioCatalog {
     #[must_use]
     /// Reference transport rows, not Grand Miracle runtime definitions. Inspect
     /// `content_kind`: every currently loaded Hex reference is a Weighted Curio.
-    pub fn miracles(&self) -> &[DivergentUniverseGrandMiracleDefinition] {
-        &self.parts.miracles
+    pub fn weighted_curios(&self) -> &[DivergentUniverseWeightedCurioDefinition] {
+        &self.parts.weighted_curios
     }
     #[must_use]
-    pub fn miracle_eligibility(&self) -> &[DivergentUniverseGrandMiracleEligibilityDefinition] {
-        &self.parts.miracle_eligibility
+    pub fn weighted_curio_eligibility(
+        &self,
+    ) -> &[DivergentUniverseWeightedCurioEligibilityDefinition] {
+        &self.parts.weighted_curio_eligibility
     }
     #[must_use]
-    pub fn miracle_states(&self) -> &[DivergentUniverseGrandMiracleStateDefinition] {
-        &self.parts.miracle_states
+    pub fn weighted_curio_states(&self) -> &[DivergentUniverseWeightedCurioStateDefinition] {
+        &self.parts.weighted_curio_states
     }
     #[must_use]
     pub const fn source_obligations(&self) -> usize {
@@ -280,27 +283,27 @@ fn validate(p: &DivergentUniverseCurioCatalogParts) -> Result<(), DivergentUnive
         .iter()
         .map(|x| (&x.id, x))
         .collect::<BTreeMap<_, _>>();
-    let miracles = p
-        .miracles
+    let weighted_curios = p
+        .weighted_curios
         .iter()
         .map(|x| (&x.id, x))
         .collect::<BTreeMap<_, _>>();
     let eligibility = p
-        .miracle_eligibility
+        .weighted_curio_eligibility
         .iter()
         .map(|x| (&x.id, x))
         .collect::<BTreeMap<_, _>>();
-    let miracle_states = p
-        .miracle_states
+    let weighted_curio_states = p
+        .weighted_curio_states
         .iter()
         .map(|x| (&x.id, x))
         .collect::<BTreeMap<_, _>>();
     if curios.len() != 179
         || states.len() != 235
         || lifecycle.len() != 179
-        || miracles.len() != 17
+        || weighted_curios.len() != 17
         || eligibility.len() != 74
-        || miracle_states.len() != 34
+        || weighted_curio_states.len() != 34
     {
         return Err(error("duplicate Curio identity"));
     }
@@ -361,7 +364,7 @@ fn validate(p: &DivergentUniverseCurioCatalogParts) -> Result<(), DivergentUnive
     {
         return Err(error("weighted Curio pool boundary drift"));
     }
-    if p.miracles
+    if p.weighted_curios
         .iter()
         .any(|x| x.content_kind != DivergentUniverseHexContentKind::WeightedCurio)
     {
@@ -369,44 +372,70 @@ fn validate(p: &DivergentUniverseCurioCatalogParts) -> Result<(), DivergentUnive
             "Hex references are Weighted Curios, not Grand Miracles",
         ));
     }
-    if p.miracles.iter().any(|x| {
+    if p.weighted_curios.iter().any(|x| {
         x.runtime_lowered
             || x.states.len() != 2
             || x.eligibility_rules.len() != 1
             || x.maze_buff_resolution.as_ref() != "MissingReleasedRogueMazeBuffRow"
-            || x.states
-                .iter()
-                .any(|id| miracle_states.get(id).is_none_or(|s| s.miracle != x.id))
+            || x.states.iter().any(|id| {
+                weighted_curio_states
+                    .get(id)
+                    .is_none_or(|s| s.weighted_curio != x.id)
+            })
             || x.eligibility_rules.iter().any(|id| {
                 eligibility
                     .get(id)
-                    .is_none_or(|e| e.miracle.as_ref() != Some(&x.id))
+                    .is_none_or(|e| e.weighted_curio.as_ref() != Some(&x.id))
             })
     }) {
-        return Err(error("Grand Miracle closure drift"));
+        return Err(error("Weighted Curio closure drift"));
     }
-    if p.miracle_states.iter().any(|x| {
+    if p.weighted_curio_states.iter().any(|x| {
         x.runtime_lowered
-            || !miracles.contains_key(&x.miracle)
+            || !weighted_curios.contains_key(&x.weighted_curio)
             || x.activation.as_ref() != "Unspecified"
             || x.duration.as_ref() != "Unspecified"
             || x.teardown.as_ref() != "Unspecified"
             || x.fallback.as_ref() != "RejectWithoutMutation"
     }) {
-        return Err(error("Grand Miracle lifecycle boundary drift"));
+        return Err(error("Weighted Curio lifecycle boundary drift"));
     }
     let current = p
-        .miracle_eligibility
+        .weighted_curio_eligibility
         .iter()
         .filter(|x| x.selector_scope.as_ref() == "Tourn3")
         .count();
     let excluded = p
-        .miracle_eligibility
+        .weighted_curio_eligibility
         .iter()
-        .filter(|x| x.miracle.is_none())
+        .filter(|x| x.weighted_curio.is_none())
         .count();
-    if current != 17 || excluded != 57 || p.miracle_eligibility.iter().any(|x| x.runtime_lowered) {
-        return Err(error("Grand Miracle eligibility boundary drift"));
+    if current != 17
+        || excluded != 57
+        || p.weighted_curio_eligibility
+            .iter()
+            .any(|x| x.runtime_lowered)
+    {
+        return Err(error("Weighted Curio eligibility boundary drift"));
+    }
+    if p.weighted_curio_eligibility
+        .iter()
+        .any(|row| match row.weighted_curio.as_ref() {
+            Some(_) => {
+                row.selector_scope.as_ref() != "Tourn3"
+                    || row.eligibility.as_ref() != "AnyListedPathOrElement"
+                    || row.character_paths.is_empty() && row.elements.is_empty()
+            }
+            None => {
+                !matches!(row.selector_scope.as_ref(), "Tourn1" | "Tourn2")
+                    || row.eligibility.as_ref()
+                        != format!("ExcludedHistorical{}", row.selector_scope)
+            }
+        })
+    {
+        return Err(error(
+            "Weighted Curio current/excluded selector scope mismatch",
+        ));
     }
     Ok(())
 }

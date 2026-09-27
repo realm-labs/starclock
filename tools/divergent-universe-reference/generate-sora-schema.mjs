@@ -184,6 +184,8 @@ function fields(contract) {
     string("source_id", 300, true),
   ];
   const explicit = referenceFields(contract.file);
+  if (contract.file === "weighted-curios.json")
+    explicit.set("content_kind", typed("content_kind", "enum<DuHexContentKind>"));
   const domains = contract.required_domain_fields
     .filter((name) => name !== "source_id" && !explicit.has(name))
     .map((name) => string(name, 60000, true));
@@ -246,11 +248,11 @@ function referenceFields(file) {
     ["curio-lifecycle-rules.json", [
       ["curio_id", "DivergentUniverseCurios", false],
     ]],
-    ["grand-miracle-eligibility.json", [
-      ["grand_miracle_id", "DivergentUniverseGrandMiracles", false],
+    ["weighted-curio-eligibility.json", [
+      ["weighted_curio_id", "DivergentUniverseWeightedCurios", false],
     ]],
-    ["grand-miracle-states.json", [
-      ["grand_miracle_id", "DivergentUniverseGrandMiracles", false],
+    ["weighted-curio-states.json", [
+      ["weighted_curio_id", "DivergentUniverseWeightedCurios", false],
     ]],
     ["titan-boons.json", [
       ["titan_type", "DivergentUniverseTitanTypes", false],
@@ -330,6 +332,7 @@ function referenceFields(file) {
 
 function enums() {
   return [
+    ["DuHexContentKind", ["WeightedCurio", "GrandMiracle"]],
     [
       "DuOwnership",
       ["DivergentUniverse", "Shared", "OtherMode", "Excluded", "SharedCandidate"],

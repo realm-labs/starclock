@@ -112,6 +112,11 @@ for (const fixture of fixtures) {
   assert(normalizedFamily, `${fixture.id}: normalized family does not resolve`);
   assert(gap, `${fixture.id}: research gap does not resolve`);
   auditFixtureShape(fixture, family, normalizedFamily, gap);
+  if (fixture.family_id === "grand-miracle-eligibility-and-lifecycle")
+    assert(fixture.preconditions.content_scope === "WeightedCurioReferencesOnly"
+      && fixture.preconditions.grand_miracle_semantics_proven === false
+      && normalizedFamily.grand_miracle_semantics_proven === false,
+    "Hex review references must not satisfy the Grand Miracle semantic gate");
 
   const records = fixture.source_record_ids.map((id) => {
     const value = contentById.get(id);
@@ -200,7 +205,7 @@ for (const fixture of fixtures) {
 assert(operationCount === 75, "ordered-operation denominator differs");
 assert(assertionCount === 75, "assertion denominator differs");
 assert(fixtureInputBindings === 68, "fixture input-binding denominator differs");
-assert(fixtureEvidenceBindings === 174, "fixture evidence-binding denominator differs");
+assert(fixtureEvidenceBindings === 175, "fixture evidence-binding denominator differs");
 
 assert(rules.length === 669, "mechanic-rule denominator differs");
 const ruleFamilyCounts = {};

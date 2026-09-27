@@ -8,7 +8,10 @@ import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
-execFileSync(process.execPath, [
+const checkGenerated = process.argv.slice(2).includes("--check-generated");
+assert(process.argv.slice(2).every((argument) => argument === "--check-generated"),
+  "usage: verify-sora-schema.mjs [--check-generated]");
+if (!checkGenerated) execFileSync(process.execPath, [
   "tools/divergent-universe-reference/generate-sora-schema.mjs",
   root,
 ], { cwd: root, stdio: "inherit" });
@@ -78,7 +81,7 @@ for (const table of [
   "DivergentUniverseBlessingLevels",
   "DivergentUniverseCurios",
   "DivergentUniverseCurioStates",
-  "DivergentUniverseGrandMiracles",
+  "DivergentUniverseWeightedCurios",
   "DivergentUniverseTitanTypes",
   "DivergentUniverseTitanBoons",
   "DivergentUniverseTitanContributions",
@@ -90,7 +93,8 @@ for (const typedReference of [
   "optional<ref<DivergentUniverseBlessings.id>>",
   "optional<list<ref<DivergentUniverseEquations.id>>>",
   "optional<ref<DivergentUniverseCurios.id>>",
-  "optional<ref<DivergentUniverseGrandMiracles.id>>",
+  "optional<ref<DivergentUniverseWeightedCurios.id>>",
+  "enum<DuHexContentKind>",
   "optional<ref<DivergentUniverseTitanTypes.id>>",
   "optional<list<ref<DivergentUniverseTitanBoons.id>>>",
 ])
@@ -169,7 +173,7 @@ execFileSync(sora, [
   "--project",
   project,
 ], { cwd: root, stdio: "inherit" });
-execFileSync(process.execPath, [
+if (!checkGenerated) execFileSync(process.execPath, [
   "tools/divergent-universe-reference/generate-sora-artifacts.mjs",
   root,
 ], { cwd: root, stdio: "inherit" });
@@ -192,7 +196,7 @@ assert(JSON.stringify(templates) === JSON.stringify([
 ]), "isolated Excel template set drift");
 const readerFiles = fs.readdirSync(path.join(generated, "reader"))
   .filter((file) => file.endsWith(".rs")).sort();
-assert(readerFiles.length === 86, "generated Rust reader file count drift");
+assert(readerFiles.length === 87, "generated Rust reader file count drift");
 
 const temporary = fs.mkdtempSync(
   path.join(os.tmpdir(), "starclock-divergent-universe-sora-"),
@@ -211,7 +215,7 @@ try {
 }
 console.log(
   "Divergent Universe Sora schema verified (81 isolated tables; typed " +
-  "source/evidence references; deterministic lock, three templates and 86 " +
+  "source/evidence references; deterministic lock, three templates and 87 " +
   "Rust reader files; Sora 0.6.1).",
 );
 

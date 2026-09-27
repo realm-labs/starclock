@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import fs from "node:fs";
+import crypto from "node:crypto";
 import path from "node:path";
 import process from "node:process";
 import { execFileSync } from "node:child_process";
@@ -37,6 +38,25 @@ const workbooks = [
 ];
 const python = process.env.STARCLOCK_PYTHON
   ?? (process.platform === "win32" ? "python" : "python3");
+
+// Fail before touching generated artifacts when the pinned authoring tool is absent.
+execFileSync(python, ["-c",
+  "import openpyxl; assert openpyxl.__version__ == '3.1.5'"],
+{ cwd: root, stdio: "inherit" });
+
+if (reauthorWorkbooks) {
+  const current = JSON.parse(fs.readFileSync(path.join(root,
+    "evidence/divergent-universe-reference-v1/sora-current-state.json"), "utf8"));
+  for (const workbook of workbooks) {
+    const file = path.join(dataRoot, workbook);
+    const bytes = fs.readFileSync(file);
+    const expected = current.authoring.workbooks[workbook];
+    assert(expected && bytes.length === expected.bytes
+      && crypto.createHash("sha256").update(bytes).digest("hex") === expected.sha256,
+    `refusing to overwrite edited production workbook ${workbook}`);
+  }
+  assert(!fs.existsSync(workbookScratch), "workbook scratch already exists; reconcile it before authoring");
+}
 
 fs.rmSync(target, { recursive: true, force: true });
 fs.mkdirSync(target, { recursive: true });
@@ -80,7 +100,6 @@ execFileSync(
   { cwd: root, stdio: "inherit" },
 );
 if (reauthorWorkbooks) {
-  fs.rmSync(workbookScratch, { recursive: true, force: true });
   const scratchData = path.join(workbookScratch, "data");
   execFileSync(python, [
     path.join(root, "tools/divergent-universe-reference/author_workbooks.py"),

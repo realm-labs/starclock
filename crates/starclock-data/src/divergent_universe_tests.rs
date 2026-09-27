@@ -39,7 +39,7 @@ const PRODUCTION_BUNDLE: &[u8] =
 fn production_bundle_decodes_every_table_and_binds_current_identity() {
     let candidate = load_divergent_universe_bundle().expect("production bundle must validate");
     let identity = candidate.identity();
-    assert_eq!(identity.schema_fingerprint(), "6dfaf7aba644d1c9");
+    assert_eq!(identity.schema_fingerprint(), "65b0c0933faf3686");
     assert_eq!(identity.table_count(), 81);
     assert_eq!(identity.row_count(), 28_732);
     assert_eq!(identity.source_count(), 8_171);
@@ -47,23 +47,23 @@ fn production_bundle_decodes_every_table_and_binds_current_identity() {
     assert_eq!(identity.empty_table_count(), 2);
     assert_eq!(
         hex(identity.schema_digest().bytes()),
-        "9bb73ea806d3fb13cbec1ad25c010cb1b6e66067978281ea885e58748cde5452",
+        "78768a253f58d0274bdf4c2af898214a0ef86248de637968633625b828537cc3",
     );
     assert_eq!(
         hex(identity.configuration_digest().bytes()),
-        "2768fc939dee45c07233136f27c101e3f5a52c1c80ca11ec239dbac9c1a8a993",
+        "a39cec41d7c09485e096daa2b99fd8625f5b14b1e530a037d720eaccb1a99455",
     );
     assert_eq!(
         hex(identity.content_digest().bytes()),
-        "3dd6b8460b8a24c82192c960537a13e2c24c058332709a08605f427458d4465a",
+        "0775752ae6146c02d0656f5f11410ac4240528b4a1ec99154fba7f4b3545f897",
     );
     assert_eq!(
         hex(identity.source_digest().bytes()),
-        "b92226b9743586baee2d4a93a65bcb59ca3853b835af82639be386d3d8c61656",
+        "f2454348d57b541930880ba327e3837a37259a91a678f8889431f4852d6ea79a",
     );
     assert_eq!(
         hex(identity.component_digest().bytes()),
-        "143a186a103995cb26d060cac71b8d15b94e086b507bff68ff97b2ac68527b19",
+        "d286acdafa608ea7c63191885927de7c89a4d7ee4b897296b82f5358eb5b552a",
     );
 }
 
@@ -283,9 +283,9 @@ fn production_p1_b5_catalogs_close_all_definitions_without_execution_credit() {
     assert_eq!(curios.groups().len(), 286);
     assert_eq!(curios.lifecycle().len(), 179);
     assert_eq!(curios.pool_membership().len(), 235);
-    assert_eq!(curios.miracles().len(), 17);
-    assert_eq!(curios.miracle_eligibility().len(), 74);
-    assert_eq!(curios.miracle_states().len(), 34);
+    assert_eq!(curios.weighted_curios().len(), 17);
+    assert_eq!(curios.weighted_curio_eligibility().len(), 74);
+    assert_eq!(curios.weighted_curio_states().len(), 34);
     assert_eq!(curios.source_obligations(), 774);
     assert!(
         curios
@@ -326,13 +326,18 @@ fn production_p1_b5_catalogs_close_all_definitions_without_execution_credit() {
 fn production_hex_source_references_are_weighted_curios_not_grand_miracles() {
     let candidate = load_divergent_universe_bundle().expect("real production Sora bundle");
     let catalog = candidate.curio_catalog();
-    assert_eq!(catalog.miracles().len(), 17);
-    assert!(catalog.miracles().iter().all(|row| {
+    assert_eq!(catalog.weighted_curios().len(), 17);
+    assert!(catalog.weighted_curios().iter().all(|row| {
         row.content_kind == DivergentUniverseHexContentKind::WeightedCurio && !row.runtime_lowered
     }));
     assert_eq!(catalog.source_obligations(), 774);
+    assert!(catalog.weighted_curios().iter().all(|row| {
+        row.id
+            .as_str()
+            .starts_with("divergent-universe.weighted-curio.")
+    }));
     let mut forged = catalog.clone().into_parts();
-    for row in &mut forged.miracles {
+    for row in &mut forged.weighted_curios {
         row.content_kind = DivergentUniverseHexContentKind::GrandMiracle;
     }
     let error = DivergentUniverseCurioCatalog::new(forged)
@@ -343,9 +348,39 @@ fn production_hex_source_references_are_weighted_curios_not_grand_miracles() {
     );
     assert!(
         catalog
-            .miracles()
+            .weighted_curios()
             .iter()
             .all(|row| row.content_kind == DivergentUniverseHexContentKind::WeightedCurio)
+    );
+}
+
+#[test]
+fn weighted_curio_eligibility_cannot_exchange_current_and_excluded_scopes() {
+    let candidate = load_divergent_universe_bundle().expect("production Sora bundle");
+    let mut parts = candidate.curio_catalog().clone().into_parts();
+    let current = parts
+        .weighted_curio_eligibility
+        .iter()
+        .position(|row| row.weighted_curio.is_some())
+        .expect("current inline eligibility");
+    let excluded = parts
+        .weighted_curio_eligibility
+        .iter()
+        .position(|row| row.weighted_curio.is_none())
+        .expect("other-module exclusion");
+    let current_scope = parts.weighted_curio_eligibility[current]
+        .selector_scope
+        .clone();
+    parts.weighted_curio_eligibility[current].selector_scope = parts.weighted_curio_eligibility
+        [excluded]
+        .selector_scope
+        .clone();
+    parts.weighted_curio_eligibility[excluded].selector_scope = current_scope;
+    assert_eq!(
+        DivergentUniverseCurioCatalog::new(parts)
+            .expect_err("scope swap preserves totals but violates source joins")
+            .to_string(),
+        "Weighted Curio current/excluded selector scope mismatch"
     );
 }
 

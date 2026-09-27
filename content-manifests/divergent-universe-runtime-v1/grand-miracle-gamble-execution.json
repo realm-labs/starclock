@@ -2,36 +2,36 @@
   "status": "HexWeightedCurioReferencesRuntimePending",
   "input_digests": {
     "hex_references": {
-      "path": "content-reference/divergent-universe-v1/grand-miracles.json",
-      "sha256": "911721c731e08b37908fef7f6297b90dfe49127f375471f4465d802751454144"
+      "path": "content-reference/divergent-universe-v1/weighted-curios.json",
+      "sha256": "79f14aee67d8755ebd67295e4b18714499a493ce3c5ec58e45b3b162325220b9"
     },
     "hex_eligibility": {
-      "path": "content-reference/divergent-universe-v1/grand-miracle-eligibility.json",
-      "sha256": "bab460a86b64f60b3f387a2aa18ea63e25baa2c4803e98eda8292ae04a29dab5"
+      "path": "content-reference/divergent-universe-v1/weighted-curio-eligibility.json",
+      "sha256": "e33e80daefaeaacb94bd55342423873ecb7f3e81442d432773b0289cb98daf2c"
     },
     "hex_states": {
-      "path": "content-reference/divergent-universe-v1/grand-miracle-states.json",
-      "sha256": "f0b0773ba10af9c22f535e4fc30e8e5af249882ce320aa8ee72cffae9a7d4e45"
+      "path": "content-reference/divergent-universe-v1/weighted-curio-states.json",
+      "sha256": "55db662b788f2f95d92c2459e3336e97181bf1da5a57c8c0a51972c6a767ed03"
     },
     "gamble_groups": {
       "path": "content-reference/divergent-universe-v1/gamble-groups.json",
-      "sha256": "102be5798eb8b372322efedbc31bbbdfd5b4138404eb2d2ff53741aae544d03a"
+      "sha256": "b16ada14307e27e4bb442f699788b37ce3693d94adaa9e9150bbcab18e04c4ec"
     },
     "gamble_units": {
       "path": "content-reference/divergent-universe-v1/gamble-units.json",
-      "sha256": "1af804c0975ba64b2c59a83cd8b70a66218a9e4806062892612281a58f980c56"
+      "sha256": "63e5de840294a5c3fd18069e4a7a613b962ed014024528a30d4927f2a78c585d"
     },
     "curio_catalog": {
       "path": "crates/starclock-data/src/divergent_universe_curio_catalog.rs",
-      "sha256": "e0761589595d460c0b203b31697dbc48adb6e2b63e1ecabd64156693bbcc0cbd"
+      "sha256": "ec16c6aab4170d6beeba93817935edb735a9e8d264e1dd5d8cc4cf9c93a58f31"
     },
     "curio_lowering": {
       "path": "crates/starclock-data/src/divergent_universe_curio.rs",
-      "sha256": "fad86996d44245224cb0a08572c04ace9536699b3b5268296989610a52fbed7a"
+      "sha256": "8c82753ee9b252e2efd3b957d59d83c822340e0d7e6e15407cdaef970a0c122b"
     },
     "taxonomy_tests": {
       "path": "crates/starclock-data/src/divergent_universe_tests.rs",
-      "sha256": "c6a8db38b845b60f8b75308f49934022f02251d1096da445f86e9570a3c9acff"
+      "sha256": "c66267ef888220325eab9a85769178d07942ff7564b53804e427b8241f1ba0f7"
     },
     "mode_facade": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/mod.rs",
@@ -73,7 +73,8 @@
     }
   },
   "current_boundary": {
-    "reference_transport_names_aligned": false,
+    "reference_transport_names_aligned": true,
+    "source_obligation_and_fixture_labels_aligned": false,
     "owned_hex_semantic_classification": true,
     "grand_miracles_admitted_from_hex": 0,
     "weighted_curio_loadout_implemented": false,
@@ -81,7 +82,7 @@
     "grand_miracle_runtime_implemented": false,
     "forge_room_payload_implemented": false,
     "terminal_coverage_credit": 0,
-    "required_next_work": "Align reference/workbook/Sora taxonomy, then implement real loadout and effects; establish Grand Miracle selectors independently."
+    "required_next_work": "Implement real Weighted Curio loadout and effects; establish Grand Miracle selectors independently and repair its separate source/fixture audit labels without shrinking obligations."
   },
   "summary": {
     "weighted_curio_references": 17,

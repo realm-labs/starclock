@@ -343,20 +343,27 @@ const hexEffectPolicy = await context.policyRef(
   "Replace the unresolved effect/state fields when released structured data or an ability program defines each 6334xx binding and lifecycle.",
 );
 
-const grandMiracles = hexEntries.map((entry) => {
+const hexEquipment = (await context.table("RogueTournWorkbenchFunc"))
+  .find(({ row }) => row.FuncID === 11);
+if (!hexEquipment || hexEquipment.row.FuncType !== "HexEquipment"
+  || context.text(hexEquipment.row.FuncName, "en") !== "Select Weighted Curio"
+  || !context.text(hexEquipment.row.FuncDesc, "en").includes("Weighted Curios"))
+  throw new Error("released HexEquipment does not establish Weighted Curio meaning");
+
+const weightedCurios = hexEntries.map((entry) => {
   const sourceId = String(entry.row.HexID);
   const display = hexDisplayById.get(String(entry.row.DisplayID));
   if (!display)
     throw new Error(`missing Hex display ${entry.row.DisplayID}`);
   const nameEn = context.text(display.row.Name, "en")
-    || `Grand Miracle ${sourceId}`;
+    || `Weighted Curio ${sourceId}`;
   const nameZh = context.text(display.row.Name, "zh_cn")
-    || `宏大奇迹 ${sourceId}`;
+    || `加权奇物 ${sourceId}`;
   const mazeBuffId = String(entry.row.MazeBuffID);
   return {
     ...context.envelope({
-      id: `divergent-universe.grand-miracle.${sourceId}`,
-      kind: "DivergentUniverseGrandMiracle",
+      id: `divergent-universe.weighted-curio.${sourceId}`,
+      kind: "DivergentUniverseWeightedCurio",
       nameEn,
       nameZh,
       summaryEn:
@@ -368,11 +375,13 @@ const grandMiracles = hexEntries.map((entry) => {
       sourceRefs: [
         context.sourceRef(entry),
         context.sourceRef(display),
+        context.sourceRef(hexEquipment),
         hexEffectPolicy,
       ],
-      tags: ["grand-miracle", "hex", "effect-unresolved", "tourn3"],
+      tags: ["weighted-curio", "hex", "effect-unresolved", "tourn3"],
     }),
     source_id: sourceId,
+    content_kind: "WeightedCurio",
     display_id: String(entry.row.DisplayID),
     maze_buff_id: mazeBuffId,
     maze_buff_resolution: mazeIds.has(mazeBuffId)
@@ -380,35 +389,35 @@ const grandMiracles = hexEntries.map((entry) => {
       : "MissingReleasedRogueMazeBuffRow",
     effect_ids: (entry.row.ExtraEffect ?? []).map(String),
     eligibility_rule_ids: [
-      `divergent-universe.grand-miracle-eligibility.current.${sourceId}`,
+      `divergent-universe.weighted-curio-eligibility.current.${sourceId}`,
     ],
     state_ids: [
-      `divergent-universe.grand-miracle-state.${sourceId}.inactive`,
-      `divergent-universe.grand-miracle-state.${sourceId}.active`,
+      `divergent-universe.weighted-curio-state.${sourceId}.inactive`,
+      `divergent-universe.weighted-curio-state.${sourceId}.active`,
     ],
     runtime_lowered: false,
   };
 });
-outputs.set("grand-miracles.json", ordered(grandMiracles));
+outputs.set("weighted-curios.json", ordered(weightedCurios));
 
 const currentEligibility = hexEntries.map((entry) => {
   const sourceId = String(entry.row.HexID);
   return {
     ...context.envelope({
       id:
-        `divergent-universe.grand-miracle-eligibility.current.${sourceId}`,
-      kind: "DivergentUniverseGrandMiracleEligibility",
-      nameEn: `Grand Miracle ${sourceId} current eligibility`,
-      nameZh: `宏大奇迹 ${sourceId} 当前资格`,
+        `divergent-universe.weighted-curio-eligibility.current.${sourceId}`,
+      kind: "DivergentUniverseWeightedCurioEligibility",
+      nameEn: `Weighted Curio ${sourceId} current eligibility`,
+      nameZh: `加权奇物 ${sourceId} 当前资格`,
       summaryEn:
         `Tourn3 Hex ${sourceId} directly lists ${entry.row.AvatarType.length} character Path value(s) and ${entry.row.AvatarDamageType.length} element value(s).`,
       summaryZh:
         `Tourn3 Hex ${sourceId} 直接列出 ${entry.row.AvatarType.length} 个角色命途值和 ${entry.row.AvatarDamageType.length} 个属性值。`,
       sourceRefs: [context.sourceRef(entry)],
-      tags: ["grand-miracle", "eligibility", "tourn3", "inline-selector"],
+      tags: ["weighted-curio", "eligibility", "tourn3", "inline-selector"],
     }),
     source_id: sourceId,
-    grand_miracle_id: `divergent-universe.grand-miracle.${sourceId}`,
+    weighted_curio_id: `divergent-universe.weighted-curio.${sourceId}`,
     character_path: [...entry.row.AvatarType].sort(),
     element: [...entry.row.AvatarDamageType].sort(),
     eligibility: "AnyListedPathOrElement",
@@ -431,8 +440,8 @@ const historicalEligibility = (await context.table(
   return {
     ...context.envelope({
       id:
-        `divergent-universe.grand-miracle-eligibility.excluded.${sourceId}`,
-      kind: "DivergentUniverseGrandMiracleEligibility",
+        `divergent-universe.weighted-curio-eligibility.excluded.${sourceId}`,
+      kind: "DivergentUniverseWeightedCurioEligibility",
       nameEn: `Excluded ${miracle.row.TournMode} Hex eligibility ${sourceId}`,
       nameZh: `已排除 ${miracle.row.TournMode} Hex 资格 ${sourceId}`,
       summaryEn:
@@ -442,10 +451,10 @@ const historicalEligibility = (await context.table(
       ownership: "OtherMode",
       coverageState: "Excluded",
       sourceRefs: [context.sourceRef(entry), context.sourceRef(miracle)],
-      tags: ["grand-miracle", "eligibility", "excluded-historical-module"],
+      tags: ["hex-source-reference", "eligibility", "excluded-other-module"],
     }),
     source_id: sourceId,
-    grand_miracle_id: "",
+    weighted_curio_id: "",
     character_path: [...entry.row.AvatarType].sort(),
     element: [...entry.row.AvatarDamageType].sort(),
     eligibility: `ExcludedHistorical${miracle.row.TournMode}`,
@@ -454,15 +463,15 @@ const historicalEligibility = (await context.table(
   };
 });
 outputs.set(
-  "grand-miracle-eligibility.json",
+  "weighted-curio-eligibility.json",
   ordered([...currentEligibility, ...historicalEligibility]),
 );
 
-const grandStates = grandMiracles.flatMap((miracle) =>
+const weightedStates = weightedCurios.flatMap((miracle) =>
   ["inactive", "active"].map((state) => ({
     ...context.envelope({
-      id: `divergent-universe.grand-miracle-state.${miracle.source_id}.${state}`,
-      kind: "DivergentUniverseGrandMiracleState",
+      id: `divergent-universe.weighted-curio-state.${miracle.source_id}.${state}`,
+      kind: "DivergentUniverseWeightedCurioState",
       nameEn: `${miracle.name_en} — ${state}`,
       nameZh: `${miracle.name_zh_cn} — ${state === "active" ? "激活" : "未激活"}`,
       summaryEn:
@@ -472,9 +481,9 @@ const grandStates = grandMiracles.flatMap((miracle) =>
       coverageState: "Researched",
       evidenceQuality: "ProjectPolicy",
       sourceRefs: [miracle.source_refs[0], hexEffectPolicy],
-      tags: ["grand-miracle", "state", state, "policy-bound"],
+      tags: ["weighted-curio", "state", state, "policy-bound"],
     }),
-    grand_miracle_id: miracle.id,
+    weighted_curio_id: miracle.id,
     state: state === "active" ? "Active" : "Inactive",
     activation: "Unspecified",
     duration: "Unspecified",
@@ -483,10 +492,10 @@ const grandStates = grandMiracles.flatMap((miracle) =>
     fallback: "RejectWithoutMutation",
     runtime_lowered: false,
   })));
-outputs.set("grand-miracle-states.json", ordered(grandStates));
+outputs.set("weighted-curio-states.json", ordered(weightedStates));
 
 await writeOrCheck(context, outputs, check);
 if (!check)
   console.log(
-    `Wrote ${[...outputs.values()].flat().length} Curio/Grand Miracle rows.`,
+    `Wrote ${[...outputs.values()].flat().length} Curio/Weighted Curio reference rows.`,
   );

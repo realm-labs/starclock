@@ -517,13 +517,13 @@ fn validate_all_rows(config: &SoraConfig) -> Result<(), DivergentUniverseDataErr
     validate_table_rows!(config, &sources, divergent_universe_curio_states);
     validate_table_rows!(config, &sources, divergent_universe_curio_groups);
     validate_table_rows!(config, &sources, divergent_universe_curio_lifecycle_rules);
-    validate_table_rows!(config, &sources, divergent_universe_grand_miracles);
+    validate_table_rows!(config, &sources, divergent_universe_weighted_curios);
     validate_table_rows!(
         config,
         &sources,
-        divergent_universe_grand_miracle_eligibility
+        divergent_universe_weighted_curio_eligibility
     );
-    validate_table_rows!(config, &sources, divergent_universe_grand_miracle_states);
+    validate_table_rows!(config, &sources, divergent_universe_weighted_curio_states);
     validate_table_rows!(config, &sources, divergent_universe_titan_types);
     validate_table_rows!(config, &sources, divergent_universe_titan_boons);
     validate_table_rows!(config, &sources, divergent_universe_titan_talents);

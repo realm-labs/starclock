@@ -28,9 +28,9 @@ const fileNames = [
   "curio-states.json",
   "curio-groups.json",
   "curio-lifecycle-rules.json",
-  "grand-miracles.json",
-  "grand-miracle-eligibility.json",
-  "grand-miracle-states.json",
+  "weighted-curios.json",
+  "weighted-curio-eligibility.json",
+  "weighted-curio-states.json",
 ];
 const data = Object.fromEntries(fileNames.map((file) =>
   [file, json(path.join(outputRoot, file))]));
@@ -39,9 +39,9 @@ const expected = {
   "curio-states.json": 235,
   "curio-groups.json": 286,
   "curio-lifecycle-rules.json": 179,
-  "grand-miracles.json": 17,
-  "grand-miracle-eligibility.json": 74,
-  "grand-miracle-states.json": 34,
+  "weighted-curios.json": 17,
+  "weighted-curio-eligibility.json": 74,
+  "weighted-curio-states.json": 34,
 };
 for (const [file, count] of Object.entries(expected)) {
   assert(data[file].length === count, `${file} row count drift`);
@@ -73,9 +73,9 @@ for (const rows of Object.values(data))
       if (expectedSources.has(`${ref.path}#${ref.locator}`))
         actualSources.set(`${ref.path}#${ref.locator}`, ref.sha256);
 assert(expectedSources.size === 774,
-  "Curio/Grand Miracle manifest denominator drift");
+  "Curio/Weighted Curio manifest denominator drift");
 assert(actualSources.size === expectedSources.size,
-  "Curio/Grand Miracle unique receipts are not all accounted");
+  "Curio/Weighted Curio unique receipts are not all accounted");
 for (const [locator, expectedSource] of expectedSources)
   assert(actualSources.get(locator) === expectedSource.digest,
     `${expectedSource.categoryId}/${locator} receipt drift`);
@@ -153,49 +153,53 @@ assert(lifecycle.every((row) =>
     && row.fallback === "RejectWithoutMutation"),
 "Curio lifecycle policy boundary drift");
 
-const miracles = data["grand-miracles.json"];
+const miracles = data["weighted-curios.json"];
 assert(miracles.every((row) =>
-  row.maze_buff_resolution === "MissingReleasedRogueMazeBuffRow"
+  row.content_kind === "WeightedCurio"
+    && row.kind === "DivergentUniverseWeightedCurio"
+    && row.id.startsWith("divergent-universe.weighted-curio.")
+    && row.source_refs.some((source) => source.path === "ExcelOutput/RogueTournWorkbenchFunc.json")
+    && row.maze_buff_resolution === "MissingReleasedRogueMazeBuffRow"
     && row.state_ids.length === 2
     && row.eligibility_rule_ids.length === 1
     && row.runtime_lowered === false),
-"Grand Miracle unresolved effect boundary drift");
-const eligibility = data["grand-miracle-eligibility.json"];
+"Weighted Curio unresolved effect boundary drift");
+const eligibility = data["weighted-curio-eligibility.json"];
 const currentEligibility = eligibility.filter((row) =>
   row.selector_scope === "Tourn3");
 const excludedEligibility = eligibility.filter((row) =>
   row.coverage_state === "Excluded");
 assert(currentEligibility.length === 17,
-  "current Grand Miracle eligibility count drift");
+  "current Weighted Curio eligibility count drift");
 assert(currentEligibility.reduce(
   (count, row) => count + row.character_path.length, 0) === 18,
-"current Grand Miracle Path selector count drift");
+"current Weighted Curio Path selector count drift");
 assert(currentEligibility.reduce(
   (count, row) => count + row.element.length, 0) === 7,
-"current Grand Miracle element selector count drift");
+"current Weighted Curio element selector count drift");
 assert(excludedEligibility.length === 57
   && excludedEligibility.every((row) =>
     row.ownership === "OtherMode"
       && ["Tourn1", "Tourn2"].includes(row.selector_scope)
-      && !row.grand_miracle_id),
+      && !row.weighted_curio_id),
 "historical Hex eligibility exclusion drift");
 assert(Map.groupBy(excludedEligibility, (row) => row.selector_scope)
   .get("Tourn1")?.length === 23
   && Map.groupBy(excludedEligibility, (row) => row.selector_scope)
     .get("Tourn2")?.length === 34,
 "historical Hex eligibility module distribution drift");
-assert(data["grand-miracle-states.json"].every((row) =>
+assert(data["weighted-curio-states.json"].every((row) =>
   row.activation === "Unspecified"
     && row.duration === "Unspecified"
     && row.teardown === "Unspecified"
     && row.fallback === "RejectWithoutMutation"),
-"Grand Miracle lifecycle boundary drift");
+"Weighted Curio lifecycle boundary drift");
 
 const digest = crypto.createHash("sha256");
 for (const file of fileNames.sort())
   digest.update(fs.readFileSync(path.join(outputRoot, file)));
 console.log(
-  `Divergent Universe Curios/Grand Miracles verified ` +
+  `Divergent Universe Curios/Weighted Curios verified ` +
   `(${Object.values(data).flat().length.toLocaleString("en-US")} rows; ` +
   `774 manifest receipts; digest ${digest.digest("hex")}).`,
 );

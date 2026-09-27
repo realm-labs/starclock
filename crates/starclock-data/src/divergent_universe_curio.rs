@@ -3,6 +3,7 @@ use serde::Deserialize;
 use crate::divergent_universe::{DivergentUniverseDataError, debug_error};
 use crate::divergent_universe_curio_catalog::*;
 use crate::divergent_universe_generated::SoraConfig;
+use crate::divergent_universe_generated::du_hex_content_kind::DuHexContentKind;
 
 const COVERAGE: [&str; 5] = [
     "curios",
@@ -108,18 +109,19 @@ pub(super) fn lower_divergent_universe_curios(
                 })
             })
             .collect::<Result<_, _>>()?,
-        miracles: config
-            .divergent_universe_grand_miracles()
+        weighted_curios: config
+            .divergent_universe_weighted_curios()
             .ordered_rows()
             .map(|r| {
-                let v: MiraclePayload = payload(&r.payload_json)?;
-                Ok(DivergentUniverseGrandMiracleDefinition {
-                    content_kind: DivergentUniverseHexContentKind::WeightedCurio,
-                    id: id(&r.stable_key, DivergentUniverseGrandMiracleId::new)?,
-                    states: ids(v.state_ids, DivergentUniverseGrandMiracleStateId::new)?,
+                let v: WeightedCurioPayload = payload(&r.payload_json)?;
+                let content_kind = content_kind(r.content_kind, &v.content_kind)?;
+                Ok(DivergentUniverseWeightedCurioDefinition {
+                    content_kind,
+                    id: id(&r.stable_key, DivergentUniverseWeightedCurioId::new)?,
+                    states: ids(v.state_ids, DivergentUniverseWeightedCurioStateId::new)?,
                     eligibility_rules: ids(
                         v.eligibility_rule_ids,
-                        DivergentUniverseGrandMiracleEligibilityId::new,
+                        DivergentUniverseWeightedCurioEligibilityId::new,
                     )?,
                     maze_buff_id: v.maze_buff_id.into(),
                     maze_buff_resolution: v.maze_buff_resolution.into(),
@@ -128,17 +130,20 @@ pub(super) fn lower_divergent_universe_curios(
                 })
             })
             .collect::<Result<_, _>>()?,
-        miracle_eligibility: config
-            .divergent_universe_grand_miracle_eligibility()
+        weighted_curio_eligibility: config
+            .divergent_universe_weighted_curio_eligibility()
             .ordered_rows()
             .map(|r| {
                 let v: EligibilityPayload = payload(&r.payload_json)?;
-                Ok(DivergentUniverseGrandMiracleEligibilityDefinition {
+                Ok(DivergentUniverseWeightedCurioEligibilityDefinition {
                     id: id(
                         &r.stable_key,
-                        DivergentUniverseGrandMiracleEligibilityId::new,
+                        DivergentUniverseWeightedCurioEligibilityId::new,
                     )?,
-                    miracle: optional_id(v.grand_miracle_id, DivergentUniverseGrandMiracleId::new)?,
+                    weighted_curio: optional_id(
+                        v.weighted_curio_id,
+                        DivergentUniverseWeightedCurioId::new,
+                    )?,
                     selector_scope: v.selector_scope.into(),
                     character_paths: texts(v.character_path),
                     elements: texts(v.element),
@@ -147,14 +152,17 @@ pub(super) fn lower_divergent_universe_curios(
                 })
             })
             .collect::<Result<_, _>>()?,
-        miracle_states: config
-            .divergent_universe_grand_miracle_states()
+        weighted_curio_states: config
+            .divergent_universe_weighted_curio_states()
             .ordered_rows()
             .map(|r| {
-                let v: MiracleStatePayload = payload(&r.payload_json)?;
-                Ok(DivergentUniverseGrandMiracleStateDefinition {
-                    id: id(&r.stable_key, DivergentUniverseGrandMiracleStateId::new)?,
-                    miracle: id(&v.grand_miracle_id, DivergentUniverseGrandMiracleId::new)?,
+                let v: WeightedCurioStatePayload = payload(&r.payload_json)?;
+                Ok(DivergentUniverseWeightedCurioStateDefinition {
+                    id: id(&r.stable_key, DivergentUniverseWeightedCurioStateId::new)?,
+                    weighted_curio: id(
+                        &v.weighted_curio_id,
+                        DivergentUniverseWeightedCurioId::new,
+                    )?,
                     state: v.state.into(),
                     activation: v.activation.into(),
                     duration: v.duration.into(),
@@ -176,6 +184,26 @@ pub(super) fn lower_divergent_universe_curios(
             .count(),
     };
     DivergentUniverseCurioCatalog::new(parts).map_err(debug_error)
+}
+
+fn content_kind(
+    column: DuHexContentKind,
+    payload: &str,
+) -> Result<DivergentUniverseHexContentKind, DivergentUniverseDataError> {
+    let (kind, expected) = match column {
+        DuHexContentKind::WeightedCurio => (
+            DivergentUniverseHexContentKind::WeightedCurio,
+            "WeightedCurio",
+        ),
+        DuHexContentKind::GrandMiracle => (
+            DivergentUniverseHexContentKind::GrandMiracle,
+            "GrandMiracle",
+        ),
+    };
+    if payload != expected {
+        return Err(debug_error("Hex content kind column/payload mismatch"));
+    }
+    Ok(kind)
 }
 
 fn category(v: &str) -> Result<DivergentUniverseCurioCategory, DivergentUniverseDataError> {
@@ -280,7 +308,8 @@ struct MembershipPayload {
     weight: String,
 }
 #[derive(Deserialize)]
-struct MiraclePayload {
+struct WeightedCurioPayload {
+    content_kind: String,
     effect_ids: Vec<String>,
     eligibility_rule_ids: Vec<String>,
     maze_buff_id: String,
@@ -293,18 +322,54 @@ struct EligibilityPayload {
     character_path: Vec<String>,
     element: Vec<String>,
     eligibility: String,
-    grand_miracle_id: String,
+    weighted_curio_id: String,
     runtime_lowered: bool,
     selector_scope: String,
 }
 #[derive(Deserialize)]
-struct MiracleStatePayload {
+struct WeightedCurioStatePayload {
     activation: String,
     duration: String,
     fallback: String,
-    grand_miracle_id: String,
+    weighted_curio_id: String,
     runtime_lowered: bool,
     simultaneous_trigger_order: String,
     state: String,
     teardown: String,
+}
+
+#[cfg(test)]
+mod content_kind_tests {
+    use super::content_kind;
+    use crate::divergent_universe_curio_catalog::DivergentUniverseHexContentKind;
+    use crate::divergent_universe_generated::du_hex_content_kind::DuHexContentKind;
+
+    #[test]
+    fn authored_hex_content_kind_requires_matching_column_and_payload() {
+        for (column, payload, expected) in [
+            (
+                DuHexContentKind::WeightedCurio,
+                "WeightedCurio",
+                DivergentUniverseHexContentKind::WeightedCurio,
+            ),
+            (
+                DuHexContentKind::GrandMiracle,
+                "GrandMiracle",
+                DivergentUniverseHexContentKind::GrandMiracle,
+            ),
+        ] {
+            assert_eq!(
+                content_kind(column, payload).expect("matching authored kind"),
+                expected
+            );
+        }
+        for (column, payload) in [
+            (DuHexContentKind::WeightedCurio, "GrandMiracle"),
+            (DuHexContentKind::GrandMiracle, "WeightedCurio"),
+            (DuHexContentKind::WeightedCurio, "Unknown"),
+            (DuHexContentKind::WeightedCurio, ""),
+        ] {
+            assert!(content_kind(column, payload).is_err());
+        }
+    }
 }

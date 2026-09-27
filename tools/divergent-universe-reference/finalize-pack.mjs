@@ -6,6 +6,7 @@ import process from "node:process";
 import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import { personaReferenceRows } from "./persona-reference.mjs";
+import { pruneObsoletePackFiles } from "./current-output-pruning.mjs";
 import {
   ACCESS_DATE,
   GAME_VERSION,
@@ -79,6 +80,9 @@ const finalFiles = new Set([
   "pack-index.json",
 ]);
 const outputs = new Map();
+const pruned = await pruneObsoletePackFiles(root, schema.files, check);
+if (pruned.length > 0)
+  console.log(`Removed obsolete index-owned normalized outputs: ${pruned.join(", ")}`);
 outputs.set("persona-source-obligations.json", personaReferenceRows(
   context, manifest.categories.persona_source_obligations.records,
 ));
@@ -249,6 +253,10 @@ for (const family of fixtureContract.required_families) {
     must_cover: family.must_cover,
     selected_source_record_ids: selected.map(({ id }) => id),
     runtime_executable: false,
+    ...(family.id === "grand-miracle-eligibility-and-lifecycle" ? {
+      content_scope: "WeightedCurioReferencesOnly",
+      grand_miracle_semantics_proven: false,
+    } : {}),
   });
   reviewFixtures.push({
     ...context.envelope({
@@ -271,6 +279,10 @@ for (const family of fixtureContract.required_families) {
       content_lane: "CandidateReference",
       runtime_loading: "Forbidden",
       source_record_count: selected.length,
+      ...(family.id === "grand-miracle-eligibility-and-lifecycle" ? {
+        content_scope: "WeightedCurioReferencesOnly",
+        grand_miracle_semantics_proven: false,
+      } : {}),
     },
     input: {
       kind: "SemanticReferenceReview",
@@ -725,8 +737,8 @@ function fixtureSelections() {
       ["titan-types.json", "titan-boons.json", "titan-choices.json",
         "titan-contributions.json"]],
     ["grand-miracle-eligibility-and-lifecycle",
-      ["grand-miracles.json", "grand-miracle-eligibility.json",
-        "grand-miracle-states.json"]],
+      ["weighted-curios.json", "weighted-curio-eligibility.json",
+        "weighted-curio-states.json"]],
     ["no-legal-candidate-fallback",
       ["service-rules.json", "service-offer-rules.json",
         "equation-replacement-rules.json"]],

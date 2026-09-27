@@ -1725,6 +1725,9 @@
                 "Integer": 5076
               },
               {
+                "Integer": 7400
+              },
+              {
                 "Integer": 7657
               },
               {
@@ -1760,10 +1763,10 @@
             "String": "DivergentUniverse"
           },
           "payload_json": {
-            "String": "{\"evidence_refs\":[\"source.goal11.exceloutput-roguetournhex-json.0\",\"source.goal11.exceloutput-roguetournhexdisplay-json.13\",\"source.goal11.project-policy.grand-miracle-effects\",\"source.goal11.project-policy.semantic-fixture-grand-miracle-eligibility-and-lifecycle\"],\"expected_facts\":[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"character Path and element eligibility\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"activation\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"teardown\",\"runtime_claim\":false}],\"family_id\":\"grand-miracle-eligibility-and-lifecycle\",\"input\":{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"},\"ordered_operations\":[{\"fact\":\"character Path and element eligibility\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"activation\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"teardown\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}],\"preconditions\":{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":3},\"runtime_executable\":false,\"source_record_ids\":[\"divergent-universe.grand-miracle-eligibility.current.1001\",\"divergent-universe.grand-miracle-state.1001.active\",\"divergent-universe.grand-miracle.1001\"]}"
+            "String": "{\"evidence_refs\":[\"source.goal11.exceloutput-roguetournhex-json.0\",\"source.goal11.exceloutput-roguetournhexdisplay-json.13\",\"source.goal11.exceloutput-roguetournworkbenchfunc-json.5\",\"source.goal11.project-policy.grand-miracle-effects\",\"source.goal11.project-policy.semantic-fixture-grand-miracle-eligibility-and-lifecycle\"],\"expected_facts\":[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"character Path and element eligibility\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"activation\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"teardown\",\"runtime_claim\":false}],\"family_id\":\"grand-miracle-eligibility-and-lifecycle\",\"input\":{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"},\"ordered_operations\":[{\"fact\":\"character Path and element eligibility\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"activation\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"teardown\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}],\"preconditions\":{\"content_lane\":\"CandidateReference\",\"content_scope\":\"WeightedCurioReferencesOnly\",\"grand_miracle_semantics_proven\":false,\"runtime_loading\":\"Forbidden\",\"source_record_count\":3},\"runtime_executable\":false,\"source_record_ids\":[\"divergent-universe.weighted-curio-eligibility.current.1001\",\"divergent-universe.weighted-curio-state.1001.active\",\"divergent-universe.weighted-curio.1001\"]}"
           },
           "preconditions": {
-            "String": "{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":3}"
+            "String": "{\"content_lane\":\"CandidateReference\",\"content_scope\":\"WeightedCurioReferencesOnly\",\"grand_miracle_semantics_proven\":false,\"runtime_loading\":\"Forbidden\",\"source_record_count\":3}"
           },
           "schema_revision": {
             "String": "starclock.divergent-universe-row.v1"
@@ -1778,6 +1781,9 @@
               },
               {
                 "Integer": 5076
+              },
+              {
+                "Integer": 7400
               },
               {
                 "Integer": 7657

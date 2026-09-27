@@ -1,18 +1,21 @@
 import crypto from "node:crypto";
 import fs from "node:fs";
-import os from "node:os";
 import path from "node:path";
 import process from "node:process";
 import { spawnSync } from "node:child_process";
 
 const arguments_ = process.argv.slice(2);
 const writeState = arguments_.includes("--write-state");
-assert(arguments_.every((argument) =>
-  argument === "--write-state" || !argument.startsWith("--")),
-"usage: verify-sora-release.mjs [root] [--write-state]");
-const root = path.resolve(
-  arguments_.find((argument) => !argument.startsWith("--")) ?? ".",
-);
+const existingIndex = arguments_.indexOf("--verify-existing");
+const existingDirectory = existingIndex < 0 ? null : arguments_[existingIndex + 1];
+assert(existingIndex < 0 || (existingDirectory && !existingDirectory.startsWith("--")),
+  "--verify-existing requires a completed isolated build directory");
+const positional = arguments_.filter((argument, index) =>
+  argument !== "--write-state" && argument !== "--verify-existing"
+    && (existingIndex < 0 || index !== existingIndex + 1));
+assert(positional.length <= 1 && positional.every((argument) => !argument.startsWith("--")),
+  "usage: verify-sora-release.mjs [root] [--write-state] [--verify-existing DIRECTORY]");
+const root = path.resolve(positional[0] ?? ".");
 const projectRelative = path.join("config", "divergent-universe-project.toml");
 const generatedRelative = path.join(
   "config",
@@ -35,14 +38,21 @@ const ephemeralGenerated = path.join(loader, "src", "generated");
 const python = process.env.STARCLOCK_PYTHON
   ?? (process.platform === "win32" ? "python" : "python3");
 const sora = locateSora();
-const temporary = fs.mkdtempSync(
-  path.join(os.tmpdir(), "starclock-divergent-universe-release-"),
-);
+const temporaryBase = path.resolve(root, ".cache/divergent-universe-release-check");
+assert(path.relative(root, temporaryBase).replaceAll("\\", "/")
+  === ".cache/divergent-universe-release-check", "unsafe release-check directory");
+fs.mkdirSync(temporaryBase, { recursive: true });
+const temporary = existingDirectory === null
+  ? fs.mkdtempSync(path.join(temporaryBase, "build-"))
+  : path.resolve(root, existingDirectory);
+assert(path.dirname(temporary) === temporaryBase
+  && /^build-[a-zA-Z0-9]+$/.test(path.basename(temporary)), "unsafe release-check build directory");
 const workbooks = [
   "DivergentUniverse.xlsx",
   "DivergentUniverseBindings.xlsx",
   "DivergentUniverseReview.xlsx",
 ];
+let ownsEphemeralGenerated = false;
 
 try {
   assert(
@@ -59,7 +69,11 @@ try {
     "--project",
     path.join(root, projectRelative),
   ]);
-  const builds = ["a", "b"].map((label) => build(label));
+  // Prepare both independent authors before expensive exports so authoring
+  // errors fail early. Neither build shares mutable workbook/output paths.
+  const builds = existingDirectory === null
+    ? ["a", "b"].map((label) => prepareBuild(label)).map(exportBuild)
+    : ["a", "b"].map(existingBuild);
   for (const workbook of workbooks) {
     const first = path.join(builds[0].data, workbook);
     const second = path.join(builds[1].data, workbook);
@@ -89,6 +103,7 @@ try {
     "Sora table/row/empty-table denominator differs",
   );
 
+  ownsEphemeralGenerated = true;
   fs.cpSync(
     path.join(builds[0].generated, "reader"),
     ephemeralGenerated,
@@ -122,8 +137,30 @@ try {
       "byte-identical workbooks/build/export; every reader loaded).",
   );
 } finally {
-  fs.rmSync(ephemeralGenerated, { recursive: true, force: true });
-  fs.rmSync(temporary, { recursive: true, force: true });
+  if (ownsEphemeralGenerated)
+    fs.rmSync(ephemeralGenerated, { recursive: true, force: true });
+  assert(path.dirname(temporary) === temporaryBase
+    && path.basename(temporary).startsWith("build-"), "unsafe release-check cleanup");
+  if (existingDirectory === null)
+    fs.rmSync(temporary, { recursive: true, force: true });
+}
+
+function existingBuild(label) {
+  const config = path.join(temporary, `build-${label}`, "config");
+  assertSame(path.join(root, projectRelative),
+    path.join(config, "divergent-universe-project.toml"), `${label} current project input`);
+  const currentSchema = path.join(root, "config/divergent-universe/schema");
+  const candidateSchema = path.join(config, "divergent-universe/schema");
+  const schemaFiles = listFiles(currentSchema);
+  assert(JSON.stringify(schemaFiles) === JSON.stringify(listFiles(candidateSchema)),
+    `${label} current schema file set differs`);
+  for (const file of schemaFiles)
+    assertSame(path.join(currentSchema, file), path.join(candidateSchema, file),
+      `${label} current schema input ${file}`);
+  // The common checks below still compare both workbook/export byte sets with
+  // each other and the current tree, and load every generated Rust reader.
+  return { data: path.join(config, "divergent-universe/data"),
+    generated: path.join(config, "divergent-universe-generated") };
 }
 
 function verifyCurrentState(tables, rowCount, emptyCount) {
@@ -203,7 +240,7 @@ function verifyCurrentState(tables, rowCount, emptyCount) {
   }
 }
 
-function build(label) {
+function prepareBuild(label) {
   const buildRoot = path.join(temporary, `build-${label}`);
   const configRoot = path.join(buildRoot, "config");
   const projectRoot = path.join(configRoot, "divergent-universe");
@@ -227,6 +264,12 @@ function build(label) {
     ...process.env,
     PYTHONDONTWRITEBYTECODE: "1",
   });
+  return buildRoot;
+}
+
+function exportBuild(buildRoot) {
+  const configRoot = path.join(buildRoot, "config");
+  const data = path.join(configRoot, "divergent-universe/data");
   run(sora, [
     "--serial",
     "build",

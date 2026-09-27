@@ -797,8 +797,8 @@
       ]
     },
     {
-      "file": "grand-miracles.json",
-      "record_kind": "DivergentUniverseGrandMiracles",
+      "file": "weighted-curios.json",
+      "record_kind": "DivergentUniverseWeightedCurios",
       "phase": "P1-B5",
       "manifest_category_inputs": [
         "grand_miracles"
@@ -807,6 +807,7 @@
         "id"
       ],
       "required_domain_fields": [
+        "content_kind",
         "display_id",
         "maze_buff_id",
         "effect_ids",
@@ -814,8 +815,8 @@
       ]
     },
     {
-      "file": "grand-miracle-eligibility.json",
-      "record_kind": "DivergentUniverseGrandMiracleEligibility",
+      "file": "weighted-curio-eligibility.json",
+      "record_kind": "DivergentUniverseWeightedCurioEligibility",
       "phase": "P1-B5",
       "manifest_category_inputs": [
         "grand_miracle_eligibility"
@@ -824,22 +825,22 @@
         "id"
       ],
       "required_domain_fields": [
-        "grand_miracle_id",
+        "weighted_curio_id",
         "character_path",
         "element",
         "eligibility"
       ]
     },
     {
-      "file": "grand-miracle-states.json",
-      "record_kind": "DivergentUniverseGrandMiracleStates",
+      "file": "weighted-curio-states.json",
+      "record_kind": "DivergentUniverseWeightedCurioStates",
       "phase": "P1-B5",
       "manifest_category_inputs": [],
       "ordering_keys": [
         "id"
       ],
       "required_domain_fields": [
-        "grand_miracle_id",
+        "weighted_curio_id",
         "state",
         "activation",
         "duration",

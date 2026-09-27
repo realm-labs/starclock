@@ -27,23 +27,28 @@ unproven selector supplies actual Grand Miracle membership.
 
 ## Current implementation boundary
 
-`DivergentUniverseHexContentKind::WeightedCurio` is derived at the owned Sora
-conversion boundary. Catalog validation rejects treating these references as
+`DuHexContentKind::WeightedCurio` is authored in the typed Sora column and bound
+to the normalized payload. The owned conversion validates that both agree.
+Catalog validation rejects treating these references as
 `GrandMiracle`; production-bundle tests cover all 17 rows and the rejected
-counterfactual. This semantic field is not a new author-authored gameplay fact.
+counterfactual. The classification is supported by released HexEquipment text.
 
 The former flag-only Grand Miracle install/activate/teardown API is absent. Its
 reference flags did not execute combat effects, and are not retained as a
 compatibility implementation. Slot 39 remains reserved and empty in the baseline
 graph, without a loadout or effect API; its physical layout has not changed.
 
-The existing reference table, field and stable-key names still say Grand Miracle.
-They are misclassified transport metadata, not runtime admission. Aligning the
-reference importer, production workbooks, schema, generated readers, debug export
-and real Sora bundle is pending and must travel together through the documented
-openpyxl/Sora authoring path. This change does not claim that authoring alignment.
-All source obligations and reference denominators are retained; no completeness
-credit is added or removed on the basis of names alone.
+The current reference files, stable keys, owned IDs, production worksheets,
+schema, generated readers, debug export and real Sora bundle use Weighted Curio
+names. The three files are `weighted-curios.json`,
+`weighted-curio-eligibility.json` and `weighted-curio-states.json`.
+Current inline Tourn3 eligibility and the 57 excluded Tourn1/Tourn2 source rows
+cannot exchange scopes, even if table counts are preserved.
+The original source-obligation category IDs and required Grand Miracle fixture
+family remain unchanged pending their separate audit. That reference fixture
+explicitly proves no Grand Miracle semantics; genuine Grand Miracle acceptance
+remains required. All source obligations and reference denominators are retained;
+no completeness credit is added or removed on the basis of names alone.
 
 Weighted Curio obtaining/equipping, eligibility consumers, loadout limits, actual
 effects and Forge card enhancement are not implemented. Actual Grand Miracle

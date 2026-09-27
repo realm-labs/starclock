@@ -13,7 +13,8 @@ assert(fs.readFileSync(path.join(root, output), "utf8")
   === `${JSON.stringify(artifact, null, 2)}\n`, "Hex taxonomy/Gamble inventory drift");
 assert(artifact.current_boundary.grand_miracles_admitted_from_hex === 0
   && artifact.current_boundary.terminal_coverage_credit === 0
-  && !artifact.current_boundary.reference_transport_names_aligned,
+  && artifact.current_boundary.reference_transport_names_aligned
+  && !artifact.current_boundary.source_obligation_and_fixture_labels_aligned,
 "reference identities must not imply Grand Miracle execution");
 
 if (process.argv.includes("--check-source")) {

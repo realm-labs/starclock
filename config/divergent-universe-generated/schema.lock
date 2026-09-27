@@ -3,12 +3,30 @@
   "project_id": "starclock_divergent_universe_reference",
   "contract_id": "starclock_divergent_universe_reference/default",
   "view": "default",
-  "fingerprint": "6dfaf7aba644d1c9",
+  "fingerprint": "65b0c0933faf3686",
   "schema": {
     "project_id": "starclock_divergent_universe_reference",
     "contract_id": "starclock_divergent_universe_reference/default",
     "view": "default",
     "enums": [
+      {
+        "name": "DuHexContentKind",
+        "groups": {
+          "values": [
+            "common"
+          ]
+        },
+        "values": [
+          {
+            "id": 0,
+            "name": "WeightedCurio"
+          },
+          {
+            "id": 1,
+            "name": "GrandMiracle"
+          }
+        ]
+      },
       {
         "name": "DuOwnership",
         "groups": {
@@ -14457,9 +14475,9 @@
         ]
       },
       {
-        "id": "grand-miracles",
-        "name": "DivergentUniverseGrandMiracles",
-        "canonical_name": "DivergentUniverseGrandMiracles",
+        "id": "weighted-curios",
+        "name": "DivergentUniverseWeightedCurios",
+        "canonical_name": "DivergentUniverseWeightedCurios",
         "groups": {
           "values": [
             "common"
@@ -14470,7 +14488,7 @@
         "source": {
           "format": "xlsx",
           "file": "DivergentUniverse.xlsx",
-          "sheet": "T19_GrandMiracles"
+          "sheet": "T19_WeightedCurios"
         },
         "fields": [
           {
@@ -14738,6 +14756,24 @@
             "name": "source_id",
             "ty": {
               "Optional": "String"
+            },
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "content_kind",
+            "ty": {
+              "Enum": "DuHexContentKind"
             },
             "groups": {
               "values": [
@@ -14855,9 +14891,9 @@
         ]
       },
       {
-        "id": "grand-miracle-eligibility",
-        "name": "DivergentUniverseGrandMiracleEligibility",
-        "canonical_name": "DivergentUniverseGrandMiracleEligibility",
+        "id": "weighted-curio-eligibility",
+        "name": "DivergentUniverseWeightedCurioEligibility",
+        "canonical_name": "DivergentUniverseWeightedCurioEligibility",
         "groups": {
           "values": [
             "common"
@@ -14868,7 +14904,7 @@
         "source": {
           "format": "xlsx",
           "file": "DivergentUniverse.xlsx",
-          "sheet": "T20_GrandMiracleEligibility"
+          "sheet": "T20_WeightedCurioEligibility"
         },
         "fields": [
           {
@@ -15151,11 +15187,11 @@
             "derived_from": null
           },
           {
-            "name": "grand_miracle_id",
+            "name": "weighted_curio_id",
             "ty": {
               "Optional": {
                 "Ref": {
-                  "table": "DivergentUniverseGrandMiracles",
+                  "table": "DivergentUniverseWeightedCurios",
                   "field": "id"
                 }
               }
@@ -15258,9 +15294,9 @@
         ]
       },
       {
-        "id": "grand-miracle-states",
-        "name": "DivergentUniverseGrandMiracleStates",
-        "canonical_name": "DivergentUniverseGrandMiracleStates",
+        "id": "weighted-curio-states",
+        "name": "DivergentUniverseWeightedCurioStates",
+        "canonical_name": "DivergentUniverseWeightedCurioStates",
         "groups": {
           "values": [
             "common"
@@ -15271,7 +15307,7 @@
         "source": {
           "format": "xlsx",
           "file": "DivergentUniverse.xlsx",
-          "sheet": "T21_GrandMiracleStates"
+          "sheet": "T21_WeightedCurioStates"
         },
         "fields": [
           {
@@ -15554,11 +15590,11 @@
             "derived_from": null
           },
           {
-            "name": "grand_miracle_id",
+            "name": "weighted_curio_id",
             "ty": {
               "Optional": {
                 "Ref": {
-                  "table": "DivergentUniverseGrandMiracles",
+                  "table": "DivergentUniverseWeightedCurios",
                   "field": "id"
                 }
               }
