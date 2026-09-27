@@ -7,6 +7,7 @@ mod decision_identity_tests;
 use std::sync::Arc;
 
 use super::battle_settlement_runtime::SETTLEMENT_POLICY_IDENTITY;
+use super::weighted_curio::POLICY_IDENTITY as WEIGHTED_CURIO_POLICY_IDENTITY;
 use crate::digest::CanonicalDigestBuilder;
 use starclock_activity::{
     ActivityConfigDigest, ActivityDefinitionDigest, ActivityDefinitionId,
@@ -704,6 +705,7 @@ fn compile_identity(
     let config = digest(&[
         b"starclock.divergent-universe.entry-flow.config.v1",
         SETTLEMENT_POLICY_IDENTITY,
+        WEIGHTED_CURIO_POLICY_IDENTITY,
         &bundle.identity().component_digest().bytes(),
         &decisions_digest,
         area.id.as_str().as_bytes(),

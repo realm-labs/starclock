@@ -13,9 +13,15 @@ are not gameplay effects. Reference keys, owned types, worksheets, schema,
 generated readers and the real Sora bundle now use Weighted Curio names, with
 validated typed classification and current/excluded eligibility scopes. Original
 source-obligation IDs and Grand Miracle fixture semantics still require a separate
-audit; genuine Grand Miracle acceptance is not reduced. Weighted Curio loadout
-and effects, actual Grand Miracle source selection/effects and the Forge room
-payload remain unimplemented. The current
+audit; genuine Grand Miracle acceptance is not reduced. An
+[accepted Weighted Curio equipment boundary](divergent-universe-weighted-curio-loadout.md)
+now atomically replaces or clears the Run-scoped equipped set, separately from
+ordinary Curios. All 17 current selections reconstruct without RNG; stale,
+foreign, duplicate, over-capacity and dirty inputs reject. Nonempty equipment
+rejects contribution construction with typed unsupported-effect errors instead
+of silently producing a no-effect battle. Full Forge menus/slot admission,
+Weighted Curio battle effects, actual Grand Miracle source selection/effects
+and the Forge room payload remain unimplemented. The current
 taxonomy/Gamble inventory emits no execution receipt or terminal coverage credit;
 the two accepted Coin units and unresolved Gamble rejection behavior remain.
 The verification scaffold retains all 6,762 obligations; its validator uses that
@@ -139,7 +145,7 @@ declarations are validated. Tests execute repeated real proxy battles within a
 plane in both families, verified drops, fresh command reconstruction, actual
 participant carry, suppressed reward advancement and rejected prior results.
 Under current configuration-bound vectors, the unchanged party naturally loses
-battle six in both Ordinary and Cyclical without between-room healing;
+battle six in Ordinary and seven in Cyclical without between-room healing;
 these fixtures do not prove successful completion of the controlled profile.
 Missing authored reward domains reject before compilation. Boss now has an
 explicit fixed-100 project-policy base reward, independent of the unchanged

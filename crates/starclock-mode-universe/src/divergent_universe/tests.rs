@@ -10,6 +10,8 @@ include!("tests/gamble_runtime.rs");
 include!("tests/titan_runtime.rs");
 #[path = "tests/titan_entry.rs"]
 mod titan_entry;
+#[path = "tests/weighted_curio.rs"]
+mod weighted_curio;
 include!("tests/permanent_progression_runtime.rs");
 include!("tests/workbench_curse_runtime.rs");
 #[path = "tests/curio_synthesis.rs"]

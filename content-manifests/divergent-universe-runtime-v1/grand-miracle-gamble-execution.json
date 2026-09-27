@@ -35,7 +35,19 @@
     },
     "mode_facade": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/mod.rs",
-      "sha256": "4e5eae5c338346e9259b1ce1762b07242136086d7e72efde282fc010a09a460f"
+      "sha256": "f76d4663d5a8f00aaaa67a5649b4af00574f1f8633acfdb72b19afcca409086c"
+    },
+    "weighted_loadout": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/weighted_curio.rs",
+      "sha256": "e250dd5918509003a2603065c373c19f2e2ffe0d825bbe78c1a6c6e653e52f06"
+    },
+    "weighted_loadout_tests": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio.rs",
+      "sha256": "82a251fa3dee4e1d51d1b6e0f5432fb1998ef044d482bb77e8d67538464b2b42"
+    },
+    "contribution_snapshot": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/contribution_snapshot.rs",
+      "sha256": "b1aea83ee4ad7e65cb4bfe4f25362beb5e4198bb7ad2f2cde212847ecb5e48a4"
     },
     "gamble_runtime": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/gamble_runtime.rs",
@@ -78,11 +90,15 @@
     "owned_hex_semantic_classification": true,
     "grand_miracles_admitted_from_hex": 0,
     "weighted_curio_loadout_implemented": false,
+    "weighted_curio_accepted_loadout_boundary": true,
+    "weighted_curio_accepted_loadout_maximum": 3,
+    "weighted_curio_loadout_accuracy": "VersionedProjectPolicyAcceptedCurrentCatalogLoadout",
+    "weighted_curio_unsupported_equipment_rejects_battle_contribution": true,
     "weighted_curio_battle_effects_implemented": false,
     "grand_miracle_runtime_implemented": false,
     "forge_room_payload_implemented": false,
     "terminal_coverage_credit": 0,
-    "required_next_work": "Implement real Weighted Curio loadout and effects; establish Grand Miracle selectors independently and repair its separate source/fixture audit labels without shrinking obligations."
+    "required_next_work": "Bind accepted Weighted Curio equipment to actual Forge offers and slot-level admission, then implement battle effects; establish Grand Miracle selectors independently and repair its separate source/fixture audit labels without shrinking obligations."
   },
   "summary": {
     "weighted_curio_references": 17,
@@ -98,6 +114,26 @@
     {
       "file": "crates/starclock-data/src/divergent_universe_tests.rs",
       "test": "production_hex_source_references_are_weighted_curios_not_grand_miracles"
+    },
+    {
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio.rs",
+      "test": "weighted_curio_all_current_selections_replace_unequip_and_reconstruct_both_families"
+    },
+    {
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio.rs",
+      "test": "weighted_curio_capacity_canonical_order_and_invalid_requests_are_atomic"
+    },
+    {
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio.rs",
+      "test": "weighted_curio_nonempty_and_dirty_loadouts_reject_contribution_without_mutation_or_rng"
+    },
+    {
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio.rs",
+      "test": "weighted_curio_completed_activity_rejects_equipment_without_events"
+    },
+    {
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio.rs",
+      "test": "weighted_curio_unequip_restores_real_battle_execution_not_effect_credit"
     },
     {
       "file": "crates/starclock-mode-universe/src/divergent_universe/tests/gamble_runtime.rs",

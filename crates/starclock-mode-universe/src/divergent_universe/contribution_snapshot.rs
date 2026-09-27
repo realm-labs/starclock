@@ -1,6 +1,7 @@
 //! Unified immutable battle contribution snapshot for Divergent Universe.
 
 use crate::digest::CanonicalDigestBuilder;
+use crate::divergent_universe::weighted_curio::{WeightedCurioError, WeightedCurioRuntime};
 use starclock_activity::{ActivityStateHash, GraphActivity, TechniqueContributionDigest};
 use starclock_data::{
     divergent_universe_catalog::DivergentUniverseDifficultyId,
@@ -160,6 +161,7 @@ impl DivergentUniverseBattleContributionSnapshot {
 
 #[derive(Clone, Debug)]
 pub struct DivergentUniverseContributionSnapshotRuntime {
+    weighted_curio: WeightedCurioRuntime,
     blessing_interaction: DivergentUniverseBlessingInteractionRuntime,
     curio: DivergentUniverseCurioRuntime,
     titan: DivergentUniverseTitanRuntime,
@@ -175,6 +177,9 @@ impl DivergentUniverseRuntimeFactory {
         DivergentUniverseContributionSnapshotError,
     > {
         Ok(DivergentUniverseContributionSnapshotRuntime {
+            weighted_curio: self
+                .weighted_curio_runtime()
+                .map_err(DivergentUniverseContributionSnapshotError::WeightedCurio)?,
             blessing_interaction: self.blessing_interaction_runtime()?,
             curio: self.curio_runtime()?,
             titan: self.titan_runtime()?,
@@ -213,6 +218,9 @@ impl DivergentUniverseContributionSnapshotRuntime {
             .validate(self.component_digest, flow.definition.participants())
             .map_err(|_| DivergentUniverseContributionSnapshotError::MappingRequired)?;
         let source_state_hash = activity.state_hash();
+        self.weighted_curio
+            .validate_battle_effects(activity)
+            .map_err(DivergentUniverseContributionSnapshotError::WeightedCurio)?;
         let equation_blessing = self.blessing_interaction.snapshot(activity)?;
         let curios = self.curio.snapshot(activity)?;
         let titan = self.titan.snapshot(activity)?;
@@ -452,6 +460,7 @@ fn frame_optional_text(hash: &mut CanonicalDigestBuilder, value: Option<&str>) {
 
 #[derive(Debug)]
 pub enum DivergentUniverseContributionSnapshotError {
+    WeightedCurio(WeightedCurioError),
     DefinitionMismatch,
     MappingRequired,
     ActivityCompleted,

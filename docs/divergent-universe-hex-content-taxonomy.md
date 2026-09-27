@@ -35,8 +35,12 @@ counterfactual. The classification is supported by released HexEquipment text.
 
 The former flag-only Grand Miracle install/activate/teardown API is absent. Its
 reference flags did not execute combat effects, and are not retained as a
-compatibility implementation. Slot 39 remains reserved and empty in the baseline
-graph, without a loadout or effect API; its physical layout has not changed.
+compatibility implementation. Slot 39 remains empty at baseline entry and keeps
+its physical layout, but now supports an
+[accepted equipment boundary](divergent-universe-weighted-curio-loadout.md).
+Atomic replacement/unequip is separate from ordinary Curio holdings. Unsupported
+equipped effects reject contribution construction rather than becoming no-op
+battle inputs. This does not restore the removed Grand Miracle API.
 
 The current reference files, stable keys, owned IDs, production worksheets,
 schema, generated readers, debug export and real Sora bundle use Weighted Curio
@@ -50,8 +54,9 @@ explicitly proves no Grand Miracle semantics; genuine Grand Miracle acceptance
 remains required. All source obligations and reference denominators are retained;
 no completeness credit is added or removed on the basis of names alone.
 
-Weighted Curio obtaining/equipping, eligibility consumers, loadout limits, actual
-effects and Forge card enhancement are not implemented. Actual Grand Miracle
+Full Weighted Curio Forge obtaining/equipping menus, original slot-level admission,
+eligibility consumers, actual effects and Forge card enhancement remain
+unimplemented. The accepted equipment primitive alone does not complete them. Actual Grand Miracle
 selectors, acquisition and effects require separate evidence and implementation.
 The current Forge level-one source card must not be wired to the removed API or
 to Respite blessing enhancement. Higher-level Tawot service tests are not proof

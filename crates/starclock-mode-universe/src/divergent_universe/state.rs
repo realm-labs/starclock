@@ -48,7 +48,8 @@ pub(super) const BLESSING_OFFER_SOURCE_SLOT: ActivitySlotId = slot(35);
 pub(super) const CURIO_STATES_SLOT: ActivitySlotId = slot(36);
 pub(super) const CURIO_CHARGES_SLOT: ActivitySlotId = slot(37);
 pub(super) const CURIO_ACTIVATIONS_SLOT: ActivitySlotId = slot(38);
-// Reserved reference state, not an implemented loadout/effect or Grand Miracle.
+// Equipped Weighted Curio keys have count one. The runtime validates a maximum
+// of three; no ordinary holding, Grand Miracle or battle effect is implied.
 pub(super) const WEIGHTED_CURIO_REFERENCES_SLOT: ActivitySlotId = slot(39);
 pub(super) const TITAN_TYPE_SLOT: ActivitySlotId = slot(40);
 pub(super) const TITAN_TALENTS_SLOT: ActivitySlotId = slot(41);

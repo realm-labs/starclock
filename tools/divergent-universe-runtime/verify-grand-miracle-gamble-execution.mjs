@@ -16,6 +16,13 @@ assert(artifact.current_boundary.grand_miracles_admitted_from_hex === 0
   && artifact.current_boundary.reference_transport_names_aligned
   && !artifact.current_boundary.source_obligation_and_fixture_labels_aligned,
 "reference identities must not imply Grand Miracle execution");
+assert(artifact.current_boundary.weighted_curio_accepted_loadout_boundary
+  && artifact.current_boundary.weighted_curio_accepted_loadout_maximum === 3
+  && artifact.current_boundary.weighted_curio_unsupported_equipment_rejects_battle_contribution
+  && !artifact.current_boundary.weighted_curio_loadout_implemented
+  && !artifact.current_boundary.weighted_curio_battle_effects_implemented
+  && !artifact.current_boundary.forge_room_payload_implemented,
+"an accepted equipment primitive is not a complete Forge or battle-effect implementation");
 
 if (process.argv.includes("--check-source")) {
   const sourceRoot = path.join(root, ".cache/content-reference/turnbasedgamedata");
