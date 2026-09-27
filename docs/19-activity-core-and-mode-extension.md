@@ -291,6 +291,25 @@ revision and digest are authoritative inputs.
 
 Do not add a new core node kind for one event until composition plus a registered handler has proven insufficient. Do not add `if mode_id == ...` to `starclock-activity`.
 
+### Registered external result transactions
+
+`GraphActivity::submit_external_outcome` accepts only a currently offered typed
+result with a validated binding in the immutable composed handler registry.
+The handler observes the pre-command view, bounded payload and any declared
+labeled draw; it returns operations, not external side effects. Ordinary and
+generated player choices cannot bypass this registered interaction boundary.
+
+Handler operations, authored option effects, result consumption and automatic
+graph advancement share one transaction. Every returned error restores the
+exact pre-command authoritative state and all RNG streams, including draws and
+mutations at subsequent checkpoints, node/section transitions and the pending
+external result. No events escape a failed submission. A retry therefore sees
+the same offered result and RNG state. Successful submissions retain ordered
+causes/events and fresh reconstruction. An accepted downstream deterministic
+fault is distinct from a returned error: it commits its documented `Faulted`
+terminal and ordered events rather than pretending the command was rejected.
+This boundary does not simulate minigames or supply mode-specific reward rules.
+
 ### Generated option transactions
 
 `GraphActivity::choose_option_with_generated_prefix` is the shared trusted

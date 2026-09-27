@@ -1,5 +1,8 @@
 use std::sync::Arc;
 
+#[path = "interaction_advance.rs"]
+mod advance;
+
 use starclock_activity::{
     ActivityCondition, ActivityConfigDigest, ActivityDecisionKind, ActivityDefinitionDigest,
     ActivityDefinitionId, ActivityDefinitionIdentity, ActivityEdgeCondition,

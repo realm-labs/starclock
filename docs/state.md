@@ -38,6 +38,13 @@ binds to the logical room and survives its choice, encounter, battle and reward
 nodes, while clearing at room exit/reentry. Shared tests cover parent changes,
 stable reset events, declaration/hash validation and downstream rollback;
 the public three-battle baseline still does not execute the current position graph.
+The shared registered-external-result command now includes automatic graph
+advancement in its transaction. Returned errors after a handler and random
+checkpoint restore exact state, both RNG streams, visits and the original
+pending result; repeated rejection is inert. Success reconstructs identical
+effects/events, while accepted downstream faults retain their documented
+terminal semantics. This closes a shared prerequisite for Adventure settlement,
+not current Adventure rewards, minigame execution or terminal DU coverage.
 The production factory now compiles an exact area-position graph with an
 explicitly selected source deck and mandatory caller-owned multi-node room
 fragments. All 28 areas/nine decks are checked for exact positions and instance

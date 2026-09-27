@@ -24,7 +24,7 @@ use crate::{
     program::condition_type,
 };
 use random_offer::restrict_random_offer;
-use std::sync::Arc;
+use std::{mem::replace, sync::Arc};
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GraphActivityNodeProgram {
@@ -536,6 +536,10 @@ impl GraphActivity {
 
     /// Accepts an externally resolved, non-spatial interaction outcome through
     /// the same checked option transaction used by ordinary decisions.
+    /// Handler effects, result consumption, RNG and automatic graph advancement
+    /// commit together. Any returned error restores the pre-command state/RNG,
+    /// including the pending result. Accepted downstream deterministic faults
+    /// still commit their ordered events and documented terminal fault state.
     pub fn submit_external_outcome(
         &mut self,
         expected_state_hash: ActivityStateHash,
@@ -636,10 +640,19 @@ impl GraphActivity {
                 return Err(GraphActivityCommandError::InteractionFault(fault));
             }
         };
-        self.state = working_state;
-        self.rng = working_rng;
-        events.extend(self.pump().map_err(GraphActivityCommandError::Runtime)?);
-        Ok(events.into_boxed_slice())
+        let original_state = replace(&mut self.state, working_state);
+        let original_rng = replace(&mut self.rng, working_rng);
+        match self.pump() {
+            Ok(advanced) => {
+                events.extend(advanced);
+                Ok(events.into_boxed_slice())
+            }
+            Err(error) => {
+                self.state = original_state;
+                self.rng = original_rng;
+                Err(GraphActivityCommandError::Runtime(error))
+            }
+        }
     }
 
     pub fn reroll_random_offer(
