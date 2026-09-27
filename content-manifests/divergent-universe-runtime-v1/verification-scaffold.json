@@ -10,8 +10,8 @@
     "content-manifests/divergent-universe-runtime-v1/mechanic-dispositions.json": "1b52d5647cb784b418286a0c046b2d92368748494774314c09bf52b7256e1088",
     "content-manifests/divergent-universe-runtime-v1/mechanic-partitions.json": "954fe4fbf9e9b433684d7c03ca38a3ef6a5b9860380c48c35a2ad3ba1ee8520d",
     "content-manifests/divergent-universe-runtime-v1/batch-ledger.json": "b1c552a4be276b9c70c6bef4c52cb3f62847a2bb297b533ac705e9d4334ad5fd",
-    "content-manifests/divergent-universe-runtime-v1/runtime-contract.json": "ccb27239b0d31973c27c48a666916055568355f40736b5887aed50f1b0ba4276",
-    "content-manifests/divergent-universe-runtime-v1/verification-contract.json": "4b22bf2143be696a7ab813bced00f1cf938c3f9f46ffb0b0cbd8bfa4d4977754",
+    "content-manifests/divergent-universe-runtime-v1/runtime-contract.json": "ed4f719125fb2f2ad54613cb1fc82be19d09c8d04ea6f34682e9e3171b5141c2",
+    "content-manifests/divergent-universe-runtime-v1/verification-contract.json": "5bc13863a4c730d9d67dc62729371b1e3781e6f156d6435ca187a22ae0ab65d3",
     "content-manifests/divergent-universe-runtime-v1/shared-capability-audit.json": "7eb3e236cedd1f74f84b9be427e94f77eafbdfe8938973f3a8f4f71df768d778",
     "content-manifests/divergent-universe-runtime-v1/entry-flow-execution.json": "9c1f89366bb80df872fa57e29e64b698592f7da4d764ccbd20ca112e23135ab8",
     "content-manifests/divergent-universe-runtime-v1/progression-execution.json": "1eb234a795cf1ba23861cec74b42b350507293ab8eeb0ae5b09f48c51b9474d0",
@@ -95,7 +95,7 @@
     {
       "id": "production-lowering",
       "owner_batch": "G22-P1-B6",
-      "acceptance": "All 80 Sora tables lower privately with exact joins and component identity."
+      "acceptance": "All 81 Sora tables lower privately with exact joins and component identity."
     },
     {
       "id": "shared-capability",
@@ -120,7 +120,7 @@
     {
       "id": "exact-once-release",
       "owner_batch": "G22-P8-B4",
-      "acceptance": "6,215 obligations, 669 programs, 25 fixtures, 25 gaps and 54 policies have terminal dispositions."
+      "acceptance": "6,762 obligations, 669 programs, 25 fixtures, 25 gaps and 54 policies have terminal dispositions."
     },
     {
       "id": "native-clean-checkout",

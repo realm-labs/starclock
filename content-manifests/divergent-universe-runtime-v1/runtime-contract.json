@@ -4,8 +4,15 @@
   "batch": "G22-P0-B4",
   "status": "FrozenTargetBoundary",
   "input_digests": {
-    "mechanic_dispositions_sha256": "629d1061b313381f09f66804da9eca86fdb8e474837a4fb56451696adb9377d4",
-    "runtime_dispositions_sha256": "1319cb15f7a2e1b9c283549300cf29bb4f2b65d41c759a0c29240570c7fbd2bc"
+    "foundation_sha256": "604ca42794df712ca017c1f23b992c0bd8a3cc4e8cdf55300425791bce0d7a1f",
+    "mechanic_dispositions_sha256": "1b52d5647cb784b418286a0c046b2d92368748494774314c09bf52b7256e1088",
+    "runtime_dispositions_sha256": "200bec4e10de2359ae8d1383174d5cc88f4b1e44ba3ad00e24bf414cfe7f5524"
+  },
+  "coverage_boundary": {
+    "obligations": 6762,
+    "pending": 6578,
+    "terminal": 184,
+    "runtime_execution_credit": false
   },
   "architecture": {
     "production_path": [

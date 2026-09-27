@@ -25,6 +25,11 @@ assert(scaffold.summary.assigned_catalog_obligations === 6762
   && scaffold.summary.assigned_policy_sources === 54,
 "assigned target closure drift");
 assert(scaffold.release_gates.length === 7, "release gate denominator drift");
+assert(scaffold.release_gates.find(({ id }) => id === "production-lowering")?.acceptance
+  === "All 81 Sora tables lower privately with exact joins and component identity."
+  && scaffold.release_gates.find(({ id }) => id === "exact-once-release")?.acceptance
+  === "6,762 obligations, 669 programs, 25 fixtures, 25 gaps and 54 policies have terminal dispositions.",
+"release gate wording must retain all current source obligations and tables");
 
 const knownBatches = new Set(scaffold.batches.map(({ batch }) => batch));
 knownBatches.add("G22-P0-B6");

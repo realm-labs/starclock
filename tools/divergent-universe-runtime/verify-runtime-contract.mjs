@@ -14,6 +14,11 @@ run("node", ["tools/divergent-universe-runtime/generate-runtime-contract.mjs", "
 assert(contract.status === "FrozenTargetBoundary"
   && contract.public_api.target_types.length === 6,
 "public facade target drift");
+assert(contract.coverage_boundary.obligations === 6762
+  && contract.coverage_boundary.pending === 6578
+  && contract.coverage_boundary.terminal === 184
+  && !contract.coverage_boundary.runtime_execution_credit,
+"current target coverage is not a runtime execution receipt");
 assert(contract.scopes.map(({ generic }) => generic).join(",")
   === "Activity,Section,Node,Attempt", "physical scope contract drift");
 assert(unique(contract.slot_families.map(({ name }) => name))

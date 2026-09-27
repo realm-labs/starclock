@@ -11,15 +11,29 @@ const mechanicDispositionPath =
   "content-manifests/divergent-universe-runtime-v1/mechanic-dispositions.json";
 const runtimeDispositionPath =
   "content-manifests/divergent-universe-runtime-v1/runtime-dispositions.json";
+const foundationPath = "content-manifests/divergent-universe-runtime-v1/foundation.json";
 
-export function buildRuntimeContract() {
+export function buildRuntimeContract({ read = text } = {}) {
+  const json = (file) => JSON.parse(read(file));
+  const sha256 = (file) => crypto.createHash("sha256").update(read(file)).digest("hex");
+  const foundation = json(foundationPath);
   const mechanics = json(mechanicDispositionPath);
   const dispositions = json(runtimeDispositionPath);
   assert(mechanics.summary.native_handlers_admitted === 0,
     "runtime contract starts with zero admitted native handlers");
   const runtimeStatus = dispositions.summary.runtime_status;
-  assert((runtimeStatus.Pending ?? 0) + (runtimeStatus.Terminal ?? 0) === 6215
-    && (runtimeStatus.Terminal ?? 0) >= 182,
+  const total = foundation.denominators.source_content_obligations;
+  const obligations = dispositions.obligations;
+  assert(Number.isSafeInteger(total) && total > 0
+    && total === dispositions.summary.obligations && total === obligations.length
+    && new Set(obligations.map(({ obligation_id: id }) => id)).size === total
+    && obligations.every(({ runtime_status: status }) =>
+      status === "Pending" || status === "Terminal")
+    && Object.keys(runtimeStatus).every((status) => status === "Pending" || status === "Terminal")
+    && (runtimeStatus.Pending ?? 0) === obligations.filter(
+      ({ runtime_status: status }) => status === "Pending").length
+    && (runtimeStatus.Terminal ?? 0) === obligations.filter(
+      ({ runtime_status: status }) => status === "Terminal").length,
   "runtime contract must bind the exact current disposition boundary");
   return {
     schema_revision: "starclock.divergent-universe-runtime-contract.v1",
@@ -27,8 +41,15 @@ export function buildRuntimeContract() {
     batch: "G22-P0-B4",
     status: "FrozenTargetBoundary",
     input_digests: {
+      foundation_sha256: sha256(foundationPath),
       mechanic_dispositions_sha256: sha256(mechanicDispositionPath),
       runtime_dispositions_sha256: sha256(runtimeDispositionPath),
+    },
+    coverage_boundary: {
+      obligations: total,
+      pending: runtimeStatus.Pending ?? 0,
+      terminal: runtimeStatus.Terminal ?? 0,
+      runtime_execution_credit: false,
     },
     architecture: {
       production_path: [
@@ -302,14 +323,8 @@ function component(kind, id, digestSource) {
   return { kind, id, digest_source: digestSource };
 }
 
-function json(relativePath) {
-  return JSON.parse(fs.readFileSync(path.join(root, relativePath), "utf8"));
-}
-
-function sha256(relativePath) {
-  return crypto.createHash("sha256")
-    .update(fs.readFileSync(path.join(root, relativePath)))
-    .digest("hex");
+function text(relativePath) {
+  return fs.readFileSync(path.join(root, relativePath), "utf8");
 }
 
 function pretty(value) {

@@ -16,6 +16,7 @@ export function buildVerificationScaffold() {
   const mechanics = json(`${runtimeRoot}/mechanic-dispositions.json`).programs;
   const partitions = json(`${runtimeRoot}/mechanic-partitions.json`).partitions;
   const verification = json(`${runtimeRoot}/verification-contract.json`);
+  const denominators = json(`${runtimeRoot}/foundation.json`).denominators;
   const partitionByBatch = new Map(partitions.map((value) => [value.batch, value]));
   const boundary = required(ledger.batches.find(({ batch }) => batch === "G22-P0-B6"),
     "G22-P0-B6 ledger row");
@@ -129,7 +130,7 @@ export function buildVerificationScaffold() {
       assigned_policy_sources: sum(batches,
         ({ assigned_targets }) => assigned_targets.policy_sources),
     },
-    release_gates: releaseGates(verification),
+    release_gates: releaseGates(verification, denominators),
     batches,
   };
 }
@@ -364,14 +365,14 @@ function terminalEvidence(row, assigned, partition) {
   };
 }
 
-function releaseGates(verification) {
+function releaseGates(verification, denominators) {
   return [
-    gate("production-lowering", "G22-P1-B6", "All 80 Sora tables lower privately with exact joins and component identity."),
+    gate("production-lowering", "G22-P1-B6", `All ${denominators.sora_tables} Sora tables lower privately with exact joins and component identity.`),
     gate("shared-capability", "G22-P2-B5", "Every required shared shape is implemented or assigned to an admitted audited handler."),
     gate("vertical-slice", "G22-P3-B6", "The frozen Ordinary slice reaches terminal state through a real battle and fresh replay."),
     gate("complete-run-matrix", "G22-P7-B6", `${verification.matrix_cases.length} seeded legal cases complete and fresh-replay production inputs.`),
     gate("performance", "G22-P8-B2", `${verification.performance_workloads.length} frozen workloads satisfy structural and measured budgets.`),
-    gate("exact-once-release", "G22-P8-B4", "6,215 obligations, 669 programs, 25 fixtures, 25 gaps and 54 policies have terminal dispositions."),
+    gate("exact-once-release", "G22-P8-B4", `${denominators.source_content_obligations.toLocaleString("en-US")} obligations, ${denominators.mechanic_programs} programs, ${denominators.semantic_fixture_families} fixtures, ${denominators.research_gaps} gaps and ${denominators.project_policy_sources} policies have terminal dispositions.`),
     gate("native-clean-checkout", "G22-P8-B5", `${verification.native_ci_expectations.platforms.length} native platforms agree and clean-checkout acceptance passes.`),
   ];
 }

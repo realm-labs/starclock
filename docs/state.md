@@ -39,6 +39,10 @@ the caller-owned projection are not membership evidence or current-game parity.
 Unproven reachability also does not prove a non-runtime exclusion: all 132
 obligations and original acceptance targets remain pending and unchanged.
 The full release gates remain open.
+The generated runtime target contract binds the current foundation and all 6,762
+unique obligation rows, verifies status counts against those rows and grants no
+execution credit. Scaffold release requirements retain all 81 source tables and
+6,762 obligations rather than the smaller DataReady subset.
 
 The current [Persona domain layout](divergent-universe-domain-layout.md) is now
 typed configuration: 28 current areas join 11 layers and 60 positions, comprising
