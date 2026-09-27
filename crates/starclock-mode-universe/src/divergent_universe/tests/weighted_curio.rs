@@ -200,7 +200,7 @@ fn weighted_curio_capacity_canonical_order_and_invalid_requests_are_atomic() {
 }
 
 #[test]
-fn weighted_curio_nonempty_and_dirty_loadouts_reject_contribution_without_mutation_or_rng() {
+fn weighted_curio_unlowered_and_dirty_loadouts_reject_contribution_without_mutation_or_rng() {
     let fixture = DivergentUniverseBaselineFixture::production().unwrap();
     let runtime = fixture.factory().weighted_curio_runtime().unwrap();
     let contribution = fixture.factory().contribution_snapshot_runtime().unwrap();
@@ -223,9 +223,23 @@ fn weighted_curio_nonempty_and_dirty_loadouts_reject_contribution_without_mutati
                 .unwrap();
             let before = activity.canonical_state_bytes();
             let debug = activity.debug_view();
-            assert!(matches!(contribution.snapshot(&flow, &activity),
-                Err(DivergentUniverseContributionSnapshotError::WeightedCurio(
-                    WeightedCurioError::UnsupportedBattleEffect(ref rejected))) if rejected == id));
+            if fixture
+                .factory()
+                .decision_catalog()
+                .weighted_curio_splashes()
+                .iter()
+                .any(|definition| &definition.weighted_curio == id)
+            {
+                let snapshot = contribution.snapshot(&flow, &activity).unwrap();
+                assert_eq!(
+                    snapshot.weighted_curios().equipped(),
+                    std::slice::from_ref(id)
+                );
+            } else {
+                assert!(matches!(contribution.snapshot(&flow, &activity),
+                    Err(DivergentUniverseContributionSnapshotError::WeightedCurio(
+                        WeightedCurioError::UnsupportedBattleEffect(ref rejected))) if rejected == id));
+            }
             assert_eq!(activity.canonical_state_bytes(), before);
             assert_eq!(activity.debug_view(), debug);
         }

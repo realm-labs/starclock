@@ -182,6 +182,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 155. [Fixed Conversion battle substitute](divergent-universe-conversion-room.md) — authenticated current preset, explicit bounded real battles, defeat continuation without implicit healing, shared atomic settlement and remaining original wave/reward gaps.
 156. [Hex content taxonomy](divergent-universe-hex-content-taxonomy.md) — source-proven Weighted Curio classification, aligned authored transport, rejected Grand Miracle admission and pending loadout/effects.
     [Accepted Weighted Curio loadouts](divergent-universe-weighted-curio-loadout.md) defines atomic equipment replacement/unequip, caller capacity and rejection of unsupported battle effects; Forge menu admission remains pending.
+    [Weighted Curio attack splash](divergent-universe-weighted-curio-splash.md) binds released generic MazeBuff operands to actual source-attributed Rule IR; sixteen effects and Forge admission remain pending.
 157. [Titan effect boundary](divergent-universe-titan-effects.md) — source descriptors versus execution, fail-closed current battle assembly, exact-once pending assignments and inventory without pass receipts.
 
 ## Delivery boundary

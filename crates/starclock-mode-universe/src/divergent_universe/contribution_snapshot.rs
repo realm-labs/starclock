@@ -1,7 +1,9 @@
 //! Unified immutable battle contribution snapshot for Divergent Universe.
 
 use crate::digest::CanonicalDigestBuilder;
-use crate::divergent_universe::weighted_curio::{WeightedCurioError, WeightedCurioRuntime};
+use crate::divergent_universe::weighted_curio::{
+    WeightedCurioError, WeightedCurioRuntime, WeightedCurioSnapshot,
+};
 use starclock_activity::{ActivityStateHash, GraphActivity, TechniqueContributionDigest};
 use starclock_data::{
     divergent_universe_catalog::DivergentUniverseDifficultyId,
@@ -104,6 +106,7 @@ impl DivergentUniverseContributionSnapshotDigest {
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DivergentUniverseBattleContributionSnapshot {
+    weighted_curios: WeightedCurioSnapshot,
     source_state_hash: ActivityStateHash,
     mapping: DivergentUniverseMappingSnapshotDigest,
     difficulty_protocol: DivergentUniverseDifficultyProtocolSnapshot,
@@ -116,6 +119,10 @@ pub struct DivergentUniverseBattleContributionSnapshot {
 }
 
 impl DivergentUniverseBattleContributionSnapshot {
+    #[must_use]
+    pub const fn weighted_curios(&self) -> &WeightedCurioSnapshot {
+        &self.weighted_curios
+    }
     #[must_use]
     pub const fn source_state_hash(&self) -> ActivityStateHash {
         self.source_state_hash
@@ -218,8 +225,9 @@ impl DivergentUniverseContributionSnapshotRuntime {
             .validate(self.component_digest, flow.definition.participants())
             .map_err(|_| DivergentUniverseContributionSnapshotError::MappingRequired)?;
         let source_state_hash = activity.state_hash();
-        self.weighted_curio
-            .validate_battle_effects(activity)
+        let weighted_curios = self
+            .weighted_curio
+            .snapshot(activity)
             .map_err(DivergentUniverseContributionSnapshotError::WeightedCurio)?;
         let equation_blessing = self.blessing_interaction.snapshot(activity)?;
         let curios = self.curio.snapshot(activity)?;
@@ -240,6 +248,7 @@ impl DivergentUniverseContributionSnapshotRuntime {
             curios.digest().bytes(),
             titan.digest().bytes(),
             progression.digest().bytes(),
+            weighted_curios.digest(),
         ];
         let digest = contribution_digest(
             self.component_digest,
@@ -247,6 +256,7 @@ impl DivergentUniverseContributionSnapshotRuntime {
             &ordered_component_digests,
         );
         Ok(DivergentUniverseBattleContributionSnapshot {
+            weighted_curios,
             source_state_hash,
             mapping: mapping.digest(),
             difficulty_protocol,

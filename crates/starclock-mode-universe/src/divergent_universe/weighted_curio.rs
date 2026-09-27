@@ -1,6 +1,8 @@
 //! Caller-admitted equipped Weighted Curios, separate from ordinary holdings.
 //! Equipment mutation is executable; unresolved battle effects fail closed.
 
+use crate::digest::CanonicalDigestBuilder;
+use starclock_data::divergent_universe_decisions::weighted_curio_splashes::WeightedCurioSplashDefinition;
 use std::sync::Arc;
 
 use crate::divergent_universe::{
@@ -17,7 +19,7 @@ use starclock_data::divergent_universe_curio_catalog::{
 
 const REPLACE_PROGRAM: u32 = 22_560;
 pub(super) const POLICY_IDENTITY: &[u8] =
-    b"weighted-curio.accepted-current-catalog-set.one-through-three.slots-count-one.unsupported-effects-reject";
+    b"weighted-curio.accepted-current-catalog-set.one-through-three.slots-count-one.unlowered-effects-reject";
 
 /// Explicit caller-selected number of available equipment slots, not an inferred
 /// Forge-level selector. A profile must bind this input and admit its service
@@ -69,6 +71,28 @@ impl std::error::Error for WeightedCurioError {}
 pub struct WeightedCurioRuntime {
     ids: Arc<[DivergentUniverseWeightedCurioId]>,
     component: [u8; 32],
+    pub(super) splashes: Box<[WeightedCurioSplashDefinition]>,
+    decision_digest: [u8; 32],
+}
+
+/// Validated equipped effects at an immutable battle handoff. Unsupported
+/// identities reject construction, rather than becoming digest-only effects.
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct WeightedCurioSnapshot {
+    equipped: Box<[DivergentUniverseWeightedCurioId]>,
+    digest: [u8; 32],
+}
+
+impl WeightedCurioSnapshot {
+    #[must_use]
+    pub fn equipped(&self) -> &[DivergentUniverseWeightedCurioId] {
+        &self.equipped
+    }
+
+    #[must_use]
+    pub const fn digest(&self) -> [u8; 32] {
+        self.digest
+    }
 }
 
 impl DivergentUniverseRuntimeFactory {
@@ -93,6 +117,8 @@ impl DivergentUniverseRuntimeFactory {
         Ok(WeightedCurioRuntime {
             ids: ids.into(),
             component: self.bundle_identity().component_digest().bytes(),
+            splashes: self.decision_catalog().weighted_curio_splashes().into(),
+            decision_digest: self.decision_catalog().digest(),
         })
     }
 }
@@ -218,16 +244,34 @@ impl WeightedCurioRuntime {
             .map_err(WeightedCurioError::Command)
     }
 
-    /// No currently admitted Weighted Curio has a lowered battle program.
-    /// Validate the equipment state, then reject a nonempty loadout before
-    /// assembly/cache lookup rather than silently omitting its effects.
-    pub(super) fn validate_battle_effects(
+    /// Validate equipped state and actual current effect admission before
+    /// assembly/cache lookup. Unlowered identities cannot be silently omitted.
+    pub(super) fn snapshot(
         &self,
         activity: &GraphActivity,
-    ) -> Result<(), WeightedCurioError> {
-        if let Some(id) = self.equipped(activity)?.into_iter().next() {
-            return Err(WeightedCurioError::UnsupportedBattleEffect(id));
+    ) -> Result<WeightedCurioSnapshot, WeightedCurioError> {
+        let equipped = self.equipped(activity)?;
+        for id in &equipped {
+            if !self
+                .splashes
+                .iter()
+                .any(|definition| &definition.weighted_curio == id)
+            {
+                return Err(WeightedCurioError::UnsupportedBattleEffect(id.clone()));
+            }
         }
-        Ok(())
+        let mut hash = CanonicalDigestBuilder::new();
+        hash.update(b"starclock.divergent-universe.weighted-curio-snapshot");
+        hash.update(self.component);
+        hash.update(self.decision_digest);
+        hash.update(activity.state_hash().bytes());
+        for id in &equipped {
+            hash.update(id.as_str().as_bytes());
+            hash.update([0]);
+        }
+        Ok(WeightedCurioSnapshot {
+            equipped: equipped.into_boxed_slice(),
+            digest: hash.finalize(),
+        })
     }
 }

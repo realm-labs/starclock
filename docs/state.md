@@ -17,10 +17,14 @@ audit; genuine Grand Miracle acceptance is not reduced. An
 [accepted Weighted Curio equipment boundary](divergent-universe-weighted-curio-loadout.md)
 now atomically replaces or clears the Run-scoped equipped set, separately from
 ordinary Curios. All 17 current selections reconstruct without RNG; stale,
-foreign, duplicate, over-capacity and dirty inputs reject. Nonempty equipment
-rejects contribution construction with typed unsupported-effect errors instead
-of silently producing a no-effect battle. Full Forge menus/slot admission,
-Weighted Curio battle effects, actual Grand Miracle source selection/effects
+foreign, duplicate, over-capacity and dirty inputs reject. The
+[Hunt attack splash](divergent-universe-weighted-curio-splash.md) now uses a
+separate production generic-MazeBuff join and source-attributed shared Rule IR:
+each eligible damage event copies thirty percent to adjacent enemies under an
+explicit hidden-timing/damage-copy policy. Equipment is the seventh immutable
+contribution component; unlowered equipment still rejects with typed errors
+instead of silently producing a no-effect battle. Full Forge menus/slot admission,
+the other sixteen Weighted Curio effects, actual Grand Miracle source selection/effects
 and the Forge room payload remain unimplemented. The current
 taxonomy/Gamble inventory emits no execution receipt or terminal coverage credit;
 the two accepted Coin units and unresolved Gamble rejection behavior remain.
@@ -999,7 +1003,7 @@ definitions, one Curio battle-healing reaction and four authored Tawot service
 definitions plus one executable Equation-expansion reward definition and 60
 current Persona layout positions, nine reviewed decks, one shop stock and three
 items, three Wealth policies, one Reward-card substitute and one Adventure
-settlement policy across 34 tables and 365 rows.
+settlement policy and one Weighted Curio splash across 35 tables and 370 rows.
 The [9074 expansion reward](divergent-universe-equation-expansion.md) has
 validated operands and an explicit finite-cascade executor. Fixed public-choice
 vectors in both baseline families pay for the card, trigger an additional

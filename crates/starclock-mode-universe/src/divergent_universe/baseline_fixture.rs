@@ -57,11 +57,20 @@ pub struct DivergentUniverseBaselineFixture {
 
 impl DivergentUniverseBaselineFixture {
     pub fn production() -> Result<Self, DivergentUniverseBaselineFixtureError> {
+        Self::production_for_source_party([1308, 1005, 1009, 1105])
+    }
+
+    /// Internal production-backed test compositions preserve the public default
+    /// party. Source locators resolve through the core catalog and Mapping;
+    /// they never select characters inside the shared battle resolver.
+    pub(super) fn production_for_source_party(
+        source_avatars: [u32; 4],
+    ) -> Result<Self, DivergentUniverseBaselineFixtureError> {
         let factory = DivergentUniverseRuntimeFactory::production()
             .map_err(DivergentUniverseBaselineFixtureError::Entry)?;
         let core = starclock_data::catalog::load(CORE_BUNDLE)
             .map_err(|_| DivergentUniverseBaselineFixtureError::CoreCatalog)?;
-        let builds = [1308_u32, 1005, 1009, 1105]
+        let builds = source_avatars
             .into_iter()
             .map(|avatar| {
                 let form = core

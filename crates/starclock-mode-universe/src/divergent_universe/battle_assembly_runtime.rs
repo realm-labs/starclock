@@ -319,6 +319,13 @@ impl DivergentUniverseBattleAssemblyRuntime {
                 &mut participants,
                 assembly_digest,
             )?;
+        flow.weighted_curio.assemble(
+            &mut builder,
+            contribution.weighted_curios(),
+            core,
+            &mut participants,
+            assembly_digest,
+        )?;
         participants.extend(enemy_participants);
         builder.add_encounter(definition);
         let combat_catalog = builder

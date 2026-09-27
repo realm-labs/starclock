@@ -8,6 +8,7 @@ use std::sync::Arc;
 
 use super::battle_settlement_runtime::SETTLEMENT_POLICY_IDENTITY;
 use super::weighted_curio::POLICY_IDENTITY as WEIGHTED_CURIO_POLICY_IDENTITY;
+use super::weighted_curio::WeightedCurioRuntime;
 use crate::digest::CanonicalDigestBuilder;
 use starclock_activity::{
     ActivityConfigDigest, ActivityDefinitionDigest, ActivityDefinitionId,
@@ -531,6 +532,9 @@ impl DivergentUniverseRuntimeFactory {
             tawot_service,
             battle_blessings,
             curio_battle_stats,
+            weighted_curio: self
+                .weighted_curio_runtime()
+                .map_err(|_| DivergentUniverseEntryFlowError::InvalidActivityDefinition)?,
             curio_battle_reactions,
             curio_battle_grants,
             battle_fragments,
@@ -573,6 +577,7 @@ pub struct DivergentUniverseFlowInstance {
     pub(super) occurrence_binding: Option<Arc<OccurrenceBinding>>,
     pub(super) battle_blessings: Option<Arc<BattleBlessings>>,
     pub(super) curio_battle_stats: Option<Arc<CurioBattleStats>>,
+    pub(super) weighted_curio: WeightedCurioRuntime,
     pub(super) curio_battle_reactions: Option<Arc<CurioBattleReactions>>,
     pub(super) curio_battle_grants: Option<Arc<CurioBattleGrants>>,
     pub(super) curio_victory_blessings: Option<Arc<CurioVictoryBlessings>>,

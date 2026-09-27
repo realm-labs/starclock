@@ -22,7 +22,7 @@ fn unified_contribution_snapshot_binds_all_components_in_stable_order() {
         snapshot.mapping_digest(),
         flow.mapping_snapshot().expect("mapping").digest()
     );
-    assert_eq!(snapshot.ordered_component_digests().len(), 6);
+    assert_eq!(snapshot.ordered_component_digests().len(), 7);
     assert_eq!(
         snapshot.ordered_component_digests(),
         [
@@ -32,6 +32,7 @@ fn unified_contribution_snapshot_binds_all_components_in_stable_order() {
             snapshot.curios().digest().bytes(),
             snapshot.titan().digest().bytes(),
             snapshot.progression().digest().bytes(),
+            snapshot.weighted_curios().digest(),
         ]
     );
     assert_eq!(

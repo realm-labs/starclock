@@ -27,6 +27,8 @@ mod reward_occurrences;
 mod reward_policies;
 #[path = "divergent_universe_shop_tests.rs"]
 mod shop;
+#[path = "divergent_universe_weighted_curio_splash_tests.rs"]
+mod weighted_curio_splashes;
 
 use super::{
     BUNDLE, BattleRewardDomain, CurioAcquisitionGrant, CurioAcquisitionPolicy, DecisionCatalog,
@@ -38,7 +40,7 @@ use super::{
 fn production_decision_workbook_lowers_three_ordered_policy_choices() {
     let reference = load_divergent_universe_bundle().unwrap();
     let catalog = DecisionCatalog::production(&reference).unwrap();
-    assert_eq!(catalog.sources().len(), 72);
+    assert_eq!(catalog.sources().len(), 76);
     expansion_policy::production(&catalog);
     reward_policies::production_battle_stats(&catalog);
     assert_eq!(

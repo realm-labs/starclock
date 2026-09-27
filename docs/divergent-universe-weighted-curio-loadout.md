@@ -28,8 +28,12 @@ accessed 2026-09-27, supplies `ExcelOutput/RogueTournHex.json` rows with
 `TournMode=Tourn3`: HexIDs 1001–1017. SHA-256:
 `51e91a6f53ab0545330e477d806a165108f6c7e5e70ad52b02f92c1dc4d36455`.
 The actual Tourn3 selector, not the adjacent IDs, establishes membership.
-These records reference unresolved MazeBuffs 633401–633417; catalog identity
-does not implement those programs. Their path/element metadata is not used to
+All seventeen referenced MazeBuffs 633401–633417 resolve in the released generic
+`ExcelOutput/MazeBuff.json`, despite their absence from `RogueMazeBuff`.
+The reference catalog retains its unresolved RogueMazeBuff locator; that is not
+absence of released effect data. The separate production
+[splash definition](divergent-universe-weighted-curio-splash.md) lowers 633401.
+Catalog identity does not implement the remaining programs. Path/element metadata is not used to
 invent an eligible randomized offer pool.
 
 `RoguePersonaRoomPreset` row 1017 joins composition type 21 / Reforge at level
@@ -49,7 +53,8 @@ inspected 2026-09-27. The released text is stronger than that indexed community
 copy, but does not supply a menu execution graph or exact per-level slot counts.
 The accepted set replacement, duplicate rejection, canonical order and caller
 capacity remain `VersionedProjectPolicyAcceptedCurrentCatalogLoadout`. Missing
-facts include exact slot selection, menu/replacement timing and effect programs.
+facts include exact slot selection, menu/replacement timing and unreconstructed
+effect execution programs. Released effect parameters/text are available.
 Alternatives include random offers or retaining a separate inactive inventory;
 the present primitive implements explicit equipment without asserting either.
 Replace each policy field independently when released programs or reproducible
@@ -58,15 +63,17 @@ current observations establish it. Hidden-timing parity confidence is low.
 ## Battle rejection and unfinished work
 
 Contribution snapshot construction validates this state before battle assembly.
-Any equipped identity currently returns typed `UnsupportedBattleEffect`; dirty
+Unlowered equipped identities return typed `UnsupportedBattleEffect`; dirty
 counts, unknown keys or more than three equipped identities reject as invalid
-state. Unsupported equipment cannot become a digest-only, no-effect battle.
+state. The one production splash definition enters actual Rule IR; the other
+sixteen effects still reject. Unsupported equipment cannot become a digest-only, no-effect battle.
 After lawful unequip, the existing real proxy battle pipeline works normally.
 
 Fixtures cover all 17 accepted selections, replacement/unequip, one/three-slot
 bounds, canonical order, fresh command reconstruction, rejected requests and
 dirty-state rejection in both families. The normal proxy battle after unequip
-does not establish a Weighted Curio effect. Forge offers, slot-level admission,
-domain enhancement, battle effects and encoded equipment-command replay remain
+does not establish a Weighted Curio effect. Separate actual attack probes verify
+the lowered splash; they are not Forge admission or a complete public-run gate.
+Forge offers, slot-level admission, domain enhancement, the other sixteen effects and encoded equipment-command replay remain
 unimplemented. No source obligation, mechanic program or semantic family is
 terminalized; genuine Grand Miracle acceptance remains separate and incomplete.

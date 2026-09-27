@@ -67,6 +67,7 @@ mod titan_entry;
 mod titan_runtime;
 mod vertical_slice;
 pub mod weighted_curio;
+mod weighted_curio_splash;
 mod workbench_curse_runtime;
 
 pub use activity_decision_mechanic_runtime::{

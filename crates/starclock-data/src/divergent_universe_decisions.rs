@@ -32,6 +32,10 @@ use adventure_rewards::AdventureRewardDefinition;
 use coin_rewards::CoinRewardDefinition;
 use reward_occurrences::RewardOccurrenceDefinition;
 use shop::ShopStockDefinition;
+use weighted_curio_splashes::WeightedCurioSplashDefinition;
+
+#[path = "divergent_universe_weighted_curio_splash_data.rs"]
+pub mod weighted_curio_splashes;
 
 #[path = "divergent_universe_adventure_reward_data.rs"]
 pub mod adventure_rewards;
@@ -234,6 +238,7 @@ pub struct CurioFragmentGainDefinition {
 /// binary and reference component; equal IDs cannot hide different parameters.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DecisionCatalog {
+    weighted_curio_splashes: Box<[WeightedCurioSplashDefinition]>,
     adventure_rewards: Box<[AdventureRewardDefinition]>,
     coin_rewards: Box<[CoinRewardDefinition]>,
     reward_occurrences: Box<[RewardOccurrenceDefinition]>,
@@ -589,6 +594,10 @@ pub struct InitialEquationPolicy {
 }
 
 impl DecisionCatalog {
+    #[must_use]
+    pub fn weighted_curio_splashes(&self) -> &[WeightedCurioSplashDefinition] {
+        &self.weighted_curio_splashes
+    }
     /// Explicit chest-only policy at reviewed Wealth presets; facilities are separate.
     pub fn coin_rewards(&self) -> &[CoinRewardDefinition] {
         &self.coin_rewards
