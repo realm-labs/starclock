@@ -1,5 +1,8 @@
 //! Actual fixed Blank gameplay, not a completion claim for the other guide rooms.
 
+#[path = "blank_profile.rs"]
+mod profile;
+
 use crate::digest::CanonicalDigestBuilder;
 use crate::divergent_universe::{
     DivergentUniverseCurrencyKind, DivergentUniverseLogicalScopeKind,

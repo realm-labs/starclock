@@ -336,8 +336,12 @@ current guide's exact preset 9007 with no room-local rewards, normal Curio entry
 finish-before-door events and an independent atomic Leave. Strict capabilities
 reject changed entry/completion programs, flag policies and logical scopes;
 fresh factories reconstruct identical state and failed exits preserve the offer.
-Immediate empty-room completion is an explicit headless timing policy. Complete
-guide/default-profile binding and encoded replay remain pending, and this adds
+Immediate empty-room completion is an explicit headless timing policy. Exact
+fixed Blank capabilities now attach to immutable source-position flows and the
+existing controller dispatches their independent Leave without drawing a domain
+card or granting rewards. All nine source-deck tests reconstruct that actual
+guide boundary; other guide payloads remain probes. Complete guide/default-profile
+binding and encoded replay remain pending, and this adds
 no terminal source/mechanic or full-run credit.
 The reference generators remove the incorrect blanket `RoguePersona` other-mode
 exclusion and retain eleven explicitly reviewed files for row-level accounting.

@@ -71,8 +71,27 @@ second state machine or direct live-state write is introduced.
 
 ## Verification and remaining integration
 
+An immutable source-position battle profile can now attach its exact compiled
+Blank room through `bind_position_blank_rooms`. The owning payload must already
+bind the room digest. Empty, duplicate, repeated, wrong-area/layer and changed
+fragments reject; attachment never rebinds live state. `offered_blank_exit`
+authenticates the complete definition without mutation or RNG, and
+`leave_blank_room` accepts only that capability's independent exit. The existing
+controller dispatches it before generic Route fallback, without treating the
+exit as a sampled domain card or adding room rewards.
+
+Production-backed guide-profile tests use all nine explicitly authored decks
+and fresh constructions. They leave the actual fixed Blank room into the next
+source-position hand, retaining state/event equality and zero Reward draws or
+intrinsic fragment grants. Changed programs, omitted/duplicate/repeated bindings,
+foreign definitions and consumed exits reject without changing state or RNG.
+These tests deliberately retain probes for other guide payloads and an explicit
+Boss battle proxy; they do not claim complete guide gameplay or original Boss
+parity. Default Ordinary/Cyclical entry and encoded profile replay are unchanged.
+
 ```text
 cargo test -p starclock-mode-universe blank_room
+cargo test -p starclock-mode-universe blank_profile
 ```
 
 Tests compile the real guide positions with all nine authored decks, execute

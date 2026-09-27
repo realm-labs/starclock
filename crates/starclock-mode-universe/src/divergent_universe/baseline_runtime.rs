@@ -361,6 +361,14 @@ fn advance_decision(
             state_hash: activity.state_hash(),
         });
     }
+    if selected.kind() == ActivityDecisionKind::Route && flow.offered_blank_exit(activity) {
+        flow.leave_blank_room(activity, state_hash, selected.decision(), selected.option())
+            .map_err(DivergentUniverseBaselineError::ActivityCommand)?;
+        return Ok(DivergentUniverseBaselineStep::ActivityDecision {
+            decision: selected,
+            state_hash: activity.state_hash(),
+        });
+    }
     if flow.offered_adventure(activity) == Some(selected.kind()) {
         match selected.kind() {
             ActivityDecisionKind::ExternalOutcome => {

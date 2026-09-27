@@ -2,6 +2,8 @@
 
 #[path = "position_adventure.rs"]
 mod adventure;
+#[path = "position_blank.rs"]
+mod blank;
 #[path = "position_coin.rs"]
 mod coin;
 #[path = "position_curio_synthesis.rs"]
@@ -21,6 +23,7 @@ use crate::divergent_universe::{
     DivergentUniverseRuntimeFactory,
     adventure_room::BoundAdventureRoom,
     battle_room::{BattleRoomError, BattleRoomSequencePolicy, CompiledBattleRoom},
+    blank_room::BoundBlankRoom,
     coin_room::BoundCoinRoom,
     curio_synthesis::room::BoundCurioSynthesisRoom,
     domain_choices::set_domain,
@@ -54,6 +57,7 @@ pub(in crate::divergent_universe) struct BoundBattleRooms {
     shops: Vec<BoundShopRoom>,
     coins: Vec<BoundCoinRoom>,
     adventures: Vec<BoundAdventureRoom>,
+    blanks: Vec<BoundBlankRoom>,
 }
 
 impl DivergentUniverseRuntimeFactory {
@@ -329,6 +333,7 @@ impl DivergentUniverseRuntimeFactory {
             shops: Vec::new(),
             coins: Vec::new(),
             adventures: Vec::new(),
+            blanks: Vec::new(),
             rooms: bound,
             services,
             occurrences,
