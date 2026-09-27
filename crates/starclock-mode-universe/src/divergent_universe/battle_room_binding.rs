@@ -305,9 +305,9 @@ impl DivergentUniverseRuntimeFactory {
             .collect::<Result<Vec<_>, _>>()?;
         let battles = bound
             .iter()
-            .map(|room| room.battle)
+            .flat_map(CompiledBattleRoom::battle_nodes)
             .collect::<BTreeSet<_>>();
-        if battles.len() != bound.len()
+        if battles.len() != bound.iter().map(|room| room.handoffs.len()).sum::<usize>()
             || definition
                 .graph()
                 .nodes()
@@ -411,7 +411,7 @@ fn validate_room(
             .find(|binding| binding.node() == node.id())
             .ok_or(BattleRoomError::InvalidDefinition)?
             .path();
-        let is_battle = node.id() == room.battle;
+        let is_battle = room.battle_nodes().any(|battle| node.id() == battle);
         if path.len() != if is_battle { 4 } else { 3 }
             || path[0].class() != DivergentUniverseLogicalScopeKind::Run.class_id()
             || path[0].key() != 1
@@ -468,10 +468,15 @@ impl BoundBattleRooms {
     ) -> Result<(&DivergentUniverseEncounterGroupId, &str), GraphActivityCommandError> {
         let invalid = || GraphActivityCommandError::DecisionNotOffered;
         let view = activity.player_view();
-        let room = self
+        let (room, handoff) = self
             .rooms
             .iter()
-            .find(|room| room.encounter == view.current_node())
+            .find_map(|room| {
+                room.handoffs
+                    .iter()
+                    .find(|handoff| handoff.encounter == view.current_node())
+                    .map(|handoff| (room, handoff))
+            })
             .ok_or_else(invalid)?;
         let decision = view.decision().ok_or_else(invalid)?;
         if !self.matches(activity)
@@ -479,7 +484,7 @@ impl BoundBattleRooms {
             || decision.options().len() != 1
             || decision.options()[0].id().get() != 1
             || flow.encounter_destination(view.current_node())
-                != Some((room.battle, room.context.section))
+                != Some((handoff.battle, room.context.section))
             || self.domain(&view)? != Some(room.selection.domain)
         {
             return Err(invalid());

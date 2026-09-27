@@ -10,7 +10,9 @@ use crate::divergent_universe::{
     DivergentUniverseBattleAssemblyPolicy, DivergentUniverseBattleStart,
     DivergentUniverseCyclicalRefresh, DivergentUniverseEntry, DivergentUniverseFlowInstance,
     DivergentUniverseRoomPolicy,
-    battle_room::{BattleRoomError, BattleRoomSelection, CompiledBattleRoom},
+    battle_room::{
+        BattleRoomError, BattleRoomSelection, BattleRoomSequenceLength, CompiledBattleRoom,
+    },
     domain_deck::DomainDeckSlots,
     domain_route::{
         CompiledDomainRoute, DomainRoomComposition, DomainRoomContext, DomainRoomProgram,
@@ -44,6 +46,8 @@ mod position_deck;
 mod respite;
 #[path = "battle_room_rewards.rs"]
 mod rewards;
+#[path = "battle_room_sequence.rs"]
+mod sequence;
 #[path = "battle_room_services.rs"]
 mod services;
 
@@ -154,6 +158,17 @@ fn compile_rooms(
     domains: &[BattleRewardDomain],
     mut placement: impl FnMut(&DomainRoomContext) -> Option<usize>,
 ) -> Scenario {
+    compile_sequences(fixture, family, domains, |context| {
+        placement(context).map(|index| (index, BattleRoomSequenceLength::SINGLE))
+    })
+}
+
+fn compile_sequences(
+    fixture: &DivergentUniverseBaselineFixture,
+    family: DivergentUniverseRunFamily,
+    domains: &[BattleRewardDomain],
+    mut placement: impl FnMut(&DomainRoomContext) -> Option<(usize, BattleRoomSequenceLength)>,
+) -> Scenario {
     let base = base(fixture, family);
     let factory = fixture.factory();
     let policy = factory.decision_catalog().encounter_pool();
@@ -178,8 +193,8 @@ fn compile_rooms(
             // Independent explicit placement; do not interpret composition level as
             // a battle count or these candidates as original Boss membership.
             let index = placement(context);
-            if let Some(index) = index {
-                let room = compilers[index].compile(context).unwrap();
+            if let Some((index, length)) = index {
+                let room = compilers[index].compile_sequence(context, length).unwrap();
                 let fragment = room.fragment().clone();
                 rooms.push(room);
                 Ok(fragment)

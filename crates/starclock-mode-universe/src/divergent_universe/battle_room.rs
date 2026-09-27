@@ -6,6 +6,8 @@ use std::sync::Arc;
 
 #[path = "battle_room_binding.rs"]
 mod binding;
+#[path = "battle_room_sequence.rs"]
+mod sequence;
 pub(super) use binding::BoundBattleRooms;
 
 use crate::digest::CanonicalDigestBuilder;
@@ -39,6 +41,39 @@ pub struct BattleRoomSelection {
     pub domain: BattleRewardDomain,
 }
 
+/// Explicit required handoffs in one logical room, not inferred enemy-object counts.
+/// The current compiler admits one through four and never permits an empty room.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct BattleRoomSequenceLength(u16);
+
+impl BattleRoomSequenceLength {
+    pub const SINGLE: Self = Self(1);
+
+    /// Validates the bounded caller sequence; failure constructs nothing.
+    pub fn new(value: u16) -> Result<Self, BattleRoomError> {
+        if !(1..=4).contains(&value) {
+            return Err(BattleRoomError::InvalidSequenceLength);
+        }
+        Ok(Self(value))
+    }
+
+    #[must_use]
+    pub const fn get(self) -> u16 {
+        self.0
+    }
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum BattleRoomSequencePolicy {
+    VersionedProjectPolicyRequiredSameCandidateSequenceNoEarlyLeave,
+}
+
+#[derive(Clone, Debug)]
+struct BattleRoomHandoff {
+    encounter: NodeId,
+    battle: NodeId,
+}
+
 /// Immutable current catalogs reused across position alternatives.
 #[derive(Clone, Debug)]
 pub struct BattleRoomCompiler {
@@ -57,8 +92,8 @@ pub struct CompiledBattleRoom {
     entry_program: GraphActivityNodeProgram,
     component: [u8; 32],
     decisions: [u8; 32],
-    encounter: NodeId,
-    battle: NodeId,
+    handoffs: Box<[BattleRoomHandoff]>,
+    sequence_length: BattleRoomSequenceLength,
     reward: NodeId,
 }
 
@@ -73,6 +108,7 @@ pub enum BattleRoomError {
     InvalidContext,
     InvalidDefinition,
     UnsupportedEntry,
+    InvalidSequenceLength,
 }
 impl std::fmt::Display for BattleRoomError {
     fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
@@ -287,8 +323,8 @@ impl BattleRoomCompiler {
             selection: self.selection.clone(),
             component: self.factory.bundle_identity().component_digest().bytes(),
             decisions: self.factory.decision_catalog().digest(),
-            encounter,
-            battle,
+            handoffs: vec![BattleRoomHandoff { encounter, battle }].into_boxed_slice(),
+            sequence_length: BattleRoomSequenceLength::SINGLE,
             reward,
             fragment,
             entry_program,
@@ -297,6 +333,21 @@ impl BattleRoomCompiler {
 }
 
 impl CompiledBattleRoom {
+    /// Ordered required battle targets; each enters its own nested Battle scope.
+    pub fn battle_nodes(&self) -> impl ExactSizeIterator<Item = NodeId> + '_ {
+        self.handoffs.iter().map(|handoff| handoff.battle)
+    }
+
+    #[must_use]
+    pub const fn sequence_length(&self) -> BattleRoomSequenceLength {
+        self.sequence_length
+    }
+
+    /// Required caller-selected repetition, not a source enemy-to-battle mapping.
+    #[must_use]
+    pub const fn sequence_policy(&self) -> BattleRoomSequencePolicy {
+        BattleRoomSequencePolicy::VersionedProjectPolicyRequiredSameCandidateSequenceNoEarlyLeave
+    }
     #[must_use]
     pub fn context(&self) -> &DomainRoomContext {
         &self.context
@@ -344,6 +395,14 @@ impl CompiledBattleRoom {
             BattleRewardDomain::Aberration => 3,
             BattleRewardDomain::Boss => 4,
         }]);
+        if self.sequence_length != BattleRoomSequenceLength::SINGLE {
+            hash.update(b"required-battle-sequence");
+            hash.update(self.sequence_length.get().to_le_bytes());
+            for handoff in &self.handoffs {
+                hash.update(handoff.encounter.get().to_le_bytes());
+                hash.update(handoff.battle.get().to_le_bytes());
+            }
+        }
         hash.finalize()
     }
 }

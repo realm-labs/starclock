@@ -81,6 +81,16 @@ three-label legacy menu and original Boss selectors. Tests execute all three
 fixed plane positions in both families with fresh reconstruction, live
 modifiers, suppression, duplicate rejection and zero failure/fault grants.
 Other rooms remain explicit probes.
+The same compiler also accepts explicit one-through-four required battles in one
+logical room under `VersionedProjectPolicyRequiredSameCandidateSequenceNoEarlyLeave`.
+All handoffs retain the same candidate and room scope with distinct Battle scopes;
+domain Curios initialize once while verified carry, rewards and battle lifetimes
+execute per battle. Both families exercise real sequences, fresh reconstruction,
+suppression, separate lawful domain/battle Curios, stale-result rejection and
+late-settlement rollback. Later rewards cannot inherit the earlier acceptance
+gate; counterfactual second-battle loss/fault prevents rewards and continuation.
+Enemy-object counts do not establish original battle counts or required completion.
+This capability does not change the default profile or add terminal/full-run credit.
 Combined source-position profiles now bind exact battle and paid Tawot fragments
 through one immutable flow. Both families and all four service levels use actual
 proxy battle income for repeated paid visits with fresh reconstruction; service

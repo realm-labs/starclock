@@ -21,7 +21,7 @@ A missing reward still rejects before construction and never falls back to
 another domain. A caller placing a proxy at a fixed Boss position does not
 implement original Boss behavior, regardless of its independently selected domain.
 
-Placement and use of this single-battle primitive are explicit owner inputs.
+Placement and use of this battle primitive are explicit owner inputs.
 The compiler does not fill missing room handlers, derive battle count from a
 preset's level, upgrade a card, infer mask admission or replace services with
 battles. Original selectors and full room payloads remain incomplete. The default
@@ -145,6 +145,37 @@ duplicate rejection and zero grants on counterfactual loss/fault.
 Non-battle rooms are explicit test probes, and placement is a controlled caller
 policy. These fixtures are not original room/boss parity, complete source-content reachability or
 encoded-profile/full-run release evidence.
+
+## Required battles within one logical room
+
+`compile_sequence(context, BattleRoomSequenceLength)` composes one through four
+required battles using the same explicitly selected candidate group, stage and
+reward domain. `VersionedProjectPolicyRequiredSameCandidateSequenceNoEarlyLeave`
+is a replaceable caller policy: neither count nor required completion is inferred
+from released text describing multiple enemy objects. Mixed candidates, optional
+early Leave and original room-count/admission rules are not implemented by it.
+`compile(context)` and a length-one sequence produce the same current fragment
+and configuration digest; longer sequences bind their length and ordered handoffs.
+
+Every handoff retains the same Run/Plane/Room scopes and enters a distinct nested
+Battle scope. The room entry initializes and consumes domain-count Curios only
+once. Each verified victory independently applies participant carry, fragment
+credits, battle-count Curios and normal Blessing rewards through the existing
+shared settlement. Intermediate rewards advance to the next encounter; only the
+final reward exits the room. Suppression advances in the same transaction.
+Each additional encounter clears the prior reward's acceptance flag and candidate
+set, so an unaccepted later reward cannot reuse the previous gate. Exact profile
+binding checks every handoff, internal program and final continuation.
+
+Tests execute actual one-through-four battle sequences in both families, with
+fresh reconstruction, real HP/energy/life/presence carry, separate lawful domain-
+and battle-limited Curio holdings and reward suppression. Deck/plane staging does
+not consume another domain charge; the next actual room does. Prior results,
+late settlement overflow, changed intermediate gates and shorter foreign bindings
+reject without mutation. Counterfactual second-battle loss/fault terminates without
+new fragment or Blessing rewards or later encounters. These controlled placements
+leave other payloads as probes and add no original enemy-to-battle mapping,
+terminal source credit, default profile change or encoded/full-run release claim.
 
 A combined controlled profile executes three real proxy battles and pays for
 three separately initialized Tawot visits using their actual fragment income,
