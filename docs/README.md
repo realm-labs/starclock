@@ -179,6 +179,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 152. [Reward-card occurrences](divergent-universe-reward-occurrences.md) — production-authored level-one reward-only substitute, actual sampled-card choices and shared finish/Leave dispatch; original event pools and higher levels remain pending.
 153. [Adventure settlement](divergent-universe-adventure-rewards.md) — explicit external earned-chest counts, production-authored aggregate rewards, handler-free Activity IR and independent atomic Leave; challenge simulation and original payouts remain pending.
 154. [Fixed Blank room](divergent-universe-blank-room.md) — current guide preset, empty local payload, normal Curio entry, ordered completion/doors and independent atomic Leave; full guide/profile integration remains pending.
+155. [Fixed Conversion battle substitute](divergent-universe-conversion-room.md) — authenticated current preset, explicit bounded real battles, defeat continuation without implicit healing, shared atomic settlement and remaining original wave/reward gaps.
 
 ## Delivery boundary
 

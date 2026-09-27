@@ -20,7 +20,7 @@ use crate::divergent_universe::{
     DivergentUniverseFlowInstance, DivergentUniverseLogicalScopeKind, DivergentUniverseRoomPolicy,
     DivergentUniverseRuntimeFactory,
     adventure_room::BoundAdventureRoom,
-    battle_room::{BattleRoomError, CompiledBattleRoom},
+    battle_room::{BattleRoomError, BattleRoomSequencePolicy, CompiledBattleRoom},
     coin_room::BoundCoinRoom,
     curio_synthesis::room::BoundCurioSynthesisRoom,
     domain_choices::set_domain,
@@ -35,7 +35,7 @@ use starclock_activity::{
     ActivityConfigDigest, ActivityDecisionKind, ActivityDefinitionDigest,
     ActivityDefinitionIdentity, ActivityEdgeCondition, ActivityExpression, ActivityGraphDefinition,
     ActivityInteractionBindings, ActivityNodeKind, ActivityOperation, ActivityPlayerView,
-    GraphActivity, GraphActivityCommandError, GraphActivityDefinition,
+    GraphActivity, GraphActivityCommandError, GraphActivityDefinition, NodeId,
 };
 use starclock_data::{
     divergent_universe_decisions::BattleRewardDomain,
@@ -435,6 +435,14 @@ fn validate_room(
 }
 
 impl BoundBattleRooms {
+    pub(in crate::divergent_universe) fn defeat_continues(&self, battle: NodeId) -> bool {
+        self.rooms.iter().any(|room| {
+            room.sequence_policy()
+                == BattleRoomSequencePolicy::VersionedProjectPolicyConversionSameCandidateSequenceLossEndsRoomWithoutHealing
+                && room.battle_nodes().any(|node| node == battle)
+        })
+    }
+
     pub(in crate::divergent_universe) fn occurrence(
         &self,
         activity: &GraphActivity,

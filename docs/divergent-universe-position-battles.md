@@ -121,7 +121,10 @@ fragment credit, Curio grants, domain-specific Curio Blessings, battle lifetimes
 and normal Blessing generation retain their current ordered shared transaction.
 Reward acceptance updates inventory/Equation progress and advances exactly once.
 A suppressed or empty offer advances to the next source position in the same
-settlement. Failed and faulted battles use explicit unsuccessful terminals.
+settlement. Ordinary battle fragments use explicit unsuccessful loss/fault
+terminals. The separately selected [fixed Conversion substitute](divergent-universe-conversion-room.md)
+instead ends its room on loss and continues exploration with verified carry;
+faults remain terminal. It does not establish original wave/reward parity.
 There is no implicit participant heal between rooms. Existing reward accuracy
 and original-program omissions remain unchanged.
 

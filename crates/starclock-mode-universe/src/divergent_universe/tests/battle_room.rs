@@ -38,6 +38,8 @@ use starclock_data::{
     divergent_universe_domain_layout::FixedDomainKind,
 };
 
+#[path = "conversion_room.rs"]
+mod conversion;
 #[path = "battle_room_occurrences.rs"]
 mod occurrences;
 #[path = "position_domain_deck.rs"]

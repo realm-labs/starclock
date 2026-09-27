@@ -38,6 +38,9 @@ pub enum DivergentUniverseBattleRewardDisposition {
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum DivergentUniverseBattleRetryDisposition {
     DefeatTerminatesCurrentActivityFreshActivityRequired,
+    /// Conversion ends the room on defeat; the same Activity continues with
+    /// verified participant carry and no retry, implicit heal or revival.
+    DefeatContinuesExplorationWithoutRetryOrHealing,
 }
 
 #[derive(Clone, Debug)]
@@ -254,6 +257,10 @@ impl DivergentUniverseBattleSettlementRuntime {
             .battle_blessings
             .as_ref()
             .ok_or(DivergentUniverseBattleSettlementError::DefinitionMismatch)?;
+        let defeat_continues = flow
+            .position_battles
+            .as_ref()
+            .is_some_and(|rooms| rooms.defeat_continues(activity.current_node()));
         let retained_result = result.clone();
         let fragments = flow
             .battle_fragments
@@ -333,7 +340,13 @@ impl DivergentUniverseBattleSettlementRuntime {
             events: resolution.events().to_vec().into_boxed_slice(),
             state_hash: resolution.state_hash(),
             reward,
-            retry: DivergentUniverseBattleRetryDisposition::DefeatTerminatesCurrentActivityFreshActivityRequired,
+            retry: if defeat_continues
+                && resolution.settlement().outcome() != BattleOutcome::Faulted
+            {
+                DivergentUniverseBattleRetryDisposition::DefeatContinuesExplorationWithoutRetryOrHealing
+            } else {
+                DivergentUniverseBattleRetryDisposition::DefeatTerminatesCurrentActivityFreshActivityRequired
+            },
         })
     }
 }

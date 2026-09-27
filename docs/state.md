@@ -63,6 +63,18 @@ Missing room programs, cross-fragment jumps, deck-slot writes and early successf
 termination reject. These probes do not implement room content or encoded profile
 replay; default gameplay remains the three-battle proxy and production payload
 binding/full-run coverage remain incomplete. No terminal source credit is added.
+A [fixed Conversion battle-substitute compiler](divergent-universe-conversion-room.md)
+now admits the joined preset 1004 / level 1 and binds an explicit one-through-four
+same-candidate sequence to the existing position profile. Victory rewards settle
+per battle; verified loss skips remaining challenges and continues exploration,
+without loss victory grants, retry, healing or revival. Faults remain terminal.
+Real both-family battles and natural defeat verify the existing HP/energy/life
+and `DepartIfDefeated` carry, fresh reconstruction and duplicate rejection.
+Separate counterfactual probes cover every loss/fault handoff and full rollback
+after a failing automatic successor, including battle-limited Curio state.
+Original wave selection, partial-wave reward tiers and recovery are not claimed;
+other rooms remain probes. This adds no default position-run binding, encoded
+profile replay, terminal coverage or successful complete-run release credit.
 An explicitly placed Tawot purchase fragment now executes on these source-position
 graphs through the existing paid service executor. Its immutable compiler can be
 reused across alternatives; allowances and cached offers belong to each logical

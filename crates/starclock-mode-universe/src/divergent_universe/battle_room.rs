@@ -6,6 +6,8 @@ use std::sync::Arc;
 
 #[path = "battle_room_binding.rs"]
 mod binding;
+#[path = "conversion_room.rs"]
+mod conversion;
 #[path = "battle_room_sequence.rs"]
 mod sequence;
 pub(super) use binding::BoundBattleRooms;
@@ -66,6 +68,8 @@ impl BattleRoomSequenceLength {
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum BattleRoomSequencePolicy {
     VersionedProjectPolicyRequiredSameCandidateSequenceNoEarlyLeave,
+    /// Explicit bounded battle substitute, not original Conversion waves/rewards.
+    VersionedProjectPolicyConversionSameCandidateSequenceLossEndsRoomWithoutHealing,
 }
 
 #[derive(Clone, Debug)]
@@ -94,6 +98,7 @@ pub struct CompiledBattleRoom {
     decisions: [u8; 32],
     handoffs: Box<[BattleRoomHandoff]>,
     sequence_length: BattleRoomSequenceLength,
+    sequence_policy: BattleRoomSequencePolicy,
     reward: NodeId,
 }
 
@@ -325,6 +330,7 @@ impl BattleRoomCompiler {
             decisions: self.factory.decision_catalog().digest(),
             handoffs: vec![BattleRoomHandoff { encounter, battle }].into_boxed_slice(),
             sequence_length: BattleRoomSequenceLength::SINGLE,
+            sequence_policy: BattleRoomSequencePolicy::VersionedProjectPolicyRequiredSameCandidateSequenceNoEarlyLeave,
             reward,
             fragment,
             entry_program,
@@ -346,7 +352,7 @@ impl CompiledBattleRoom {
     /// Required caller-selected repetition, not a source enemy-to-battle mapping.
     #[must_use]
     pub const fn sequence_policy(&self) -> BattleRoomSequencePolicy {
-        BattleRoomSequencePolicy::VersionedProjectPolicyRequiredSameCandidateSequenceNoEarlyLeave
+        self.sequence_policy
     }
     #[must_use]
     pub fn context(&self) -> &DomainRoomContext {
@@ -402,6 +408,11 @@ impl CompiledBattleRoom {
                 hash.update(handoff.encounter.get().to_le_bytes());
                 hash.update(handoff.battle.get().to_le_bytes());
             }
+        }
+        if self.sequence_policy
+            == BattleRoomSequencePolicy::VersionedProjectPolicyConversionSameCandidateSequenceLossEndsRoomWithoutHealing
+        {
+            hash.update(b"conversion-explicit-battle-substitute;loss-ends-room;verified-carry;no-loss-rewards;no-heal;fault-terminates");
         }
         hash.finalize()
     }
