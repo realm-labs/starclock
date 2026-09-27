@@ -56,9 +56,10 @@ no completeness credit is added or removed on the basis of names alone.
 
 Full Weighted Curio Forge obtaining/equipping menus, original slot-level admission,
 remaining eligibility/effect consumers and Forge card enhancement remain
-unimplemented. One [Hunt attack splash](divergent-universe-weighted-curio-splash.md)
-is now production-lowered with explicit hidden-timing/copy policy; the other
-sixteen effects remain rejected. The accepted equipment primitive alone does not complete them. Actual Grand Miracle
+unimplemented. [Hunt attack splash](divergent-universe-weighted-curio-splash.md) and
+[Harmony shields](divergent-universe-weighted-curio-shield.md) are production-lowered
+with explicit hidden-timing/lifecycle policy; fifteen effects remain rejected.
+The accepted equipment primitive alone does not complete them. Actual Grand Miracle
 selectors, acquisition and effects require separate evidence and implementation.
 The current Forge level-one source card must not be wired to the removed API or
 to Respite blessing enhancement. Higher-level Tawot service tests are not proof

@@ -116,6 +116,9 @@ values = [{ id = 0, name = "ExternalEarnedChestCountAggregateFragmentsOnly" }]
 [[enums]]
 name = "DuWeightedCurioSplashPolicy"
 values = [{ id = 0, name = "HitCalculatedCopyAdjacentTrueDamage" }]
+[[enums]]
+name = "DuWeightedCurioShieldPolicy"
+values = [{ id = 0, name = "AllyActionResolvedReplaceTargetTurnShield" }]
 [[tables]]
 id = "sources"
 name = "DuDecisionSources"
@@ -2023,6 +2026,77 @@ length = [1, 4000]
 [[tables.fields]]
 name = "policy"
 type = "enum<DuWeightedCurioSplashPolicy>"
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "policy_note"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "replacement_condition"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "source_ids"
+type = "list<ref<DuDecisionSources.id>>"
+parser = { kind = "split", separator = "|" }
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+[[tables]]
+id = "weightedcurioshields"
+name = "DuWeightedCurioShields"
+mode = "map"
+key = "id"
+[tables.source]
+file = "DivergentUniverseDecisions.xlsx"
+sheet = "WeightedCurioShields"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1,2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "weighted_curio_key"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "maze_buff_id"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "character_path"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "fraction_parameter"
+type = "i32"
+range = [1,64]
+[[tables.fields]]
+name = "shield_fraction"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "duration_parameter"
+type = "i32"
+range = [1,64]
+[[tables.fields]]
+name = "duration_turns"
+type = "i32"
+range = [1,65535]
+[[tables.fields]]
+name = "policy"
+type = "enum<DuWeightedCurioShieldPolicy>"
 [[tables.fields]]
 name = "summary_en"
 type = "string"

@@ -24,8 +24,15 @@ each eligible damage event copies thirty percent to adjacent enemies under an
 explicit hidden-timing/damage-copy policy. Equipment is the seventh immutable
 contribution component; unlowered equipment still rejects with typed errors
 instead of silently producing a no-effect battle. Full Forge menus/slot admission,
-the other sixteen Weighted Curio effects, actual Grand Miracle source selection/effects
-and the Forge room payload remain unimplemented. The current
+the other fifteen Weighted Curio effects, actual Grand Miracle source selection/effects
+and the Forge room payload remain unimplemented. The
+[Harmony shield](divergent-universe-weighted-curio-shield.md) executes ally-directed
+Basic/Skill/Ultimate actions, including self and full-team targets, with each
+recipient's exact 35%-maximum-HP base capacity and two-turn clock. Producer and
+recipient-local cleanup rules preserve refresh/expiry; hidden lifecycle choices
+remain explicit policy. Shared selectors now enforce Same/Opposing/Any even for
+event-target and union candidate pools; focused runtime regression tests cover
+all six combinations and deterministic reconstruction. The current
 taxonomy/Gamble inventory emits no execution receipt or terminal coverage credit;
 the two accepted Coin units and unresolved Gamble rejection behavior remain.
 The verification scaffold retains all 6,762 obligations; its validator uses that
@@ -149,7 +156,7 @@ declarations are validated. Tests execute repeated real proxy battles within a
 plane in both families, verified drops, fresh command reconstruction, actual
 participant carry, suppressed reward advancement and rejected prior results.
 Under current configuration-bound vectors, the unchanged party naturally loses
-battle six in Ordinary and seven in Cyclical without between-room healing;
+battle six in both Ordinary and Cyclical without between-room healing;
 these fixtures do not prove successful completion of the controlled profile.
 Missing authored reward domains reject before compilation. Boss now has an
 explicit fixed-100 project-policy base reward, independent of the unchanged
@@ -1003,7 +1010,8 @@ definitions, one Curio battle-healing reaction and four authored Tawot service
 definitions plus one executable Equation-expansion reward definition and 60
 current Persona layout positions, nine reviewed decks, one shop stock and three
 items, three Wealth policies, one Reward-card substitute and one Adventure
-settlement policy and one Weighted Curio splash across 35 tables and 370 rows.
+settlement policy, one Weighted Curio splash and one Harmony shield across 36
+tables and 375 rows.
 The [9074 expansion reward](divergent-universe-equation-expansion.md) has
 validated operands and an explicit finite-cascade executor. Fixed public-choice
 vectors in both baseline families pay for the card, trigger an additional
@@ -1119,8 +1127,12 @@ substitute for this gate.
 
 Generated execution receipts that infer `Passed` from source fragments or
 batch progress are not release evidence. Their downstream verification and
-input digests require reconciliation after the corrected dispositions. Follow
-the [runtime execution plan](goals/22-divergent-universe-runtime.md), starting
+input digests require reconciliation after the corrected dispositions.
+The Agent API receipt generator currently rejects this corrected ledger with
+`Agent API ledger drift`; its obsolete completion cursor and generated pass
+claims are not used to verify current adapter changes. Native Rust adapter
+tests remain the behavioral check. Follow the
+[runtime execution plan](goals/22-divergent-universe-runtime.md), starting
 with actual room/decision transitions and source operand lowering; do not
 resume release acceptance from a purported completed gameplay ledger.
 

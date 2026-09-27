@@ -240,7 +240,9 @@ impl Transaction<'_> {
                         unit.presence == PresenceState::Transformed
                     }
                 };
-                life && presence
+                // Event-target lists and selector unions are candidate pools,
+                // not permission to bypass the authored side predicate.
+                on_selected_side(unit.side) && life && presence
             })
         });
         for predicate in selector.predicates() {

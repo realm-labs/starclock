@@ -2,6 +2,7 @@
 //! Equipment mutation is executable; unresolved battle effects fail closed.
 
 use crate::digest::CanonicalDigestBuilder;
+use starclock_data::divergent_universe_decisions::weighted_curio_shields::WeightedCurioShieldDefinition;
 use starclock_data::divergent_universe_decisions::weighted_curio_splashes::WeightedCurioSplashDefinition;
 use std::sync::Arc;
 
@@ -72,6 +73,7 @@ pub struct WeightedCurioRuntime {
     ids: Arc<[DivergentUniverseWeightedCurioId]>,
     component: [u8; 32],
     pub(super) splashes: Box<[WeightedCurioSplashDefinition]>,
+    pub(super) shields: Box<[WeightedCurioShieldDefinition]>,
     decision_digest: [u8; 32],
 }
 
@@ -118,6 +120,7 @@ impl DivergentUniverseRuntimeFactory {
             ids: ids.into(),
             component: self.bundle_identity().component_digest().bytes(),
             splashes: self.decision_catalog().weighted_curio_splashes().into(),
+            shields: self.decision_catalog().weighted_curio_shields().into(),
             decision_digest: self.decision_catalog().digest(),
         })
     }
@@ -256,6 +259,10 @@ impl WeightedCurioRuntime {
                 .splashes
                 .iter()
                 .any(|definition| &definition.weighted_curio == id)
+                && !self
+                    .shields
+                    .iter()
+                    .any(|definition| &definition.weighted_curio == id)
             {
                 return Err(WeightedCurioError::UnsupportedBattleEffect(id.clone()));
             }

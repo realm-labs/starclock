@@ -1,7 +1,7 @@
 # Typed Divergent Universe decisions
 
 This project owns executable decision definitions, not the reference pack's
-identity/evidence catalog. Its 35 tables and 370 rows include policy-bound
+identity/evidence catalog. Its 36 tables and 375 rows include policy-bound
 choices, rewards and reviewed Curio components used by the production Activity
 graph, plus nine explicitly selected source decks and their 125 distinct card
 instances, and one reviewed Weighted Curio attack-splash definition. Deck compilation is available, but automatic mask selection and
@@ -68,7 +68,8 @@ Battle effects and their separate result-counted lifetimes are documented in
 [Curio battle stats](../../docs/divergent-universe-curio-battle-stats.md) and
 [Curio battle reactions](../../docs/divergent-universe-curio-battle-reactions.md).
 The [Weighted Curio splash contract](../../docs/divergent-universe-weighted-curio-splash.md)
-binds generic released MazeBuff operands; it does not admit the other sixteen
+binds generic released MazeBuff operands. The [Harmony shield contract](../../docs/divergent-universe-weighted-curio-shield.md)
+executes a second equipment effect; these do not admit the other fifteen
 effects or implement a Forge menu.
 The [Tawot service definitions](../../docs/divergent-universe-tawot-service.md)
 drive an explicitly admitted shared Activity purchase graph; automatic Forge

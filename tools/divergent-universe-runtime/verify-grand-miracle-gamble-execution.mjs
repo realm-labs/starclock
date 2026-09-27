@@ -22,7 +22,7 @@ assert(artifact.current_boundary.weighted_curio_accepted_loadout_boundary
   && artifact.current_boundary.weighted_curio_unsupported_equipment_rejects_battle_contribution
   && !artifact.current_boundary.weighted_curio_loadout_implemented
   && !artifact.current_boundary.weighted_curio_battle_effects_implemented
-  && artifact.current_boundary.weighted_curio_battle_effect_definitions === 1
+  && artifact.current_boundary.weighted_curio_battle_effect_definitions === 2
   && !artifact.current_boundary.forge_room_payload_implemented,
 "an accepted equipment primitive is not a complete Forge or battle-effect implementation");
 
@@ -79,6 +79,21 @@ if (process.argv.includes("--check-source")) {
   assert(authoredRows.length === 1 && authoredRows[0].values.weighted_curio_key.String === "divergent-universe.weighted-curio.1001"
     && authoredRows[0].values.maze_buff_id.String === "633401" && authoredRows[0].values.damage_fraction.String === "0.3",
     "production splash must preserve the released membership and exact operand");
+  const shield = released.find((row) => row.ID === 633402);
+  const shieldHex = rows.find((row) => row.HexID === 1002);
+  assert(shieldHex?.MazeBuffID === 633402 && JSON.stringify(shieldHex.AvatarType) === '["Shaman"]'
+    && shieldHex.AvatarDamageType.length === 0
+    && shield?.ParamList[0]?.Value === "0.35" && shield.ParamList[1]?.Value === "2"
+    && shield.InBattleBindingKey === "StageAbility_633402"
+    && String(shield.BuffDesc.Hash) === "18303557854201536316", "Harmony shield released operand/eligibility drift");
+  assert(text["18303557854201536316"].includes("Basic ATK/Skill/Ultimate")
+    && text["18303557854201536316"].includes("respective ally's Max HP")
+    && chinese["18303557854201536316"].includes("对我方目标"), "Harmony shield ally direction and recipient basis drift");
+  const shieldRows = JSON.parse(fs.readFileSync(path.join(root, artifact.input_digests.weighted_shield_data.path), "utf8")).table.rows;
+  assert(shieldRows.length === 1 && shieldRows[0].values.weighted_curio_key.String === "divergent-universe.weighted-curio.1002"
+    && shieldRows[0].values.maze_buff_id.String === "633402"
+    && shieldRows[0].values.shield_fraction.String === "0.35"
+    && shieldRows[0].values.duration_turns.Integer === 2, "production Harmony shield must preserve exact released operands");
 }
 console.log("Hex taxonomy/Gamble inventory verified; no runtime completion or test-pass receipt emitted.");
 function assert(condition, message) { if (!condition) throw new Error(message); }

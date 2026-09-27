@@ -27,6 +27,7 @@ from coin_reward_rows import append_coin_rewards
 from reward_occurrence_rows import append_reward_occurrences
 from adventure_reward_rows import append_adventure_rewards
 from weighted_curio_splash_rows import append_weighted_curio_splash
+from weighted_curio_shield_rows import append_weighted_curio_shield
 
 
 def rows() -> dict[str, list[list[object]]]:
@@ -300,6 +301,7 @@ def rows() -> dict[str, list[list[object]]]:
     append_reward_occurrences(data)
     append_adventure_rewards(data)
     append_weighted_curio_splash(data)
+    append_weighted_curio_shield(data)
     return data
 
 

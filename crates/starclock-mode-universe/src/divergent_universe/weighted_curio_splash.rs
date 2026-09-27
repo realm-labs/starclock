@@ -155,7 +155,7 @@ impl WeightedCurioRuntime {
                 }
             }
         }
-        Ok(())
+        self.assemble_shields(builder, snapshot, core, players, assembly_digest)
     }
 }
 

@@ -76,7 +76,7 @@ impl ActivityAgentSessionRegistry {
                 created_at: now,
                 last_accessed_at: now,
                 state: SessionLaneState::Active {
-                    session: Box::new(HostedActivitySession::DivergentUniverse(session)),
+                    session: Box::new(HostedActivitySession::DivergentUniverse(Box::new(session))),
                     events: ActivityEventRecorder::default(),
                 },
             }),

@@ -1,0 +1,69 @@
+{
+  "table": {
+    "name": "DuWeightedCurioShields",
+    "rows": [
+      {
+        "values": {
+          "character_path": {
+            "String": "Shaman"
+          },
+          "duration_parameter": {
+            "Integer": 2
+          },
+          "duration_turns": {
+            "Integer": 2
+          },
+          "fraction_parameter": {
+            "Integer": 1
+          },
+          "id": {
+            "Integer": 1
+          },
+          "maze_buff_id": {
+            "String": "633402"
+          },
+          "policy": {
+            "String": "AllyActionResolvedReplaceTargetTurnShield"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: bind action producers only to mapped player characters whose immutable build Path is Harmony. Observe ActionResolved at AfterAction once per action, require actor owner, Basic/Skill/Ultimate kind and nonempty committed allied targets; this includes self and team-wide actions without a controller primary. Affect current alive present team units in formation/stable-ID order, including the caster. Snapshot each recipient's current maximum HP at application; multiply by exact 0.35 with checked fixed-point floor through the shared shield formula (normal shield boosts remain applicable). Remove only this definition's prior shield/effect, then create one non-dispellable replacement shield with duration two at TargetTurnEnd; the shared clock includes an already-running recipient turn. Every mapped recipient owns expiry cleanup, independent of caster survival; delayed old-effect removal cannot clear a replacement. Other shields coexist using ConcurrentLargest absorption. No RNG, damage/heal-only inference, enemy-action activation or live Activity mutation. No implicit linked/new summon inheritance. Equipment remains Run-scoped; battle effects teardown with their battle/recipient."
+          },
+          "replacement_condition": {
+            "String": "Hidden phase, committed-target versus declaration-target admission, current alive/present recipient scope, immediate target-turn tick, shield-boost handling, refresh across multiple Harmony casters and coexistence are low-confidence policy, not observed parity. Alternatives include declaration-time shield, independent per-caster layers or refresh-only duration. Replace each independently using released executable programs or reproducible current observations; preserve exact Harmony, action kinds, ally direction (including self/team-wide actions), per-recipient maximum HP, 0.35 and two turns. Forge admission and encoded equipment-command replay remain pending."
+          },
+          "shield_fraction": {
+            "String": "0.35"
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 77
+              },
+              {
+                "Integer": 78
+              },
+              {
+                "Integer": 79
+              },
+              {
+                "Integer": 80
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.weighted-curio-shield.silent-song"
+          },
+          "summary_en": {
+            "String": "Harmony ally-directed Basic, Skill or Ultimate gives each living present ally a two-turn shield based on 35% of their own maximum HP."
+          },
+          "summary_zh_cn": {
+            "String": "同谐角色对我方施放普攻、战技或终结技后，为在场存活队友提供各自生命上限 35% 的两回合护盾。"
+          },
+          "weighted_curio_key": {
+            "String": "divergent-universe.weighted-curio.1002"
+          }
+        }
+      }
+    ]
+  }
+}

@@ -12,6 +12,7 @@ include!("tests/titan_runtime.rs");
 mod titan_entry;
 #[path = "tests/weighted_curio.rs"]
 mod weighted_curio;
+mod weighted_curio_shield;
 #[path = "tests/weighted_curio_splash.rs"]
 mod weighted_curio_splash;
 include!("tests/permanent_progression_runtime.rs");

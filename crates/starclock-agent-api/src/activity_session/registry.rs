@@ -235,7 +235,7 @@ enum HostedActivitySession {
     GoldAndGears(GoldAndGearsActivityAgentSession),
     SwarmDisaster(SwarmDisasterActivityAgentSession),
     CurrencyWars(CurrencyWarsActivityAgentSession),
-    DivergentUniverse(DivergentUniverseActivityAgentSession),
+    DivergentUniverse(Box<DivergentUniverseActivityAgentSession>),
 }
 
 impl HostedActivitySession {

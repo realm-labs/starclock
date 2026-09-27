@@ -57,7 +57,10 @@ use super::{
     DecisionExhaustion, DecisionOccurrence, DecisionOutcome, DecisionPolicy, DecisionPolicyKind,
     DecisionSource, key, reward, unique,
 };
-use super::{adventure_rewards, coin_rewards, reward_occurrences, shop, weighted_curio_splashes};
+use super::{
+    adventure_rewards, coin_rewards, reward_occurrences, shop, weighted_curio_shields,
+    weighted_curio_splashes,
+};
 
 pub(super) fn compile(
     config: &SoraConfig,
@@ -68,6 +71,12 @@ pub(super) fn compile(
             .du_weighted_curio_splashes()
             .ordered_rows()
             .map(|row| row.stable_key.as_str())
+            .chain(
+                config
+                    .du_weighted_curio_shields()
+                    .ordered_rows()
+                    .map(|row| row.stable_key.as_str()),
+            )
             .chain(
                 config
                     .du_coin_rewards()
@@ -446,6 +455,7 @@ pub(super) fn compile(
         curio_domain_grants::compile(config, reference, &curio_domain_expiries)?;
     Ok(DecisionCatalog {
         weighted_curio_splashes: weighted_curio_splashes::compile(config, reference)?,
+        weighted_curio_shields: weighted_curio_shields::compile(config, reference)?,
         adventure_rewards: adventure_rewards::compile(config)?,
         coin_rewards: coin_rewards::compile(config)?,
         reward_occurrences: reward_occurrences::compile(config, &occurrences)?,
