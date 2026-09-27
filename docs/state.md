@@ -272,6 +272,14 @@ reconstruction with real nested Boss proxies. Challenge scoring/timing, original
 mini-game selection, Adventure-specific Curio effects, higher levels, default
 topology and encoded source-position replay remain pending. Other payloads are
 probes; no Adventure-family, terminal source/mechanic or full-run credit is added.
+The [fixed Blank-room compiler](divergent-universe-blank-room.md) executes the
+current guide's exact preset 9007 with no room-local rewards, normal Curio entry,
+finish-before-door events and an independent atomic Leave. Strict capabilities
+reject changed entry/completion programs, flag policies and logical scopes;
+fresh factories reconstruct identical state and failed exits preserve the offer.
+Immediate empty-room completion is an explicit headless timing policy. Complete
+guide/default-profile binding and encoded replay remain pending, and this adds
+no terminal source/mechanic or full-run credit.
 The reference generators remove the incorrect blanket `RoguePersona` other-mode
 exclusion and retain eleven explicitly reviewed files for row-level accounting.
 The current generated Persona source audit accounts for all 547 rows across

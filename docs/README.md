@@ -178,6 +178,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 151. [Wealth chest pickups](divergent-universe-wealth-chests.md) — production-authored explicit chest policy, full Curio-modified credit, authenticated Collect/Leave and atomic position-profile controller dispatch; facilities and original reward selectors remain pending.
 152. [Reward-card occurrences](divergent-universe-reward-occurrences.md) — production-authored level-one reward-only substitute, actual sampled-card choices and shared finish/Leave dispatch; original event pools and higher levels remain pending.
 153. [Adventure settlement](divergent-universe-adventure-rewards.md) — explicit external earned-chest counts, production-authored aggregate rewards, handler-free Activity IR and independent atomic Leave; challenge simulation and original payouts remain pending.
+154. [Fixed Blank room](divergent-universe-blank-room.md) — current guide preset, empty local payload, normal Curio entry, ordered completion/doors and independent atomic Leave; full guide/profile integration remains pending.
 
 ## Delivery boundary
 

@@ -499,20 +499,8 @@ pub(super) fn compile_state(
             SlotCarryPolicy::Reset,
             51,
         )?,
-        boolean_slot(
-            ROOM_FINISHED_SLOT,
-            false,
-            ActivityScope::Node,
-            SlotCarryPolicy::Reset,
-            52,
-        )?,
-        boolean_slot(
-            ROOM_DOORS_OPEN_SLOT,
-            false,
-            ActivityScope::Node,
-            SlotCarryPolicy::Reset,
-            53,
-        )?,
+        room_completion_flag(ROOM_FINISHED_SLOT)?,
+        room_completion_flag(ROOM_DOORS_OPEN_SLOT)?,
         boolean_slot(
             ROOM_CONTENT_ENABLED_SLOT,
             false,
@@ -606,6 +594,20 @@ fn optional_slot(
     source: u64,
 ) -> Result<ActivitySlotDefinition, DivergentUniverseEntryFlowError> {
     optional_value_slot(id, None, owner, carry, source)
+}
+
+/// The same physical-node declaration is used by entry compilation and strict
+/// room capability validation, so altered reset/carry policies cannot pass.
+pub(super) fn room_completion_flag(
+    id: ActivitySlotId,
+) -> Result<ActivitySlotDefinition, DivergentUniverseEntryFlowError> {
+    boolean_slot(
+        id,
+        false,
+        ActivityScope::Node,
+        SlotCarryPolicy::Reset,
+        u64::from(id.get()),
+    )
 }
 
 fn boolean_slot(

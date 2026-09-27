@@ -52,6 +52,8 @@ mod battle_blessings;
 mod battle_fragments;
 #[path = "tests/battle_room.rs"]
 mod battle_room;
+#[path = "tests/blank_room.rs"]
+mod blank_room;
 #[path = "tests/curio_acquisition_blessings.rs"]
 mod curio_acquisition_blessings;
 #[path = "tests/curio_acquisition_effects.rs"]

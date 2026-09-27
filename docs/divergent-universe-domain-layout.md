@@ -66,6 +66,12 @@ caller-selected position. Completion and door publication share the reward
 transaction; Leave is separate. Original event/card membership and remaining
 room payloads are not inferred, and the default baseline is unchanged.
 
+The [fixed Blank-room compiler](divergent-universe-blank-room.md) now executes
+the current guide's admitted empty room without intrinsic rewards, retaining
+normal Curio entry effects, ordered completion/doors and an independent atomic
+Leave. Other guide rooms remain separate payload requirements; this does not
+constitute a complete guide or change the default profile.
+
 An already-bound room profile can attach this complete compiled route through
 `bind_position_domain_route` for [source-hand flow dispatch](divergent-universe-domain-deck.md#source-position-flow-dispatch).
 The existing controller then drives sampled card choices, battles, events and
