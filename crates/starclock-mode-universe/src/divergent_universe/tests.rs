@@ -6,7 +6,7 @@ include!("tests/blessing_runtime.rs");
 include!("tests/blessing_interaction.rs");
 include!("tests/equation_blessing_hardening.rs");
 include!("tests/curio_runtime.rs");
-include!("tests/grand_miracle_gamble_runtime.rs");
+include!("tests/gamble_runtime.rs");
 include!("tests/titan_runtime.rs");
 include!("tests/permanent_progression_runtime.rs");
 include!("tests/workbench_curse_runtime.rs");

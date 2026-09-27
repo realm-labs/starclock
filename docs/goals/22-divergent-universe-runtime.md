@@ -445,7 +445,8 @@ Cartesian product. At minimum it assigns:
 - all 80 Equations and every category, recipe, progress and expansion shape;
 - all 414 Blessings, enhancement/rewrite shapes and Path contribution types;
 - all 235 current Curio copies, every lifecycle state, Weighted Curio consumer
-  and all 17 current Grand Miracle/Hex definitions;
+  and all 17 current Weighted Curio/Hex definitions; actual Grand Miracles
+  require independent current-source selectors, not admission from Hex records;
 - all 12 Titan types, 84 Boons and 36 talent levels;
 - all Protocol/Division/progression, workbench, gamble, service, Occurrence,
   Adventure and terminal families;

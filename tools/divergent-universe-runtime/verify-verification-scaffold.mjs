@@ -17,8 +17,8 @@ assert(scaffold.summary.later_batches === 59
   && scaffold.summary.fixed_batches === 46
   && scaffold.summary.generated_mechanic_partitions === 13,
 "later batch denominator drift");
-assert(scaffold.summary.assigned_catalog_obligations === 6215
-  && scaffold.summary.assigned_execution_obligations === 6215
+assert(scaffold.summary.assigned_catalog_obligations === 6762
+  && scaffold.summary.assigned_execution_obligations === 6762
   && scaffold.summary.assigned_mechanic_programs === 669
   && scaffold.summary.assigned_semantic_fixtures === 25
   && scaffold.summary.assigned_research_gaps === 25
@@ -172,7 +172,7 @@ const ledger = json("content-manifests/divergent-universe-runtime-v1/batch-ledge
 
 console.log(
   `Divergent Universe verification scaffold verified (${scaffold.summary.later_batches} later batches; `
-    + "6,215 obligations; 669 programs; prerequisites/gates/files/evidence complete).",
+    + "6,762 obligations; 669 programs; scaffold assignments checked, not runtime completion).",
 );
 
 function json(relativePath) {

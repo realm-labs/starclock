@@ -48,7 +48,8 @@ pub(super) const BLESSING_OFFER_SOURCE_SLOT: ActivitySlotId = slot(35);
 pub(super) const CURIO_STATES_SLOT: ActivitySlotId = slot(36);
 pub(super) const CURIO_CHARGES_SLOT: ActivitySlotId = slot(37);
 pub(super) const CURIO_ACTIVATIONS_SLOT: ActivitySlotId = slot(38);
-pub(super) const GRAND_MIRACLES_SLOT: ActivitySlotId = slot(39);
+// Reserved reference state, not an implemented loadout/effect or Grand Miracle.
+pub(super) const WEIGHTED_CURIO_REFERENCES_SLOT: ActivitySlotId = slot(39);
 pub(super) const TITAN_TYPE_SLOT: ActivitySlotId = slot(40);
 pub(super) const TITAN_TALENTS_SLOT: ActivitySlotId = slot(41);
 pub(super) const TITAN_TALENT_CURRENCY_SLOT: ActivitySlotId = slot(42);
@@ -409,7 +410,7 @@ pub(super) fn compile_state(
             235,
         )?,
         counter_slot_with_limit(
-            GRAND_MIRACLES_SLOT,
+            WEIGHTED_CURIO_REFERENCES_SLOT,
             ActivityScope::Activity,
             SlotCarryPolicy::CarryExact,
             39,

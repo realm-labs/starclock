@@ -1,54 +1,44 @@
 #!/usr/bin/env node
 
+import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
-import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
-
 import { buildGrandMiracleGambleExecution } from "./generate-grand-miracle-gamble-execution.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const output = "content-manifests/divergent-universe-runtime-v1/grand-miracle-gamble-execution.json";
 const artifact = buildGrandMiracleGambleExecution();
+assert(fs.readFileSync(path.join(root, output), "utf8")
+  === `${JSON.stringify(artifact, null, 2)}\n`, "Hex taxonomy/Gamble inventory drift");
+assert(artifact.current_boundary.grand_miracles_admitted_from_hex === 0
+  && artifact.current_boundary.terminal_coverage_credit === 0
+  && !artifact.current_boundary.reference_transport_names_aligned,
+"reference identities must not imply Grand Miracle execution");
 
-run("node", ["tools/divergent-universe-runtime/generate-grand-miracle-gamble-execution.mjs", "--check"]);
-assert(text(output) === pretty(artifact), "Grand Miracle/Gamble artifact drift");
-assert(artifact.batch === "G22-P5-B2"
-  && artifact.status === "CompleteGrandMiracleEligibilityLifecycleAndGambleExecution",
-"Grand Miracle/Gamble status drift");
-assert(equal(artifact.summary, {
-  grand_miracles: 17,
-  current_eligibility_rules: 17,
-  historical_exclusions: 57,
-  gamble_groups: 126,
-  gamble_units: 89,
-  terminal_obligations: 575,
-  probes: 4,
-}), "Grand Miracle/Gamble summary drift");
-assert(equal(artifact.assignment_closure, {
-  obligations: 575,
-  exact_integrated: 2,
-  policy_integrated: 516,
-  excluded: 57,
-  fixture_families: 2,
-  research_gaps: 2,
-  policy_sources: 4,
-  mechanic_programs: 0,
-}), "Grand Miracle/Gamble assignment closure drift");
-assert(Object.values(artifact.execution_receipt).every((value) => value === "Passed")
-  && artifact.capability_probes.every(({ result }) => result === "Passed")
-  && !artifact.policy_boundary.exact_parity_claimed,
-"Grand Miracle/Gamble probe drift");
-
-console.log(
-  "Divergent Universe Grand Miracle/Gamble verified "
-    + "(17 current eligibility; 57 exclusions; 126 groups; 89 units; 575 obligations).",
-);
-
-function run(command, args) {
-  execFileSync(command, args, { cwd: root, stdio: "inherit" });
+if (process.argv.includes("--check-source")) {
+  const sourceRoot = path.join(root, ".cache/content-reference/turnbasedgamedata");
+  const evidence = artifact.source_taxonomy;
+  for (const source of [evidence.source_table, evidence.meaning_evidence, evidence.text_map]) {
+    const bytes = fs.readFileSync(path.join(sourceRoot, source.path));
+    assert(crypto.createHash("sha256").update(bytes).digest("hex") === source.sha256,
+      `pinned source drift: ${source.path}`);
+  }
+  function sourceJson(file) {
+    const raw = fs.readFileSync(path.join(sourceRoot, file), "utf8");
+    return JSON.parse(raw.replace(/("Hash"\s*:\s*)(-?\d{16,})/gu, '$1"$2"'));
+  }
+  const rows = sourceJson(evidence.source_table.path).filter((row) => row.TournMode === "Tourn3");
+  assert(rows.length === artifact.summary.weighted_curio_references, "released Hex selector drift");
+  const func = sourceJson(evidence.meaning_evidence.path).find((row) => row.FuncID === 11);
+  assert(func?.FuncType === "HexEquipment"
+    && String(func.FuncName.Hash) === evidence.meaning_evidence.title_hash
+    && String(func.FuncDesc.Hash) === evidence.meaning_evidence.description_hash,
+  "released HexEquipment meaning locator drift");
+  const text = sourceJson(evidence.text_map.path);
+  assert(text[evidence.meaning_evidence.title_hash] === "Select Weighted Curio"
+    && text[evidence.meaning_evidence.description_hash].includes("Weighted Curios"),
+  "released HexEquipment text must identify Weighted Curios");
 }
-function text(file) { return fs.readFileSync(path.join(root, file), "utf8"); }
-function pretty(value) { return `${JSON.stringify(value, null, 2)}\n`; }
-function equal(left, right) { return JSON.stringify(left) === JSON.stringify(right); }
+console.log("Hex taxonomy/Gamble inventory verified; no runtime completion or test-pass receipt emitted.");
 function assert(condition, message) { if (!condition) throw new Error(message); }

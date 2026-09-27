@@ -45,7 +45,6 @@ mod equation_progress;
 mod equation_transition;
 mod evolution_events;
 mod gamble_runtime;
-mod grand_miracle_runtime;
 mod initial_equations;
 mod mapping;
 pub mod occurrence_binding;
@@ -209,12 +208,6 @@ pub use gamble_runtime::{
     DivergentUniverseGambleAccuracy, DivergentUniverseGambleGroupRuntime,
     DivergentUniverseGambleOutcomeRuntime, DivergentUniverseGambleRuntime,
     DivergentUniverseGambleRuntimeError, DivergentUniverseGambleUnitRuntime,
-};
-pub use grand_miracle_runtime::{
-    DivergentUniverseGrandMiracleAccuracy, DivergentUniverseGrandMiracleLifecycleState,
-    DivergentUniverseGrandMiracleResolution, DivergentUniverseGrandMiracleRuntime,
-    DivergentUniverseGrandMiracleRuntimeDefinition, DivergentUniverseGrandMiracleRuntimeError,
-    DivergentUniverseOwnedGrandMiracle,
 };
 pub use mapping::{
     DivergentUniverseAvatarBindingAccuracy, DivergentUniverseMappedParticipant,

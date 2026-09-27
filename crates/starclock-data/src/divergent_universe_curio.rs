@@ -114,6 +114,7 @@ pub(super) fn lower_divergent_universe_curios(
             .map(|r| {
                 let v: MiraclePayload = payload(&r.payload_json)?;
                 Ok(DivergentUniverseGrandMiracleDefinition {
+                    content_kind: DivergentUniverseHexContentKind::WeightedCurio,
                     id: id(&r.stable_key, DivergentUniverseGrandMiracleId::new)?,
                     states: ids(v.state_ids, DivergentUniverseGrandMiracleStateId::new)?,
                     eligibility_rules: ids(

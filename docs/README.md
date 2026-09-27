@@ -180,6 +180,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 153. [Adventure settlement](divergent-universe-adventure-rewards.md) — explicit external earned-chest counts, production-authored aggregate rewards, handler-free Activity IR and independent atomic Leave; challenge simulation and original payouts remain pending.
 154. [Fixed Blank room](divergent-universe-blank-room.md) — current guide preset, empty local payload, normal Curio entry, ordered completion/doors and independent atomic Leave; full guide/profile integration remains pending.
 155. [Fixed Conversion battle substitute](divergent-universe-conversion-room.md) — authenticated current preset, explicit bounded real battles, defeat continuation without implicit healing, shared atomic settlement and remaining original wave/reward gaps.
+156. [Hex content taxonomy](divergent-universe-hex-content-taxonomy.md) — source-proven Weighted Curio classification, rejected Grand Miracle admission and pending authoring/loadout/effect boundaries.
 
 ## Delivery boundary
 

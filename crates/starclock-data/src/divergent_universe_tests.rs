@@ -5,7 +5,7 @@ use crate::divergent_universe_catalog::{
     DivergentUniverseRunFamily,
 };
 use crate::divergent_universe_curio_catalog::{
-    DivergentUniverseCurioCatalog, DivergentUniverseCurioStateId,
+    DivergentUniverseCurioCatalog, DivergentUniverseCurioStateId, DivergentUniverseHexContentKind,
 };
 use crate::divergent_universe_encounter_catalog::{
     DivergentUniverseEncounterCatalog, DivergentUniverseEncounterGroupId,
@@ -319,6 +319,33 @@ fn production_p1_b5_catalogs_close_all_definitions_without_execution_credit() {
             .protocols()
             .iter()
             .all(|row| !row.runtime_lowered)
+    );
+}
+
+#[test]
+fn production_hex_source_references_are_weighted_curios_not_grand_miracles() {
+    let candidate = load_divergent_universe_bundle().expect("real production Sora bundle");
+    let catalog = candidate.curio_catalog();
+    assert_eq!(catalog.miracles().len(), 17);
+    assert!(catalog.miracles().iter().all(|row| {
+        row.content_kind == DivergentUniverseHexContentKind::WeightedCurio && !row.runtime_lowered
+    }));
+    assert_eq!(catalog.source_obligations(), 774);
+    let mut forged = catalog.clone().into_parts();
+    for row in &mut forged.miracles {
+        row.content_kind = DivergentUniverseHexContentKind::GrandMiracle;
+    }
+    let error = DivergentUniverseCurioCatalog::new(forged)
+        .expect_err("transport names cannot promote Hex to Grand Miracle");
+    assert_eq!(
+        error.to_string(),
+        "Hex references are Weighted Curios, not Grand Miracles"
+    );
+    assert!(
+        catalog
+            .miracles()
+            .iter()
+            .all(|row| row.content_kind == DivergentUniverseHexContentKind::WeightedCurio)
     );
 }
 

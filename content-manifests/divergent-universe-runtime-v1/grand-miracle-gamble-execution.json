@@ -1,18 +1,15 @@
 {
-  "schema_revision": "starclock.divergent-universe-grand-miracle-gamble-execution.v1",
-  "goal_id": "divergent-universe-runtime-v1",
-  "batch": "G22-P5-B2",
-  "status": "CompleteGrandMiracleEligibilityLifecycleAndGambleExecution",
+  "status": "HexWeightedCurioReferencesRuntimePending",
   "input_digests": {
-    "grand_miracles": {
+    "hex_references": {
       "path": "content-reference/divergent-universe-v1/grand-miracles.json",
       "sha256": "911721c731e08b37908fef7f6297b90dfe49127f375471f4465d802751454144"
     },
-    "grand_miracle_eligibility": {
+    "hex_eligibility": {
       "path": "content-reference/divergent-universe-v1/grand-miracle-eligibility.json",
       "sha256": "bab460a86b64f60b3f387a2aa18ea63e25baa2c4803e98eda8292ae04a29dab5"
     },
-    "grand_miracle_states": {
+    "hex_states": {
       "path": "content-reference/divergent-universe-v1/grand-miracle-states.json",
       "sha256": "f0b0773ba10af9c22f535e4fc30e8e5af249882ce320aa8ee72cffae9a7d4e45"
     },
@@ -24,113 +21,94 @@
       "path": "content-reference/divergent-universe-v1/gamble-units.json",
       "sha256": "1af804c0975ba64b2c59a83cd8b70a66218a9e4806062892612281a58f980c56"
     },
-    "review_fixtures": {
-      "path": "content-reference/divergent-universe-v1/review-fixtures.json",
-      "sha256": "70fdb15147d046a170c4fe4038ccdd595bfbfef1e00040dba978c74c6b8a26c4"
+    "curio_catalog": {
+      "path": "crates/starclock-data/src/divergent_universe_curio_catalog.rs",
+      "sha256": "e0761589595d460c0b203b31697dbc48adb6e2b63e1ecabd64156693bbcc0cbd"
     },
-    "research_gaps": {
-      "path": "content-reference/divergent-universe-v1/research-gaps.json",
-      "sha256": "5818c783a5087b7244951f98744372dddd04371f39250bbae5b4db410d956ab0"
+    "curio_lowering": {
+      "path": "crates/starclock-data/src/divergent_universe_curio.rs",
+      "sha256": "fad86996d44245224cb0a08572c04ace9536699b3b5268296989610a52fbed7a"
     },
-    "runtime_dispositions": {
-      "path": "content-manifests/divergent-universe-runtime-v1/runtime-dispositions.json",
-      "sha256": "1319cb15f7a2e1b9c283549300cf29bb4f2b65d41c759a0c29240570c7fbd2bc"
+    "taxonomy_tests": {
+      "path": "crates/starclock-data/src/divergent_universe_tests.rs",
+      "sha256": "c6a8db38b845b60f8b75308f49934022f02251d1096da445f86e9570a3c9acff"
     },
-    "batch_ledger": {
-      "path": "content-manifests/divergent-universe-runtime-v1/batch-ledger.json",
-      "sha256": "77e109344b674b1a301708d247e2dcedeace5bc941f789d2ab3529dc5224f467"
-    },
-    "prior_execution": {
-      "path": "content-manifests/divergent-universe-runtime-v1/curio-runtime-execution.json",
-      "sha256": "20851fc502a18e6351461fe31d4c9385f85d200a89a6c836235f81b7451646a3"
-    },
-    "miracle_runtime": {
-      "path": "crates/starclock-mode-universe/src/divergent_universe/grand_miracle_runtime.rs",
-      "sha256": "c17e105d233f69060bd35c412aa9a8d33ce3f0ca3b03d9bd8e7891dbb7a1ba0b"
+    "mode_facade": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/mod.rs",
+      "sha256": "4e5eae5c338346e9259b1ce1762b07242136086d7e72efde282fc010a09a460f"
     },
     "gamble_runtime": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/gamble_runtime.rs",
       "sha256": "094be39d94a52c78c5a805c6cb1609f8146c468f4dcb6314bef7c87089604960"
     },
-    "state_runtime": {
-      "path": "crates/starclock-mode-universe/src/divergent_universe/state.rs",
-      "sha256": "946d9d891d871569c556bfb87a63cf790b752dc1a1f7b762ad0e11e0cd2bbd36"
-    },
     "tests": {
-      "path": "crates/starclock-mode-universe/src/divergent_universe/tests/grand_miracle_gamble_runtime.rs",
-      "sha256": "466b9a44d386b8d3542d19af6e8f009ace441c2dfd40ab14c914107139e1161e"
+      "path": "crates/starclock-mode-universe/src/divergent_universe/tests/gamble_runtime.rs",
+      "sha256": "82573969cc6d21206627b60b1cb90adc96ccfc15af2841befc6baaa311eae848"
     }
   },
-  "exact_and_policy_runtime": {
-    "grand_miracles": 17,
-    "current_exact_eligibility_rules": 17,
-    "historical_non_current_exclusions": 57,
-    "lifecycle_states": 34,
-    "retained_exact_effect_identities": 3,
-    "unresolved_gamble_groups": 126,
-    "exact_coin_units": 2,
-    "unresolved_source_group_units": 87,
-    "exact_coin_total": 60
-  },
-  "policy_boundary": {
-    "grand_miracle_lifecycle_accuracy": "VersionedProjectPolicyAcceptedLifecycleMissingReleasedMazeBuff",
-    "gamble_group_accuracy": "VersionedProjectPolicyFailClosedUnavailableGroupMembership",
-    "unresolved_group_fallback": "RejectWithoutMutation",
-    "reward_rng_draws_for_empty_or_unresolved_work": 0,
-    "exact_parity_claimed": false
-  },
-  "execution_receipt": {
-    "all_current_eligibility_rules_execute": "Passed",
-    "all_grand_miracles_install_activate_and_teardown": "Passed",
-    "exact_coin_units_credit_sixty_total": "Passed",
-    "all_unresolved_units_preserve_state_and_rng": "Passed",
-    "all_unresolved_groups_preserve_state_and_rng": "Passed",
-    "stale_commands_preserve_state": "Passed",
-    "fresh_reconstruction_is_equal": "Passed"
-  },
-  "assignment_closure": {
-    "obligations": 575,
-    "exact_integrated": 2,
-    "policy_integrated": 516,
-    "excluded": 57,
-    "fixture_families": 2,
-    "research_gaps": 2,
-    "policy_sources": 4,
-    "mechanic_programs": 0
-  },
-  "capability_probes": [
-    {
-      "id": "catalog-and-policy-boundaries",
-      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/grand_miracle_gamble_runtime.rs",
-      "test": "grand_miracle_and_gamble_catalogs_compile_exact_policy_boundaries",
-      "result": "Passed"
+  "source_taxonomy": {
+    "game_version": "4.4",
+    "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+    "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+    "access_date": "2026-09-27",
+    "evidence_quality": "ExactStructured",
+    "semantic_kind": "WeightedCurio",
+    "selector": "RogueTournHex.TournMode=Tourn3",
+    "source_table": {
+      "path": "ExcelOutput/RogueTournHex.json",
+      "sha256": "51e91a6f53ab0545330e477d806a165108f6c7e5e70ad52b02f92c1dc4d36455"
     },
-    {
-      "id": "all-grand-miracle-lifecycles",
-      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/grand_miracle_gamble_runtime.rs",
-      "test": "every_grand_miracle_executes_accepted_activation_and_teardown",
-      "result": "Passed"
+    "meaning_evidence": {
+      "path": "ExcelOutput/RogueTournWorkbenchFunc.json",
+      "sha256": "b430ce650040a1b2cf5c262f8f69f8e9d15bf6632b81c4947408026e33363078",
+      "locator": "FuncID=11; FuncType=HexEquipment",
+      "title_hash": "1823313480930548529",
+      "description_hash": "14848339980219349693",
+      "summary_en": "The HexEquipment service equips and adjusts Weighted Curios.",
+      "summary_zh_cn": "HexEquipment 服务用于装备及调整加权奇物。"
     },
-    {
-      "id": "exact-coin-and-unresolved-unit-outcomes",
-      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/grand_miracle_gamble_runtime.rs",
-      "test": "gamble_exact_coin_units_execute_and_unresolved_outcomes_fail_closed",
-      "result": "Passed"
-    },
-    {
-      "id": "all-groups-stale-and-reconstruction",
-      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/grand_miracle_gamble_runtime.rs",
-      "test": "all_gamble_groups_and_stale_grand_miracle_commands_preserve_state_and_rng",
-      "result": "Passed"
+    "text_map": {
+      "path": "TextMap/TextMapEN.json",
+      "sha256": "afc6d0ff9eeb20d09042e61c311e60d4ed56e69757f1ac42466ca4840e6ed789"
     }
-  ],
+  },
+  "current_boundary": {
+    "reference_transport_names_aligned": false,
+    "owned_hex_semantic_classification": true,
+    "grand_miracles_admitted_from_hex": 0,
+    "weighted_curio_loadout_implemented": false,
+    "weighted_curio_battle_effects_implemented": false,
+    "grand_miracle_runtime_implemented": false,
+    "forge_room_payload_implemented": false,
+    "terminal_coverage_credit": 0,
+    "required_next_work": "Align reference/workbook/Sora taxonomy, then implement real loadout and effects; establish Grand Miracle selectors independently."
+  },
   "summary": {
-    "grand_miracles": 17,
-    "current_eligibility_rules": 17,
-    "historical_exclusions": 57,
-    "gamble_groups": 126,
+    "weighted_curio_references": 17,
+    "current_hex_eligibility_rules": 17,
+    "other_mode_eligibility_references": 57,
+    "reference_state_boundaries": 34,
+    "unresolved_gamble_groups": 126,
     "gamble_units": 89,
-    "terminal_obligations": 575,
-    "probes": 4
-  }
+    "accepted_coin_units": 2,
+    "unresolved_gamble_units": 87
+  },
+  "native_test_targets": [
+    {
+      "file": "crates/starclock-data/src/divergent_universe_tests.rs",
+      "test": "production_hex_source_references_are_weighted_curios_not_grand_miracles"
+    },
+    {
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/gamble_runtime.rs",
+      "test": "gamble_catalogs_compile_exact_policy_boundaries_without_hex_runtime_admission"
+    },
+    {
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/gamble_runtime.rs",
+      "test": "gamble_exact_coin_units_execute_and_unresolved_outcomes_fail_closed"
+    },
+    {
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/gamble_runtime.rs",
+      "test": "all_gamble_groups_preserve_state_and_rng"
+    }
+  ]
 }

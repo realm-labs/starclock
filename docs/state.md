@@ -5,6 +5,20 @@ Git history is the only historical record.
 
 ## Divergent Universe release readiness
 
+The [Hex source taxonomy boundary](divergent-universe-hex-content-taxonomy.md)
+classifies the 17 current `RogueTournHex` references as Weighted Curios, not Grand
+Miracles. The owned catalog rejects the wrong classification. The flag-only
+Grand Miracle runtime has been removed; reference installation/activation flags
+are not gameplay effects. Current reference/workbook/Sora transport names still
+need alignment. Weighted Curio loadout/effects, actual Grand Miracle source
+selection/effects and the Forge room payload remain unimplemented. The current
+taxonomy/Gamble inventory emits no execution receipt or terminal coverage credit;
+the two accepted Coin units and unresolved Gamble rejection behavior remain.
+The verification scaffold retains all 6,762 obligations; its validator uses that
+current total rather than the old pre-Persona 6,215 subset. The separate Titan
+audit producer currently fails its obligation-closure assertion; its existing
+report is not current behavioral evidence and the full release gates remain open.
+
 The current [Persona domain layout](divergent-universe-domain-layout.md) is now
 typed configuration: 28 current areas join 11 layers and 60 positions, comprising
 21 fixed presets and 39 unspecified positions. Formal/weekly position totals are

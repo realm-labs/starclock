@@ -1,4 +1,4 @@
-//! Immutable Curio, weighted-pool and Grand Miracle definitions.
+//! Immutable Curio and Hex source references, without runtime admission.
 
 use std::collections::{BTreeMap, BTreeSet};
 
@@ -128,6 +128,9 @@ pub struct DivergentUniverseCurioPoolMembershipDefinition {
 }
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DivergentUniverseGrandMiracleDefinition {
+    /// Semantic classification of the pinned source, independent of the
+    /// reference transport's currently misnamed table and stable-key namespace.
+    pub content_kind: DivergentUniverseHexContentKind,
     pub id: DivergentUniverseGrandMiracleId,
     pub states: Box<[DivergentUniverseGrandMiracleStateId]>,
     pub eligibility_rules: Box<[DivergentUniverseGrandMiracleEligibilityId]>,
@@ -135,6 +138,15 @@ pub struct DivergentUniverseGrandMiracleDefinition {
     pub maze_buff_resolution: Box<str>,
     pub effect_ids: Box<[Box<str>]>,
     pub runtime_lowered: bool,
+}
+
+/// Weighted Curios and Grand Miracles are separate released content systems.
+/// Current Tourn3 `RogueTournHex` records are Weighted Curios. A Grand Miracle
+/// must establish its own current selector and cannot be admitted through Hex.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum DivergentUniverseHexContentKind {
+    WeightedCurio,
+    GrandMiracle,
 }
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DivergentUniverseGrandMiracleEligibilityDefinition {
@@ -229,6 +241,8 @@ impl DivergentUniverseCurioCatalog {
         &self.parts.pool_membership
     }
     #[must_use]
+    /// Reference transport rows, not Grand Miracle runtime definitions. Inspect
+    /// `content_kind`: every currently loaded Hex reference is a Weighted Curio.
     pub fn miracles(&self) -> &[DivergentUniverseGrandMiracleDefinition] {
         &self.parts.miracles
     }
@@ -346,6 +360,14 @@ fn validate(p: &DivergentUniverseCurioCatalogParts) -> Result<(), DivergentUnive
         })
     {
         return Err(error("weighted Curio pool boundary drift"));
+    }
+    if p.miracles
+        .iter()
+        .any(|x| x.content_kind != DivergentUniverseHexContentKind::WeightedCurio)
+    {
+        return Err(error(
+            "Hex references are Weighted Curios, not Grand Miracles",
+        ));
     }
     if p.miracles.iter().any(|x| {
         x.runtime_lowered
