@@ -1,0 +1,115 @@
+{
+  "table": {
+    "name": "DuShopItems",
+    "rows": [
+      {
+        "values": {
+          "id": {
+            "Integer": 1
+          },
+          "ordinal": {
+            "Integer": 1
+          },
+          "price": {
+            "String": "50"
+          },
+          "reward_key": {
+            "String": "divergent-universe.blessing.615130"
+          },
+          "reward_kind": {
+            "String": "Blessing"
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 15
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.shop-item.acquisition-policy.blessing"
+          },
+          "stock_id": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 2
+          },
+          "ordinal": {
+            "Integer": 2
+          },
+          "price": {
+            "String": "70"
+          },
+          "reward_key": {
+            "String": "divergent-universe.curio-state.9043"
+          },
+          "reward_kind": {
+            "String": "Curio"
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 7
+              },
+              {
+                "Integer": 8
+              },
+              {
+                "Integer": 9
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.shop-item.acquisition-policy.wax"
+          },
+          "stock_id": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 3
+          },
+          "ordinal": {
+            "Integer": 3
+          },
+          "price": {
+            "String": "40"
+          },
+          "reward_key": {
+            "String": "divergent-universe.curio-state.9053"
+          },
+          "reward_kind": {
+            "String": "Curio"
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 4
+              },
+              {
+                "Integer": 5
+              },
+              {
+                "Integer": 6
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.shop-item.acquisition-policy.fragments"
+          },
+          "stock_id": {
+            "Integer": 1
+          }
+        }
+      }
+    ]
+  }
+}

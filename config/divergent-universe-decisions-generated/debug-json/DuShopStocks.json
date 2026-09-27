@@ -1,0 +1,32 @@
+{
+  "table": {
+    "name": "DuShopStocks",
+    "rows": [
+      {
+        "values": {
+          "id": {
+            "Integer": 1
+          },
+          "policy": {
+            "String": "ExplicitFixedStockAndPriceBaseRewards"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: explicit three-item stock and positive fixed Fragment prices; one purchase per owner per logical room, no sampling, refresh or discount. Merchant membership, original prices and stock weights are unavailable. Reward source links prove identities only. Prices 50/70/40 preserve deterministic payment and mandatory reward coverage, not observed parity. Alternatives: disable shops or reuse unproven catalog pools; explicit stock keeps behavior replaceable without asserting membership. Original-parity confidence is unproven; data admission and Ordinary/Cyclical shop controller tests freeze this policy."
+          },
+          "replacement_condition": {
+            "String": "Replace stock, price and admission fields when released merchant selectors or reproducible current-version observations establish exact membership, weights, costs, discounts, quantities and refresh. No default profile placement is implied."
+          },
+          "stable_key": {
+            "String": "du.shop-stock.acquisition-policy"
+          },
+          "summary_en": {
+            "String": "Fixed policy stock demonstrating base Blessing and immediate Curio acquisition."
+          },
+          "summary_zh_cn": {
+            "String": "固定项目策略库存，包含基础祝福及会触发即时获得效果的奇物。"
+          }
+        }
+      }
+    ]
+  }
+}

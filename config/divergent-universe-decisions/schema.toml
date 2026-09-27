@@ -98,6 +98,12 @@ values = [{ id = 0, name = "ExplicitSourceDeck" }]
 [[enums]]
 name = "DuDomainCardKind"
 values = [{ id = 0, name = "Battle" }, { id = 1, name = "Encounter" }, { id = 2, name = "Event" }, { id = 3, name = "Coin" }, { id = 4, name = "Shop" }, { id = 5, name = "Reward" }, { id = 6, name = "Adventure" }, { id = 7, name = "Reforge" }, { id = 8, name = "Elite" }]
+[[enums]]
+name = "DuShopStockPolicy"
+values = [{ id = 0, name = "ExplicitFixedStockAndPriceBaseRewards" }]
+[[enums]]
+name = "DuShopRewardKind"
+values = [{ id = 0, name = "Blessing" }, { id = 1, name = "Curio" }]
 [[tables]]
 id = "sources"
 name = "DuDecisionSources"
@@ -1707,6 +1713,87 @@ type = "i32"
 range = [1,5]
 [[tables.fields]]
 name = "source_locator"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "source_ids"
+type = "list<ref<DuDecisionSources.id>>"
+parser = { kind = "split", separator = "|" }
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+[[tables]]
+id = "shopstocks"
+name = "DuShopStocks"
+mode = "map"
+key = "id"
+[tables.source]
+file = "DivergentUniverseDecisions.xlsx"
+sheet = "ShopStocks"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1,2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "policy"
+type = "enum<DuShopStockPolicy>"
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "policy_note"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "replacement_condition"
+type = "string"
+length = [1, 4000]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+[[tables]]
+id = "shopitems"
+name = "DuShopItems"
+mode = "map"
+key = "id"
+[tables.source]
+file = "DivergentUniverseDecisions.xlsx"
+sheet = "ShopItems"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1,2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "stock_id"
+type = "ref<DuShopStocks.id>"
+[[tables.fields]]
+name = "ordinal"
+type = "i32"
+range = [1,64]
+[[tables.fields]]
+name = "reward_kind"
+type = "enum<DuShopRewardKind>"
+[[tables.fields]]
+name = "reward_key"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "price"
 type = "string"
 length = [1, 4000]
 [[tables.fields]]

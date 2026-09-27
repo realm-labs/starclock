@@ -22,6 +22,7 @@ from tawot_victory_rows import append_tawot_victory
 from equation_expansion_rows import append_equation_expansion_rewards
 from domain_layout_rows import append_domain_layout
 from domain_deck_rows import append_domain_decks
+from shop_stock_rows import append_shop_stocks
 
 
 def rows() -> dict[str, list[list[object]]]:
@@ -290,6 +291,7 @@ def rows() -> dict[str, list[list[object]]]:
     append_equation_expansion_rewards(data)
     append_domain_layout(data)
     append_domain_decks(data)
+    append_shop_stocks(data)
     return data
 
 

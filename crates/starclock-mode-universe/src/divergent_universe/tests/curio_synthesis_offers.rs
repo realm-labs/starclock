@@ -135,6 +135,8 @@ fn synthesis_offers_observations_are_inert_and_pools_are_current_owner_unique() 
     let fixture = DivergentUniverseBaselineFixture::production().unwrap();
     let curios = fixture.factory().curio_runtime().unwrap();
     let offers = fixture.factory().curio_synthesis_offers().unwrap();
+    let mut observed_vectors = Vec::new();
+    let mut expected_vectors = Vec::new();
     for family in FAMILIES {
         for (rank, category) in CATEGORIES.into_iter().enumerate() {
             let mut activity = start(&fixture, family);
@@ -187,28 +189,32 @@ fn synthesis_offers_observations_are_inert_and_pools_are_current_owner_unique() 
             // compatibility. Update these when current inputs change.
             let golden = match (family, category) {
                 (DivergentUniverseRunFamily::Ordinary, DivergentUniverseCurioCategory::Common) => {
-                    [9065, 9083, 9230]
+                    [9008, 9165, 9232]
                 }
                 (DivergentUniverseRunFamily::Ordinary, DivergentUniverseCurioCategory::Rare) => {
-                    [9098, 9182, 9234]
+                    [9093, 9095, 9099]
                 }
                 (
                     DivergentUniverseRunFamily::Ordinary,
                     DivergentUniverseCurioCategory::Legendary,
-                ) => [9095, 9096, 9100],
+                ) => [9095, 9152, 9234],
                 (DivergentUniverseRunFamily::Cyclical, DivergentUniverseCurioCategory::Common) => {
-                    [9019, 9082, 9168]
+                    [9008, 9160, 9227]
                 }
                 (DivergentUniverseRunFamily::Cyclical, DivergentUniverseCurioCategory::Rare) => {
-                    [9097, 9103, 9152]
+                    [9093, 9096, 9187]
                 }
                 (
                     DivergentUniverseRunFamily::Cyclical,
                     DivergentUniverseCurioCategory::Legendary,
-                ) => [9095, 9099, 9234],
+                ) => [9097, 9098, 9160],
                 _ => panic!("fixture uses only the three nonnegative input qualities"),
             };
-            assert_eq!(selected.as_ref(), &golden.map(state));
+            expected_vectors.push((
+                family,
+                category,
+                golden.map(state).to_vec().into_boxed_slice(),
+            ));
             assert_eq!(selected.len(), 3);
             assert!(selected.iter().all(|id| plan.candidates().contains(id)));
             assert!(
@@ -218,8 +224,11 @@ fn synthesis_offers_observations_are_inert_and_pools_are_current_owner_unique() 
                         < curios.state(&pair[1]).unwrap().state_key())
             );
             assert_eq!(reward_draws(&activity) - draws, 3);
+            observed_vectors.push((family, category, selected));
         }
     }
+    // Report every current family/quality vector when configuration-bound RNG changes.
+    assert_eq!(observed_vectors, expected_vectors);
 }
 
 #[test]

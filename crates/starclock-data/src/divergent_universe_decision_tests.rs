@@ -19,6 +19,8 @@ mod domain_layout;
 mod expansion_policy;
 #[path = "divergent_universe_reward_policy_tests.rs"]
 mod reward_policies;
+#[path = "divergent_universe_shop_tests.rs"]
+mod shop;
 
 use super::{
     BUNDLE, BattleRewardDomain, CurioAcquisitionGrant, CurioAcquisitionPolicy, DecisionCatalog,

@@ -17,7 +17,10 @@ use crate::divergent_universe::{
     DivergentUniverseFlowInstance, DivergentUniverseLogicalScopeKind,
     battle_room::BattleRoomSelection,
     domain_route::DomainRoomComposition,
-    shop_purchase::{ShopStockItem, room::CompiledShopRoom},
+    shop_purchase::{
+        ShopStockItem,
+        room::{CompiledShopRoom, ShopRoomCompiler, ShopRoomError},
+    },
     state::{CURRENCIES_SLOT, SERVICE_RECEIPTS_SLOT},
     tests::{battle_room::base, currency_balance, instance, reward_draws},
 };
@@ -30,7 +33,7 @@ use starclock_activity::{
 };
 use starclock_data::{
     divergent_universe_catalog::DivergentUniverseRunFamily,
-    divergent_universe_decisions::BattleRewardDomain,
+    divergent_universe_decisions::{BattleRewardDomain, shop::ShopStockId},
     divergent_universe_domain_decks::DomainCardKind,
     divergent_universe_domain_layout::FixedDomainKind,
 };
@@ -40,6 +43,33 @@ const FAMILIES: [DivergentUniverseRunFamily; 2] = [
     DivergentUniverseRunFamily::Ordinary,
     DivergentUniverseRunFamily::Cyclical,
 ];
+
+#[test]
+fn shop_controller_authored_stock_requires_current_key_and_binds_selection_identity() {
+    let source = DivergentUniverseBaselineFixture::production().unwrap();
+    let unknown = ShopStockId::new("du.shop-stock.unknown").unwrap();
+    assert!(matches!(
+        source
+            .factory()
+            .authored_shop_room_compiler(&unknown, SLOTS),
+        Err(ShopRoomError::UnknownStock)
+    ));
+    let id = ShopStockId::new("du.shop-stock.acquisition-policy").unwrap();
+    let authored = source
+        .factory()
+        .authored_shop_room_compiler(&id, SLOTS)
+        .unwrap();
+    let explicit = source
+        .factory()
+        .shop_room_compiler(stock(&source), SLOTS)
+        .unwrap();
+    let profile = compile(&source, FAMILIES[0], 250);
+    let context = profile.rooms[0].context();
+    assert_ne!(
+        authored.compile(context).unwrap().configuration_digest(),
+        explicit.compile(context).unwrap().configuration_digest()
+    );
+}
 struct Profile {
     flow: DivergentUniverseFlowInstance,
     unbound: DivergentUniverseFlowInstance,
@@ -52,7 +82,12 @@ fn compile(
     family: DivergentUniverseRunFamily,
     budget: u64,
 ) -> Profile {
-    compile_with_stock(source, family, budget, stock(source))
+    let id = ShopStockId::new("du.shop-stock.acquisition-policy").unwrap();
+    let compiler = source
+        .factory()
+        .authored_shop_room_compiler(&id, SLOTS)
+        .unwrap();
+    compile_with_compiler(source, family, budget, compiler)
 }
 
 fn compile_with_stock(
@@ -60,6 +95,16 @@ fn compile_with_stock(
     family: DivergentUniverseRunFamily,
     budget: u64,
     items: Vec<ShopStockItem>,
+) -> Profile {
+    let compiler = source.factory().shop_room_compiler(items, SLOTS).unwrap();
+    compile_with_compiler(source, family, budget, compiler)
+}
+
+fn compile_with_compiler(
+    source: &DivergentUniverseBaselineFixture,
+    family: DivergentUniverseRunFamily,
+    budget: u64,
+    shop: ShopRoomCompiler,
 ) -> Profile {
     let factory = source.factory();
     let base = base(source, family);
@@ -71,7 +116,6 @@ fn compile_with_stock(
             domain: BattleRewardDomain::Boss,
         })
         .unwrap();
-    let shop = factory.shop_room_compiler(items, SLOTS).unwrap();
     let mut battles = Vec::new();
     let mut rooms = Vec::new();
     let deck = &factory.decision_catalog().domain_decks()[0].key;

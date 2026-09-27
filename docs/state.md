@@ -208,10 +208,15 @@ the three explicit purchases, and finish three real nested Boss proxy battles
 with identical fresh-factory steps and states. Insufficient-budget menus leave; late
 receipt failures preserve state/RNG. Duplicate, repeated, foreign, changed-price
 and changed-slot attachments reject, and unbound controllers cannot bypass gates.
-Stock/funds/deck and Boss choices are test policies; other payloads remain probes.
+Fixed stock and prices now come from two production openpyxl/Sora decision
+tables with typed reward joins, canonical integer price strings and explicit
+policy/replacement metadata. The factory selects the immutable stock by typed
+key and binds that selection and the current bundle into room identity.
+Funds/deck and Boss choices are test policies; other payloads remain probes.
 Original shop data/modifiers, NPC/profile admission, default
 topology and encoded replay remain pending. No terminal source/mechanic or
-Shop-family/full-run credit is added; workbooks and Sora inputs are unchanged.
+Shop-family/full-run credit is added. Production stock rows do not prove original
+merchant membership, weights or prices.
 The reference generators remove the incorrect blanket `RoguePersona` other-mode
 exclusion and retain eleven explicitly reviewed files for row-level accounting.
 The current generated Persona source audit accounts for all 547 rows across

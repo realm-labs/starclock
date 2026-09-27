@@ -4,7 +4,8 @@
 
 `shop_purchase::ShopPurchaseRuntime` compiles explicitly selected current Sora
 Blessing identities and ordinary Curio states into immutable stock. The owning
-service supplies a positive integer Cosmic Fragment price for each item and a
+service selects production-authored stock or supplies an explicit positive
+integer Cosmic Fragment price for each item and a
 host slot at or above 70. There is no original merchant/pool/price inference.
 `ShopItemId` is a Starclock stock address in 1..=64, not an upstream locator.
 Items are canonically ordered, owner-unique and bounded to 64. Unknown rewards,
@@ -46,12 +47,40 @@ addresses, reward kinds/identities, prices, slot address, bounds, program/receip
 IDs and the explicit snapshot policy. Input vector order is not significant.
 Owning profiles must also bind placement, topology and all other immutable inputs.
 
+## Production-authored fixed stock
+
+`DivergentUniverseDecisions.xlsx` now contains `ShopStocks` and `ShopItems`.
+The stock row explicitly records `VersionedProjectPolicy`, bilingual summaries,
+unavailable merchant/price fields, rationale, alternatives, confidence and
+replacement conditions. Item rows bind a stock, contiguous 1..=64 ordinal,
+typed current reward key, canonical positive integer price string and reward
+identity/effect source links. Sources do not prove merchant stock or prices.
+
+The current `du.shop-stock.acquisition-policy` stock contains the base Blessing
+`615130` for 50 Fragments, ordinary wax state `9043` for 70, and ordinary
+Fragment-grant state `9053` for 40. These are explicit replaceable policy prices,
+not observed game prices. No NPC or default-profile placement is inferred.
+
+The openpyxl author generates a complete clean workbook from Sora's template;
+Sora 0.6.1 owns the schema lock, private readers and binary/debug exports.
+`DecisionCatalog::shop_stocks` exposes only validated immutable project types.
+Loading rejects invalid metadata, noncanonical/out-of-range prices, broken
+stock/ordinal/source/reward references, duplicate owners and negative/unbound
+Curios. The existing runtime also checks acquisition legality.
+
+`authored_shop_room_compiler` selects stock by `ShopStockId`, rejecting unknown
+keys before compilation. It reuses the same purchase/room compiler and shared
+generated transactions. Room identity binds the selected stock key and exact
+current decision bundle; identical manually supplied items are a distinct
+configuration selection. No runtime workbook or debug JSON loader is added.
+
 ## Bound public room menu
 
 `shop_purchase::room::ShopRoomCompiler` supplies a public Shop decision at an
 exact current reviewed `Card(Shop)` context. The factory validates the context's
 source position and preset role; this does not prove an original NPC, stock pool
-or released profile membership. Stock and prices remain explicit caller policy.
+or released profile membership. Stock and prices remain explicit policy, selected
+from production Sora or supplied by the owning caller.
 Other room kinds and fabricated contexts reject. Hosts use
 `compile_curio_domain_route`, include the two exact host declarations and bind
 the room digest into their complete immutable profile identity.
@@ -107,7 +136,7 @@ Observation and failed selections do not grant rewards or advance RNG.
 
 Production-catalog integration fixtures for Ordinary and Cyclical enter Shops
 through actual sampled source-card hands, using a deterministic controller hint
-that prefers Shop cards only when offered. They buy the three explicit test
+that prefers Shop cards only when offered. They buy the three production-authored policy
 items and compare exact payment/reward/receipt behavior and Leave. Each run
 completes three real nested Boss proxy battles, including battles after purchases.
 Independently constructed factories produce
@@ -117,8 +146,8 @@ and can be retried once the injected test fault is cleared.
 
 The insufficient-budget case uses explicit high test prices because battles
 before the first Shop can earn Fragments even from zero initial funds.
-Stock, prices, initial funds, selected source deck/width and Boss proxies are
-explicit fixture policies. Other room payloads remain probes. These integration
+Stock and prices are authored policy; initial funds, selected source deck/width
+and Boss proxies are explicit fixture policies. Other room payloads remain probes. These integration
 tests establish attached-profile execution, not default topology, encoded profile
 replay, original merchant membership or complete-run release acceptance.
 
@@ -127,8 +156,8 @@ replay, original merchant membership or complete-run release acceptance.
 Current production Sora catalogs establish the reward identities and existing
 authored acquisition effects. They do not establish the proposed shop stock,
 merchant eligibility, prices, discounts, refresh or per-room inventory limits.
-This code adds no factual authoring row, Sora bundle change or source-mechanic
-terminal disposition. Source-only merchant graphs/offers and shop-price records
+The new Sora rows author explicit stock/price policy, not new factual merchant
+evidence or a source-mechanic terminal disposition. Source-only merchant graphs/offers and shop-price records
 remain independently pending; matching reward names/IDs is not membership proof.
 
 Accuracy:
@@ -137,7 +166,7 @@ Accuracy:
 | Unavailable fact | Current deterministic policy | Alternative and rationale | Replacement condition |
 | --- | --- | --- | --- |
 | Merchant stock/weights | Explicit owner-unique stock, no sampling | Automatically reusing catalog pools would assert unproven membership | Released selector graph or reproducible merchant-stock observations |
-| Prices/discounts | Positive caller-selected fixed Fragment price, no discount | Reference price-step shape alone does not prove item/merchant binding | Provenance-bearing item/merchant/price/modifier relationships |
+| Prices/discounts | Positive authored or caller-selected fixed Fragment price, no discount | Reference price-step shape alone does not prove item/merchant binding | Provenance-bearing item/merchant/price/modifier relationships |
 | Stock refresh/quantity | One purchase per selected item per logical room, no refresh; at most 64 items | Infinite rebuy or automatic refresh changes cost/reward semantics | Released inventory/refresh/quantity rules or reproducible observations |
 | Reward level/state | Base-level Blessing or ordinary nonnegative Curio; no duplicate-owner service | Implicit enhancement/repair is a different mechanic | Evidence for a distinct shop enhancement/repair/replacement action |
 | Acquisition snapshot timing | Pre-payment eligibility/expansion plan, debit before generated reward operations | Post-payment eligibility would require a different checked planning snapshot | Released ordering evidence or a reproducible timing counterexample |
@@ -152,8 +181,14 @@ provenance; it must not silently replace designer-edited workbooks.
 Production-catalog fixtures cover Ordinary and Cyclical with independently
 constructed factories and identical canonical traces. They buy a base Blessing,
 a wax that actually draws/grants a Blessing, and a Curio whose 40% Fragment grant
-uses the post-payment balance. Prices and initial 250 Fragments are trusted
-fixture setup, not recovered shop facts or merchant rewards.
+uses the post-payment balance. Production prices are explicit policy; initial
+250 Fragments are trusted fixture setup, not recovered merchant rewards.
+
+Data tests load the real Sora bundle, preserve exact policy/source operands,
+exercise canonical integer boundaries and reject corrupted keys, references,
+owners, ordering, prices, metadata and identity provenance. Row transport order
+does not change sorted domain definitions. Independent clean workbook/Sora
+regeneration compares current schema, readers and exports without drift.
 
 Tests cover canonical stock ordering, price/slot digest sensitivity, invalid
 counts/addresses/owners/rewards/prices, stale/unknown/insufficient-fund purchases,

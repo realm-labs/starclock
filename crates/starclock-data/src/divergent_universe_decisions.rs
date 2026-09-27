@@ -28,6 +28,10 @@ use crate::divergent_universe_equation_catalog::{
 use crate::divergent_universe_service_catalog::{
     DivergentUniverseOccurrenceId, DivergentUniverseOccurrenceVariantId,
 };
+use shop::ShopStockDefinition;
+
+#[path = "divergent_universe_shop_data.rs"]
+pub mod shop;
 
 #[cfg(test)]
 #[path = "divergent_universe_decision_tests.rs"]
@@ -218,6 +222,7 @@ pub struct CurioFragmentGainDefinition {
 /// binary and reference component; equal IDs cannot hide different parameters.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DecisionCatalog {
+    shop_stocks: Box<[ShopStockDefinition]>,
     domain_decks: Box<[DomainDeckDefinition]>,
     domain_layout: Box<[DomainLayerLayout]>,
     digest: [u8; 32],
@@ -569,6 +574,10 @@ pub struct InitialEquationPolicy {
 }
 
 impl DecisionCatalog {
+    /// Sora-authored explicit stock/price policies, not recovered merchant pools.
+    pub fn shop_stocks(&self) -> &[ShopStockDefinition] {
+        &self.shop_stocks
+    }
     /// Explicitly selected source decks, not a released mask offer pool.
     pub fn domain_decks(&self) -> &[DomainDeckDefinition] {
         &self.domain_decks

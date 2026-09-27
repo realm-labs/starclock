@@ -52,6 +52,7 @@ use crate::divergent_universe_service_catalog::{
     DivergentUniverseOccurrenceId, DivergentUniverseOccurrenceVariantId,
 };
 
+use super::shop;
 use super::{
     DecisionCatalog, DecisionChoice, DecisionChoiceId, DecisionDataError, DecisionEvidence,
     DecisionExhaustion, DecisionOccurrence, DecisionOutcome, DecisionPolicy, DecisionPolicyKind,
@@ -64,9 +65,21 @@ pub(super) fn compile(
 ) -> Result<DecisionCatalog, DecisionDataError> {
     unique(
         config
-            .du_domain_layout()
+            .du_shop_stocks()
             .ordered_rows()
             .map(|row| row.stable_key.as_str())
+            .chain(
+                config
+                    .du_shop_items()
+                    .ordered_rows()
+                    .map(|row| row.stable_key.as_str()),
+            )
+            .chain(
+                config
+                    .du_domain_layout()
+                    .ordered_rows()
+                    .map(|row| row.stable_key.as_str()),
+            )
             .chain(
                 config
                     .du_battle_fragments()
@@ -408,6 +421,7 @@ pub(super) fn compile(
     let curio_domain_grants =
         curio_domain_grants::compile(config, reference, &curio_domain_expiries)?;
     Ok(DecisionCatalog {
+        shop_stocks: shop::compile(config, reference)?,
         domain_decks: divergent_universe_domain_decks::compile(config)?,
         domain_layout: divergent_universe_domain_layout::compile(config, reference)?,
         digest: [0; 32],
@@ -444,7 +458,10 @@ fn source_key(config: &SoraConfig, id: i32) -> Result<Box<str>, DecisionDataErro
         .stable_key)
 }
 
-fn source_keys(config: &SoraConfig, ids: &[i32]) -> Result<Box<[Box<str>]>, DecisionDataError> {
+pub(super) fn source_keys(
+    config: &SoraConfig,
+    ids: &[i32],
+) -> Result<Box<[Box<str>]>, DecisionDataError> {
     if ids.is_empty() || ids.iter().collect::<BTreeSet<_>>().len() != ids.len() {
         return Err(DecisionDataError::InvalidProvenance);
     }

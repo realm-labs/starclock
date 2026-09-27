@@ -12,7 +12,9 @@ use crate::divergent_universe::{
     DivergentUniverseRuntimeFactory,
     decision_rewards::{DecisionRewardError, DecisionRewardRuntime},
     domain_route::{DomainRoomComposition, DomainRoomContext, DomainRoomProgram, DomainRouteError},
-    shop_purchase::{ShopPurchaseError, ShopPurchaseRuntime, ShopStockItem},
+    shop_purchase::{
+        ShopItemId, ShopPurchaseError, ShopPurchaseRuntime, ShopReward, ShopStockItem,
+    },
 };
 use starclock_activity::{
     ActivityExpression, ActivityOperation, ActivityProgramDefinition, ActivityProgramId,
@@ -20,6 +22,7 @@ use starclock_activity::{
     ActivityStateVisibility, ActivityValue, GraphActivityCommandError, GraphActivityDefinition,
     GraphActivityNodeProgram, GraphActivityRuntimeError, NodeId, SlotCarryPolicy, SlotResetPoint,
 };
+use starclock_data::divergent_universe_decisions::shop::{ShopStockId, ShopStockReward};
 use starclock_data::divergent_universe_domain_decks::DomainCardKind;
 
 pub const LEAVE_SHOP: u64 = u64::MAX;
@@ -37,6 +40,7 @@ pub enum ShopRoomAccuracy {
 }
 #[derive(Debug)]
 pub enum ShopRoomError {
+    UnknownStock,
     InvalidSlots,
     InvalidContext,
     DefinitionMismatch,
@@ -53,6 +57,7 @@ impl std::error::Error for ShopRoomError {}
 
 #[derive(Clone, Debug)]
 pub struct ShopRoomCompiler {
+    authored_stock: Option<ShopStockId>,
     factory: DivergentUniverseRuntimeFactory,
     runtime: Arc<ShopPurchaseRuntime>,
     rewards: Arc<DecisionRewardRuntime>,
@@ -75,6 +80,40 @@ pub struct BoundShopRoom {
 }
 
 impl DivergentUniverseRuntimeFactory {
+    /// Select current production Sora policy stock by identity. Unknown IDs and
+    /// illegal host slots reject before producing a compiler or consuming RNG.
+    /// The compiled room digest binds the selected stock key and exact bundle.
+    /// This does not establish original merchant or default profile membership.
+    pub fn authored_shop_room_compiler(
+        &self,
+        stock: &ShopStockId,
+        slots: ShopRoomSlots,
+    ) -> Result<ShopRoomCompiler, ShopRoomError> {
+        let definition = self
+            .decision_catalog()
+            .shop_stocks()
+            .iter()
+            .find(|definition| &definition.id == stock)
+            .ok_or(ShopRoomError::UnknownStock)?;
+        let items = definition
+            .items
+            .iter()
+            .map(|item| {
+                Ok(ShopStockItem {
+                    id: ShopItemId::new(item.ordinal).map_err(ShopRoomError::Purchase)?,
+                    reward: match &item.reward {
+                        ShopStockReward::Blessing(id) => ShopReward::Blessing(id.clone()),
+                        ShopStockReward::Curio(id) => ShopReward::Curio(id.clone()),
+                    },
+                    price: item.price,
+                })
+            })
+            .collect::<Result<Vec<_>, ShopRoomError>>()?;
+        let mut compiler = self.shop_room_compiler(items, slots)?;
+        compiler.authored_stock = Some(stock.clone());
+        Ok(compiler)
+    }
+
     /// Explicit typed stock/price policy, not a recovered merchant. Only reviewed
     /// Shop-card contexts compile; other room kinds and fabricated contexts reject.
     /// The owning profile binds each compiled digest and uses the Curio-entry route.
@@ -105,6 +144,7 @@ impl DivergentUniverseRuntimeFactory {
         .map_err(|_| ShopRoomError::InvalidSlots)?;
         let declarations = vec![runtime.slot_definition().clone(), accepted];
         Ok(ShopRoomCompiler {
+            authored_stock: None,
             factory: self.clone(),
             runtime,
             rewards: Arc::new(
@@ -185,6 +225,18 @@ impl CompiledShopRoom {
         let mut digest = CanonicalDigestBuilder::new();
         digest.update(b"starclock.du.shop-room.reviewed-shop-card-context.explicit-stock.no-refresh.generated-acceptance-gate.dynamic-admission.one-entry.finite-self-menu.always-gated-leave");
         digest.update(self.compiler.runtime.configuration_digest());
+        match &self.compiler.authored_stock {
+            None => digest.update([0]),
+            Some(stock) => {
+                digest.update([1]);
+                digest.update(
+                    u64::try_from(stock.as_str().len())
+                        .expect("bounded stock key")
+                        .to_le_bytes(),
+                );
+                digest.update(stock.as_str().as_bytes());
+            }
+        }
         for value in [
             self.context.area.as_str(),
             self.context.layer.as_str(),
