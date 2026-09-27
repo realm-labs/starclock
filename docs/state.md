@@ -261,6 +261,17 @@ choices are inert, and overflow is retryable. Original candidate membership,
 higher levels, fixed/NPC admission, default topology and encoded source-position
 replay remain pending. Other payloads are probes; no terminal source/mechanic,
 Reward-family or complete-run credit is added.
+The [Adventure settlement boundary](divergent-universe-adventure-rewards.md)
+now accepts a typed external 0..3 earned-chest count at reviewed current
+level-one card 1011. Production openpyxl/Sora authors a replaceable aggregate
+Fragment reward; shared authored-option IR needs no native handler or RNG.
+Currency credit precedes count/receipt, completion and door opening; independent
+Leave uses atomic next-entry advancement. Both families exercise sampled cards,
+all counts, active Curio gains, overflow/duplicate/foreign rejection and fresh
+reconstruction with real nested Boss proxies. Challenge scoring/timing, original
+mini-game selection, Adventure-specific Curio effects, higher levels, default
+topology and encoded source-position replay remain pending. Other payloads are
+probes; no Adventure-family, terminal source/mechanic or full-run credit is added.
 The reference generators remove the incorrect blanket `RoguePersona` other-mode
 exclusion and retain eleven explicitly reviewed files for row-level accounting.
 The current generated Persona source audit accounts for all 547 rows across
@@ -901,8 +912,10 @@ policies, four Curio domain-expiry definitions, one intrinsic domain-entry
 fragment grant, two Curio battle-stat/lifetime
 definitions, one Curio battle-healing reaction and four authored Tawot service
 definitions plus one executable Equation-expansion reward definition and 60
-current Persona layout positions across twenty-seven tables and 215
-rows. The [9074 expansion reward](divergent-universe-equation-expansion.md) has
+current Persona layout positions, nine reviewed decks, one shop stock and three
+items, three Wealth policies, one Reward-card substitute and one Adventure
+settlement policy across 34 tables and 365 rows.
+The [9074 expansion reward](divergent-universe-equation-expansion.md) has
 validated operands and an explicit finite-cascade executor. Fixed public-choice
 vectors in both baseline families pay for the card, trigger an additional
 Blessing through Sage evolution or victory, and verify fresh encoded replay.

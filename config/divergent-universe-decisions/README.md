@@ -1,7 +1,7 @@
 # Typed Divergent Universe decisions
 
 This project owns executable decision definitions, not the reference pack's
-identity/evidence catalog. Its 29 tables and 352 rows include policy-bound
+identity/evidence catalog. Its 34 tables and 365 rows include policy-bound
 choices, rewards and reviewed Curio components used by the production Activity
 graph, plus nine explicitly selected source decks and their 125 distinct card
 instances. Deck compilation is available, but automatic mask selection and
@@ -18,6 +18,8 @@ Activity engine or an old-format compatibility path.
 - Private reader/domain owner: `starclock-data::divergent_universe_decisions`.
 - Policy, evidence and unfinished execution requirements:
   [occurrence rewards](../../docs/divergent-universe-occurrence-rewards.md).
+- Explicit external Adventure settlement and its still-unimplemented challenges:
+  [Adventure rewards](../../docs/divergent-universe-adventure-rewards.md).
 
 Source references and policy are separate tables. Choices carry typed costs;
 ordered child rows carry reward kind, integer count/amount and optional rarity

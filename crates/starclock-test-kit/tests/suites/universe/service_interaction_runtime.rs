@@ -404,7 +404,10 @@ fn production_respite_and_transaction_rooms_offer_bound_service_handlers() {
         let binding = interactions
             .binding(abstract_binding.node(), abstract_binding.outcome())
             .expect("production service binding");
-        assert_eq!(binding.handler().get(), SERVICE_INTERACTION_HANDLER_ID);
+        assert_eq!(
+            binding.handler().unwrap().get(),
+            SERVICE_INTERACTION_HANDLER_ID
+        );
         if abstract_binding
             .source_content_id()
             .starts_with("universe.service.respite-offers")

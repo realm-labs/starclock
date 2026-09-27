@@ -4,7 +4,7 @@
 #[path = "coin_room.rs"]
 mod room;
 
-use super::{FAMILIES, Profile, compile_with_compiler, start};
+use super::{FAMILIES, Profile, compile_with_compiler};
 use crate::baseline_controller::{
     ActivityBaselineHints, ActivityOptionHint, ActivityScoreComponents,
 };
@@ -14,13 +14,13 @@ use crate::divergent_universe::{
     coin_room::{COLLECT_CHEST, LEAVE_WEALTH},
     state::{CURRENCIES_SLOT, SERVICE_RECEIPTS_SLOT},
     tests::{
-        currency_balance, reward_draws,
+        currency_balance, instance, reward_draws,
         shop_room::{SLOTS, literal, mutate},
     },
 };
 use starclock_activity::{
-    ActivityOperation, ActivityOptionId, ActivitySlotId, ActivityTerminalOutcome, ActivityValue,
-    GraphActivity, GraphActivityCommandError,
+    ActivityMasterSeed, ActivityOperation, ActivityOptionId, ActivitySlotId,
+    ActivityTerminalOutcome, ActivityValue, GraphActivity, GraphActivityCommandError,
 };
 use starclock_data::{
     divergent_universe_catalog::DivergentUniverseRunFamily,
@@ -31,6 +31,14 @@ use starclock_data::{
 use std::sync::Arc;
 
 const RECEIPT: u64 = 0x2264_0001;
+
+fn start(flow: &DivergentUniverseFlowInstance) -> GraphActivity {
+    // Current production inputs: explicit discovery proves positive chest/Shop
+    // traces in both families. This is a current vector, not compatibility.
+    flow.start(instance(26314), ActivityMasterSeed::from_u64(0))
+        .unwrap()
+        .into_activity()
+}
 
 fn compile(
     source: &DivergentUniverseBaselineFixture,
@@ -46,7 +54,7 @@ fn compile(
     let coin = factory
         .coin_room_compiler(ActivitySlotId::new(72).unwrap())
         .unwrap();
-    compile_with_compiler(source, family, 0, shop, Some(coin), None)
+    compile_with_compiler(source, family, 0, shop, Some(coin), None, None)
 }
 fn policy(
     source: &DivergentUniverseBaselineFixture,
@@ -125,6 +133,51 @@ fn receipt(activity: &GraphActivity) -> i64 {
         .iter()
         .find(|(key, _)| *key == RECEIPT)
         .map_or(0, |(_, count)| *count)
+}
+
+#[test]
+#[ignore = "explicit bounded current-configuration positive seed discovery"]
+fn discover_current_coin_and_shop_seed() {
+    let source = DivergentUniverseBaselineFixture::production().unwrap();
+    let profiles = FAMILIES.map(|family| compile(&source, family));
+    for seed in 0..64 {
+        let mut positive = true;
+        for (family, profile) in FAMILIES.into_iter().zip(&profiles) {
+            let mut activity = profile
+                .flow
+                .start(instance(26314), ActivityMasterSeed::from_u64(seed))
+                .unwrap()
+                .into_activity();
+            let (mut chests, mut purchases) = (0, 0);
+            for _ in 0..128 {
+                if activity.player_view().terminal().is_some() {
+                    break;
+                }
+                let chest = profile.flow.offered_coin_chest(&activity);
+                let shop = profile.flow.offered_shop(&activity);
+                let step = advance(&source, &profile.flow, &mut activity);
+                if let DivergentUniverseBaselineStep::ActivityDecision { decision, .. } = step {
+                    chests += usize::from(chest && decision.option().get() == COLLECT_CHEST);
+                    purchases += usize::from(shop && decision.option().get() != LEAVE_WEALTH);
+                }
+            }
+            eprintln!(
+                "current Coin/Shop seed={seed} {family:?} chests={chests} purchases={purchases}"
+            );
+            positive &= chests > 0
+                && purchases > 0
+                && activity.player_view().terminal() == Some(ActivityTerminalOutcome::Completed)
+                && activity.player_view().completed_battle_count() == 3;
+            if !positive {
+                break;
+            }
+        }
+        if positive {
+            eprintln!("current Coin/Shop positive seed={seed}");
+            return;
+        }
+    }
+    panic!("bounded current Coin/Shop search lacks a positive vector");
 }
 
 #[test]

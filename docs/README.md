@@ -177,6 +177,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 150. [Fixed-stock shop purchases and menus](divergent-universe-shop-purchase.md) — production Sora-authored policy stock, authenticated finite Shop-card menus, atomic payment, full acquisition effects, sold-out state and position-profile controller dispatch; original merchant/price policies remain pending.
 151. [Wealth chest pickups](divergent-universe-wealth-chests.md) — production-authored explicit chest policy, full Curio-modified credit, authenticated Collect/Leave and atomic position-profile controller dispatch; facilities and original reward selectors remain pending.
 152. [Reward-card occurrences](divergent-universe-reward-occurrences.md) — production-authored level-one reward-only substitute, actual sampled-card choices and shared finish/Leave dispatch; original event pools and higher levels remain pending.
+153. [Adventure settlement](divergent-universe-adventure-rewards.md) — explicit external earned-chest counts, production-authored aggregate rewards, handler-free Activity IR and independent atomic Leave; challenge simulation and original payouts remain pending.
 
 ## Delivery boundary
 

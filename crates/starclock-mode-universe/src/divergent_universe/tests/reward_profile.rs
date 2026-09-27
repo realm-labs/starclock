@@ -32,8 +32,68 @@ use starclock_data::{
 fn selection() -> RewardOccurrenceId {
     RewardOccurrenceId::new("du.reward-room.level-one-substitute").unwrap()
 }
+
+#[test]
+#[ignore = "explicit bounded current-configuration positive seed discovery"]
+fn discover_current_reward_card_seed() {
+    let source = DivergentUniverseBaselineFixture::production().unwrap();
+    let profiles = FAMILIES.map(|family| compile(&source, family));
+    for seed in 0..64 {
+        let mut positive = true;
+        for (family, profile) in FAMILIES.into_iter().zip(&profiles) {
+            for ordinal in 1..=3 {
+                let mut activity = profile
+                    .flow
+                    .start(instance(26314), ActivityMasterSeed::from_u64(seed))
+                    .unwrap()
+                    .into_activity();
+                let mut events = 0;
+                for _ in 0..128 {
+                    if activity.player_view().terminal().is_some() {
+                        break;
+                    }
+                    if profile.flow.offered_occurrence(&activity).is_some() {
+                        let hash = activity.state_hash();
+                        let decision = activity.player_view().decision().unwrap().id();
+                        profile
+                            .flow
+                            .choose_occurrence_option(
+                                source.factory(),
+                                &mut activity,
+                                hash,
+                                decision,
+                                ActivityOptionId::new(ordinal).unwrap(),
+                            )
+                            .unwrap();
+                        events += 1;
+                    } else {
+                        advance(&source, profile, &mut activity);
+                    }
+                }
+                eprintln!(
+                    "current Reward seed={seed} {family:?} ordinal={ordinal} events={events}"
+                );
+                positive &= events >= 2
+                    && activity.player_view().terminal()
+                        == Some(ActivityTerminalOutcome::Completed)
+                    && activity.player_view().completed_battle_count() == 3;
+                if !positive {
+                    break;
+                }
+            }
+            if !positive {
+                break;
+            }
+        }
+        if positive {
+            eprintln!("current Reward positive seed={seed}");
+            return;
+        }
+    }
+    panic!("bounded current Reward search lacks a positive vector");
+}
 fn start(flow: &DivergentUniverseFlowInstance) -> GraphActivity {
-    flow.start(instance(26314), ActivityMasterSeed::from_u64(1))
+    flow.start(instance(26314), ActivityMasterSeed::from_u64(3))
         .unwrap()
         .into_activity()
 }
@@ -51,7 +111,7 @@ fn compile(
     let reward = factory
         .authored_reward_occurrence_room_compiler(&selection())
         .unwrap();
-    compile_with_compiler(source, family, 0, shop, None, Some(reward))
+    compile_with_compiler(source, family, 0, shop, None, Some(reward), None)
 }
 fn policy(source: &DivergentUniverseBaselineFixture) -> DivergentUniverseBaselinePolicy {
     let original = source.policy().unwrap();

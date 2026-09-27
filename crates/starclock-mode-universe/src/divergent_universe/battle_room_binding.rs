@@ -1,5 +1,7 @@
 //! Exact fragment/profile binding for the existing battle and reward executors.
 
+#[path = "position_adventure.rs"]
+mod adventure;
 #[path = "position_coin.rs"]
 mod coin;
 #[path = "position_curio_synthesis.rs"]
@@ -17,6 +19,7 @@ use crate::digest::CanonicalDigestBuilder;
 use crate::divergent_universe::{
     DivergentUniverseFlowInstance, DivergentUniverseLogicalScopeKind, DivergentUniverseRoomPolicy,
     DivergentUniverseRuntimeFactory,
+    adventure_room::BoundAdventureRoom,
     battle_room::{BattleRoomError, CompiledBattleRoom},
     coin_room::BoundCoinRoom,
     curio_synthesis::room::BoundCurioSynthesisRoom,
@@ -31,8 +34,8 @@ use crate::divergent_universe::{
 use starclock_activity::{
     ActivityConfigDigest, ActivityDecisionKind, ActivityDefinitionDigest,
     ActivityDefinitionIdentity, ActivityEdgeCondition, ActivityExpression, ActivityGraphDefinition,
-    ActivityNodeKind, ActivityOperation, ActivityPlayerView, GraphActivity,
-    GraphActivityCommandError, GraphActivityDefinition,
+    ActivityInteractionBindings, ActivityNodeKind, ActivityOperation, ActivityPlayerView,
+    GraphActivity, GraphActivityCommandError, GraphActivityDefinition,
 };
 use starclock_data::{
     divergent_universe_decisions::BattleRewardDomain,
@@ -50,6 +53,7 @@ pub(in crate::divergent_universe) struct BoundBattleRooms {
     synthesis: Vec<BoundCurioSynthesisRoom>,
     shops: Vec<BoundShopRoom>,
     coins: Vec<BoundCoinRoom>,
+    adventures: Vec<BoundAdventureRoom>,
 }
 
 impl DivergentUniverseRuntimeFactory {
@@ -236,7 +240,7 @@ impl DivergentUniverseRuntimeFactory {
                 payload,
             )?
             || definition.participants().as_ref() != base.definition().participants().as_ref()
-            || definition.interactions().is_some()
+            || !authored_interactions_only(&definition)
             || base
                 .definition()
                 .state_definition()
@@ -324,6 +328,7 @@ impl DivergentUniverseRuntimeFactory {
             synthesis: Vec::new(),
             shops: Vec::new(),
             coins: Vec::new(),
+            adventures: Vec::new(),
             rooms: bound,
             services,
             occurrences,
@@ -458,7 +463,20 @@ impl BoundBattleRooms {
                 && actual.bootstrap() == self.definition.bootstrap()
                 && actual.random_offers() == self.definition.random_offers()
                 && actual.random_checkpoints() == self.definition.random_checkpoints()
-                && actual.interactions().is_none())
+                && actual
+                    .interactions()
+                    .map(ActivityInteractionBindings::bindings)
+                    == self
+                        .definition
+                        .interactions()
+                        .map(ActivityInteractionBindings::bindings)
+                && actual
+                    .interactions()
+                    .map(|bindings| bindings.registry().digest())
+                    == self
+                        .definition
+                        .interactions()
+                        .map(|bindings| bindings.registry().digest()))
     }
 
     pub(in crate::divergent_universe) fn offered(
@@ -521,4 +539,18 @@ impl BoundBattleRooms {
             Err(GraphActivityCommandError::DecisionNotOffered)
         }
     }
+}
+
+fn authored_interactions_only(definition: &GraphActivityDefinition) -> bool {
+    definition.interactions().is_none_or(|interactions| {
+        interactions
+            .bindings()
+            .iter()
+            .all(|binding| binding.handler().is_none())
+            && interactions
+                .registry()
+                .bundles()
+                .iter()
+                .all(|bundle| bundle.registrations().is_empty())
+    })
 }

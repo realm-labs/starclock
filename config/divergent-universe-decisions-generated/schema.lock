@@ -3,7 +3,7 @@
   "project_id": "starclock_divergent_universe_decisions",
   "contract_id": "starclock_divergent_universe_decisions/default",
   "view": "default",
-  "fingerprint": "2c3e77510c4b3ef9",
+  "fingerprint": "ed1f88655230c61d",
   "schema": {
     "project_id": "starclock_divergent_universe_decisions",
     "contract_id": "starclock_divergent_universe_decisions/default",
@@ -656,6 +656,20 @@
           {
             "id": 0,
             "name": "SingleExplicitRewardOnlySubstituteNoPoolSampling"
+          }
+        ]
+      },
+      {
+        "name": "DuAdventureRewardPolicy",
+        "groups": {
+          "values": [
+            "common"
+          ]
+        },
+        "values": [
+          {
+            "id": 0,
+            "name": "ExternalEarnedChestCountAggregateFragmentsOnly"
           }
         ]
       }
@@ -8661,6 +8675,269 @@
             "name": "policy",
             "ty": {
               "Enum": "DuRewardOccurrencePolicy"
+            },
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "summary_en",
+            "ty": "String",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4000
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "summary_zh_cn",
+            "ty": "String",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4000
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "policy_note",
+            "ty": "String",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4000
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "replacement_condition",
+            "ty": "String",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4000
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "source_ids",
+            "ty": {
+              "List": {
+                "Ref": {
+                  "table": "DuDecisionSources",
+                  "field": "id"
+                }
+              }
+            },
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": {
+              "kind": "split",
+              "options": {
+                "separator": "|"
+              }
+            },
+            "derived_from": null
+          }
+        ],
+        "indexes": [
+          {
+            "name": "by_stable_key",
+            "fields": [
+              "stable_key"
+            ],
+            "unique": true
+          }
+        ]
+      },
+      {
+        "id": "adventurerewards",
+        "name": "DuAdventureRewards",
+        "canonical_name": "DuAdventureRewards",
+        "groups": {
+          "values": [
+            "common"
+          ]
+        },
+        "mode": "Map",
+        "key": "id",
+        "source": {
+          "file": "DivergentUniverseDecisions.xlsx",
+          "sheet": "AdventureRewards"
+        },
+        "fields": [
+          {
+            "name": "id",
+            "ty": "I32",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": true,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "stable_key",
+            "ty": "String",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4000
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "preset_source",
+            "ty": "String",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4000
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "level",
+            "ty": "I32",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              5
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "maximum_chests",
+            "ty": "I32",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              3
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "fragments_per_chest",
+            "ty": "String",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4000
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "policy",
+            "ty": {
+              "Enum": "DuAdventureRewardPolicy"
             },
             "groups": {
               "values": [

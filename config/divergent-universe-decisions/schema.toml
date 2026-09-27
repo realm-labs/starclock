@@ -110,6 +110,9 @@ values = [{ id = 0, name = "FixedSingleChestCreditNoAmusementFacilities" }]
 [[enums]]
 name = "DuRewardOccurrencePolicy"
 values = [{ id = 0, name = "SingleExplicitRewardOnlySubstituteNoPoolSampling" }]
+[[enums]]
+name = "DuAdventureRewardPolicy"
+values = [{ id = 0, name = "ExternalEarnedChestCountAggregateFragmentsOnly" }]
 [[tables]]
 id = "sources"
 name = "DuDecisionSources"
@@ -1895,6 +1898,65 @@ type = "ref<DuDecisionOccurrences.id>"
 [[tables.fields]]
 name = "policy"
 type = "enum<DuRewardOccurrencePolicy>"
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "policy_note"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "replacement_condition"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "source_ids"
+type = "list<ref<DuDecisionSources.id>>"
+parser = { kind = "split", separator = "|" }
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+[[tables]]
+id = "adventurerewards"
+name = "DuAdventureRewards"
+mode = "map"
+key = "id"
+[tables.source]
+file = "DivergentUniverseDecisions.xlsx"
+sheet = "AdventureRewards"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1,2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "preset_source"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "level"
+type = "i32"
+range = [1,5]
+[[tables.fields]]
+name = "maximum_chests"
+type = "i32"
+range = [1,3]
+[[tables.fields]]
+name = "fragments_per_chest"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "policy"
+type = "enum<DuAdventureRewardPolicy>"
 [[tables.fields]]
 name = "summary_en"
 type = "string"

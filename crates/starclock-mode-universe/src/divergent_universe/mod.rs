@@ -3,6 +3,7 @@
 mod activity_decision_mechanic_runtime;
 mod activity_external_outcome_mechanic_runtime;
 mod activity_state_mechanic_runtime;
+pub mod adventure_room;
 mod baseline_fixture;
 mod baseline_replay;
 mod baseline_runtime;

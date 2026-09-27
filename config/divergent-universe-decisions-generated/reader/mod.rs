@@ -40,6 +40,7 @@ pub mod du_shop_stock_policy;
 pub mod du_shop_reward_kind;
 pub mod du_coin_reward_policy;
 pub mod du_reward_occurrence_policy;
+pub mod du_adventure_reward_policy;
 pub mod du_decision_sources;
 pub mod du_decision_policies;
 pub mod du_decision_occurrences;
@@ -73,9 +74,10 @@ pub mod du_shop_stocks;
 pub mod du_shop_items;
 pub mod du_coin_rewards;
 pub mod du_reward_occurrences;
+pub mod du_adventure_rewards;
 pub type SoraMap<K, V> = std::collections::HashMap<K, V>;
 
-pub const SCHEMA_FINGERPRINT: &str = "2c3e77510c4b3ef9";
+pub const SCHEMA_FINGERPRINT: &str = "ed1f88655230c61d";
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum SoraTableShape {
@@ -158,7 +160,7 @@ impl SoraConfig {
             )));
         }
         let mut tables: SoraMap<&'static str, Box<dyn ErasedSoraTable>> =
-            sora_map_with_capacity(33);
+            sora_map_with_capacity(34);
         tables.insert(du_decision_sources::DuDecisionSourcesTable::NAME, Box::new(du_decision_sources::DuDecisionSourcesTable::from_rows(source.decode_table::<du_decision_sources::DuDecisionSources>(du_decision_sources::DuDecisionSourcesTable::NAME)?)?));
         tables.insert(du_decision_policies::DuDecisionPoliciesTable::NAME, Box::new(du_decision_policies::DuDecisionPoliciesTable::from_rows(source.decode_table::<du_decision_policies::DuDecisionPolicies>(du_decision_policies::DuDecisionPoliciesTable::NAME)?)?));
         tables.insert(du_decision_occurrences::DuDecisionOccurrencesTable::NAME, Box::new(du_decision_occurrences::DuDecisionOccurrencesTable::from_rows(source.decode_table::<du_decision_occurrences::DuDecisionOccurrences>(du_decision_occurrences::DuDecisionOccurrencesTable::NAME)?)?));
@@ -192,6 +194,7 @@ impl SoraConfig {
         tables.insert(du_shop_items::DuShopItemsTable::NAME, Box::new(du_shop_items::DuShopItemsTable::from_rows(source.decode_table::<du_shop_items::DuShopItems>(du_shop_items::DuShopItemsTable::NAME)?)?));
         tables.insert(du_coin_rewards::DuCoinRewardsTable::NAME, Box::new(du_coin_rewards::DuCoinRewardsTable::from_rows(source.decode_table::<du_coin_rewards::DuCoinRewards>(du_coin_rewards::DuCoinRewardsTable::NAME)?)?));
         tables.insert(du_reward_occurrences::DuRewardOccurrencesTable::NAME, Box::new(du_reward_occurrences::DuRewardOccurrencesTable::from_rows(source.decode_table::<du_reward_occurrences::DuRewardOccurrences>(du_reward_occurrences::DuRewardOccurrencesTable::NAME)?)?));
+        tables.insert(du_adventure_rewards::DuAdventureRewardsTable::NAME, Box::new(du_adventure_rewards::DuAdventureRewardsTable::from_rows(source.decode_table::<du_adventure_rewards::DuAdventureRewards>(du_adventure_rewards::DuAdventureRewardsTable::NAME)?)?));
         Ok(Self { tables })
     }
 
@@ -344,6 +347,10 @@ impl SoraConfig {
 
     pub fn du_reward_occurrences(&self) -> &du_reward_occurrences::DuRewardOccurrencesTable {
         self.table(du_reward_occurrences::DuRewardOccurrencesTable::NAME)
+    }
+
+    pub fn du_adventure_rewards(&self) -> &du_adventure_rewards::DuAdventureRewardsTable {
+        self.table(du_adventure_rewards::DuAdventureRewardsTable::NAME)
     }
 }
 

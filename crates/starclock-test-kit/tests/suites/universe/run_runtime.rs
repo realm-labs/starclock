@@ -192,12 +192,11 @@ fn noncombat_rooms_accept_only_offered_external_outcomes_through_bound_handlers(
         .interactions()
         .expect("all external outcomes use the composed handler registry");
     assert!(bound.bindings().len() >= compiled.abstract_interactions().len());
-    assert!(
-        bound
-            .bindings()
-            .iter()
-            .all(|binding| bound.registry().handler(binding.handler()).is_some())
-    );
+    assert!(bound.bindings().iter().all(|binding| {
+        binding
+            .handler()
+            .is_some_and(|id| bound.registry().handler(id).is_some())
+    }));
     assert!(
         compiled
             .abstract_interactions()
@@ -327,7 +326,11 @@ fn occurrence_choices_compile_and_exact_room_sources_bind_executable_handlers() 
     assert!(occurrence_bindings.iter().all(|binding| {
         runtime
             .binding(binding.node(), binding.outcome())
-            .is_some_and(|value| runtime.registry().handler(value.handler()).is_some())
+            .is_some_and(|value| {
+                value
+                    .handler()
+                    .is_some_and(|id| runtime.registry().handler(id).is_some())
+            })
     }));
     let interaction_catalog = compiled.occurrence_interaction_runtime();
     assert_eq!(interaction_catalog.choice_count(), 321);
@@ -1063,7 +1066,7 @@ fn occurrence_harness_with_fragments_and_seed(
     let mut binding = ActivityInteractionBinding::new(
         node(1),
         source.offered_outcome(),
-        source.handler(),
+        source.handler().unwrap(),
         source.payload().to_vec(),
         source.component_id(),
     )

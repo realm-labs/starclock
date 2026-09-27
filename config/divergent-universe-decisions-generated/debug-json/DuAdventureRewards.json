@@ -1,0 +1,57 @@
+{
+  "table": {
+    "name": "DuAdventureRewards",
+    "rows": [
+      {
+        "values": {
+          "fragments_per_chest": {
+            "String": "100"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "level": {
+            "Integer": 1
+          },
+          "maximum_chests": {
+            "Integer": 3
+          },
+          "policy": {
+            "String": "ExternalEarnedChestCountAggregateFragmentsOnly"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: explicit external earned count 0..3; 100 base Fragments per chest, aggregated before the current active Curio gain pipeline and its integer rounding. Exact reward composition, amounts and timing are unavailable after bounded released-source research. No RNG, automatic entry payout, guessed challenge pool, score/time simulation or higher-level reward. Alternatives: disable settlement or guess original mini-games; the explicit host result preserves the known level-one bound without inventing gameplay. Original-parity confidence is unproven. Production Sora, all-count settlement, overflow/rejection and fresh-definition fixtures freeze policy."
+          },
+          "preset_source": {
+            "String": "1011"
+          },
+          "replacement_condition": {
+            "String": "Replace amount/composition/rounding/timing when current released chest programs or reproducible observations establish them. Implement source-selected challenges and Adventure-specific Curio time/extra-chest/rank effects separately; this row does not complete Adventure gameplay."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 68
+              },
+              {
+                "Integer": 69
+              },
+              {
+                "Integer": 72
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.adventure-reward.level-one-aggregate"
+          },
+          "summary_en": {
+            "String": "External earned-chest count settles Fragments; challenge simulation remains unimplemented."
+          },
+          "summary_zh_cn": {
+            "String": "外部输入已赢得宝箱数并结算碎片；挑战模拟仍未实现。"
+          }
+        }
+      }
+    ]
+  }
+}

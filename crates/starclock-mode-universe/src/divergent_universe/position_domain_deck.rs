@@ -1,5 +1,6 @@
 //! Immutable source-position hand dispatch, distinct from ordinary room exits.
 
+use super::authored_interactions_only;
 use crate::divergent_universe::{
     DivergentUniverseFlowInstance, DivergentUniverseRuntimeFactory,
     battle_room::BattleRoomError,
@@ -82,7 +83,7 @@ impl DivergentUniverseRuntimeFactory {
             })
             || !definition.random_checkpoints().is_empty()
             || definition.bootstrap().is_some()
-            || definition.interactions().is_some()
+            || !authored_interactions_only(definition)
         {
             return Err(BattleRoomError::InvalidDefinition);
         }

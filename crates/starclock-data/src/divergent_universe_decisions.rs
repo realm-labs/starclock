@@ -28,9 +28,13 @@ use crate::divergent_universe_equation_catalog::{
 use crate::divergent_universe_service_catalog::{
     DivergentUniverseOccurrenceId, DivergentUniverseOccurrenceVariantId,
 };
+use adventure_rewards::AdventureRewardDefinition;
 use coin_rewards::CoinRewardDefinition;
 use reward_occurrences::RewardOccurrenceDefinition;
 use shop::ShopStockDefinition;
+
+#[path = "divergent_universe_adventure_reward_data.rs"]
+pub mod adventure_rewards;
 
 #[path = "divergent_universe_coin_reward_data.rs"]
 pub mod coin_rewards;
@@ -230,6 +234,7 @@ pub struct CurioFragmentGainDefinition {
 /// binary and reference component; equal IDs cannot hide different parameters.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DecisionCatalog {
+    adventure_rewards: Box<[AdventureRewardDefinition]>,
     coin_rewards: Box<[CoinRewardDefinition]>,
     reward_occurrences: Box<[RewardOccurrenceDefinition]>,
     shop_stocks: Box<[ShopStockDefinition]>,
@@ -587,6 +592,12 @@ impl DecisionCatalog {
     /// Explicit chest-only policy at reviewed Wealth presets; facilities are separate.
     pub fn coin_rewards(&self) -> &[CoinRewardDefinition] {
         &self.coin_rewards
+    }
+
+    /// Reviewed Adventure settlement policies, not challenge-pool admission.
+    #[must_use]
+    pub fn adventure_rewards(&self) -> &[AdventureRewardDefinition] {
+        &self.adventure_rewards
     }
 
     #[must_use]

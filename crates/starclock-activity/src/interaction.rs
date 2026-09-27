@@ -1,4 +1,4 @@
-//! Validated bindings from offered external outcomes to composed handlers.
+//! Validated external outcomes executed by authored IR or composed handlers.
 
 use std::sync::Arc;
 
@@ -58,10 +58,18 @@ impl ActivityInteractionRandomPolicy {
 pub struct ActivityInteractionBinding {
     node: NodeId,
     offered_outcome: ActivityExternalOutcomeId,
-    handler: ActivityHandlerId,
-    payload: Box<[u8]>,
+    execution: InteractionExecution,
     component_id: Box<str>,
     random_policy: Option<ActivityInteractionRandomPolicy>,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+enum InteractionExecution {
+    AuthoredOption,
+    Handler {
+        id: ActivityHandlerId,
+        payload: Box<[u8]>,
+    },
 }
 
 impl ActivityInteractionBinding {
@@ -80,8 +88,29 @@ impl ActivityInteractionBinding {
         Ok(Self {
             node,
             offered_outcome,
-            handler,
-            payload: payload.into_boxed_slice(),
+            execution: InteractionExecution::Handler {
+                id: handler,
+                payload: payload.into_boxed_slice(),
+            },
+            component_id,
+            random_policy: None,
+        })
+    }
+
+    /// Authorizes an offered external result whose complete effects are its
+    /// validated option IR. No native callback, payload or RNG draw is involved.
+    /// Binding validation rejects a subsequently attached random policy.
+    pub fn authored_option(
+        node: NodeId,
+        offered_outcome: ActivityExternalOutcomeId,
+        component_id: impl Into<Box<str>>,
+    ) -> Result<Self, ActivityInteractionBindingError> {
+        let component_id = component_id.into();
+        validate_component_id(&component_id)?;
+        Ok(Self {
+            node,
+            offered_outcome,
+            execution: InteractionExecution::AuthoredOption,
             component_id,
             random_policy: None,
         })
@@ -104,13 +133,20 @@ impl ActivityInteractionBinding {
     }
 
     #[must_use]
-    pub const fn handler(&self) -> ActivityHandlerId {
-        self.handler
+    /// Native registration, or `None` when the selected option owns all effects.
+    pub const fn handler(&self) -> Option<ActivityHandlerId> {
+        match self.execution {
+            InteractionExecution::AuthoredOption => None,
+            InteractionExecution::Handler { id, .. } => Some(id),
+        }
     }
 
     #[must_use]
     pub fn payload(&self) -> &[u8] {
-        &self.payload
+        match &self.execution {
+            InteractionExecution::AuthoredOption => &[],
+            InteractionExecution::Handler { payload, .. } => payload,
+        }
     }
 
     #[must_use]
@@ -235,8 +271,14 @@ fn validate_binding(
     if !offered {
         return Err(ActivityInteractionBindingError::OutcomeNotOffered);
     }
-    if registry.handler(binding.handler).is_none() {
-        return Err(ActivityInteractionBindingError::MissingHandler);
+    match binding.handler() {
+        Some(handler) if registry.handler(handler).is_none() => {
+            return Err(ActivityInteractionBindingError::MissingHandler);
+        }
+        None if binding.random_policy().is_some() => {
+            return Err(ActivityInteractionBindingError::InvalidRandomPolicy);
+        }
+        _ => {}
     }
     Ok(())
 }

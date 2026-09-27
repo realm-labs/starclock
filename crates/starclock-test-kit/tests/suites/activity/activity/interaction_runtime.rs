@@ -2,6 +2,8 @@ use std::sync::Arc;
 
 #[path = "interaction_advance.rs"]
 mod advance;
+#[path = "interaction_authored.rs"]
+mod authored;
 
 use starclock_activity::{
     ActivityCondition, ActivityConfigDigest, ActivityDecisionKind, ActivityDefinitionDigest,

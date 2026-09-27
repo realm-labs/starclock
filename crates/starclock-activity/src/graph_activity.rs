@@ -10,7 +10,7 @@ use crate::{
     ActivityBattleStartRequest, ActivityBootstrapSelection, ActivityCause, ActivityDebugView,
     ActivityDecisionId, ActivityDecisionKind, ActivityDefinitionIdentity, ActivityExpression,
     ActivityExternalOutcomeId, ActivityGraphDefinition, ActivityHandlerInput,
-    ActivityHandlerRegistry, ActivityInstanceId, ActivityInteractionBinding,
+    ActivityHandlerOutput, ActivityHandlerRegistry, ActivityInstanceId, ActivityInteractionBinding,
     ActivityInteractionBindings, ActivityMasterSeed, ActivityOperation, ActivityOptionDefinition,
     ActivityOptionId, ActivityPendingBattleView, ActivityPlayerView, ActivityPreparationBoundary,
     ActivityPreparationView, ActivityProgramDefinition, ActivityProgramId,
@@ -572,10 +572,6 @@ impl GraphActivity {
         let binding = interactions
             .binding(self.state.current_node(), outcome)
             .ok_or(GraphActivityCommandError::InteractionNotBound)?;
-        let registration = interactions
-            .registry()
-            .handler(binding.handler())
-            .ok_or(GraphActivityCommandError::HandlerUnavailable)?;
         let mut working_rng = self.rng.transaction_copy();
         let random_index = binding
             .random_policy()
@@ -591,13 +587,25 @@ impl GraphActivity {
             })
             .transpose()
             .map_err(GraphActivityCommandError::Rng)?;
-        let output = registration
-            .execute(
-                ActivityHandlerInput::new(&view, binding.payload())
-                    .map_err(|fault| GraphActivityCommandError::HandlerFault(fault.kind()))?
-                    .with_random_index(random_index),
+        let output = if let Some(handler) = binding.handler() {
+            Some(
+                interactions
+                    .registry()
+                    .handler(handler)
+                    .ok_or(GraphActivityCommandError::HandlerUnavailable)?
+                    .execute(
+                        ActivityHandlerInput::new(&view, binding.payload())
+                            .map_err(|fault| GraphActivityCommandError::HandlerFault(fault.kind()))?
+                            .with_random_index(random_index),
+                    )
+                    .map_err(|fault| GraphActivityCommandError::HandlerFault(fault.kind()))?,
             )
-            .map_err(|fault| GraphActivityCommandError::HandlerFault(fault.kind()))?;
+        } else {
+            None
+        };
+        let prefix = output
+            .as_ref()
+            .map_or(&[][..], ActivityHandlerOutput::operations);
         let program = self
             .definition
             .program(self.state.current_node())
@@ -614,7 +622,7 @@ impl GraphActivity {
             })
             .expect("validated offered option exists in its source program");
         if selected_operations
-            .checked_add(output.operations().len())
+            .checked_add(prefix.len())
             .is_none_or(|count| count > MAX_ACTIVITY_PROGRAM_OPERATIONS)
         {
             return Err(GraphActivityCommandError::InteractionOperationLimit);
@@ -628,7 +636,7 @@ impl GraphActivity {
         let mut working_state = self.state.transaction_copy();
         let mut events = match working_state.apply_option_with_prefix(
             option,
-            output.operations(),
+            prefix,
             cause,
             &self.definition.graph,
         ) {

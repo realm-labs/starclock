@@ -1,6 +1,8 @@
 //! Actual source-card admission, explicit stock/funds and three real Boss proxies.
 //! Other payloads are probes; this does not establish released complete-run parity.
 
+#[path = "adventure_profile.rs"]
+mod adventures;
 #[path = "shop_profile_authentication.rs"]
 mod authentication;
 #[path = "coin_profile.rs"]
@@ -19,6 +21,7 @@ use crate::divergent_universe::{
     DivergentUniverseBaselineFixture, DivergentUniverseBaselinePolicy,
     DivergentUniverseBaselineRunner, DivergentUniverseBaselineStep, DivergentUniverseCurrencyKind,
     DivergentUniverseFlowInstance, DivergentUniverseLogicalScopeKind,
+    adventure_room::{AdventureRoomCompiler, CompiledAdventureRoom},
     battle_room::BattleRoomSelection,
     coin_room::{CoinRoomCompiler, CompiledCoinRoom},
     domain_route::DomainRoomComposition,
@@ -33,10 +36,11 @@ use crate::divergent_universe::{
 };
 use starclock_activity::{
     ActivityConfigDigest, ActivityEdgeCondition, ActivityEdgeDefinition, ActivityEdgeId,
-    ActivityGraphDefinition, ActivityMasterSeed, ActivityNodeDefinition, ActivityNodeKind,
-    ActivityOperation, ActivityOptionId, ActivityRandomPolicies, ActivityStateDefinition,
-    ActivityTerminalOutcome, ActivityValue, GraphActivity, GraphActivityDefinition,
-    LogicalScopeAddress, LogicalScopeDefinitions, LogicalScopeNodeBinding, NodeId, SectionId,
+    ActivityGraphDefinition, ActivityHandlerRegistry, ActivityMasterSeed, ActivityNodeDefinition,
+    ActivityNodeKind, ActivityOperation, ActivityOptionId, ActivityRandomPolicies,
+    ActivityStateDefinition, ActivityTerminalOutcome, ActivityValue, GraphActivity,
+    GraphActivityDefinition, LogicalScopeAddress, LogicalScopeDefinitions, LogicalScopeNodeBinding,
+    NodeId, SectionId, core_activity_handler_bundle,
 };
 use starclock_data::{
     divergent_universe_catalog::DivergentUniverseRunFamily,
@@ -78,6 +82,7 @@ fn shop_controller_authored_stock_requires_current_key_and_binds_selection_ident
     );
 }
 struct Profile {
+    adventures: Vec<CompiledAdventureRoom>,
     occurrences: Vec<CompiledOccurrenceRoom>,
     coins: Vec<CompiledCoinRoom>,
     flow: DivergentUniverseFlowInstance,
@@ -96,7 +101,7 @@ fn compile(
         .factory()
         .authored_shop_room_compiler(&id, SLOTS)
         .unwrap();
-    compile_with_compiler(source, family, budget, compiler, None, None)
+    compile_with_compiler(source, family, budget, compiler, None, None, None)
 }
 
 fn compile_with_stock(
@@ -106,7 +111,7 @@ fn compile_with_stock(
     items: Vec<ShopStockItem>,
 ) -> Profile {
     let compiler = source.factory().shop_room_compiler(items, SLOTS).unwrap();
-    compile_with_compiler(source, family, budget, compiler, None, None)
+    compile_with_compiler(source, family, budget, compiler, None, None, None)
 }
 
 fn compile_with_compiler(
@@ -116,6 +121,7 @@ fn compile_with_compiler(
     shop: ShopRoomCompiler,
     coin: Option<CoinRoomCompiler>,
     reward: Option<RewardOccurrenceRoomCompiler>,
+    adventure: Option<AdventureRoomCompiler>,
 ) -> Profile {
     let factory = source.factory();
     let base = base(source, family);
@@ -131,6 +137,7 @@ fn compile_with_compiler(
     let mut rooms = Vec::new();
     let mut coins = Vec::new();
     let mut occurrences = Vec::new();
+    let mut adventures = Vec::new();
     let deck = &factory.decision_catalog().domain_decks()[0].key;
     let mut route = factory
         .compile_curio_domain_route(base.area(), deck, 3, DECK, |context| {
@@ -161,6 +168,13 @@ fn compile_with_compiler(
                 let room = reward.compile(context).unwrap();
                 let fragment = room.fragment().clone();
                 occurrences.push(room);
+                Ok(fragment)
+            } else if let Some(adventure) = &adventure
+                && context.composition == DomainRoomComposition::Card(DomainCardKind::Adventure)
+            {
+                let room = adventure.compile(context).unwrap();
+                let fragment = room.fragment().clone();
+                adventures.push(room);
                 Ok(fragment)
             } else {
                 probe(context)
@@ -230,6 +244,9 @@ fn compile_with_compiler(
     if let Some(room) = coins.first() {
         slots.push(room.slot_definition().clone());
     }
+    if let Some(room) = adventures.first() {
+        slots.push(room.slot_definition().clone());
+    }
     let mut owner = CanonicalDigestBuilder::new();
     owner.update(b"du.test.shop-profile.reviewed-shop-cards.explicit-stock-and-funds.three-boss-proxies.other-payloads-probes");
     owner.update(u64::try_from(deck.len()).unwrap().to_le_bytes());
@@ -247,6 +264,12 @@ fn compile_with_compiler(
     for room in &coins {
         owner.update(room.configuration_digest());
     }
+    if !adventures.is_empty() {
+        owner.update(u32::try_from(adventures.len()).unwrap().to_le_bytes());
+        for room in &adventures {
+            owner.update(room.configuration_digest());
+        }
+    }
     let payload = ActivityConfigDigest::new(owner.finalize()).unwrap();
     let identity = factory
         .position_room_identity_with_occurrences(
@@ -258,20 +281,31 @@ fn compile_with_compiler(
             payload,
         )
         .unwrap();
-    let definition = Arc::new(
-        GraphActivityDefinition::new(
-            identity,
-            route.graph.clone(),
-            ActivityStateDefinition::new(slots, Vec::new(), Vec::new())
-                .unwrap()
-                .with_logical_scopes(route.logical_scopes.clone()),
-            Arc::clone(base.definition().participants()),
-            route.programs.clone(),
-            None,
-            ActivityRandomPolicies::new(Vec::new(), route.random_offers.clone()),
-        )
-        .unwrap(),
-    );
+    let definition = GraphActivityDefinition::new(
+        identity,
+        route.graph.clone(),
+        ActivityStateDefinition::new(slots, Vec::new(), Vec::new())
+            .unwrap()
+            .with_logical_scopes(route.logical_scopes.clone()),
+        Arc::clone(base.definition().participants()),
+        route.programs.clone(),
+        None,
+        ActivityRandomPolicies::new(Vec::new(), route.random_offers.clone()),
+    )
+    .unwrap();
+    let definition = Arc::new(if adventures.is_empty() {
+        definition
+    } else {
+        definition
+            .with_interactions(
+                ActivityHandlerRegistry::compose(vec![core_activity_handler_bundle()]).unwrap(),
+                adventures
+                    .iter()
+                    .flat_map(|room| room.interaction_bindings().iter().cloned())
+                    .collect(),
+            )
+            .unwrap()
+    });
     let flow = factory
         .bind_position_rooms_with_occurrences(
             base,
@@ -290,7 +324,15 @@ fn compile_with_compiler(
     } else {
         factory.bind_position_coin_rooms(flow, &coins).unwrap()
     };
+    let flow = if adventures.is_empty() {
+        flow
+    } else {
+        factory
+            .bind_position_adventure_rooms(flow, &adventures)
+            .unwrap()
+    };
     Profile {
+        adventures,
         occurrences,
         coins,
         flow,

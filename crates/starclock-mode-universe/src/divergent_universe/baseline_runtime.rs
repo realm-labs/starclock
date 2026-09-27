@@ -23,7 +23,8 @@ use super::{
     DivergentUniverseBattleAssemblyError, DivergentUniverseBattleAssemblyPolicy,
     DivergentUniverseBattleSettlementError, DivergentUniverseContributionSnapshotError,
     DivergentUniverseEncounterReachabilityError, DivergentUniverseFlowInstance,
-    DivergentUniverseRuntimeFactory, occurrence_binding::OccurrenceExecutionError,
+    DivergentUniverseRuntimeFactory, adventure_room::AdventureEarnedChests,
+    occurrence_binding::OccurrenceExecutionError,
 };
 
 /// Immutable controller policy. Group/stage are fallback inputs only for
@@ -355,6 +356,38 @@ fn advance_decision(
     if selected.kind() == ActivityDecisionKind::Reward && flow.offered_coin_chest(activity) {
         flow.choose_coin_chest(activity, state_hash, selected.decision(), selected.option())
             .map_err(DivergentUniverseBaselineError::ActivityCommand)?;
+        return Ok(DivergentUniverseBaselineStep::ActivityDecision {
+            decision: selected,
+            state_hash: activity.state_hash(),
+        });
+    }
+    if flow.offered_adventure(activity) == Some(selected.kind()) {
+        match selected.kind() {
+            ActivityDecisionKind::ExternalOutcome => {
+                // Deterministic host input, not evidence of simulated challenge success.
+                let result = match selected.option().get() {
+                    1 => AdventureEarnedChests::None,
+                    2 => AdventureEarnedChests::One,
+                    3 => AdventureEarnedChests::Two,
+                    4 => AdventureEarnedChests::Three,
+                    _ => {
+                        return Err(DivergentUniverseBaselineError::ActivityCommand(
+                            GraphActivityCommandError::DecisionNotOffered,
+                        ));
+                    }
+                };
+                flow.submit_adventure_result(activity, state_hash, selected.decision(), result)
+            }
+            ActivityDecisionKind::Route => {
+                flow.leave_adventure(activity, state_hash, selected.decision(), selected.option())
+            }
+            _ => {
+                return Err(DivergentUniverseBaselineError::ActivityCommand(
+                    GraphActivityCommandError::DecisionNotOffered,
+                ));
+            }
+        }
+        .map_err(DivergentUniverseBaselineError::ActivityCommand)?;
         return Ok(DivergentUniverseBaselineStep::ActivityDecision {
             decision: selected,
             state_hash: activity.state_hash(),

@@ -294,10 +294,13 @@ Do not add a new core node kind for one event until composition plus a registere
 ### Registered external result transactions
 
 `GraphActivity::submit_external_outcome` accepts only a currently offered typed
-result with a validated binding in the immutable composed handler registry.
-The handler observes the pre-command view, bounded payload and any declared
-labeled draw; it returns operations, not external side effects. Ordinary and
-generated player choices cannot bypass this registered interaction boundary.
+result with a validated immutable interaction binding. An `authored_option`
+binding executes the selected option's complete validated IR without a native
+callback, payload or RNG draw; attaching a random policy is invalid. This is
+not a no-op handler registration. A handler binding instead observes the
+pre-command view, bounded payload and any declared labeled draw, and returns
+operations, not external side effects. Ordinary and generated player choices
+cannot bypass either external-result binding.
 
 Handler operations, authored option effects, result consumption and automatic
 graph advancement share one transaction. Every returned error restores the
@@ -315,8 +318,8 @@ This boundary does not simulate minigames or supply mode-specific reward rules.
 `GraphActivity::choose_option_with_generated_prefix` is the shared trusted
 executor boundary for an offered choice whose rewards require labeled RNG.
 It validates the expected hash, pending decision and selected option before
-invoking the generator. External outcomes continue through their registered
-interaction handler, not this player-choice boundary.
+invoking the generator. External outcomes continue through their validated
+authored-option or handler binding, not this player-choice boundary.
 
 The generator observes the pre-command player view and Activity RNG streams.
 It returns state-only operations and a caller-owned result, with no external
