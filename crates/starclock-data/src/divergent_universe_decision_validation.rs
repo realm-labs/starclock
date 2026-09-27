@@ -52,12 +52,12 @@ use crate::divergent_universe_service_catalog::{
     DivergentUniverseOccurrenceId, DivergentUniverseOccurrenceVariantId,
 };
 
-use super::shop;
 use super::{
     DecisionCatalog, DecisionChoice, DecisionChoiceId, DecisionDataError, DecisionEvidence,
     DecisionExhaustion, DecisionOccurrence, DecisionOutcome, DecisionPolicy, DecisionPolicyKind,
     DecisionSource, key, reward, unique,
 };
+use super::{coin_rewards, shop};
 
 pub(super) fn compile(
     config: &SoraConfig,
@@ -65,9 +65,15 @@ pub(super) fn compile(
 ) -> Result<DecisionCatalog, DecisionDataError> {
     unique(
         config
-            .du_shop_stocks()
+            .du_coin_rewards()
             .ordered_rows()
             .map(|row| row.stable_key.as_str())
+            .chain(
+                config
+                    .du_shop_stocks()
+                    .ordered_rows()
+                    .map(|row| row.stable_key.as_str()),
+            )
             .chain(
                 config
                     .du_shop_items()
@@ -421,6 +427,7 @@ pub(super) fn compile(
     let curio_domain_grants =
         curio_domain_grants::compile(config, reference, &curio_domain_expiries)?;
     Ok(DecisionCatalog {
+        coin_rewards: coin_rewards::compile(config)?,
         shop_stocks: shop::compile(config, reference)?,
         domain_decks: divergent_universe_domain_decks::compile(config)?,
         domain_layout: divergent_universe_domain_layout::compile(config, reference)?,

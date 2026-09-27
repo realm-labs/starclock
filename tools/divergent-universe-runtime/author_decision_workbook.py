@@ -23,6 +23,7 @@ from equation_expansion_rows import append_equation_expansion_rewards
 from domain_layout_rows import append_domain_layout
 from domain_deck_rows import append_domain_decks
 from shop_stock_rows import append_shop_stocks
+from coin_reward_rows import append_coin_rewards
 
 
 def rows() -> dict[str, list[list[object]]]:
@@ -292,6 +293,7 @@ def rows() -> dict[str, list[list[object]]]:
     append_domain_layout(data)
     append_domain_decks(data)
     append_shop_stocks(data)
+    append_coin_rewards(data)
     return data
 
 

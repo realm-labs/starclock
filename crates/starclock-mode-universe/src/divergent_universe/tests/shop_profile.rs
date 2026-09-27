@@ -3,6 +3,8 @@
 
 #[path = "shop_profile_authentication.rs"]
 mod authentication;
+#[path = "coin_profile.rs"]
+mod coins;
 
 use std::sync::Arc;
 
@@ -16,6 +18,7 @@ use crate::divergent_universe::{
     DivergentUniverseBaselineRunner, DivergentUniverseBaselineStep, DivergentUniverseCurrencyKind,
     DivergentUniverseFlowInstance, DivergentUniverseLogicalScopeKind,
     battle_room::BattleRoomSelection,
+    coin_room::{CoinRoomCompiler, CompiledCoinRoom},
     domain_route::DomainRoomComposition,
     shop_purchase::{
         ShopStockItem,
@@ -71,6 +74,7 @@ fn shop_controller_authored_stock_requires_current_key_and_binds_selection_ident
     );
 }
 struct Profile {
+    coins: Vec<CompiledCoinRoom>,
     flow: DivergentUniverseFlowInstance,
     unbound: DivergentUniverseFlowInstance,
     rooms: Vec<CompiledShopRoom>,
@@ -87,7 +91,7 @@ fn compile(
         .factory()
         .authored_shop_room_compiler(&id, SLOTS)
         .unwrap();
-    compile_with_compiler(source, family, budget, compiler)
+    compile_with_compiler(source, family, budget, compiler, None)
 }
 
 fn compile_with_stock(
@@ -97,7 +101,7 @@ fn compile_with_stock(
     items: Vec<ShopStockItem>,
 ) -> Profile {
     let compiler = source.factory().shop_room_compiler(items, SLOTS).unwrap();
-    compile_with_compiler(source, family, budget, compiler)
+    compile_with_compiler(source, family, budget, compiler, None)
 }
 
 fn compile_with_compiler(
@@ -105,6 +109,7 @@ fn compile_with_compiler(
     family: DivergentUniverseRunFamily,
     budget: u64,
     shop: ShopRoomCompiler,
+    coin: Option<CoinRoomCompiler>,
 ) -> Profile {
     let factory = source.factory();
     let base = base(source, family);
@@ -118,6 +123,7 @@ fn compile_with_compiler(
         .unwrap();
     let mut battles = Vec::new();
     let mut rooms = Vec::new();
+    let mut coins = Vec::new();
     let deck = &factory.decision_catalog().domain_decks()[0].key;
     let mut route = factory
         .compile_curio_domain_route(base.area(), deck, 3, DECK, |context| {
@@ -130,6 +136,17 @@ fn compile_with_compiler(
                 let room = shop.compile(context).unwrap();
                 let fragment = room.fragment().clone();
                 rooms.push(room);
+                Ok(fragment)
+            } else if let Some(coin) = &coin
+                && matches!(
+                    context.composition,
+                    DomainRoomComposition::Card(DomainCardKind::Coin)
+                        | DomainRoomComposition::Fixed(FixedDomainKind::Coin)
+                )
+            {
+                let room = coin.compile(context).unwrap();
+                let fragment = room.fragment().clone();
+                coins.push(room);
                 Ok(fragment)
             } else {
                 probe(context)
@@ -196,6 +213,9 @@ fn compile_with_compiler(
     let mut slots = base.definition().state_definition().slots().to_vec();
     slots.extend(route.deck.slot_definitions().unwrap());
     slots.extend_from_slice(rooms[0].slot_definitions());
+    if let Some(room) = coins.first() {
+        slots.push(room.slot_definition().clone());
+    }
     let mut owner = CanonicalDigestBuilder::new();
     owner.update(b"du.test.shop-profile.reviewed-shop-cards.explicit-stock-and-funds.three-boss-proxies.other-payloads-probes");
     owner.update(u64::try_from(deck.len()).unwrap().to_le_bytes());
@@ -207,6 +227,10 @@ fn compile_with_compiler(
     }
     owner.update(u32::try_from(rooms.len()).unwrap().to_le_bytes());
     for room in &rooms {
+        owner.update(room.configuration_digest());
+    }
+    owner.update(u32::try_from(coins.len()).unwrap().to_le_bytes());
+    for room in &coins {
         owner.update(room.configuration_digest());
     }
     let payload = ActivityConfigDigest::new(owner.finalize()).unwrap();
@@ -233,7 +257,13 @@ fn compile_with_compiler(
     let flow = factory.bind_position_domain_route(flow, &route).unwrap();
     let unbound = flow.clone();
     let flow = factory.bind_position_shop_rooms(flow, &rooms).unwrap();
+    let flow = if coins.is_empty() {
+        flow
+    } else {
+        factory.bind_position_coin_rooms(flow, &coins).unwrap()
+    };
     Profile {
+        coins,
         flow,
         unbound,
         rooms,

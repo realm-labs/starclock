@@ -17,6 +17,7 @@ mod battle_settlement_runtime;
 mod blessing_catalog;
 mod blessing_interaction;
 mod blessing_runtime;
+pub mod coin_room;
 mod contribution_snapshot;
 mod curio_battle_grants;
 mod curio_battle_reactions;

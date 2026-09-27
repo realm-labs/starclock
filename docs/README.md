@@ -175,6 +175,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 148. [Offered fixed Respite Equation overwrite](divergent-universe-respite-equation-reforge.md) — bounded same-quality candidate menus, atomic confirmation and composition with enhancement/Blessing overwrite.
 149. [Workbench Curio synthesis](divergent-universe-curio-synthesis.md) — atomic two-input settlement, owner-unique candidate policy, bounded authenticated cached menus and position-profile controller dispatch; default topology and encoded profile replay remain pending.
 150. [Fixed-stock shop purchases and menus](divergent-universe-shop-purchase.md) — production Sora-authored policy stock, authenticated finite Shop-card menus, atomic payment, full acquisition effects, sold-out state and position-profile controller dispatch; original merchant/price policies remain pending.
+151. [Wealth chest pickups](divergent-universe-wealth-chests.md) — production-authored explicit chest policy, full Curio-modified credit, authenticated Collect/Leave and atomic position-profile controller dispatch; facilities and original reward selectors remain pending.
 
 ## Delivery boundary
 

@@ -72,7 +72,8 @@ configuration-bound; all Battle nodes, exact programs/scopes/exits and base stat
 declarations are validated. Tests execute repeated real proxy battles within a
 plane in both families, verified drops, fresh command reconstruction, actual
 participant carry, suppressed reward advancement and rejected prior results.
-The unchanged party naturally loses battle six without between-room healing;
+Under current configuration-bound vectors, the unchanged party naturally loses
+battle six in Ordinary and battle seven in Cyclical without between-room healing;
 these fixtures do not prove successful completion of the controlled profile.
 Missing authored reward domains reject before compilation. Boss now has an
 explicit fixed-100 project-policy base reward, independent of the unchanged
@@ -217,6 +218,19 @@ Original shop data/modifiers, NPC/profile admission, default
 topology and encoded replay remain pending. No terminal source/mechanic or
 Shop-family/full-run credit is added. Production stock rows do not prove original
 merchant membership, weights or prices.
+An [authenticated Wealth chest boundary](divergent-universe-wealth-chests.md)
+now loads three production-authored preset/level rewards and offers gated Collect
+or Leave. Collect uses the full Curio Fragment-gain pipeline, then adds one Run
+receipt and exits in the same transaction; Leave grants neither. Exact fragment,
+whole-definition and logical-scope binding rejects bypasses and foreign commands.
+Credit/receipt overflow and next-entry failures restore bytes/RNG. All three
+reviewed presets execute in isolated fixtures; both families' source-position
+controllers collect real sampled chest rewards, buy production stock from zero
+initial funds and complete three real nested Boss proxy battles with fresh
+canonical reconstruction. Chest amounts/count/timing are explicitly replaceable
+policy. Amusement facilities, original reward selectors and mask/NPC admission,
+default topology and encoded source-position replay remain pending. Other payloads
+remain probes; no terminal source/mechanic, Wealth-family or full-run credit is added.
 The reference generators remove the incorrect blanket `RoguePersona` other-mode
 exclusion and retain eleven explicitly reviewed files for row-level accounting.
 The current generated Persona source audit accounts for all 547 rows across

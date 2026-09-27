@@ -133,7 +133,8 @@ change authoritative state, pending battle, events, scopes, RNG or cache.
 Focused tests execute repeated actual battles within the same plane in both
 families, all three authored reward domains, exact current fragment credits,
 fresh command reconstruction and real HP/energy/life/presence carry. They also
-prove natural defeat on the sixth battle with the unchanged baseline party,
+prove natural defeat on battle six in Ordinary and battle seven in Cyclical
+with the unchanged baseline party under current configuration-bound inputs,
 without fabricating victory or healing between rooms. This is not successful
 completion of the eleven-battle controlled profile. Tests additionally
 exercise reward suppression, authenticated next-card selection, stale results,

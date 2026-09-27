@@ -1,5 +1,7 @@
 //! Exact fragment/profile binding for the existing battle and reward executors.
 
+#[path = "position_coin.rs"]
+mod coin;
 #[path = "position_curio_synthesis.rs"]
 mod curio_synthesis;
 #[path = "position_domain_deck.rs"]
@@ -16,6 +18,7 @@ use crate::divergent_universe::{
     DivergentUniverseFlowInstance, DivergentUniverseLogicalScopeKind, DivergentUniverseRoomPolicy,
     DivergentUniverseRuntimeFactory,
     battle_room::{BattleRoomError, CompiledBattleRoom},
+    coin_room::BoundCoinRoom,
     curio_synthesis::room::BoundCurioSynthesisRoom,
     domain_choices::set_domain,
     domain_deck::DomainDeck,
@@ -46,6 +49,7 @@ pub(in crate::divergent_universe) struct BoundBattleRooms {
     respites: Vec<BoundRespiteRoom>,
     synthesis: Vec<BoundCurioSynthesisRoom>,
     shops: Vec<BoundShopRoom>,
+    coins: Vec<BoundCoinRoom>,
 }
 
 impl DivergentUniverseRuntimeFactory {
@@ -319,6 +323,7 @@ impl DivergentUniverseRuntimeFactory {
             respites: Vec::new(),
             synthesis: Vec::new(),
             shops: Vec::new(),
+            coins: Vec::new(),
             rooms: bound,
             services,
             occurrences,

@@ -28,7 +28,11 @@ use crate::divergent_universe_equation_catalog::{
 use crate::divergent_universe_service_catalog::{
     DivergentUniverseOccurrenceId, DivergentUniverseOccurrenceVariantId,
 };
+use coin_rewards::CoinRewardDefinition;
 use shop::ShopStockDefinition;
+
+#[path = "divergent_universe_coin_reward_data.rs"]
+pub mod coin_rewards;
 
 #[path = "divergent_universe_shop_data.rs"]
 pub mod shop;
@@ -222,6 +226,7 @@ pub struct CurioFragmentGainDefinition {
 /// binary and reference component; equal IDs cannot hide different parameters.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DecisionCatalog {
+    coin_rewards: Box<[CoinRewardDefinition]>,
     shop_stocks: Box<[ShopStockDefinition]>,
     domain_decks: Box<[DomainDeckDefinition]>,
     domain_layout: Box<[DomainLayerLayout]>,
@@ -574,6 +579,10 @@ pub struct InitialEquationPolicy {
 }
 
 impl DecisionCatalog {
+    /// Explicit chest-only policy at reviewed Wealth presets; facilities are separate.
+    pub fn coin_rewards(&self) -> &[CoinRewardDefinition] {
+        &self.coin_rewards
+    }
     /// Sora-authored explicit stock/price policies, not recovered merchant pools.
     pub fn shop_stocks(&self) -> &[ShopStockDefinition] {
         &self.shop_stocks
