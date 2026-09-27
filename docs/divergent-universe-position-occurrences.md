@@ -19,6 +19,54 @@ reproducible observations establish membership. Original event programs,
 unimplemented acquisition effects and complete-run release gates remain pending.
 No reference obligation or mechanic becomes terminal through this composition.
 
+## Explicit same-room sequences
+
+`compile_sequence(context, following)` composes the first selected variant and
+zero through two following executable variants in caller order. Repeats remain
+distinct checkpoints; unknown variants and more than three total events reject.
+An empty following list has the same graph and identity as `compile(context)`.
+Sequence identity binds every ordered variant, physical node and continuation
+policy. Whole-definition binding also checks intermediate programs and scopes.
+This primitive does not validate a source level's event count or select a pool;
+current-profile admission must establish those facts separately.
+
+The one logical room has one lifecycle entry. Each accepted event commits its
+own reward and dialogue/predicate/content-updated flags. Intermediate events
+leave room completion and doors false, then offer a separately accepted Continue
+guarded by those three flags. Continue initializes the next checkpoint without
+repeating Curio income or domain allowances. Only the final reward finishes the
+room and publishes a door-gated Leave. A rejected reward or Continue restores
+that command's state, events and RNG, preserving earlier committed rewards.
+
+Released 4.4 evidence supports variable event counts, not event admission or
+sampling probabilities. At [Dimbreath/turnbasedgamedata](https://gitlab.com/Dimbreath/turnbasedgamedata)
+repository revision
+`fd978d6ef09f941fba644c731ab54abd6f7c3568`,
+`ExcelOutput/RoguePersonaRoomCompType.json`, rows `CompType=4` (Encounter) and
+`CompType=5` (Event), join `TextMap/TextMapEN.json` level hashes
+`10848481981180154999` and `1691808678649666459`, respectively. Both level
+descriptions give counts 1, 1–2, 2, 2–3 and 3 for levels 1–5. Encounter identifies
+abnormal occurrences; Event identifies regular occurrences. Access date:
+2026-09-27. SHA-256 digests are
+`c0223603c6e5252278dac5224d766f1c4ed60ebe5845b9839b9e3533a8ad76a5`
+for the component table and
+`afc6d0ff9eeb20d09042e61c311e60d4ed56e69757f1ac42466ca4840e6ed789`
+for the TextMap. These are exact released-text joins, not observed execution
+timing or recovered NPC programs.
+
+The selected count, variant order/repetition and independent Continue timing
+remain low-confidence `VersionedProjectPolicy` fields. Explicit owner selection
+avoids inferring a uniform pool or probability from those count ranges; an
+automatic sampler or single aggregate event is an alternative, not implemented
+parity. Replace these fields when released selectors/programs or reproducible
+observations establish their behavior. Tests execute two events at actual
+Camera Lv.2 Event card 26 (preset 1021) in both families, using the currently
+authored repeated variant `722601`. They cover entry income once, final-only
+room completion, stale/raw commands, Continue guards, late acquisition failure,
+overflow and fresh command reconstruction. Other payloads are explicit probes
+or proxy battles. Original Event/Encounter pools, abnormal programs and encoded
+complete-run replay remain pending; this adds no terminal coverage credit.
+
 ## Immutable profile contract
 
 Compile a plain mapped `with_runtime_battle_route` entry, then reuse the event

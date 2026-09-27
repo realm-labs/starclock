@@ -104,7 +104,25 @@ impl OccurrenceBinding {
 
     pub(super) fn wrap_checkpoint(
         &self,
+        operations: Vec<ActivityOperation>,
+    ) -> Result<Vec<ActivityOperation>, OccurrenceBindingError> {
+        self.wrap_checkpoint_completion(operations, true)
+    }
+
+    /// An intermediate event completes its own committed work, not the room.
+    /// The room owner supplies the guarded internal continuation; final room
+    /// completion and doors remain false until a final checkpoint commits.
+    pub(super) fn wrap_partial_checkpoint(
+        &self,
+        operations: Vec<ActivityOperation>,
+    ) -> Result<Vec<ActivityOperation>, OccurrenceBindingError> {
+        self.wrap_checkpoint_completion(operations, false)
+    }
+
+    fn wrap_checkpoint_completion(
+        &self,
         mut operations: Vec<ActivityOperation>,
+        finish_room: bool,
     ) -> Result<Vec<ActivityOperation>, OccurrenceBindingError> {
         let route = operations
             .pop()
@@ -171,10 +189,13 @@ impl OccurrenceBinding {
                     ROOM_DIALOGUE_FINISHED_SLOT,
                     ROOM_PREDICATE_SATISFIED_SLOT,
                     ROOM_CONTENT_UPDATED_SLOT,
-                    ROOM_FINISHED_SLOT,
-                    ROOM_DOORS_OPEN_SLOT,
                 ] {
                     selected.push(set(slot, ActivityValue::Boolean(true)));
+                }
+                if finish_room {
+                    for slot in [ROOM_FINISHED_SLOT, ROOM_DOORS_OPEN_SLOT] {
+                        selected.push(set(slot, ActivityValue::Boolean(true)));
+                    }
                 }
                 selected.push(route.clone());
                 ActivityOptionDefinition::new(choice.option, 0, choice.enabled.clone(), selected)

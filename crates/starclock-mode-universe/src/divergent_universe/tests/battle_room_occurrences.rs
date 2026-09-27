@@ -1,6 +1,9 @@
 //! Real authored rewards between source-position battles. Other payloads remain
 //! probes; explicit event placement is not recovered original NPC membership.
 
+#[path = "occurrence_sequence.rs"]
+mod sequence;
+
 use super::{SLOTS, Scenario, advance, base, probe, start};
 use crate::divergent_universe::{
     DivergentUniverseBaselineFixture, DivergentUniverseBaselineRunner,

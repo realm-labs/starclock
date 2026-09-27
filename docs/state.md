@@ -174,6 +174,14 @@ late reward/RNG rollback are covered. Leave is separately door-gated; a later
 failed entry preserves already committed rewards. Placement/repetition remain
 caller-owned policies, other rooms remain probes, and original event admission,
 default position gameplay and encoded profile replay remain incomplete.
+Explicit ordered same-room event sequences now commit each reward separately,
+run Curio entry once, and finish/open the room only after the final event.
+Continue is an independent guarded command. Both families' actual Camera Lv.2
+Event card fixtures reconstruct two authored event rewards and cover late
+rejection/overflow without losing earlier credit. Count selection, placement,
+repetition and continuation timing remain project policies; original pools,
+abnormal programs and complete-run replay remain incomplete. No terminal
+source credit is added.
 Source-position flows now attach an exact authored deck/route capability.
 The existing controller distinguishes sampled hands from event Leave/other
 routes and performs whole-hand settlement through the shared engine. All nine

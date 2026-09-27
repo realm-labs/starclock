@@ -1,6 +1,9 @@
 //! Authored event rewards at explicitly selected source-position rooms.
 //! No original event-card membership or missing NPC graph is inferred.
 
+#[path = "occurrence_room_sequence.rs"]
+mod sequence;
+
 use crate::digest::CanonicalDigestBuilder;
 use crate::divergent_universe::{
     DivergentUniverseCurioRuntime, DivergentUniverseLogicalScopeKind,
@@ -19,6 +22,7 @@ use starclock_activity::{
 };
 use starclock_data::divergent_universe_decisions::reward_occurrences::RewardOccurrenceId;
 use starclock_data::divergent_universe_service_catalog::DivergentUniverseOccurrenceVariantId;
+use std::iter::once;
 use std::sync::Arc;
 
 #[derive(Clone, Debug)]
@@ -39,8 +43,15 @@ pub struct CompiledOccurrenceRoom {
     fragment: DomainRoomProgram,
     entry_program: GraphActivityNodeProgram,
     choice_node: NodeId,
+    following: Box<[OccurrenceRoomStep]>,
     component: [u8; 32],
     decisions: [u8; 32],
+}
+
+#[derive(Clone, Debug)]
+struct OccurrenceRoomStep {
+    node: NodeId,
+    binding: Arc<OccurrenceBinding>,
 }
 
 /// Capability for exactly one room in an immutable whole Activity definition.
@@ -56,6 +67,7 @@ pub enum OccurrenceRoomError {
     Route(DomainRouteError),
     InvalidContext,
     DefinitionMismatch,
+    InvalidSequenceLength,
 }
 impl std::fmt::Display for OccurrenceRoomError {
     fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
@@ -148,6 +160,7 @@ impl OccurrenceRoomCompiler {
             binding: Arc::clone(&self.binding),
             entry_program,
             choice_node,
+            following: Box::new([]),
             component: self.factory.bundle_identity().component_digest().bytes(),
             decisions: self.factory.decision_catalog().digest(),
             fragment: DomainRoomProgram {
@@ -216,6 +229,12 @@ impl CompiledOccurrenceRoom {
     pub fn variant(&self) -> &DivergentUniverseOccurrenceVariantId {
         self.binding.variant()
     }
+    /// All explicitly selected events in execution order, including repeats.
+    /// `variant()` remains the first selection; observation reports the active
+    /// event rather than assuming that every step uses the first variant.
+    pub fn variants(&self) -> impl Iterator<Item = &DivergentUniverseOccurrenceVariantId> {
+        once(self.variant()).chain(self.following.iter().map(|step| step.binding.variant()))
+    }
     /// Raw contribution for `compile_curio_domain_route`, not a ready binding.
     #[must_use]
     pub fn fragment(&self) -> &DomainRoomProgram {
@@ -255,6 +274,26 @@ impl CompiledOccurrenceRoom {
         hash.update(self.context.exit_edge().get().to_le_bytes());
         hash.update(self.context.successor().get().to_le_bytes());
         hash.update(self.context.level.to_le_bytes());
+        if !self.following.is_empty() {
+            hash.update(
+                b"explicit-ordered-events.partial-work.final-room-finish.independent-continuation",
+            );
+            hash.update(
+                u16::try_from(self.following.len())
+                    .expect("compiler bounds following events")
+                    .to_le_bytes(),
+            );
+            for step in &self.following {
+                hash.update(step.node.get().to_le_bytes());
+                let variant = step.binding.variant().as_str();
+                hash.update(
+                    u64::try_from(variant.len())
+                        .expect("bounded variant key")
+                        .to_le_bytes(),
+                );
+                hash.update(variant.as_bytes());
+            }
+        }
         hash.finalize()
     }
     pub(in crate::divergent_universe) fn matches_factory(
@@ -276,9 +315,10 @@ impl CompiledOccurrenceRoom {
         let owns = |id| self.fragment.nodes.iter().any(|owned| owned.id() == id);
         let scopes = definition.state_definition().logical_scopes();
         if definition.interactions().is_some()
+            || (owns(graph.entry()) && graph.entry() != node)
             || !graph.edges().iter().any(|edge| {
                 edge.id() == self.context.exit_edge()
-                    && edge.from() == self.choice_node
+                    && edge.from() == self.fragment.exit_node
                     && edge.to() == self.context.successor()
                     && edge.condition() == ActivityEdgeCondition::Always
                     && edge.maximum_traversals() == 1
@@ -346,12 +386,16 @@ impl BoundOccurrenceRoom {
         activity: &GraphActivity,
     ) -> Option<&DivergentUniverseOccurrenceVariantId> {
         let view = activity.player_view();
-        (self.matches(activity)
-            && view.current_node() == self.room.choice_node
-            && view
+        if !self.matches(activity)
+            || !view
                 .decision()
-                .is_some_and(|offer| offer.kind() == ActivityDecisionKind::Choice))
-        .then(|| self.room.variant())
+                .is_some_and(|offer| offer.kind() == ActivityDecisionKind::Choice)
+        {
+            return None;
+        }
+        self.room
+            .binding_at(view.current_node())
+            .map(OccurrenceBinding::variant)
     }
     /// Authentication precedes RNG. Reward, acquisition effects, finish and door
     /// publication commit in the existing shared generated-option transaction.
@@ -366,13 +410,11 @@ impl BoundOccurrenceRoom {
         if !self.matches(activity) {
             return Err(OccurrenceExecutionError::DefinitionMismatch);
         }
-        self.room.binding.execute_at_node(
-            activity,
-            expected,
-            decision,
-            option,
-            self.room.choice_node,
-        )
+        let node = activity.current_node();
+        self.room
+            .binding_at(node)
+            .ok_or(OccurrenceExecutionError::NotOffered)?
+            .execute_at_node(activity, expected, decision, option, node)
     }
     pub(in crate::divergent_universe) fn matches_factory(
         &self,
@@ -392,5 +434,18 @@ impl BoundOccurrenceRoom {
                 && actual.random_offers() == self.definition.random_offers()
                 && actual.random_checkpoints() == self.definition.random_checkpoints()
                 && actual.interactions().is_none())
+    }
+}
+
+impl CompiledOccurrenceRoom {
+    fn binding_at(&self, node: NodeId) -> Option<&OccurrenceBinding> {
+        if node == self.choice_node {
+            Some(&self.binding)
+        } else {
+            self.following
+                .iter()
+                .find(|step| step.node == node)
+                .map(|step| step.binding.as_ref())
+        }
     }
 }
