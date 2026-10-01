@@ -18,6 +18,7 @@ pub enum StatKind {
     ShieldStrength = 12,
     Aggro = 13,
     ToughnessDamage = 14,
+    Elation = 15,
 }
 
 impl super::runtime::SoraDecode for StatKind {
@@ -40,6 +41,7 @@ impl super::runtime::SoraDecode for StatKind {
             12 => Ok(Self::ShieldStrength),
             13 => Ok(Self::Aggro),
             14 => Ok(Self::ToughnessDamage),
+            15 => Ok(Self::Elation),
             value => Err(super::runtime::SoraReadError::new(format!(
                 "invalid enum id {} for StatKind",
                 value

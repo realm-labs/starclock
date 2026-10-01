@@ -1,5 +1,8 @@
 //! Generated Sora operation/program rows to typed Rule IR proposals.
 
+#[cfg(test)]
+mod elation_tests;
+
 use crate::{
     modifier_lower::expression, native_handler_lower::handler_id, rule_lower::lower_condition,
 };
@@ -16,6 +19,7 @@ use starclock_combat::{
             ConditionExpr, ProgramStep, ReactionPriority, ResourceUpdateKind, RuleActionOwner,
             RuleActionPaymentPolicy, RuleEffectChancePolicy, RuleOperationTemplate,
             RuleResourceKind, RuleValue, StateSlotUpdateKind, ValueExpr,
+            elation::ElationDamageExpressions,
         },
     },
 };
@@ -358,6 +362,34 @@ fn lower_operation(
     let expression = |id| expression(config, id, &mut BTreeSet::new());
     use operation_payload::OperationPayload as Payload;
     Ok(match &row.payload {
+        Payload::ElationDamage {
+            base_damage_expression_id,
+            original_multiplier_expression_id,
+            meter_multiplier_expression_id,
+            merrymaking_expression_id,
+            target_resistance_expression_id,
+            penetration_expression_id,
+            resistance_minimum_expression_id,
+            resistance_maximum_expression_id,
+            unbroken_multiplier_expression_id,
+            element,
+            can_crit,
+        } => RuleOperationTemplate::ElationDamage {
+            selector: selector()?,
+            inputs: Box::new(ElationDamageExpressions {
+                base_damage: expression(*base_damage_expression_id)?,
+                original_multiplier: expression(*original_multiplier_expression_id)?,
+                meter_multiplier: expression(*meter_multiplier_expression_id)?,
+                merrymaking: expression(*merrymaking_expression_id)?,
+                target_resistance: expression(*target_resistance_expression_id)?,
+                penetration: expression(*penetration_expression_id)?,
+                resistance_minimum: expression(*resistance_minimum_expression_id)?,
+                resistance_maximum: expression(*resistance_maximum_expression_id)?,
+                unbroken_multiplier: expression(*unbroken_multiplier_expression_id)?,
+            }),
+            element: lower_element(*element),
+            can_crit: *can_crit,
+        },
         Payload::Damage {
             amount_expression_id,
             damage_class,

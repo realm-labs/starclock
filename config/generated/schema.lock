@@ -3,7 +3,7 @@
   "project_id": "starclock_production_config",
   "contract_id": "starclock_production_config/default",
   "view": "default",
-  "fingerprint": "d36594990cf2e985",
+  "fingerprint": "ec7a254be25d33ff",
   "schema": {
     "project_id": "starclock_production_config",
     "contract_id": "starclock_production_config/default",
@@ -1922,6 +1922,10 @@
           {
             "id": 14,
             "name": "ToughnessDamage"
+          },
+          {
+            "id": 15,
+            "name": "Elation"
           }
         ]
       },
@@ -8752,6 +8756,239 @@
                     "field": "id"
                   }
                 },
+                "groups": {
+                  "values": [
+                    "common"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": null,
+                "length": null,
+                "parser": null,
+                "derived_from": null
+              }
+            ]
+          },
+          {
+            "name": "ElationDamage",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "fields": [
+              {
+                "name": "base_damage_expression_id",
+                "ty": {
+                  "Ref": {
+                    "table": "ValueExpression",
+                    "field": "id"
+                  }
+                },
+                "groups": {
+                  "values": [
+                    "common"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": null,
+                "length": null,
+                "parser": null,
+                "derived_from": null
+              },
+              {
+                "name": "original_multiplier_expression_id",
+                "ty": {
+                  "Ref": {
+                    "table": "ValueExpression",
+                    "field": "id"
+                  }
+                },
+                "groups": {
+                  "values": [
+                    "common"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": null,
+                "length": null,
+                "parser": null,
+                "derived_from": null
+              },
+              {
+                "name": "meter_multiplier_expression_id",
+                "ty": {
+                  "Ref": {
+                    "table": "ValueExpression",
+                    "field": "id"
+                  }
+                },
+                "groups": {
+                  "values": [
+                    "common"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": null,
+                "length": null,
+                "parser": null,
+                "derived_from": null
+              },
+              {
+                "name": "merrymaking_expression_id",
+                "ty": {
+                  "Ref": {
+                    "table": "ValueExpression",
+                    "field": "id"
+                  }
+                },
+                "groups": {
+                  "values": [
+                    "common"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": null,
+                "length": null,
+                "parser": null,
+                "derived_from": null
+              },
+              {
+                "name": "target_resistance_expression_id",
+                "ty": {
+                  "Ref": {
+                    "table": "ValueExpression",
+                    "field": "id"
+                  }
+                },
+                "groups": {
+                  "values": [
+                    "common"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": null,
+                "length": null,
+                "parser": null,
+                "derived_from": null
+              },
+              {
+                "name": "penetration_expression_id",
+                "ty": {
+                  "Ref": {
+                    "table": "ValueExpression",
+                    "field": "id"
+                  }
+                },
+                "groups": {
+                  "values": [
+                    "common"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": null,
+                "length": null,
+                "parser": null,
+                "derived_from": null
+              },
+              {
+                "name": "resistance_minimum_expression_id",
+                "ty": {
+                  "Ref": {
+                    "table": "ValueExpression",
+                    "field": "id"
+                  }
+                },
+                "groups": {
+                  "values": [
+                    "common"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": null,
+                "length": null,
+                "parser": null,
+                "derived_from": null
+              },
+              {
+                "name": "resistance_maximum_expression_id",
+                "ty": {
+                  "Ref": {
+                    "table": "ValueExpression",
+                    "field": "id"
+                  }
+                },
+                "groups": {
+                  "values": [
+                    "common"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": null,
+                "length": null,
+                "parser": null,
+                "derived_from": null
+              },
+              {
+                "name": "unbroken_multiplier_expression_id",
+                "ty": {
+                  "Ref": {
+                    "table": "ValueExpression",
+                    "field": "id"
+                  }
+                },
+                "groups": {
+                  "values": [
+                    "common"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": null,
+                "length": null,
+                "parser": null,
+                "derived_from": null
+              },
+              {
+                "name": "element",
+                "ty": {
+                  "Enum": "CombatElement"
+                },
+                "groups": {
+                  "values": [
+                    "common"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": null,
+                "length": null,
+                "parser": null,
+                "derived_from": null
+              },
+              {
+                "name": "can_crit",
+                "ty": "Bool",
                 "groups": {
                   "values": [
                     "common"

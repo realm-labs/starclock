@@ -51208,6 +51208,320 @@
             "String": "program.clara.expr.counter-charges"
           }
         }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 970101
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "100.9"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "policy.probe.elation.expr.resolved-base"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 970102
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "0.8"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "policy.probe.elation.expr.original"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 970103
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "-0.5"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "policy.probe.elation.expr.merrymaking"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 970104
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "-0.2"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "policy.probe.elation.expr.target-resistance"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 970105
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "0.1"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "policy.probe.elation.expr.penetration"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 970106
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "-1"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "policy.probe.elation.expr.resistance-minimum"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 970107
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "0.9"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "policy.probe.elation.expr.resistance-maximum"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 970108
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "0.9"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "policy.probe.elation.expr.unbroken"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 970109
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "1"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "policy.probe.elation.expr.one"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 970110
+          },
+          "node": {
+            "Object": {
+              "formula_purpose": {
+                "String": "Stat"
+              },
+              "stat": {
+                "String": "Elation"
+              },
+              "subject_selector_id": {
+                "Integer": 24051
+              },
+              "type": {
+                "String": "QueryStat"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "policy.probe.elation.expr.owner-property"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 970111
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 970109
+              },
+              "operator": {
+                "String": "CheckedAdd"
+              },
+              "right_expression_id": {
+                "Integer": 970110
+              },
+              "rounding": {
+                "String": "NearestTiesEven"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "policy.probe.elation.expr.resolved-meter"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 970112
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "0.5"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "policy.probe.elation.expr.property-addition"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 970113
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "IntegerLiteral"
+              },
+              "value": {
+                "Integer": 1
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Integer"
+          },
+          "stable_key": {
+            "String": "policy.probe.elation.expr.non-scalar-negative"
+          }
+        }
       }
     ]
   }

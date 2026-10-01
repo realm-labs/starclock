@@ -1,3 +1,4 @@
+use crate::universe_state_manifest::MANIFEST;
 use std::{
     num::NonZeroUsize,
     sync::{Arc, OnceLock},
@@ -695,6 +696,7 @@ fn roster_mismatch_fails_before_any_catalog_or_spec_is_emitted() {
 
 #[test]
 fn production_executor_runs_real_nested_battles_and_settles_activity_carry() {
+    MANIFEST.assert_current_inputs();
     let catalog = catalog();
     let (roster, lock) = roster_and_lock(&catalog);
     let contributions = contributions(&catalog);
@@ -807,28 +809,19 @@ fn production_executor_runs_real_nested_battles_and_settles_activity_carry() {
     );
     // Exact counts bind this configuration and its selected topology; the
     // production runner must still execute every nested battle to completion.
-    assert_eq!(executor.reports().len(), 3);
+    assert_eq!(executor.reports().len(), MANIFEST.nested_battles);
     assert_eq!(
         executor
             .reports()
             .iter()
             .map(|battle| battle.trace().len())
             .sum::<usize>(),
-        18
+        MANIFEST.nested_commands
     );
-    assert_eq!(
-        report.final_state_hash().bytes(),
-        [
-            209, 196, 67, 20, 166, 227, 189, 59, 32, 29, 137, 103, 133, 30, 90, 169, 68, 165, 84,
-            219, 223, 99, 132, 89, 27, 33, 84, 145, 247, 221, 144, 36,
-        ]
-    );
+    assert_eq!(report.final_state_hash().bytes(), MANIFEST.nested_final);
     assert_eq!(
         executor.reports()[0].event_digest().bytes(),
-        [
-            150, 211, 253, 204, 20, 152, 64, 223, 144, 36, 106, 49, 66, 120, 33, 80, 132, 19, 32,
-            52, 22, 86, 37, 210, 228, 59, 253, 197, 139, 146, 11, 102,
-        ]
+        MANIFEST.nested_first_events
     );
     assert!(executor.reports().iter().all(|battle| {
         battle.outcome() == starclock_activity::BattleOutcome::Won

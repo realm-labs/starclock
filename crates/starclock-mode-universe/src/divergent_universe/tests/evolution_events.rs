@@ -69,13 +69,98 @@ fn seed(
     family: DivergentUniverseRunFamily,
     start_seed: u64,
 ) -> u64 {
+    // Current production inputs, discovered through the explicit test below.
+    // Default regression runs execute fixed public inputs, not seed searches.
+    let corpus = match family {
+        DivergentUniverseRunFamily::Ordinary => [595, 707, 764, 785, 1115, 1134, 1162, 1207],
+        DivergentUniverseRunFamily::Cyclical => [2, 3, 37, 185, 187, 204, 302, 407],
+    };
+    let seed = corpus
+        .into_iter()
+        .find(|seed| *seed >= start_seed)
+        .expect("current public acquisition corpus has another fixed input");
     let curios = fixture.factory().curio_runtime().unwrap();
-    (start_seed..512).find(|seed| {
-        let (_, activity, _) = start(fixture, family, *seed);
-        let owned = curios.owned(&activity).unwrap();
-        owned.iter().any(|held| held.state().as_str() == "divergent-universe.curio-state.9195")
-            && !owned.iter().any(|held| ["9055", "9070", "9079", "9159"].iter().any(|suffix| held.state().as_str().ends_with(suffix)))
-    }).expect("bounded public acquisition corpus contains Green Miracle without global gain modifiers")
+    let (_, activity, _) = start(fixture, family, seed);
+    let owned = curios.owned(&activity).unwrap();
+    assert!(
+        owned
+            .iter()
+            .any(|held| held.state().as_str() == "divergent-universe.curio-state.9195")
+            && !owned.iter().any(|held| ["9055", "9070", "9079", "9159"]
+                .iter()
+                .any(|suffix| held.state().as_str().ends_with(suffix)))
+    );
+    seed
+}
+
+#[test]
+#[ignore = "explicit bounded current-configuration public acquisition discovery"]
+fn evolution_events_discover_current_public_seed_corpus() {
+    let fixture = DivergentUniverseBaselineFixture::production().unwrap();
+    let curios = fixture.factory().curio_runtime().unwrap();
+    for family in [
+        DivergentUniverseRunFamily::Ordinary,
+        DivergentUniverseRunFamily::Cyclical,
+    ] {
+        let flow = fixture.flow(family).unwrap();
+        let mut found = Vec::new();
+        let mut outcomes = [false; 2];
+        for seed in 0..8192 {
+            let mut activity = flow
+                .start(instance(1), ActivityMasterSeed::from_u64(seed))
+                .unwrap()
+                .into_activity();
+            let mut steps = vec![advance(&fixture, &flow, &mut activity, None)];
+            steps.push(advance(&fixture, &flow, &mut activity, Some(2)));
+            let owned = curios.owned(&activity).unwrap();
+            if owned
+                .iter()
+                .any(|held| held.state().as_str() == "divergent-universe.curio-state.9195")
+                && !owned.iter().any(|held| {
+                    ["9055", "9070", "9079", "9159"]
+                        .iter()
+                        .any(|suffix| held.state().as_str().ends_with(suffix))
+                })
+            {
+                let success = if family == DivergentUniverseRunFamily::Ordinary {
+                    until_event(&fixture, &flow, &mut activity, &mut steps, 2);
+                    steps.push(advance(&fixture, &flow, &mut activity, Some(1)));
+                    until_event(&fixture, &flow, &mut activity, &mut steps, 3);
+                    steps.push(advance(&fixture, &flow, &mut activity, Some(2)));
+                    let success = owns(&fixture, &activity, "9197");
+                    assert_eq!(!success, owns(&fixture, &activity, "9196"));
+                    outcomes[usize::from(success)] = true;
+                    Some(success)
+                } else {
+                    None
+                };
+                if found.len() < 8 {
+                    found.push(seed);
+                } else if success == Some(true) {
+                    // Keep the first acquisition vectors and one actual
+                    // successful chance branch within the default corpus.
+                    found[7] = seed;
+                }
+                eprintln!(
+                    "current public Green Miracle {family:?} seed={seed} success={success:?}"
+                );
+                if found.len() == 8
+                    && (family == DivergentUniverseRunFamily::Cyclical || outcomes == [true, true])
+                {
+                    break;
+                }
+            }
+        }
+        assert_eq!(
+            found.len(),
+            8,
+            "bounded public acquisition corpus {family:?}"
+        );
+        if family == DivergentUniverseRunFamily::Ordinary {
+            assert_eq!(outcomes, [true, true]);
+        }
+        eprintln!("current public Green Miracle corpus {family:?}: {found:?}");
+    }
 }
 
 fn until_event(

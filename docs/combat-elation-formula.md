@@ -2,7 +2,8 @@
 
 The combat domain exposes a pure, named Elation calculator and an explicit
 native `HitOperationDefinition::ElationDamage`. These are shared prerequisites,
-not a completed production content mechanic. Existing ordinary-formula
+not a completed production content mechanic. Sora authoring and typed lowering
+now expose the same explicit operation and separate stat. Existing ordinary-formula
 `DamageClass::Elation` operations retain their authored inputs; the new typed
 operation does not silently reinterpret them.
 
@@ -186,8 +187,54 @@ cover frozen versus live inputs, native/Rule IR hit-share precision, shared and
 per-target CRIT draws, per-subject stat reads and rollback without damage after an
 invalid later operand. Both files are under the test kit's core combat suite.
 
-Production Sora stat/operation authoring and lowering, level-table compilation
-and released damage parity remain unimplemented.
+## Production authoring capability
+
+The Sora `StatKind::Elation` transport value is explicitly converted into the
+domain stat; numeric transport IDs are not cast into domain ordinals. Stat
+queries, modifiers and snapshot stat references use this shared conversion.
+`OperationPayload::ElationDamage` requires nine `ValueExpression` references,
+an element and CRIT eligibility. It lowers into the dedicated Rule IR template,
+not ordinary damage. Every operand remains an explicit caller input; no level
+lookup, default points conversion or elemental RES inference is inserted.
+
+The documented [clean-target openpyxl author](../tools/config-production/README.md)
+owns 13 `policy.probe.elation` expressions and one unbound self-damage operation
+in the production workbooks. The expressions retain canonical decimal strings,
+signed RES/merrymaking and a dynamic owner-property query. The resolved-meter
+expression deliberately uses `1 + owner Elation` as a **synthetic capability
+probe**, not a factual Punchline formula. Existing cells and released content
+bindings remain unchanged; these rows grant no content coverage.
+
+The real generated production bundle feeds
+`operation_lower/elation_tests.rs` in `starclock-data`. Native fixture assembly
+attaches the converted operation and the converted production owner selector.
+Accepted commands produce raw `47.2212`, finalized `47` with the neutral
+property, or raw `106.2477`, finalized `106` with a native +0.5 property binding.
+The binding is a fixture, not a released intrinsic base. Both runs compare
+events/hashes against fresh reconstruction and draw no RNG. Replacing each
+of the nine references with the authored Integer negative probe faults without
+damage or HP mutation; invalid start commands preserve the state hash.
+
+Schema, templates, readers, workbook rows, binary/debug exports and current
+fixture bundles regenerate under Sora 0.6.1. The fixture bundle generators
+compare two independent exports; production verification checks deterministic
+drift and read-only workbook synchronization. No previous-schema decoder is
+retained.
+
+The test kit's production-input-sensitive Universe state/event goldens share
+`support/universe_state_manifest.rs`, binding both current core and Universe
+bundle SHA-256 values. Activity stream derivation includes the configuration
+digest, so changing the core bundle can change a fixed seed's topology, rewards
+and nested-battle count. The current canonical state/event vectors and exact
+run counts reflect these current inputs; terminal/carry/real-command assertions
+remain in place rather than accepting old inputs or weakening the comparisons.
+Mode-level Reward selection vectors and positive source-room/evolution seeds
+also reflect current inputs. Seed discovery runs explicitly as ignored tests;
+default evolution regressions execute a fixed public acquisition corpus while
+retaining both probability branches and fresh replay verification.
+
+Released operation bindings, level-table compilation and released damage
+parity remain unimplemented.
 Punchline snapshots and Aha/Certified Banger lifecycle
 remain independently owned by their authored resources, effects and actions.
 The Weighted Curio Sapient Pen is not implemented by adding this calculator.
@@ -199,6 +246,7 @@ cargo test -p starclock-combat formula::elation
 cargo test -p starclock-test-kit --test combat_suite elation_stat
 cargo test -p starclock-test-kit --test combat_suite elation_damage
 cargo test -p starclock-test-kit --test combat_suite rule_elation
+cargo test -p starclock-data production_elation
 cargo fmt --all -- --check
 cargo clippy -p starclock-combat --all-targets -- -D warnings
 cargo test -p starclock-combat

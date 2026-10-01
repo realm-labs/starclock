@@ -1,3 +1,4 @@
+use crate::universe_state_manifest::MANIFEST;
 use std::sync::{Arc, OnceLock};
 
 use starclock_activity::{
@@ -252,6 +253,7 @@ fn offered_options(operations: &[ActivityOperation]) -> Option<&[ActivityOptionD
 
 #[test]
 fn start_draws_one_topology_and_offers_nine_paths_without_leaking_private_state() {
+    MANIFEST.assert_current_inputs();
     let (_, compiled) = compiled();
     let started = compiled
         .start(
@@ -260,13 +262,7 @@ fn start_draws_one_topology_and_offers_nine_paths_without_leaking_private_state(
         )
         .expect("start");
     let view = started.view();
-    assert_eq!(
-        view.state_hash().bytes(),
-        [
-            118, 212, 62, 1, 252, 164, 121, 10, 183, 8, 35, 13, 140, 142, 232, 70, 129, 4, 29, 233,
-            63, 117, 136, 95, 7, 94, 125, 52, 252, 121, 231, 219,
-        ]
-    );
+    assert_eq!(view.state_hash().bytes(), MANIFEST.topology_start);
     let decision = view.decision().expect("Path choice");
     assert_eq!(decision.kind(), ActivityDecisionKind::Choice);
     assert_eq!(decision.options().len(), 9);

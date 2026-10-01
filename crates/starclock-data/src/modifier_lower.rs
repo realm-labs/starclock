@@ -414,6 +414,7 @@ pub(super) fn stat(value: stat_kind::StatKind) -> StatKind {
         V::ShieldStrength => StatKind::ShieldStrength,
         V::Aggro => StatKind::Aggro,
         V::ToughnessDamage => StatKind::ToughnessDamage,
+        V::Elation => StatKind::Elation,
     }
 }
 fn stage(value: formula_stage::FormulaStage) -> FormulaStage {

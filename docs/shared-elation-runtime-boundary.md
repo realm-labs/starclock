@@ -24,8 +24,10 @@ an explicit level base and separate Elation, resolved Punchline and merrymaking
 factors. It excludes ordinary damage boost and records a named factor trace.
 Its explicit native battle operation now projects filtered modifier stages and
 reuses shared CRIT, shields/HP/guards/defeat; the factor and projection contracts
-remain ProjectPolicy. Production stat/operation authoring and a released
-character damage formula remain unbound. Native
+remain ProjectPolicy. Production Sora stat/operation authoring now lowers
+explicit inputs into that dedicated Rule IR path; unbound authoring probes
+execute real commands without granting released content coverage. A released
+character damage formula remains unbound. Native
 `StatKind::Elation` queries now retain a separate zero neutral base through live,
 initial modifier and selector snapshots. Real-command tests execute temporary
 property additions and expiry without claiming a released intrinsic base. Existing
@@ -83,7 +85,7 @@ the same reaction scheduler as all other forced work.
 ## Evidence and unresolved observations
 
 The Trailblazer (Elation) and Yao Guang scopes are disabled `ProjectFixture`
-workbooks compiled twice with pinned Sora 0.3.0. They export all 80 production
+workbooks compiled twice with pinned Sora 0.6.1. They export all 82 production
 tables and grant zero production coverage:
 
 - `config/probes/v1a/trailblazer-elation/golden.json`

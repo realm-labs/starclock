@@ -1,3 +1,4 @@
+use crate::universe_state_manifest::MANIFEST;
 use std::sync::{Arc, OnceLock};
 
 use starclock_activity::{
@@ -223,6 +224,7 @@ fn combatant(form: u32, digest: u8) -> ResolvedCombatantSpec {
 
 #[test]
 fn encounter_resolution_preparation_handoff_and_reward_return_are_one_deterministic_chain() {
+    MANIFEST.assert_current_inputs();
     let catalog = catalog();
     let lock = participants();
     let lock_digest = lock.digest();
@@ -384,13 +386,7 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
         .submit_pending_battle_result(activity.view().state_hash(), result)
         .unwrap();
     assert_eq!(settled.settlement().outcome(), BattleOutcome::Won);
-    assert_eq!(
-        settled.state_hash().bytes(),
-        [
-            108, 227, 137, 115, 183, 176, 210, 151, 180, 92, 124, 132, 230, 3, 190, 209, 26, 218,
-            200, 114, 176, 149, 80, 17, 57, 127, 4, 221, 31, 39, 58, 216,
-        ]
-    );
+    assert_eq!(settled.state_hash().bytes(), MANIFEST.encounter_settlement);
     let reward = activity.view();
     let reward_decision = reward.decision().expect("post-battle reward");
     assert_eq!(
@@ -461,10 +457,7 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
     );
     assert_eq!(
         contributions.digest(),
-        [
-            127, 225, 31, 131, 133, 250, 95, 53, 14, 206, 11, 97, 89, 242, 29, 57, 32, 96, 56, 83,
-            107, 51, 215, 28, 197, 91, 245, 236, 119, 173, 34, 44,
-        ]
+        MANIFEST.encounter_blessing_contributions
     );
     let formation = activity.view();
     assert_eq!(
@@ -624,6 +617,7 @@ fn goal07_ability_tree_unlocks_reroll_and_consumes_one_first_battle_bonus_choice
 
 #[test]
 fn baseline_runner_uses_offered_options_and_executes_nested_battles_to_terminal() {
+    MANIFEST.assert_current_inputs();
     let catalog = catalog();
     let lock = participants();
     let overlay = overlay(&catalog, &lock);
@@ -655,14 +649,8 @@ fn baseline_runner_uses_offered_options_and_executes_nested_battles_to_terminal(
         report.terminal(),
         starclock_activity::ActivityTerminalOutcome::Completed
     );
-    assert_eq!(report.steps().len(), 69);
-    assert_eq!(
-        report.final_state_hash().bytes(),
-        [
-            93, 209, 251, 49, 211, 127, 95, 66, 239, 100, 138, 97, 220, 66, 69, 241, 219, 24, 135,
-            4, 162, 249, 48, 172, 195, 100, 237, 232, 124, 97, 60, 198,
-        ]
-    );
+    assert_eq!(report.steps().len(), MANIFEST.baseline_steps);
+    assert_eq!(report.final_state_hash().bytes(), MANIFEST.baseline_final);
     assert_eq!(report.final_state_hash(), activity.view().state_hash());
     assert!(report.steps().iter().any(|step| matches!(
         step,
@@ -682,7 +670,7 @@ fn baseline_runner_uses_offered_options_and_executes_nested_battles_to_terminal(
             .iter()
             .filter(|step| matches!(step, StandardUniverseBaselineStep::Battle { .. }))
             .count(),
-        7
+        MANIFEST.baseline_battles
     );
 }
 

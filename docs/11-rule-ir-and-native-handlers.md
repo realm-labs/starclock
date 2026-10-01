@@ -81,7 +81,9 @@ a checked immutable dedicated damage definition before program emissions commit.
 Its coefficient receives the enclosing hit's share once; its CRIT eligibility
 uses that hit's policy/cache. The resolver reads live Elation/DEF at operation
 execution. This uses the shared typed operation, command, event and fault path;
-Sora authoring/lowering remains pending. See the
+The Sora `OperationPayload::ElationDamage` supplies explicit expression
+references for every operand and lowers into that same template; the separate
+Sora Elation stat lowers without an ordinary-damage-boost alias. See the
 [Elation formula and expression bridge](combat-elation-formula.md).
 
 ## Conditions and event filters

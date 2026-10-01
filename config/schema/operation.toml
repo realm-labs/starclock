@@ -458,6 +458,42 @@ name = "InvokeNativeHandler"
 name = "native_handler_id"
 type = "ref<NativeHandler.id>"
 
+[[unions.variants]]
+name = "ElationDamage"
+[[unions.variants.fields]]
+name = "base_damage_expression_id"
+type = "ref<ValueExpression.id>"
+[[unions.variants.fields]]
+name = "original_multiplier_expression_id"
+type = "ref<ValueExpression.id>"
+[[unions.variants.fields]]
+name = "meter_multiplier_expression_id"
+type = "ref<ValueExpression.id>"
+[[unions.variants.fields]]
+name = "merrymaking_expression_id"
+type = "ref<ValueExpression.id>"
+[[unions.variants.fields]]
+name = "target_resistance_expression_id"
+type = "ref<ValueExpression.id>"
+[[unions.variants.fields]]
+name = "penetration_expression_id"
+type = "ref<ValueExpression.id>"
+[[unions.variants.fields]]
+name = "resistance_minimum_expression_id"
+type = "ref<ValueExpression.id>"
+[[unions.variants.fields]]
+name = "resistance_maximum_expression_id"
+type = "ref<ValueExpression.id>"
+[[unions.variants.fields]]
+name = "unbroken_multiplier_expression_id"
+type = "ref<ValueExpression.id>"
+[[unions.variants.fields]]
+name = "element"
+type = "enum<CombatElement>"
+[[unions.variants.fields]]
+name = "can_crit"
+type = "bool"
+
 [[tables]]
 id = "program"
 name = "Program"

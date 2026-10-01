@@ -31138,6 +31138,72 @@
             "Integer": 1030413
           }
         }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 970201
+          },
+          "payload": {
+            "Object": {
+              "base_damage_expression_id": {
+                "Integer": 970101
+              },
+              "can_crit": {
+                "Bool": false
+              },
+              "element": {
+                "String": "Fire"
+              },
+              "merrymaking_expression_id": {
+                "Integer": 970103
+              },
+              "meter_multiplier_expression_id": {
+                "Integer": 970111
+              },
+              "original_multiplier_expression_id": {
+                "Integer": 970102
+              },
+              "penetration_expression_id": {
+                "Integer": 970105
+              },
+              "resistance_maximum_expression_id": {
+                "Integer": 970107
+              },
+              "resistance_minimum_expression_id": {
+                "Integer": 970106
+              },
+              "target_resistance_expression_id": {
+                "Integer": 970104
+              },
+              "type": {
+                "String": "ElationDamage"
+              },
+              "unbroken_multiplier_expression_id": {
+                "Integer": 970108
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "policy.probe.elation.operation.explicit-self-damage"
+          },
+          "target_selector_id": {
+            "Integer": 24051
+          }
+        }
       }
     ]
   }

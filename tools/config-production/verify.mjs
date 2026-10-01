@@ -89,8 +89,8 @@ function verifyGeneratedOutput(directory) {
     Effect: 144, EffectGrantedAbility: 3, EffectModifierBinding: 20, ModifierDefinition: 1595,
     ModifierStackingGroup: 45, ModifierFilter: 155,
     CountdownDefinition: 1, LinkedUnitDefinition: 43,
-    Operation: 741, Program: 433, ProgramStep: 785, RuleDefinition: 196, RuleSourceTag: 0, Selector: 251,
-    StateSlot: 3, ValueExpression: 2127, LightCone: 165, LightConeStat: 14190,
+    Operation: 742, Program: 433, ProgramStep: 785, RuleDefinition: 196, RuleSourceTag: 0, Selector: 251,
+    StateSlot: 3, ValueExpression: 2140, LightCone: 165, LightConeStat: 14190,
     LightConeSuperimposition: 2665,
   })) assert(counts.get(name) === expected, `${name} production count differs`);
   const identities = rows(debug, "ContentIdentity");

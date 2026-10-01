@@ -17,8 +17,10 @@ sampling, lifecycle and deterministic faults. Rule IR now evaluates explicit
 Scalar operands into the same dedicated operation, preserving program-input
 snapshots, hit shares/CRIT caches and per-subject iteration. Type/domain/overflow
 failures and invalid later expressions reject or fault without damage mutation.
-Production stat/operation
-authoring and released damage parity remain unbound; existing ordinary-formula
+Production Sora authoring now lowers the separate stat and explicit dedicated
+operation. Clean-target openpyxl capability probes execute from the real bundle
+with exact fractional results and fail-closed Integer inputs. Released operation
+bindings, level-table compilation and damage parity remain unbound; existing ordinary-formula
 Elation-class operations retain their authored inputs. These prerequisites grant
 no content execution credit, including for Sapient Pen.
 

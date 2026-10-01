@@ -1,5 +1,8 @@
 //! Universe catalog, runtime, path and battle integration tests.
 
+#[path = "support/universe_state_manifest.rs"]
+mod universe_state_manifest;
+
 #[path = "suites/universe/ability_runtime.rs"]
 mod ability_runtime;
 #[path = "suites/universe/abundance_runtime.rs"]

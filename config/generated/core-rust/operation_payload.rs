@@ -255,6 +255,30 @@ pub enum OperationPayload {
         #[serde(rename = "native_handler_id")]
         native_handler_id: i32,
     },
+    ElationDamage {
+        #[serde(rename = "base_damage_expression_id")]
+        base_damage_expression_id: i32,
+        #[serde(rename = "original_multiplier_expression_id")]
+        original_multiplier_expression_id: i32,
+        #[serde(rename = "meter_multiplier_expression_id")]
+        meter_multiplier_expression_id: i32,
+        #[serde(rename = "merrymaking_expression_id")]
+        merrymaking_expression_id: i32,
+        #[serde(rename = "target_resistance_expression_id")]
+        target_resistance_expression_id: i32,
+        #[serde(rename = "penetration_expression_id")]
+        penetration_expression_id: i32,
+        #[serde(rename = "resistance_minimum_expression_id")]
+        resistance_minimum_expression_id: i32,
+        #[serde(rename = "resistance_maximum_expression_id")]
+        resistance_maximum_expression_id: i32,
+        #[serde(rename = "unbroken_multiplier_expression_id")]
+        unbroken_multiplier_expression_id: i32,
+        #[serde(rename = "element")]
+        element: CombatElement,
+        #[serde(rename = "can_crit")]
+        can_crit: bool,
+    },
 }
 
 impl super::runtime::SoraDecode for OperationPayload {
@@ -566,6 +590,31 @@ impl super::runtime::SoraDecode for OperationPayload {
             38 => Ok(Self::InvokeNativeHandler {
                 native_handler_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             }),
+            39 => Ok(Self::ElationDamage {
+                base_damage_expression_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
+                original_multiplier_expression_id: <i32 as super::runtime::SoraDecode>::decode(
+                    reader,
+                )?,
+                meter_multiplier_expression_id: <i32 as super::runtime::SoraDecode>::decode(
+                    reader,
+                )?,
+                merrymaking_expression_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
+                target_resistance_expression_id: <i32 as super::runtime::SoraDecode>::decode(
+                    reader,
+                )?,
+                penetration_expression_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
+                resistance_minimum_expression_id: <i32 as super::runtime::SoraDecode>::decode(
+                    reader,
+                )?,
+                resistance_maximum_expression_id: <i32 as super::runtime::SoraDecode>::decode(
+                    reader,
+                )?,
+                unbroken_multiplier_expression_id: <i32 as super::runtime::SoraDecode>::decode(
+                    reader,
+                )?,
+                element: <CombatElement as super::runtime::SoraDecode>::decode(reader)?,
+                can_crit: <bool as super::runtime::SoraDecode>::decode(reader)?,
+            }),
             value => Err(super::runtime::SoraReadError::new(format!(
                 "invalid union ordinal {} for OperationPayload",
                 value
@@ -617,6 +666,7 @@ impl OperationPayload {
             Self::RequestEncounterTransition { .. } => {}
             Self::ProposeReplacement { .. } => {}
             Self::InvokeNativeHandler { .. } => {}
+            Self::ElationDamage { .. } => {}
         }
     }
 }
