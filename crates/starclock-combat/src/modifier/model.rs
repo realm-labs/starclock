@@ -23,6 +23,9 @@ pub enum StatKind {
     OutgoingHealing,
     IncomingHealing,
     ShieldStrength,
+    /// Normalized target-weight factor with neutral battle base one. An authored
+    /// selector multiplies its explicit base weight by this stat; combat does
+    /// not infer character/Path weights or alter fixed target commitments.
     Aggro,
     ToughnessDamage,
     /// Level-derived base Break damage used by mechanics that author a cap

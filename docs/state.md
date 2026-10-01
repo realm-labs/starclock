@@ -500,6 +500,13 @@ ancestry and sibling emissions remain unchanged; formulas, nonlethal floors,
 defeat credit and events use the existing combat pipeline. This shared
 prerequisite adds no complete Divergent Universe equipment credit.
 
+The [Aggro query boundary](combat-aggro-weight-factors.md) supplies the normalized
+neutral factor one to live queries, initial modifier capture and immutable
+selector snapshots. Explicit weighted expressions now use effective Aggro
+modifiers in actual integer target sampling. Content-owned base weights and
+enemy-selector admission remain explicit; fixed targets are unchanged. This
+adds no further Weighted Curio effect or terminal coverage credit.
+
 The shared [final damage boundary](final-damage-boundary.md) supports a distinct
 source-owned multiplicative stage across ordinary and Break damage, without
 altering base stats or source-modifier-bypassing true damage. Continuing Break

@@ -8,7 +8,7 @@ collection scans.
 ## Authored source
 
 `Selector.xlsx` and `SelectorPredicate.xlsx` are the authoritative editable
-sources. Sora 0.3.0 validates and exports them, and `starclock-data` lowers
+sources. Sora 0.6.1 validates and exports them, and `starclock-data` lowers
 their generated rows into private `RuleUnitSelector` values. A populated
 predicate table is a supported production table; it is not metadata that may
 be discarded during catalog construction.
@@ -95,6 +95,12 @@ the registered purposes. A non-repeating selector removes each selected
 candidate before the next draw. A repeating selector redraws with replacement;
 it does not copy the first result. Empty and all-zero weighted pools consume no
 draw. Every raw draw is journaled.
+
+Aggro is an explicitly queried normalized stat factor, with neutral base one
+in live and historical query providers. A content-owned weighted expression
+multiplies its declared base weight by that factor; no Path weights or automatic
+conversion of fixed targets are inferred. See
+[Authored Aggro weight factors](combat-aggro-weight-factors.md).
 
 ## Empty-pool control
 

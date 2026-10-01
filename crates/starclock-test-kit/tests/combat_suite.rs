@@ -7,6 +7,8 @@ mod combat_decision;
 mod combat_ability_program_execution;
 #[path = "suites/core/combat/action_resources.rs"]
 mod combat_action_resources;
+#[path = "suites/core/combat/aggro_weight.rs"]
+mod combat_aggro_weight;
 #[path = "suites/core/combat/assist_skill_subsystem.rs"]
 mod combat_assist_skill_subsystem;
 #[path = "suites/core/combat/battle_boundary.rs"]
