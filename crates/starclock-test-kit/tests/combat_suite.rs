@@ -11,6 +11,8 @@ mod combat_action_resources;
 mod combat_aggro_weight;
 #[path = "suites/core/combat/assist_skill_subsystem.rs"]
 mod combat_assist_skill_subsystem;
+#[path = "suites/core/combat/automatic_primary.rs"]
+mod combat_automatic_primary;
 #[path = "suites/core/combat/battle_boundary.rs"]
 mod combat_battle_boundary;
 #[path = "suites/core/combat/catalog_contract.rs"]

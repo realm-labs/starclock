@@ -507,6 +507,13 @@ modifiers in actual integer target sampling. Content-owned base weights and
 enemy-selector admission remain explicit; fixed targets are unchanged. This
 adds no further Weighted Curio effect or terminal coverage credit.
 
+The [automatic primary selection boundary](combat-automatic-primary-selection.md)
+lets explicitly bound normal Basic/Skill commands commit a current-state
+single primary through the existing battle-owned sampler before declaration
+and payment. Multi-hit Single/Blast attacks use one shared action envelope;
+manual and queued/forced targeting remain explicit. This native catalog-factory
+prerequisite adds no production enemy binding or Curio coverage credit.
+
 The shared [final damage boundary](final-damage-boundary.md) supports a distinct
 source-owned multiplicative stage across ordinary and Break damage, without
 altering base stats or source-modifier-bypassing true damage. Continuing Break
@@ -682,7 +689,7 @@ under an explicit scope policy and verified-result five-battle lifetime.
   stays in Rule IR. The ten Version 4.4 postfix byte semantics are now the sole
   named shared-capability gap and remain explicitly unresolved rather than
   inferred from historical independent analysis. `G21-P2-B5` executes four
-  shared capability probes, audits 214 Activity/Build/Combat/Rules Rust files
+  shared capability probes, audits 215 Activity/Build/Combat/Rules Rust files
   for mode-ID branches, confirms zero admitted native handlers and freezes all
   43 generated partitions covering 2,367 programs with deterministic digests.
   Its configuration-program `VersionedProjectPolicy` affects 156 expression

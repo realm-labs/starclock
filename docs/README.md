@@ -190,6 +190,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 157. [Titan effect boundary](divergent-universe-titan-effects.md) — source descriptors versus execution, fail-closed current battle assembly, exact-once pending assignments and inventory without pass receipts.
 158. [Owner-sourced rule damage](combat-owner-sourced-damage.md) — explicit damage producer with original trigger evaluation, retained ancestry, independent Crit groups and shared nonlethal/formula execution; no new equipment completion credit.
 159. [Authored Aggro weight factors](combat-aggro-weight-factors.md) — normalized live/captured query inputs, explicit content-owned weights and real integer target sampling; fixed targeting and pending equipment credit are unchanged.
+160. [Automatic normal-action primary selection](combat-automatic-primary-selection.md) — opt-in battle-owned primary sampling before declaration/payment, shared multi-hit Single/Blast commitment and unchanged unbound targeting; no production binding or Curio completion credit.
 
 ## Delivery boundary
 

@@ -202,6 +202,7 @@ pub struct AbilityDefinition {
     id: AbilityId,
     program: ProgramId,
     selector: SelectorId,
+    automatic_primary_selector: Option<SelectorId>,
     effects: Box<[EffectDefinitionId]>,
     action: Option<AbilityActionDefinition>,
     programs: Box<[AbilityProgramBinding]>,
@@ -220,6 +221,7 @@ impl AbilityDefinition {
             id,
             program,
             selector,
+            automatic_primary_selector: None,
             effects: effects.into_boxed_slice(),
             action: None,
             programs: Box::new([]),
@@ -236,6 +238,23 @@ impl AbilityDefinition {
     pub fn with_programs(mut self, programs: Vec<AbilityProgramBinding>) -> Self {
         self.programs = programs.into_boxed_slice();
         self
+    }
+    /// Selects a normal action's primary target inside the accepted command.
+    ///
+    /// The catalog validates a dependency-free current-state, alive/present,
+    /// single-result rule selector on a Basic/Skill Single/Blast action. Legal
+    /// commands carry no manual primary. Empty/invalid weights deterministically
+    /// fault before declaration or payment; rejected commands never draw RNG.
+    /// Queued/forced uses retain their explicitly supplied target contracts.
+    #[must_use]
+    pub const fn with_automatic_primary_selector(mut self, selector: SelectorId) -> Self {
+        self.automatic_primary_selector = Some(selector);
+        self
+    }
+    /// Returns the opt-in normal-command primary selection binding.
+    #[must_use]
+    pub const fn automatic_primary_selector(&self) -> Option<SelectorId> {
+        self.automatic_primary_selector
     }
     /// Returns the stable definition ID.
     #[must_use]

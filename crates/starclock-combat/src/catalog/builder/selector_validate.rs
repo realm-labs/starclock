@@ -5,7 +5,8 @@ use crate::{
         definition::SelectorDefinition,
         selector::{RuleSelectorReference, RuleUnitSelector},
     },
-    rule::model::{ConditionExpr, ValueExpr},
+    modifier::model::StatQuerySubject,
+    rule::model::{ConditionExpr, RuleValue, RuleValueKind, ValueExpr},
 };
 use std::collections::BTreeSet;
 
@@ -97,7 +98,124 @@ pub(super) fn validate(catalog: &CombatCatalog) -> Result<(), CatalogBuildError>
     for id in catalog.selectors.ids() {
         validate_dependencies(catalog, id, &mut BTreeSet::new(), &mut BTreeSet::new())?;
     }
+    validate_automatic_primaries(catalog)?;
     Ok(())
+}
+
+fn validate_automatic_primaries(catalog: &CombatCatalog) -> Result<(), CatalogBuildError> {
+    use crate::catalog::{
+        action::{TargetPattern, TargetRelation},
+        selector::{
+            RuleEmptyPoolPolicy, RuleLifePredicate, RulePresencePredicate, RuleSelectorChoice,
+            RuleSelectorOrigin, RuleSelectorPredicate, RuleSelectorSide,
+        },
+    };
+
+    for id in catalog.abilities.ids() {
+        let ability = catalog
+            .abilities
+            .get(id)
+            .expect("ID originated from this table");
+        let Some(primary_id) = ability.automatic_primary_selector() else {
+            continue;
+        };
+        let Some(primary) = catalog
+            .selectors
+            .get(primary_id)
+            .and_then(SelectorDefinition::rule_units)
+        else {
+            return Err(error(
+                CatalogBuildErrorKind::MissingReference,
+                format!(
+                    "ability {} requires executable primary selector {}",
+                    id.get(),
+                    primary_id.get()
+                ),
+            ));
+        };
+        let target = catalog
+            .selectors
+            .get(ability.selector())
+            .and_then(SelectorDefinition::unit_targets);
+        let valid = ability.action().is_some_and(|action| {
+            action.kind().is_normal_turn() && action.segmented_flow().is_none()
+        }) && target.is_some_and(|target| {
+            matches!(
+                target.pattern(),
+                TargetPattern::Single | TargetPattern::Blast
+            ) && match target.relation() {
+                TargetRelation::Allied => primary.side() == RuleSelectorSide::Same,
+                TargetRelation::Opposing => primary.side() == RuleSelectorSide::Opposing,
+                TargetRelation::SelfUnit => false,
+            }
+        }) && matches!(
+            primary.origin(),
+            RuleSelectorOrigin::Team | RuleSelectorOrigin::Encounter
+        ) && primary.reference() == RuleSelectorReference::CurrentState
+            && primary.life() == RuleLifePredicate::Alive
+            && primary.presence() == RulePresencePredicate::Present
+            && primary.minimum() == 1
+            && primary.maximum() == 1
+            && primary.empty_pool() == RuleEmptyPoolPolicy::Fault
+            && matches!(
+                primary.choice(),
+                RuleSelectorChoice::First
+                    | RuleSelectorChoice::RngUniform
+                    | RuleSelectorChoice::RngWeighted
+            )
+            && !primary.repeated()
+            && primary.dependencies().is_empty()
+            && primary.weight().is_none_or(primary_value_safe)
+            && primary
+                .predicates()
+                .iter()
+                .all(|predicate| match predicate {
+                    RuleSelectorPredicate::AdjacentToPrimary => false,
+                    RuleSelectorPredicate::StatCompare { value, .. } => primary_value_safe(value),
+                    _ => true,
+                });
+        if !valid {
+            return Err(error(
+                CatalogBuildErrorKind::InvalidDefinition,
+                format!(
+                    "ability {} has an invalid automatic primary selector {}",
+                    id.get(),
+                    primary_id.get()
+                ),
+            ));
+        }
+    }
+    Ok(())
+}
+
+// Pre-declaration selection has no action/event target, slots or trigger frame.
+// Only numeric literals, stat queries and their arithmetic are admitted here.
+fn primary_value_safe(expression: &ValueExpr) -> bool {
+    match expression {
+        ValueExpr::Literal(RuleValue::Scalar(_) | RuleValue::Integer(_)) => true,
+        ValueExpr::QueryStat { subject, .. } | ValueExpr::QueryBaseStat { subject, .. } => {
+            *subject != StatQuerySubject::EventTarget
+        }
+        ValueExpr::Negate(value) => primary_value_safe(value),
+        ValueExpr::Convert { value, target, .. } => {
+            matches!(target, RuleValueKind::Scalar | RuleValueKind::Integer)
+                && primary_value_safe(value)
+        }
+        ValueExpr::Add(lhs, rhs)
+        | ValueExpr::Subtract(lhs, rhs)
+        | ValueExpr::Minimum(lhs, rhs)
+        | ValueExpr::Maximum(lhs, rhs)
+        | ValueExpr::Multiply { lhs, rhs, .. }
+        | ValueExpr::Divide { lhs, rhs, .. } => primary_value_safe(lhs) && primary_value_safe(rhs),
+        ValueExpr::Clamp {
+            value,
+            minimum,
+            maximum,
+        } => {
+            primary_value_safe(value) && primary_value_safe(minimum) && primary_value_safe(maximum)
+        }
+        _ => false,
+    }
 }
 
 fn validate_predicates(

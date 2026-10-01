@@ -12,6 +12,7 @@ pub(crate) mod operation;
 mod operation_break;
 mod operation_formula;
 pub(crate) mod operation_resource;
+mod primary_selection;
 mod program;
 mod program_break;
 mod program_effect;

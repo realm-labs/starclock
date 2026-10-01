@@ -156,9 +156,17 @@ pub(crate) fn normal_action(
         {
             continue;
         }
-        if let Ok(primaries) =
+        if let Ok(mut primaries) =
             legal_primary_targets(&state.units, &state.formations, actor, selector)
         {
+            if catalog
+                .ability(ability)
+                .is_some_and(|definition| definition.automatic_primary_selector().is_some())
+            {
+                // Legality remains read-only. Predicate/weight evaluation and
+                // every random draw belong to the accepted transaction.
+                primaries = vec![None];
+            }
             legal_commands.extend(primaries.into_iter().map(|primary_target| {
                 Command::UseAbility {
                     decision: id,

@@ -1,7 +1,7 @@
 use super::{
     action::drain_reactions,
     action_execution::execute_action_plan,
-    operation as parent_operation,
+    operation as parent_operation, primary_selection,
     settle::{ActionBoundary, settle_after_action},
     transaction::{FaultInjection, FaultInjectionPoint, Transaction, action_fault},
     turn,
@@ -103,6 +103,8 @@ fn execute_normal_action(
         return Err(action_fault(4));
     }
     txn.set_action_boundary(None);
+    let primary_target =
+        primary_selection::resolve(catalog, txn, root, closed, actor, ability, primary_target)?;
     let targets = commit_targets(catalog, txn, actor, ability, primary_target)?;
     let owner =
         legal::ability_owner(txn.state, catalog, actor, ability).ok_or_else(|| action_fault(5))?;

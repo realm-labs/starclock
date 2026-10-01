@@ -102,6 +102,11 @@ multiplies its declared base weight by that factor; no Path weights or automatic
 conversion of fixed targets are inferred. See
 [Authored Aggro weight factors](combat-aggro-weight-factors.md).
 
+Normal Basic/Skill actions may opt into a single current-state rule selector
+for authoritative primary commitment before declaration. This does not change
+unbound manual targeting. See
+[Automatic normal-action primary selection](combat-automatic-primary-selection.md).
+
 ## Empty-pool control
 
 Cardinality is checked after filtering and choice:
