@@ -1,6 +1,7 @@
 //! Line-limit exception: the budgeted pure Rule IR evaluator stays exhaustive in one owner.
 //! Deterministic, budgeted and mutation-free Rule IR evaluation.
 mod arithmetic;
+mod elation;
 mod event_property;
 mod helpers;
 
@@ -382,6 +383,17 @@ fn evaluate_operation(
     current_target: Option<UnitId>,
 ) -> Result<RuleEmission, RuleEvaluationError> {
     Ok(match operation {
+        RuleOperationTemplate::ElationDamage {
+            selector,
+            inputs,
+            element,
+            can_crit,
+        } => RuleEmission::ElationDamage {
+            selector: *selector,
+            definition: elation::evaluate(inputs, *element, input, current_target)?,
+            can_crit: *can_crit,
+            current_target,
+        },
         RuleOperationTemplate::SetSlot { slot, value } => RuleEmission::SetSlot {
             slot: *slot,
             value: evaluate_value(value, input, current_target)?,

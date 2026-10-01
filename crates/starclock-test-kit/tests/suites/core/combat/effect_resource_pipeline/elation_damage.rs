@@ -1,4 +1,6 @@
 //! Real accepted-command coverage of the explicit native Elation operation.
+#[path = "elation_rule_ir.rs"]
+mod elation_rule_ir;
 use super::{catalog, combatant, definition};
 use crate::combat_decision::advance_boundary_if_offered;
 use starclock_combat::{

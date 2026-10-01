@@ -173,6 +173,14 @@ fn program_references(steps: &[ProgramStep]) -> (Box<[SelectorId]>, Box<[EffectD
             | O::ChangePresence { selector, .. } => {
                 selectors.insert(*selector);
             }
+            O::ElationDamage {
+                selector, inputs, ..
+            } => {
+                selectors.insert(*selector);
+                for expression in inputs.expressions() {
+                    value_references(expression, &mut selectors, &mut effects);
+                }
+            }
             O::Shield {
                 selector, effect, ..
             }
@@ -830,8 +838,64 @@ fn effect(value: i32) -> Result<EffectDefinitionId, CatalogLoadError> {
 mod tests {
     use super::*;
     use crate::generated::runtime::SoraBundle;
+    use starclock_combat::{
+        modifier::model::StatQuerySubject,
+        rule::model::{RuleValueKind, elation::ElationDamageExpressions},
+    };
 
     const PRODUCTION: &[u8] = include_bytes!("../../../config/generated/config.sora");
+
+    #[test]
+    fn elation_inputs_collect_all_nested_selector_and_effect_dependencies() {
+        let operand = |id| ValueExpr::SelectorSum {
+            selector: selector_id(id).expect("positive selector ID"),
+            value: Box::new(ValueExpr::Choose {
+                condition: Box::new(ConditionExpr::EffectExists {
+                    selector: selector_id(20).expect("positive selector ID"),
+                    effect: effect(21).expect("positive effect ID"),
+                }),
+                when_true: Box::new(ValueExpr::ReadResource {
+                    selector: selector_id(20).expect("positive selector ID"),
+                    resource: RuleResourceKind::Energy,
+                }),
+                when_false: Box::new(ValueExpr::Convert {
+                    value: Box::new(ValueExpr::QueryEffectStacks {
+                        subject: StatQuerySubject::Actor,
+                        effect: effect(22).expect("positive effect ID"),
+                    }),
+                    target: RuleValueKind::Scalar,
+                    rounding: Rounding::NearestTiesEven,
+                }),
+            }),
+        };
+        let steps = [ProgramStep::Operation(
+            RuleOperationTemplate::ElationDamage {
+                selector: selector_id(20).expect("positive selector ID"),
+                inputs: Box::new(ElationDamageExpressions {
+                    base_damage: operand(9),
+                    original_multiplier: operand(8),
+                    meter_multiplier: operand(7),
+                    merrymaking: operand(6),
+                    target_resistance: operand(5),
+                    penetration: operand(4),
+                    resistance_minimum: operand(3),
+                    resistance_maximum: operand(2),
+                    unbroken_multiplier: operand(1),
+                }),
+                element: CombatElement::Fire,
+                can_crit: false,
+            },
+        )];
+        let (selectors, effects) = program_references(&steps);
+        assert_eq!(
+            selectors.iter().map(|id| id.get()).collect::<Vec<_>>(),
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 20]
+        );
+        assert_eq!(
+            effects.iter().map(|id| id.get()).collect::<Vec<_>>(),
+            [21, 22]
+        );
+    }
 
     #[test]
     fn goal07_action_break_probes_survive_excel_sora_and_typed_lowering() {

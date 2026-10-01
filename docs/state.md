@@ -13,7 +13,11 @@ through ordinary typed operations. An explicit native Elation damage operation
 now reads live Elation/effective DEF, retains explicit level/meter/RES inputs,
 projects common modifier stages and reuses hit CRIT, guards, shields, HP and
 defeat settlement. Real commands cover factor separation, final flooring,
-sampling, lifecycle and deterministic faults. Production stat/operation
+sampling, lifecycle and deterministic faults. Rule IR now evaluates explicit
+Scalar operands into the same dedicated operation, preserving program-input
+snapshots, hit shares/CRIT caches and per-subject iteration. Type/domain/overflow
+failures and invalid later expressions reject or fault without damage mutation.
+Production stat/operation
 authoring and released damage parity remain unbound; existing ordinary-formula
 Elation-class operations retain their authored inputs. These prerequisites grant
 no content execution credit, including for Sapient Pen.

@@ -76,6 +76,14 @@ Examples include a character counter, once-per-turn marker, boss phase, blessing
 
 Expressions cannot mutate state, draw RNG, perform unbounded iteration, recurse, read wall-clock time, or access presentation data. Invalid arithmetic becomes a typed fault rather than false/zero.
 
+The native `ElationDamage` template resolves nine explicit Scalar operands into
+a checked immutable dedicated damage definition before program emissions commit.
+Its coefficient receives the enclosing hit's share once; its CRIT eligibility
+uses that hit's policy/cache. The resolver reads live Elation/DEF at operation
+execution. This uses the shared typed operation, command, event and fault path;
+Sora authoring/lowering remains pending. See the
+[Elation formula and expression bridge](combat-elation-formula.md).
+
 ## Conditions and event filters
 
 `ConditionExpr` supports typed comparisons, boolean composition, tag membership, life/presence checks, resource bounds, effect/state existence, weakness/broken state, selector cardinality, and event/cause predicates.

@@ -154,6 +154,38 @@ guard/defeat, property addition/expiry and reproducible overflow faults. Every
 successful fixture compares events, state hashes and RNG to fresh reconstruction;
 rejected starts retain state hash/RNG.
 
+## Rule IR expression bridge
+
+`RuleOperationTemplate::ElationDamage` is the explicit program path to the same
+dedicated operation. Its public `rule::model::elation::ElationDamageExpressions`
+retains nine Scalar expressions: resolved base, original/meter/merrymaking
+operands, RES/penetration/bounds and unbroken factor. No integer-to-ratio cast,
+points conversion or default factor is inferred. Authored expressions may use
+the existing checked stat/resource/parameter queries and explicit conversions.
+
+The mutation-free evaluator resolves every operand and constructs a validated
+immutable definition before any of that program's emissions commit. Rule catalog
+validation requires Scalar operands; unbound/direct program evaluation also returns
+typed type/domain/overflow errors. Signed RES and valid negative merrymaking are
+retained, not clamped. A failed later operand cannot commit an earlier damage
+proposal. Replacement-only execution rejects the mutating Elation proposal, and
+the ordinary program step/emission/iteration budgets still apply.
+
+The bridge retains `CurrentTarget` for bounded `ForEach`/`CurrentSubject` targeting,
+applies the enclosing hit's explicit share once to the coefficient, and uses its
+CRIT policy/cache when `can_crit` is true; false selects Never. The expression
+operands are frozen at the read-only boundary, while live Elation/DEF and the CRIT
+decision resolve at operation execution. Thus a preceding committed property
+addition can affect live Elation without retroactively reevaluating that program's
+meter expression; an explicit later phase may observe the new value.
+
+Pure contract vectors in `rule_ir_contract/elation.rs` cover exact signed inputs,
+all nine non-Scalar fields, domain/overflow failures, replacement rejection and
+budget limits. Real commands in `effect_resource_pipeline/elation_rule_ir.rs`
+cover frozen versus live inputs, native/Rule IR hit-share precision, shared and
+per-target CRIT draws, per-subject stat reads and rollback without damage after an
+invalid later operand. Both files are under the test kit's core combat suite.
+
 Production Sora stat/operation authoring and lowering, level-table compilation
 and released damage parity remain unimplemented.
 Punchline snapshots and Aha/Certified Banger lifecycle
@@ -166,6 +198,7 @@ No Divergent Universe obligation/program/family changes disposition; the
 cargo test -p starclock-combat formula::elation
 cargo test -p starclock-test-kit --test combat_suite elation_stat
 cargo test -p starclock-test-kit --test combat_suite elation_damage
+cargo test -p starclock-test-kit --test combat_suite rule_elation
 cargo fmt --all -- --check
 cargo clippy -p starclock-combat --all-targets -- -D warnings
 cargo test -p starclock-combat

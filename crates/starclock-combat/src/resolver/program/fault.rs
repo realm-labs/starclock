@@ -5,6 +5,7 @@ use crate::{
 
 pub(super) const fn emission_code(emission: &RuleEmission) -> i64 {
     match emission {
+        RuleEmission::ElationDamage { .. } => 23,
         RuleEmission::SetSlot { .. } => 1,
         RuleEmission::AddSlot { .. } => 2,
         RuleEmission::TrueDamage { .. } => 3,

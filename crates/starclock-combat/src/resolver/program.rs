@@ -1,5 +1,6 @@
 //! Transactional bridge from mutation-free Rule IR emissions to resolver operations.
 
+mod elation;
 mod emission;
 pub(super) mod fault;
 mod operation_support;
@@ -522,6 +523,9 @@ fn execute_emission(
     let operation_id = txn.allocate_operation();
     let request =
         match emission {
+            emission @ RuleEmission::ElationDamage { .. } => {
+                elation::operation(catalog, context, resolved, operation_id, emission)?
+            }
             RuleEmission::SetSlot { slot, value, .. } => Operation::ModifyStateSlot(
                 slot_operation(context, operation_id, slot, StateSlotUpdateKind::Set, value)?,
             ),

@@ -1,3 +1,5 @@
+#[path = "rule_ir_contract/elation.rs"]
+mod elation;
 use starclock_combat::{
     ActionGaugeChangeKind, ProgramId, Scalar, SelectorId, SourceDefinitionId,
     StateSlotDefinitionId, UnitId,

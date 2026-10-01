@@ -7,6 +7,7 @@ use crate::{
     LifeState, NativeHandlerId, PhaseId, PresenceState, ProgramId, RawToughness, Rounding, RuleId,
     RuleInstanceId, Scalar, SelectorId, SourceDefinitionId, StateSlotDefinitionId, TriggerId,
     UnitDefinitionId, UnitId, WaveInstanceId,
+    catalog::action::elation::ElationDamageDefinition,
     catalog::action::{AbilityTag, AbilityTags, ReactionBoundary, TargetPattern},
     formula::{
         model::{CombatElement, DamageClass},
@@ -15,10 +16,12 @@ use crate::{
     modifier::model::{FormulaPurpose, FormulaStage, StatKind, StatQuerySubject},
     rng::types::DrawPurpose,
 };
+pub mod elation;
 mod resource;
 mod source;
 mod state_slot;
 mod support;
+use elation::ElationDamageExpressions;
 pub use resource::{
     ResourceMaximumUpdateKind, ResourceUpdateKind, RuleActionOwner, RuleActionPaymentPolicy,
     RuleResourceKind,
@@ -528,6 +531,14 @@ pub enum ProgramStep {
 /// Mutation requests emitted by Rule IR and native handlers.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum RuleOperationTemplate {
+    /// Dedicated Elation inputs evaluate at the program's read-only boundary;
+    /// live Elation/DEF and hit CRIT resolve when the typed operation executes.
+    ElationDamage {
+        selector: SelectorId,
+        inputs: Box<ElationDamageExpressions>,
+        element: CombatElement,
+        can_crit: bool,
+    },
     SetSlot {
         slot: StateSlotDefinitionId,
         value: ValueExpr,
@@ -931,6 +942,12 @@ pub struct SelectorResult<'a> {
 /// Evaluated operation proposal; the resolver remains the only mutator.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum RuleEmission {
+    ElationDamage {
+        selector: SelectorId,
+        definition: ElationDamageDefinition,
+        can_crit: bool,
+        current_target: Option<UnitId>,
+    },
     SetSlot {
         slot: StateSlotDefinitionId,
         value: RuleValue,

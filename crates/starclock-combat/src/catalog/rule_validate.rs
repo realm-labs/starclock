@@ -298,6 +298,14 @@ fn validate_operation(
                 ));
             }
         }
+        RuleOperationTemplate::ElationDamage {
+            selector, inputs, ..
+        } => {
+            require_selector(catalog, *selector)?;
+            for expression in inputs.expressions() {
+                require_scalar(catalog, runtime, expression)?;
+            }
+        }
         RuleOperationTemplate::Damage {
             selector, amount, ..
         }
