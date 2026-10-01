@@ -155,7 +155,8 @@ impl WeightedCurioRuntime {
                 }
             }
         }
-        self.assemble_shields(builder, snapshot, core, players, assembly_digest)
+        self.assemble_shields(builder, snapshot, core, players, assembly_digest)?;
+        self.assemble_attack_debuffs(builder, snapshot, core, players, assembly_digest)
     }
 }
 

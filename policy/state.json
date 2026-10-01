@@ -104,11 +104,11 @@
     "decision_authoring": {
       "project": "starclock_divergent_universe_decisions",
       "workbooks": 1,
-      "tables": 36,
-      "rows": 375,
-      "reader_files": 78,
-      "bundle_bytes": 209174,
-      "bundle_sha256": "288346678dd77fca5bfd8916d4136f466398a22b0d5ee7e72860a8b7f6df0293",
+      "tables": 37,
+      "rows": 380,
+      "reader_files": 80,
+      "bundle_bytes": 216173,
+      "bundle_sha256": "e6f27293db3b77a8ab68345c7d25f0d0800a5360deeddf0816b814e1b52f2411",
       "domain_layout_layers": 11,
       "domain_layout_positions": 60,
       "domain_layout_fixed_positions": 21,
@@ -145,10 +145,11 @@
       "weighted_curio_loadout_accuracy": "VersionedProjectPolicyAcceptedCurrentCatalogLoadout",
       "weighted_curio_unsupported_equipment_rejects_battle_contribution": true,
       "weighted_curio_battle_effects_implemented": false,
-      "weighted_curio_battle_effect_definitions": 2,
+      "weighted_curio_battle_effect_definitions": 3,
       "weighted_curio_battle_effect_accuracies": [
         "VersionedProjectPolicyHitCalculatedCopyAdjacentTrueDamage",
-        "VersionedProjectPolicyAllyActionResolvedReplaceTargetTurnShield"
+        "VersionedProjectPolicyAllyActionResolvedReplaceTargetTurnShield",
+        "VersionedProjectPolicyAttackResolvedAdvanceAndTargetTurnFinalReduction"
       ],
       "grand_miracle_runtime_implemented": false,
       "forge_room_payload_implemented": false,

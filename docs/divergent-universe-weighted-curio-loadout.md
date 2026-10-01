@@ -66,7 +66,8 @@ Contribution snapshot construction validates this state before battle assembly.
 Unlowered equipped identities return typed `UnsupportedBattleEffect`; dirty
 counts, unknown keys or more than three equipped identities reject as invalid
 state. The production splash and [Harmony shield](divergent-universe-weighted-curio-shield.md)
-definitions enter actual Rule IR; the other fifteen effects still reject.
+and [Automated Experience](divergent-universe-weighted-curio-attack-debuff.md)
+definitions enter actual Rule IR; the other fourteen effects still reject.
 Unsupported equipment cannot become a digest-only, no-effect battle.
 After lawful unequip, the existing real proxy battle pipeline works normally.
 
@@ -75,6 +76,6 @@ bounds, canonical order, fresh command reconstruction, rejected requests and
 dirty-state rejection in both families. The normal proxy battle after unequip
 does not establish a Weighted Curio effect. Separate actual attack probes verify
 the lowered splash; they are not Forge admission or a complete public-run gate.
-Forge offers, slot-level admission, domain enhancement, the other fifteen effects and encoded equipment-command replay remain
+Forge offers, slot-level admission, domain enhancement, the other fourteen effects and encoded equipment-command replay remain
 unimplemented. No source obligation, mechanic program or semantic family is
 terminalized; genuine Grand Miracle acceptance remains separate and incomplete.

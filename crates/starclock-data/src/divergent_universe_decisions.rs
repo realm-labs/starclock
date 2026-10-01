@@ -32,9 +32,12 @@ use adventure_rewards::AdventureRewardDefinition;
 use coin_rewards::CoinRewardDefinition;
 use reward_occurrences::RewardOccurrenceDefinition;
 use shop::ShopStockDefinition;
+use weighted_curio_attack_debuffs::WeightedCurioAttackDebuffDefinition;
 use weighted_curio_shields::WeightedCurioShieldDefinition;
 use weighted_curio_splashes::WeightedCurioSplashDefinition;
 
+#[path = "divergent_universe_weighted_curio_attack_debuff_data.rs"]
+pub mod weighted_curio_attack_debuffs;
 #[path = "divergent_universe_weighted_curio_shield_data.rs"]
 pub mod weighted_curio_shields;
 
@@ -244,6 +247,7 @@ pub struct CurioFragmentGainDefinition {
 pub struct DecisionCatalog {
     weighted_curio_splashes: Box<[WeightedCurioSplashDefinition]>,
     weighted_curio_shields: Box<[WeightedCurioShieldDefinition]>,
+    weighted_curio_attack_debuffs: Box<[WeightedCurioAttackDebuffDefinition]>,
     adventure_rewards: Box<[AdventureRewardDefinition]>,
     coin_rewards: Box<[CoinRewardDefinition]>,
     reward_occurrences: Box<[RewardOccurrenceDefinition]>,
@@ -607,6 +611,11 @@ impl DecisionCatalog {
     #[must_use]
     pub fn weighted_curio_shields(&self) -> &[WeightedCurioShieldDefinition] {
         &self.weighted_curio_shields
+    }
+
+    #[must_use]
+    pub fn weighted_curio_attack_debuffs(&self) -> &[WeightedCurioAttackDebuffDefinition] {
+        &self.weighted_curio_attack_debuffs
     }
     /// Explicit chest-only policy at reviewed Wealth presets; facilities are separate.
     pub fn coin_rewards(&self) -> &[CoinRewardDefinition] {

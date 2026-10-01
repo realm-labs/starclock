@@ -183,7 +183,8 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 156. [Hex content taxonomy](divergent-universe-hex-content-taxonomy.md) — source-proven Weighted Curio classification, aligned authored transport, rejected Grand Miracle admission and pending loadout/effects.
     [Accepted Weighted Curio loadouts](divergent-universe-weighted-curio-loadout.md) defines atomic equipment replacement/unequip, caller capacity and rejection of unsupported battle effects; Forge menu admission remains pending.
     [Weighted Curio attack splash](divergent-universe-weighted-curio-splash.md) and
-    [Harmony shields](divergent-universe-weighted-curio-shield.md) execute source-attributed Rule IR; fifteen effects and Forge admission remain pending.
+    [Harmony shields](divergent-universe-weighted-curio-shield.md) and
+    [Automated Experience](divergent-universe-weighted-curio-attack-debuff.md) execute source-attributed Rule IR; fourteen effects and Forge admission remain pending.
 157. [Titan effect boundary](divergent-universe-titan-effects.md) — source descriptors versus execution, fail-closed current battle assembly, exact-once pending assignments and inventory without pass receipts.
 
 ## Delivery boundary

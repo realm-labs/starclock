@@ -2,6 +2,7 @@
 //! Equipment mutation is executable; unresolved battle effects fail closed.
 
 use crate::digest::CanonicalDigestBuilder;
+use starclock_data::divergent_universe_decisions::weighted_curio_attack_debuffs::WeightedCurioAttackDebuffDefinition;
 use starclock_data::divergent_universe_decisions::weighted_curio_shields::WeightedCurioShieldDefinition;
 use starclock_data::divergent_universe_decisions::weighted_curio_splashes::WeightedCurioSplashDefinition;
 use std::sync::Arc;
@@ -74,6 +75,7 @@ pub struct WeightedCurioRuntime {
     component: [u8; 32],
     pub(super) splashes: Box<[WeightedCurioSplashDefinition]>,
     pub(super) shields: Box<[WeightedCurioShieldDefinition]>,
+    pub(super) attack_debuffs: Box<[WeightedCurioAttackDebuffDefinition]>,
     decision_digest: [u8; 32],
 }
 
@@ -121,6 +123,10 @@ impl DivergentUniverseRuntimeFactory {
             component: self.bundle_identity().component_digest().bytes(),
             splashes: self.decision_catalog().weighted_curio_splashes().into(),
             shields: self.decision_catalog().weighted_curio_shields().into(),
+            attack_debuffs: self
+                .decision_catalog()
+                .weighted_curio_attack_debuffs()
+                .into(),
             decision_digest: self.decision_catalog().digest(),
         })
     }
@@ -261,6 +267,10 @@ impl WeightedCurioRuntime {
                 .any(|definition| &definition.weighted_curio == id)
                 && !self
                     .shields
+                    .iter()
+                    .any(|definition| &definition.weighted_curio == id)
+                && !self
+                    .attack_debuffs
                     .iter()
                     .any(|definition| &definition.weighted_curio == id)
             {

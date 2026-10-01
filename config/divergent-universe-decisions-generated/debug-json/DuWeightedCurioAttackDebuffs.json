@@ -1,0 +1,82 @@
+{
+  "table": {
+    "name": "DuWeightedCurioAttackDebuffs",
+    "rows": [
+      {
+        "values": {
+          "advance_fraction": {
+            "String": "0.2"
+          },
+          "advance_parameter": {
+            "Integer": 1
+          },
+          "character_paths": {
+            "List": [
+              {
+                "String": "Warrior"
+              },
+              {
+                "String": "Warlock"
+              }
+            ]
+          },
+          "duration_parameter": {
+            "Integer": 3
+          },
+          "duration_turns": {
+            "Integer": 1
+          },
+          "id": {
+            "Integer": 1
+          },
+          "maze_buff_id": {
+            "String": "633414"
+          },
+          "policy": {
+            "String": "AttackResolvedAdvanceAndTargetTurnFinalReduction"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: bind only mapped Destruction/Nihility player producers. Observe ActionResolved at AfterAction with Attack tag, owner actor and committed opposing targets; once per action, not hit. Visit current living present targets in formation/stable-ID order. Advance each through shared AdvanceAction by exact 0.2; replace this definition's prior effect with one guaranteed non-dispellable Debuff, duration one at TargetTurnEnd (an already-running target turn counts). Six outgoing purposes OrdinaryDamage/Dot/AdditionalDamage/ElationDamage/Break/SuperBreak use a dynamic source-owned final product factor 1-0.3; no ATK or incoming-damage change. True damage, explicit damage overrides and deliberately unboosted operations retain their shared bypass semantics. Refresh replaces across casters, does not multiply reductions; unrelated modifiers coexist in separate groups. No resistance roll, RNG, recursive attack, implicit summon inheritance or live Activity mutation. Equipment is Run-scoped; effects and modifiers teardown with battle/target."
+          },
+          "reduction_fraction": {
+            "String": "0.3"
+          },
+          "reduction_parameter": {
+            "Integer": 2
+          },
+          "replacement_condition": {
+            "String": "Hidden phase, committed versus declared targets, dead/absent admission, formula position/category coverage, dispel, immediate turn tick and cross-caster replacement are low-confidence policy, not observed parity. Alternatives: declaration-time trigger, source Weaken aggregation (not final product), break exemption, dispellable debuff or independent caster layers. Chosen policy preserves both exact effects and bounded shared execution; affected tests weighted_curio_attack_debuff and its production data rejection fixtures. Replace each field independently with released executable programs or reproducible current traces; preserve both Paths, attack/enemy direction, 0.2/0.3/one turn. Forge menus and encoded equipment replay remain pending."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 81
+              },
+              {
+                "Integer": 82
+              },
+              {
+                "Integer": 83
+              },
+              {
+                "Integer": 84
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.weighted-curio-attack-debuff.automated-experience"
+          },
+          "summary_en": {
+            "String": "After a Destruction or Nihility attack, attacked enemies advance 20% and deal 30% less damage for one turn."
+          },
+          "summary_zh_cn": {
+            "String": "毁灭或虚无角色攻击后，受击敌人行动提前 20%，造成伤害降低 30%，持续一回合。"
+          },
+          "weighted_curio_key": {
+            "String": "divergent-universe.weighted-curio.1014"
+          }
+        }
+      }
+    ]
+  }
+}

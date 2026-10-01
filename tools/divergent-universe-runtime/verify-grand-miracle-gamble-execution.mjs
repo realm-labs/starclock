@@ -22,7 +22,7 @@ assert(artifact.current_boundary.weighted_curio_accepted_loadout_boundary
   && artifact.current_boundary.weighted_curio_unsupported_equipment_rejects_battle_contribution
   && !artifact.current_boundary.weighted_curio_loadout_implemented
   && !artifact.current_boundary.weighted_curio_battle_effects_implemented
-  && artifact.current_boundary.weighted_curio_battle_effect_definitions === 2
+  && artifact.current_boundary.weighted_curio_battle_effect_definitions === 3
   && !artifact.current_boundary.forge_room_payload_implemented,
 "an accepted equipment primitive is not a complete Forge or battle-effect implementation");
 
@@ -94,6 +94,22 @@ if (process.argv.includes("--check-source")) {
     && shieldRows[0].values.maze_buff_id.String === "633402"
     && shieldRows[0].values.shield_fraction.String === "0.35"
     && shieldRows[0].values.duration_turns.Integer === 2, "production Harmony shield must preserve exact released operands");
+  const attack = released.find((row) => row.ID === 633414);
+  const attackHex = rows.find((row) => row.HexID === 1014);
+  assert(attackHex?.MazeBuffID === 633414 && JSON.stringify(attackHex.AvatarType) === '["Warrior","Warlock"]'
+    && attackHex.AvatarDamageType.length === 0
+    && JSON.stringify(attack?.ParamList.map((parameter) => parameter.Value)) === '["0.2","0.3","1"]'
+    && attack.InBattleBindingKey === "StageAbility_633414"
+    && String(attack.BuffDesc.Hash) === "4217722633224787979", "attack debuff operand/eligibility drift");
+  assert(text["4217722633224787979"].includes("Destruction or Nihility")
+    && text["4217722633224787979"].includes("attacked enemy")
+    && chinese["4217722633224787979"].includes("施放攻击后"), "bilingual attack condition/direction drift");
+  const attackRows = JSON.parse(fs.readFileSync(path.join(root, artifact.input_digests.weighted_attack_debuff_data.path), "utf8")).table.rows;
+  const value = attackRows[0]?.values;
+  assert(attackRows.length === 1 && value.weighted_curio_key.String === "divergent-universe.weighted-curio.1014"
+    && value.maze_buff_id.String === "633414" && value.advance_fraction.String === "0.2"
+    && value.reduction_fraction.String === "0.3" && value.duration_turns.Integer === 1,
+    "production attack debuff must preserve both released effects");
 }
 console.log("Hex taxonomy/Gamble inventory verified; no runtime completion or test-pass receipt emitted.");
 function assert(condition, message) { if (!condition) throw new Error(message); }
