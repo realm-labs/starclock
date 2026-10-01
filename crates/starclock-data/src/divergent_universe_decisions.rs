@@ -33,12 +33,15 @@ use coin_rewards::CoinRewardDefinition;
 use reward_occurrences::RewardOccurrenceDefinition;
 use shop::ShopStockDefinition;
 use weighted_curio_attack_debuffs::WeightedCurioAttackDebuffDefinition;
+use weighted_curio_break_effects::WeightedCurioBreakEffectDefinition;
 use weighted_curio_prayers::WeightedCurioPrayerDefinition;
 use weighted_curio_retaliations::WeightedCurioRetaliationDefinition;
 use weighted_curio_shields::WeightedCurioShieldDefinition;
 use weighted_curio_splashes::WeightedCurioSplashDefinition;
 use weighted_curio_support_attacks::WeightedCurioSupportAttackDefinition;
 
+#[path = "divergent_universe_weighted_curio_break_effect_data.rs"]
+pub mod weighted_curio_break_effects;
 #[path = "divergent_universe_weighted_curio_prayer_data.rs"]
 pub mod weighted_curio_prayers;
 #[path = "divergent_universe_weighted_curio_retaliation_data.rs"]
@@ -261,6 +264,7 @@ pub struct DecisionCatalog {
     weighted_curio_support_attacks: Box<[WeightedCurioSupportAttackDefinition]>,
     weighted_curio_prayers: Box<[WeightedCurioPrayerDefinition]>,
     weighted_curio_retaliations: Box<[WeightedCurioRetaliationDefinition]>,
+    weighted_curio_break_effects: Box<[WeightedCurioBreakEffectDefinition]>,
     adventure_rewards: Box<[AdventureRewardDefinition]>,
     coin_rewards: Box<[CoinRewardDefinition]>,
     reward_occurrences: Box<[RewardOccurrenceDefinition]>,
@@ -643,6 +647,11 @@ impl DecisionCatalog {
     #[must_use]
     pub fn weighted_curio_retaliations(&self) -> &[WeightedCurioRetaliationDefinition] {
         &self.weighted_curio_retaliations
+    }
+    /// Current source operands and explicit entry policy; loading alone is not execution.
+    #[must_use]
+    pub fn weighted_curio_break_effects(&self) -> &[WeightedCurioBreakEffectDefinition] {
+        &self.weighted_curio_break_effects
     }
     /// Explicit chest-only policy at reviewed Wealth presets; facilities are separate.
     pub fn coin_rewards(&self) -> &[CoinRewardDefinition] {

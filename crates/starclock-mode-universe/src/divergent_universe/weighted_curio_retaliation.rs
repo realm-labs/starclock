@@ -3,6 +3,7 @@ use crate::{
     digest::CanonicalDigestBuilder,
     divergent_universe::{
         DivergentUniverseBattleAssemblyError,
+        battle_participant_element::basic_element,
         battle_passive_bindings::{PassiveBindings, bind_passives},
         weighted_curio::{WeightedCurioRuntime, WeightedCurioSnapshot},
     },
@@ -13,7 +14,7 @@ use starclock_combat::{
     ResolvedModifierBinding, Rounding, RuleBundleId, RuleId, Scalar, SelectorId,
     SourceDefinitionId, TeamSide, TriggerId,
     catalog::{
-        action::{AbilityKind, AbilityTag, HitOperationDefinition, TargetPattern, TargetRelation},
+        action::{AbilityTag, TargetPattern, TargetRelation},
         builder::CombatCatalogBuilder,
         definition::{ProgramDefinition, RuleBundle, RuleDefinition, SelectorDefinition},
         selector::{
@@ -298,31 +299,6 @@ fn bind_enemy_primaries(
         }
     }
     Ok(())
-}
-
-fn basic_element(
-    core: &SimulationCatalog,
-    player: &ParticipantSpec,
-) -> Result<CombatElement, DivergentUniverseBattleAssemblyError> {
-    let mut element = None;
-    for id in player.combatant().abilities() {
-        let definition = core.combat_catalog().ability(*id).ok_or_else(invalid)?;
-        let Some(action) = definition
-            .action()
-            .filter(|action| action.kind() == AbilityKind::Basic)
-        else {
-            continue;
-        };
-        for operation in action.hits().iter().flat_map(|hit| hit.operations()) {
-            if let HitOperationDefinition::ScalingDamage(damage) = operation {
-                if element.is_some_and(|previous| previous != damage.element()) {
-                    return Err(invalid());
-                }
-                element = Some(damage.element());
-            }
-        }
-    }
-    element.ok_or_else(invalid)
 }
 
 fn path_weight(weights: WeightedCurioPathAggro, path: CombatPath) -> i64 {

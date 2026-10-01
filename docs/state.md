@@ -24,7 +24,7 @@ each eligible damage event copies thirty percent to adjacent enemies under an
 explicit hidden-timing/damage-copy policy. Equipment is the seventh immutable
 contribution component; unlowered equipment still rejects with typed errors
 instead of silently producing a no-effect battle. Full Forge menus/slot admission,
-the other eleven Weighted Curio effects, actual Grand Miracle source selection/effects
+the other ten Weighted Curio effects, actual Grand Miracle source selection/effects
 and the Forge room payload remain unimplemented. The
 [Harmony shield](divergent-universe-weighted-curio-shield.md) executes ally-directed
 Basic/Skill/Ultimate actions, including self and full-team targets, with each
@@ -54,7 +54,7 @@ baselines and shared weighted normal-enemy primaries make the target component
 executable without a second sampler or mode-specific battle state machine.
 Reaction timing/cardinality, element, critical eligibility, zero-loss admission
 and unreconstructed target locks remain independent low-confidence policies.
-Six of seventeen equipment effects execute; original Forge admission and
+Seven of seventeen equipment effects execute; original Forge admission and
 complete equipment replay remain pending. The current
 taxonomy/Gamble inventory emits no execution receipt or terminal coverage credit;
 the two accepted Coin units and unresolved Gamble rejection behavior remain.
@@ -62,9 +62,15 @@ Shared combat now captures resolved effect magnitudes into typed modifier-local
 Scalar slots before snapshot evaluation, independently of integer stack counts.
 Refresh, replacement and expiry preserve source-effect ownership and the effect
 store's magnitude policy; illegal innate attachments reject. Real damage and
-fresh reconstruction tests cover the capture. This supplies a generic prerequisite
-for Converse of Entropy, whose production effect is still unimplemented; it
-adds no terminal Divergent Universe coverage credit.
+fresh reconstruction tests cover the capture. The production
+[Converse of Entropy](divergent-universe-weighted-curio-break-effect.md)
+uses that capture to raise Wind/Lightning recipients' entry Break Effect to
+120% of one pre-insertion team maximum, including ineligible elements in the
+maximum. A single living producer prevents per-recipient compounding. Later
+modifiers remain live additions and change actual Break damage without
+recapturing this bonus. Entry timing, inactive eligibility and snapshot behavior
+remain explicit low-confidence policies; this adds no terminal Divergent
+Universe coverage credit.
 The verification scaffold retains all 6,762 obligations; its validator uses that
 current total rather than the old pre-Persona 6,215 subset. The
 [Titan effect boundary](divergent-universe-titan-effects.md) now has a current
@@ -1091,8 +1097,8 @@ items, three Wealth policies, one Reward-card substitute and one Adventure
 settlement policy, one Weighted Curio splash, one Harmony shield and one attack
 advance/reduction definition and one support-Path crit/additional-damage
 definition and one real-capacity/turn-start consumption/shield definition and
-one Physical target-weight/nonlethal retaliation definition across
-40 tables and 397 rows.
+one Physical target-weight/nonlethal retaliation definition and one entry
+team-maximum Break Effect capture definition across 41 tables and 402 rows.
 The [9074 expansion reward](divergent-universe-equation-expansion.md) has
 validated operands and an explicit finite-cascade executor. Fixed public-choice
 vectors in both baseline families pay for the card, trigger an additional

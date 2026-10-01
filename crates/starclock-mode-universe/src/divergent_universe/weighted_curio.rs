@@ -3,6 +3,7 @@
 
 use crate::digest::CanonicalDigestBuilder;
 use starclock_data::divergent_universe_decisions::weighted_curio_attack_debuffs::WeightedCurioAttackDebuffDefinition;
+use starclock_data::divergent_universe_decisions::weighted_curio_break_effects::WeightedCurioBreakEffectDefinition;
 use starclock_data::divergent_universe_decisions::weighted_curio_prayers::WeightedCurioPrayerDefinition;
 use starclock_data::divergent_universe_decisions::weighted_curio_retaliations::WeightedCurioRetaliationDefinition;
 use starclock_data::divergent_universe_decisions::weighted_curio_shields::WeightedCurioShieldDefinition;
@@ -82,6 +83,7 @@ pub struct WeightedCurioRuntime {
     pub(super) support_attacks: Box<[WeightedCurioSupportAttackDefinition]>,
     pub(super) prayers: Box<[WeightedCurioPrayerDefinition]>,
     pub(super) retaliations: Box<[WeightedCurioRetaliationDefinition]>,
+    pub(super) break_effects: Box<[WeightedCurioBreakEffectDefinition]>,
     decision_digest: [u8; 32],
 }
 
@@ -136,6 +138,10 @@ impl DivergentUniverseRuntimeFactory {
             decision_digest: self.decision_catalog().digest(),
             prayers: self.decision_catalog().weighted_curio_prayers().into(),
             retaliations: self.decision_catalog().weighted_curio_retaliations().into(),
+            break_effects: self
+                .decision_catalog()
+                .weighted_curio_break_effects()
+                .into(),
             support_attacks: self
                 .decision_catalog()
                 .weighted_curio_support_attacks()
@@ -274,9 +280,13 @@ impl WeightedCurioRuntime {
         let equipped = self.equipped(activity)?;
         for id in &equipped {
             if !self
-                .splashes
+                .break_effects
                 .iter()
                 .any(|definition| &definition.weighted_curio == id)
+                && !self
+                    .splashes
+                    .iter()
+                    .any(|definition| &definition.weighted_curio == id)
                 && !self
                     .shields
                     .iter()

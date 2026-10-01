@@ -35,19 +35,19 @@
     },
     "mode_facade": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/mod.rs",
-      "sha256": "f459fc0ba838ea16c53a2e11633789838ac2f58352890245b1676f3380487743"
+      "sha256": "1cd96a3436c2ea5931785339a54099293afe714c00c79bd3e85e5f875b66eedb"
     },
     "weighted_loadout": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/weighted_curio.rs",
-      "sha256": "875071701919bf23c0b7872553a70688aeb87979f5b6aa1e1a18f04243f63028"
+      "sha256": "044bdb5ee18cbc0670460866b00dab5656d7385a42243a9be79e94d537ed919d"
     },
     "weighted_loadout_tests": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio.rs",
-      "sha256": "649c0af5a00259f3c8b6e311d1b907d7c6cc8e7e27c796cad3b8483321507ba9"
+      "sha256": "b0248c2a678a58024bd943c0e0e5e81ae27b0a09bc12bcdb5eee12737e169c30"
     },
     "weighted_splash": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/weighted_curio_splash.rs",
-      "sha256": "a15a50d64ed3b0782034131fd4a34d473c53c0923dba1a66c348e0866292cdca"
+      "sha256": "7c826c4eac37f089ae235dcabceeed667d4dd0cf0cbc3c042dbfe4ca3511a88d"
     },
     "weighted_splash_tests": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_splash.rs",
@@ -107,7 +107,7 @@
     },
     "weighted_retaliation": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/weighted_curio_retaliation.rs",
-      "sha256": "7adf7239373a0fb7a27aa2d03619ecf380cee9cc20ee63bd57bb4341465575a8"
+      "sha256": "ae492e92b5dd900ff832a802c09ba9456d764c6ca62234ef51493a57b9e85d07"
     },
     "weighted_retaliation_tests": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_retaliation.rs",
@@ -120,6 +120,18 @@
     "weighted_retaliation_data": {
       "path": "config/divergent-universe-decisions-generated/debug-json/DuWeightedCurioRetaliations.json",
       "sha256": "e854c002f06986d7914283acfcb4bf6fd117abcc371c18b18bc32d9c274857d3"
+    },
+    "weighted_break_effect": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/weighted_curio_break_effect.rs",
+      "sha256": "3b23a4555724ba46f25c5d9497c5b2f17606feebe7e368b86c06a15b8dfa0b80"
+    },
+    "weighted_break_effect_tests": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_break_effect.rs",
+      "sha256": "a709cc8c12bab11a07e2ebf035f8f6b9eaf65db19d37b116e0e860b7545246ef"
+    },
+    "weighted_break_effect_data": {
+      "path": "config/divergent-universe-decisions-generated/debug-json/DuWeightedCurioBreakEffects.json",
+      "sha256": "f8842229cedd97114b1bfbbf8481a0064d488b83bd59ffb34a577dffa603815d"
     },
     "contribution_snapshot": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/contribution_snapshot.rs",
@@ -171,19 +183,20 @@
     "weighted_curio_loadout_accuracy": "VersionedProjectPolicyAcceptedCurrentCatalogLoadout",
     "weighted_curio_unsupported_equipment_rejects_battle_contribution": true,
     "weighted_curio_battle_effects_implemented": false,
-    "weighted_curio_battle_effect_definitions": 6,
+    "weighted_curio_battle_effect_definitions": 7,
     "weighted_curio_battle_effect_accuracies": [
       "VersionedProjectPolicyHitCalculatedCopyAdjacentTrueDamage",
       "VersionedProjectPolicyAllyActionResolvedReplaceTargetTurnShield",
       "VersionedProjectPolicyAttackResolvedAdvanceAndTargetTurnFinalReduction",
       "VersionedProjectPolicyRosterCountCritAndAttackResolvedAdditional",
       "VersionedProjectPolicyEntryHpAndTurnStartConsumeShield",
-      "VersionedProjectPolicyPhysicalAggroAndOwnerAdditional"
+      "VersionedProjectPolicyPhysicalAggroAndOwnerAdditional",
+      "VersionedProjectPolicyEntryHighestTeamBreakEffectCapture"
     ],
     "grand_miracle_runtime_implemented": false,
     "forge_room_payload_implemented": false,
     "terminal_coverage_credit": 0,
-    "required_next_work": "Bind accepted equipment to actual Forge offers and slot-level admission; implement the remaining eleven Weighted Curio effects and equipment-command replay. Establish Grand Miracle selectors independently and repair its separate source/fixture audit labels without shrinking obligations."
+    "required_next_work": "Bind accepted equipment to actual Forge offers and slot-level admission; implement the remaining ten Weighted Curio effects and equipment-command replay. Establish Grand Miracle selectors independently and repair its separate source/fixture audit labels without shrinking obligations."
   },
   "summary": {
     "weighted_curio_references": 17,
@@ -323,6 +336,26 @@
     {
       "file": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_retaliation.rs",
       "test": "weighted_curio_retaliation_preserves_fresh_handoffs_rejected_commands_and_unequip"
+    },
+    {
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_break_effect.rs",
+      "test": "weighted_curio_break_effect_captures_one_team_maximum_for_both_elements_without_compounding"
+    },
+    {
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_break_effect.rs",
+      "test": "weighted_curio_break_effect_skips_inactive_members_and_uses_next_living_producer"
+    },
+    {
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_break_effect.rs",
+      "test": "weighted_curio_break_effect_respects_reordered_roster_and_no_eligible_party"
+    },
+    {
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_break_effect.rs",
+      "test": "weighted_curio_break_effect_changes_real_break_damage_and_keeps_later_buffs_live"
+    },
+    {
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_break_effect.rs",
+      "test": "weighted_curio_break_effect_unequip_preserves_activity_and_reconstructs_production_handoffs"
     },
     {
       "file": "crates/starclock-mode-universe/src/divergent_universe/tests/gamble_runtime.rs",

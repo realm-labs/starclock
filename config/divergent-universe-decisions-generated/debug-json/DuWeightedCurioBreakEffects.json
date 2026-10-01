@@ -1,0 +1,70 @@
+{
+  "table": {
+    "name": "DuWeightedCurioBreakEffects",
+    "rows": [
+      {
+        "values": {
+          "character_elements": {
+            "List": [
+              {
+                "String": "Wind"
+              },
+              {
+                "String": "Thunder"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 1
+          },
+          "maze_buff_id": {
+            "String": "633405"
+          },
+          "multiplier": {
+            "String": "1.2"
+          },
+          "multiplier_parameter": {
+            "Integer": 1
+          },
+          "policy": {
+            "String": "EntryHighestTeamBreakEffectCapture"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: BattleStarted AfterEvent, priority zero, once per battle. Qualify current locked player forms by immutable canonical Basic scaling element; no linked, summon or transformed-form inheritance. Bind all party owners but admit only the first alive/present member in formation order. Snapshot highest effective Break Effect among alive/present original party forms, including ineligible elements. One ApplyEffect operation resolves all eligible recipients from one immutable input before any insertion. Capture max(1.2 times highest minus recipient entry Break Effect, 0) as modifier-local Scalar, NearestTiesEven multiplication, permanent non-dispellable Flat/Stat Break Effect addition with OnApplication snapshot. Later modifiers remain live without recomputing this entry bonus; no dynamic aura, absolute override, per-owner compounding, later-wave recapture or Activity mutation. Unequip changes only future assembled battles."
+          },
+          "replacement_condition": {
+            "String": "Low confidence for hidden before-character-born equivalence, other entry-effect ordering, inactive eligibility, canonical Basic element mapping, linked inheritance, snapshot/teardown, rounding and negative input handling; not observed parity. Alternatives include authored before-birth scheduling, inactive-roster maxima, dynamic recomputation and absolute stat override. Tests weighted_curio_break_effect execute both eligible elements, unequal/tied/zero stats, ineligible maxima, downed first owner, later modifiers, real Break damage, fresh reconstruction, rejection and unequip in both families. Replace each field independently when released executable programs or reproducible current traces establish it. Forge admission, equipment-command replay and complete original runs remain pending."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 99
+              },
+              {
+                "Integer": 100
+              },
+              {
+                "Integer": 101
+              },
+              {
+                "Integer": 102
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.weighted-curio-break-effect.converse-of-entropy"
+          },
+          "summary_en": {
+            "String": "At battle entry, raise Wind and Lightning allies' Break Effect to 120% of the highest ally Break Effect in the team."
+          },
+          "summary_zh_cn": {
+            "String": "进入战斗时，将风、雷属性角色的击破特攻提高至队伍最高击破特攻的 120%。"
+          },
+          "weighted_curio_key": {
+            "String": "divergent-universe.weighted-curio.1005"
+          }
+        }
+      }
+    ]
+  }
+}

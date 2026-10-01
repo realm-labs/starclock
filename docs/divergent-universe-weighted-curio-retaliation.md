@@ -120,7 +120,7 @@ admission with this Additional damage in both families, including charge
 exhaustion. The unbound internal Counter is cancelled, not executed; genuine
 Counter/Additional composition and full released Clara parity remain pending.
 
-Six of seventeen Weighted Curio effects now execute. The other eleven,
+Seven of seventeen Weighted Curio effects now execute. The other ten,
 player-facing Forge offers/slot admission, encoded equipment-command replay,
 genuine Grand Miracles and complete original runs remain pending. These tests
 do not terminalize a source obligation, mechanic program or semantic family.

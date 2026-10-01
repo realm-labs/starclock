@@ -56,5 +56,5 @@ integer RNG golden tests remain applicable.
 This shared prerequisite requires no Sora opcode or mode handler. The consuming
 [Self-Amusement overlay](divergent-universe-weighted-curio-retaliation.md) now
 authors elemental eligibility, explicit baselines, enemy-selector bindings and
-nonlethal retaliation. Six of seventeen Weighted Curio effects execute, without
+nonlethal retaliation. Seven of seventeen Weighted Curio effects execute, without
 additional original obligation, program, family, gap or policy terminal credit.

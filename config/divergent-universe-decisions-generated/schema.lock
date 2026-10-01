@@ -3,7 +3,7 @@
   "project_id": "starclock_divergent_universe_decisions",
   "contract_id": "starclock_divergent_universe_decisions/default",
   "view": "default",
-  "fingerprint": "e8c581d076dc75ce",
+  "fingerprint": "be7f5b7896ce8559",
   "schema": {
     "project_id": "starclock_divergent_universe_decisions",
     "contract_id": "starclock_divergent_universe_decisions/default",
@@ -754,6 +754,20 @@
           {
             "id": 0,
             "name": "PhysicalAggroAndOwnerAdditional"
+          }
+        ]
+      },
+      {
+        "name": "DuCurioBreakEffectPolicy",
+        "groups": {
+          "values": [
+            "common"
+          ]
+        },
+        "values": [
+          {
+            "id": 0,
+            "name": "EntryHighestTeamBreakEffectCapture"
           }
         ]
       }
@@ -11205,6 +11219,292 @@
             "name": "policy",
             "ty": {
               "Enum": "DuCurioRetaliationPolicy"
+            },
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "summary_en",
+            "ty": "String",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4000
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "summary_zh_cn",
+            "ty": "String",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4000
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "policy_note",
+            "ty": "String",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4000
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "replacement_condition",
+            "ty": "String",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4000
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "source_ids",
+            "ty": {
+              "List": {
+                "Ref": {
+                  "table": "DuDecisionSources",
+                  "field": "id"
+                }
+              }
+            },
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": {
+              "kind": "split",
+              "options": {
+                "separator": "|"
+              }
+            },
+            "derived_from": null
+          }
+        ],
+        "indexes": [
+          {
+            "name": "by_stable_key",
+            "fields": [
+              "stable_key"
+            ],
+            "unique": true
+          }
+        ]
+      },
+      {
+        "id": "weightedcuriobreakeffects",
+        "name": "DuWeightedCurioBreakEffects",
+        "canonical_name": "DuWeightedCurioBreakEffects",
+        "groups": {
+          "values": [
+            "common"
+          ]
+        },
+        "mode": "Map",
+        "key": "id",
+        "source": {
+          "file": "DivergentUniverseDecisions.xlsx",
+          "sheet": "WeightedCurioBreakEffects"
+        },
+        "fields": [
+          {
+            "name": "id",
+            "ty": "I32",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": true,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "stable_key",
+            "ty": "String",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4000
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "weighted_curio_key",
+            "ty": "String",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4000
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "maze_buff_id",
+            "ty": "String",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4000
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "character_elements",
+            "ty": {
+              "List": "String"
+            },
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": {
+              "kind": "split",
+              "options": {
+                "separator": "|"
+              }
+            },
+            "derived_from": null
+          },
+          {
+            "name": "multiplier_parameter",
+            "ty": "I32",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              64
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "multiplier",
+            "ty": "String",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4000
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "policy",
+            "ty": {
+              "Enum": "DuCurioBreakEffectPolicy"
             },
             "groups": {
               "values": [

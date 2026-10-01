@@ -22,7 +22,7 @@ assert(artifact.current_boundary.weighted_curio_accepted_loadout_boundary
   && artifact.current_boundary.weighted_curio_unsupported_equipment_rejects_battle_contribution
   && !artifact.current_boundary.weighted_curio_loadout_implemented
   && !artifact.current_boundary.weighted_curio_battle_effects_implemented
-  && artifact.current_boundary.weighted_curio_battle_effect_definitions === 6
+  && artifact.current_boundary.weighted_curio_battle_effect_definitions === 7
   && !artifact.current_boundary.forge_room_payload_implemented,
 "an accepted equipment primitive is not a complete Forge or battle-effect implementation");
 
@@ -161,6 +161,30 @@ if (process.argv.includes("--check-source")) {
     && retaliationValue.maze_buff_id.String === "633413"
     && retaliationValue.additional_multiplier.String === "4"
     && retaliationValue.aggro_fraction.String === "0.3", "production retaliation operand drift");
+  const breakEffect = released.find((row) => row.ID === 633405);
+  const breakEffectHex = rows.find((row) => row.HexID === 1005);
+  assert(breakEffectHex?.MazeBuffID === 633405 && breakEffectHex.DisplayID === 1018
+    && breakEffectHex.AvatarType.length === 0
+    && JSON.stringify(breakEffectHex.AvatarDamageType) === '["Wind","Thunder"]'
+    && JSON.stringify(breakEffect?.ParamList.map((parameter) => parameter.Value)) === '["1.2"]'
+    && breakEffect.InBattleBindingKey === "StageAbility_633405"
+    && String(breakEffect.BuffDesc.Hash) === "6003923322476481427",
+    "Converse of Entropy released operand/eligibility drift");
+  assert(text["6003923322476481427"].includes("Wind")
+    && text["6003923322476481427"].includes("Lightning")
+    && text["6003923322476481427"].includes("highest Break Effect")
+    && chinese["6003923322476481427"].includes("提高至"),
+    "Converse of Entropy must raise to the team maximum, not add that whole value");
+  const breakEffectRows = JSON.parse(fs.readFileSync(path.join(root,
+    artifact.input_digests.weighted_break_effect_data.path), "utf8")).table.rows;
+  const breakEffectValue = breakEffectRows[0]?.values;
+  assert(breakEffectRows.length === 1
+    && breakEffectValue.weighted_curio_key.String === "divergent-universe.weighted-curio.1005"
+    && breakEffectValue.maze_buff_id.String === "633405"
+    && JSON.stringify(breakEffectValue.character_elements.List.map((item) => item.String)) === '["Wind","Thunder"]'
+    && breakEffectValue.multiplier_parameter.Integer === 1
+    && breakEffectValue.multiplier.String === "1.2",
+    "production Converse of Entropy must preserve the current exact released operand");
   const paths = [[1001,"Knight","preservation","150"], [1002,"Rogue","hunt","75"],
     [1003,"Mage","erudition","75"], [1004,"Warlock","nihility","100"],
     [1008,"Warrior","destruction","125"], [1009,"Shaman","harmony","100"],
