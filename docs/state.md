@@ -3,6 +3,15 @@
 Starclock maintains only the current source, data, behavior and test outputs.
 Git history is the only historical record.
 
+The [shared Elation calculator](combat-elation-formula.md) now separates the
+level base, Elation, resolved Punchline and merrymaking factors from ordinary
+damage boost. It uses checked decimal arithmetic and a once-only integral floor,
+with boundary/domain/overflow vectors. Its factor composition and precision
+remain explicit ProjectPolicy. Production stat queries, dedicated battle
+operations and released damage parity remain unbound; existing Elation-class
+operations retain their authored formulas. This prerequisite grants no content
+execution credit, including for Sapient Pen.
+
 Shared combat retains authored ordinary DoT families in immutable catalogs and
 supports conjunctive family/tag/excluded-definition detonation filters through
 hit plans and Rule IR. Production Sora lowering preserves all eleven existing

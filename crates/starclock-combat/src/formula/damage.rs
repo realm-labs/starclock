@@ -77,7 +77,7 @@ pub(crate) fn additive_multiplier(values: &[Ratio]) -> Result<Ratio, NumericErro
     })
 }
 
-fn defense_multiplier(input: DefenseInput) -> Result<Ratio, NumericError> {
+pub(super) fn defense_multiplier(input: DefenseInput) -> Result<Ratio, NumericError> {
     let value = match input {
         DefenseInput::Actual {
             target_defense,
@@ -121,7 +121,7 @@ fn defense_multiplier(input: DefenseInput) -> Result<Ratio, NumericError> {
     Ok(Ratio::from_scaled(value.scaled()))
 }
 
-fn resistance_multiplier(input: model::ResistanceInput) -> Result<Ratio, NumericError> {
+pub(super) fn resistance_multiplier(input: model::ResistanceInput) -> Result<Ratio, NumericError> {
     if input.minimum > input.maximum {
         return Err(NumericError::OutOfDomain);
     }
@@ -134,7 +134,7 @@ fn resistance_multiplier(input: model::ResistanceInput) -> Result<Ratio, Numeric
     Ratio::ONE.checked_sub(bounded)
 }
 
-fn mitigation_multiplier(values: &[Ratio]) -> Result<Ratio, NumericError> {
+pub(super) fn mitigation_multiplier(values: &[Ratio]) -> Result<Ratio, NumericError> {
     values.iter().try_fold(Ratio::ONE, |product, value| {
         if !(0..=1_000_000).contains(&value.scaled()) {
             return Err(NumericError::OutOfDomain);
@@ -143,7 +143,7 @@ fn mitigation_multiplier(values: &[Ratio]) -> Result<Ratio, NumericError> {
     })
 }
 
-fn apply_factors(mut value: Scalar, factors: &[Ratio]) -> Result<Scalar, NumericError> {
+pub(super) fn apply_factors(mut value: Scalar, factors: &[Ratio]) -> Result<Scalar, NumericError> {
     for factor in factors {
         validate_non_negative(*factor)?;
         value = factor.checked_apply(value, ROUNDING)?;

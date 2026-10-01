@@ -2,6 +2,10 @@
 
 All percentages in formulas are decimal values. For example, 20% is `0.20`.
 
+The [shared Elation calculator](combat-elation-formula.md) has a separate,
+explicit ProjectPolicy factor contract. It is not yet a production battle
+operation; existing Elation-class operations retain their authored inputs.
+
 ## Derived stats
 
 The common derived-stat pattern is:

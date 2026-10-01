@@ -19,6 +19,13 @@ Generated `DamageClass::Elation` rows lower into the same combat-domain damage
 class. Neither generated reader types nor the numeric bit mask cross into
 `starclock-combat` public state.
 
+The [shared Elation calculator](combat-elation-formula.md) additionally accepts
+an explicit level base and separate Elation, resolved Punchline and merrymaking
+factors. It excludes ordinary damage boost and records a named factor trace.
+It is a pure ProjectPolicy prerequisite, not yet bound to battle operations,
+production stat authoring or a released character damage formula. Existing
+`DamageClass::Elation` operations are not implicitly changed by its presence.
+
 ## Shared resources
 
 `TeamResourceSpec` owns canonically ordered keyed resources. Each definition
