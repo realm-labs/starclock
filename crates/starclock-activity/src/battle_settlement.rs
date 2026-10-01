@@ -1,3 +1,4 @@
+use crate::battle_entry_carry::rebind_entry_carry;
 use crate::battle_preparation::ActivityAttemptState;
 use std::{collections::BTreeMap, sync::Arc};
 
@@ -624,6 +625,11 @@ pub enum ActivityBattleSettlementError {
 }
 
 impl ActivityTransactionState {
+    /// Starts the accepted pending input without mutating the carry ledger.
+    /// Existing carry is projected against this input's capacities using the
+    /// requested contract. An out-of-bounds exact value or invalid life/resource
+    /// combination returns `CarryInvariant` before any authoritative mutation.
+    /// A participant with no ledger entry keeps its explicit initial input.
     pub fn start_pending_battle(
         &mut self,
         graph: &ActivityGraphDefinition,
@@ -693,9 +699,21 @@ impl ActivityTransactionState {
         let carry = participant_specs
             .into_iter()
             .map(|(participant, spec)| {
-                self.carry.get(participant).unwrap_or_else(|| {
+                if let Some(previous) = self.carry.get(participant) {
+                    let index = request
+                        .contract
+                        .carry
+                        .binary_search_by_key(&participant, |item| item.participant)
+                        .map_err(|_| ActivityBattleSettlementError::ParticipantContractMismatch)?;
+                    rebind_entry_carry(
+                        request.contract.carry[index],
+                        previous,
+                        spec.combatant().maximum_hp(),
+                        spec.combatant().maximum_energy(),
+                    )
+                } else {
                     let initial = spec.initial_state();
-                    ActivityParticipantCarryState {
+                    Ok(ActivityParticipantCarryState {
                         participant,
                         current_hp: initial
                             .map_or(spec.combatant().maximum_hp(), |state| state.current_hp()),
@@ -707,10 +725,10 @@ impl ActivityTransactionState {
                         maximum_energy: spec.combatant().maximum_energy(),
                         life: initial.map_or(LifeState::Alive, |state| state.life()),
                         presence: initial.map_or(PresenceState::Present, |state| state.presence()),
-                    }
-                })
+                    })
+                }
             })
-            .collect::<Vec<_>>()
+            .collect::<Result<Vec<_>, ActivityBattleSettlementError>>()?
             .into_boxed_slice();
         self.awaiting_battle = Some(ActivityAwaitingBattle {
             identity,

@@ -8,6 +8,7 @@
 
 mod activity_rng;
 mod aggregate;
+mod battle_entry_carry;
 mod battle_preparation;
 mod battle_settlement;
 mod battle_settlement_in_place;

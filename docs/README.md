@@ -38,7 +38,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 16. [Replay, CLI, and engine integration](16-replay-cli-and-engine-integration.md) — canonical replay format, planned CLI contracts, baseline controllers, and Bevy/engine adapters.
 17. [Documentation coverage matrix](17-documentation-coverage-matrix.md) — current normative coverage, research gaps, data-import status, and terminal gates.
 18. [Standard and challenge modes](18-standard-and-challenge-modes.md) — ordinary battles plus Memory of Chaos, Pure Fiction, and Apocalyptic Shadow orchestration, clocks, scoring, and seasonal data.
-19. [Activity core and mode extension](19-activity-core-and-mode-extension.md) — unified graphs, scopes, rosters, persistence, clocks, metrics, battle handoff, and future-mode extension.
+19. [Activity core and mode extension](19-activity-core-and-mode-extension.md) — unified graphs, scopes, rosters, persistence, clocks, metrics, battle handoff, [destination-capacity carry](activity-battle-entry-carry.md), and future-mode extension.
 20. [Core implementation design](20-core-implementation-design.md) — concrete Rust ownership, identities, stores, action lowering, operations, events, transactions, modules, and implementation order.
 21. [Character builds, Traces, and equipment](21-build-traces-and-equipment.md) — independent `starclock-build`, build selection/compilation, ability levels, Traces, Eidolons, Light Cones, relics, affixes, generic combat output, and validation.
 22. [Reference data](reference-data.md) — constants and the attacker-level multiplier table.

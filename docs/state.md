@@ -498,6 +498,12 @@ under an explicit scope policy and verified-result five-battle lifetime.
 
 - `starclock-combat` owns deterministic single-battle execution.
 - `starclock-activity` owns deterministic cross-battle orchestration.
+- Its [battle-entry carry projection](activity-battle-entry-carry.md) binds
+  existing HP/Energy to the accepted destination maxima. Exact values above a
+  new bound reject atomically; clamped values become valid entry resources.
+  Increased capacity does not heal, life/presence policies remain explicit,
+  and the ledger remains the last verified result until normal settlement.
+  This shared prerequisite adds no complete Divergent Universe Curio credit.
 - Its `RemoveCounter` operation deletes one declared counter-map entry without
   conflating absence with a stored zero. Order/capacity, idempotent absence,
   typed validation, conditional execution and rollback are tested. This supplies
@@ -658,7 +664,7 @@ under an explicit scope policy and verified-result five-battle lifetime.
   stays in Rule IR. The ten Version 4.4 postfix byte semantics are now the sole
   named shared-capability gap and remain explicitly unresolved rather than
   inferred from historical independent analysis. `G21-P2-B5` executes four
-  shared capability probes, audits 211 Activity/Build/Combat/Rules Rust files
+  shared capability probes, audits 213 Activity/Build/Combat/Rules Rust files
   for mode-ID branches, confirms zero admitted native handlers and freezes all
   43 generated partitions covering 2,367 programs with deterministic digests.
   Its configuration-program `VersionedProjectPolicy` affects 156 expression

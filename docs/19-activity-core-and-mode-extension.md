@@ -191,6 +191,20 @@ Every projected value between scopes or battles selects one policy:
 
 Policies apply independently to HP, Energy, resources, effects, cooldowns, roster state, clocks, metrics, mode modifiers, and custom slots. No mode receives a blanket “persist battle state” switch.
 
+At battle entry, an existing participant carry record is projected by the
+requested result contract against the accepted destination `ParticipantSpec`'s
+HP and Energy maxima. `CarryExact` preserves absolute values and rejects a value
+above either new bound with `CarryInvariant`; `CarryClamped` explicitly lowers
+only values above that bound. Raising capacity does not heal or grant Energy.
+`RestoreFull` and `ResetZero`, and the independent life/presence policies, also
+apply at this boundary. Inconsistent HP/life combinations are rejected, not
+implicitly revived. A participant without an existing record keeps its explicit
+initial input. This projection changes only the returned handoff: the carry
+ledger remains the last verified settlement until the next normal settlement.
+Rejection occurs before publishing an awaiting battle and preserves canonical
+state and RNG. Activity never queries build/account catalogs or scales HP by a
+ratio of old and new maxima. See the [entry carry contract](activity-battle-entry-carry.md).
+
 Participant HP, Energy, life and battlefield presence are projected into a
 typed cross-battle carry ledger. Activity programs may inspect
 `ParticipantDefeated(participant)` and may apply
