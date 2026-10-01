@@ -108,11 +108,11 @@
     "decision_authoring": {
       "project": "starclock_divergent_universe_decisions",
       "workbooks": 1,
-      "tables": 39,
-      "rows": 390,
-      "reader_files": 84,
-      "bundle_bytes": 230349,
-      "bundle_sha256": "d10c0a34fd286ef813b77dc02f013d44b1abdf9e497007d0006ae2c8f282c59d",
+      "tables": 40,
+      "rows": 397,
+      "reader_files": 86,
+      "bundle_bytes": 240015,
+      "bundle_sha256": "f5df0712eba8199a17ada80540e818f522cb4a8d226fac72fbb69e06f6df35db",
       "domain_layout_layers": 11,
       "domain_layout_positions": 60,
       "domain_layout_fixed_positions": 21,
@@ -149,13 +149,14 @@
       "weighted_curio_loadout_accuracy": "VersionedProjectPolicyAcceptedCurrentCatalogLoadout",
       "weighted_curio_unsupported_equipment_rejects_battle_contribution": true,
       "weighted_curio_battle_effects_implemented": false,
-      "weighted_curio_battle_effect_definitions": 5,
+      "weighted_curio_battle_effect_definitions": 6,
       "weighted_curio_battle_effect_accuracies": [
         "VersionedProjectPolicyHitCalculatedCopyAdjacentTrueDamage",
         "VersionedProjectPolicyAllyActionResolvedReplaceTargetTurnShield",
         "VersionedProjectPolicyAttackResolvedAdvanceAndTargetTurnFinalReduction",
         "VersionedProjectPolicyRosterCountCritAndAttackResolvedAdditional",
-        "VersionedProjectPolicyEntryHpAndTurnStartConsumeShield"
+        "VersionedProjectPolicyEntryHpAndTurnStartConsumeShield",
+        "VersionedProjectPolicyPhysicalAggroAndOwnerAdditional"
       ],
       "grand_miracle_runtime_implemented": false,
       "forge_room_payload_implemented": false,

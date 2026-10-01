@@ -14,6 +14,7 @@ mod titan_entry;
 mod weighted_curio;
 mod weighted_curio_attack_debuff;
 mod weighted_curio_prayer;
+mod weighted_curio_retaliation;
 mod weighted_curio_shield;
 #[path = "tests/weighted_curio_splash.rs"]
 mod weighted_curio_splash;

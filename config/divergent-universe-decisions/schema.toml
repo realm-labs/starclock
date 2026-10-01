@@ -128,6 +128,9 @@ values = [{ id = 0, name = "RosterCountCritAndAttackResolvedAdditional" }]
 [[enums]]
 name = "DuCurioPrayerPolicy"
 values = [{ id = 0, name = "EntryHpAndTurnStartConsumeShield" }]
+[[enums]]
+name = "DuCurioRetaliationPolicy"
+values = [{ id = 0, name = "PhysicalAggroAndOwnerAdditional" }]
 [[tables]]
 id = "sources"
 name = "DuDecisionSources"
@@ -2343,6 +2346,113 @@ length = [1, 4000]
 [[tables.fields]]
 name = "policy"
 type = "enum<DuCurioPrayerPolicy>"
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "policy_note"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "replacement_condition"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "source_ids"
+type = "list<ref<DuDecisionSources.id>>"
+parser = { kind = "split", separator = "|" }
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+[[tables]]
+id = "weightedcurioretaliations"
+name = "DuWeightedCurioRetaliations"
+mode = "map"
+key = "id"
+[tables.source]
+file = "DivergentUniverseDecisions.xlsx"
+sheet = "WeightedCurioRetaliations"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1,2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "weighted_curio_key"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "maze_buff_id"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "character_elements"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+[[tables.fields]]
+name = "additional_parameter"
+type = "i32"
+range = [1,64]
+[[tables.fields]]
+name = "additional_multiplier"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "aggro_parameter"
+type = "i32"
+range = [1,64]
+[[tables.fields]]
+name = "aggro_fraction"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "base_aggro_destruction"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "base_aggro_hunt"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "base_aggro_erudition"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "base_aggro_harmony"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "base_aggro_nihility"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "base_aggro_preservation"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "base_aggro_abundance"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "base_aggro_remembrance"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "base_aggro_elation"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "policy"
+type = "enum<DuCurioRetaliationPolicy>"
 [[tables.fields]]
 name = "summary_en"
 type = "string"

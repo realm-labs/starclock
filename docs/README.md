@@ -186,11 +186,13 @@ Treat the date, not an assumed game version number, as the baseline. Character k
     [Harmony shields](divergent-universe-weighted-curio-shield.md) and
     [Automated Experience](divergent-universe-weighted-curio-attack-debuff.md) and
     [The Story Presently](divergent-universe-weighted-curio-support-attack.md) and
-    [Road of Prayers](divergent-universe-weighted-curio-prayer.md) execute source-attributed Rule IR; twelve effects and Forge admission remain pending.
+    [Road of Prayers](divergent-universe-weighted-curio-prayer.md) and
+    [Self-Amusement](divergent-universe-weighted-curio-retaliation.md) execute source-attributed Rule IR; eleven effects and Forge admission remain pending.
 157. [Titan effect boundary](divergent-universe-titan-effects.md) — source descriptors versus execution, fail-closed current battle assembly, exact-once pending assignments and inventory without pass receipts.
 158. [Owner-sourced rule damage](combat-owner-sourced-damage.md) — explicit damage producer with original trigger evaluation, retained ancestry, independent Crit groups and shared nonlethal/formula execution; no new equipment completion credit.
 159. [Authored Aggro weight factors](combat-aggro-weight-factors.md) — normalized live/captured query inputs, explicit content-owned weights and real integer target sampling; fixed targeting and pending equipment credit are unchanged.
-160. [Automatic normal-action primary selection](combat-automatic-primary-selection.md) — opt-in battle-owned primary sampling before declaration/payment, shared multi-hit Single/Blast commitment and unchanged unbound targeting; no production binding or Curio completion credit.
+160. [Automatic normal-action primary selection](combat-automatic-primary-selection.md) — opt-in battle-owned primary sampling before declaration/payment, shared multi-hit Single/Blast commitment and unchanged unbound targeting; used by the policy-bound Self-Amusement overlay without terminal Curio credit.
+161. [Self-Amusement target weights and nonlethal retaliation](divergent-universe-weighted-curio-retaliation.md) — production-authored Physical qualification, explicit path baselines, shared enemy primary sampling and victim-sourced Additional damage; hidden targeting/reaction details remain replaceable policy.
 
 ## Delivery boundary
 

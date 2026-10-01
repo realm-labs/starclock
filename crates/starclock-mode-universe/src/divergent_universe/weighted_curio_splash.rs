@@ -40,6 +40,7 @@ impl WeightedCurioRuntime {
         snapshot: &WeightedCurioSnapshot,
         core: &SimulationCatalog,
         players: &mut [ParticipantSpec],
+        enemies: &[ParticipantSpec],
         assembly_digest: [u8; 32],
     ) -> Result<(), DivergentUniverseBattleAssemblyError> {
         if snapshot.equipped().is_empty() {
@@ -159,7 +160,8 @@ impl WeightedCurioRuntime {
         self.assemble_shields(builder, snapshot, core, players, assembly_digest)?;
         self.assemble_attack_debuffs(builder, snapshot, core, players, assembly_digest)?;
         self.assemble_support_attacks(builder, snapshot, core, players, assembly_digest)?;
-        self.assemble_prayers(builder, snapshot, core, players, assembly_digest)
+        self.assemble_prayers(builder, snapshot, core, players, assembly_digest)?;
+        self.assemble_retaliations(builder, snapshot, core, players, enemies, assembly_digest)
     }
 }
 

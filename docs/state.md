@@ -24,7 +24,7 @@ each eligible damage event copies thirty percent to adjacent enemies under an
 explicit hidden-timing/damage-copy policy. Equipment is the seventh immutable
 contribution component; unlowered equipment still rejects with typed errors
 instead of silently producing a no-effect battle. Full Forge menus/slot admission,
-the other twelve Weighted Curio effects, actual Grand Miracle source selection/effects
+the other eleven Weighted Curio effects, actual Grand Miracle source selection/effects
 and the Forge room payload remain unimplemented. The
 [Harmony shield](divergent-universe-weighted-curio-shield.md) executes ally-directed
 Basic/Skill/Ultimate actions, including self and full-team targets, with each
@@ -47,7 +47,14 @@ The [Road of Prayers](divergent-universe-weighted-curio-prayer.md) increases
 eligible Erudition/Nihility participants' real entry HP capacity by 60%, consumes
 15% current HP at owner turn start and refreshes a 25% live-maximum-HP shield.
 Capacity basis, timing, floor and duration remain explicit project policy.
-Five of seventeen equipment effects execute; original Forge admission and
+The [Self-Amusement](divergent-universe-weighted-curio-retaliation.md) definition
+adds a policy-bound 30% Physical target-weight component and victim-sourced,
+nonlethal Additional damage using the exact 400%-ATK operand. Explicit path
+baselines and shared weighted normal-enemy primaries make the target component
+executable without a second sampler or mode-specific battle state machine.
+Reaction timing/cardinality, element, critical eligibility, zero-loss admission
+and unreconstructed target locks remain independent low-confidence policies.
+Six of seventeen equipment effects execute; original Forge admission and
 complete equipment replay remain pending. The current
 taxonomy/Gamble inventory emits no execution receipt or terminal coverage credit;
 the two accepted Coin units and unresolved Gamble rejection behavior remain.
@@ -512,7 +519,8 @@ lets explicitly bound normal Basic/Skill commands commit a current-state
 single primary through the existing battle-owned sampler before declaration
 and payment. Multi-hit Single/Blast attacks use one shared action envelope;
 manual and queued/forced targeting remain explicit. This native catalog-factory
-prerequisite adds no production enemy binding or Curio coverage credit.
+prerequisite now supports the policy-bound Self-Amusement enemy overlay;
+the shared primitive alone adds no terminal Curio coverage credit.
 
 The shared [final damage boundary](final-damage-boundary.md) supports a distinct
 source-owned multiplicative stage across ordinary and Break damage, without
@@ -1055,8 +1063,9 @@ current Persona layout positions, nine reviewed decks, one shop stock and three
 items, three Wealth policies, one Reward-card substitute and one Adventure
 settlement policy, one Weighted Curio splash, one Harmony shield and one attack
 advance/reduction definition and one support-Path crit/additional-damage
-definition and one real-capacity/turn-start consumption/shield definition across
-39 tables and 390 rows.
+definition and one real-capacity/turn-start consumption/shield definition and
+one Physical target-weight/nonlethal retaliation definition across
+40 tables and 397 rows.
 The [9074 expansion reward](divergent-universe-equation-expansion.md) has
 validated operands and an explicit finite-cascade executor. Fixed public-choice
 vectors in both baseline families pay for the card, trigger an additional

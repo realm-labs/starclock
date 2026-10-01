@@ -22,7 +22,7 @@ assert(artifact.current_boundary.weighted_curio_accepted_loadout_boundary
   && artifact.current_boundary.weighted_curio_unsupported_equipment_rejects_battle_contribution
   && !artifact.current_boundary.weighted_curio_loadout_implemented
   && !artifact.current_boundary.weighted_curio_battle_effects_implemented
-  && artifact.current_boundary.weighted_curio_battle_effect_definitions === 5
+  && artifact.current_boundary.weighted_curio_battle_effect_definitions === 6
   && !artifact.current_boundary.forge_room_payload_implemented,
 "an accepted equipment primitive is not a complete Forge or battle-effect implementation");
 
@@ -141,6 +141,52 @@ if (process.argv.includes("--check-source")) {
     && prayerValue.maze_buff_id.String === "633404" && prayerValue.hp_fraction.String === "0.6"
     && prayerValue.consume_fraction.String === "0.15" && prayerValue.shield_fraction.String === "0.25",
     "production prayer must preserve all three released resource operands");
+  const retaliation = released.find((row) => row.ID === 633413);
+  const retaliationHex = rows.find((row) => row.HexID === 1013);
+  assert(retaliationHex?.MazeBuffID === 633413 && retaliationHex.DisplayID === 1026
+    && retaliationHex.AvatarType.length === 0
+    && JSON.stringify(retaliationHex.AvatarDamageType) === '["Physical"]'
+    && JSON.stringify(retaliation?.ParamList.map((parameter) => parameter.Value)) === '["4","0.3"]'
+    && retaliation.InBattleBindingKey === "StageAbility_633413"
+    && String(retaliation.BuffDesc.Hash) === "6457248194266440334", "retaliation released operand/eligibility drift");
+  assert(text["6457248194266440334"].includes("Physical")
+    && text["6457248194266440334"].includes("Additional DMG")
+    && text["6457248194266440334"].includes("cannot defeat")
+    && chinese["6457248194266440334"].includes("无法消灭"), "retaliation owner additional/nonlethal text drift");
+  const retaliationRows = JSON.parse(fs.readFileSync(path.join(root,
+    artifact.input_digests.weighted_retaliation_data.path), "utf8")).table.rows;
+  const retaliationValue = retaliationRows[0]?.values;
+  assert(retaliationRows.length === 1
+    && retaliationValue.weighted_curio_key.String === "divergent-universe.weighted-curio.1013"
+    && retaliationValue.maze_buff_id.String === "633413"
+    && retaliationValue.additional_multiplier.String === "4"
+    && retaliationValue.aggro_fraction.String === "0.3", "production retaliation operand drift");
+  const paths = [[1001,"Knight","preservation","150"], [1002,"Rogue","hunt","75"],
+    [1003,"Mage","erudition","75"], [1004,"Warlock","nihility","100"],
+    [1008,"Warrior","destruction","125"], [1009,"Shaman","harmony","100"],
+    [1105,"Priest","abundance","100"], [1402,"Memory","remembrance","100"],
+    [1501,"Elation","elation","100"]];
+  const exactSource = (file, digest) => {
+    const bytes = execFileSync("git", ["-C", sourceRoot, "show", `${evidence.revision}:${file}`],
+      {maxBuffer: 128 * 1024 * 1024});
+    assert(crypto.createHash("sha256").update(bytes).digest("hex") === digest, `path baseline source drift: ${file}`);
+    return JSON.parse(bytes.toString().replace(/("Hash"\s*:\s*)(-?\d{16,})/gu, '$1"$2"')
+      .replace(/("Value"\s*:\s*)(-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?)/gu, '$1"$2"'));
+  };
+  const avatars = exactSource("ExcelOutput/AvatarConfig.json",
+    "c14584519e2feda70e9932501f7b79d67242d700585fe44119bbce9da9678e98");
+  const promotions = exactSource("ExcelOutput/AvatarPromotionConfig.json",
+    "4453f206d6b79658128f22ce4d923e2e608f92b48175ba5c913ed2be322d24c5");
+  const flattenBy = (value, field) => Array.isArray(value) ? value.flatMap(v => flattenBy(v,field))
+    : value && typeof value === "object" && !Object.hasOwn(value,field)
+      ? Object.values(value).flatMap(v => flattenBy(v,field)) : [value];
+  for (const [avatar, path, field, weight] of paths) {
+    assert(flattenBy(avatars,"AvatarID").some(row => row?.AvatarID === avatar && row.AvatarBaseType === path),
+      `representative path join drift: ${avatar}`);
+    const weights = flattenBy(promotions,"AvatarID").filter(row => row?.AvatarID === avatar);
+    assert(weights.length === 7 && weights.every(row => row.BaseAggro?.Value === weight)
+      && retaliationValue[`base_aggro_${field}`].String === weight, `representative path baseline drift: ${avatar}`);
+  }
 }
 console.log("Hex taxonomy/Gamble inventory verified; no runtime completion or test-pass receipt emitted.");
 function assert(condition, message) { if (!condition) throw new Error(message); }

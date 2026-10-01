@@ -31,6 +31,7 @@ from weighted_curio_shield_rows import append_weighted_curio_shield
 from weighted_curio_attack_debuff_rows import append_weighted_curio_attack_debuff
 from weighted_curio_support_attack_rows import append_weighted_curio_support_attack
 from weighted_curio_prayer_rows import append_weighted_curio_prayer
+from weighted_curio_retaliation_rows import append_weighted_curio_retaliation
 
 
 def rows() -> dict[str, list[list[object]]]:
@@ -308,6 +309,7 @@ def rows() -> dict[str, list[list[object]]]:
     append_weighted_curio_attack_debuff(data)
     append_weighted_curio_support_attack(data)
     append_weighted_curio_prayer(data)
+    append_weighted_curio_retaliation(data)
     return data
 
 

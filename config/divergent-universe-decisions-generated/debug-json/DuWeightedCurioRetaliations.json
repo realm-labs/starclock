@@ -1,0 +1,106 @@
+{
+  "table": {
+    "name": "DuWeightedCurioRetaliations",
+    "rows": [
+      {
+        "values": {
+          "additional_multiplier": {
+            "String": "4"
+          },
+          "additional_parameter": {
+            "Integer": 1
+          },
+          "aggro_fraction": {
+            "String": "0.3"
+          },
+          "aggro_parameter": {
+            "Integer": 2
+          },
+          "base_aggro_abundance": {
+            "String": "100"
+          },
+          "base_aggro_destruction": {
+            "String": "125"
+          },
+          "base_aggro_elation": {
+            "String": "100"
+          },
+          "base_aggro_erudition": {
+            "String": "75"
+          },
+          "base_aggro_harmony": {
+            "String": "100"
+          },
+          "base_aggro_hunt": {
+            "String": "75"
+          },
+          "base_aggro_nihility": {
+            "String": "100"
+          },
+          "base_aggro_preservation": {
+            "String": "150"
+          },
+          "base_aggro_remembrance": {
+            "String": "100"
+          },
+          "character_elements": {
+            "List": [
+              {
+                "String": "Physical"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 1
+          },
+          "maze_buff_id": {
+            "String": "633413"
+          },
+          "policy": {
+            "String": "PhysicalAggroAndOwnerAdditional"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: qualify mapped player characters by their immutable canonical Basic scaling element, with no linked/summon inheritance. Interpret the exact second operand 0.3 as a +30% percent-of-base Aggro modifier. While equipped, explicitly bind each mapped character's path baseline as one Aggro-purpose final multiplier after the normalized factor; weight is BaseAggro times (1 plus the Curio bonus and other applicable modifiers), never a second inferred multiplier. Representative path values are exact; applying the path-wide model is policy. Bind materialized enemies' unbound normal Basic/Skill Opposing Single/Blast abilities to the shared current-state weighted single-primary selector, formation order and aggro-target battle RNG. Preserve ability choice/order, explicitly bound selectors, All/self actions, queued/forced targeting and each later-hit invalidation policy. This does not rewrite other modes or assert unreconstructed enemy target-lock parity. Ordinary DamageApplied with Attack tag and an action, target equal to alive/present Physical owner and alive/present opposing actor: AfterEvent, priority zero, once per owner per Action, including fully shielded and zero-loss hits. Emit DamageFromOwner with trigger-snapshot effective owner ATK times 4, Physical Additional, no crit, no Toughness, cannot defeat. No extra action/turn, no attack proc on DoT, Break, Additional or reflected damage, and no retaliation from down/departed victims. Unequip removes future battle bindings through fresh assembly; no battle mutation of Activity."
+          },
+          "replacement_condition": {
+            "String": "Low confidence for hidden mapping of 0.3, path-wide exceptions, normal-primary admission, hit/action cardinality, phase, shield/zero-hit admission, snapshot, Physical element, crit and linked inheritance; not observed parity. Alternatives include multiplicative weight bonus, per-hit reactions, after-action timing, effective-loss-only admission, crit-enabled or attacker-element damage and retaining unsupported first-target behavior. Selected policy executes both released clauses with the shared sampler, owner-sourced Additional formula and explicit nonlethal floor. Tests weighted_curio_retaliation and data rejection cases cover these fields. Replace each field independently when released executable selectors/programs or reproducible current traces establish it. Forge offers, equipment-command replay and complete original runs remain pending."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 93
+              },
+              {
+                "Integer": 94
+              },
+              {
+                "Integer": 95
+              },
+              {
+                "Integer": 96
+              },
+              {
+                "Integer": 97
+              },
+              {
+                "Integer": 98
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.weighted-curio-retaliation.self-amusement"
+          },
+          "summary_en": {
+            "String": "Physical characters gain target weight; attacked survivors deal additional damage equal to 400% of their own ATK to the attacker, without defeating it."
+          },
+          "summary_zh_cn": {
+            "String": "物理角色受击权重提高；受击后存活的角色对攻击者造成等同于自身攻击力 400% 的附加伤害，不能击败敌方。"
+          },
+          "weighted_curio_key": {
+            "String": "divergent-universe.weighted-curio.1013"
+          }
+        }
+      }
+    ]
+  }
+}

@@ -35,19 +35,19 @@
     },
     "mode_facade": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/mod.rs",
-      "sha256": "db9736e6822b866bad9e061d937ee3a2df7ce806c54454e0c651fb613b20f5cd"
+      "sha256": "f459fc0ba838ea16c53a2e11633789838ac2f58352890245b1676f3380487743"
     },
     "weighted_loadout": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/weighted_curio.rs",
-      "sha256": "36245775bad37a91e1030d9d3284154b32e86563b1c67db9bdbdea4f67c9fbc7"
+      "sha256": "875071701919bf23c0b7872553a70688aeb87979f5b6aa1e1a18f04243f63028"
     },
     "weighted_loadout_tests": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio.rs",
-      "sha256": "a114d116fcb2fc1db0a25da09531955b140c74545d2c6cd60dbbddec6fdfda4a"
+      "sha256": "649c0af5a00259f3c8b6e311d1b907d7c6cc8e7e27c796cad3b8483321507ba9"
     },
     "weighted_splash": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/weighted_curio_splash.rs",
-      "sha256": "0091a2f071e790da8729265d51d8621594f60b757006d3f6fe41e699019a5f0d"
+      "sha256": "a15a50d64ed3b0782034131fd4a34d473c53c0923dba1a66c348e0866292cdca"
     },
     "weighted_splash_tests": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_splash.rs",
@@ -105,6 +105,18 @@
       "path": "config/divergent-universe-decisions-generated/debug-json/DuWeightedCurioPrayers.json",
       "sha256": "3091b71885dae089c07e8c86bdbc659bf8e6637b0c95ae42e30c7b9f361d67f9"
     },
+    "weighted_retaliation": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/weighted_curio_retaliation.rs",
+      "sha256": "7adf7239373a0fb7a27aa2d03619ecf380cee9cc20ee63bd57bb4341465575a8"
+    },
+    "weighted_retaliation_tests": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_retaliation.rs",
+      "sha256": "eacc2d4cd6726535bd9415cbf750e7d883e20e46d13a39e61fead99de15b2d66"
+    },
+    "weighted_retaliation_data": {
+      "path": "config/divergent-universe-decisions-generated/debug-json/DuWeightedCurioRetaliations.json",
+      "sha256": "e854c002f06986d7914283acfcb4bf6fd117abcc371c18b18bc32d9c274857d3"
+    },
     "contribution_snapshot": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/contribution_snapshot.rs",
       "sha256": "1462ff564b8643fc9567bc0b11482c4bb8df0a0b1ca37ee5b79f7debd7dae22c"
@@ -155,18 +167,19 @@
     "weighted_curio_loadout_accuracy": "VersionedProjectPolicyAcceptedCurrentCatalogLoadout",
     "weighted_curio_unsupported_equipment_rejects_battle_contribution": true,
     "weighted_curio_battle_effects_implemented": false,
-    "weighted_curio_battle_effect_definitions": 5,
+    "weighted_curio_battle_effect_definitions": 6,
     "weighted_curio_battle_effect_accuracies": [
       "VersionedProjectPolicyHitCalculatedCopyAdjacentTrueDamage",
       "VersionedProjectPolicyAllyActionResolvedReplaceTargetTurnShield",
       "VersionedProjectPolicyAttackResolvedAdvanceAndTargetTurnFinalReduction",
       "VersionedProjectPolicyRosterCountCritAndAttackResolvedAdditional",
-      "VersionedProjectPolicyEntryHpAndTurnStartConsumeShield"
+      "VersionedProjectPolicyEntryHpAndTurnStartConsumeShield",
+      "VersionedProjectPolicyPhysicalAggroAndOwnerAdditional"
     ],
     "grand_miracle_runtime_implemented": false,
     "forge_room_payload_implemented": false,
     "terminal_coverage_credit": 0,
-    "required_next_work": "Bind accepted equipment to actual Forge offers and slot-level admission; implement the remaining twelve Weighted Curio effects and equipment-command replay. Establish Grand Miracle selectors independently and repair its separate source/fixture audit labels without shrinking obligations."
+    "required_next_work": "Bind accepted equipment to actual Forge offers and slot-level admission; implement the remaining eleven Weighted Curio effects and equipment-command replay. Establish Grand Miracle selectors independently and repair its separate source/fixture audit labels without shrinking obligations."
   },
   "summary": {
     "weighted_curio_references": 17,
@@ -282,6 +295,26 @@
     {
       "file": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_prayer.rs",
       "test": "weighted_curio_prayer_uses_live_resource_capacity_not_hp_stat_or_entry_capacity"
+    },
+    {
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_retaliation.rs",
+      "test": "weighted_curio_retaliation_binds_only_physical_owners_and_materialized_enemy_primaries"
+    },
+    {
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_retaliation.rs",
+      "test": "weighted_curio_retaliation_uses_each_victims_atk_once_per_action_with_nonlethal_owner_credit"
+    },
+    {
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_retaliation.rs",
+      "test": "weighted_curio_retaliation_rejects_nonattack_damage_and_inactive_owners_without_recursive_damage"
+    },
+    {
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_retaliation.rs",
+      "test": "weighted_curio_retaliation_sampling_has_path_weights_physical_bonus_and_fresh_hashes"
+    },
+    {
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_retaliation.rs",
+      "test": "weighted_curio_retaliation_preserves_fresh_handoffs_rejected_commands_and_unequip"
     },
     {
       "file": "crates/starclock-mode-universe/src/divergent_universe/tests/gamble_runtime.rs",

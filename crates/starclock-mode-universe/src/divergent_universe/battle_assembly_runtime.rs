@@ -324,6 +324,7 @@ impl DivergentUniverseBattleAssemblyRuntime {
             contribution.weighted_curios(),
             core,
             &mut participants,
+            &enemy_participants,
             assembly_digest,
         )?;
         participants.extend(enemy_participants);

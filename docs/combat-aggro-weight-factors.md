@@ -53,8 +53,8 @@ queries and application-time capture, cover zero and invalid weights, and bind
 checks compare events, state hashes and RNG counts. Existing pure formula and
 integer RNG golden tests remain applicable.
 
-No workbook, Sora opcode, content membership or mode handler changes here.
-Divergent Universe still requires production elemental eligibility, explicit
-enemy-selector bindings and the complete Self-Amusement retaliation mechanic.
-Five of seventeen Weighted Curio effects execute; this prerequisite grants no
+This shared prerequisite requires no Sora opcode or mode handler. The consuming
+[Self-Amusement overlay](divergent-universe-weighted-curio-retaliation.md) now
+authors elemental eligibility, explicit baselines, enemy-selector bindings and
+nonlethal retaliation. Six of seventeen Weighted Curio effects execute, without
 additional original obligation, program, family, gap or policy terminal credit.
