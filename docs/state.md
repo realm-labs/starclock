@@ -58,6 +58,13 @@ Six of seventeen equipment effects execute; original Forge admission and
 complete equipment replay remain pending. The current
 taxonomy/Gamble inventory emits no execution receipt or terminal coverage credit;
 the two accepted Coin units and unresolved Gamble rejection behavior remain.
+Shared combat now captures resolved effect magnitudes into typed modifier-local
+Scalar slots before snapshot evaluation, independently of integer stack counts.
+Refresh, replacement and expiry preserve source-effect ownership and the effect
+store's magnitude policy; illegal innate attachments reject. Real damage and
+fresh reconstruction tests cover the capture. This supplies a generic prerequisite
+for Converse of Entropy, whose production effect is still unimplemented; it
+adds no terminal Divergent Universe coverage credit.
 The verification scaffold retains all 6,762 obligations; its validator uses that
 current total rather than the old pre-Persona 6,215 subset. The
 [Titan effect boundary](divergent-universe-titan-effects.md) now has a current

@@ -23,6 +23,7 @@ use definition::{
     RuleBundle, RuleDefinition, SelectorDefinition, UnitDefinition,
 };
 use index::TriggerDefinitionIndex;
+use std::collections::BTreeSet;
 use table::DefinitionTable;
 
 /// Exact digest of the configuration input represented by this catalog.
@@ -52,6 +53,7 @@ pub struct CombatCatalog {
     selectors: DefinitionTable<SelectorId, SelectorDefinition>,
     rule_bundles: DefinitionTable<RuleBundleId, RuleBundle>,
     modifiers: ModifierRegistry,
+    effect_magnitude_modifiers: BTreeSet<ModifierDefinitionId>,
     ai_graphs: DefinitionTable<AiGraphId, encounter::AiGraphDefinition>,
     enemies: DefinitionTable<EnemyDefinitionId, EnemyDefinition>,
     encounters: DefinitionTable<EncounterId, EncounterDefinition>,
@@ -141,6 +143,9 @@ impl CombatCatalog {
     #[must_use]
     pub fn modifier(&self, id: ModifierDefinitionId) -> Option<&ModifierDefinition> {
         self.modifiers.definition(id)
+    }
+    pub(crate) fn is_effect_magnitude_modifier(&self, id: ModifierDefinitionId) -> bool {
+        self.effect_magnitude_modifiers.contains(&id)
     }
     pub(crate) const fn modifier_registry(&self) -> &ModifierRegistry {
         &self.modifiers

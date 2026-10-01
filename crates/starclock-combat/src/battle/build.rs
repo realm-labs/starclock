@@ -20,6 +20,8 @@ pub enum BattleBuildErrorKind {
     MissingRuleBundle,
     /// A resolved modifier reference does not exist.
     MissingModifier,
+    /// A source-effect capture was illegally bound as an innate modifier.
+    InvalidModifierAttachment,
     /// A selected modifier lacks its exact resolved generic source.
     MissingModifierSource,
     /// An initial modifier snapshot cannot be captured from the resolved state.
@@ -145,6 +147,13 @@ pub(crate) fn validate(catalog: &CombatCatalog, spec: &BattleSpec) -> Result<(),
             if catalog.modifier(*modifier).is_none() {
                 return Err(BattleBuildError::new(
                     BattleBuildErrorKind::MissingModifier,
+                    Some(index),
+                    Some(modifier.get()),
+                ));
+            }
+            if catalog.is_effect_magnitude_modifier(*modifier) {
+                return Err(BattleBuildError::new(
+                    BattleBuildErrorKind::InvalidModifierAttachment,
                     Some(index),
                     Some(modifier.get()),
                 ));

@@ -9,7 +9,8 @@ use super::selector::RuleUnitSelector;
 
 use crate::{
     AbilityId, AiGraphId, EffectDefinitionId, EncounterId, EncounterWaveId, EnemyDefinitionId,
-    ModifierDefinitionId, ProgramId, RuleBundleId, RuleId, Scalar, SelectorId, UnitDefinitionId,
+    ModifierDefinitionId, ProgramId, RuleBundleId, RuleId, Scalar, SelectorId,
+    StateSlotDefinitionId, UnitDefinitionId,
     effect::model::{EffectRuntimeDefinition, EffectRuntimeTemplate},
     rule::model::{BattleRuleDefinition, ProgramStep, RuleValue},
 };
@@ -311,6 +312,7 @@ pub struct EffectDefinition {
     id: EffectDefinitionId,
     rules: Box<[RuleId]>,
     modifiers: Box<[ModifierDefinitionId]>,
+    modifier_magnitude_slots: Box<[(ModifierDefinitionId, StateSlotDefinitionId)]>,
     granted_abilities: Box<[AbilityId]>,
     runtime: Option<EffectRuntimeDefinition>,
     runtime_template: Option<EffectRuntimeTemplate>,
@@ -328,6 +330,7 @@ impl EffectDefinition {
             id,
             rules: rules.into_boxed_slice(),
             modifiers: modifiers.into_boxed_slice(),
+            modifier_magnitude_slots: Box::new([]),
             granted_abilities: Box::new([]),
             runtime: None,
             runtime_template: None,
@@ -344,6 +347,36 @@ impl EffectDefinition {
     pub fn with_runtime_template(mut self, runtime: EffectRuntimeTemplate) -> Self {
         self.runtime_template = Some(runtime);
         self
+    }
+    /// Copies this effect instance's resolved magnitude into each named
+    /// modifier-local Scalar slot before attachment snapshot evaluation.
+    ///
+    /// Bindings must be strictly ordered by attached modifier ID, have one
+    /// effect owner per modifier, and not alias its stack-count slot. Catalog
+    /// construction rejects invalid bindings. Refresh follows the effect's
+    /// retained magnitude policy; replacement creates fresh captures and
+    /// removal deletes them with the owning attachment. No rule slot is changed.
+    #[must_use]
+    pub fn with_modifier_magnitude_slots(
+        mut self,
+        bindings: Vec<(ModifierDefinitionId, StateSlotDefinitionId)>,
+    ) -> Self {
+        self.modifier_magnitude_slots = bindings.into_boxed_slice();
+        self
+    }
+    pub(crate) fn modifier_magnitude_slots(
+        &self,
+    ) -> &[(ModifierDefinitionId, StateSlotDefinitionId)] {
+        &self.modifier_magnitude_slots
+    }
+    pub(crate) fn modifier_magnitude_slot(
+        &self,
+        modifier: ModifierDefinitionId,
+    ) -> Option<StateSlotDefinitionId> {
+        self.modifier_magnitude_slots
+            .binary_search_by_key(&modifier, |binding| binding.0)
+            .ok()
+            .map(|index| self.modifier_magnitude_slots[index].1)
     }
     /// Attaches abilities that are offered while this effect is active on a unit.
     #[must_use]

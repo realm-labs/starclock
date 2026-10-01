@@ -294,6 +294,14 @@ pub(super) fn instantiate_attachments(
             .modifier(*modifier)
             .ok_or_else(|| invariant_fault(42))?;
         let instance = txn.allocate_modifier();
+        let mut slots = modifier_definition
+            .source_stack_slot
+            .map(|slot| vec![(slot, RuleValue::Integer(i64::from(state.stacks)))])
+            .unwrap_or_default();
+        if let Some(slot) = definition.modifier_magnitude_slot(*modifier) {
+            slots.push((slot, RuleValue::Scalar(state.magnitude)));
+        }
+        slots.sort_unstable_by_key(|entry| entry.0);
         txn.insert_modifier(
             catalog,
             ActiveModifier {
@@ -306,12 +314,7 @@ pub(super) fn instantiate_attachments(
                 insertion_sequence: instance.get(),
                 application_action: None,
                 source_effect: Some(effect),
-                slots: modifier_definition
-                    .source_stack_slot
-                    .map(|slot| {
-                        vec![(slot, RuleValue::Integer(i64::from(state.stacks)))].into_boxed_slice()
-                    })
-                    .unwrap_or_default(),
+                slots: slots.into_boxed_slice(),
                 captured_value: None,
                 captured_stats: Box::new([]),
             },

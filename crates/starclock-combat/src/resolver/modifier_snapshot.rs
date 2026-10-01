@@ -185,42 +185,66 @@ pub(super) fn refresh_effect_stacks(
     effect: EffectInstanceId,
     stacks: u16,
 ) -> Result<(), BattleFault> {
+    let state = txn
+        .state
+        .effects
+        .get(effect)
+        .ok_or_else(|| action_fault(141))?;
+    let effect_definition = catalog
+        .effect(state.definition)
+        .ok_or_else(|| action_fault(141))?;
+    let magnitude = state.magnitude;
     let bindings = txn
         .state
         .modifiers
         .iter_by_id()
         .filter(|instance| instance.source_effect == Some(effect))
         .filter_map(|instance| {
-            catalog
-                .modifier(instance.definition)
-                .and_then(|definition| definition.source_stack_slot)
-                .map(|slot| (instance.instance, slot))
+            let definition = catalog.modifier(instance.definition)?;
+            let magnitude_slot = effect_definition.modifier_magnitude_slot(instance.definition);
+            let mut slots = Vec::new();
+            if let Some(slot) = definition.source_stack_slot {
+                slots.push((slot, RuleValue::Integer(i64::from(stacks))));
+            }
+            if let Some(slot) = magnitude_slot {
+                slots.push((slot, RuleValue::Scalar(magnitude)));
+            }
+            (!slots.is_empty()).then_some((instance.instance, slots, magnitude_slot))
         })
         .collect::<Vec<_>>();
-    for (instance, slot) in &bindings {
+    let mut magnitude_changes = BTreeSet::new();
+    for (instance, slots, magnitude_slot) in &bindings {
         let modifier = txn
             .state
             .modifiers
             .get_mut(*instance)
             .ok_or_else(|| action_fault(141))?;
-        let value = RuleValue::Integer(i64::from(stacks));
-        let before = modifier
-            .slots
-            .binary_search_by_key(slot, |entry| entry.0)
-            .ok()
-            .map(|index| modifier.slots[index].1.clone())
-            .ok_or_else(|| action_fault(142))?;
-        if before == value {
-            continue;
+        let mut changed = false;
+        for (slot, value) in slots {
+            let before = modifier
+                .slots
+                .binary_search_by_key(slot, |entry| entry.0)
+                .ok()
+                .map(|index| modifier.slots[index].1.clone())
+                .ok_or_else(|| action_fault(142))?;
+            if &before == value {
+                continue;
+            }
+            if !modifier.set_slot(*slot, value.clone()) {
+                return Err(action_fault(142));
+            }
+            changed = true;
+            if Some(*slot) == *magnitude_slot {
+                magnitude_changes.insert(*instance);
+            }
         }
-        if !modifier.set_slot(slot.to_owned(), value) {
-            return Err(action_fault(142));
+        if changed {
+            txn.journal.mutation(
+                MutationField::ModifierStore,
+                instance.get(),
+                instance.get() ^ (u64::from(stacks) + 1),
+            );
         }
-        txn.journal.mutation(
-            MutationField::ModifierStore,
-            instance.get(),
-            instance.get() ^ (u64::from(stacks) + 1),
-        );
     }
     let bases = program::stat_bases(txn)?;
     let shields = stat_input::shield_values(txn);
@@ -230,7 +254,7 @@ pub(super) fn refresh_effect_stacks(
         .iter_by_id()
         .cloned()
         .collect::<Vec<_>>();
-    for (instance, _) in bindings {
+    for (instance, _, _) in bindings {
         let current = active
             .iter()
             .find(|candidate| candidate.instance == instance)
@@ -238,7 +262,10 @@ pub(super) fn refresh_effect_stacks(
         let definition = catalog
             .modifier(current.definition)
             .ok_or_else(|| action_fault(144))?;
-        if definition.snapshot != SnapshotPolicy::RecomputeOnStackChange {
+        if definition.snapshot != SnapshotPolicy::RecomputeOnStackChange
+            && !(definition.snapshot == SnapshotPolicy::OnApplication
+                && magnitude_changes.contains(&instance))
+        {
             continue;
         }
         let peers = active

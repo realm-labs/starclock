@@ -89,6 +89,31 @@ Snapshots store domain values and source revisions, not references to mutable st
 
 Fields not listed by the policy remain dynamic. Content import must not assume that an entire DoT, shield, summon, field, or delayed attack snapshots merely because one coefficient is captured.
 
+### Effect magnitude captures
+
+An effect definition may bind its resolved instance magnitude to an attached
+modifier-local `Scalar` slot. This is distinct from rule memory and the optional
+integer stack-count slot. Bindings are strictly ordered by modifier ID; each
+bound modifier belongs to exactly one effect definition and its magnitude slot
+must not alias its stack slot. An effect-magnitude modifier cannot be an innate
+combatant modifier, including when spawning or replacing a combatant.
+
+Both local slots are populated before attachment snapshot evaluation. Refresh
+copies the magnitude retained by the effect store: `Refresh` and
+`RefreshAndAddStacks` retain the original magnitude, while a same-source
+`IndependentBySource` refresh updates it. `Dynamic` modifiers read the current
+local values. `OnApplication` recaptures when the retained magnitude changes,
+but preserves its snapshot when that magnitude is unchanged.
+`RecomputeOnStackChange` evaluates after both local slots are updated. Other
+boundary snapshots retain their declared timing. Replacement creates new
+attachments; expiry and removal delete the captures with their attachments.
+
+Magnitude resolution follows the existing immutable Rule IR evaluation input.
+Applying an earlier operation within one program does not resnapshot later
+expressions in that program. A subsequent independently evaluated program stage
+can observe the resulting state. No capture reads mutable Activity/build state
+or introduces mode-specific arithmetic.
+
 ## Query dependency and cycle detection
 
 Stat/value queries carry a stack of `(subject, query kind, context key)`. Re-entering the same key before completion is a cycle. Catalog validation rejects statically visible cycles; runtime conditional cycles become a stable `StatQueryCycle` fault containing the ordered key path.

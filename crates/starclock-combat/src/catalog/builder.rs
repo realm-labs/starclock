@@ -250,6 +250,7 @@ impl CombatCatalogBuilder {
             selectors: table(self.selectors, DefinitionKind::Selector)?,
             rule_bundles: table(self.rule_bundles, DefinitionKind::RuleBundle)?,
             modifiers,
+            effect_magnitude_modifiers: BTreeSet::new(),
             ai_graphs: table(self.ai_graphs, DefinitionKind::AiGraph)?,
             enemies: table(self.enemies, DefinitionKind::Enemy)?,
             encounters: table(self.encounters, DefinitionKind::Encounter)?,
@@ -262,6 +263,11 @@ impl CombatCatalogBuilder {
         validate_program_cycles(&catalog)?;
         rule_validate::validate(&catalog)?;
         let mut catalog = catalog;
+        catalog.effect_magnitude_modifiers = catalog
+            .effects
+            .values()
+            .flat_map(|effect| effect.modifier_magnitude_slots().iter().map(|(id, _)| *id))
+            .collect();
         catalog.trigger_index = index::TriggerDefinitionIndex::compile(&catalog.rules);
         Ok(Arc::new(catalog))
     }

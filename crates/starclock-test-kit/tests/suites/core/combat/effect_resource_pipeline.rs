@@ -1,4 +1,6 @@
 use crate::combat_decision::{advance_boundary_if_offered, settle_ready_boundaries};
+#[path = "effect_resource_pipeline/magnitude_capture.rs"]
+mod magnitude_capture;
 use std::sync::Arc;
 
 use starclock_combat::{

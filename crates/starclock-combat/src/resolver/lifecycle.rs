@@ -1184,6 +1184,7 @@ fn validate_combatant(
             catalog
                 .modifier(*modifier)
                 .is_none_or(|definition| definition.source_stack_slot.is_some())
+                || catalog.is_effect_magnitude_modifier(*modifier)
         })
         || combatant.modifier_bindings().len() != combatant.modifiers().len()
         || combatant.modifier_bindings().iter().any(|binding| {
