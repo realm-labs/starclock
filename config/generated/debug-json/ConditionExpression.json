@@ -29,16 +29,22 @@
           },
           "node": {
             "Object": {
-              "type": {
-                "String": "Constant"
+              "comparison": {
+                "String": "Greater"
               },
-              "value": {
-                "Bool": true
+              "left_expression_id": {
+                "Integer": 24204
+              },
+              "right_expression_id": {
+                "Integer": 24202
+              },
+              "type": {
+                "String": "Compare"
               }
             }
           },
           "stable_key": {
-            "String": "probe.clara.condition.true"
+            "String": "program.clara.condition.has-counter-charge"
           }
         }
       },

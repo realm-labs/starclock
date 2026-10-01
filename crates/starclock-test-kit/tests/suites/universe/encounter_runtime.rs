@@ -387,8 +387,8 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
     assert_eq!(
         settled.state_hash().bytes(),
         [
-            94, 120, 158, 168, 72, 223, 75, 52, 180, 19, 104, 136, 73, 245, 138, 51, 19, 112, 157,
-            172, 67, 34, 38, 52, 164, 114, 29, 29, 255, 88, 201, 48,
+            108, 227, 137, 115, 183, 176, 210, 151, 180, 92, 124, 132, 230, 3, 190, 209, 26, 218,
+            200, 114, 176, 149, 80, 17, 57, 127, 4, 221, 31, 39, 58, 216,
         ]
     );
     let reward = activity.view();
@@ -462,8 +462,8 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
     assert_eq!(
         contributions.digest(),
         [
-            79, 57, 149, 177, 69, 177, 179, 157, 139, 3, 150, 108, 211, 44, 155, 10, 42, 141, 112,
-            15, 104, 102, 244, 117, 2, 241, 247, 222, 148, 85, 1, 90,
+            127, 225, 31, 131, 133, 250, 95, 53, 14, 206, 11, 97, 89, 242, 29, 57, 32, 96, 56, 83,
+            107, 51, 215, 28, 197, 91, 245, 236, 119, 173, 34, 44,
         ]
     );
     let formation = activity.view();
@@ -659,8 +659,8 @@ fn baseline_runner_uses_offered_options_and_executes_nested_battles_to_terminal(
     assert_eq!(
         report.final_state_hash().bytes(),
         [
-            181, 35, 177, 117, 95, 121, 229, 96, 182, 249, 232, 112, 111, 60, 224, 68, 220, 89,
-            100, 213, 238, 149, 239, 2, 30, 173, 180, 215, 11, 52, 171, 125,
+            93, 209, 251, 49, 211, 127, 95, 66, 239, 100, 138, 97, 220, 66, 69, 241, 219, 24, 135,
+            4, 162, 249, 48, 172, 195, 100, 237, 232, 124, 97, 60, 198,
         ]
     );
     assert_eq!(report.final_state_hash(), activity.view().state_hash());

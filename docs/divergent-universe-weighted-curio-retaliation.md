@@ -113,10 +113,12 @@ families have real nested-battle handoffs and fresh reconstruction, rejected
 commands and lawful unequip. A controlled attack fixture isolates the mechanic;
 the real battle still uses the explicitly labeled shared-minion proxy.
 
-The qualification roster uses Physical Trailblazer and Natasha. Clara's existing
-Counter path was separately observed to fault at context 12970 under the same
-controlled enemy attack even without this equipment; Counter composition is
-not claimed by these fixtures and requires an independent repair batch.
+The qualification roster uses Physical Trailblazer and Natasha. A separate
+fixture composes production Clara's
+[bounded representative Counter](representative-character-v1b-production.md#bounded-counter-admission)
+admission with this Additional damage in both families, including charge
+exhaustion. The unbound internal Counter is cancelled, not executed; genuine
+Counter/Additional composition and full released Clara parity remain pending.
 
 Six of seventeen Weighted Curio effects now execute. The other eleven,
 player-facing Forge offers/slot admission, encoded equipment-command replay,

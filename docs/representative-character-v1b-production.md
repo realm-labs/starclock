@@ -38,3 +38,33 @@ The production golden verifies exact workbook regeneration, Sora export and
 generated-reader drift. `catalog_tests.rs` verifies the six-form E0/E6
 compilation boundary and representative executable formulas without adding a
 character-ID branch to combat resolution.
+
+## Bounded Counter admission
+
+The representative Clara program initializes its Battle-owned, OwnerLifetime
+integer slot to two, bounded by zero and two. Its HitEnded/AfterEvent trigger
+now requires a current slot value greater than zero before executing the
+ordered QueueAction then Subtract-one operations. All such mutation remains
+in shared Rule IR; integer bounds still fault on invalid operations.
+
+This correction is `VersionedProjectPolicyBoundedRepresentativeCounterAdmission`,
+not an observed reconstruction of Clara's released Talent or Ultimate. The
+existing per-event trigger, broad filter, queue ownership and battle-initial
+charges remain representative limitations. An unconditional subtraction or
+silent underflow clamp was rejected because it faults or hides exhausted
+admission. Confidence is high only for the authored slot invariant, and low
+for released kit parity. Replace the representative rule after an exact/observed
+dossier covers basic and enhanced counters, victim admission, action cardinality,
+Ultimate refill, duration and ownership. No character completeness or DU
+terminal credit follows from this repair.
+
+The native `production_clara_counter_exhaustion_does_not_fault_with_weighted_curio_retaliation`
+fixture runs both DU families with real production Clara bindings, one/three/nine
+hit attacks, both with and without Self-Amusement, exhaustion and fresh
+reconstruction. The frozen non-production probe retains its separate contract.
+
+The fixture also exposes a separate production gap: internal Counter 24201 is
+not bound to Clara's combatant, so queued reactions are cancelled as unavailable
+and never declare a Counter action. Cancellation is asserted explicitly and
+receives no execution credit. Actual ability binding, damage payload and the
+released basic/enhanced reaction programs still require implementation.

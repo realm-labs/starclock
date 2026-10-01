@@ -56,7 +56,7 @@ where
     I::try_from(raw).unwrap()
 }
 
-fn equipped(
+pub(super) fn equipped(
     fixture: &DivergentUniverseBaselineFixture,
     family: DivergentUniverseRunFamily,
 ) -> DivergentUniverseAssembledBattle {
@@ -84,7 +84,7 @@ fn equipped(
 }
 
 #[derive(Clone, Copy)]
-struct Attack {
+pub(super) struct Attack {
     all: bool,
     hits: u16,
     damage: i64,
@@ -94,6 +94,14 @@ struct Attack {
     enemy_hp: i64,
     dead: bool,
     linked: bool,
+}
+impl Attack {
+    pub(super) fn with_hits(hits: u16) -> Self {
+        Self {
+            hits,
+            ..Self::default()
+        }
+    }
 }
 impl Default for Attack {
     fn default() -> Self {
@@ -111,7 +119,11 @@ impl Default for Attack {
     }
 }
 
-fn probe(assembled: &DivergentUniverseAssembledBattle, attack: Attack, seed: u8) -> Battle {
+pub(super) fn probe(
+    assembled: &DivergentUniverseAssembledBattle,
+    attack: Attack,
+    seed: u8,
+) -> Battle {
     let mut builder = CombatCatalogBuilder::from_catalog(assembled.combat_catalog(), [0xb1; 32]);
     let selector = id(0x7d31_0001);
     let program = id(0x7d32_0001);
@@ -285,7 +297,7 @@ fn probe(assembled: &DivergentUniverseAssembledBattle, attack: Attack, seed: u8)
     Battle::create(builder.build().unwrap(), spec, BattleSeed::new([seed; 32])).unwrap()
 }
 
-fn first_attack(battle: &mut Battle) -> Resolution {
+pub(super) fn first_attack(battle: &mut Battle) -> Resolution {
     for _ in 0..8 {
         let command = battle
             .decision()
@@ -318,7 +330,7 @@ fn first_attack(battle: &mut Battle) -> Resolution {
     panic!("fixture must execute an actual enemy attack");
 }
 
-fn retaliations(events: &[BattleEvent]) -> Vec<&BattleEvent> {
+pub(super) fn retaliations(events: &[BattleEvent]) -> Vec<&BattleEvent> {
     events.iter().filter(|event| event.cause().source_definition().is_some_and(|id|id.get()==SOURCE)
         && matches!(event.kind(),BattleEventKind::Damage(data) if data.class==DamageClass::Additional)).collect()
 }

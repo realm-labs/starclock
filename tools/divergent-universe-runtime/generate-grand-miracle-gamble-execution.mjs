@@ -38,6 +38,7 @@ const inputs = {
   weighted_prayer_data: "config/divergent-universe-decisions-generated/debug-json/DuWeightedCurioPrayers.json",
   weighted_retaliation: "crates/starclock-mode-universe/src/divergent_universe/weighted_curio_retaliation.rs",
   weighted_retaliation_tests: "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_retaliation.rs",
+  weighted_counter_composition_tests: "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_counter_composition.rs",
   weighted_retaliation_data: "config/divergent-universe-decisions-generated/debug-json/DuWeightedCurioRetaliations.json",
   contribution_snapshot: "crates/starclock-mode-universe/src/divergent_universe/contribution_snapshot.rs",
   gamble_runtime: "crates/starclock-mode-universe/src/divergent_universe/gamble_runtime.rs",
@@ -77,6 +78,8 @@ export function buildGrandMiracleGambleExecution() {
   assert(!text(inputs.mode_facade).includes("grand_miracle_runtime"),
     "reference flags must not be exposed as a Grand Miracle runtime");
   const probes = [
+    { file: inputs.weighted_counter_composition_tests,
+      test: "production_clara_counter_exhaustion_does_not_fault_with_weighted_curio_retaliation" },
     { file: inputs.taxonomy_tests,
       test: "production_hex_source_references_are_weighted_curios_not_grand_miracles" },
     ...[

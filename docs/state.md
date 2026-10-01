@@ -500,6 +500,16 @@ domain topology and enemy programs still prevent a complete-family claim.
 
 ## Current runtime
 
+Production Clara's representative Counter now gates its QueueAction and
+Subtract-one program on remaining charges greater than zero. Shared integer
+bounds are unchanged. Both DU families test charge exhaustion with and without
+Self-Amusement and fresh reconstruction. The
+[bounded Counter policy](representative-character-v1b-production.md#bounded-counter-admission)
+does not implement full basic/enhanced Counter admission or Ultimate refill and
+adds no terminal DU content credit. Internal Counter 24201 remains unbound;
+the fixture explicitly verifies its cancellation rather than claiming Counter
+execution. Binding and damage execution are the next independent repair.
+
 The [owner-sourced rule damage boundary](combat-owner-sourced-damage.md) lets an
 executing rule/program owner produce damage without inheriting the observed
 actor's source stats or Crit cache. Original snapshot expressions/selectors,

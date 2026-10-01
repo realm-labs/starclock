@@ -8,6 +8,8 @@ import json
 from pathlib import Path
 from typing import Any
 
+from counter_guard_authoring import guard_rows
+
 
 ROOT = Path(__file__).resolve().parents[2]
 PROBES = ROOT / "config" / "probes" / "v1a"
@@ -307,6 +309,12 @@ def generate(stable_ids: dict[str, int]) -> tuple[dict[str, list[dict[str, Any]]
                         continue
                 output[table].append(remapped)
 
+    # Production Counter admission is bounded; the frozen non-production
+    # mechanic probe remains independent and deliberately unchanged.
+    for table, guarded in guard_rows().items():
+        output[table] = [row for row in output[table] if row["id"] != guarded["id"]]
+        output[table].append(guarded)
+
     # Firefly's Ultimate composes the four-operation mode entry with the
     # three-operation form/ability replacement program in one authored phase.
     combined_id = 24_601
@@ -394,7 +402,18 @@ def main() -> None:
     mode = parser.add_mutually_exclusive_group(required=True)
     mode.add_argument("--write-selectors", action="store_true")
     mode.add_argument("--check-selectors", action="store_true")
+    mode.add_argument("--write-counter-guard", type=Path, metavar="NEW_OUTPUT")
+    mode.add_argument("--check-counter-guard", action="store_true")
     arguments = parser.parse_args()
+    if arguments.write_counter_guard or arguments.check_counter_guard:
+        from counter_guard_authoring import check, write_clean
+
+        if arguments.write_counter_guard:
+            write_clean(arguments.write_counter_guard)
+        else:
+            check()
+            print("Production Counter admission guard matches the authored expressions.")
+        return
     expected = merged_promoted_selectors(production_stable_ids())
     if arguments.write_selectors:
         write_rows("Selector", expected)

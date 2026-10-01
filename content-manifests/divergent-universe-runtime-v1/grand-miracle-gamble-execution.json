@@ -111,7 +111,11 @@
     },
     "weighted_retaliation_tests": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_retaliation.rs",
-      "sha256": "eacc2d4cd6726535bd9415cbf750e7d883e20e46d13a39e61fead99de15b2d66"
+      "sha256": "709b039f0ae067a1346a27a61696ce2044e59f4b2cc18dd8e1e6cab03b4aab20"
+    },
+    "weighted_counter_composition_tests": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_counter_composition.rs",
+      "sha256": "8d88e03acd0dfbb42f17fb59c3fd421f39b6f22d678d9d3820317b7e948dccb8"
     },
     "weighted_retaliation_data": {
       "path": "config/divergent-universe-decisions-generated/debug-json/DuWeightedCurioRetaliations.json",
@@ -192,6 +196,10 @@
     "unresolved_gamble_units": 87
   },
   "native_test_targets": [
+    {
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_counter_composition.rs",
+      "test": "production_clara_counter_exhaustion_does_not_fault_with_weighted_curio_retaliation"
+    },
     {
       "file": "crates/starclock-data/src/divergent_universe_tests.rs",
       "test": "production_hex_source_references_are_weighted_curios_not_grand_miracles"

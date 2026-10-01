@@ -6,6 +6,8 @@ const REPRESENTATIVE_BUNDLE: &[u8] =
 
 #[path = "catalog_character_partition_tests.rs"]
 mod character_partition_tests;
+#[path = "catalog_counter_admission_tests.rs"]
+mod counter_admission_tests;
 #[path = "catalog_light_cone_tests.rs"]
 mod light_cone_tests;
 #[path = "catalog_modifier_tests.rs"]

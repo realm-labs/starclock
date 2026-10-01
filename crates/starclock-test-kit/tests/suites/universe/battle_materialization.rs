@@ -805,27 +805,29 @@ fn production_executor_runs_real_nested_battles_and_settles_activity_carry() {
         report.terminal(),
         starclock_activity::ActivityTerminalOutcome::Completed
     );
-    assert_eq!(executor.reports().len(), 4);
+    // Exact counts bind this configuration and its selected topology; the
+    // production runner must still execute every nested battle to completion.
+    assert_eq!(executor.reports().len(), 3);
     assert_eq!(
         executor
             .reports()
             .iter()
             .map(|battle| battle.trace().len())
             .sum::<usize>(),
-        22
+        18
     );
     assert_eq!(
         report.final_state_hash().bytes(),
         [
-            97, 219, 150, 121, 174, 240, 88, 102, 28, 29, 30, 213, 40, 176, 44, 236, 183, 116, 214,
-            83, 142, 152, 199, 101, 72, 167, 155, 83, 218, 232, 82, 243,
+            209, 196, 67, 20, 166, 227, 189, 59, 32, 29, 137, 103, 133, 30, 90, 169, 68, 165, 84,
+            219, 223, 99, 132, 89, 27, 33, 84, 145, 247, 221, 144, 36,
         ]
     );
     assert_eq!(
         executor.reports()[0].event_digest().bytes(),
         [
-            231, 69, 217, 234, 56, 190, 207, 237, 188, 118, 165, 46, 138, 68, 145, 203, 116, 171,
-            33, 79, 18, 254, 8, 41, 218, 82, 188, 75, 177, 91, 38, 103,
+            150, 211, 253, 204, 20, 152, 64, 223, 144, 36, 106, 49, 66, 120, 33, 80, 132, 19, 32,
+            52, 22, 86, 37, 210, 228, 59, 253, 197, 139, 146, 11, 102,
         ]
     );
     assert!(executor.reports().iter().all(|battle| {
