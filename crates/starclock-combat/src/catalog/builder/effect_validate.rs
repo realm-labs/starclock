@@ -1,7 +1,8 @@
 //! Cross-definition validation for generic effect runtime ownership.
 
 use crate::{
-    EffectRuntimeDefinition, EffectRuntimeTemplate, EffectTickPhase,
+    DotDetonationFilter, EffectCategory, EffectRuntimeDefinition, EffectRuntimeTemplate,
+    EffectTickPhase,
     catalog::{CombatCatalog, definition::EffectDefinition},
 };
 
@@ -20,6 +21,22 @@ pub(super) fn validate(catalog: &CombatCatalog) -> Result<(), CatalogBuildError>
             ));
         }
         validate_magnitude_slots(catalog, effect)?;
+        if effect.dot_family().is_some() {
+            let damaging_dot = effect.runtime().is_some_and(|runtime| {
+                runtime.category() == EffectCategory::Dot && runtime.dot().is_some()
+            }) || effect.runtime_template().is_some_and(|template| {
+                template.category() == EffectCategory::Dot && template.has_dot()
+            });
+            if !damaging_dot {
+                return Err(error(
+                    CatalogBuildErrorKind::InvalidDefinition,
+                    format!(
+                        "effect {} classifies a family without a damaging DoT runtime",
+                        id.get()
+                    ),
+                ));
+            }
+        }
         let tick_phase = effect
             .runtime()
             .map(EffectRuntimeDefinition::tick_phase)
@@ -78,6 +95,21 @@ fn validate_magnitude_slots(
                 "effect magnitude modifier needs one attached owner and a distinct Scalar slot",
             ));
         }
+    }
+    Ok(())
+}
+
+pub(super) fn validate_detonation_filter(
+    catalog: &CombatCatalog,
+    filter: DotDetonationFilter,
+) -> Result<(), CatalogBuildError> {
+    if let Some(effect) = filter.excluded_effect()
+        && catalog.effect(effect).is_none()
+    {
+        return Err(error(
+            CatalogBuildErrorKind::MissingReference,
+            format!("detonation excludes missing effect {}", effect.get()),
+        ));
     }
     Ok(())
 }

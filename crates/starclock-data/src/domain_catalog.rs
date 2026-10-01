@@ -154,15 +154,17 @@ fn compile_combat(
         builder.add_modifier(modifier.clone());
     }
     for effect in &combat.effects {
-        builder.add_effect(
-            EffectDefinition::new(
-                effect.id(),
-                effect.rules().to_vec(),
-                effect.modifiers().to_vec(),
-            )
-            .with_granted_abilities(effect.granted_abilities().to_vec())
-            .with_runtime_template(effect.runtime_template().clone()),
-        );
+        let mut definition = EffectDefinition::new(
+            effect.id(),
+            effect.rules().to_vec(),
+            effect.modifiers().to_vec(),
+        )
+        .with_granted_abilities(effect.granted_abilities().to_vec())
+        .with_runtime_template(effect.runtime_template().clone());
+        if let Some(family) = effect.dot_family() {
+            definition = definition.with_dot_family(family);
+        }
+        builder.add_effect(definition);
     }
     for rule in &combat.rules {
         let mut programs = rule

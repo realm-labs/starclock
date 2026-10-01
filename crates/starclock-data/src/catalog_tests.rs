@@ -10,6 +10,8 @@ mod ability_family_tests;
 mod character_partition_tests;
 #[path = "catalog_counter_admission_tests.rs"]
 mod counter_admission_tests;
+#[path = "catalog_dot_family_tests.rs"]
+mod dot_family_tests;
 #[path = "catalog_light_cone_tests.rs"]
 mod light_cone_tests;
 #[path = "catalog_modifier_tests.rs"]

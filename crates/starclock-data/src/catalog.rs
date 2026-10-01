@@ -35,7 +35,7 @@ use hit_formula::AbilityHitPlanDefinition;
 use sha2::{Digest, Sha256};
 use starclock_combat::modifier::registry::ModifierRegistry;
 use starclock_combat::{
-    AbilityId, DispelCategory, DurationClock, EffectCategory, EffectDefinitionId,
+    AbilityId, DispelCategory, DotFamily, DurationClock, EffectCategory, EffectDefinitionId,
     EffectRuntimeTemplate, EffectSnapshotPolicy, EffectStackPolicy, EffectTeardownPolicy,
     EffectTickPhase, ModifierDefinitionId, Ratio, RuleId, SourceDefinitionId,
 };
@@ -329,9 +329,15 @@ pub struct EffectDataDefinition {
     modifiers: Box<[ModifierDefinitionId]>,
     granted_abilities: Box<[AbilityId]>,
     runtime_template: EffectRuntimeTemplate,
+    dot_family: Option<DotFamily>,
 }
 
 impl EffectDataDefinition {
+    /// Explicit authored status family, independent of damage element.
+    #[must_use]
+    pub const fn dot_family(&self) -> Option<DotFamily> {
+        self.dot_family
+    }
     #[must_use]
     pub const fn id(&self) -> EffectDefinitionId {
         self.id
@@ -855,6 +861,8 @@ fn convert_combat(
             })
             .collect::<Result<Vec<_>, _>>()?;
         let granted_abilities = effect_bindings::granted_abilities(config, row.id)?;
+        let dot_family =
+            effect_bindings::dot_family(row.id, category, runtime_template.has_dot(), &tags)?;
         effects.push(EffectDataDefinition {
             id: EffectDefinitionId::new(raw).expect("positive effect ID"),
             category,
@@ -877,6 +885,7 @@ fn convert_combat(
             modifiers: modifiers.into_boxed_slice(),
             granted_abilities: granted_abilities.into_boxed_slice(),
             runtime_template,
+            dot_family,
         });
     }
     effects.sort_unstable_by_key(|effect| effect.id);

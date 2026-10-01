@@ -8,8 +8,8 @@ use super::encounter::{
 use super::selector::RuleUnitSelector;
 
 use crate::{
-    AbilityId, AiGraphId, EffectDefinitionId, EncounterId, EncounterWaveId, EnemyDefinitionId,
-    ModifierDefinitionId, ProgramId, RuleBundleId, RuleId, Scalar, SelectorId,
+    AbilityId, AiGraphId, DotFamily, EffectDefinitionId, EncounterId, EncounterWaveId,
+    EnemyDefinitionId, ModifierDefinitionId, ProgramId, RuleBundleId, RuleId, Scalar, SelectorId,
     StateSlotDefinitionId, UnitDefinitionId,
     effect::model::{EffectRuntimeDefinition, EffectRuntimeTemplate},
     rule::model::{BattleRuleDefinition, ProgramStep, RuleValue},
@@ -316,6 +316,7 @@ pub struct EffectDefinition {
     granted_abilities: Box<[AbilityId]>,
     runtime: Option<EffectRuntimeDefinition>,
     runtime_template: Option<EffectRuntimeTemplate>,
+    dot_family: Option<DotFamily>,
 }
 
 impl EffectDefinition {
@@ -334,6 +335,7 @@ impl EffectDefinition {
             granted_abilities: Box::new([]),
             runtime: None,
             runtime_template: None,
+            dot_family: None,
         }
     }
     /// Attaches the validated generic runtime behavior.
@@ -347,6 +349,18 @@ impl EffectDefinition {
     pub fn with_runtime_template(mut self, runtime: EffectRuntimeTemplate) -> Self {
         self.runtime_template = Some(runtime);
         self
+    }
+    /// Classifies a damaging DoT runtime by status family, not element. Catalog
+    /// construction rejects family metadata on non-DoT or non-damaging effects.
+    #[must_use]
+    pub const fn with_dot_family(mut self, family: DotFamily) -> Self {
+        self.dot_family = Some(family);
+        self
+    }
+    /// Returns authored semantic classification; None means unclassified.
+    #[must_use]
+    pub const fn dot_family(&self) -> Option<DotFamily> {
+        self.dot_family
     }
     /// Copies this effect instance's resolved magnitude into each named
     /// modifier-local Scalar slot before attachment snapshot evaluation.

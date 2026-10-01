@@ -2,10 +2,11 @@
 //! Closed battle-domain Rule IR values accepted after data lowering.
 
 use crate::{
-    AbilityId, ActionGaugeChangeKind, ActionId, CommandId, EffectCategory, EffectDefinitionId,
-    EffectRemovalOrder, EventId, HitId, LifeState, NativeHandlerId, PhaseId, PresenceState,
-    ProgramId, RawToughness, Rounding, RuleId, RuleInstanceId, Scalar, SelectorId,
-    SourceDefinitionId, StateSlotDefinitionId, TriggerId, UnitDefinitionId, UnitId, WaveInstanceId,
+    AbilityId, ActionGaugeChangeKind, ActionId, CommandId, DotDetonationFilter,
+    DotDetonationSelection, EffectCategory, EffectDefinitionId, EffectRemovalOrder, EventId, HitId,
+    LifeState, NativeHandlerId, PhaseId, PresenceState, ProgramId, RawToughness, Rounding, RuleId,
+    RuleInstanceId, Scalar, SelectorId, SourceDefinitionId, StateSlotDefinitionId, TriggerId,
+    UnitDefinitionId, UnitId, WaveInstanceId,
     catalog::action::{AbilityTag, AbilityTags, ReactionBoundary, TargetPattern},
     formula::{
         model::{CombatElement, DamageClass},
@@ -846,6 +847,11 @@ pub enum RuleEffectChancePolicy {
 pub enum RuleDotSelection {
     All,
     RandomOne(DrawPurpose),
+    /// Applies definition filters before ordinary canonical selection.
+    Filtered {
+        filter: DotDetonationFilter,
+        selection: DotDetonationSelection,
+    },
 }
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]

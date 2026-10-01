@@ -114,6 +114,40 @@ expressions in that program. A subsequent independently evaluated program stage
 can observe the resulting state. No capture reads mutable Activity/build state
 or introduces mode-specific arithmetic.
 
+## Semantic DoT detonation filters
+
+Ordinary effect-store DoTs may declare one `DotFamily`: Burn, Bleed, Shock or
+Wind Shear. Family is immutable catalog metadata, independent of damage element,
+source identity and arbitrary effect tags. Unclassified Fire damage is not Burn.
+A family is legal only on a damaging `Dot` runtime or runtime template. The data
+loader lowers the existing `burn`, `bleed`, `shock` and `wind-shear` authoring
+tags and rejects duplicate/conflicting family tags or non-damaging declarations.
+Other tags keep their independent semantics; no family is inferred from them.
+
+`DotDetonationFilter` intersects an optional family and an excluded effect
+definition with the operation's existing required tag. Catalog validation
+rejects missing exclusion references in both hit operations and Rule IR. All
+instances of the excluded definition are omitted. Filtering occurs before the
+existing stable effect-instance order and optional labeled RandomOne draw;
+zero or one surviving candidate consumes no RNG. The Rule IR `Filtered`
+selection lowers to exactly the same generic operation as authored hit plans.
+
+Detonation retains the original DoT's applier, source definition, stored formula,
+stacks and captured base magnitude, while evaluating the existing dynamic
+formula context. It applies the declared fraction with nearest-ties-even rounding
+then floors final damage. It does not refresh/remove effects or consume stacks
+or duration. Unfiltered operations retain their existing behavior.
+
+This selection operates only on ordinary effect instances, not the separate
+Break-effect store. It is a shared prerequisite, not complete execution evidence
+for any mode mechanic requiring Break Burn participation. The
+[native accepted-command corpus](../crates/starclock-test-kit/tests/suites/core/combat/effect_resource_pipeline/dot_family.rs)
+covers both hit plans and Rule IR, family/tag/exclusion intersection,
+unclassified same-element effects, empty/single/multiple candidate pools,
+retention, attribution and fresh deterministic reconstruction. The
+[real Sora loader tests](../crates/starclock-data/src/catalog_dot_family_tests.rs)
+bind all eleven current production family declarations.
+
 ## Query dependency and cycle detection
 
 Stat/value queries carry a stack of `(subject, query kind, context key)`. Re-entering the same key before completion is a cycle. Catalog validation rejects statically visible cycles; runtime conditional cycles become a stable `StatQueryCycle` fault containing the ordered key path.

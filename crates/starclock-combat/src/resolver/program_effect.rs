@@ -1,9 +1,10 @@
 //! Rule IR effect-application lowering and per-target chance resolution.
 
 use crate::{
-    DispelCategory, EffectApplicationDefinition, EffectCategory, EffectChancePolicy,
-    EffectDefinitionId, EffectRuntimeDefinition, EffectRuntimeTemplate, EventId, OperationId,
-    Ratio, Rounding, Scalar, SelectorId, UnitId,
+    DispelCategory, DotDetonationDefinition, DotDetonationSelection, EffectApplicationDefinition,
+    EffectCategory, EffectChancePolicy, EffectDefinitionId, EffectRuntimeDefinition,
+    EffectRuntimeTemplate, EventId, OperationId, Ratio, Rounding, Scalar, SelectorId,
+    SourceDefinitionId, UnitId,
     battle::fault::BattleFault,
     catalog::CombatCatalog,
     event::{
@@ -15,13 +16,31 @@ use crate::{
     rng::types::DrawPurpose,
     rule::{
         evaluate::{StatQueryReader, evaluate_value},
-        model::{RuleEffectChancePolicy, RuleEvaluationInput, RuleValue},
+        model::{RuleDotSelection, RuleEffectChancePolicy, RuleEvaluationInput, RuleValue},
     },
 };
 
 use super::modifier_snapshot;
 use super::program::{emission_targets, non_negative_scalar, probability, program_fault, ratio};
 use super::transaction::Transaction;
+
+pub(super) fn lower_dot_detonation_definition(
+    fraction: RuleValue,
+    required_tag: Option<SourceDefinitionId>,
+    selection: RuleDotSelection,
+) -> Result<DotDetonationDefinition, BattleFault> {
+    let definition = DotDetonationDefinition::new(ratio(fraction)?, required_tag)
+        .ok_or_else(|| program_fault(9, 0))?;
+    Ok(match selection {
+        RuleDotSelection::All => definition,
+        RuleDotSelection::RandomOne(purpose) => {
+            definition.with_selection(DotDetonationSelection::RandomOne(purpose))
+        }
+        RuleDotSelection::Filtered { filter, selection } => {
+            definition.with_filter(filter).with_selection(selection)
+        }
+    })
+}
 
 #[allow(clippy::too_many_arguments)]
 pub(super) fn apply_effect_operation(

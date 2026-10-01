@@ -1,7 +1,7 @@
 //! Generic authored effect semantics. Content identities remain catalog data.
 
 use crate::{
-    EffectDefinitionId, Probability, Ratio, Scalar, SourceDefinitionId,
+    DotDetonationFilter, EffectDefinitionId, Probability, Ratio, Scalar, SourceDefinitionId,
     catalog::action::{OrdinaryDamageDefinition, OrdinaryDamageMultipliers},
     formula::model::{CombatElement, DamageClass},
     modifier::model::StatKind,
@@ -385,6 +385,12 @@ impl EffectRuntimeTemplate {
     #[must_use]
     pub const fn stack_limit(&self) -> u16 {
         self.stack_limit
+    }
+
+    /// Whether applications resolve an ordinary damaging DoT payload.
+    #[must_use]
+    pub const fn has_dot(&self) -> bool {
+        self.dot.is_some()
     }
 
     #[must_use]
@@ -824,7 +830,7 @@ impl EffectApplicationDefinition {
     }
 }
 
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub enum DotDetonationSelection {
     All,
     RandomOne(DrawPurpose),
@@ -835,6 +841,7 @@ pub struct DotDetonationDefinition {
     fraction: Ratio,
     required_tag: Option<SourceDefinitionId>,
     selection: DotDetonationSelection,
+    filter: DotDetonationFilter,
 }
 
 impl DotDetonationDefinition {
@@ -847,6 +854,7 @@ impl DotDetonationDefinition {
                 fraction,
                 required_tag,
                 selection: DotDetonationSelection::All,
+                filter: DotDetonationFilter::default(),
             })
         }
     }
@@ -870,6 +878,20 @@ impl DotDetonationDefinition {
     #[must_use]
     pub const fn selection(self) -> DotDetonationSelection {
         self.selection
+    }
+
+    /// Intersects tag selection with authored family and definition exclusion.
+    /// Filtering precedes random selection; zero or one candidate uses no RNG.
+    /// Detonation does not consume or refresh the retained duration or stacks.
+    #[must_use]
+    pub const fn with_filter(mut self, filter: DotDetonationFilter) -> Self {
+        self.filter = filter;
+        self
+    }
+
+    #[must_use]
+    pub const fn filter(self) -> DotDetonationFilter {
+        self.filter
     }
 }
 

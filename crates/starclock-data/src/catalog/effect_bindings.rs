@@ -1,5 +1,6 @@
 use starclock_combat::{
-    AbilityId, ControlledAction, EffectCategory, EffectRuntimeTemplate, ForcedNormalAction,
+    AbilityId, ControlledAction, DotFamily, EffectCategory, EffectRuntimeTemplate,
+    ForcedNormalAction,
 };
 
 use super::{CatalogLoadError, CatalogLoadErrorKind, contiguous, fail, positive, positive_u16};
@@ -66,6 +67,39 @@ pub(super) fn apply_runtime_tags(
             .expect("Control category accepts a forced normal action");
     }
     Ok(template)
+}
+
+/// Lowers only the closed semantic family vocabulary. Other authored tags keep
+/// their existing independent meaning; no element-based inference is allowed.
+pub(super) fn dot_family(
+    effect_id: i32,
+    category: EffectCategory,
+    has_dot: bool,
+    tags: &[&str],
+) -> Result<Option<DotFamily>, CatalogLoadError> {
+    let mut family = None;
+    for tag in tags {
+        let candidate = match *tag {
+            "burn" => DotFamily::Burn,
+            "bleed" => DotFamily::Bleed,
+            "shock" => DotFamily::Shock,
+            "wind-shear" => DotFamily::WindShear,
+            _ => continue,
+        };
+        if family.replace(candidate).is_some() {
+            return Err(fail(
+                CatalogLoadErrorKind::Domain,
+                format!("effect {effect_id} declares multiple DoT family tags"),
+            ));
+        }
+    }
+    if family.is_some() && (category != EffectCategory::Dot || !has_dot) {
+        return Err(fail(
+            CatalogLoadErrorKind::Domain,
+            format!("effect {effect_id} classifies a family without a damaging DoT runtime"),
+        ));
+    }
+    Ok(family)
 }
 
 pub(super) fn granted_abilities(

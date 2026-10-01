@@ -26,7 +26,7 @@ use crate::{
         model::{ModifierDefinition, ModifierStackingGroup},
         registry::ModifierRegistry,
     },
-    rule::model::ProgramStep,
+    rule::model::{ProgramStep, RuleDotSelection, RuleOperationTemplate},
 };
 use std::collections::{BTreeMap, BTreeSet};
 use std::sync::Arc;
@@ -569,6 +569,12 @@ fn validate_references(catalog: &CombatCatalog) -> Result<(), CatalogBuildError>
             {
                 let action::HitOperationDefinition::QueueAction(queue) = operation else {
                     match operation {
+                        action::HitOperationDefinition::DetonateDots(definition) => {
+                            effect_validate::validate_detonation_filter(
+                                catalog,
+                                definition.filter(),
+                            )?;
+                        }
                         action::HitOperationDefinition::SummonLinked(linked) => {
                             if !lifecycle_validate::valid_linked_definition(catalog, linked) {
                                 return Err(error(
@@ -1165,6 +1171,13 @@ fn validate_program_references(catalog: &CombatCatalog) -> Result<(), CatalogBui
                 continue;
             };
             lifecycle_validate::validate_program_operation(catalog, id, operation)?;
+            if let RuleOperationTemplate::DetonateDot {
+                selection: RuleDotSelection::Filtered { filter, .. },
+                ..
+            } = operation
+            {
+                effect_validate::validate_detonation_filter(catalog, *filter)?;
+            }
         }
     }
     Ok(())

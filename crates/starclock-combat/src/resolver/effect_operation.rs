@@ -350,6 +350,15 @@ pub(super) fn detonate_dots(
             .state
             .effects
             .dots_for(target, operation.definition.required_tag());
+        let filter = operation.definition.filter();
+        effects.retain(|effect| {
+            filter.excluded_effect() != Some(effect.definition)
+                && filter.required_family().is_none_or(|family| {
+                    catalog
+                        .effect(effect.definition)
+                        .is_some_and(|definition| definition.dot_family() == Some(family))
+                })
+        });
         if let DotDetonationSelection::RandomOne(purpose) = operation.definition.selection()
             && effects.len() > 1
         {

@@ -14,10 +14,10 @@ use super::{operation::execute_operation, transaction::Transaction};
 use super::{program_break, program_effect, program_timeline, rule, stat_input, target};
 
 use crate::{
-    AbilityId, ActionId, ActionOrigin, DotDetonationDefinition, DotDetonationSelection,
-    EffectRemovalDefinition, EventId, HitId, Hp, Probability, ProgramId, Ratio, RawToughness,
-    Rounding, RuleId, RuleInstanceId, RuleSignalEventData, Scalar, SelectorId, TeamSide,
-    ToughnessReductionDefinition, TransformEndPolicy, TransformationDefinition, TriggerId, UnitId,
+    AbilityId, ActionId, ActionOrigin, EffectRemovalDefinition, EventId, HitId, Hp, Probability,
+    ProgramId, Ratio, RawToughness, Rounding, RuleId, RuleInstanceId, RuleSignalEventData, Scalar,
+    SelectorId, TeamSide, ToughnessReductionDefinition, TransformEndPolicy,
+    TransformationDefinition, TriggerId, UnitId,
     battle::fault::BattleFault,
     catalog::{
         CombatCatalog,
@@ -52,9 +52,9 @@ use crate::{
         evaluate::{EvaluationBudget, evaluate_program},
         model::{
             ResourceMaximumUpdateKind, ResourceUpdateKind, RuleActionOwner,
-            RuleActionPaymentPolicy, RuleCause, RuleDotSelection, RuleEmission,
-            RuleEvaluationInput, RuleEventFacts, RuleEventKind, RuleEventPoint, RuleOccurrence,
-            RuleResourceKind, RuleValue, SelectorResult, StateSlotUpdateKind,
+            RuleActionPaymentPolicy, RuleCause, RuleEmission, RuleEvaluationInput, RuleEventFacts,
+            RuleEventKind, RuleEventPoint, RuleOccurrence, RuleResourceKind, RuleValue,
+            SelectorResult, StateSlotUpdateKind,
         },
     },
 };
@@ -981,14 +981,11 @@ fn execute_emission(
             } => Operation::DetonateDots(DetonateDotsOp {
                 id: operation_id,
                 targets: emission_targets(catalog, resolved, selector, current_target)?,
-                definition: DotDetonationDefinition::new(ratio(fraction)?, required_tag)
-                    .ok_or_else(|| program_fault(9, 0))?
-                    .with_selection(match selection {
-                        RuleDotSelection::All => DotDetonationSelection::All,
-                        RuleDotSelection::RandomOne(purpose) => {
-                            DotDetonationSelection::RandomOne(purpose)
-                        }
-                    }),
+                definition: program_effect::lower_dot_detonation_definition(
+                    fraction,
+                    required_tag,
+                    selection,
+                )?,
             }),
             RuleEmission::AdvanceAction {
                 selector, amount, ..
