@@ -1,6 +1,9 @@
 use crate::combat_decision::{advance_boundary_if_offered, settle_ready_boundaries};
 use std::sync::Arc;
 
+#[path = "reaction_scheduler/ability_family.rs"]
+mod ability_family;
+
 use starclock_combat::{
     ActionCancellationReason, ActionEventData, ActionOrigin, AssemblyDigest, Battle,
     BattleDiagnostics, BattleEventKind, BattleSeed, BattleSpec, CombatantSpecDigest, Command,

@@ -4,6 +4,8 @@ const PRODUCTION_BUNDLE: &[u8] = include_bytes!("../../../config/generated/confi
 const REPRESENTATIVE_BUNDLE: &[u8] =
     include_bytes!("../../../config/catalog-fixtures/representative/config.sora");
 
+#[path = "catalog_ability_family_tests.rs"]
+mod ability_family_tests;
 #[path = "catalog_character_partition_tests.rs"]
 mod character_partition_tests;
 #[path = "catalog_counter_admission_tests.rs"]

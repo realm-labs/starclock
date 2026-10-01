@@ -200,6 +200,7 @@ impl AbilityParameterDefinition {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AbilityDefinition {
     id: AbilityId,
+    family: AbilityId,
     program: ProgramId,
     selector: SelectorId,
     automatic_primary_selector: Option<SelectorId>,
@@ -219,6 +220,7 @@ impl AbilityDefinition {
     ) -> Self {
         Self {
             id,
+            family: id,
             program,
             selector,
             automatic_primary_selector: None,
@@ -226,6 +228,21 @@ impl AbilityDefinition {
             action: None,
             programs: Box::new([]),
         }
+    }
+    /// Declares the root ability for a resolved variant, without inferring IDs.
+    ///
+    /// The catalog requires an existing, self-rooted family. Queued references
+    /// to that root select one currently bound variant at enqueue time; exact
+    /// variant references remain exact. This does not grant any ability.
+    #[must_use]
+    pub const fn with_family(mut self, family: AbilityId) -> Self {
+        self.family = family;
+        self
+    }
+    /// Returns the explicitly declared family root (itself by default).
+    #[must_use]
+    pub const fn family(&self) -> AbilityId {
+        self.family
     }
     /// Attaches a validated finite action definition.
     #[must_use]

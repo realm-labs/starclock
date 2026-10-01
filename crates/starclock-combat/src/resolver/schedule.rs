@@ -17,6 +17,7 @@ use crate::{
     target::{model::TargetCommitment, select::commit},
 };
 
+use super::queued_ability;
 use super::transaction::Transaction;
 
 pub(super) fn execute_queue_action(
@@ -84,8 +85,9 @@ pub(super) fn execute_queue_action(
         QueuedTarget::PrimaryTarget => cause.primary_target(),
         QueuedTarget::None => None,
     };
+    let resolved = queued_ability::resolve(catalog, txn, actor, definition.ability())?;
     let ability = catalog
-        .ability(definition.ability())
+        .ability(resolved)
         .ok_or_else(|| invariant_fault(52))?;
     let action = ability.action().ok_or_else(|| invariant_fault(53))?;
     let selector = catalog
@@ -107,11 +109,11 @@ pub(super) fn execute_queue_action(
         parent,
         actor,
         owner,
-        definition.ability(),
+        resolved,
         definition.origin(),
         definition.boundary(),
         definition.priority(),
-        SourceDefinitionId::new(definition.ability().get()).ok_or_else(|| invariant_fault(57))?,
+        SourceDefinitionId::new(resolved.get()).ok_or_else(|| invariant_fault(57))?,
         None,
         None,
         None,
@@ -127,15 +129,16 @@ pub(super) fn execute_queue_rule_action(
     mut parent: EventId,
     operation: QueueRuleActionOp,
 ) -> Result<EventId, BattleFault> {
-    let ability = catalog
-        .ability(operation.ability)
-        .ok_or_else(|| invariant_fault(63))?;
-    let action = ability.action().ok_or_else(|| invariant_fault(64))?;
-    let selector = catalog
-        .selector(ability.selector())
-        .and_then(|definition| definition.unit_targets())
-        .ok_or_else(|| invariant_fault(65))?;
     for actor in operation.actors {
+        let resolved = queued_ability::resolve(catalog, txn, actor, operation.ability)?;
+        let ability = catalog
+            .ability(resolved)
+            .ok_or_else(|| invariant_fault(63))?;
+        let action = ability.action().ok_or_else(|| invariant_fault(64))?;
+        let selector = catalog
+            .selector(ability.selector())
+            .and_then(|definition| definition.unit_targets())
+            .ok_or_else(|| invariant_fault(65))?;
         let primary = match (selector.relation(), selector.pattern()) {
             (TargetRelation::SelfUnit, _) | (_, TargetPattern::All) => None,
             (_, TargetPattern::Single | TargetPattern::Blast) => operation.targets.first().copied(),
@@ -158,7 +161,7 @@ pub(super) fn execute_queue_rule_action(
             parent,
             actor,
             operation.owner,
-            operation.ability,
+            resolved,
             operation.origin,
             operation.boundary,
             operation.priority,

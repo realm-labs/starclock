@@ -17,6 +17,7 @@ mod program;
 mod program_break;
 mod program_effect;
 mod program_timeline;
+mod queued_ability;
 mod rule;
 pub(crate) mod schedule;
 mod selector_snapshot;

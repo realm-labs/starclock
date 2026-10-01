@@ -1,5 +1,6 @@
 //! Line-limit exception: deterministic catalog construction and all cross-reference checks must remain adjacent.
 //! Deterministic `CombatCatalog` construction and cross-reference validation.
+mod ability_family;
 mod composition;
 mod effect_validate;
 mod lifecycle_validate;
@@ -255,6 +256,7 @@ impl CombatCatalogBuilder {
             trigger_index: index::TriggerDefinitionIndex::default(),
         };
         validate_references(&catalog)?;
+        ability_family::validate(&catalog)?;
         selector_validate::validate(&catalog)?;
         validate_ai_graphs(&catalog)?;
         validate_program_cycles(&catalog)?;

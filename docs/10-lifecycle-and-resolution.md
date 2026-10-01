@@ -191,6 +191,23 @@ A boss phase change is not automatically a new wave. It may transform the same u
 
 ## Queue order and budgets
 
+An ability may declare an explicit self-rooted family. Production effective-level
+variants retain their authored ability family; combat never decodes numeric IDs
+or asks the build catalog for a level. At enqueue time, an exact currently bound
+ability wins. Otherwise a family-root reference selects its unique currently
+bound variant, including active effect grants. Two variants without an exact
+root binding cause a deterministic Rollback invariant fault (`0x32f0`), not an
+ID-ordered choice. A missing binding retains normal unavailable-ability
+cancellation. An exact non-root reference never falls back to a sibling.
+
+Both hit-operation and Rule IR queues commit the selected concrete ability,
+its target plan and existing explicit ownership/payment/origin at enqueue time.
+Dequeue revalidates that exact ability; an expired grant or replaced variant
+cancels rather than reselecting a family member. Family metadata grants no
+ability and does not implement a character's admission, damage or duration
+program. Family references must point directly to a self-rooted definition and
+preserve its action kind, so queue origin is not silently reclassified.
+
 Pending work has a total order over reaction priority, phase, side, formation index, spawn sequence, source ID, rule ID, and insertion sequence. No comparison ends without a fixed-width tie-breaker.
 
 Rules-revision constants bound events per command, trigger depth, queued reactions, extra actions, hit/bounce count, active effects, and linked actors. Exceeding a bound emits a stable budget fault. Limits are not silently raised for a particular character or boss.

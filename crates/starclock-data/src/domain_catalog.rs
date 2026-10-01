@@ -554,6 +554,7 @@ fn add_combat_ability(
         .collect();
     builder.add_ability(
         CombatAbilityDefinition::new(id, program, selector, Vec::new())
+            .with_family(source.id)
             .with_action(action)
             .with_programs(programs),
     );

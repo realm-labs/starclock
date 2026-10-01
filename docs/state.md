@@ -500,6 +500,16 @@ domain topology and enemy programs still prevent a complete-family claim.
 
 ## Current runtime
 
+Queued hit operations and Rule IR actions resolve an explicitly declared ability
+family to the actor's unique current effective-level binding before committing
+targets. Exact references stay exact; missing bindings still cancel and
+ambiguous variants deterministically fault. Production Sora lowering preserves
+all build-curve family roots without combat querying progression or decoding
+IDs. Native fixtures exercise both queue paths, concrete variant damage,
+effect grants, rejected commands and fresh reconstruction. This shared
+prerequisite adds no DU terminal credit or Clara Counter binding. See
+[queue resolution](10-lifecycle-and-resolution.md#queue-order-and-budgets).
+
 Production Clara's representative Counter now gates its QueueAction and
 Subtract-one program on remaining charges greater than zero. Shared integer
 bounds are unchanged. Both DU families test charge exhaustion with and without
@@ -707,7 +717,7 @@ under an explicit scope policy and verified-result five-battle lifetime.
   stays in Rule IR. The ten Version 4.4 postfix byte semantics are now the sole
   named shared-capability gap and remain explicitly unresolved rather than
   inferred from historical independent analysis. `G21-P2-B5` executes four
-  shared capability probes, audits 215 Activity/Build/Combat/Rules Rust files
+  shared capability probes, audits 217 Activity/Build/Combat/Rules Rust files
   for mode-ID branches, confirms zero admitted native handlers and freezes all
   43 generated partitions covering 2,367 programs with deterministic digests.
   Its configuration-program `VersionedProjectPolicy` affects 156 expression
