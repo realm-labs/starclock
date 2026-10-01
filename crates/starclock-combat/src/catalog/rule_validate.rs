@@ -301,6 +301,9 @@ fn validate_operation(
         RuleOperationTemplate::Damage {
             selector, amount, ..
         }
+        | RuleOperationTemplate::DamageFromOwner {
+            selector, amount, ..
+        }
         | RuleOperationTemplate::UnboostedDamage {
             selector, amount, ..
         }

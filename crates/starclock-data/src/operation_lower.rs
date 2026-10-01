@@ -139,6 +139,7 @@ fn program_references(steps: &[ProgramStep]) -> (Box<[SelectorId]>, Box<[EffectD
         };
         match operation {
             O::Damage { selector, .. }
+            | O::DamageFromOwner { selector, .. }
             | O::UnboostedDamage { selector, .. }
             | O::UnboostedDamageFromEventElement { selector, .. }
             | O::DamageFromEventElement { selector, .. }

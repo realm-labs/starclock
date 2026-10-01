@@ -493,6 +493,13 @@ domain topology and enemy programs still prevent a complete-family claim.
 
 ## Current runtime
 
+The [owner-sourced rule damage boundary](combat-owner-sourced-damage.md) lets an
+executing rule/program owner produce damage without inheriting the observed
+actor's source stats or Crit cache. Original snapshot expressions/selectors,
+ancestry and sibling emissions remain unchanged; formulas, nonlethal floors,
+defeat credit and events use the existing combat pipeline. This shared
+prerequisite adds no complete Divergent Universe equipment credit.
+
 The shared [final damage boundary](final-damage-boundary.md) supports a distinct
 source-owned multiplicative stage across ordinary and Break damage, without
 altering base stats or source-modifier-bypassing true damage. Continuing Break
@@ -668,7 +675,7 @@ under an explicit scope policy and verified-result five-battle lifetime.
   stays in Rule IR. The ten Version 4.4 postfix byte semantics are now the sole
   named shared-capability gap and remain explicitly unresolved rather than
   inferred from historical independent analysis. `G21-P2-B5` executes four
-  shared capability probes, audits 213 Activity/Build/Combat/Rules Rust files
+  shared capability probes, audits 214 Activity/Build/Combat/Rules Rust files
   for mode-ID branches, confirms zero admitted native handlers and freezes all
   43 generated partitions covering 2,367 programs with deterministic digests.
   Its configuration-program `VersionedProjectPolicy` affects 156 expression

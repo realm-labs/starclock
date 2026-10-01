@@ -3,6 +3,7 @@
 mod emission;
 pub(super) mod fault;
 mod operation_support;
+mod owner_damage;
 mod random_damage;
 mod random_grouped_effect;
 mod random_true_damage;
@@ -414,6 +415,9 @@ fn execute_emission(
 ) -> Result<EventId, BattleFault> {
     let current_target = emission_current_target(&emission);
     let emission = match emission {
+        emission @ RuleEmission::DamageFromOwner { .. } => {
+            return owner_damage::execute(catalog, txn, cause, parent, context, resolved, emission);
+        }
         RuleEmission::RandomRepeatedDamage {
             selector,
             amount,

@@ -119,6 +119,16 @@ impl Cause {
         }
     }
 
+    /// Reattributes one emitted damage operation, not its ancestor action.
+    pub(crate) const fn with_damage_source(self, source: UnitId) -> Self {
+        Self {
+            owner: Some(source),
+            actor: Some(CauseActor::Unit(source)),
+            applier: Some(source),
+            ..self
+        }
+    }
+
     pub(crate) const fn with_source_definition(
         self,
         source_definition: SourceDefinitionId,

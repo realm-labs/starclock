@@ -408,6 +408,22 @@ fn evaluate_operation(
             can_defeat: *can_defeat,
             current_target,
         },
+        RuleOperationTemplate::DamageFromOwner {
+            selector,
+            amount,
+            class,
+            element,
+            can_crit,
+            can_defeat,
+        } => RuleEmission::DamageFromOwner {
+            selector: *selector,
+            amount: evaluate_value(amount, input, current_target)?,
+            class: *class,
+            element: *element,
+            can_crit: *can_crit,
+            can_defeat: *can_defeat,
+            current_target,
+        },
         RuleOperationTemplate::UnboostedDamage {
             selector,
             amount,

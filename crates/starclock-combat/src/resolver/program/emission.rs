@@ -119,6 +119,7 @@ pub(super) const fn emission_current_target(emission: &RuleEmission) -> Option<U
         RuleEmission::SetSlot { current_target, .. }
         | RuleEmission::AddSlot { current_target, .. }
         | RuleEmission::Damage { current_target, .. }
+        | RuleEmission::DamageFromOwner { current_target, .. }
         | RuleEmission::DamageFromActorBasicElement { current_target, .. }
         | RuleEmission::UltimateDamageFromActorBasicElement { current_target, .. }
         | RuleEmission::UnboostedDamage { current_target, .. }

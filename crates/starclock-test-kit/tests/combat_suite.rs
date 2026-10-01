@@ -35,6 +35,8 @@ mod combat_modifier_pipeline;
 mod combat_numeric_formula_oracle;
 #[path = "suites/core/combat/numeric_golden.rs"]
 mod combat_numeric_golden;
+#[path = "suites/core/combat/owner_damage.rs"]
+mod combat_owner_damage;
 #[path = "suites/core/combat/reaction_scheduler.rs"]
 mod combat_reaction_scheduler;
 #[path = "suites/core/combat/rng_golden.rs"]

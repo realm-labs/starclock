@@ -188,6 +188,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
     [The Story Presently](divergent-universe-weighted-curio-support-attack.md) and
     [Road of Prayers](divergent-universe-weighted-curio-prayer.md) execute source-attributed Rule IR; twelve effects and Forge admission remain pending.
 157. [Titan effect boundary](divergent-universe-titan-effects.md) — source descriptors versus execution, fail-closed current battle assembly, exact-once pending assignments and inventory without pass receipts.
+158. [Owner-sourced rule damage](combat-owner-sourced-damage.md) — explicit damage producer with original trigger evaluation, retained ancestry, independent Crit groups and shared nonlethal/formula execution; no new equipment completion credit.
 
 ## Delivery boundary
 

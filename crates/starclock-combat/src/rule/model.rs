@@ -542,6 +542,21 @@ pub enum RuleOperationTemplate {
         can_crit: bool,
         can_defeat: bool,
     },
+    /// Damage produced by the executing rule/program owner rather than the
+    /// observed event actor. Expressions and selectors still read the original
+    /// trigger snapshot. Only this operation's owner, actor and applier are
+    /// rebound; command/action/hit ancestry and source identity are retained.
+    /// Uses the shared damage pipeline, including an operation-local Crit draw
+    /// group (never the observed actor's cached result) and the nonlethal floor,
+    /// without creating another action or consuming a normal timeline turn.
+    DamageFromOwner {
+        selector: SelectorId,
+        amount: ValueExpr,
+        class: DamageClass,
+        element: CombatElement,
+        can_crit: bool,
+        can_defeat: bool,
+    },
     /// Elemental damage that skips source-side Crit, DMG Boost and Weaken
     /// modifiers while retaining target-side defense, resistance,
     /// vulnerability, mitigation and broken-state stages.
@@ -919,6 +934,16 @@ pub enum RuleEmission {
         current_target: Option<UnitId>,
     },
     Damage {
+        selector: SelectorId,
+        amount: RuleValue,
+        class: DamageClass,
+        element: CombatElement,
+        can_crit: bool,
+        can_defeat: bool,
+        current_target: Option<UnitId>,
+    },
+    /// Evaluated owner-sourced damage; see `RuleOperationTemplate::DamageFromOwner`.
+    DamageFromOwner {
         selector: SelectorId,
         amount: RuleValue,
         class: DamageClass,

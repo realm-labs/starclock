@@ -125,6 +125,15 @@ Cause {
 
 `owner` owns the rule; `actor` performs the current action; `applier` receives application credit; and `source_definition` identifies the ability, effect, equipment, enemy, or mode rule. They may differ. Trigger filters must never infer one field from another.
 
+For an explicit `DamageFromOwner` rule operation, `actor` identifies the damage
+producer rather than the actor of the ancestor action: this emitted damage's
+owner, actor and applier are the executing rule/program owner. Its original
+command/action/phase/hit ancestry and rule source remain intact. Expressions
+and selectors still evaluate against the original trigger snapshot. This is
+not another declared action or normal turn. Crit draws are operation-local and
+cannot reuse or modify the observed actor's cached result. Ordinary `Damage`
+retains its observed-actor semantics. See [Owner-sourced rule damage](combat-owner-sourced-damage.md).
+
 ## Life, presence, and defeat
 
 Life state and battlefield presence are independent:
