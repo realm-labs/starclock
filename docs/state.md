@@ -24,7 +24,7 @@ each eligible damage event copies thirty percent to adjacent enemies under an
 explicit hidden-timing/damage-copy policy. Equipment is the seventh immutable
 contribution component; unlowered equipment still rejects with typed errors
 instead of silently producing a no-effect battle. Full Forge menus/slot admission,
-the other fourteen Weighted Curio effects, actual Grand Miracle source selection/effects
+the other thirteen Weighted Curio effects, actual Grand Miracle source selection/effects
 and the Forge room payload remain unimplemented. The
 [Harmony shield](divergent-universe-weighted-curio-shield.md) executes ally-directed
 Basic/Skill/Ultimate actions, including self and full-team targets, with each
@@ -38,7 +38,12 @@ now advances attacked enemies by 20% and lowers their outgoing damage by 30% for
 one target turn after mapped Destruction/Nihility attacks. Once-per-action
 multi-target application, replacement and expiry use shared Rule IR/effect stores;
 hidden timing, final-factor categories and refresh remain explicit project policy.
-Three of seventeen equipment effects execute; original Forge admission and
+The [Story Presently support attack](divergent-universe-weighted-curio-support-attack.md)
+adds 15% CRIT Rate and 30% CRIT DMG per mapped Harmony/Abundance/Preservation
+teammate to those Paths. Each attack then deals shared Additional damage using
+the attacker's effective Max HP plus DEF plus ATK. Roster counting, phase,
+target selection, element and critical eligibility remain explicit project policy.
+Four of seventeen equipment effects execute; original Forge admission and
 complete equipment replay remain pending. The current
 taxonomy/Gamble inventory emits no execution receipt or terminal coverage credit;
 the two accepted Coin units and unresolved Gamble rejection behavior remain.
@@ -1018,7 +1023,8 @@ definitions plus one executable Equation-expansion reward definition and 60
 current Persona layout positions, nine reviewed decks, one shop stock and three
 items, three Wealth policies, one Reward-card substitute and one Adventure
 settlement policy, one Weighted Curio splash, one Harmony shield and one attack
-advance/reduction definition across 37 tables and 380 rows.
+advance/reduction definition and one support-Path crit/additional-damage
+definition across 38 tables and 385 rows.
 The [9074 expansion reward](divergent-universe-equation-expansion.md) has
 validated operands and an explicit finite-cascade executor. Fixed public-choice
 vectors in both baseline families pay for the card, trigger an additional

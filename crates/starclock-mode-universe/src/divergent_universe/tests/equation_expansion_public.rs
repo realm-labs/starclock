@@ -222,14 +222,14 @@ fn expansion_rewards_paid_public_fixed_vectors() {
     for (family, seed, initial, boundary) in [
         (
             DivergentUniverseRunFamily::Ordinary,
-            191618,
-            1,
+            2206963,
+            0,
             ActivityDecisionKind::Service,
         ),
         (
             DivergentUniverseRunFamily::Cyclical,
-            35381,
-            2,
+            610969,
+            0,
             ActivityDecisionKind::Encounter,
         ),
     ] {
@@ -266,187 +266,199 @@ fn expansion_rewards_paid_public_fixed_vectors() {
 #[test]
 #[ignore = "explicit bounded public seed discovery; retain fixed positive vectors in the default suite"]
 fn expansion_rewards_search_paid_public_trigger() {
-    let fixture = DivergentUniverseBaselineFixture::production().unwrap();
-    let fresh = DivergentUniverseBaselineFixture::production().unwrap();
     for family in [
         DivergentUniverseRunFamily::Ordinary,
         DivergentUniverseRunFamily::Cyclical,
     ] {
-        let flow = fixture.flow_with_tawot_service(family, 2).unwrap();
-        let rewards = fixture.factory().decision_reward_runtime().unwrap();
-        let mut template = flow
-            .start(instance(1), ActivityMasterSeed::from_u64(0))
-            .unwrap()
-            .into_activity();
-        advance(&fixture, &flow, &mut template, None);
-        let view = template.player_view();
-        let curios = fixture.factory().curio_runtime().unwrap();
-        let mut candidates = Vec::new();
-        for curio in curios.curios() {
-            if !matches!(
-                curio.category(),
-                DivergentUniverseCurioCategory::Common | DivergentUniverseCurioCategory::Rare
-            ) {
-                continue;
-            }
-            let state = curios
-                .states()
-                .iter()
-                .filter(|state| state.curio() == Some(curio.id()))
-                .min_by_key(|state| state.id())
-                .unwrap();
-            if curios
-                .acquisition_rewards_available(&view, state.id())
-                .unwrap()
-            {
-                candidates.push((curio.id().clone(), state.id().clone()));
-            }
-        }
-        candidates.sort_by(|left, right| left.0.cmp(&right.0));
-        let definition = flow.definition();
-        let identity = definition.identity();
-        let graph = definition.graph();
-        let graph_digest = graph.digest();
-        let entry = graph.entry();
-        let section = graph.node(entry).unwrap().section();
-        let initial_policy = flow.initial_equation_policy().unwrap();
-        let weights = vec![
-            1;
-            fixture
-                .factory()
-                .bundle
-                .equation_catalog()
-                .equations()
-                .iter()
-                .filter(|equation| equation.category == initial_policy.category)
-                .count()
-        ];
-        let choice = &fixture
-            .factory()
-            .decision_catalog()
-            .occurrences()
-            .iter()
-            .flat_map(|occurrence| occurrence.choices.iter())
-            .find(|choice| choice.id.as_str() == "du.choice.color.blood-red")
-            .unwrap()
-            .id;
-        let mut found = false;
-        // Explicit discovery only: rare paid service-boundary triggers need a
-        // wider bounded corpus after current configuration identities change.
-        for seed in 0..8_000_000 {
-            if seed % 10_000 == 0 {
-                eprintln!("public expansion search: {family:?} seed={seed}");
-            }
-            // Search-only projection of the initial Reward stream. No generated
-            // operations are applied. Every candidate must pass the real prefix.
-            let context = ActivityRngContext::new(
-                ActivityMasterSeed::from_u64(seed),
-                identity.id(),
-                identity.definition_digest(),
-                identity.config_digest(),
-                graph_digest,
-                instance(1),
-                Some(section),
-                Some(entry),
-                None,
-                0,
-            );
-            let mut rng = ActivityRngStreams::new(context);
-            rng.choose_weighted_without_replacement(
-                ActivityRngLabel::Reward,
-                23_801,
-                &weights,
-                initial_policy.offer_width,
-            )
-            .unwrap();
-            let first = usize::try_from(
-                rng.choose_index(
-                    ActivityRngLabel::Reward,
-                    23_611,
-                    u32::try_from(candidates.len()).unwrap(),
-                )
-                .unwrap()
-                .unwrap()
-                .value(),
-            )
-            .unwrap();
-            let second = usize::try_from(
-                rng.choose_index(
-                    ActivityRngLabel::Reward,
-                    23_611,
-                    u32::try_from(candidates.len() - 1).unwrap(),
-                )
-                .unwrap()
-                .unwrap()
-                .value(),
-            )
-            .unwrap();
-            let second = second + usize::from(second >= first);
-            let states = [&candidates[first].1, &candidates[second].1];
-            // This cache is search-only. Check its ordering/sampling against the
-            // actual producer; every positive vector still executes all commands.
-            if seed < 256 {
-                let mut actual_rng = ActivityRngStreams::new(context);
-                actual_rng
-                    .choose_weighted_without_replacement(
-                        ActivityRngLabel::Reward,
-                        23_801,
-                        &weights,
-                        initial_policy.offer_width,
-                    )
-                    .unwrap();
-                let (_, actual) = rewards
-                    .generate_choice(&view, choice, &mut actual_rng)
-                    .unwrap()
-                    .into_parts();
-                let DecisionRewardGrant::Curios(actual) = actual else {
-                    panic!("Color Curios");
-                };
-                assert_eq!(states, [&actual[0], &actual[1]]);
-            }
-            if !["9192", "9195"].iter().all(|raw| {
-                states
-                    .iter()
-                    .any(|state| state.as_str() == format!("divergent-universe.curio-state.{raw}"))
-            }) {
-                continue;
-            }
-            eprintln!("Color pair {family:?} seed={seed}");
-            for initial in 0..3 {
-                let Some((mut activity, mut steps)) = prefix(&fixture, &flow, seed, initial) else {
-                    continue;
-                };
-                let (remaining, boundary) = finish(&fixture, &flow, &mut activity, &mut steps);
-                eprintln!(
-                    "paid candidate {family:?} seed={seed} initial={initial} remaining={remaining}"
-                );
-                let required_boundary = match family {
-                    DivergentUniverseRunFamily::Ordinary => ActivityDecisionKind::Service,
-                    DivergentUniverseRunFamily::Cyclical => ActivityDecisionKind::Encounter,
-                };
-                if remaining == 3 || boundary != Some(required_boundary) {
-                    continue;
-                }
-                let run =
-                    record_divergent_universe_transcript(&fixture, &flow, &activity, seed, steps)
-                        .unwrap();
-                let verified = verify_divergent_universe_replay(
-                    &encode_divergent_universe_replay(&run).unwrap(),
-                    &fresh,
-                )
-                .unwrap();
-                assert_eq!(
-                    verified.final_state_hash().bytes(),
-                    activity.state_hash().bytes()
-                );
-                assert_eq!(verified.battle_count(), 3);
-                found = true;
-                break;
-            }
-            if found {
-                break;
-            }
-        }
-        assert!(found, "bounded public search did not trigger expansion");
+        search_paid_public_trigger(family);
     }
+}
+
+#[test]
+#[ignore = "explicit bounded Cyclical-only discovery; avoids repeating the Ordinary search"]
+fn expansion_rewards_search_paid_public_cyclical_trigger() {
+    search_paid_public_trigger(DivergentUniverseRunFamily::Cyclical);
+}
+
+fn search_paid_public_trigger(family: DivergentUniverseRunFamily) {
+    let fixture = DivergentUniverseBaselineFixture::production().unwrap();
+    let fresh = DivergentUniverseBaselineFixture::production().unwrap();
+    let flow = fixture.flow_with_tawot_service(family, 2).unwrap();
+    let rewards = fixture.factory().decision_reward_runtime().unwrap();
+    let mut template = flow
+        .start(instance(1), ActivityMasterSeed::from_u64(0))
+        .unwrap()
+        .into_activity();
+    advance(&fixture, &flow, &mut template, None);
+    let view = template.player_view();
+    let curios = fixture.factory().curio_runtime().unwrap();
+    let mut candidates = Vec::new();
+    for curio in curios.curios() {
+        if !matches!(
+            curio.category(),
+            DivergentUniverseCurioCategory::Common | DivergentUniverseCurioCategory::Rare
+        ) {
+            continue;
+        }
+        let state = curios
+            .states()
+            .iter()
+            .filter(|state| state.curio() == Some(curio.id()))
+            .min_by_key(|state| state.id())
+            .unwrap();
+        if curios
+            .acquisition_rewards_available(&view, state.id())
+            .unwrap()
+        {
+            candidates.push((curio.id().clone(), state.id().clone()));
+        }
+    }
+    candidates.sort_by(|left, right| left.0.cmp(&right.0));
+    let definition = flow.definition();
+    let identity = definition.identity();
+    let graph = definition.graph();
+    let graph_digest = graph.digest();
+    let entry = graph.entry();
+    let section = graph.node(entry).unwrap().section();
+    let initial_policy = flow.initial_equation_policy().unwrap();
+    let weights = vec![
+        1;
+        fixture
+            .factory()
+            .bundle
+            .equation_catalog()
+            .equations()
+            .iter()
+            .filter(|equation| equation.category == initial_policy.category)
+            .count()
+    ];
+    let choice = &fixture
+        .factory()
+        .decision_catalog()
+        .occurrences()
+        .iter()
+        .flat_map(|occurrence| occurrence.choices.iter())
+        .find(|choice| choice.id.as_str() == "du.choice.color.blood-red")
+        .unwrap()
+        .id;
+    let mut found = false;
+    // Explicit discovery only: rare paid service-boundary triggers need a
+    // wider bounded corpus after current configuration identities change.
+    for seed in 0..8_000_000 {
+        if seed % 10_000 == 0 {
+            eprintln!("public expansion search: {family:?} seed={seed}");
+        }
+        // Search-only projection of the initial Reward stream. No generated
+        // operations are applied. Every candidate must pass the real prefix.
+        let context = ActivityRngContext::new(
+            ActivityMasterSeed::from_u64(seed),
+            identity.id(),
+            identity.definition_digest(),
+            identity.config_digest(),
+            graph_digest,
+            instance(1),
+            Some(section),
+            Some(entry),
+            None,
+            0,
+        );
+        let mut rng = ActivityRngStreams::new(context);
+        rng.choose_weighted_without_replacement(
+            ActivityRngLabel::Reward,
+            23_801,
+            &weights,
+            initial_policy.offer_width,
+        )
+        .unwrap();
+        let first = usize::try_from(
+            rng.choose_index(
+                ActivityRngLabel::Reward,
+                23_611,
+                u32::try_from(candidates.len()).unwrap(),
+            )
+            .unwrap()
+            .unwrap()
+            .value(),
+        )
+        .unwrap();
+        let second = usize::try_from(
+            rng.choose_index(
+                ActivityRngLabel::Reward,
+                23_611,
+                u32::try_from(candidates.len() - 1).unwrap(),
+            )
+            .unwrap()
+            .unwrap()
+            .value(),
+        )
+        .unwrap();
+        let second = second + usize::from(second >= first);
+        let states = [&candidates[first].1, &candidates[second].1];
+        // This cache is search-only. Check its ordering/sampling against the
+        // actual producer; every positive vector still executes all commands.
+        if seed < 256 {
+            let mut actual_rng = ActivityRngStreams::new(context);
+            actual_rng
+                .choose_weighted_without_replacement(
+                    ActivityRngLabel::Reward,
+                    23_801,
+                    &weights,
+                    initial_policy.offer_width,
+                )
+                .unwrap();
+            let (_, actual) = rewards
+                .generate_choice(&view, choice, &mut actual_rng)
+                .unwrap()
+                .into_parts();
+            let DecisionRewardGrant::Curios(actual) = actual else {
+                panic!("Color Curios");
+            };
+            assert_eq!(states, [&actual[0], &actual[1]]);
+        }
+        if !["9192", "9195"].iter().all(|raw| {
+            states
+                .iter()
+                .any(|state| state.as_str() == format!("divergent-universe.curio-state.{raw}"))
+        }) {
+            continue;
+        }
+        eprintln!("Color pair {family:?} seed={seed}");
+        for initial in 0..3 {
+            let Some((mut activity, mut steps)) = prefix(&fixture, &flow, seed, initial) else {
+                continue;
+            };
+            let (remaining, boundary) = finish(&fixture, &flow, &mut activity, &mut steps);
+            eprintln!(
+                "paid candidate {family:?} seed={seed} initial={initial} remaining={remaining}"
+            );
+            let required_boundary = match family {
+                DivergentUniverseRunFamily::Ordinary => ActivityDecisionKind::Service,
+                DivergentUniverseRunFamily::Cyclical => ActivityDecisionKind::Encounter,
+            };
+            if remaining == 3 || boundary != Some(required_boundary) {
+                continue;
+            }
+            let run = record_divergent_universe_transcript(&fixture, &flow, &activity, seed, steps)
+                .unwrap();
+            let verified = verify_divergent_universe_replay(
+                &encode_divergent_universe_replay(&run).unwrap(),
+                &fresh,
+            )
+            .unwrap();
+            assert_eq!(
+                verified.final_state_hash().bytes(),
+                activity.state_hash().bytes()
+            );
+            assert_eq!(verified.battle_count(), 3);
+            eprintln!(
+                "current paid expansion positive {family:?} seed={seed} initial={initial} boundary={boundary:?}"
+            );
+            found = true;
+            break;
+        }
+        if found {
+            break;
+        }
+    }
+    assert!(found, "bounded public search did not trigger expansion");
 }

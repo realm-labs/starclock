@@ -11,15 +11,16 @@ use starclock_build::light_cone::CombatPath;
 use starclock_combat::{
     AbilityId, ActionEventData, ActionGaugeChangeKind, AssemblyDigest, Battle, BattleEvent,
     BattleEventKind, BattleSeed, BattleSpec, CauseActor, CombatantSpecDigest, Command,
-    ConcedePolicy, DurationClock, Energy, FormationIndex, Hp, ParticipantSource, ParticipantSpec,
-    Ratio, ResolvedCombatantSpec, ResolvedDefinitionBindings, Scalar, Speed, TeamResourceSpec,
+    ConcedePolicy, DurationClock, Energy, FormationIndex, Hp, LifeState, ParticipantInitialState,
+    ParticipantSource, ParticipantSpec, PresenceState, Ratio, ResolvedBuildBonuses,
+    ResolvedCombatantSpec, ResolvedDefinitionBindings, Scalar, Speed, StatValue, TeamResourceSpec,
     TeamSide, TurnEventData, UnitId, UnitLevel,
     catalog::{
         action::{
             AbilityActionDefinition, AbilityKind, AbilityTag, ActionHitDefinition,
             ActionResourcePolicy, HitCritPolicy, HitOperationDefinition, HitTargetGroup,
-            OrdinaryDamageDefinition, OrdinaryDamageMultipliers, TargetInvalidationPolicy,
-            TargetPattern, TargetRelation, UnitTargetSelector,
+            OrdinaryDamageDefinition, OrdinaryDamageMultipliers, ScalingDamageDefinition,
+            TargetInvalidationPolicy, TargetPattern, TargetRelation, UnitTargetSelector,
         },
         builder::CombatCatalogBuilder,
         definition::{
@@ -27,7 +28,8 @@ use starclock_combat::{
             SelectorDefinition, UnitDefinition,
         },
     },
-    formula::model::DamageClass,
+    formula::model::{CombatElement, DamageClass},
+    modifier::model::StatKind,
 };
 use starclock_data::divergent_universe_catalog::DivergentUniverseRunFamily;
 
@@ -44,14 +46,21 @@ where
 }
 
 #[derive(Clone, Copy)]
-struct Probe {
-    formation: u8,
-    all: bool,
-    allied: bool,
-    attack: bool,
-    hits: u16,
-    enemy_hp: i64,
-    outgoing: DamageClass,
+pub(super) struct Probe {
+    pub(super) formation: u8,
+    pub(super) all: bool,
+    pub(super) allied: bool,
+    pub(super) attack: bool,
+    pub(super) hits: u16,
+    pub(super) enemy_hp: i64,
+    pub(super) outgoing: DamageClass,
+    pub(super) scaling: Option<StatKind>,
+    pub(super) coefficient: i64,
+    pub(super) base_stats: Option<(i64, i64)>,
+    pub(super) crit: HitCritPolicy,
+    pub(super) bonuses: ResolvedBuildBonuses,
+    pub(super) selected_kind: AbilityKind,
+    pub(super) initial_hp: Option<i64>,
 }
 impl Default for Probe {
     fn default() -> Self {
@@ -63,20 +72,27 @@ impl Default for Probe {
             hits: 3,
             enemy_hp: 10_000,
             outgoing: DamageClass::Direct,
+            scaling: None,
+            coefficient: 1_000_000,
+            base_stats: None,
+            crit: HitCritPolicy::Never,
+            bonuses: ResolvedBuildBonuses::default(),
+            selected_kind: AbilityKind::Basic,
+            initial_hp: None,
         }
     }
 }
-struct Scenario {
-    battle: Battle,
-    actor: UnitId,
-    target: UnitId,
-    selected: AbilityId,
-    ultimate: AbilityId,
+pub(super) struct Scenario {
+    pub(super) battle: Battle,
+    pub(super) actor: UnitId,
+    pub(super) target: UnitId,
+    pub(super) selected: AbilityId,
+    pub(super) ultimate: AbilityId,
     fallback: AbilityId,
     implicit: bool,
 }
 
-fn scenario(assembled: &DivergentUniverseAssembledBattle, input: Probe) -> Scenario {
+pub(super) fn scenario(assembled: &DivergentUniverseAssembledBattle, input: Probe) -> Scenario {
     let mut builder = CombatCatalogBuilder::from_catalog(assembled.combat_catalog(), [81; 32]);
     let selected = id(0x7d43_0001);
     let ultimate = id(0x7d43_0002);
@@ -84,7 +100,7 @@ fn scenario(assembled: &DivergentUniverseAssembledBattle, input: Probe) -> Scena
     let form = id(0x7d44_0001);
     let encounter = id(0x7d46_0001);
     for (offset, ability, kind, damage) in [
-        (1, selected, AbilityKind::Basic, 1),
+        (1, selected, input.selected_kind, 1),
         (2, ultimate, AbilityKind::Ultimate, 1),
         (3, fallback, AbilityKind::Basic, 100),
     ] {
@@ -134,23 +150,35 @@ fn scenario(assembled: &DivergentUniverseAssembledBattle, input: Probe) -> Scena
         .with_hits(
             (0..hits)
                 .map(|_| {
-                    ActionHitDefinition::new(vec![HitOperationDefinition::Damage(
-                        OrdinaryDamageDefinition::new(
-                            Scalar::checked_from_integer(damage).unwrap(),
-                            OrdinaryDamageMultipliers::new([Ratio::ONE; 9]).unwrap(),
+                    let operation = if let Some(stat) = input.scaling {
+                        HitOperationDefinition::ScalingDamage(
+                            ScalingDamageDefinition::new(
+                                stat,
+                                Ratio::from_scaled(input.coefficient),
+                                DamageClass::Direct,
+                                CombatElement::Wind,
+                            )
+                            .unwrap(),
                         )
-                        .unwrap()
-                        .with_class(if ability == fallback {
-                            input.outgoing
-                        } else {
-                            DamageClass::Direct
-                        }),
-                    )])
-                    .with_profile(
+                    } else {
+                        HitOperationDefinition::Damage(
+                            OrdinaryDamageDefinition::new(
+                                Scalar::checked_from_integer(damage).unwrap(),
+                                OrdinaryDamageMultipliers::new([Ratio::ONE; 9]).unwrap(),
+                            )
+                            .unwrap()
+                            .with_class(if ability == fallback {
+                                input.outgoing
+                            } else {
+                                DamageClass::Direct
+                            }),
+                        )
+                    };
+                    ActionHitDefinition::new(vec![operation]).with_profile(
                         HitTargetGroup::Selected,
                         Ratio::ONE,
                         Ratio::ONE,
-                        HitCritPolicy::Never,
+                        input.crit,
                     )
                 })
                 .collect(),
@@ -200,6 +228,16 @@ fn scenario(assembled: &DivergentUniverseAssembledBattle, input: Probe) -> Scena
         Energy::from_scaled(2_000_000).unwrap(),
     )
     .unwrap();
+    let combatant = if let Some((attack, defense)) = input.base_stats {
+        combatant
+            .with_base_attack_defense(
+                StatValue::from_scaled(attack).unwrap(),
+                StatValue::from_scaled(defense).unwrap(),
+            )
+            .with_build_bonuses(input.bonuses)
+    } else {
+        combatant
+    };
     let mut participants = vec![ParticipantSpec::new(
         TeamSide::Player,
         FormationIndex::new(0).unwrap(),
@@ -207,6 +245,22 @@ fn scenario(assembled: &DivergentUniverseAssembledBattle, input: Probe) -> Scena
         combatant,
     )];
     let mut enemies = Vec::new();
+    if let Some(hp) = input.initial_hp {
+        participants[0] = participants[0]
+            .clone()
+            .with_initial_state(
+                ParticipantInitialState::new(
+                    Hp::new(hp).unwrap(),
+                    Hp::new(10_000).unwrap(),
+                    Energy::from_scaled(2_000_000).unwrap(),
+                    Energy::from_scaled(2_000_000).unwrap(),
+                    LifeState::Alive,
+                    PresenceState::Present,
+                )
+                .unwrap(),
+            )
+            .unwrap();
+    }
     for index in 0..3 {
         let enemy = id(0x7d45_0001 + u32::from(index));
         enemies.push(enemy);
@@ -265,7 +319,7 @@ fn scenario(assembled: &DivergentUniverseAssembledBattle, input: Probe) -> Scena
     }
 }
 
-fn step(scenario: &mut Scenario, ability: AbilityId) -> Vec<BattleEvent> {
+pub(super) fn step(scenario: &mut Scenario, ability: AbilityId) -> Vec<BattleEvent> {
     let command = scenario.battle.decision().and_then(|decision| decision.legal_commands().iter()
         .find(|command| match command {
             Command::UseAbility {actor, ability: offered, primary_target, ..} => *actor == scenario.actor && *offered == ability &&
@@ -284,7 +338,7 @@ fn step(scenario: &mut Scenario, ability: AbilityId) -> Vec<BattleEvent> {
     assert!(applied.fault().is_none(), "{:?}", applied.fault());
     applied.events().to_vec()
 }
-fn action(scenario: &mut Scenario, ability: AbilityId) -> Vec<BattleEvent> {
+pub(super) fn action(scenario: &mut Scenario, ability: AbilityId) -> Vec<BattleEvent> {
     let mut events = Vec::new();
     for _ in 0..64 {
         let applied = step(scenario, ability);

@@ -44,6 +44,7 @@ pub mod du_adventure_reward_policy;
 pub mod du_weighted_curio_splash_policy;
 pub mod du_weighted_curio_shield_policy;
 pub mod du_curio_attack_debuff_policy;
+pub mod du_curio_support_attack_policy;
 pub mod du_decision_sources;
 pub mod du_decision_policies;
 pub mod du_decision_occurrences;
@@ -81,9 +82,10 @@ pub mod du_adventure_rewards;
 pub mod du_weighted_curio_splashes;
 pub mod du_weighted_curio_shields;
 pub mod du_weighted_curio_attack_debuffs;
+pub mod du_weighted_curio_support_attacks;
 pub type SoraMap<K, V> = std::collections::HashMap<K, V>;
 
-pub const SCHEMA_FINGERPRINT: &str = "edae20b8b3acd8a7";
+pub const SCHEMA_FINGERPRINT: &str = "0f9919fdb009ba84";
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum SoraTableShape {
@@ -166,7 +168,7 @@ impl SoraConfig {
             )));
         }
         let mut tables: SoraMap<&'static str, Box<dyn ErasedSoraTable>> =
-            sora_map_with_capacity(37);
+            sora_map_with_capacity(38);
         tables.insert(du_decision_sources::DuDecisionSourcesTable::NAME, Box::new(du_decision_sources::DuDecisionSourcesTable::from_rows(source.decode_table::<du_decision_sources::DuDecisionSources>(du_decision_sources::DuDecisionSourcesTable::NAME)?)?));
         tables.insert(du_decision_policies::DuDecisionPoliciesTable::NAME, Box::new(du_decision_policies::DuDecisionPoliciesTable::from_rows(source.decode_table::<du_decision_policies::DuDecisionPolicies>(du_decision_policies::DuDecisionPoliciesTable::NAME)?)?));
         tables.insert(du_decision_occurrences::DuDecisionOccurrencesTable::NAME, Box::new(du_decision_occurrences::DuDecisionOccurrencesTable::from_rows(source.decode_table::<du_decision_occurrences::DuDecisionOccurrences>(du_decision_occurrences::DuDecisionOccurrencesTable::NAME)?)?));
@@ -204,6 +206,7 @@ impl SoraConfig {
         tables.insert(du_weighted_curio_splashes::DuWeightedCurioSplashesTable::NAME, Box::new(du_weighted_curio_splashes::DuWeightedCurioSplashesTable::from_rows(source.decode_table::<du_weighted_curio_splashes::DuWeightedCurioSplashes>(du_weighted_curio_splashes::DuWeightedCurioSplashesTable::NAME)?)?));
         tables.insert(du_weighted_curio_shields::DuWeightedCurioShieldsTable::NAME, Box::new(du_weighted_curio_shields::DuWeightedCurioShieldsTable::from_rows(source.decode_table::<du_weighted_curio_shields::DuWeightedCurioShields>(du_weighted_curio_shields::DuWeightedCurioShieldsTable::NAME)?)?));
         tables.insert(du_weighted_curio_attack_debuffs::DuWeightedCurioAttackDebuffsTable::NAME, Box::new(du_weighted_curio_attack_debuffs::DuWeightedCurioAttackDebuffsTable::from_rows(source.decode_table::<du_weighted_curio_attack_debuffs::DuWeightedCurioAttackDebuffs>(du_weighted_curio_attack_debuffs::DuWeightedCurioAttackDebuffsTable::NAME)?)?));
+        tables.insert(du_weighted_curio_support_attacks::DuWeightedCurioSupportAttacksTable::NAME, Box::new(du_weighted_curio_support_attacks::DuWeightedCurioSupportAttacksTable::from_rows(source.decode_table::<du_weighted_curio_support_attacks::DuWeightedCurioSupportAttacks>(du_weighted_curio_support_attacks::DuWeightedCurioSupportAttacksTable::NAME)?)?));
         Ok(Self { tables })
     }
 
@@ -372,6 +375,10 @@ impl SoraConfig {
 
     pub fn du_weighted_curio_attack_debuffs(&self) -> &du_weighted_curio_attack_debuffs::DuWeightedCurioAttackDebuffsTable {
         self.table(du_weighted_curio_attack_debuffs::DuWeightedCurioAttackDebuffsTable::NAME)
+    }
+
+    pub fn du_weighted_curio_support_attacks(&self) -> &du_weighted_curio_support_attacks::DuWeightedCurioSupportAttacksTable {
+        self.table(du_weighted_curio_support_attacks::DuWeightedCurioSupportAttacksTable::NAME)
     }
 }
 

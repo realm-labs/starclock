@@ -1,0 +1,85 @@
+{
+  "table": {
+    "name": "DuWeightedCurioSupportAttacks",
+    "rows": [
+      {
+        "values": {
+          "additional_multiplier": {
+            "String": "1"
+          },
+          "additional_parameter": {
+            "Integer": 3
+          },
+          "character_paths": {
+            "List": [
+              {
+                "String": "Shaman"
+              },
+              {
+                "String": "Priest"
+              },
+              {
+                "String": "Knight"
+              }
+            ]
+          },
+          "crit_damage_fraction": {
+            "String": "0.3"
+          },
+          "crit_damage_parameter": {
+            "Integer": 2
+          },
+          "crit_rate_fraction": {
+            "String": "0.15"
+          },
+          "crit_rate_parameter": {
+            "Integer": 1
+          },
+          "id": {
+            "Integer": 1
+          },
+          "maze_buff_id": {
+            "String": "633417"
+          },
+          "policy": {
+            "String": "RosterCountCritAndAttackResolvedAdditional"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: count the immutable mapped player character roster at battle assembly, including down/absent characters but excluding linked actors and summons. Bind only Harmony/Abundance/Preservation players. Two battle-lifetime flat Stat modifiers add count times exact crit operands, with unique-per-source groups and no extra cap (shared crit sampling bounds apply). Owner ActionResolved at AfterAction with Attack tag, once per action, visits committed opposing alive/present targets in formation/stable-ID order. Additional damage uses the owner's dynamic effective HP stat plus DEF plus ATK, multiplied by exact 1, shared nearest-ties-even arithmetic and final damage floor. Use actor Basic element, shared AdditionalDamage formula modifiers, no crit or toughness reduction, can defeat. No recursive action, new summon inheritance or live Activity mutation. Unequip affects later snapshots only."
+          },
+          "replacement_condition": {
+            "String": "Hidden roster life/presence counting, phase, target cardinality, stat snapshot, element, critical eligibility and toughness are low-confidence policy, not observed parity. Alternatives: live eligible-count updates, once per hit, only primary target, application snapshot, attack-event element, crit-capable additional damage or toughness damage. Selected behavior preserves all displayed operands and bounds shared execution; affected tests weighted_curio_support_attack and production data rejection fixtures. Replace each field independently with released programs or reproducible current traces. Do not substitute Human Comedy 0.25/0.75 or Remembrance variants for this Tourn3 row; Forge admission and equipment replay remain pending."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 85
+              },
+              {
+                "Integer": 86
+              },
+              {
+                "Integer": 87
+              },
+              {
+                "Integer": 88
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.weighted-curio-support-attack.the-story-presently"
+          },
+          "summary_en": {
+            "String": "Each Harmony, Abundance or Preservation teammate grants those Paths 15% CRIT Rate and 30% CRIT DMG; their attacks add damage equal to Max HP plus DEF plus ATK."
+          },
+          "summary_zh_cn": {
+            "String": "每名同谐、丰饶或存护队员使上述命途角色暴击率提高 15%、暴击伤害提高 30%；攻击后造成生命上限、防御力与攻击力之和的附加伤害。"
+          },
+          "weighted_curio_key": {
+            "String": "divergent-universe.weighted-curio.1017"
+          }
+        }
+      }
+    ]
+  }
+}

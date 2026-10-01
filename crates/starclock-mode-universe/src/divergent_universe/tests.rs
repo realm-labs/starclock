@@ -16,6 +16,7 @@ mod weighted_curio_attack_debuff;
 mod weighted_curio_shield;
 #[path = "tests/weighted_curio_splash.rs"]
 mod weighted_curio_splash;
+mod weighted_curio_support_attack;
 include!("tests/permanent_progression_runtime.rs");
 include!("tests/workbench_curse_runtime.rs");
 #[path = "tests/curio_synthesis.rs"]

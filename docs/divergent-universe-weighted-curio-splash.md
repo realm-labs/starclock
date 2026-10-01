@@ -77,9 +77,10 @@ production battle handoff additionally runs with the equipment. These are not
 original Forge offers, encoded equipment-command replay or complete 13/17/20
 position runs. A separate [Harmony shield](divergent-universe-weighted-curio-shield.md)
 and [Automated Experience](divergent-universe-weighted-curio-attack-debuff.md)
-also execute; the remaining fourteen equipped effects fail closed.
+and [The Story Presently](divergent-universe-weighted-curio-support-attack.md)
+also execute; the remaining thirteen equipped effects fail closed.
 
-The 37-table, 380-row workbook is authored through openpyxl and generated only by
+The 38-table, 385-row workbook is authored through openpyxl and generated only by
 Sora 0.6.1. Typed domain validation rejects bad joins, noncanonical/out-of-range
 fractions, duplicate definitions and missing provenance/policy metadata. Current
 configuration and equipment snapshots bind the authored inputs; no old-format

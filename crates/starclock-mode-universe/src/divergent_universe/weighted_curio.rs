@@ -5,6 +5,7 @@ use crate::digest::CanonicalDigestBuilder;
 use starclock_data::divergent_universe_decisions::weighted_curio_attack_debuffs::WeightedCurioAttackDebuffDefinition;
 use starclock_data::divergent_universe_decisions::weighted_curio_shields::WeightedCurioShieldDefinition;
 use starclock_data::divergent_universe_decisions::weighted_curio_splashes::WeightedCurioSplashDefinition;
+use starclock_data::divergent_universe_decisions::weighted_curio_support_attacks::WeightedCurioSupportAttackDefinition;
 use std::sync::Arc;
 
 use crate::divergent_universe::{
@@ -76,6 +77,7 @@ pub struct WeightedCurioRuntime {
     pub(super) splashes: Box<[WeightedCurioSplashDefinition]>,
     pub(super) shields: Box<[WeightedCurioShieldDefinition]>,
     pub(super) attack_debuffs: Box<[WeightedCurioAttackDebuffDefinition]>,
+    pub(super) support_attacks: Box<[WeightedCurioSupportAttackDefinition]>,
     decision_digest: [u8; 32],
 }
 
@@ -128,6 +130,10 @@ impl DivergentUniverseRuntimeFactory {
                 .weighted_curio_attack_debuffs()
                 .into(),
             decision_digest: self.decision_catalog().digest(),
+            support_attacks: self
+                .decision_catalog()
+                .weighted_curio_support_attacks()
+                .into(),
         })
     }
 }
@@ -271,6 +277,10 @@ impl WeightedCurioRuntime {
                     .any(|definition| &definition.weighted_curio == id)
                 && !self
                     .attack_debuffs
+                    .iter()
+                    .any(|definition| &definition.weighted_curio == id)
+                && !self
+                    .support_attacks
                     .iter()
                     .any(|definition| &definition.weighted_curio == id)
             {

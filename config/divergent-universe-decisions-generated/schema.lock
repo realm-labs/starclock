@@ -3,7 +3,7 @@
   "project_id": "starclock_divergent_universe_decisions",
   "contract_id": "starclock_divergent_universe_decisions/default",
   "view": "default",
-  "fingerprint": "edae20b8b3acd8a7",
+  "fingerprint": "0f9919fdb009ba84",
   "schema": {
     "project_id": "starclock_divergent_universe_decisions",
     "contract_id": "starclock_divergent_universe_decisions/default",
@@ -712,6 +712,20 @@
           {
             "id": 0,
             "name": "AttackResolvedAdvanceAndTargetTurnFinalReduction"
+          }
+        ]
+      },
+      {
+        "name": "DuCurioSupportAttackPolicy",
+        "groups": {
+          "values": [
+            "common"
+          ]
+        },
+        "values": [
+          {
+            "id": 0,
+            "name": "RosterCountCritAndAttackResolvedAdditional"
           }
         ]
       }
@@ -9944,6 +9958,368 @@
             "name": "policy",
             "ty": {
               "Enum": "DuCurioAttackDebuffPolicy"
+            },
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "summary_en",
+            "ty": "String",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4000
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "summary_zh_cn",
+            "ty": "String",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4000
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "policy_note",
+            "ty": "String",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4000
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "replacement_condition",
+            "ty": "String",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4000
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "source_ids",
+            "ty": {
+              "List": {
+                "Ref": {
+                  "table": "DuDecisionSources",
+                  "field": "id"
+                }
+              }
+            },
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": {
+              "kind": "split",
+              "options": {
+                "separator": "|"
+              }
+            },
+            "derived_from": null
+          }
+        ],
+        "indexes": [
+          {
+            "name": "by_stable_key",
+            "fields": [
+              "stable_key"
+            ],
+            "unique": true
+          }
+        ]
+      },
+      {
+        "id": "weightedcuriosupportattacks",
+        "name": "DuWeightedCurioSupportAttacks",
+        "canonical_name": "DuWeightedCurioSupportAttacks",
+        "groups": {
+          "values": [
+            "common"
+          ]
+        },
+        "mode": "Map",
+        "key": "id",
+        "source": {
+          "file": "DivergentUniverseDecisions.xlsx",
+          "sheet": "WeightedCurioSupportAttacks"
+        },
+        "fields": [
+          {
+            "name": "id",
+            "ty": "I32",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": true,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "stable_key",
+            "ty": "String",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4000
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "weighted_curio_key",
+            "ty": "String",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4000
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "maze_buff_id",
+            "ty": "String",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4000
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "character_paths",
+            "ty": {
+              "List": "String"
+            },
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": {
+              "kind": "split",
+              "options": {
+                "separator": "|"
+              }
+            },
+            "derived_from": null
+          },
+          {
+            "name": "crit_rate_parameter",
+            "ty": "I32",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              64
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "crit_rate_fraction",
+            "ty": "String",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4000
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "crit_damage_parameter",
+            "ty": "I32",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              64
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "crit_damage_fraction",
+            "ty": "String",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4000
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "additional_parameter",
+            "ty": "I32",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              64
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "additional_multiplier",
+            "ty": "String",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4000
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "policy",
+            "ty": {
+              "Enum": "DuCurioSupportAttackPolicy"
             },
             "groups": {
               "values": [

@@ -122,6 +122,9 @@ values = [{ id = 0, name = "AllyActionResolvedReplaceTargetTurnShield" }]
 [[enums]]
 name = "DuCurioAttackDebuffPolicy"
 values = [{ id = 0, name = "AttackResolvedAdvanceAndTargetTurnFinalReduction" }]
+[[enums]]
+name = "DuCurioSupportAttackPolicy"
+values = [{ id = 0, name = "RosterCountCritAndAttackResolvedAdditional" }]
 [[tables]]
 id = "sources"
 name = "DuDecisionSources"
@@ -2179,6 +2182,85 @@ range = [1,65535]
 [[tables.fields]]
 name = "policy"
 type = "enum<DuCurioAttackDebuffPolicy>"
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "policy_note"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "replacement_condition"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "source_ids"
+type = "list<ref<DuDecisionSources.id>>"
+parser = { kind = "split", separator = "|" }
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+[[tables]]
+id = "weightedcuriosupportattacks"
+name = "DuWeightedCurioSupportAttacks"
+mode = "map"
+key = "id"
+[tables.source]
+file = "DivergentUniverseDecisions.xlsx"
+sheet = "WeightedCurioSupportAttacks"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1,2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "weighted_curio_key"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "maze_buff_id"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "character_paths"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+[[tables.fields]]
+name = "crit_rate_parameter"
+type = "i32"
+range = [1,64]
+[[tables.fields]]
+name = "crit_rate_fraction"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "crit_damage_parameter"
+type = "i32"
+range = [1,64]
+[[tables.fields]]
+name = "crit_damage_fraction"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "additional_parameter"
+type = "i32"
+range = [1,64]
+[[tables.fields]]
+name = "additional_multiplier"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "policy"
+type = "enum<DuCurioSupportAttackPolicy>"
 [[tables.fields]]
 name = "summary_en"
 type = "string"

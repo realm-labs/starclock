@@ -22,7 +22,7 @@ assert(artifact.current_boundary.weighted_curio_accepted_loadout_boundary
   && artifact.current_boundary.weighted_curio_unsupported_equipment_rejects_battle_contribution
   && !artifact.current_boundary.weighted_curio_loadout_implemented
   && !artifact.current_boundary.weighted_curio_battle_effects_implemented
-  && artifact.current_boundary.weighted_curio_battle_effect_definitions === 3
+  && artifact.current_boundary.weighted_curio_battle_effect_definitions === 4
   && !artifact.current_boundary.forge_room_payload_implemented,
 "an accepted equipment primitive is not a complete Forge or battle-effect implementation");
 
@@ -110,6 +110,23 @@ if (process.argv.includes("--check-source")) {
     && value.maze_buff_id.String === "633414" && value.advance_fraction.String === "0.2"
     && value.reduction_fraction.String === "0.3" && value.duration_turns.Integer === 1,
     "production attack debuff must preserve both released effects");
+  const support = released.find((row) => row.ID === 633417);
+  const supportHex = rows.find((row) => row.HexID === 1017);
+  assert(supportHex?.MazeBuffID === 633417
+    && JSON.stringify(supportHex.AvatarType) === '["Shaman","Priest","Knight"]'
+    && supportHex.AvatarDamageType.length === 0
+    && JSON.stringify(support?.ParamList.map((parameter) => parameter.Value)) === '["0.15","0.3","1"]'
+    && support.InBattleBindingKey === "StageAbility_633417"
+    && String(support.BuffDesc.Hash) === "18107300873516931386", "support attack operand/eligibility drift");
+  assert(text["18107300873516931386"].includes("Harmony, Abundance, or Preservation")
+    && text["18107300873516931386"].includes("Max HP, DEF, and ATK")
+    && chinese["18107300873516931386"].includes("队伍中每有1名"), "support attack roster/stat basis drift");
+  const supportRows = JSON.parse(fs.readFileSync(path.join(root, artifact.input_digests.weighted_support_attack_data.path), "utf8")).table.rows;
+  const supportValue = supportRows[0]?.values;
+  assert(supportRows.length === 1 && supportValue.weighted_curio_key.String === "divergent-universe.weighted-curio.1017"
+    && supportValue.maze_buff_id.String === "633417" && supportValue.crit_rate_fraction.String === "0.15"
+    && supportValue.crit_damage_fraction.String === "0.3" && supportValue.additional_multiplier.String === "1",
+    "production support attack must preserve all released operands, not another seasonal variant");
 }
 console.log("Hex taxonomy/Gamble inventory verified; no runtime completion or test-pass receipt emitted.");
 function assert(condition, message) { if (!condition) throw new Error(message); }
