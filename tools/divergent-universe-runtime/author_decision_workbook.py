@@ -33,6 +33,7 @@ from weighted_curio_support_attack_rows import append_weighted_curio_support_att
 from weighted_curio_prayer_rows import append_weighted_curio_prayer
 from weighted_curio_retaliation_rows import append_weighted_curio_retaliation
 from weighted_curio_break_effect_rows import append_weighted_curio_break_effect
+from weighted_curio_necrosis_rows import append_weighted_curio_necrosis
 
 
 def rows() -> dict[str, list[list[object]]]:
@@ -312,6 +313,7 @@ def rows() -> dict[str, list[list[object]]]:
     append_weighted_curio_prayer(data)
     append_weighted_curio_retaliation(data)
     append_weighted_curio_break_effect(data)
+    append_weighted_curio_necrosis(data)
     return data
 
 

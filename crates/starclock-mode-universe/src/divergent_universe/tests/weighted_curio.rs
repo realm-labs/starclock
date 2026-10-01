@@ -232,6 +232,12 @@ fn weighted_curio_unlowered_and_dirty_loadouts_reject_contribution_without_mutat
                 || fixture
                     .factory()
                     .decision_catalog()
+                    .weighted_curio_necroses()
+                    .iter()
+                    .any(|definition| &definition.weighted_curio == id)
+                || fixture
+                    .factory()
+                    .decision_catalog()
                     .weighted_curio_splashes()
                     .iter()
                     .any(|definition| &definition.weighted_curio == id)

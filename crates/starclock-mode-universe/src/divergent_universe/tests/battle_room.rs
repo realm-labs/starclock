@@ -376,7 +376,8 @@ fn battle_room_source_positions_execute_multiple_real_battles_with_exact_drops_n
             }
         }
         // The unchanged party naturally loses without room heals. Counts bind
-        // current configuration/RNG, not historical compatibility or parity.
+        // current configuration/RNG, including the decision bundle's assembly
+        // commitment in the enemy controller seed, not historical compatibility or parity.
         observed_counts.push((
             family,
             battles.len(),
@@ -395,7 +396,7 @@ fn battle_room_source_positions_execute_multiple_real_battles_with_exact_drops_n
     assert_eq!(
         observed_counts,
         [
-            (DivergentUniverseRunFamily::Ordinary, 7, 7),
+            (DivergentUniverseRunFamily::Ordinary, 6, 6),
             (DivergentUniverseRunFamily::Cyclical, 6, 6),
         ]
     );

@@ -117,11 +117,11 @@
     "decision_authoring": {
       "project": "starclock_divergent_universe_decisions",
       "workbooks": 1,
-      "tables": 41,
-      "rows": 402,
-      "reader_files": 88,
-      "bundle_bytes": 246244,
-      "bundle_sha256": "2cda2e092bc733c97b5c97d4c834c27ad75fd082081862eed49a0bef495e90c4",
+      "tables": 42,
+      "rows": 407,
+      "reader_files": 90,
+      "bundle_bytes": 253890,
+      "bundle_sha256": "b4e7ad05e37048c3cc7cbcdae93823ce8675ca41ec501d84c2e4d0ec4555b8ff",
       "domain_layout_layers": 11,
       "domain_layout_positions": 60,
       "domain_layout_fixed_positions": 21,
@@ -158,7 +158,7 @@
       "weighted_curio_loadout_accuracy": "VersionedProjectPolicyAcceptedCurrentCatalogLoadout",
       "weighted_curio_unsupported_equipment_rejects_battle_contribution": true,
       "weighted_curio_battle_effects_implemented": false,
-      "weighted_curio_battle_effect_definitions": 7,
+      "weighted_curio_battle_effect_definitions": 8,
       "weighted_curio_battle_effect_accuracies": [
         "VersionedProjectPolicyHitCalculatedCopyAdjacentTrueDamage",
         "VersionedProjectPolicyAllyActionResolvedReplaceTargetTurnShield",
@@ -166,7 +166,8 @@
         "VersionedProjectPolicyRosterCountCritAndAttackResolvedAdditional",
         "VersionedProjectPolicyEntryHpAndTurnStartConsumeShield",
         "VersionedProjectPolicyPhysicalAggroAndOwnerAdditional",
-        "VersionedProjectPolicyEntryHighestTeamBreakEffectCapture"
+        "VersionedProjectPolicyEntryHighestTeamBreakEffectCapture",
+        "VersionedProjectPolicyAttackResolvedNecrosisAndDotDamageBurnDetonation"
       ],
       "grand_miracle_runtime_implemented": false,
       "forge_room_payload_implemented": false,

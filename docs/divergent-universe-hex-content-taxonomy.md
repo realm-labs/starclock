@@ -61,7 +61,10 @@ unimplemented. [Hunt attack splash](divergent-universe-weighted-curio-splash.md)
 with explicit hidden-timing/lifecycle policy. [Automated Experience](divergent-universe-weighted-curio-attack-debuff.md)
 also executes attack advance/reduction, and
 [The Story Presently](divergent-universe-weighted-curio-support-attack.md) adds
-support-Path crit bonuses and attack additional damage; thirteen effects remain rejected.
+support-Path crit bonuses and attack additional damage. Road of Prayers,
+Self-Amusement, Converse of Entropy and
+[Mock Crimson Moon](divergent-universe-weighted-curio-necrosis.md) also contribute
+reviewed policy-bound effects; nine effects remain rejected.
 The accepted equipment primitive alone does not complete them. Actual Grand Miracle
 selectors, acquisition and effects require separate evidence and implementation.
 The current Forge level-one source card must not be wired to the removed API or

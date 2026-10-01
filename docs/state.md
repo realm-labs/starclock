@@ -36,7 +36,7 @@ each eligible damage event copies thirty percent to adjacent enemies under an
 explicit hidden-timing/damage-copy policy. Equipment is the seventh immutable
 contribution component; unlowered equipment still rejects with typed errors
 instead of silently producing a no-effect battle. Full Forge menus/slot admission,
-the other ten Weighted Curio effects, actual Grand Miracle source selection/effects
+the other nine Weighted Curio effects, actual Grand Miracle source selection/effects
 and the Forge room payload remain unimplemented. The
 [Harmony shield](divergent-universe-weighted-curio-shield.md) executes ally-directed
 Basic/Skill/Ultimate actions, including self and full-team targets, with each
@@ -66,7 +66,7 @@ baselines and shared weighted normal-enemy primaries make the target component
 executable without a second sampler or mode-specific battle state machine.
 Reaction timing/cardinality, element, critical eligibility, zero-loss admission
 and unreconstructed target locks remain independent low-confidence policies.
-Seven of seventeen equipment effects execute; original Forge admission and
+Eight of seventeen equipment effects execute; original Forge admission and
 complete equipment replay remain pending. The current
 taxonomy/Gamble inventory emits no execution receipt or terminal coverage credit;
 the two accepted Coin units and unresolved Gamble rejection behavior remain.
@@ -83,6 +83,17 @@ modifiers remain live additions and change actual Break damage without
 recapturing this bonus. Entry timing, inactive eligibility and snapshot behavior
 remain explicit low-confidence policies; this adds no terminal Divergent
 Universe coverage credit.
+
+The [Mock Crimson Moon](divergent-universe-weighted-curio-necrosis.md) definition
+uses the released 150%-base-chance, 600%-ATK, three-turn and 200%-detonation
+operands. Abundance attacks apply resistible Necrosis once per action to distinct
+living opposing targets. Necrosis ticks at target turn start and detonates other
+classified Burns across ordinary and periodic Break stores without self-recursion.
+Source capture, cross-caster replacement, hidden timing and Break membership are
+independently replaceable low-confidence policy, not observed original-game parity.
+Real accepted battles cover both families, labeled probability draws, exclusions,
+expiry, external detonation, fresh handoffs and unequip; full Forge and original
+complete-run acceptance remain pending. No terminal coverage credit is added.
 The verification scaffold retains all 6,762 obligations; its validator uses that
 current total rather than the old pre-Persona 6,215 subset. The
 [Titan effect boundary](divergent-universe-titan-effects.md) now has a current
@@ -1110,7 +1121,8 @@ settlement policy, one Weighted Curio splash, one Harmony shield and one attack
 advance/reduction definition and one support-Path crit/additional-damage
 definition and one real-capacity/turn-start consumption/shield definition and
 one Physical target-weight/nonlethal retaliation definition and one entry
-team-maximum Break Effect capture definition across 41 tables and 402 rows.
+team-maximum Break Effect capture definition and one resistible Necrosis/Burn
+detonation definition across 42 tables and 407 rows.
 The [9074 expansion reward](divergent-universe-equation-expansion.md) has
 validated operands and an explicit finite-cascade executor. Fixed public-choice
 vectors in both baseline families pay for the card, trigger an additional

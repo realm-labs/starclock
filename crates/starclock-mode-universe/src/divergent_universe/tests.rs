@@ -15,6 +15,8 @@ mod weighted_curio;
 mod weighted_curio_attack_debuff;
 mod weighted_curio_break_effect;
 mod weighted_curio_counter_composition;
+mod weighted_curio_necrosis;
+mod weighted_curio_necrosis_fixture;
 mod weighted_curio_prayer;
 mod weighted_curio_retaliation;
 mod weighted_curio_shield;

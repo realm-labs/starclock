@@ -35,19 +35,19 @@
     },
     "mode_facade": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/mod.rs",
-      "sha256": "1cd96a3436c2ea5931785339a54099293afe714c00c79bd3e85e5f875b66eedb"
+      "sha256": "9647c8c9e83492d735a9389237a35ec29f68735452f9c58784ee215a05fe2aa5"
     },
     "weighted_loadout": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/weighted_curio.rs",
-      "sha256": "044bdb5ee18cbc0670460866b00dab5656d7385a42243a9be79e94d537ed919d"
+      "sha256": "8362697cadaa4311798814a5a06e09196d2adbf876fe8db5d33f93279a337e87"
     },
     "weighted_loadout_tests": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio.rs",
-      "sha256": "b0248c2a678a58024bd943c0e0e5e81ae27b0a09bc12bcdb5eee12737e169c30"
+      "sha256": "8a6773ef95806873aeeb5efbfc71c5dc940f5366c740d7f3463ededb3f1a2f46"
     },
     "weighted_splash": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/weighted_curio_splash.rs",
-      "sha256": "7c826c4eac37f089ae235dcabceeed667d4dd0cf0cbc3c042dbfe4ca3511a88d"
+      "sha256": "1c2b4c6f0eb940bcf060f6dad77006a02930e67c7e761770c1b190aae263192d"
     },
     "weighted_splash_tests": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_splash.rs",
@@ -133,6 +133,22 @@
       "path": "config/divergent-universe-decisions-generated/debug-json/DuWeightedCurioBreakEffects.json",
       "sha256": "f8842229cedd97114b1bfbbf8481a0064d488b83bd59ffb34a577dffa603815d"
     },
+    "weighted_necrosis": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/weighted_curio_necrosis.rs",
+      "sha256": "64615286b22cf4b23a41f1ee887570eba6072fa0f3878e06f904f35479dceef1"
+    },
+    "weighted_necrosis_tests": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_necrosis.rs",
+      "sha256": "3efeffd43903641fa05a311579f2489ef3dbf8d753c6c2127082d701c4c260f7"
+    },
+    "weighted_necrosis_fixture": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_necrosis_fixture.rs",
+      "sha256": "bdd28c7bb4d2eeb1b8e56e09121de5cbe3704f6f6610ad6f96b2792d1fc465c3"
+    },
+    "weighted_necrosis_data": {
+      "path": "config/divergent-universe-decisions-generated/debug-json/DuWeightedCurioNecroses.json",
+      "sha256": "1d0914c831c0296b9662054e75e3585931659ea940e22592908012c11e07c872"
+    },
     "contribution_snapshot": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/contribution_snapshot.rs",
       "sha256": "1462ff564b8643fc9567bc0b11482c4bb8df0a0b1ca37ee5b79f7debd7dae22c"
@@ -183,7 +199,7 @@
     "weighted_curio_loadout_accuracy": "VersionedProjectPolicyAcceptedCurrentCatalogLoadout",
     "weighted_curio_unsupported_equipment_rejects_battle_contribution": true,
     "weighted_curio_battle_effects_implemented": false,
-    "weighted_curio_battle_effect_definitions": 7,
+    "weighted_curio_battle_effect_definitions": 8,
     "weighted_curio_battle_effect_accuracies": [
       "VersionedProjectPolicyHitCalculatedCopyAdjacentTrueDamage",
       "VersionedProjectPolicyAllyActionResolvedReplaceTargetTurnShield",
@@ -191,12 +207,13 @@
       "VersionedProjectPolicyRosterCountCritAndAttackResolvedAdditional",
       "VersionedProjectPolicyEntryHpAndTurnStartConsumeShield",
       "VersionedProjectPolicyPhysicalAggroAndOwnerAdditional",
-      "VersionedProjectPolicyEntryHighestTeamBreakEffectCapture"
+      "VersionedProjectPolicyEntryHighestTeamBreakEffectCapture",
+      "VersionedProjectPolicyAttackResolvedNecrosisAndDotDamageBurnDetonation"
     ],
     "grand_miracle_runtime_implemented": false,
     "forge_room_payload_implemented": false,
     "terminal_coverage_credit": 0,
-    "required_next_work": "Bind accepted equipment to actual Forge offers and slot-level admission; implement the remaining ten Weighted Curio effects and equipment-command replay. Establish Grand Miracle selectors independently and repair its separate source/fixture audit labels without shrinking obligations."
+    "required_next_work": "Bind accepted equipment to actual Forge offers and slot-level admission; implement the remaining nine Weighted Curio effects and equipment-command replay. Establish Grand Miracle selectors independently and repair its separate source/fixture audit labels without shrinking obligations."
   },
   "summary": {
     "weighted_curio_references": 17,
@@ -356,6 +373,34 @@
     {
       "file": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_break_effect.rs",
       "test": "weighted_curio_break_effect_unequip_preserves_activity_and_reconstructs_production_handoffs"
+    },
+    {
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_necrosis.rs",
+      "test": "weighted_curio_necrosis_executes_abundance_multihit_and_multitarget_once_per_action"
+    },
+    {
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_necrosis.rs",
+      "test": "weighted_curio_necrosis_chance_uses_current_hit_rate_resistance_and_labeled_draws"
+    },
+    {
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_necrosis.rs",
+      "test": "weighted_curio_necrosis_ticks_three_turns_then_expires_without_reapplication"
+    },
+    {
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_necrosis.rs",
+      "test": "weighted_curio_necrosis_detonates_other_burns_in_both_stores_without_self_recursion"
+    },
+    {
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_necrosis.rs",
+      "test": "weighted_curio_necrosis_replaces_cross_caster_source_and_recaptures_attack"
+    },
+    {
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_necrosis.rs",
+      "test": "weighted_curio_necrosis_external_detonation_produces_one_bounded_other_burn_reaction"
+    },
+    {
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_necrosis.rs",
+      "test": "weighted_curio_necrosis_preserves_rejections_fresh_handoffs_and_unequip"
     },
     {
       "file": "crates/starclock-mode-universe/src/divergent_universe/tests/gamble_runtime.rs",

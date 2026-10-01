@@ -1,10 +1,11 @@
 # Typed Divergent Universe decisions
 
 This project owns executable decision definitions, not the reference pack's
-identity/evidence catalog. Its 37 tables and 380 rows include policy-bound
+identity/evidence catalog. Its 42 tables and 407 rows include policy-bound
 choices, rewards and reviewed Curio components used by the production Activity
 graph, plus nine explicitly selected source decks and their 125 distinct card
-instances, and three reviewed Weighted Curio splash/shield/attack-debuff definitions. Deck compilation is available, but automatic mask selection and
+instances, and eight reviewed Weighted Curio effect definitions. Deck compilation
+is available, but automatic mask selection and
 production domain routing remain unbound. This is partial executable coverage,
 not complete gameplay parity.
 The reference project remains a required current input. This is not a second
@@ -70,8 +71,11 @@ Battle effects and their separate result-counted lifetimes are documented in
 The [Weighted Curio splash contract](../../docs/divergent-universe-weighted-curio-splash.md)
 binds generic released MazeBuff operands. The [Harmony shield contract](../../docs/divergent-universe-weighted-curio-shield.md)
 executes a second equipment effect; [Automated Experience](../../docs/divergent-universe-weighted-curio-attack-debuff.md)
-adds enemy advance and timed outgoing reduction. These do not admit the other
-fourteen effects or implement a Forge menu.
+adds enemy advance and timed outgoing reduction. Reviewed definitions also bind
+support-Path crit/additional damage, Road of Prayers HP/consumption/shields,
+Physical target weights/nonlethal retaliation, team-maximum Break Effect capture
+and [Mock Crimson Moon Necrosis/Burn detonation](../../docs/divergent-universe-weighted-curio-necrosis.md).
+These do not admit the other nine effects or implement a Forge menu.
 The [Tawot service definitions](../../docs/divergent-universe-tawot-service.md)
 drive an explicitly admitted shared Activity purchase graph; automatic Forge
 placement and optional-entry adapter/replay configuration remain pending.

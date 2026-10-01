@@ -162,6 +162,7 @@ impl WeightedCurioRuntime {
         self.assemble_support_attacks(builder, snapshot, core, players, assembly_digest)?;
         self.assemble_prayers(builder, snapshot, core, players, assembly_digest)?;
         self.assemble_break_effects(builder, snapshot, core, players, assembly_digest)?;
+        self.assemble_necroses(builder, snapshot, core, players, assembly_digest)?;
         self.assemble_retaliations(builder, snapshot, core, players, enemies, assembly_digest)
     }
 }

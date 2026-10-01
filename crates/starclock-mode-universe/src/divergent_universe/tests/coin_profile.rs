@@ -35,7 +35,7 @@ const RECEIPT: u64 = 0x2264_0001;
 fn start(flow: &DivergentUniverseFlowInstance) -> GraphActivity {
     // Current production inputs: explicit discovery proves positive chest/Shop
     // traces in both families. This is a current vector, not compatibility.
-    flow.start(instance(26314), ActivityMasterSeed::from_u64(1))
+    flow.start(instance(26314), ActivityMasterSeed::from_u64(0))
         .unwrap()
         .into_activity()
 }

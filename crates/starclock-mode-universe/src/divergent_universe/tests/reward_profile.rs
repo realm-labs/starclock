@@ -93,7 +93,7 @@ fn discover_current_reward_card_seed() {
     panic!("bounded current Reward search lacks a positive vector");
 }
 fn start(flow: &DivergentUniverseFlowInstance) -> GraphActivity {
-    flow.start(instance(26314), ActivityMasterSeed::from_u64(0))
+    flow.start(instance(26314), ActivityMasterSeed::from_u64(2))
         .unwrap()
         .into_activity()
 }

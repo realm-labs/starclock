@@ -22,7 +22,7 @@ assert(artifact.current_boundary.weighted_curio_accepted_loadout_boundary
   && artifact.current_boundary.weighted_curio_unsupported_equipment_rejects_battle_contribution
   && !artifact.current_boundary.weighted_curio_loadout_implemented
   && !artifact.current_boundary.weighted_curio_battle_effects_implemented
-  && artifact.current_boundary.weighted_curio_battle_effect_definitions === 7
+  && artifact.current_boundary.weighted_curio_battle_effect_definitions === 8
   && !artifact.current_boundary.forge_room_payload_implemented,
 "an accepted equipment primitive is not a complete Forge or battle-effect implementation");
 
@@ -185,6 +185,35 @@ if (process.argv.includes("--check-source")) {
     && breakEffectValue.multiplier_parameter.Integer === 1
     && breakEffectValue.multiplier.String === "1.2",
     "production Converse of Entropy must preserve the current exact released operand");
+  const necrosis = released.find((row) => row.ID === 633403);
+  const necrosisHex = rows.find((row) => row.HexID === 1003);
+  assert(necrosisHex?.MazeBuffID === 633403 && necrosisHex.DisplayID === 1016
+    && JSON.stringify(necrosisHex.AvatarType) === '["Priest"]'
+    && necrosisHex.AvatarDamageType.length === 0
+    && JSON.stringify(necrosis?.ParamList.map((parameter) => parameter.Value)) === '["1.5","6","3","2"]'
+    && necrosis.InBattleBindingKey === "StageAbility_633403"
+    && String(necrosis.BuffDesc.Hash) === "14457895563947008111",
+    "Mock Crimson Moon released operand/eligibility drift");
+  assert(text["14457895563947008111"].includes("Abundance")
+    && text["14457895563947008111"].includes("Necrosis")
+    && text["14457895563947008111"].includes("Burn")
+    && chinese["14457895563947008111"].includes("坏死")
+    && chinese["14457895563947008111"].includes("灼烧"),
+    "Mock Crimson Moon bilingual effect identity drift");
+  const necrosisRows = JSON.parse(fs.readFileSync(path.join(root,
+    artifact.input_digests.weighted_necrosis_data.path), "utf8")).table.rows;
+  const necrosisValue = necrosisRows[0]?.values;
+  assert(necrosisRows.length === 1
+    && necrosisValue.weighted_curio_key.String === "divergent-universe.weighted-curio.1003"
+    && necrosisValue.maze_buff_id.String === "633403"
+    && JSON.stringify(necrosisValue.character_paths.List.map((item) => item.String)) === '["Priest"]'
+    && necrosisValue.chance_parameter.Integer === 1 && necrosisValue.base_chance.String === "1.5"
+    && necrosisValue.damage_parameter.Integer === 2 && necrosisValue.attack_multiplier.String === "6"
+    && necrosisValue.duration_parameter.Integer === 3 && necrosisValue.duration_turns.Integer === 3
+    && necrosisValue.detonation_parameter.Integer === 4 && necrosisValue.detonation_fraction.String === "2"
+    && necrosisValue.policy.String === "AttackResolvedNecrosisAndDotDamageBurnDetonation"
+    && JSON.stringify(necrosisValue.source_ids.List.map((item) => item.Integer)) === '[103,104,105,106]',
+    "production Mock Crimson Moon must preserve all four current released operands and explicit policy");
   const paths = [[1001,"Knight","preservation","150"], [1002,"Rogue","hunt","75"],
     [1003,"Mage","erudition","75"], [1004,"Warlock","nihility","100"],
     [1008,"Warrior","destruction","125"], [1009,"Shaman","harmony","100"],
