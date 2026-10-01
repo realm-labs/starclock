@@ -1,3 +1,4 @@
+use crate::catalog::action::elation::ElationDamageDefinition;
 use crate::{
     AbilityId, ActionOrigin, CountdownDefinition, DotDetonationDefinition,
     EffectApplicationDefinition, EffectChancePolicy, EffectDefinitionId, EffectRemovalDefinition,
@@ -19,6 +20,7 @@ use std::collections::BTreeMap;
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub(crate) enum Operation {
     Damage(DamageOp),
+    ElationDamage(ElationDamageOp),
     Heal(HealOp),
     Shield(ShieldOp),
     RemoveShields(RemoveShieldsOp),
@@ -54,6 +56,7 @@ impl Operation {
     pub(crate) const fn id(&self) -> OperationId {
         match self {
             Self::Damage(operation) => operation.id,
+            Self::ElationDamage(operation) => operation.id,
             Self::Heal(operation) => operation.id,
             Self::Shield(operation) => operation.id,
             Self::RemoveShields(operation) => operation.id,
@@ -207,6 +210,14 @@ pub(crate) struct HitOperationScratch {
     pub(crate) effective_reductions: BTreeMap<UnitId, RawToughness>,
     pub(crate) critical_by_target: BTreeMap<UnitId, bool>,
     pub(crate) shared_critical_draw: Option<u32>,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct ElationDamageOp {
+    pub(crate) id: OperationId,
+    pub(crate) targets: Box<[UnitId]>,
+    pub(crate) definition: ElationDamageDefinition,
+    pub(crate) crit_policy: HitCritPolicy,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]

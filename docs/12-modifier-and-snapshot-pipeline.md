@@ -21,8 +21,9 @@ The exact stages used by each stat are schema metadata. HP, ATK, DEF, and SPD us
 Native `StatKind::Elation` is an independent additive ratio with an explicit
 zero neutral base in live, initial-capture and selector-snapshot queries. Its
 native modifiers use the staged checked Scalar pipeline; no hidden clamp or
-ordinary-DMG-Boost alias is installed. Production intrinsic bases and dedicated
-damage-operation binding remain pending. See the
+ordinary-DMG-Boost alias is installed. A dedicated native damage operation reads
+this property and projects filtered common stages; production intrinsic bases
+and Sora operation authoring/lowering remain pending. See the
 [Elation calculator and query boundary](combat-elation-formula.md).
 
 ## Modifier definition

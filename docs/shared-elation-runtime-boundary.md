@@ -22,8 +22,10 @@ class. Neither generated reader types nor the numeric bit mask cross into
 The [shared Elation calculator](combat-elation-formula.md) additionally accepts
 an explicit level base and separate Elation, resolved Punchline and merrymaking
 factors. It excludes ordinary damage boost and records a named factor trace.
-It is a pure ProjectPolicy prerequisite, not yet bound to battle operations,
-production stat authoring or a released character damage formula. Native
+Its explicit native battle operation now projects filtered modifier stages and
+reuses shared CRIT, shields/HP/guards/defeat; the factor and projection contracts
+remain ProjectPolicy. Production stat/operation authoring and a released
+character damage formula remain unbound. Native
 `StatKind::Elation` queries now retain a separate zero neutral base through live,
 initial modifier and selector snapshots. Real-command tests execute temporary
 property additions and expiry without claiming a released intrinsic base. Existing

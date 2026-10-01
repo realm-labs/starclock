@@ -1,9 +1,10 @@
-# Shared Elation calculator
+# Shared Elation formula and native operation
 
-The combat domain now exposes a pure, named Elation calculator. This is a
-shared prerequisite, not a new battle operation or a completed content mechanic.
-Existing `DamageClass::Elation` operations still use their authored ordinary
-formula inputs; this calculator does not silently reinterpret them.
+The combat domain exposes a pure, named Elation calculator and an explicit
+native `HitOperationDefinition::ElationDamage`. These are shared prerequisites,
+not a completed production content mechanic. Existing ordinary-formula
+`DamageClass::Elation` operations retain their authored inputs; the new typed
+operation does not silently reinterpret them.
 
 ## Contract
 
@@ -66,7 +67,7 @@ resolve them, updating the current tests in the same change. Boundary tests
 cover separate factors, the exact level-base operand, all target stages, CRIT
 eligibility, decimal ties/final flooring, invalid inputs and overflow.
 
-## Remaining integration
+## Native stat and operation integration
 
 Native battle-local `StatKind::Elation` queries now use the same stat pipeline
 as other additive ratios. Their neutral base is explicitly zero in live Rule IR
@@ -96,10 +97,65 @@ prove zero/live/base reads, a temporary +50% property addition, eventful expiry,
 initial source/value snapshots versus dynamic reads, distinct Current/Event/Action
 selector observations, rejection hashes/RNG and fresh reconstruction. The test
 damage expressions deliberately observe the property through ordinary Rule IR;
-they are not a substitute for the still-unimplemented Elation battle operation.
+they are not a substitute for testing the dedicated Elation battle operation.
 
-Production stat authoring/lowering, level-table compilation, a typed Elation
-operation and its modifier-stage binding remain unimplemented.
+The dedicated operation takes immutable `catalog::action::elation::ElationDamageDefinition`
+inputs: resolved level base, original coefficient, resolved meter factor,
+merrymaking, explicit elemental RES/penetration/bounds, unbroken factor and
+element. Negative bases/factors, invalid RES bounds and a negative effective
+merrymaking factor reject at construction. A hit's explicit damage share
+multiplies the original coefficient with checked nearest-ties-even arithmetic.
+The catalog does not query progression, infer RES from weakness or invent a
+level curve or points conversion.
+
+At the operation input boundary the resolver reads source Elation and target
+effective DEF using the shared stat pipeline; the actual source actor supplies
+attacker level. Formula contexts retain ability/damage tags, element and
+Source/Target direction. Target DEF is read as that unit's own derived stat
+(Source direction for the stat owner), so unfiltered DEF buffs still apply;
+incoming factor contributions separately require Target direction. Dedicated
+CRIT stat and target-probability queries
+retain that explicit element. Existing ordinary CRIT contexts remain unchanged.
+The same bounded hit-policy service handles Never, PerTarget, Shared and the
+strict current-HP guaranteed threshold. Mixed ordinary/dedicated operations
+share the existing per-hit sample cache; Shared retains one raw draw, not one
+boolean for all target thresholds. Certain/impossible outcomes do not draw.
+
+`ElationDamageModifiers` projects already-filtered shared stages without
+querying ordinary DamageBoost, Weaken or elemental build DMG Boost:
+
+| Stage | Dedicated projection |
+|---|---|
+| Source Flat | Add to the resolved level base before coefficient application. |
+| Source Crit | Add to the resolved CRIT factor, independently of the decided CRIT result. |
+| Incoming Defense, Resistance, Vulnerability, Broken | Add to each resolved factor, with explicit modifier direction. Source Resistance also adds to the RES factor. |
+| Incoming Mitigation | Multiply the mitigation factor by `1 - contribution`; require the contribution in `[0,1]`. |
+| Source DamageOverride | A positive override replaces raw damage and is floored once. |
+| Source DamageFinalMultiply | Otherwise multiply unfloored raw damage by the checked nonnegative final factor, then floor. |
+
+This projection is an explicit **ProjectPolicy** use of the shared stage language,
+not a verified hidden released formula. Factor additions are not DEF-ignore or
+RES-penetration stat fields; explicit RES bounds apply before stage additions.
+Alternatives include future source-bound DEF-ignore/RES-stat inputs or a verified
+content-specific projection. Confidence for original-game parity is low; replace
+the mapping when admitted released programs and independently reproduced vectors
+resolve it, updating pure-stage and real-command tests together. No double alias
+from Elation to ordinary DMG Boost is installed.
+
+The raw/final result passes into the existing guard, shield, HP, metric, event
+and defeat mutation boundary without recalculation through ordinary formulas.
+Accepted commands, faults, IDs, scheduling, RNG and hashing use the single shared
+engine. Real-command tests in
+`crates/starclock-test-kit/tests/suites/core/combat/effect_resource_pipeline/elation_damage.rs`
+cover exclusions versus existing ordinary Elation-class formulas, hit shares,
+explicit factors, directional/element stage filters, effective DEF, final flooring,
+mixed-operation CRIT draw counts, strict HP thresholds, shields/HP floor/team
+guard/defeat, property addition/expiry and reproducible overflow faults. Every
+successful fixture compares events, state hashes and RNG to fresh reconstruction;
+rejected starts retain state hash/RNG.
+
+Production Sora stat/operation authoring and lowering, level-table compilation
+and released damage parity remain unimplemented.
 Punchline snapshots and Aha/Certified Banger lifecycle
 remain independently owned by their authored resources, effects and actions.
 The Weighted Curio Sapient Pen is not implemented by adding this calculator.
@@ -109,6 +165,7 @@ No Divergent Universe obligation/program/family changes disposition; the
 ```text
 cargo test -p starclock-combat formula::elation
 cargo test -p starclock-test-kit --test combat_suite elation_stat
+cargo test -p starclock-test-kit --test combat_suite elation_damage
 cargo fmt --all -- --check
 cargo clippy -p starclock-combat --all-targets -- -D warnings
 cargo test -p starclock-combat

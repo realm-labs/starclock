@@ -15,9 +15,10 @@ use crate::{
     modifier::model::SnapshotPolicy,
     operation::{
         AddWeaknessOp, ApplyEffectOp, ChangePresenceOp, ConsumeHpOp, DamageOp, DetonateDotsOp,
-        EncounterLifecycleOp, EnemyPhaseOp, HealOp, HitOperationScratch, ModifyStateSlotOp,
-        ModifyTeamResourceOp, Operation, QueueActionOp, ReduceToughnessOp, RemoveEffectsOp,
-        ReviveOp, ShieldOp, SummonLinkedOp, SuperBreakOp, TransformOp, UnitLifecycleOp,
+        ElationDamageOp, EncounterLifecycleOp, EnemyPhaseOp, HealOp, HitOperationScratch,
+        ModifyStateSlotOp, ModifyTeamResourceOp, Operation, QueueActionOp, ReduceToughnessOp,
+        RemoveEffectsOp, ReviveOp, ShieldOp, SummonLinkedOp, SuperBreakOp, TransformOp,
+        UnitLifecycleOp,
     },
     rule::model::SlotResetPoint,
 };
@@ -473,6 +474,16 @@ fn lower_operation(
 ) -> Result<Operation, BattleFault> {
     let targets = targets.to_vec().into_boxed_slice();
     let operation = match &operation_plan.definition {
+        HitOperationDefinition::ElationDamage(definition) => {
+            Operation::ElationDamage(ElationDamageOp {
+                id: operation_plan.id,
+                targets,
+                definition: definition
+                    .with_share(hit.damage_share)
+                    .map_err(|_| action_fault(35))?,
+                crit_policy: hit.crit_policy,
+            })
+        }
         HitOperationDefinition::ScalingDamage(definition) => Operation::Damage(DamageOp {
             id: operation_plan.id,
             targets,

@@ -9,10 +9,14 @@ damage boost. It uses checked decimal arithmetic and a once-only integral floor,
 with boundary/domain/overflow vectors. Its factor composition and precision
 remain explicit ProjectPolicy. Native Elation stat queries now support temporary
 property additions, zero base reads, initial and selector snapshots, and expiry
-through ordinary typed operations. Production stat authoring, dedicated battle
-operations and released damage parity remain unbound; existing Elation-class
-operations retain their authored formulas. This prerequisite grants no content
-execution credit, including for Sapient Pen.
+through ordinary typed operations. An explicit native Elation damage operation
+now reads live Elation/effective DEF, retains explicit level/meter/RES inputs,
+projects common modifier stages and reuses hit CRIT, guards, shields, HP and
+defeat settlement. Real commands cover factor separation, final flooring,
+sampling, lifecycle and deterministic faults. Production stat/operation
+authoring and released damage parity remain unbound; existing ordinary-formula
+Elation-class operations retain their authored inputs. These prerequisites grant
+no content execution credit, including for Sapient Pen.
 
 Shared combat retains authored ordinary DoT families in immutable catalogs and
 supports conjunctive family/tag/excluded-definition detonation filters through

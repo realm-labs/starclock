@@ -33,12 +33,14 @@ pub(in crate::resolver) fn actor_basic_element(
             continue;
         }
         for authored in action.hits().iter().flat_map(|hit| hit.operations()) {
-            let HitOperationDefinition::ScalingDamage(damage) = authored else {
-                continue;
+            let current_element = match authored {
+                HitOperationDefinition::ScalingDamage(damage) => damage.element(),
+                HitOperationDefinition::ElationDamage(damage) => damage.element(),
+                _ => continue,
             };
             match element {
-                None => element = Some(damage.element()),
-                Some(current) if current == damage.element() => {}
+                None => element = Some(current_element),
+                Some(current) if current == current_element => {}
                 Some(_) => return Err(program_fault(85, i64::from(ability.id().get()))),
             }
         }

@@ -1,5 +1,7 @@
 //! Line-limit exception: accepted action definitions and their cross-reference validation form one catalog responsibility.
+pub mod elation;
 mod extensions;
+use elation::ElationDamageDefinition;
 
 use crate::{
     AbilityId, ActionOrigin, DotDetonationDefinition, EffectApplicationDefinition,
@@ -985,6 +987,8 @@ fn validate_non_negative_ratio(value: Ratio) -> Result<(), NumericError> {
 pub enum HitOperationDefinition {
     /// Resolves a retained coefficient against the acting unit's live stat.
     ScalingDamage(ScalingDamageDefinition),
+    /// Dedicated Elation formula, not an ordinary-damage class alias.
+    ElationDamage(ElationDamageDefinition),
     /// Ordinary HP damage through the general multiplier pipeline.
     Damage(OrdinaryDamageDefinition),
     /// HP restoration through the additive healing multiplier block.

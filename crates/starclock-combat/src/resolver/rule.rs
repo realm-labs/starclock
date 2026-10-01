@@ -725,6 +725,7 @@ fn action_element(action: &AbilityActionDefinition) -> Option<CombatElement> {
             .iter()
             .find_map(|operation| match operation {
                 HitOperationDefinition::ScalingDamage(definition) => Some(definition.element()),
+                HitOperationDefinition::ElationDamage(definition) => Some(definition.element()),
                 _ => None,
             })
     })

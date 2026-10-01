@@ -1,6 +1,9 @@
 use crate::{NumericError, Ratio, Scalar};
 
-use super::{CritDecision, DefenseInput, ElationDamageContext, ResistanceInput, calculate};
+use super::{
+    CritDecision, DefenseInput, ElationDamageContext, ElationDamageModifiers, ResistanceInput,
+    calculate,
+};
 
 fn context() -> ElationDamageContext {
     ElationDamageContext {
@@ -25,6 +28,7 @@ fn context() -> ElationDamageContext {
         mitigations: Box::default(),
         broken: true,
         unbroken_multiplier: Ratio::from_scaled(900_000),
+        modifiers: Default::default(),
     }
 }
 
@@ -198,4 +202,94 @@ fn target_defense_resistance_and_mitigation_keep_shared_formula_contracts() {
     assert_eq!(result.finalized.get(), 1_000);
     input.mitigations = vec![Ratio::ONE].into_boxed_slice();
     assert_eq!(calculate(&input).unwrap().finalized.get(), 0);
+}
+
+#[test]
+fn stage_projection_adds_resolved_factors_and_composes_reduction() {
+    let cases: [(ElationDamageModifiers, i64); 7] = [
+        (
+            ElationDamageModifiers {
+                flat_base: Scalar::from_scaled(900_000),
+                ..Default::default()
+            },
+            1_000_900_000,
+        ),
+        (
+            ElationDamageModifiers {
+                crit: Ratio::from_scaled(500_000),
+                ..Default::default()
+            },
+            1_500_000_000,
+        ),
+        (
+            ElationDamageModifiers {
+                defense: Ratio::from_scaled(250_000),
+                ..Default::default()
+            },
+            1_250_000_000,
+        ),
+        (
+            ElationDamageModifiers {
+                resistance: Ratio::from_scaled(-250_000),
+                ..Default::default()
+            },
+            750_000_000,
+        ),
+        (
+            ElationDamageModifiers {
+                vulnerability: Ratio::from_scaled(200_000),
+                ..Default::default()
+            },
+            1_200_000_000,
+        ),
+        (
+            ElationDamageModifiers {
+                mitigation: Ratio::from_scaled(200_000),
+                ..Default::default()
+            },
+            800_000_000,
+        ),
+        (
+            ElationDamageModifiers {
+                broken: Ratio::from_scaled(250_000),
+                ..Default::default()
+            },
+            1_250_000_000,
+        ),
+    ];
+    for (modifiers, raw) in cases {
+        let mut input = context();
+        input.modifiers = modifiers;
+        assert_eq!(calculate(&input).unwrap().raw.scaled(), raw);
+    }
+    let mut input = context();
+    input.mitigations = vec![Ratio::from_scaled(200_000)].into_boxed_slice();
+    input.modifiers.mitigation = Ratio::from_scaled(250_000);
+    assert_eq!(
+        calculate(&input).unwrap().mitigation_multiplier.scaled(),
+        600_000
+    );
+}
+
+#[test]
+fn invalid_stage_projection_rejects_instead_of_clamping() {
+    let mutations: [fn(&mut ElationDamageContext); 9] = [
+        |x| x.modifiers.flat_base = Scalar::from_scaled(-1_000_000_001),
+        |x| x.modifiers.crit = Ratio::from_scaled(-1_000_001),
+        |x| x.modifiers.defense = Ratio::from_scaled(-1_000_001),
+        |x| x.modifiers.resistance = Ratio::from_scaled(-1_000_001),
+        |x| x.modifiers.vulnerability = Ratio::from_scaled(-1_000_001),
+        |x| x.modifiers.mitigation = Ratio::from_scaled(-1),
+        |x| x.modifiers.mitigation = Ratio::from_scaled(1_000_001),
+        |x| x.modifiers.broken = Ratio::from_scaled(-1_000_001),
+        |x| {
+            x.modifiers.defense = Ratio::from_scaled(-1_000_001);
+            x.meter_multiplier = Ratio::ZERO;
+        },
+    ];
+    for mutate in mutations {
+        let mut input = context();
+        mutate(&mut input);
+        assert_eq!(calculate(&input), Err(NumericError::OutOfDomain));
+    }
 }

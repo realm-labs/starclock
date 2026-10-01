@@ -1,4 +1,6 @@
 //! Line-limit exception: typed operation dispatch remains the single authoritative mutation entry point.
+pub(super) mod critical;
+mod elation;
 pub(super) mod fault;
 mod sustain;
 mod weakness;
@@ -16,7 +18,7 @@ use crate::{
     NEGATIVE_EFFECT_GUARDED_SIGNAL, OperationId, Probability, Ratio, RawToughness, Rounding,
     RuleSignalEventData, Scalar, Speed, UnitId,
     battle::fault::BattleFault,
-    catalog::{CombatCatalog, action::HitCritPolicy},
+    catalog::CombatCatalog,
     effect::{
         break_effect::BreakEffectState,
         state::{EffectApplicationContext, EffectApplyResult, EffectState},
@@ -43,6 +45,7 @@ use crate::{
     rule::model::{RuleValue, SlotResetPoint},
     toughness::state::route_reduction_with_override,
 };
+use critical::CriticalRequest;
 use fault::{invariant_fault, numeric_fault};
 
 pub(super) fn execute_operation(
@@ -57,6 +60,9 @@ pub(super) fn execute_operation(
     match operation {
         Operation::Damage(operation) => {
             execute_damage(catalog, txn, cause, parent, operation, scratch)
+        }
+        Operation::ElationDamage(operation) => {
+            elation::execute(catalog, txn, cause, parent, operation, scratch)
         }
         Operation::Heal(operation) => sustain::execute_heal(catalog, txn, cause, parent, operation),
         Operation::Shield(operation) => {
@@ -811,53 +817,21 @@ fn execute_damage(
     let class = operation.formula.class();
     let semantics = operation.ultimate_semantics;
     for target in operation.targets {
-        let critical = (operation.crit_policy != HitCritPolicy::Never)
-            .then(|| inputs.critical_profile(catalog, txn, cause, class, target, semantics))
-            .transpose()?;
-        let is_critical = match operation.crit_policy {
-            HitCritPolicy::Never => false,
-            HitCritPolicy::Shared => {
-                let critical = critical.as_ref().ok_or_else(|| invariant_fault(56))?;
-                txn.roll_shared_probability(
-                    critical.chance,
-                    DrawPurpose::CRIT,
-                    &mut scratch.shared_critical_draw,
-                )?
-            }
-            HitCritPolicy::PerTarget => match scratch.critical_by_target.get(&target).copied() {
-                Some(value) => value,
-                None => {
-                    let critical = critical.as_ref().ok_or_else(|| invariant_fault(56))?;
-                    let value = txn.roll_probability(critical.chance, DrawPurpose::CRIT)?;
-                    scratch.critical_by_target.insert(target, value);
-                    value
-                }
+        let critical = critical::resolve(
+            &inputs,
+            catalog,
+            txn,
+            cause,
+            CriticalRequest {
+                target,
+                class,
+                policy: operation.crit_policy,
+                ultimate_semantics: semantics,
+                element: None,
             },
-            HitCritPolicy::GuaranteedBelowHpRatio(threshold) => {
-                let unit = txn
-                    .state
-                    .units
-                    .get(target)
-                    .ok_or_else(|| invariant_fault(57))?;
-                let below = i128::from(unit.current_hp.get()) * 1_000_000
-                    < i128::from(unit.maximum_hp.get()) * i128::from(threshold.scaled());
-                if below {
-                    true
-                } else {
-                    match scratch.critical_by_target.get(&target).copied() {
-                        Some(value) => value,
-                        None => {
-                            let critical = critical.as_ref().ok_or_else(|| invariant_fault(56))?;
-                            let value = txn.roll_probability(critical.chance, DrawPurpose::CRIT)?;
-                            scratch.critical_by_target.insert(target, value);
-                            value
-                        }
-                    }
-                }
-            }
-        };
-        let formula = if is_critical {
-            let critical = critical.as_ref().ok_or_else(|| invariant_fault(56))?;
+            scratch,
+        )?;
+        let formula = if critical.is_critical {
             operation
                 .formula
                 .with_formula_modifier(FormulaStage::Crit, critical.damage)

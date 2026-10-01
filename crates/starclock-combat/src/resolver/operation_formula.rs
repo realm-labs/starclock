@@ -1,4 +1,5 @@
 //! Modifier-aware formula preparation separated from authoritative state mutation.
+mod elation;
 pub(super) mod final_damage;
 
 use crate::{
@@ -7,7 +8,10 @@ use crate::{
         action::{AbilityKind, AbilityTag},
         definition::AbilityDefinition,
     },
-    formula::sustain::{DamageCalculation, HealingCalculation},
+    formula::{
+        model::{CombatElement, DamageClass},
+        sustain::{DamageCalculation, HealingCalculation},
+    },
     modifier::model::{StatKind, StatQuery},
     rule::model::SourceClass,
 };
@@ -42,6 +46,13 @@ pub(super) struct FormulaInputs {
     effect_stacks: BTreeMap<(UnitId, EffectDefinitionId), i64>,
     effect_category_stacks: BTreeMap<(UnitId, EffectCategory), i64>,
     modifiers: Vec<ActiveModifier>,
+}
+
+pub(super) struct CriticalQuery {
+    pub(super) class: DamageClass,
+    pub(super) target: UnitId,
+    pub(super) ultimate_semantics: bool,
+    pub(super) element: Option<CombatElement>,
 }
 
 impl FormulaInputs {
@@ -232,18 +243,16 @@ impl FormulaInputs {
         catalog: &CombatCatalog,
         txn: &Transaction<'_>,
         cause: Cause,
-        class: formula::model::DamageClass,
-        target: UnitId,
-        ultimate_semantics: bool,
+        query: CriticalQuery,
     ) -> Result<CriticalProfile, BattleFault> {
-        let purpose = damage_purpose(class);
+        let purpose = damage_purpose(query.class);
         let source = formula_source(txn, cause, purpose)?;
         let resolver = self.resolver(catalog);
         let source_context = damage_modifier_context(
             catalog,
             cause,
-            modifier_context(txn, source, target, None, class)?,
-            ultimate_semantics,
+            modifier_context(txn, source, query.target, query.element, query.class)?,
+            query.ultimate_semantics,
         )
         .with_formula_subject(FormulaSubject::Source);
         let rate = resolver
@@ -258,14 +267,14 @@ impl FormulaInputs {
             .map_err(|_| numeric_fault(50, i64::from(StatKind::CritRate as u8)))?;
         let target_bonus = formula_modifier(
             &resolver,
-            target,
+            query.target,
             FormulaStage::Probability,
             FormulaPurpose::CriticalChance,
             &damage_modifier_context(
                 catalog,
                 cause,
-                modifier_context(txn, target, target, None, class)?,
-                ultimate_semantics,
+                modifier_context(txn, query.target, query.target, query.element, query.class)?,
+                query.ultimate_semantics,
             )
             .with_formula_subject(FormulaSubject::Target),
         )?;
