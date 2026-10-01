@@ -65,6 +65,12 @@ pub enum StatKind {
     WindDamageBoost,
     QuantumDamageBoost,
     ImaginaryDamageBoost,
+    /// Independent additive Elation ratio, with neutral battle base zero.
+    ///
+    /// Native authored modifiers and stat expressions may read this value.
+    /// It is not ordinary DMG Boost and does not change an existing damage
+    /// operation merely because that operation carries the Elation class.
+    Elation,
 }
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]

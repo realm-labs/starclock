@@ -10,9 +10,10 @@ use crate::{
     formula::toughness::attacker_level_multiplier,
     modifier::model::StatKind::{
         self, Aggro, Atk, BreakBaseDamage, BreakEffect, CritDamage, CritRate, Def,
-        DotDurationAddition, EnergyRegenerationRate, FireDamageBoost, Hp as HpStat, IceDamageBoost,
-        ImaginaryDamageBoost, LightningDamageBoost, OutgoingHealing, PhysicalDamageBoost,
-        QuantumDamageBoost, Spd, ToughnessDamage, ToughnessRecovery, WindDamageBoost,
+        DotDurationAddition, Elation, EnergyRegenerationRate, FireDamageBoost, Hp as HpStat,
+        IceDamageBoost, ImaginaryDamageBoost, LightningDamageBoost, OutgoingHealing,
+        PhysicalDamageBoost, QuantumDamageBoost, Spd, ToughnessDamage, ToughnessRecovery,
+        WindDamageBoost,
     },
 };
 use std::{collections::BTreeMap, sync::Arc};
@@ -145,6 +146,7 @@ impl RuleSelectorSnapshot {
         let mut bases = BTreeMap::new();
         for (id, unit) in &self.units {
             bases.insert((*id, Aggro), Scalar::ONE);
+            bases.insert((*id, Elation), Scalar::ZERO);
             bases.insert(
                 (*id, HpStat),
                 Scalar::checked_from_integer(unit.maximum_hp.get())?,

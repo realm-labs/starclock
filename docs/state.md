@@ -7,7 +7,9 @@ The [shared Elation calculator](combat-elation-formula.md) now separates the
 level base, Elation, resolved Punchline and merrymaking factors from ordinary
 damage boost. It uses checked decimal arithmetic and a once-only integral floor,
 with boundary/domain/overflow vectors. Its factor composition and precision
-remain explicit ProjectPolicy. Production stat queries, dedicated battle
+remain explicit ProjectPolicy. Native Elation stat queries now support temporary
+property additions, zero base reads, initial and selector snapshots, and expiry
+through ordinary typed operations. Production stat authoring, dedicated battle
 operations and released damage parity remain unbound; existing Elation-class
 operations retain their authored formulas. This prerequisite grants no content
 execution credit, including for Sapient Pen.

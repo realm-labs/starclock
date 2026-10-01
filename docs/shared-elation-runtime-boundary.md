@@ -23,7 +23,10 @@ The [shared Elation calculator](combat-elation-formula.md) additionally accepts
 an explicit level base and separate Elation, resolved Punchline and merrymaking
 factors. It excludes ordinary damage boost and records a named factor trace.
 It is a pure ProjectPolicy prerequisite, not yet bound to battle operations,
-production stat authoring or a released character damage formula. Existing
+production stat authoring or a released character damage formula. Native
+`StatKind::Elation` queries now retain a separate zero neutral base through live,
+initial modifier and selector snapshots. Real-command tests execute temporary
+property additions and expiry without claiming a released intrinsic base. Existing
 `DamageClass::Elation` operations are not implicitly changed by its presence.
 
 ## Shared resources

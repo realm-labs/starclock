@@ -68,9 +68,39 @@ eligibility, decimal ties/final flooring, invalid inputs and overflow.
 
 ## Remaining integration
 
-Production stat authoring/lowering, battle-local Elation stat queries,
-level-table compilation, a typed Elation operation and modifier-stage binding
-remain unimplemented. Punchline snapshots and Aha/Certified Banger lifecycle
+Native battle-local `StatKind::Elation` queries now use the same stat pipeline
+as other additive ratios. Their neutral base is explicitly zero in live Rule IR
+execution, initial modifier capture and Event/Action selector snapshots. Native
+authored BaseAdd/Flat/etc. modifiers may supply intrinsic and conditional
+contributions. `QueryBaseStat` continues to return zero after such additions;
+`QueryStat` returns their checked effective result. Ordinary damage boost is
+still a separate formula stage, not the meaning of this property.
+
+Live Rule IR reads observe the program's input boundary. Expressions evaluate
+before that program's ordered emissions commit; applying a property modifier
+does not retroactively reevaluate another expression in the same program.
+An explicit later program/phase can observe the newly committed value.
+
+Zero is a **ProjectPolicy neutral input**, not a factual import of every released
+character's intrinsic Elation. It avoids inventing a universal nonzero base while
+allowing native definitions to provide explicit contributions. No saturation,
+floor or cap is selected for the signed Scalar query result. The pure calculator
+independently rejects a negative effective `1 + elation` factor. Released form
+bases must be authored with their own provenance rather than assumed from this
+neutral value. Confidence for a universal released-base interpretation is low;
+replace any content-level policy when source-bound authored bases are compiled.
+
+Real-command tests in
+`crates/starclock-test-kit/tests/suites/core/combat/effect_resource_pipeline/elation_stat.rs`
+prove zero/live/base reads, a temporary +50% property addition, eventful expiry,
+initial source/value snapshots versus dynamic reads, distinct Current/Event/Action
+selector observations, rejection hashes/RNG and fresh reconstruction. The test
+damage expressions deliberately observe the property through ordinary Rule IR;
+they are not a substitute for the still-unimplemented Elation battle operation.
+
+Production stat authoring/lowering, level-table compilation, a typed Elation
+operation and its modifier-stage binding remain unimplemented.
+Punchline snapshots and Aha/Certified Banger lifecycle
 remain independently owned by their authored resources, effects and actions.
 The Weighted Curio Sapient Pen is not implemented by adding this calculator.
 No Divergent Universe obligation/program/family changes disposition; the
@@ -78,6 +108,7 @@ No Divergent Universe obligation/program/family changes disposition; the
 
 ```text
 cargo test -p starclock-combat formula::elation
+cargo test -p starclock-test-kit --test combat_suite elation_stat
 cargo fmt --all -- --check
 cargo clippy -p starclock-combat --all-targets -- -D warnings
 cargo test -p starclock-combat

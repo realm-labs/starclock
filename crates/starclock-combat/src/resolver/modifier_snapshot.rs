@@ -446,7 +446,7 @@ fn stat_bases(
 ) -> Result<std::collections::BTreeMap<(UnitId, StatKind), Scalar>, NumericError> {
     use crate::modifier::model::StatKind::{
         Aggro, Atk, BreakBaseDamage, BreakEffect, CritDamage, CritRate, DebuffDurationMultiplier,
-        Def, DotDurationAddition, EffectHitRate, EffectResistance, EnergyRegenerationRate,
+        Def, DotDurationAddition, EffectHitRate, EffectResistance, Elation, EnergyRegenerationRate,
         FireDamageBoost, FreezeResistance, Hp, IceDamageBoost, ImaginaryDamageBoost,
         LightningDamageBoost, OutgoingHealing, PhysicalDamageBoost, QuantumDamageBoost, Spd,
         ToughnessDamage, ToughnessRecovery, WindDamageBoost,
@@ -455,6 +455,7 @@ fn stat_bases(
     let mut bases = std::collections::BTreeMap::new();
     for unit in state.units.iter_by_id() {
         bases.insert((unit.id, Aggro), Scalar::ONE);
+        bases.insert((unit.id, Elation), Scalar::ZERO);
         bases.insert(
             (unit.id, Hp),
             Scalar::checked_from_integer(unit.maximum_hp.get())?,
