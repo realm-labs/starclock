@@ -247,6 +247,12 @@ fn weighted_curio_unlowered_and_dirty_loadouts_reject_contribution_without_mutat
                     .weighted_curio_support_attacks()
                     .iter()
                     .any(|definition| &definition.weighted_curio == id)
+                || fixture
+                    .factory()
+                    .decision_catalog()
+                    .weighted_curio_prayers()
+                    .iter()
+                    .any(|definition| &definition.weighted_curio == id)
             {
                 let snapshot = contribution.snapshot(&flow, &activity).unwrap();
                 assert_eq!(

@@ -22,7 +22,7 @@ assert(artifact.current_boundary.weighted_curio_accepted_loadout_boundary
   && artifact.current_boundary.weighted_curio_unsupported_equipment_rejects_battle_contribution
   && !artifact.current_boundary.weighted_curio_loadout_implemented
   && !artifact.current_boundary.weighted_curio_battle_effects_implemented
-  && artifact.current_boundary.weighted_curio_battle_effect_definitions === 4
+  && artifact.current_boundary.weighted_curio_battle_effect_definitions === 5
   && !artifact.current_boundary.forge_room_payload_implemented,
 "an accepted equipment primitive is not a complete Forge or battle-effect implementation");
 
@@ -127,6 +127,20 @@ if (process.argv.includes("--check-source")) {
     && supportValue.maze_buff_id.String === "633417" && supportValue.crit_rate_fraction.String === "0.15"
     && supportValue.crit_damage_fraction.String === "0.3" && supportValue.additional_multiplier.String === "1",
     "production support attack must preserve all released operands, not another seasonal variant");
+  const prayer = released.find((row) => row.ID === 633404);
+  const prayerHex = rows.find((row) => row.HexID === 1004);
+  assert(prayerHex?.MazeBuffID === 633404
+    && JSON.stringify(prayerHex.AvatarType) === '["Mage","Warlock"]'
+    && prayerHex.AvatarDamageType.length === 0
+    && JSON.stringify(prayer?.ParamList.map((parameter) => parameter.Value)) === '["0.6","0.15","0.25"]'
+    && prayer.InBattleBindingKey === "StageAbility_633404"
+    && String(prayer.BuffDesc.Hash) === "16252001468855081658", "prayer operand/eligibility drift");
+  const prayerRows = JSON.parse(fs.readFileSync(path.join(root, artifact.input_digests.weighted_prayer_data.path), "utf8")).table.rows;
+  const prayerValue = prayerRows[0]?.values;
+  assert(prayerRows.length === 1 && prayerValue.weighted_curio_key.String === "divergent-universe.weighted-curio.1004"
+    && prayerValue.maze_buff_id.String === "633404" && prayerValue.hp_fraction.String === "0.6"
+    && prayerValue.consume_fraction.String === "0.15" && prayerValue.shield_fraction.String === "0.25",
+    "production prayer must preserve all three released resource operands");
 }
 console.log("Hex taxonomy/Gamble inventory verified; no runtime completion or test-pass receipt emitted.");
 function assert(condition, message) { if (!condition) throw new Error(message); }

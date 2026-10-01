@@ -395,7 +395,7 @@ fn battle_room_source_positions_execute_multiple_real_battles_with_exact_drops_n
     assert_eq!(
         observed_counts,
         [
-            (DivergentUniverseRunFamily::Ordinary, 6, 6),
+            (DivergentUniverseRunFamily::Ordinary, 7, 7),
             (DivergentUniverseRunFamily::Cyclical, 6, 6),
         ]
     );

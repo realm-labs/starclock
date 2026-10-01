@@ -183,6 +183,7 @@ fn historical_value_safe(expression: &ValueExpr) -> bool {
         | ValueExpr::QueryHp { .. }
         | ValueExpr::QueryFormulaStage { .. }
         | ValueExpr::QueryMaximumEnergy(_)
+        | ValueExpr::QueryMaximumHp(_)
         | ValueExpr::QueryShield { .. }
         | ValueExpr::QueryEffectStacks { .. }
         | ValueExpr::QueryEffectCategoryStacks { .. } => false,

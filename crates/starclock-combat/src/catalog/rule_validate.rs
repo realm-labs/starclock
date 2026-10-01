@@ -886,7 +886,8 @@ fn infer_value(
         | ValueExpr::QueryBaseStat { .. }
         | ValueExpr::QueryShield { .. }
         | ValueExpr::QueryHp { .. }
-        | ValueExpr::QueryMaximumEnergy(_) => RuleValueKind::Scalar,
+        | ValueExpr::QueryMaximumEnergy(_)
+        | ValueExpr::QueryMaximumHp(_) => RuleValueKind::Scalar,
         ValueExpr::QueryEffectStacks { .. } | ValueExpr::QueryEffectCategoryStacks { .. } => {
             RuleValueKind::Integer
         }

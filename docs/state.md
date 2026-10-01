@@ -24,7 +24,7 @@ each eligible damage event copies thirty percent to adjacent enemies under an
 explicit hidden-timing/damage-copy policy. Equipment is the seventh immutable
 contribution component; unlowered equipment still rejects with typed errors
 instead of silently producing a no-effect battle. Full Forge menus/slot admission,
-the other thirteen Weighted Curio effects, actual Grand Miracle source selection/effects
+the other twelve Weighted Curio effects, actual Grand Miracle source selection/effects
 and the Forge room payload remain unimplemented. The
 [Harmony shield](divergent-universe-weighted-curio-shield.md) executes ally-directed
 Basic/Skill/Ultimate actions, including self and full-team targets, with each
@@ -43,7 +43,11 @@ adds 15% CRIT Rate and 30% CRIT DMG per mapped Harmony/Abundance/Preservation
 teammate to those Paths. Each attack then deals shared Additional damage using
 the attacker's effective Max HP plus DEF plus ATK. Roster counting, phase,
 target selection, element and critical eligibility remain explicit project policy.
-Four of seventeen equipment effects execute; original Forge admission and
+The [Road of Prayers](divergent-universe-weighted-curio-prayer.md) increases
+eligible Erudition/Nihility participants' real entry HP capacity by 60%, consumes
+15% current HP at owner turn start and refreshes a 25% live-maximum-HP shield.
+Capacity basis, timing, floor and duration remain explicit project policy.
+Five of seventeen equipment effects execute; original Forge admission and
 complete equipment replay remain pending. The current
 taxonomy/Gamble inventory emits no execution receipt or terminal coverage credit;
 the two accepted Coin units and unresolved Gamble rejection behavior remain.
@@ -1030,7 +1034,8 @@ current Persona layout positions, nine reviewed decks, one shop stock and three
 items, three Wealth policies, one Reward-card substitute and one Adventure
 settlement policy, one Weighted Curio splash, one Harmony shield and one attack
 advance/reduction definition and one support-Path crit/additional-damage
-definition across 38 tables and 385 rows.
+definition and one real-capacity/turn-start consumption/shield definition across
+39 tables and 390 rows.
 The [9074 expansion reward](divergent-universe-equation-expansion.md) has
 validated operands and an explicit finite-cascade executor. Fixed public-choice
 vectors in both baseline families pay for the card, trigger an additional

@@ -68,6 +68,7 @@ mod titan_runtime;
 mod vertical_slice;
 pub mod weighted_curio;
 mod weighted_curio_attack_debuff;
+mod weighted_curio_prayer;
 mod weighted_curio_shield;
 mod weighted_curio_splash;
 mod weighted_curio_support_attack;

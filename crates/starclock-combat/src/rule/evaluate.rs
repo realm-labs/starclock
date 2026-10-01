@@ -99,6 +99,11 @@ pub trait BattleQueryReader {
     fn maximum_energy(&self, _subject: UnitId) -> Option<Scalar> {
         None
     }
+    /// Reads actual HP resource capacity from this immutable query snapshot.
+    /// Missing units or capacities outside the scalar domain return `None`.
+    fn maximum_hp(&self, _subject: UnitId) -> Option<Scalar> {
+        None
+    }
     fn effect_stacks(&self, subject: UnitId, effect: EffectDefinitionId) -> Option<i64>;
     fn effect_category_stacks(&self, _subject: UnitId, _category: EffectCategory) -> Option<i64> {
         Some(0)
@@ -1194,6 +1199,17 @@ pub fn evaluate_value(
                 .ok_or(RuleEvaluationError {
                     kind: RuleEvaluationErrorKind::MissingValue,
                     context: 0x21e,
+                })
+        }
+        ValueExpr::QueryMaximumHp(subject) => {
+            let subject = query_subject(*subject, input, current_target)?;
+            input
+                .battle_query_reader
+                .and_then(|reader| reader.maximum_hp(subject))
+                .map(RuleValue::Scalar)
+                .ok_or(RuleEvaluationError {
+                    kind: RuleEvaluationErrorKind::MissingValue,
+                    context: 0x220,
                 })
         }
         ValueExpr::QueryMaximumEnergy(subject) => {

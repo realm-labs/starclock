@@ -352,7 +352,8 @@ fn collect_value_queries(
         | ValueExpr::EventTarget
         | ValueExpr::CurrentTarget
         | ValueExpr::QueryHp { .. }
-        | ValueExpr::QueryMaximumEnergy(_) => {}
+        | ValueExpr::QueryMaximumEnergy(_)
+        | ValueExpr::QueryMaximumHp(_) => {}
     }
 }
 

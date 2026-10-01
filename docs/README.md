@@ -185,7 +185,8 @@ Treat the date, not an assumed game version number, as the baseline. Character k
     [Weighted Curio attack splash](divergent-universe-weighted-curio-splash.md) and
     [Harmony shields](divergent-universe-weighted-curio-shield.md) and
     [Automated Experience](divergent-universe-weighted-curio-attack-debuff.md) and
-    [The Story Presently](divergent-universe-weighted-curio-support-attack.md) execute source-attributed Rule IR; thirteen effects and Forge admission remain pending.
+    [The Story Presently](divergent-universe-weighted-curio-support-attack.md) and
+    [Road of Prayers](divergent-universe-weighted-curio-prayer.md) execute source-attributed Rule IR; twelve effects and Forge admission remain pending.
 157. [Titan effect boundary](divergent-universe-titan-effects.md) — source descriptors versus execution, fail-closed current battle assembly, exact-once pending assignments and inventory without pass receipts.
 
 ## Delivery boundary

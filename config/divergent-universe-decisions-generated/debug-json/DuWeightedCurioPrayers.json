@@ -1,0 +1,82 @@
+{
+  "table": {
+    "name": "DuWeightedCurioPrayers",
+    "rows": [
+      {
+        "values": {
+          "character_paths": {
+            "List": [
+              {
+                "String": "Mage"
+              },
+              {
+                "String": "Warlock"
+              }
+            ]
+          },
+          "consume_fraction": {
+            "String": "0.15"
+          },
+          "consume_parameter": {
+            "Integer": 2
+          },
+          "hp_fraction": {
+            "String": "0.6"
+          },
+          "hp_parameter": {
+            "Integer": 1
+          },
+          "id": {
+            "Integer": 1
+          },
+          "maze_buff_id": {
+            "String": "633404"
+          },
+          "policy": {
+            "String": "EntryHpAndTurnStartConsumeShield"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: use the immutable resolved entry HP capacity as the bonus basis, adding floor(base times 0.6) exactly once to a fresh sealed ParticipantSpec. Preserve every build field and locked build digest; do not add a second HP modifier. No extra healing of carried HP: first entry uses explicit initial state or full new capacity; later entry follows the declared Activity carry policies, including clamping on unequip. Bind mapped Erudition/Nihility player characters, with no linked/summon inheritance. Owner TurnStarted AfterEvent, once per Turn, priority zero and alive/present owner selector: consume floor(current HP times 0.15) with HP floor one, then remove only this source-owned shield/effect and apply one non-dispellable battle-lifetime replacement shield. Shield uses the live HP resource capacity times 0.25 with floor, shared shield modifiers and shared operations; no HP-stat substitute. Refresh on the next owner's turn, not per hit or Ultimate interrupt. Source operations retain ordered events and snapshot reads; no battle mutation of Activity. Down/absent actors do not trigger; teardown belongs to battle."
+          },
+          "replacement_condition": {
+            "String": "Hidden base/additive stacking, entry HP adjustment, phase, consume rounding and lethal floor, duration/refresh/dispel and summon inheritance have low policy confidence, not observed parity. Alternatives: pure base-character HP, additive live HP modifiers, proportional current-HP scaling, lethal drain, target-turn shield expiry or accumulating layers. Selected entry-capacity policy executes all three exact operands through real resources and bounded shared operations without pretending a stat-only bonus changes HP capacity. Affected tests weighted_curio_prayer and production data rejection fixtures. Replace each field independently when released executable programs or reproducible current traces establish it. Forge offers, equipment-command replay and complete runs remain pending."
+          },
+          "shield_fraction": {
+            "String": "0.25"
+          },
+          "shield_parameter": {
+            "Integer": 3
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 89
+              },
+              {
+                "Integer": 90
+              },
+              {
+                "Integer": 91
+              },
+              {
+                "Integer": 92
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.weighted-curio-prayer.road-of-prayers"
+          },
+          "summary_en": {
+            "String": "Erudition and Nihility characters gain 60% maximum HP; their turn starts consume 15% current HP and grant a shield for 25% maximum HP."
+          },
+          "summary_zh_cn": {
+            "String": "智识、虚无角色生命上限提高 60%；回合开始时消耗 15% 当前生命值并获得等同于 25% 生命上限的护盾。"
+          },
+          "weighted_curio_key": {
+            "String": "divergent-universe.weighted-curio.1004"
+          }
+        }
+      }
+    ]
+  }
+}

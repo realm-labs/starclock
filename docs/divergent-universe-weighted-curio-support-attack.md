@@ -67,8 +67,8 @@ immutable build/Activity boundaries, unequip and real production battle handoff.
 Data fixtures reject seasonal variants, bad joins/parameters/decimals and
 unrelated provenance. Current static inventories are not test-pass receipts.
 
-Four of 17 effects execute; thirteen remain fail-closed. The workbook now has
-38 tables / 385 rows. Original Forge admission, equipment-command replay,
+See [current repository state](state.md) for current effect and workbook totals.
+Original Forge admission, equipment-command replay,
 Grand Miracle effects and complete 13/17/20-position runs remain pending.
 This component adds no original obligation/program/family/gap/policy terminal
 credit and does not establish complete release readiness.

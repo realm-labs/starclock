@@ -325,6 +325,7 @@ fn value_references(
         | ValueExpr::QueryShield { .. }
         | ValueExpr::QueryHp { .. }
         | ValueExpr::QueryMaximumEnergy(_)
+        | ValueExpr::QueryMaximumHp(_)
         | ValueExpr::QueryEffectCategoryStacks { .. } => {}
     }
 }

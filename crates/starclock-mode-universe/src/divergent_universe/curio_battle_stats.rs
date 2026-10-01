@@ -203,6 +203,7 @@ impl CurioBattleStats {
                     .map(|attachment| attachment.source.clone())
                     .collect(),
                 rule_bundles: Vec::new(),
+                maximum_hp: None,
             };
             *player = bind_passives(player, &added, assembly_digest)?;
         }

@@ -78,9 +78,10 @@ original Forge offers, encoded equipment-command replay or complete 13/17/20
 position runs. A separate [Harmony shield](divergent-universe-weighted-curio-shield.md)
 and [Automated Experience](divergent-universe-weighted-curio-attack-debuff.md)
 and [The Story Presently](divergent-universe-weighted-curio-support-attack.md)
-also execute; the remaining thirteen equipped effects fail closed.
+also execute. See [current repository state](state.md) for effect totals;
+unsupported equipped effects fail closed.
 
-The 38-table, 385-row workbook is authored through openpyxl and generated only by
+The production workbook is authored through openpyxl and generated only by
 Sora 0.6.1. Typed domain validation rejects bad joins, noncanonical/out-of-range
 fractions, duplicate definitions and missing provenance/policy metadata. Current
 configuration and equipment snapshots bind the authored inputs; no old-format

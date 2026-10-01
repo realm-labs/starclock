@@ -125,6 +125,9 @@ values = [{ id = 0, name = "AttackResolvedAdvanceAndTargetTurnFinalReduction" }]
 [[enums]]
 name = "DuCurioSupportAttackPolicy"
 values = [{ id = 0, name = "RosterCountCritAndAttackResolvedAdditional" }]
+[[enums]]
+name = "DuCurioPrayerPolicy"
+values = [{ id = 0, name = "EntryHpAndTurnStartConsumeShield" }]
 [[tables]]
 id = "sources"
 name = "DuDecisionSources"
@@ -2261,6 +2264,85 @@ length = [1, 4000]
 [[tables.fields]]
 name = "policy"
 type = "enum<DuCurioSupportAttackPolicy>"
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "policy_note"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "replacement_condition"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "source_ids"
+type = "list<ref<DuDecisionSources.id>>"
+parser = { kind = "split", separator = "|" }
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+[[tables]]
+id = "weightedcurioprayers"
+name = "DuWeightedCurioPrayers"
+mode = "map"
+key = "id"
+[tables.source]
+file = "DivergentUniverseDecisions.xlsx"
+sheet = "WeightedCurioPrayers"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1,2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "weighted_curio_key"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "maze_buff_id"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "character_paths"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+[[tables.fields]]
+name = "hp_parameter"
+type = "i32"
+range = [1,64]
+[[tables.fields]]
+name = "hp_fraction"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "consume_parameter"
+type = "i32"
+range = [1,64]
+[[tables.fields]]
+name = "consume_fraction"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "shield_parameter"
+type = "i32"
+range = [1,64]
+[[tables.fields]]
+name = "shield_fraction"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "policy"
+type = "enum<DuCurioPrayerPolicy>"
 [[tables.fields]]
 name = "summary_en"
 type = "string"

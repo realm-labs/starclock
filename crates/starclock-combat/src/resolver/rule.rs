@@ -5,7 +5,7 @@ use crate::{
     BattleEventData, BattleEventKind, BattleFault, BreakDamageKind, ControlledAction,
     DecisionEventData, DurationClock, EffectCategory, EffectDefinitionId, EffectEventData,
     EffectRuntimeDefinition, EffectRuntimeTemplate, EventId, FaultBoundary, FaultKind, FaultPolicy,
-    FormationIndex, HitEventData, LifeState, PhaseEventData, PresenceState, Ratio,
+    FormationIndex, HitEventData, Hp, LifeState, PhaseEventData, PresenceState, Ratio,
     ResourceEventData, RuleId, RuleInstanceId, Scalar, SelectorId, ShieldEventData,
     SourceDefinitionId, StateSlotDefinitionId, TeamSide, ToughnessEventData, TurnEventData,
     UnitDefinitionId, UnitEventData, UnitId, WaveEventData,
@@ -844,6 +844,7 @@ struct UnitQuerySnapshot {
     energy: Scalar,
     maximum_energy: Scalar,
     hp: Scalar,
+    maximum_hp: Hp,
     shield: Scalar,
     resources: BTreeMap<Box<str>, Scalar>,
     weaknesses: BTreeSet<CombatElement>,
@@ -877,6 +878,7 @@ impl BattleQuerySnapshot {
                         presence: unit.presence,
                         energy: Scalar::from_scaled(unit.current_energy.scaled()),
                         maximum_energy: Scalar::from_scaled(unit.maximum_energy.scaled()),
+                        maximum_hp: unit.maximum_hp,
                         hp: Scalar::checked_from_integer(unit.current_hp.get())
                             .expect("HP fits the authoritative scalar domain"),
                         shield: txn
@@ -1035,6 +1037,11 @@ impl BattleQueryReader for BattleQuerySnapshot {
 
     fn maximum_energy(&self, subject: UnitId) -> Option<Scalar> {
         self.units.get(&subject).map(|unit| unit.maximum_energy)
+    }
+    fn maximum_hp(&self, subject: UnitId) -> Option<Scalar> {
+        self.units
+            .get(&subject)
+            .and_then(|unit| Scalar::checked_from_integer(unit.maximum_hp.get()).ok())
     }
 
     fn effect_stacks(&self, subject: UnitId, effect: EffectDefinitionId) -> Option<i64> {

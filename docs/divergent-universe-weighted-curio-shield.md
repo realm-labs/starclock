@@ -66,9 +66,9 @@ damage absorption and timed removal. Data tests reject wrong joins, malformed
 fractions/durations, missing policy/provenance and duplicates. A real production
 battle handoff also runs with equipment, not original Forge admission.
 
-The workbook has 38 tables / 385 rows. Four of seventeen Weighted Curio effects
-execute, including [Automated Experience](divergent-universe-weighted-curio-attack-debuff.md)
+See [current repository state](state.md) for workbook and effect totals.
+Other effects execute, including [Automated Experience](divergent-universe-weighted-curio-attack-debuff.md)
 and [The Story Presently](divergent-universe-weighted-curio-support-attack.md);
-thirteen remain fail-closed. Original Forge offers/slots, encoded equipment
+unsupported equipment remains fail-closed. Original Forge offers/slots, encoded equipment
 replay and complete 13/17/20-position runs remain incomplete. No original
 obligation, program, family, gap or policy-source terminal credit is added.

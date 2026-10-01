@@ -267,6 +267,7 @@ impl WeightedCurioRuntime {
                         modifiers: Vec::new(),
                         rule_bundles: vec![bundle],
                         sources: vec![source.clone()],
+                        maximum_hp: None,
                     },
                     assembly_digest,
                 )?;

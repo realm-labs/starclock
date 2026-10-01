@@ -307,6 +307,7 @@ impl WeightedCurioRuntime {
                     modifiers: Vec::new(),
                     rule_bundles,
                     sources: vec![source.clone()],
+                    maximum_hp: None,
                 };
                 *player = bind_passives(player, &bindings, assembly_digest)?;
             }

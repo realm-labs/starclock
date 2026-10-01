@@ -13,23 +13,35 @@ use starclock_combat::{
     BattleEventKind, BattleSeed, BattleSpec, CauseActor, CombatantSpecDigest, Command,
     ConcedePolicy, DurationClock, Energy, FormationIndex, Hp, LifeState, ParticipantInitialState,
     ParticipantSource, ParticipantSpec, PresenceState, Ratio, ResolvedBuildBonuses,
-    ResolvedCombatantSpec, ResolvedDefinitionBindings, Scalar, Speed, StatValue, TeamResourceSpec,
-    TeamSide, TurnEventData, UnitId, UnitLevel,
+    ResolvedCombatantSpec, ResolvedDefinitionBindings, ResolvedModifierBinding, Scalar, Speed,
+    StatValue, TeamResourceSpec, TeamSide, TurnEventData, UnitId, UnitLevel,
     catalog::{
         action::{
-            AbilityActionDefinition, AbilityKind, AbilityTag, ActionHitDefinition,
-            ActionResourcePolicy, HitCritPolicy, HitOperationDefinition, HitTargetGroup,
-            OrdinaryDamageDefinition, OrdinaryDamageMultipliers, ScalingDamageDefinition,
-            TargetInvalidationPolicy, TargetPattern, TargetRelation, UnitTargetSelector,
+            AbilityActionDefinition, AbilityKind, AbilityProgramBinding, AbilityProgramTiming,
+            AbilityTag, ActionHitDefinition, ActionResourcePolicy, HitCritPolicy,
+            HitOperationDefinition, HitTargetGroup, OrdinaryDamageDefinition,
+            OrdinaryDamageMultipliers, ScalingDamageDefinition, TargetInvalidationPolicy,
+            TargetPattern, TargetRelation, UnitTargetSelector,
         },
         builder::CombatCatalogBuilder,
         definition::{
             AbilityDefinition, EncounterDefinition, EnemyDefinition, ProgramDefinition,
             SelectorDefinition, UnitDefinition,
         },
+        selector::{
+            RuleEmptyPoolPolicy, RuleLifePredicate, RulePresencePredicate, RuleSelectorChoice,
+            RuleSelectorOrdering, RuleSelectorOrigin, RuleSelectorReference, RuleSelectorSide,
+            RuleUnitSelector,
+        },
     },
     formula::model::{CombatElement, DamageClass},
-    modifier::model::StatKind,
+    modifier::model::{
+        FormulaPurpose, FormulaStage, ModifierAggregation, ModifierDefinition,
+        ModifierStackingGroup, SnapshotPolicy, StatKind,
+    },
+    rule::model::{
+        ProgramStep, RuleOperationTemplate, RuleSource, RuleValue, SourceClass, ValueExpr,
+    },
 };
 use starclock_data::divergent_universe_catalog::DivergentUniverseRunFamily;
 
@@ -61,6 +73,9 @@ pub(super) struct Probe {
     pub(super) bonuses: ResolvedBuildBonuses,
     pub(super) selected_kind: AbilityKind,
     pub(super) initial_hp: Option<i64>,
+    pub(super) use_resolved_hp: bool,
+    pub(super) reduce_hp: Option<i64>,
+    pub(super) extra_hp_stat: Option<i64>,
 }
 impl Default for Probe {
     fn default() -> Self {
@@ -79,6 +94,9 @@ impl Default for Probe {
             bonuses: ResolvedBuildBonuses::default(),
             selected_kind: AbilityKind::Basic,
             initial_hp: None,
+            use_resolved_hp: false,
+            reduce_hp: None,
+            extra_hp_stat: None,
         }
     }
 }
@@ -99,6 +117,28 @@ pub(super) fn scenario(assembled: &DivergentUniverseAssembledBattle, input: Prob
     let fallback = id(0x7d43_0003);
     let form = id(0x7d44_0001);
     let encounter = id(0x7d46_0001);
+    let self_selector = id(0x7d41_0010);
+    if input.reduce_hp.is_some() {
+        builder.add_selector(
+            SelectorDefinition::new(self_selector).with_rule_units(
+                RuleUnitSelector::new(
+                    RuleSelectorOrigin::Owner,
+                    RuleSelectorSide::Same,
+                    RuleLifePredicate::Alive,
+                    RulePresencePredicate::Present,
+                    RuleSelectorReference::CurrentState,
+                    RuleSelectorOrdering::Formation,
+                    0,
+                    1,
+                    RuleEmptyPoolPolicy::NoOp,
+                    RuleSelectorChoice::First,
+                    None,
+                    false,
+                )
+                .unwrap(),
+            ),
+        );
+    }
     for (offset, ability, kind, damage) in [
         (1, selected, input.selected_kind, 1),
         (2, ultimate, AbilityKind::Ultimate, 1),
@@ -123,13 +163,31 @@ pub(super) fn scenario(assembled: &DivergentUniverseAssembledBattle, input: Prob
                 .unwrap(),
             ),
         );
-        builder.add_program(ProgramDefinition::new(
-            program,
-            vec![],
-            vec![selector],
-            vec![],
-            vec![],
-        ));
+        let mut selectors = vec![selector];
+        let steps = if ability == selected {
+            if let Some(amount) = input.reduce_hp {
+                selectors.clear();
+                selectors.push(self_selector);
+                vec![ProgramStep::Operation(
+                    RuleOperationTemplate::ReduceMaximumHp {
+                        selector: self_selector,
+                        amount: ValueExpr::Literal(RuleValue::Scalar(
+                            Scalar::checked_from_integer(amount).unwrap(),
+                        )),
+                        minimum_ratio: ValueExpr::Literal(RuleValue::Scalar(Scalar::from_scaled(
+                            100_000,
+                        ))),
+                    },
+                )]
+            } else {
+                vec![]
+            }
+        } else {
+            vec![]
+        };
+        builder.add_program(
+            ProgramDefinition::new(program, vec![], selectors, vec![], vec![]).with_steps(steps),
+        );
         let hits = if ability == fallback { 1 } else { input.hits };
         let action = AbilityActionDefinition::new(
             kind,
@@ -189,9 +247,14 @@ pub(super) fn scenario(assembled: &DivergentUniverseAssembledBattle, input: Prob
         } else {
             action.with_tags(&[AbilityTag::Basic])
         };
-        builder.add_ability(
-            AbilityDefinition::new(ability, program, selector, vec![]).with_action(action),
-        );
+        let mut definition =
+            AbilityDefinition::new(ability, program, selector, vec![]).with_action(action);
+        if ability == selected && input.reduce_hp.is_some() {
+            definition = definition.with_programs(vec![
+                AbilityProgramBinding::new(1, AbilityProgramTiming::BeforeHits, program).unwrap(),
+            ]);
+        }
+        builder.add_ability(definition);
     }
     builder.add_unit(UnitDefinition::new(
         form,
@@ -205,23 +268,64 @@ pub(super) fn scenario(assembled: &DivergentUniverseAssembledBattle, input: Prob
         .find(|p| p.side() == TeamSide::Player && p.formation().get() == input.formation)
         .unwrap()
         .combatant();
+    let maximum_hp = if input.use_resolved_hp {
+        original.maximum_hp()
+    } else {
+        Hp::new(10_000).unwrap()
+    };
+    let mut modifiers = original.modifiers().to_vec();
+    let mut sources = original.sources().to_vec();
+    let mut bindings = original.modifier_bindings().to_vec();
+    if let Some(extra) = input.extra_hp_stat {
+        let definition = id(0x7d47_0001);
+        let group = id(0x7d49_0001);
+        let source = id(0x7d48_0001);
+        builder.add_modifier_group(ModifierStackingGroup {
+            id: group,
+            aggregation: ModifierAggregation::UniquePerSource,
+            comparator: None,
+        });
+        builder.add_modifier(ModifierDefinition {
+            id: definition,
+            stat: StatKind::Hp,
+            stage: FormulaStage::Flat,
+            purpose: FormulaPurpose::Stat,
+            value: ValueExpr::Literal(RuleValue::Scalar(
+                Scalar::checked_from_integer(extra).unwrap(),
+            )),
+            stacking_group: group,
+            priority: 0,
+            floor: None,
+            cap: None,
+            cap_stage: FormulaStage::Flat,
+            snapshot: SnapshotPolicy::Dynamic,
+            source_stack_slot: None,
+            filters: Box::new([]),
+        });
+        modifiers.push(definition);
+        modifiers.sort_unstable();
+        sources.push(RuleSource::new(source, SourceClass::Mode, vec![], [89; 32]));
+        sources.sort_by_key(RuleSource::definition);
+        bindings.push(ResolvedModifierBinding::new(definition, source));
+        bindings.sort_by_key(|binding| binding.definition());
+    }
     let combatant = ResolvedCombatantSpec::new(
         form,
         UnitLevel::new(80).unwrap(),
-        Hp::new(10_000).unwrap(),
+        maximum_hp,
         Speed::from_scaled(200_000_000).unwrap(),
         ResolvedDefinitionBindings::new(
             vec![selected, ultimate, fallback],
             original.rule_bundles().to_vec(),
-            original.modifiers().to_vec(),
+            modifiers,
         )
         .unwrap(),
         CombatantSpecDigest::new([82; 32]).unwrap(),
     )
     .unwrap()
-    .with_sources(original.sources().to_vec())
+    .with_sources(sources)
     .unwrap()
-    .with_modifier_bindings(original.modifier_bindings().to_vec())
+    .with_modifier_bindings(bindings)
     .unwrap()
     .with_energy(
         Energy::from_scaled(2_000_000).unwrap(),
@@ -251,7 +355,7 @@ pub(super) fn scenario(assembled: &DivergentUniverseAssembledBattle, input: Prob
             .with_initial_state(
                 ParticipantInitialState::new(
                     Hp::new(hp).unwrap(),
-                    Hp::new(10_000).unwrap(),
+                    maximum_hp,
                     Energy::from_scaled(2_000_000).unwrap(),
                     Energy::from_scaled(2_000_000).unwrap(),
                     LifeState::Alive,

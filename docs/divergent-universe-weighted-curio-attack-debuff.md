@@ -67,8 +67,8 @@ unequip and a real production controller/BattleResult handoff. Data fixtures
 reject malformed joins, Paths, parameters, decimals, duration and provenance.
 Static inventories describe current code and test targets, not test-pass receipts.
 
-The current workbook has 38 tables / 385 rows. Four of 17 equipment effects
-execute; 13 remain fail-closed. Original Forge offer/slot admission, equipment
+See [current repository state](state.md) for workbook and effect totals;
+unsupported equipment remains fail-closed. Original Forge offer/slot admission, equipment
 command replay, Grand Miracle effects and complete 13/17/20-position runs remain
 pending. This component adds no original obligation/program/family/gap/policy
 terminal credit and does not prove the complete release goal.

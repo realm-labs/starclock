@@ -397,6 +397,8 @@ pub enum ValueExpr {
     QueryHp {
         subject: StatQuerySubject,
     },
+    /// Reads live HP resource capacity, not the effective HP stat or entry base.
+    QueryMaximumHp(StatQuerySubject),
     QueryMaximumEnergy(StatQuerySubject),
     /// Reads the current aggregate stack count of one effect on the active subject.
     QueryEffectStacks {

@@ -141,6 +141,7 @@ impl WeightedCurioRuntime {
                 modifiers: Vec::new(),
                 rule_bundles: vec![bundle],
                 sources: vec![source],
+                maximum_hp: None,
             };
             for player in &mut *players {
                 if player.side() != TeamSide::Player {
@@ -157,7 +158,8 @@ impl WeightedCurioRuntime {
         }
         self.assemble_shields(builder, snapshot, core, players, assembly_digest)?;
         self.assemble_attack_debuffs(builder, snapshot, core, players, assembly_digest)?;
-        self.assemble_support_attacks(builder, snapshot, core, players, assembly_digest)
+        self.assemble_support_attacks(builder, snapshot, core, players, assembly_digest)?;
+        self.assemble_prayers(builder, snapshot, core, players, assembly_digest)
     }
 }
 

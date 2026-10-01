@@ -30,6 +30,8 @@ mod reward_policies;
 mod shop;
 #[path = "divergent_universe_weighted_curio_attack_debuff_tests.rs"]
 mod weighted_curio_attack_debuffs;
+#[path = "divergent_universe_weighted_curio_prayer_tests.rs"]
+mod weighted_curio_prayers;
 #[path = "divergent_universe_weighted_curio_shield_tests.rs"]
 mod weighted_curio_shields;
 #[path = "divergent_universe_weighted_curio_splash_tests.rs"]
@@ -47,7 +49,7 @@ use super::{
 fn production_decision_workbook_lowers_three_ordered_policy_choices() {
     let reference = load_divergent_universe_bundle().unwrap();
     let catalog = DecisionCatalog::production(&reference).unwrap();
-    assert_eq!(catalog.sources().len(), 88);
+    assert_eq!(catalog.sources().len(), 92);
     expansion_policy::production(&catalog);
     reward_policies::production_battle_stats(&catalog);
     assert_eq!(

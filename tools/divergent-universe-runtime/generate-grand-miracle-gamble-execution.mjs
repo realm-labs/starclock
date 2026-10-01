@@ -33,6 +33,9 @@ const inputs = {
   weighted_support_attack: "crates/starclock-mode-universe/src/divergent_universe/weighted_curio_support_attack.rs",
   weighted_support_attack_tests: "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_support_attack.rs",
   weighted_support_attack_data: "config/divergent-universe-decisions-generated/debug-json/DuWeightedCurioSupportAttacks.json",
+  weighted_prayer: "crates/starclock-mode-universe/src/divergent_universe/weighted_curio_prayer.rs",
+  weighted_prayer_tests: "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_prayer.rs",
+  weighted_prayer_data: "config/divergent-universe-decisions-generated/debug-json/DuWeightedCurioPrayers.json",
   contribution_snapshot: "crates/starclock-mode-universe/src/divergent_universe/contribution_snapshot.rs",
   gamble_runtime: "crates/starclock-mode-universe/src/divergent_universe/gamble_runtime.rs",
   tests: "crates/starclock-mode-universe/src/divergent_universe/tests/gamble_runtime.rs",
@@ -103,6 +106,14 @@ export function buildGrandMiracleGambleExecution() {
       "weighted_curio_support_attack_composes_with_real_ordinary_curio_damage_modifier",
     ].map((test) => ({ file: inputs.weighted_support_attack_tests, test })),
     ...[
+      "weighted_curio_prayer_changes_real_capacity_only_for_both_released_paths",
+      "weighted_curio_prayer_consumes_current_hp_before_maximum_shield_and_preserves_one_hp",
+      "weighted_curio_prayer_refreshes_one_battle_lifetime_shield_once_per_owner_turn_not_action",
+      "weighted_curio_prayer_preserves_fresh_battles_rejected_commands_and_unequip",
+      "weighted_curio_prayer_real_battle_handoff_exposes_the_new_maxima_in_verified_result",
+      "weighted_curio_prayer_uses_live_resource_capacity_not_hp_stat_or_entry_capacity",
+    ].map((test) => ({ file: inputs.weighted_prayer_tests, test })),
+    ...[
       "gamble_catalogs_compile_exact_policy_boundaries_without_hex_runtime_admission",
       "gamble_exact_coin_units_execute_and_unresolved_outcomes_fail_closed",
       "all_gamble_groups_preserve_state_and_rng",
@@ -145,15 +156,17 @@ export function buildGrandMiracleGambleExecution() {
       weighted_curio_battle_effect_definitions: json(inputs.weighted_splash_data).table.rows.length
         + json(inputs.weighted_shield_data).table.rows.length
         + json(inputs.weighted_attack_debuff_data).table.rows.length
-        + json(inputs.weighted_support_attack_data).table.rows.length,
+        + json(inputs.weighted_support_attack_data).table.rows.length
+        + json(inputs.weighted_prayer_data).table.rows.length,
       weighted_curio_battle_effect_accuracies: ["VersionedProjectPolicyHitCalculatedCopyAdjacentTrueDamage",
         "VersionedProjectPolicyAllyActionResolvedReplaceTargetTurnShield",
         "VersionedProjectPolicyAttackResolvedAdvanceAndTargetTurnFinalReduction",
-        "VersionedProjectPolicyRosterCountCritAndAttackResolvedAdditional"],
+        "VersionedProjectPolicyRosterCountCritAndAttackResolvedAdditional",
+        "VersionedProjectPolicyEntryHpAndTurnStartConsumeShield"],
       grand_miracle_runtime_implemented: false,
       forge_room_payload_implemented: false,
       terminal_coverage_credit: 0,
-      required_next_work: "Bind accepted equipment to actual Forge offers and slot-level admission; implement the remaining thirteen Weighted Curio effects and equipment-command replay. Establish Grand Miracle selectors independently and repair its separate source/fixture audit labels without shrinking obligations.",
+      required_next_work: "Bind accepted equipment to actual Forge offers and slot-level admission; implement the remaining twelve Weighted Curio effects and equipment-command replay. Establish Grand Miracle selectors independently and repair its separate source/fixture audit labels without shrinking obligations.",
     },
     summary: { weighted_curio_references: hex.length,
       current_hex_eligibility_rules: current.length,

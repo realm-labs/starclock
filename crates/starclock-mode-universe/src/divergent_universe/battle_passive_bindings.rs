@@ -2,7 +2,7 @@
 use super::DivergentUniverseBattleAssemblyError;
 use crate::digest::CanonicalDigestBuilder;
 use starclock_combat::{
-    CombatantSpecDigest, ParticipantSpec, ResolvedCombatantSpec, ResolvedDefinitionBindings,
+    CombatantSpecDigest, Hp, ParticipantSpec, ResolvedCombatantSpec, ResolvedDefinitionBindings,
     ResolvedModifierBinding, RuleBundleId, rule::model::RuleSource,
 };
 
@@ -11,6 +11,7 @@ pub(super) struct PassiveBindings {
     pub(super) modifiers: Vec<ResolvedModifierBinding>,
     pub(super) rule_bundles: Vec<RuleBundleId>,
     pub(super) sources: Vec<RuleSource>,
+    pub(super) maximum_hp: Option<Hp>,
 }
 
 pub(super) fn bind_passives(
@@ -37,6 +38,10 @@ pub(super) fn bind_passives(
     digest.update(b"starclock.divergent-universe.curio-attached-combatant");
     digest.update(assembly_digest);
     digest.update(base.digest().bytes());
+    if let Some(maximum_hp) = added.maximum_hp {
+        digest.update(b"maximum-hp");
+        digest.update(maximum_hp.get().to_le_bytes());
+    }
     for modifier in &modifiers {
         digest.update(modifier.get().to_le_bytes());
     }
@@ -47,7 +52,7 @@ pub(super) fn bind_passives(
     let combatant = ResolvedCombatantSpec::new(
         base.form(),
         base.level(),
-        base.maximum_hp(),
+        added.maximum_hp.unwrap_or(base.maximum_hp()),
         base.speed(),
         ResolvedDefinitionBindings::new(base.abilities().to_vec(), bundles, modifiers)
             .map_err(|_| invalid())?,
