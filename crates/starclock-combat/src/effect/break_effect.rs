@@ -1,5 +1,7 @@
 use crate::{
-    EffectInstanceId, OperationId, SourceDefinitionId, Speed, UnitId,
+    DotFamily, EffectInstanceId, NumericError, OperationId, Scalar, SourceDefinitionId, Speed,
+    UnitId,
+    formula::model::CombatElement,
     formula::toughness::{BaseBreakEffect, BreakDamageDefinition},
 };
 
@@ -16,6 +18,37 @@ pub(crate) struct BreakEffectState {
     pub(crate) remaining_turns: u8,
     pub(crate) stacks: u8,
     pub(crate) speed_before: Option<Speed>,
+}
+
+impl BreakEffectState {
+    /// Base Break status semantics, not inference for ordinary authored effects.
+    pub(crate) const fn dot_family(self) -> Option<DotFamily> {
+        match self.plan.element {
+            CombatElement::Physical => Some(DotFamily::Bleed),
+            CombatElement::Fire => Some(DotFamily::Burn),
+            CombatElement::Lightning => Some(DotFamily::Shock),
+            CombatElement::Wind => Some(DotFamily::WindShear),
+            CombatElement::Ice | CombatElement::Quantum | CombatElement::Imaginary => None,
+        }
+    }
+
+    /// Retains the captured base and the existing Wind/Quantum per-stack rule.
+    /// Callers separately determine whether a periodic or expiry tick is due.
+    pub(crate) fn damage_base(self) -> Result<Option<Scalar>, NumericError> {
+        self.plan
+            .base_damage
+            .map(|base| {
+                if matches!(
+                    self.plan.element,
+                    CombatElement::Wind | CombatElement::Quantum
+                ) {
+                    base.checked_mul_integer(i64::from(self.stacks))
+                } else {
+                    Ok(base)
+                }
+            })
+            .transpose()
+    }
 }
 
 #[derive(Clone, Debug, Default, Eq, PartialEq)]

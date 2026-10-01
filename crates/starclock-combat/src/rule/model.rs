@@ -2,7 +2,7 @@
 //! Closed battle-domain Rule IR values accepted after data lowering.
 
 use crate::{
-    AbilityId, ActionGaugeChangeKind, ActionId, CommandId, DotDetonationFilter,
+    AbilityId, ActionGaugeChangeKind, ActionId, CommandId, DotDetonationFilter, DotDetonationScope,
     DotDetonationSelection, EffectCategory, EffectDefinitionId, EffectRemovalOrder, EventId, HitId,
     LifeState, NativeHandlerId, PhaseId, PresenceState, ProgramId, RawToughness, Rounding, RuleId,
     RuleInstanceId, Scalar, SelectorId, SourceDefinitionId, StateSlotDefinitionId, TriggerId,
@@ -196,6 +196,7 @@ pub enum RuleToughnessEventKind {
     BaseEffectTicked,
     BaseEffectExpired,
     SuperBreakSkipped,
+    BaseEffectDetonated,
 }
 
 /// Explicit relationship between a matched event and its cause envelope.
@@ -851,6 +852,7 @@ pub enum RuleDotSelection {
     Filtered {
         filter: DotDetonationFilter,
         selection: DotDetonationSelection,
+        scope: DotDetonationScope,
     },
 }
 

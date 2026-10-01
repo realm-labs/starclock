@@ -12,8 +12,17 @@ pub enum DotFamily {
     WindShear,
 }
 
-/// Conjunctive filters for ordinary effect-store DoT instances. Break effects
-/// have a distinct store and are not candidates for this operation.
+/// Explicit candidate stores for one detonation. Break expiry/control damage
+/// is never a DoT candidate, including when it has a captured damage payload.
+#[derive(Clone, Copy, Debug, Default, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub enum DotDetonationScope {
+    #[default]
+    OrdinaryEffects,
+    OrdinaryAndBreakEffects,
+}
+
+/// Conjunctive filters for DoT instances. Definition exclusion applies only to
+/// ordinary effects: base Break statuses have no authored effect definition.
 #[derive(Clone, Copy, Debug, Default, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub struct DotDetonationFilter {
     family: Option<DotFamily>,

@@ -545,6 +545,7 @@ fn encode_break_damage(encoder: &mut Encoder<Vec<u8>>, value: BreakDamageEventDa
         BreakDamageKind::Initial => 0,
         BreakDamageKind::Effect => 1,
         BreakDamageKind::SuperBreak => 2,
+        BreakDamageKind::EffectDetonation => 3,
     });
     element(encoder, value.element);
     encoder.i64(value.raw.scaled());
@@ -632,6 +633,20 @@ fn encode_effect(encoder: &mut Encoder<Vec<u8>>, value: EffectEventData) {
 
 fn encode_toughness(encoder: &mut Encoder<Vec<u8>>, value: ToughnessEventData) {
     match value {
+        ToughnessEventData::BaseEffectDetonated {
+            operation,
+            target,
+            effect,
+            element: value,
+            fraction,
+        } => {
+            encoder.u8(12);
+            encoder.u64(operation.get());
+            encoder.u64(target.get());
+            encoder.u64(effect.get());
+            element(encoder, value);
+            encoder.i64(fraction.scaled());
+        }
         ToughnessEventData::WeaknessAdded {
             operation,
             target,

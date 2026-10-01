@@ -36,9 +36,14 @@ pub(super) fn lower_dot_detonation_definition(
         RuleDotSelection::RandomOne(purpose) => {
             definition.with_selection(DotDetonationSelection::RandomOne(purpose))
         }
-        RuleDotSelection::Filtered { filter, selection } => {
-            definition.with_filter(filter).with_selection(selection)
-        }
+        RuleDotSelection::Filtered {
+            filter,
+            selection,
+            scope,
+        } => definition
+            .with_filter(filter)
+            .with_selection(selection)
+            .with_scope(scope),
     })
 }
 

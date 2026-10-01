@@ -1,7 +1,8 @@
 //! Generic authored effect semantics. Content identities remain catalog data.
 
 use crate::{
-    DotDetonationFilter, EffectDefinitionId, Probability, Ratio, Scalar, SourceDefinitionId,
+    DotDetonationFilter, DotDetonationScope, EffectDefinitionId, Probability, Ratio, Scalar,
+    SourceDefinitionId,
     catalog::action::{OrdinaryDamageDefinition, OrdinaryDamageMultipliers},
     formula::model::{CombatElement, DamageClass},
     modifier::model::StatKind,
@@ -842,6 +843,7 @@ pub struct DotDetonationDefinition {
     required_tag: Option<SourceDefinitionId>,
     selection: DotDetonationSelection,
     filter: DotDetonationFilter,
+    scope: DotDetonationScope,
 }
 
 impl DotDetonationDefinition {
@@ -855,6 +857,7 @@ impl DotDetonationDefinition {
                 required_tag,
                 selection: DotDetonationSelection::All,
                 filter: DotDetonationFilter::default(),
+                scope: DotDetonationScope::OrdinaryEffects,
             })
         }
     }
@@ -892,6 +895,20 @@ impl DotDetonationDefinition {
     #[must_use]
     pub const fn filter(self) -> DotDetonationFilter {
         self.filter
+    }
+
+    /// Selects candidate stores before filtering and random choice. Base Break
+    /// effects have no authored tags; a required tag excludes them. Detonation
+    /// never changes their captured base, stacks, lifetime or source operation.
+    #[must_use]
+    pub const fn with_scope(mut self, scope: DotDetonationScope) -> Self {
+        self.scope = scope;
+        self
+    }
+
+    #[must_use]
+    pub const fn scope(self) -> DotDetonationScope {
+        self.scope
     }
 }
 

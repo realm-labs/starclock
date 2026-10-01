@@ -2,6 +2,7 @@ pub(crate) mod action;
 mod action_execution;
 mod clock;
 mod command_resolution;
+mod dot_detonation;
 mod effect_boundary;
 mod effect_duration;
 mod effect_operation;

@@ -558,7 +558,9 @@ fn event_facts(
         }
         BattleEventKind::BreakDamage(data) => {
             facts.damage_class = Some(match data.kind {
-                BreakDamageKind::Initial | BreakDamageKind::Effect => RuleDamageClass::Break,
+                BreakDamageKind::Initial
+                | BreakDamageKind::Effect
+                | BreakDamageKind::EffectDetonation => RuleDamageClass::Break,
                 BreakDamageKind::SuperBreak => RuleDamageClass::SuperBreak,
             });
             facts.element = Some(data.element);
@@ -796,6 +798,7 @@ fn toughness_element(data: &ToughnessEventData) -> Option<CombatElement> {
         | ToughnessEventData::BaseEffectApplied { element, .. }
         | ToughnessEventData::BaseEffectResisted { element, .. }
         | ToughnessEventData::BaseEffectExpired { element, .. } => Some(*element),
+        ToughnessEventData::BaseEffectDetonated { element, .. } => Some(*element),
         _ => None,
     }
 }
@@ -829,6 +832,7 @@ fn toughness_kind(data: &ToughnessEventData) -> RuleToughnessEventKind {
         Event::BaseEffectApplied { .. } => Kind::BaseEffectApplied,
         Event::BaseEffectResisted { .. } => Kind::BaseEffectResisted,
         Event::BaseEffectTicked { .. } => Kind::BaseEffectTicked,
+        Event::BaseEffectDetonated { .. } => Kind::BaseEffectDetonated,
         Event::BaseEffectExpired { .. } => Kind::BaseEffectExpired,
         Event::Recovered { .. } => Kind::LayerRestored,
         Event::SuperBreakSkipped { .. } => Kind::SuperBreakSkipped,

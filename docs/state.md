@@ -6,10 +6,13 @@ Git history is the only historical record.
 Shared combat retains authored ordinary DoT families in immutable catalogs and
 supports conjunctive family/tag/excluded-definition detonation filters through
 hit plans and Rule IR. Production Sora lowering preserves all eleven existing
-Burn/Bleed/Shock/Wind Shear declarations. Filters precede canonical random
-selection and preserve DoT attribution, duration and stacks. Break-effect
-detonation remains separate and unimplemented; this prerequisite grants no
-additional Divergent Universe content execution credit. See the
+Burn/Bleed/Shock/Wind Shear declarations. An explicit scope additionally admits
+four periodic base Break statuses into one instance-ordered candidate pool.
+Filters precede canonical random selection; each kind retains its own formula,
+original applier/source, captured base, duration and stacks. Break control/expiry
+damage remains ineligible. Typed detonation events have canonical replay encoding.
+This prerequisite grants no additional Divergent Universe content execution
+credit. See the
 [DoT filter contract](12-modifier-and-snapshot-pipeline.md).
 
 ## Divergent Universe release readiness
@@ -739,7 +742,7 @@ under an explicit scope policy and verified-result five-battle lifetime.
   stays in Rule IR. The ten Version 4.4 postfix byte semantics are now the sole
   named shared-capability gap and remain explicitly unresolved rather than
   inferred from historical independent analysis. `G21-P2-B5` executes four
-  shared capability probes, audits 218 Activity/Build/Combat/Rules Rust files
+  shared capability probes, audits 219 Activity/Build/Combat/Rules Rust files
   for mode-ID branches, confirms zero admitted native handlers and freezes all
   43 generated partitions covering 2,367 programs with deterministic digests.
   Its configuration-program `VersionedProjectPolicy` affects 156 expression

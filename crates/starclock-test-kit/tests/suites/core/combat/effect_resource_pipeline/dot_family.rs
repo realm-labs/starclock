@@ -125,6 +125,7 @@ fn builder(detonation: DotDetonationDefinition, ir: bool) -> CombatCatalogBuilde
             selection: RuleDotSelection::Filtered {
                 filter: detonation.filter(),
                 selection: detonation.selection(),
+                scope: detonation.scope(),
             },
         }));
         builder.add_program(

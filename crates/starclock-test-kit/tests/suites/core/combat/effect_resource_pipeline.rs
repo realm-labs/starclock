@@ -1,4 +1,6 @@
 use crate::combat_decision::{advance_boundary_if_offered, settle_ready_boundaries};
+#[path = "effect_resource_pipeline/break_detonation.rs"]
+mod break_detonation;
 #[path = "effect_resource_pipeline/dot_family.rs"]
 mod dot_family;
 #[path = "effect_resource_pipeline/magnitude_capture.rs"]

@@ -7,8 +7,8 @@ use super::operation_formula::final_damage::FinalBreakDamage;
 use super::{operation_formula::FormulaInputs, transaction::Transaction};
 
 use super::{
-    clock, effect_boundary, effect_duration, effect_operation, lifecycle, modifier_snapshot,
-    operation_break, operation_resource, schedule, settle,
+    clock, dot_detonation, effect_boundary, effect_duration, effect_operation, lifecycle,
+    modifier_snapshot, operation_break, operation_resource, schedule, settle,
 };
 use crate::{
     BreakCreditPolicy, CauseActor, DamageAmount, DurationClock, EffectCategory, EffectChancePolicy,
@@ -31,6 +31,7 @@ use crate::{
     formula::{
         self,
         model::{CombatElement, DamageClass},
+        sustain::DamageCalculation,
     },
     id::EventId,
     modifier::model::{FormulaPurpose, FormulaStage},
@@ -98,7 +99,7 @@ pub(super) fn execute_operation(
             execute_remove_effects(txn, cause, parent, operation)
         }
         Operation::DetonateDots(operation) => {
-            effect_operation::detonate_dots(catalog, txn, cause, parent, operation)
+            dot_detonation::execute(catalog, txn, cause, parent, operation)
         }
         Operation::ModifyStateSlot(operation) => {
             operation_resource::execute_modify_state_slot(txn, cause, parent, operation)
@@ -483,27 +484,27 @@ fn execute_super_break(
 }
 
 #[derive(Clone, Copy)]
-struct BreakDamageApplication {
-    operation: OperationId,
-    target: UnitId,
-    element: CombatElement,
-    kind: BreakDamageKind,
-    raw: Scalar,
+pub(super) struct BreakDamageApplication {
+    pub(super) operation: OperationId,
+    pub(super) target: UnitId,
+    pub(super) element: CombatElement,
+    pub(super) kind: BreakDamageKind,
+    pub(super) raw: Scalar,
 }
 
 fn apply_break_damage(
     catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
-    mut parent: EventId,
+    parent: EventId,
     application: BreakDamageApplication,
 ) -> Result<EventId, BattleFault> {
     let BreakDamageApplication {
-        operation,
         target,
         element,
         kind,
         raw,
+        ..
     } = application;
     let damage = FormulaInputs::new(txn)?.final_break_damage(
         catalog,
@@ -520,6 +521,26 @@ fn apply_break_damage(
             },
         },
     )?;
+    apply_finalized_break_damage(catalog, txn, cause, parent, application, damage)
+}
+
+/// Shared shield/HP/guard/metric settlement after an owning resolver computes
+/// the complete Break formula. Never applies the final source factor twice.
+pub(super) fn apply_finalized_break_damage(
+    catalog: &CombatCatalog,
+    txn: &mut Transaction<'_>,
+    cause: Cause,
+    mut parent: EventId,
+    application: BreakDamageApplication,
+    damage: DamageCalculation,
+) -> Result<EventId, BattleFault> {
+    let BreakDamageApplication {
+        operation,
+        target,
+        element,
+        kind,
+        ..
+    } = application;
     let raw = damage.raw;
     let mut calculated = damage.finalized;
     let (hp_before, life_before) = txn
@@ -558,7 +579,10 @@ fn apply_break_damage(
         cause,
         target,
         applied.get(),
-        kind == BreakDamageKind::Effect,
+        matches!(
+            kind,
+            BreakDamageKind::Effect | BreakDamageKind::EffectDetonation
+        ),
     )?;
     parent = txn.emit(
         cause.with_parent(parent).with_primary_target(Some(target)),
@@ -594,27 +618,20 @@ pub(super) fn settle_break_effects_at_turn_start(
     let mut skips_action = false;
     for effect in effects {
         let expires = effect.remaining_turns == 1;
-        let is_dot = matches!(
-            effect.plan.element,
-            CombatElement::Physical
-                | CombatElement::Fire
-                | CombatElement::Lightning
-                | CombatElement::Wind
-        );
+        let is_dot = effect.dot_family().is_some();
         let expiry_damage = expires
             && matches!(
                 effect.plan.element,
                 CombatElement::Ice | CombatElement::Quantum
             );
-        if let (true, Some(mut base)) = (is_dot || expiry_damage, effect.plan.base_damage) {
-            if matches!(
-                effect.plan.element,
-                CombatElement::Wind | CombatElement::Quantum
-            ) {
-                base = base
-                    .checked_mul_integer(i64::from(effect.stacks))
-                    .map_err(|_| numeric_fault(22, i64::from(effect.stacks)))?;
-            }
+        let base = if is_dot || expiry_damage {
+            effect
+                .damage_base()
+                .map_err(|_| numeric_fault(22, i64::from(effect.stacks)))?
+        } else {
+            None
+        };
+        if let Some(base) = base {
             let effect_cause = cause
                 .with_applier(effect.applier)
                 .with_source_definition(effect.source_definition);

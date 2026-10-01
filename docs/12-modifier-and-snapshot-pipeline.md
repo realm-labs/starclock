@@ -127,10 +127,11 @@ Other tags keep their independent semantics; no family is inferred from them.
 `DotDetonationFilter` intersects an optional family and an excluded effect
 definition with the operation's existing required tag. Catalog validation
 rejects missing exclusion references in both hit operations and Rule IR. All
-instances of the excluded definition are omitted. Filtering occurs before the
-existing stable effect-instance order and optional labeled RandomOne draw;
+ordinary instances of the excluded definition are omitted. Filtering occurs before
+the stable effect-instance order and optional labeled RandomOne draw;
 zero or one surviving candidate consumes no RNG. The Rule IR `Filtered`
-selection lowers to exactly the same generic operation as authored hit plans.
+selection declares the candidate scope and lowers to exactly the same generic
+operation as authored hit plans.
 
 Detonation retains the original DoT's applier, source definition, stored formula,
 stacks and captured base magnitude, while evaluating the existing dynamic
@@ -138,15 +139,42 @@ formula context. It applies the declared fraction with nearest-ties-even roundin
 then floors final damage. It does not refresh/remove effects or consume stacks
 or duration. Unfiltered operations retain their existing behavior.
 
-This selection operates only on ordinary effect instances, not the separate
-Break-effect store. It is a shared prerequisite, not complete execution evidence
-for any mode mechanic requiring Break Burn participation. The
+`DotDetonationScope::OrdinaryEffects` selects ordinary instances.
+`OrdinaryAndBreakEffects` additionally admits active base Break Bleed, Burn,
+Shock and Wind Shear. Both stores share effect-instance IDs; the eligible pool
+is merged and sorted by that key before any random choice. The base Break
+status's established element semantics determine its family. This never infers
+the family of an ordinary effect from its damage element. Ice and Quantum expiry
+damage and Imaginary control are not periodic DoTs and remain ineligible.
+
+Base Break statuses have neither authored tags nor an effect-definition ID.
+A required tag excludes them rather than treating their source ID as a tag;
+an excluded ordinary definition does not exclude them. Break detonation uses
+the same captured base and Wind stack rule as natural ticks, the original
+applier/source, the dedicated Break formula and its final source multiplier.
+Both candidate kinds use the operation-entry formula inputs, apply the fraction
+to the complete unfloored result, then floor once for damage settlement.
+Guards, shields, HP bounds, damage credit and defeat use the existing shared
+settlement. `BreakDamageKind::EffectDetonation` and
+`ToughnessEventData::BaseEffectDetonated` distinguish immediate damage from
+natural ticks and preserve operation/effect identity, element and fraction in
+canonical event bytes. The corresponding typed Toughness filter is available
+to Rule IR. Detonation does not consume or reset the base status's lifetime,
+stacks, source operation, captured base or control behavior.
+
+These are shared capabilities, not production execution credit for a mode
+mechanic that has not yet supplied its complete authored program. The
 [native accepted-command corpus](../crates/starclock-test-kit/tests/suites/core/combat/effect_resource_pipeline/dot_family.rs)
 covers both hit plans and Rule IR, family/tag/exclusion intersection,
 unclassified same-element effects, empty/single/multiple candidate pools,
 retention, attribution and fresh deterministic reconstruction. The
 [real Sora loader tests](../crates/starclock-data/src/catalog_dot_family_tests.rs)
 bind all eleven current production family declarations.
+The [cross-store native corpus](../crates/starclock-test-kit/tests/suites/core/combat/effect_resource_pipeline/break_detonation.rs)
+covers all four periodic Break statuses, dedicated formulas and original source
+ownership, mixed-store ordering, explicit scopes, filters, control exclusion,
+random pool boundaries and fresh canonical-event reconstruction through both
+hit plans and Rule IR.
 
 ## Query dependency and cycle detection
 

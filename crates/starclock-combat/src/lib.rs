@@ -86,7 +86,7 @@ pub use diagnostic::{
     ActionCancellationReason, BattleDiagnostics, CommittedTargetsDiagnostic, DiagnosticRecord,
     MAX_DIAGNOSTIC_RECORDS_PER_COMMAND, ReactionOrderDiagnostic, ReactionTierDiagnostic,
 };
-pub use effect::detonation::{DotDetonationFilter, DotFamily};
+pub use effect::detonation::{DotDetonationFilter, DotDetonationScope, DotFamily};
 pub use effect::model::{
     ControlledAction, DispelCategory, DotDefinition, DotDetonationDefinition,
     DotDetonationSelection, DurationClock, EffectApplicationDefinition, EffectApplicationGuard,

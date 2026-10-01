@@ -1,22 +1,20 @@
 //! Effect attachment and DoT operations.
 
 use crate::{
-    DamageAmount, DamageKind, DotDetonationSelection, EffectApplicationGuard, EffectDamageGuard,
-    EffectDefinitionId, EffectInstanceId, OperationId, Rounding, RuleSignalEventData, Scalar,
-    TEAM_DEFEAT_GUARDED_SIGNAL, UnitId,
+    DamageAmount, EffectApplicationGuard, EffectDamageGuard, EffectDefinitionId, EffectInstanceId,
+    OperationId, Rounding, RuleSignalEventData, Scalar, TEAM_DEFEAT_GUARDED_SIGNAL, UnitId,
     battle::fault::BattleFault,
-    catalog::{CombatCatalog, action::OrdinaryDamageDefinition, definition::RuleDefinition},
+    catalog::{CombatCatalog, definition::RuleDefinition},
     event::{
         cause::Cause,
         model::{BattleEventKind, EffectEventData},
     },
     id::EventId,
     modifier::model::ActiveModifier,
-    operation::DetonateDotsOp,
     rule::model::{RuleValue, SourceClass},
 };
 
-use super::{modifier_snapshot, operation, operation_formula};
+use super::modifier_snapshot;
 use super::{
     operation::fault::{invariant_fault, numeric_fault},
     transaction::Transaction,
@@ -335,94 +333,4 @@ pub(super) fn instantiate_attachments(
         }
     }
     Ok(())
-}
-
-pub(super) fn detonate_dots(
-    catalog: &CombatCatalog,
-    txn: &mut Transaction<'_>,
-    cause: Cause,
-    mut parent: EventId,
-    operation: DetonateDotsOp,
-) -> Result<EventId, BattleFault> {
-    let inputs = operation_formula::FormulaInputs::new(txn)?;
-    for target in operation.targets {
-        let mut effects = txn
-            .state
-            .effects
-            .dots_for(target, operation.definition.required_tag());
-        let filter = operation.definition.filter();
-        effects.retain(|effect| {
-            filter.excluded_effect() != Some(effect.definition)
-                && filter.required_family().is_none_or(|family| {
-                    catalog
-                        .effect(effect.definition)
-                        .is_some_and(|definition| definition.dot_family() == Some(family))
-                })
-        });
-        if let DotDetonationSelection::RandomOne(purpose) = operation.definition.selection()
-            && effects.len() > 1
-        {
-            let index = txn
-                .choose_index(purpose, effects.len())?
-                .ok_or_else(|| invariant_fault(43))?;
-            effects = vec![effects.swap_remove(index)];
-        }
-        for effect in effects {
-            let dot = effect.dot.ok_or_else(|| invariant_fault(36))?;
-            let per_stack = dot.formula();
-            let base = per_stack
-                .base_damage()
-                .checked_mul_integer(i64::from(effect.stacks))
-                .map_err(|_| numeric_fault(31, per_stack.base_damage().scaled()))?;
-            let formula = OrdinaryDamageDefinition::new(base, per_stack.multipliers())
-                .map_err(|_| numeric_fault(31, base.scaled()))?
-                .with_class(per_stack.class());
-            let attributed = cause
-                .with_applier(effect.applier)
-                .with_source_definition(effect.source_definition);
-            let calculation = inputs.damage(
-                catalog,
-                txn,
-                attributed,
-                formula,
-                Some(dot.element()),
-                target,
-                true,
-                false,
-            )?;
-            let raw = operation
-                .definition
-                .fraction()
-                .checked_apply(calculation.raw, Rounding::NearestTiesEven)
-                .map_err(|_| numeric_fault(32, calculation.raw.scaled()))?;
-            let finalized = DamageAmount::from_scalar(raw, Rounding::Floor)
-                .map_err(|_| numeric_fault(33, raw.scaled()))?;
-            parent = operation::apply_ordinary_damage(
-                catalog,
-                txn,
-                attributed,
-                parent,
-                operation.id,
-                target,
-                DamageKind::DotDetonation,
-                formula.class(),
-                Some(dot.element()),
-                Some(effect.id),
-                raw,
-                finalized,
-            )?;
-            parent = txn.emit(
-                attributed
-                    .with_parent(parent)
-                    .with_primary_target(Some(target)),
-                BattleEventKind::Effect(EffectEventData::Detonated {
-                    operation: operation.id,
-                    effect: effect.id,
-                    target,
-                    fraction: operation.definition.fraction(),
-                }),
-            );
-        }
-    }
-    Ok(parent)
 }

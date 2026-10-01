@@ -203,6 +203,8 @@ pub enum BreakDamageKind {
     Initial,
     Effect,
     SuperBreak,
+    /// Immediate periodic Break-effect damage without ticking its lifetime.
+    EffectDetonation,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -221,6 +223,13 @@ pub struct BreakDamageEventData {
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum ToughnessEventData {
+    BaseEffectDetonated {
+        operation: OperationId,
+        target: UnitId,
+        effect: EffectInstanceId,
+        element: CombatElement,
+        fraction: Ratio,
+    },
     WeaknessAdded {
         operation: OperationId,
         target: UnitId,
