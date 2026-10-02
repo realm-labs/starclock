@@ -13,6 +13,7 @@ use crate::{
         encounter::EnemyPhaseTransitionModel,
     },
     command::model::{ActionFrameInput, DecisionKind, DecisionOwner},
+    damage::DamageSemantics,
     formula::model::{CombatElement, DamageClass},
     id::{
         AbilityId, ActionBoundaryId, ActionFrameId, ActionId, DecisionId, EventId, HitId,
@@ -106,6 +107,8 @@ pub enum BattleEventKind {
 /// Ordinary damage calculation and the bounded HP mutation it produced.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DamageEventData {
+    /// Operation-entry labels retained through guards, defeat and effect removal.
+    pub semantics: DamageSemantics,
     /// Authored operation instance that produced this target mutation.
     pub operation: OperationId,
     /// Semantic damage family, including retained DoT attribution.

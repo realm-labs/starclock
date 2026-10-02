@@ -11,6 +11,7 @@ use crate::{
     AbilityId, AiGraphId, DotFamily, EffectDefinitionId, EncounterId, EncounterWaveId,
     EnemyDefinitionId, ModifierDefinitionId, ProgramId, RuleBundleId, RuleId, Scalar, SelectorId,
     StateSlotDefinitionId, UnitDefinitionId,
+    damage::DamageClassification,
     effect::model::{EffectRuntimeDefinition, EffectRuntimeTemplate},
     rule::model::{BattleRuleDefinition, ProgramStep, RuleValue},
 };
@@ -317,6 +318,7 @@ pub struct EffectDefinition {
     runtime: Option<EffectRuntimeDefinition>,
     runtime_template: Option<EffectRuntimeTemplate>,
     dot_family: Option<DotFamily>,
+    damage_classifications: Box<[DamageClassification]>,
 }
 
 impl EffectDefinition {
@@ -336,6 +338,7 @@ impl EffectDefinition {
             runtime: None,
             runtime_template: None,
             dot_family: None,
+            damage_classifications: Box::default(),
         }
     }
     /// Attaches the validated generic runtime behavior.
@@ -361,6 +364,20 @@ impl EffectDefinition {
     #[must_use]
     pub const fn dot_family(&self) -> Option<DotFamily> {
         self.dot_family
+    }
+    /// Adds labels for the live holder selected by the shared formula-source
+    /// contract, not the effect applier or victim. Unitless actors retain that
+    /// contract's owner fallback. Multiple providers union labels idempotently.
+    /// Catalog validation requires a runtime and ordered nonempty non-DoT entries.
+    #[must_use]
+    pub fn with_damage_classifications(mut self, entries: Vec<DamageClassification>) -> Self {
+        self.damage_classifications = entries.into_boxed_slice();
+        self
+    }
+    /// Returns the canonical additive labels; none are implied by effect category.
+    #[must_use]
+    pub fn damage_classifications(&self) -> &[DamageClassification] {
+        &self.damage_classifications
     }
     /// Copies this effect instance's resolved magnitude into each named
     /// modifier-local Scalar slot before attachment snapshot evaluation.

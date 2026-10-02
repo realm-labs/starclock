@@ -75,6 +75,50 @@ Formula modifiers do not masquerade as generic stats. `DamageContext` gathers di
 
 Healing and shields use their own contexts for base values, outgoing/incoming healing, shield modifiers, received modifiers, and stacking behavior. Reusing an ordinary DMG stage requires an explicit tag contract, not a coincidentally similar formula.
 
+### Additive damage semantics
+
+`DamageSemantics` is a bounded, canonical per-damage label set, independent of
+`AbilityTags`, action kind and calculator family. The current native label is
+`FollowUp`. Direct damage authored by a FollowUp-tagged ability carries this
+label; the ability's other damage families do not inherit it. An explicit
+Ultimate-semantics override suppresses that default. This is a native contract,
+not observed released parity for hidden secondary-damage programs.
+
+An executable `EffectDefinition` can add labels for named non-DoT calculator
+families through strictly ordered, unique `DamageClassification` entries.
+Eligibility uses the formula producer's live effect holder, not its applier,
+queried victim or a linked combat unit's owner. Unitless timeline actors retain
+the shared formula's explicit owner fallback; mode policies that exclude such
+actors still require an actor-membership gate. Labels from multiple instances or
+definitions form an idempotent union, not a multiplier. The operation-entry
+`FormulaInputs` capture determines the labels for all targets of that operation;
+later operations requery after application, removal or expiry.
+
+The original class tag remains present. `FollowUp` adds the sorted, unique
+`follow_up` damage tag to source, critical and incoming formula contexts without
+adding a FollowUp ability tag. Shared/per-target CRIT caches retain only the
+decision/draw; CRIT DMG is queried separately for each operation's class and
+labels. Noncritical damage does not receive a CRIT DMG stat contribution.
+Source-unboosted/True damage and DoT settlement carry no attack labels; Break
+and Super Break retain their separate events and formulas.
+
+`DamageEventData.semantics` retains the captured labels through guards, effect
+consumption and defeat settlement. `RuleEventFacts.damage_semantics` comes from
+that payload, never a later scan of live effects. `EventFilter.damage_semantic`
+matches conjunctively with the original class/action/ability filters.
+`RuleSelectorPredicate::EventDamageSemantic` gates the candidate pool by the
+triggering event's label, not by each candidate's own attacks. No extra action,
+hit, event or reaction is generated merely by an additional label.
+
+The current replay payload encodes the label bits immediately after the damage
+class. Unknown bits cannot be constructed through the public checked bit-set constructor.
+The [accepted-command corpus](../crates/starclock-test-kit/tests/suites/core/combat/effect_resource_pipeline/damage_semantics.rs)
+checks mixed classes, critical scopes, holder/applier separation, target factors,
+duplicate providers, removal, True damage, guard consumption, filters, selectors
+and fresh event/state/RNG reconstruction. Sora classification/filter/predicate
+authoring remains unbound; this shared capability alone grants no mode-content
+execution credit.
+
 ## Caps and normalization
 
 Caps belong to a named formula stage. Examples include final probability clamping, stat-domain minimums, resistance bounds where supported by the selected rules revision, and HP/resource legal ranges. Do not clamp each contributing modifier individually unless the rule says so.

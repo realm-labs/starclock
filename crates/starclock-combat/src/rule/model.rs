@@ -9,6 +9,7 @@ use crate::{
     UnitDefinitionId, UnitId, WaveInstanceId,
     catalog::action::elation::ElationDamageDefinition,
     catalog::action::{AbilityTag, AbilityTags, ReactionBoundary, TargetPattern},
+    damage::{DamageSemantic, DamageSemantics},
     formula::{
         model::{CombatElement, DamageClass},
         toughness::EnemyRank,
@@ -241,6 +242,8 @@ pub enum EventValueProperty {
 
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct RuleEventFacts {
+    /// Captured damage labels; empty for events that are not damage settlements.
+    pub damage_semantics: DamageSemantics,
     pub point: Option<RuleEventPoint>,
     /// Effect definition carried by an effect lifecycle event, when known.
     pub effect_definition: Option<EffectDefinitionId>,
@@ -326,6 +329,8 @@ pub enum OnceScope {
 /// Cheap indexed cause fields checked before contextual conditions.
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct EventFilter {
+    /// Conjunctive additive damage label; does not match an action tag.
+    pub damage_semantic: Option<DamageSemantic>,
     pub owner: Option<UnitId>,
     pub actor: Option<UnitId>,
     pub applier: Option<UnitId>,

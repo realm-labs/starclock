@@ -211,25 +211,21 @@ fn expected_public_route(case: &PublicRouteCase) -> Vec<PublicRouteStep> {
     steps
 }
 
-#[test]
-fn public_offers_complete_both_families_and_export_fresh_replays() {
-    let factory = production_factory_for_tests();
-    let fresh = DivergentUniverseActivityAgentSessionFactory::load_production().unwrap();
-    let fresh_manifest = fresh.manifest().unwrap();
-    for case in [
+fn public_route_cases() -> [PublicRouteCase; 6] {
+    [
         PublicRouteCase {
             family: AgentDivergentUniverseRunFamily::Ordinary,
             seed: 22_103,
             event_option: 1,
-            equation_option: 35,
-            later_encounter_options: [4, 2],
+            equation_option: 45,
+            later_encounter_options: [4, 4],
             sage_evolutions: false,
         },
         PublicRouteCase {
             family: AgentDivergentUniverseRunFamily::Cyclical,
             seed: 22_104,
             event_option: 1,
-            equation_option: 35,
+            equation_option: 33,
             later_encounter_options: [1, 3],
             sage_evolutions: false,
         },
@@ -237,35 +233,43 @@ fn public_offers_complete_both_families_and_export_fresh_replays() {
             family: AgentDivergentUniverseRunFamily::Ordinary,
             seed: 22_105,
             event_option: 2,
-            equation_option: 47,
-            later_encounter_options: [3, 4],
+            equation_option: 33,
+            later_encounter_options: [1, 2],
             sage_evolutions: false,
         },
         PublicRouteCase {
             family: AgentDivergentUniverseRunFamily::Cyclical,
-            seed: 22_106,
+            seed: 249,
             event_option: 2,
-            equation_option: 36,
-            later_encounter_options: [4, 3],
+            equation_option: 34,
+            later_encounter_options: [1, 5],
             sage_evolutions: true,
         },
         PublicRouteCase {
             family: AgentDivergentUniverseRunFamily::Ordinary,
             seed: 22_107,
             event_option: 3,
-            equation_option: 35,
-            later_encounter_options: [1, 3],
+            equation_option: 36,
+            later_encounter_options: [1, 2],
             sage_evolutions: false,
         },
         PublicRouteCase {
             family: AgentDivergentUniverseRunFamily::Cyclical,
             seed: 22_108,
             event_option: 3,
-            equation_option: 48,
-            later_encounter_options: [2, 2],
+            equation_option: 33,
+            later_encounter_options: [3, 5],
             sage_evolutions: false,
         },
-    ] {
+    ]
+}
+
+#[test]
+fn public_offers_complete_both_families_and_export_fresh_replays() {
+    let factory = production_factory_for_tests();
+    let fresh = DivergentUniverseActivityAgentSessionFactory::load_production().unwrap();
+    let fresh_manifest = fresh.manifest().unwrap();
+    for case in public_route_cases() {
         let family = case.family;
         let seed = case.seed;
         let expected = expected_public_route(&case);
@@ -416,6 +420,100 @@ fn public_offers_complete_both_families_and_export_fresh_replays() {
             .verify_replay(&AgentUInt::from_u64(seed), family, &corrupted)
             .expect_err("corruption rejected");
         assert_eq!(error.code, AgentErrorCode::ReplayDiverged);
+    }
+}
+
+#[test]
+#[ignore = "explicit discovery of current configuration-bound public route goldens"]
+fn discover_current_public_route_goldens() {
+    let factory = production_factory_for_tests();
+    let fresh = DivergentUniverseActivityAgentSessionFactory::load_production().unwrap();
+    for mut case in public_route_cases() {
+        if case.sage_evolutions {
+            let mut selected = None;
+            for seed in 0..2048 {
+                let mut session = factory
+                    .create(request("du_route_discovery", case.family, seed))
+                    .unwrap();
+                play_public_option(&mut session, 0, None);
+                play_public_option(&mut session, 1, Some(case.event_option));
+                let owned = factory
+                    .fixture
+                    .factory()
+                    .curio_runtime()
+                    .unwrap()
+                    .owned(&session.activity)
+                    .unwrap();
+                if owned
+                    .iter()
+                    .any(|row| row.state().as_str() == "divergent-universe.curio-state.9192")
+                    && !owned.iter().any(|row| {
+                        matches!(
+                            row.state().as_str(),
+                            "divergent-universe.curio-state.9055"
+                                | "divergent-universe.curio-state.9195"
+                        )
+                    })
+                {
+                    selected = Some(seed);
+                    break;
+                }
+            }
+            case.seed = selected.expect("bounded Sage route discovery");
+        }
+        let mut session = factory
+            .create(request(
+                &format!("du_complete_{:?}", case.family),
+                case.family,
+                case.seed,
+            ))
+            .unwrap();
+        let mut route = Vec::new();
+        let mut evolutions = Vec::new();
+        while session.terminal().is_none() {
+            assert!(route.len() < 16);
+            if let Some(event) = session.flow.offered_evolution_event(&session.activity) {
+                evolutions.push(event.key.clone());
+            }
+            let observation = session.observe().unwrap();
+            let selected = observation
+                .legal_actions
+                .iter()
+                .filter(|action| route.len() != 1 || action.option_id.to_u64() == case.event_option)
+                .max_by(|left, right| {
+                    priority(left)
+                        .cmp(&priority(right))
+                        .then_with(|| right.option_id.to_u64().cmp(&left.option_id.to_u64()))
+                })
+                .unwrap()
+                .clone();
+            let mut observed = public_step(
+                observation.current_node.to_u64(),
+                selected.option_id.to_u64(),
+                observation.decision_kind.unwrap(),
+                0,
+            );
+            let response = session
+                .apply_action(PlayActivityActionRequest {
+                    session_id: session.session_id().clone(),
+                    boundary_id: observation.boundary_id.unwrap(),
+                    expected_state_hash: observation.state_hash,
+                    action_token: selected.token,
+                    idempotency_key: IdempotencyKey::parse(&format!("du_action_{}", route.len()))
+                        .unwrap(),
+                })
+                .unwrap();
+            observed.nested_battles = response.settlement.nested_battles.to_u64();
+            route.push(observed);
+        }
+        let replay = session.export_replay().unwrap();
+        let verified = session.verify_replay(&fresh, replay.bytes()).unwrap();
+        assert_eq!(verified.final_state_hash, session.state_hash());
+        assert_eq!(verified.nested_battles.to_u64(), 3);
+        println!(
+            "CURRENT {:?} seed {} route {route:?} evolutions {evolutions:?}",
+            case.family, case.seed
+        );
     }
 }
 

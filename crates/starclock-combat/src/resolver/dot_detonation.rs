@@ -11,6 +11,7 @@ use crate::{
     EffectInstanceId, EventId, OperationId, Rounding,
     battle::fault::BattleFault,
     catalog::{CombatCatalog, action::OrdinaryDamageDefinition},
+    damage::DamageSemantics,
     effect::{break_effect::BreakEffectState, state::EffectState},
     event::{
         cause::Cause,
@@ -156,6 +157,7 @@ fn ordinary(
         effect.target,
         DamageKind::DotDetonation,
         formula.class(),
+        DamageSemantics::NONE,
         Some(dot.element()),
         Some(effect.id),
         damage.raw,

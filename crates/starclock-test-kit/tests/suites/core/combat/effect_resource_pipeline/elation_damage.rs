@@ -1,4 +1,6 @@
 //! Real accepted-command coverage of the explicit native Elation operation.
+#[path = "damage_semantics.rs"]
+mod damage_semantics;
 #[path = "elation_rule_ir.rs"]
 mod elation_rule_ir;
 use super::{catalog, combatant, definition};

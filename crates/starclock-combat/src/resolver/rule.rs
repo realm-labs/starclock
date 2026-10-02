@@ -535,6 +535,7 @@ fn event_facts(
             facts.element = action.and_then(action_element);
         }
         BattleEventKind::Damage(data) => {
+            facts.damage_semantics = data.semantics;
             facts.element = data.element;
             facts.damage_class = Some(match data.class {
                 DamageClass::Direct => RuleDamageClass::Ordinary,

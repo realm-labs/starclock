@@ -68,11 +68,11 @@ fn component_replay_reexecutes_real_battles_and_reports_every_first_boundary() {
     assert_eq!(verified.action_count(), 62);
     assert_eq!(verified.battle_count(), 17);
     assert_eq!(verified.battle_command_count(), 76);
-    assert_eq!(bytes.len(), 93_245);
+    assert_eq!(bytes.len(), 93_290);
     let replay = decode_replay(&bytes).unwrap();
     assert_eq!(
         replay_digest,
-        "5bdcd9a00d7a6e089bf96fcfe41d640d1feb6edac7aa81a360ae119a8036812f"
+        "3fff2c51e80ead47dc9b5a37d132e0723ece52e62917b421534b6ec55f0c69e9"
     );
     assert_eq!(replay.records().len(), 310);
     assert_eq!(
@@ -85,7 +85,7 @@ fn component_replay_reexecutes_real_battles_and_reports_every_first_boundary() {
     );
     assert_eq!(
         record_digest(&bytes, &[RecordKind::ExpectedBattleState]),
-        "9f9127d37bc87459b607c0e2cfb379724213903cb2ce78cc3e33ba72c89aea1f"
+        "6d4136eadc2acdb7dbee12fc01672ba5f9c6f81367bcb8a134f99c362fe3caa3"
     );
     assert_eq!(
         record_digest(&bytes, &[RecordKind::ExpectedActivityState]),

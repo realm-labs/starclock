@@ -23,6 +23,10 @@ pub(super) fn execute(
     scratch: &mut HitOperationScratch,
 ) -> Result<EventId, BattleFault> {
     let inputs = FormulaInputs::new(txn)?;
+    if operation.targets.is_empty() {
+        return Ok(parent);
+    }
+    let semantics = inputs.damage_semantics(catalog, txn, cause, DamageClass::Elation, false)?;
     for target in operation.targets {
         let critical = critical::resolve(
             &inputs,
@@ -49,6 +53,7 @@ pub(super) fn execute(
             target,
             DamageKind::Direct,
             DamageClass::Elation,
+            semantics,
             Some(operation.definition.element()),
             None,
             calculated.raw,

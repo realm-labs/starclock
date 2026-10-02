@@ -3,6 +3,18 @@
 Starclock maintains only the current source, data, behavior and test outputs.
 Git history is the only historical record.
 
+Shared combat supports operation-entry additive damage semantics independent
+of action tags and calculator family. Executable holder effects can label a
+named non-DoT family as FollowUp; duplicate providers union idempotently. The
+captured labels reach source/critical/incoming formula filters, committed event
+facts, conjunctive event filters and event-context selectors, and remain in
+canonical replay bytes after guard consumption. Mixed-class CRIT groups retain
+one decision while requerying damage-specific CRIT DMG. Native command fixtures
+cover classification, target direction, removal, True damage and deterministic
+reconstruction. Sora authoring and Weighted Curio Encouragement battle admission
+remain pending; this prerequisite grants no additional terminal DU coverage.
+See the [damage semantics contract](12-modifier-and-snapshot-pipeline.md).
+
 The [shared Elation calculator](combat-elation-formula.md) now separates the
 level base, Elation, resolved Punchline and merrymaking factors from ordinary
 damage boost. It uses checked decimal arithmetic and a once-only integral floor,

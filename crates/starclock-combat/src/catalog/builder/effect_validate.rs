@@ -4,6 +4,8 @@ use crate::{
     DotDetonationFilter, EffectCategory, EffectRuntimeDefinition, EffectRuntimeTemplate,
     EffectTickPhase,
     catalog::{CombatCatalog, definition::EffectDefinition},
+    damage::DamageSemantics,
+    formula::model::DamageClass,
 };
 
 use super::{CatalogBuildError, CatalogBuildErrorKind, error};
@@ -21,6 +23,21 @@ pub(super) fn validate(catalog: &CombatCatalog) -> Result<(), CatalogBuildError>
             ));
         }
         validate_magnitude_slots(catalog, effect)?;
+        let classifications = effect.damage_classifications();
+        if !classifications.is_empty()
+            && ((effect.runtime().is_none() && effect.runtime_template().is_none())
+                || classifications
+                    .windows(2)
+                    .any(|pair| pair[0].class >= pair[1].class)
+                || classifications.iter().any(|entry| {
+                    entry.class == DamageClass::Dot || entry.semantics == DamageSemantics::NONE
+                }))
+        {
+            return Err(error(
+                CatalogBuildErrorKind::InvalidDefinition,
+                "damage classifications require a runtime and unique ordered nonempty non-DoT entries",
+            ));
+        }
         if effect.dot_family().is_some() {
             let damaging_dot = effect.runtime().is_some_and(|runtime| {
                 runtime.category() == EffectCategory::Dot && runtime.dot().is_some()

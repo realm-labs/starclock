@@ -19,6 +19,7 @@ use crate::{
     RuleSignalEventData, Scalar, Speed, UnitId,
     battle::fault::BattleFault,
     catalog::CombatCatalog,
+    damage::DamageSemantics,
     effect::{
         break_effect::BreakEffectState,
         state::{EffectApplicationContext, EffectApplyResult, EffectState},
@@ -817,6 +818,11 @@ fn execute_damage(
     let inputs = FormulaInputs::new(txn)?;
     let class = operation.formula.class();
     let semantics = operation.ultimate_semantics;
+    let damage_semantics = if operation.apply_source_modifiers && !operation.targets.is_empty() {
+        inputs.damage_semantics(catalog, txn, cause, class, semantics)?
+    } else {
+        DamageSemantics::NONE
+    };
     for target in operation.targets {
         let critical = critical::resolve(
             &inputs,
@@ -859,6 +865,7 @@ fn execute_damage(
             target,
             DamageKind::Direct,
             operation.formula.class(),
+            damage_semantics,
             operation.element,
             None,
             calculation.raw,
@@ -879,6 +886,7 @@ pub(super) fn apply_ordinary_damage(
     target: UnitId,
     kind: DamageKind,
     class: DamageClass,
+    semantics: DamageSemantics,
     element: Option<CombatElement>,
     source_effect: Option<EffectInstanceId>,
     raw: Scalar,
@@ -893,6 +901,7 @@ pub(super) fn apply_ordinary_damage(
         target,
         kind,
         class,
+        semantics,
         element,
         source_effect,
         raw,
@@ -911,6 +920,7 @@ fn apply_ordinary_damage_with_floor(
     target: UnitId,
     kind: DamageKind,
     class: DamageClass,
+    semantics: DamageSemantics,
     element: Option<CombatElement>,
     source_effect: Option<EffectInstanceId>,
     raw: Scalar,
@@ -959,6 +969,7 @@ fn apply_ordinary_damage_with_floor(
     parent = txn.emit(
         cause.with_parent(parent).with_primary_target(Some(target)),
         BattleEventKind::Damage(DamageEventData {
+            semantics,
             operation,
             kind,
             class,

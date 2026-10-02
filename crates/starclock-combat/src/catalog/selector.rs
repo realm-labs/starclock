@@ -3,6 +3,7 @@
 use super::CombatCatalog;
 use crate::{
     EffectDefinitionId, SelectorId, SourceDefinitionId, UnitDefinitionId,
+    damage::DamageSemantic,
     formula::model::CombatElement,
     modifier::model::StatKind,
     rule::model::{Comparison, ConditionExpr, ValueExpr},
@@ -89,6 +90,9 @@ pub enum RuleEmptyPoolPolicy {
 /// One ordered, mutation-free candidate predicate.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum RuleSelectorPredicate {
+    /// Retains the pool only when the triggering damage carries this captured label.
+    /// This is event context, never a classification of each candidate's own attacks.
+    EventDamageSemantic(DamageSemantic),
     FormationRange {
         minimum: u8,
         maximum: u8,

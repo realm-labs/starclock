@@ -14,6 +14,7 @@ pub mod benchmark;
 pub mod catalog;
 mod codec;
 mod command;
+pub mod damage;
 mod diagnostic;
 mod effect;
 mod event;

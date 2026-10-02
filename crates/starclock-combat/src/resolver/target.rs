@@ -247,6 +247,9 @@ impl Transaction<'_> {
         });
         for predicate in selector.predicates() {
             pool.retain(|id| match predicate {
+                RuleSelectorPredicate::EventDamageSemantic(semantic) => {
+                    input.event_facts.damage_semantics.contains(*semantic)
+                }
                 RuleSelectorPredicate::FormationRange { minimum, maximum } => {
                     selector_unit(self.state, snapshot, *id)
                         .is_some_and(|unit| (*minimum..=*maximum).contains(&unit.formation.get()))

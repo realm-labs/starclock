@@ -75,11 +75,11 @@ fn component_replay_reexecutes_real_battles_and_reports_every_first_boundary() {
     assert_eq!(verified.action_count(), 48);
     assert_eq!(verified.battle_count(), 12);
     assert_eq!(verified.battle_command_count(), 60);
-    assert_eq!(bytes.len(), 74_727);
+    assert_eq!(bytes.len(), 74_764);
     assert_eq!(replay.records().len(), 240);
     assert_eq!(
         replay_digest,
-        "a63cf9953dc703e62723aa9dd6d6305a44ba8e88a06e462c607d7b04256b7b3c"
+        "b94282bd7d50d49535d4954c605d6b7e96dda6a9d561f1bf79d3e08b7236af94"
     );
     assert_eq!(
         record_digest(&bytes, &[RecordKind::AcceptedActivityCommand]),
@@ -91,7 +91,7 @@ fn component_replay_reexecutes_real_battles_and_reports_every_first_boundary() {
     );
     assert_eq!(
         record_digest(&bytes, &[RecordKind::ExpectedBattleState]),
-        "d6b8529999573854fe8ea469368aab6f858031fa2b24cd2eb5e7c657fbdc5847"
+        "e33bf012ccd9128cc75cb569817e70cebdf6d7c59dfaa780282a77111eed64ef"
     );
     assert_eq!(
         record_digest(&bytes, &[RecordKind::ExpectedActivityState]),

@@ -23,7 +23,7 @@ use starclock_agent_api::{
 use crate::server::StarclockMcp;
 
 const FINAL_STATE: &str = "65110faf123263c7aff5e890325ba60ce4b5914c4ddbd474e481d90ba1f7694e";
-const REPLAY_SHA256: &str = "e4224fd780b3ea4b6f930c61ab4150105fb4c2787e02fac76d7f74fc7f8a7787";
+const REPLAY_SHA256: &str = "7d19228ef418d4d45f5e8a471facf8706698466edeba829223621a1087b7aa45";
 
 struct TestClock;
 impl OperationalClock for TestClock {
@@ -219,7 +219,7 @@ async fn swarm_disaster_uses_authorized_activity_tools_resources_and_replay() {
     assert_eq!(export["sha256"], REPLAY_SHA256);
     assert_eq!(
         export["replay_hex"].as_str().expect("hex").len(),
-        68_240 * 2
+        68_274 * 2
     );
 
     let verified = client

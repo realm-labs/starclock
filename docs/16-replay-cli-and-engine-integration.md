@@ -31,6 +31,11 @@ Old replay bytes are rejected. Changing the codec, rules, data, hashes or
 payload layout replaces the current format and current goldens; it does not add
 a legacy decoder or migration path.
 
+The current typed Damage event payload includes additive `DamageSemantics`
+bits immediately after its calculator class. Reconstruction compares those
+captured labels as well as amounts and attribution, including when a guard or
+defeat removed the supplying effect before event reactions run.
+
 ## CLI
 
 The `starclock` CLI is a current adapter over domain crates. Its relevant

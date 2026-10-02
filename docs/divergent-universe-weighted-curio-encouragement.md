@@ -80,3 +80,11 @@ schema/readers/exports and a freshly openpyxl-authored workbook.
 Those checks prove data validity only. Command-level both-family damage,
 classification/trigger, linked-actor, Crit/RNG, wave, unequip, rejection and fresh
 reconstruction fixtures remain required before runtime admission.
+
+The [shared native prerequisite](12-modifier-and-snapshot-pipeline.md) now
+supports effect-holder additive FollowUp damage labels, scoped CRIT DMG query
+filters, captured event facts and event-context selectors without changing the
+Elation calculator or action tags. Generic command fixtures prove this boundary,
+including mixed damage and guard consumption. Encouragement still has no
+mode-owned battle binding or runtime admission; these native tests do not grant
+its source obligation or program terminal execution credit.

@@ -4,6 +4,7 @@ use crate::{
     DamageKind, EffectTickPhase, UnitId,
     battle::fault::BattleFault,
     catalog::{CombatCatalog, action::OrdinaryDamageDefinition},
+    damage::DamageSemantics,
     event::cause::Cause,
     id::EventId,
 };
@@ -61,6 +62,7 @@ pub(super) fn tick(
             owner,
             DamageKind::DotTick,
             formula.class(),
+            DamageSemantics::NONE,
             Some(dot.element()),
             Some(effect.id),
             calculation.raw,

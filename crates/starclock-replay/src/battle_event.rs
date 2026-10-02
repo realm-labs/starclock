@@ -463,6 +463,7 @@ fn encode_damage(encoder: &mut Encoder<Vec<u8>>, value: DamageEventData) {
     encoder.u64(value.operation.get());
     damage_kind(encoder, value.kind);
     damage_class(encoder, value.class);
+    encoder.u8(value.semantics.bits());
     optional_element(encoder, value.element);
     optional_u64(encoder, value.source_effect.map(|item| item.get()));
     encoder.u64(value.target.get());

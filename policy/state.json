@@ -5,6 +5,11 @@
   "historical_evidence": false,
   "runtime": {
     "combat": true,
+    "combat_additive_damage_semantics": true,
+    "combat_damage_semantics_formula_event_selector_projection": true,
+    "combat_damage_semantics_operation_entry_capture": true,
+    "combat_damage_semantics_canonical_event_payload": true,
+    "combat_damage_semantics_sora_authoring": false,
     "combat_rule_resource_event_balance_maximum_filters": true,
     "combat_rule_resource_event_axis_sora_authoring": false,
     "combat_ordinary_resistible_entanglement": true,

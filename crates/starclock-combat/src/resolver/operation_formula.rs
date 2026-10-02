@@ -1,4 +1,5 @@
 //! Modifier-aware formula preparation separated from authoritative state mutation.
+mod classification;
 mod elation;
 mod entanglement;
 pub(super) mod final_damage;
@@ -9,6 +10,7 @@ use crate::{
         action::{AbilityKind, AbilityTag},
         definition::AbilityDefinition,
     },
+    damage::{DamageSemantic, DamageSemantics},
     formula::{
         model::{CombatElement, DamageClass},
         sustain::{DamageCalculation, HealingCalculation},
@@ -125,11 +127,17 @@ impl FormulaInputs {
         let resolver = self.resolver(catalog);
         let purpose = damage_purpose(formula.class());
         let source = formula_source(txn, cause, purpose)?;
+        let damage_semantics = if apply_source_modifiers {
+            self.damage_semantics(catalog, txn, cause, formula.class(), ultimate_semantics)?
+        } else {
+            DamageSemantics::NONE
+        };
         let source_context = damage_modifier_context(
             catalog,
             cause,
             modifier_context(txn, source, target, element, formula.class())?,
             ultimate_semantics,
+            damage_semantics,
         )
         .with_formula_subject(FormulaSubject::Source);
         let incoming_context = IncomingModifierContext {
@@ -139,6 +147,7 @@ impl FormulaInputs {
             element,
             class: formula.class(),
             ultimate_semantics,
+            damage_semantics,
         };
         if apply_source_modifiers {
             let flat = formula_modifier(
@@ -185,6 +194,7 @@ impl FormulaInputs {
                             cause,
                             modifier_context(txn, target, target, element, formula.class())?,
                             ultimate_semantics,
+                            damage_semantics,
                         )
                         .with_formula_subject(FormulaSubject::Target),
                     )?;
@@ -249,11 +259,14 @@ impl FormulaInputs {
         let purpose = damage_purpose(query.class);
         let source = formula_source(txn, cause, purpose)?;
         let resolver = self.resolver(catalog);
+        let damage_semantics =
+            self.damage_semantics(catalog, txn, cause, query.class, query.ultimate_semantics)?;
         let source_context = damage_modifier_context(
             catalog,
             cause,
             modifier_context(txn, source, query.target, query.element, query.class)?,
             query.ultimate_semantics,
+            damage_semantics,
         )
         .with_formula_subject(FormulaSubject::Source);
         let rate = resolver
@@ -276,6 +289,7 @@ impl FormulaInputs {
                 cause,
                 modifier_context(txn, query.target, query.target, query.element, query.class)?,
                 query.ultimate_semantics,
+                damage_semantics,
             )
             .with_formula_subject(FormulaSubject::Target),
         )?;
@@ -608,6 +622,7 @@ impl FormulaInputs {
                 element: None,
                 class: formula::model::DamageClass::Direct,
                 ultimate_semantics: false,
+                damage_semantics: DamageSemantics::NONE,
             },
             FormulaStage::Healing,
             FormulaPurpose::Healing,
@@ -655,6 +670,7 @@ impl FormulaInputs {
                 element: None,
                 class: formula::model::DamageClass::Direct,
                 ultimate_semantics: false,
+                damage_semantics: DamageSemantics::NONE,
             },
             FormulaStage::Shield,
             FormulaPurpose::Shield,
@@ -730,6 +746,7 @@ struct BreakFormulaModifiers {
 
 #[derive(Clone, Copy)]
 struct IncomingModifierContext {
+    damage_semantics: DamageSemantics,
     cause: Cause,
     source: UnitId,
     target: UnitId,
@@ -770,6 +787,7 @@ fn incoming_formula_modifier(
         input.cause,
         modifier_context(txn, input.target, input.target, input.element, input.class)?,
         input.ultimate_semantics,
+        input.damage_semantics,
     );
     let unscoped = if input.source == input.target
         && matches!(purpose, FormulaPurpose::Healing | FormulaPurpose::Shield)
@@ -926,7 +944,15 @@ fn damage_modifier_context(
     cause: Cause,
     mut context: ModifierQueryContext,
     ultimate_semantics: bool,
+    semantics: DamageSemantics,
 ) -> ModifierQueryContext {
+    if semantics.contains(DamageSemantic::FollowUp) {
+        let mut tags = context.damage_tags.into_vec();
+        tags.push("follow_up".into());
+        tags.sort_unstable();
+        tags.dedup();
+        context.damage_tags = tags.into_boxed_slice();
+    }
     if !ultimate_semantics {
         return action_modifier_context(catalog, cause, context);
     }

@@ -34,6 +34,8 @@ impl FormulaInputs {
     ) -> Result<DamageCalculation, BattleFault> {
         let purpose = FormulaPurpose::ElationDamage;
         let source = formula_source(txn, cause, purpose)?;
+        let damage_semantics =
+            self.damage_semantics(catalog, txn, cause, DamageClass::Elation, false)?;
         let resolver = self.resolver(catalog);
         let source_context = damage_modifier_context(
             catalog,
@@ -46,6 +48,7 @@ impl FormulaInputs {
                 DamageClass::Elation,
             )?,
             false,
+            damage_semantics,
         )
         .with_formula_subject(FormulaSubject::Source);
         let target_context = damage_modifier_context(
@@ -59,6 +62,7 @@ impl FormulaInputs {
                 DamageClass::Elation,
             )?,
             false,
+            damage_semantics,
         )
         .with_formula_subject(FormulaSubject::Target);
         let elation = resolver
@@ -93,6 +97,7 @@ impl FormulaInputs {
             element: Some(definition.element()),
             class: DamageClass::Elation,
             ultimate_semantics: false,
+            damage_semantics,
         };
         let contribution = |stage| {
             incoming_formula_modifier(&resolver, catalog, txn, incoming, stage, purpose)
