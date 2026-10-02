@@ -39,7 +39,7 @@ fn production_weighted_curio_elation_preserves_all_three_operands_and_policy_bou
     assert!(row.policy_note.contains("authored but not yet executed"));
     assert!(
         row.policy_note
-            .contains("separate unimplemented assembly policy fields")
+            .contains("separate BattleTeamResources assembly policy")
     );
     assert!(row.replacement_condition.contains("Low confidence"));
     assert!(

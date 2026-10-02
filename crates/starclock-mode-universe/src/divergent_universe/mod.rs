@@ -16,6 +16,7 @@ mod battle_passive_bindings;
 pub mod battle_room;
 mod battle_route;
 mod battle_settlement_runtime;
+mod battle_team_resources;
 pub mod blank_room;
 mod blessing_catalog;
 mod blessing_interaction;

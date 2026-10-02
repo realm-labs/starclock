@@ -51,6 +51,13 @@ This shape is sufficient for a Punchline-like meter, but no core type is named
 after Punchline and no unresolved cap, credit, threshold or wave behavior is
 selected as a default.
 
+The [Divergent Universe assembly policy](divergent-universe-battle-team-resources.md)
+now provisions one such binding from the original mapped Elation roster, with
+explicit low-confidence initialization, cap mapping, overflow and wave carry.
+Its controlled resource commands execute; existing non-cost production
+`AbilityResourceDelta` rows still need generic data lowering. Sapient Pen and
+full Aha/Certified Banger lifecycle remain unimplemented.
+
 ## Holder, provider and forced-use envelope
 
 A Certified-Banger-like state uses the ordinary effect model. The effect holder

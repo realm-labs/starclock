@@ -1,0 +1,61 @@
+{
+  "table": {
+    "name": "DuBattleTeamResources",
+    "rows": [
+      {
+        "values": {
+          "character_paths": {
+            "List": [
+              {
+                "String": "Elation"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 1
+          },
+          "initial_value": {
+            "Integer": 0
+          },
+          "maximum_value": {
+            "Integer": 9999
+          },
+          "policy": {
+            "String": "OriginalElationZeroClampPersist"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: original mapped party Path membership enables one shared.punchline player binding independently of equipped Curios, life/presence changes and linked actors. Start each battle at zero; map the released global ElationPointMax field to maximum 9999. Generic Gain clamps to maximum with attempted/effective/overflow events, Spend rejects insufficient balance without mutation, and Set follows generic bounds. Persist across waves. Reconstruct at zero for a fresh battle or retry; no Activity inventory or cross-battle carry. Source fact is the global field value and team-sharing text, not observed initialization or lifecycle parity. No Aha actor, Certified Banger, automatic gain, damage scaling or meter reset trigger is implied."
+          },
+          "replacement_condition": {
+            "String": "Low confidence for the field-to-resource mapping, enabling condition, zero initial value, cap overflow and wave/battle carry. Alternatives: unconditional binding, entry gain by Elation roster count, wave reset, checked overflow or cross-battle carry. Command tests battle_team_resources cover production resource assembly, the pending non-cost Skill delta lowering boundary, controlled overflow/spending/Set, wave carry, rejection and fresh reconstruction in both run families. Replace each field independently when a released executable binding or reproducible current Divergent Universe observation establishes it. ElationBattle_MaxPower=99 belongs to another activity and is excluded."
+          },
+          "resource_key": {
+            "String": "shared.punchline"
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 111
+              },
+              {
+                "Integer": 112
+              },
+              {
+                "Integer": 113
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.battle-team-resource.punchline"
+          },
+          "summary_en": {
+            "String": "Punchline is a team resource. A mapped original Elation party enables one player-side binding."
+          },
+          "summary_zh_cn": {
+            "String": "笑点为队伍共享资源；映射后的原始队伍含欢愉角色时装配一个我方资源。"
+          }
+        }
+      }
+    ]
+  }
+}

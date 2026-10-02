@@ -50,6 +50,7 @@ pub mod du_curio_retaliation_policy;
 pub mod du_curio_break_effect_policy;
 pub mod du_curio_necrosis_policy;
 pub mod du_curio_elation_policy;
+pub mod du_battle_team_resource_policy;
 pub mod du_decision_sources;
 pub mod du_decision_policies;
 pub mod du_decision_occurrences;
@@ -93,9 +94,10 @@ pub mod du_weighted_curio_retaliations;
 pub mod du_weighted_curio_break_effects;
 pub mod du_weighted_curio_necroses;
 pub mod du_weighted_curio_elations;
+pub mod du_battle_team_resources;
 pub type SoraMap<K, V> = std::collections::HashMap<K, V>;
 
-pub const SCHEMA_FINGERPRINT: &str = "d0f896116d51b164";
+pub const SCHEMA_FINGERPRINT: &str = "8c69274d64d597e8";
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum SoraTableShape {
@@ -178,7 +180,7 @@ impl SoraConfig {
             )));
         }
         let mut tables: SoraMap<&'static str, Box<dyn ErasedSoraTable>> =
-            sora_map_with_capacity(43);
+            sora_map_with_capacity(44);
         tables.insert(du_decision_sources::DuDecisionSourcesTable::NAME, Box::new(du_decision_sources::DuDecisionSourcesTable::from_rows(source.decode_table::<du_decision_sources::DuDecisionSources>(du_decision_sources::DuDecisionSourcesTable::NAME)?)?));
         tables.insert(du_decision_policies::DuDecisionPoliciesTable::NAME, Box::new(du_decision_policies::DuDecisionPoliciesTable::from_rows(source.decode_table::<du_decision_policies::DuDecisionPolicies>(du_decision_policies::DuDecisionPoliciesTable::NAME)?)?));
         tables.insert(du_decision_occurrences::DuDecisionOccurrencesTable::NAME, Box::new(du_decision_occurrences::DuDecisionOccurrencesTable::from_rows(source.decode_table::<du_decision_occurrences::DuDecisionOccurrences>(du_decision_occurrences::DuDecisionOccurrencesTable::NAME)?)?));
@@ -222,6 +224,7 @@ impl SoraConfig {
         tables.insert(du_weighted_curio_break_effects::DuWeightedCurioBreakEffectsTable::NAME, Box::new(du_weighted_curio_break_effects::DuWeightedCurioBreakEffectsTable::from_rows(source.decode_table::<du_weighted_curio_break_effects::DuWeightedCurioBreakEffects>(du_weighted_curio_break_effects::DuWeightedCurioBreakEffectsTable::NAME)?)?));
         tables.insert(du_weighted_curio_necroses::DuWeightedCurioNecrosesTable::NAME, Box::new(du_weighted_curio_necroses::DuWeightedCurioNecrosesTable::from_rows(source.decode_table::<du_weighted_curio_necroses::DuWeightedCurioNecroses>(du_weighted_curio_necroses::DuWeightedCurioNecrosesTable::NAME)?)?));
         tables.insert(du_weighted_curio_elations::DuWeightedCurioElationsTable::NAME, Box::new(du_weighted_curio_elations::DuWeightedCurioElationsTable::from_rows(source.decode_table::<du_weighted_curio_elations::DuWeightedCurioElations>(du_weighted_curio_elations::DuWeightedCurioElationsTable::NAME)?)?));
+        tables.insert(du_battle_team_resources::DuBattleTeamResourcesTable::NAME, Box::new(du_battle_team_resources::DuBattleTeamResourcesTable::from_rows(source.decode_table::<du_battle_team_resources::DuBattleTeamResources>(du_battle_team_resources::DuBattleTeamResourcesTable::NAME)?)?));
         Ok(Self { tables })
     }
 
@@ -414,6 +417,10 @@ impl SoraConfig {
 
     pub fn du_weighted_curio_elations(&self) -> &du_weighted_curio_elations::DuWeightedCurioElationsTable {
         self.table(du_weighted_curio_elations::DuWeightedCurioElationsTable::NAME)
+    }
+
+    pub fn du_battle_team_resources(&self) -> &du_battle_team_resources::DuBattleTeamResourcesTable {
+        self.table(du_battle_team_resources::DuBattleTeamResourcesTable::NAME)
     }
 }
 

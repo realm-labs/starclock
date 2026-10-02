@@ -23,6 +23,7 @@ use super::{
         DivergentUniverseBattleError, ENEMY_PROXY, digest, enemy_participant, parse_level,
         player_participants,
     },
+    battle_team_resources::player_resources,
 };
 
 const ENCOUNTER_ID: EncounterId =
@@ -327,12 +328,13 @@ impl DivergentUniverseBattleAssemblyRuntime {
             &enemy_participants,
             assembly_digest,
         )?;
+        let player_resources = player_resources(&flow.battle_team_resources, core, &participants)?;
         participants.extend(enemy_participants);
         builder.add_encounter(definition);
         let combat_catalog = builder
             .build()
             .map_err(|_| DivergentUniverseBattleAssemblyError::InvalidCombatCatalog)?;
-        let battle_spec = battle_spec(assembly_digest, participants)?;
+        let battle_spec = battle_spec(assembly_digest, participants, player_resources)?;
         Battle::create(
             Arc::clone(&combat_catalog),
             battle_spec.clone(),
@@ -472,14 +474,14 @@ fn materialize_enemies(
 fn battle_spec(
     assembly_digest: [u8; 32],
     participants: Vec<ParticipantSpec>,
+    player_resources: TeamResourceSpec,
 ) -> Result<BattleSpec, DivergentUniverseBattleAssemblyError> {
     BattleSpec::new(
         AssemblyDigest::new(assembly_digest)
             .ok_or(DivergentUniverseBattleAssemblyError::InvalidAssemblyDigest)?,
         ENCOUNTER_ID,
         participants,
-        TeamResourceSpec::new(3, 5)
-            .ok_or(DivergentUniverseBattleAssemblyError::InvalidTeamResources)?,
+        player_resources,
         TeamResourceSpec::new(0, 0)
             .ok_or(DivergentUniverseBattleAssemblyError::InvalidTeamResources)?,
         ConcedePolicy::Allowed,

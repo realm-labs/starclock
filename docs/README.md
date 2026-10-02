@@ -190,7 +190,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
     [Self-Amusement](divergent-universe-weighted-curio-retaliation.md) and
     [Converse of Entropy](divergent-universe-weighted-curio-break-effect.md) and
     [Mock Crimson Moon](divergent-universe-weighted-curio-necrosis.md) execute source-attributed Rule IR; nine effects and Forge admission remain pending.
-    [Sapient Pen authoring](divergent-universe-weighted-curio-elation.md) validates released operands and separates reviewed timing policy from still-unimplemented shared-meter assembly and battle effects.
+    [Sapient Pen authoring](divergent-universe-weighted-curio-elation.md) validates released operands; [shared Punchline assembly](divergent-universe-battle-team-resources.md) executes an independent resource policy, while non-cost production Skill delta lowering and the Curio's battle effect remain pending.
 157. [Titan effect boundary](divergent-universe-titan-effects.md) — source descriptors versus execution, fail-closed current battle assembly, exact-once pending assignments and inventory without pass receipts.
 158. [Owner-sourced rule damage](combat-owner-sourced-damage.md) — explicit damage producer with original trigger evaluation, retained ancestry, independent Crit groups and shared nonlethal/formula execution; no new equipment completion credit.
 159. [Authored Aggro weight factors](combat-aggro-weight-factors.md) — normalized live/captured query inputs, explicit content-owned weights and real integer target sampling; fixed targeting and pending equipment credit are unchanged.

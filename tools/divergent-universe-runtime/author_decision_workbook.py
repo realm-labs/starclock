@@ -35,6 +35,7 @@ from weighted_curio_retaliation_rows import append_weighted_curio_retaliation
 from weighted_curio_break_effect_rows import append_weighted_curio_break_effect
 from weighted_curio_necrosis_rows import append_weighted_curio_necrosis
 from weighted_curio_elation_rows import append_weighted_curio_elation
+from battle_team_resource_rows import append_battle_team_resources
 
 
 def rows() -> dict[str, list[list[object]]]:
@@ -316,6 +317,7 @@ def rows() -> dict[str, list[list[object]]]:
     append_weighted_curio_break_effect(data)
     append_weighted_curio_necrosis(data)
     append_weighted_curio_elation(data)
+    append_battle_team_resources(data)
     return data
 
 
@@ -349,6 +351,12 @@ def main() -> None:
             for cell in row:
                 cell.alignment = Alignment(wrap_text=True, vertical="top")
     workbook.properties.created = datetime(2000, 1, 1)
+    # Fit this new policy table without restyling unrelated Sora sheets.
+    resource_sheet = workbook["BattleTeamResources"]
+    resource_sheet.column_dimensions["H"].width = 42
+    resource_sheet.column_dimensions["K"].width = 90
+    resource_sheet.column_dimensions["L"].width = 90
+    resource_sheet.row_dimensions[8].height = 240
     workbook.properties.modified = datetime(2000, 1, 1)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     workbook.save(args.output)

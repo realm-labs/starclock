@@ -27,7 +27,10 @@ use starclock_data::{
         DivergentUniverseEntryKind, DivergentUniverseFinishConditionId, DivergentUniverseLayerId,
         DivergentUniverseRunFamily,
     },
-    divergent_universe_decisions::{BattleRoutePolicyKind, DecisionCatalog, DecisionDataError},
+    divergent_universe_decisions::{
+        BattleRoutePolicyKind, DecisionCatalog, DecisionDataError,
+        battle_team_resources::BattleTeamResourceDefinition,
+    },
     divergent_universe_service_catalog::DivergentUniverseOccurrenceVariantId,
 };
 
@@ -525,6 +528,7 @@ impl DivergentUniverseRuntimeFactory {
         )
         .map_err(|_| DivergentUniverseEntryFlowError::InvalidActivityDefinition)?;
         Ok(DivergentUniverseFlowInstance {
+            battle_team_resources: self.decision_catalog().battle_team_resources().into(),
             position_battles: None,
             source_deck_selection,
             definition: Arc::new(definition),
@@ -570,6 +574,7 @@ impl DivergentUniverseRuntimeFactory {
 /// Entry-compiled Activity definition plus exact mode identities.
 #[derive(Clone, Debug)]
 pub struct DivergentUniverseFlowInstance {
+    pub(super) battle_team_resources: Box<[BattleTeamResourceDefinition]>,
     pub(super) position_battles: Option<Arc<BoundBattleRooms>>,
     pub(super) source_deck_selection: Option<Arc<SourceDeckSelection>>,
     pub(super) tawot_service: Option<Arc<TawotService>>,

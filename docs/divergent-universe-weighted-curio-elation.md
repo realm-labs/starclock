@@ -64,10 +64,11 @@ presence, per-hit grants, caster-specific stacking, nondispellable bonuses and
 source-turn duration. Replace fields independently when the released stage
 program or reproducible current traces establish them. The separate
 [shared Elation boundary](shared-elation-runtime-boundary.md) supplies generic
-stat and keyed-resource primitives but does not choose the resource's initial
-value, cap, overflow, wave carry or battle carry. Those still require explicit
-mode assembly policy and execution tests; no arbitrary meter default is
-introduced by this data batch.
+stat and keyed-resource primitives. The separate
+[battle resource policy](divergent-universe-battle-team-resources.md) now
+assembles the meter with explicit initialization, cap, overflow and wave/battle
+choices and command-level tests. That prerequisite does not execute Sapient
+Pen's still-unimplemented trigger or bonus.
 
 Runtime admission must prove actual Basic/Skill commands in both Ordinary and
 Cyclical assemblies, no-Elation and no-eligible-owner cases, multihit and

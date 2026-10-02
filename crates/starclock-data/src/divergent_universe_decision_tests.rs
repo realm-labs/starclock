@@ -16,6 +16,8 @@ mod domain_layout;
 
 #[path = "divergent_universe_adventure_reward_tests.rs"]
 mod adventure_rewards;
+#[path = "divergent_universe_battle_team_resource_tests.rs"]
+mod battle_team_resources;
 #[path = "divergent_universe_coin_reward_tests.rs"]
 mod coin_rewards;
 #[path = "divergent_universe_expansion_policy_tests.rs"]
@@ -57,7 +59,7 @@ use super::{
 fn production_decision_workbook_lowers_three_ordered_policy_choices() {
     let reference = load_divergent_universe_bundle().unwrap();
     let catalog = DecisionCatalog::production(&reference).unwrap();
-    assert_eq!(catalog.sources().len(), 110);
+    assert_eq!(catalog.sources().len(), 113);
     expansion_policy::production(&catalog);
     reward_policies::production_battle_stats(&catalog);
     assert_eq!(

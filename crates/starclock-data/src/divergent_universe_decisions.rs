@@ -29,6 +29,7 @@ use crate::divergent_universe_service_catalog::{
     DivergentUniverseOccurrenceId, DivergentUniverseOccurrenceVariantId,
 };
 use adventure_rewards::AdventureRewardDefinition;
+use battle_team_resources::BattleTeamResourceDefinition;
 use coin_rewards::CoinRewardDefinition;
 use reward_occurrences::RewardOccurrenceDefinition;
 use shop::ShopStockDefinition;
@@ -42,6 +43,8 @@ use weighted_curio_shields::WeightedCurioShieldDefinition;
 use weighted_curio_splashes::WeightedCurioSplashDefinition;
 use weighted_curio_support_attacks::WeightedCurioSupportAttackDefinition;
 
+#[path = "divergent_universe_battle_team_resource_data.rs"]
+pub mod battle_team_resources;
 #[path = "divergent_universe_weighted_curio_break_effect_data.rs"]
 pub mod weighted_curio_break_effects;
 #[path = "divergent_universe_weighted_curio_elation_data.rs"]
@@ -273,6 +276,7 @@ pub struct DecisionCatalog {
     weighted_curio_break_effects: Box<[WeightedCurioBreakEffectDefinition]>,
     weighted_curio_necroses: Box<[WeightedCurioNecrosisDefinition]>,
     weighted_curio_elations: Box<[WeightedCurioElationDefinition]>,
+    battle_team_resources: Box<[BattleTeamResourceDefinition]>,
     adventure_rewards: Box<[AdventureRewardDefinition]>,
     coin_rewards: Box<[CoinRewardDefinition]>,
     reward_occurrences: Box<[RewardOccurrenceDefinition]>,
@@ -672,6 +676,12 @@ impl DecisionCatalog {
     #[must_use]
     pub fn weighted_curio_elations(&self) -> &[WeightedCurioElationDefinition] {
         &self.weighted_curio_elations
+    }
+
+    /// Mode assembly policies; loading alone does not execute resource changes.
+    #[must_use]
+    pub fn battle_team_resources(&self) -> &[BattleTeamResourceDefinition] {
+        &self.battle_team_resources
     }
     /// Explicit chest-only policy at reviewed Wealth presets; facilities are separate.
     pub fn coin_rewards(&self) -> &[CoinRewardDefinition] {

@@ -140,6 +140,9 @@ values = [{ id = 0, name = "AttackResolvedNecrosisAndDotDamageBurnDetonation" }]
 [[enums]]
 name = "DuCurioElationPolicy"
 values = [{ id = 0, name = "ActionResolvedOriginalPartyRefresh" }]
+[[enums]]
+name = "DuBattleTeamResourcePolicy"
+values = [{ id = 0, name = "OriginalElationZeroClampPersist" }]
 [[tables]]
 id = "sources"
 name = "DuDecisionSources"
@@ -2691,6 +2694,65 @@ range = [1,65535]
 [[tables.fields]]
 name = "policy"
 type = "enum<DuCurioElationPolicy>"
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "policy_note"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "replacement_condition"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "source_ids"
+type = "list<ref<DuDecisionSources.id>>"
+parser = { kind = "split", separator = "|" }
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+[[tables]]
+id = "battleteamresources"
+name = "DuBattleTeamResources"
+mode = "map"
+key = "id"
+[tables.source]
+file = "DivergentUniverseDecisions.xlsx"
+sheet = "BattleTeamResources"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1,2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "resource_key"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "character_paths"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+[[tables.fields]]
+name = "initial_value"
+type = "i32"
+range = [0,65535]
+[[tables.fields]]
+name = "maximum_value"
+type = "i32"
+range = [1,65535]
+[[tables.fields]]
+name = "policy"
+type = "enum<DuBattleTeamResourcePolicy>"
 [[tables.fields]]
 name = "summary_en"
 type = "string"
