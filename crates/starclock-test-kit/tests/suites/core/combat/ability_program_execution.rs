@@ -53,6 +53,9 @@ mod cleanse;
 #[path = "ability_program_execution/effect_shield.rs"]
 mod effect_shield;
 
+#[path = "ability_program_execution/damage_overflow.rs"]
+mod damage_overflow;
+
 #[path = "ability_program_execution/action_break.rs"]
 mod action_break;
 #[path = "ability_program_execution/queue_action.rs"]

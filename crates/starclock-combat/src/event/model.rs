@@ -122,7 +122,7 @@ pub struct DamageEventData {
     pub target: UnitId,
     /// Fixed-point result before integral finalization.
     pub raw: Scalar,
-    /// Floored formula result before current-HP bounds.
+    /// Integral formula result after damage guards, before shields and HP bounds.
     pub calculated: DamageAmount,
     /// Portion absorbed before HP application.
     pub absorbed: DamageAmount,

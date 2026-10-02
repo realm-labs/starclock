@@ -3,6 +3,16 @@
 Starclock maintains only the current source, data, behavior and test outputs.
 Git history is the only historical record.
 
+Shared combat exposes native `DamageOverflow` from committed ordinary and Break
+settlements. It reads exact finalized post-guard, post-shield damage above
+pre-operation HP, with a zero lower bound. Nonlethal floors and later healing
+do not inflate or rewrite it; missing facts fail with a typed evaluation error.
+The pure formula and native command corpus cover guards, shields, fractional
+finalization, Break damage, fresh reconstruction and rejected commands. General
+Sora admission and the Parallel Universe Walkie-Talkie consumer remain pending;
+the 12/17 Weighted Curio battle-effect count and terminal coverage are unchanged.
+See the [event observation contract](rule-event-observation-runtime-boundary.md).
+
 Shared combat now supports native effect-specific shield queries and exact
 Increase/Decrease operations with a live-effect admission guard. Positive resize
 preserves instance identity, zero exhausts it, and conflicting policies or
@@ -823,7 +833,7 @@ under an explicit scope policy and verified-result five-battle lifetime.
   stays in Rule IR. The ten Version 4.4 postfix byte semantics are now the sole
   named shared-capability gap and remain explicitly unresolved rather than
   inferred from historical independent analysis. `G21-P2-B5` executes four
-  shared capability probes, audits 219 Activity/Build/Combat/Rules Rust files
+  shared capability probes, audits 236 Activity/Build/Combat/Rules Rust files
   for mode-ID branches, confirms zero admitted native handlers and freezes all
   43 generated partitions covering 2,367 programs with deterministic digests.
   Its configuration-program `VersionedProjectPolicy` affects 156 expression

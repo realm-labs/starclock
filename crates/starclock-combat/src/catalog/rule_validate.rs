@@ -876,6 +876,7 @@ fn infer_value(
             | EventValueProperty::PrimaryTargetId => RuleValueKind::OptionalStableId,
             EventValueProperty::DamageAmount
             | EventValueProperty::DamageRawAmount
+            | EventValueProperty::DamageOverflow
             | EventValueProperty::HpChangeAmount
             | EventValueProperty::ResourceDelta
             | EventValueProperty::ResourceOverflow

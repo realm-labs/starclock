@@ -21,6 +21,7 @@ use crate::{
     effect::shield::ShieldStore,
     event::cause::CauseActor,
     formula::{
+        hp::damage_overflow,
         model::{CombatElement, DamageClass},
         toughness::EnemyRank,
     },
@@ -547,6 +548,9 @@ fn event_facts(
             let amount = scalar_from_u64(data.applied.get());
             facts.damage_amount = amount;
             facts.damage_raw_amount = Some(data.raw);
+            facts.damage_overflow = damage_overflow(data.calculated, data.absorbed, data.hp_before)
+                .ok()
+                .and_then(|amount| scalar_from_u64(amount.get()));
             facts.hp_change_amount = amount.and_then(|value| value.checked_neg().ok());
             facts.hp_before = scalar_from_u64(data.hp_before.get());
             facts.hp_after = scalar_from_u64(data.hp_after.get());
@@ -568,6 +572,9 @@ fn event_facts(
             facts.element = Some(data.element);
             let amount = scalar_from_u64(data.applied.get());
             facts.damage_amount = amount;
+            facts.damage_overflow = damage_overflow(data.calculated, data.absorbed, data.hp_before)
+                .ok()
+                .and_then(|amount| scalar_from_u64(amount.get()));
             facts.hp_change_amount = amount.and_then(|value| value.checked_neg().ok());
             facts.hp_before = scalar_from_u64(data.hp_before.get());
             facts.hp_after = scalar_from_u64(data.hp_after.get());

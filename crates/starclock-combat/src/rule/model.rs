@@ -225,7 +225,7 @@ pub enum EventValueProperty {
     SourceDefinitionId,
     PrimaryTargetId,
     DamageAmount,
-    /// Pre-mitigation raw amount carried by a committed damage event.
+    /// Unfloored formula result before damage guards and shield/HP bounds.
     DamageRawAmount,
     HpChangeAmount,
     ResourceDelta,
@@ -239,6 +239,9 @@ pub enum EventValueProperty {
     HpAfter,
     RuleSignalCode,
     RuleSignalValue,
+    /// Finalized post-guard damage above pre-operation HP, after shields.
+    /// Nonlethal floors, rescue and later healing do not change this event fact.
+    DamageOverflow,
 }
 
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
@@ -265,6 +268,8 @@ pub struct RuleEventFacts {
     pub action_gauge_change: Option<ActionGaugeChangeKind>,
     pub damage_amount: Option<Scalar>,
     pub damage_raw_amount: Option<Scalar>,
+    /// Exact HP overflow derived from the committed damage settlement.
+    pub damage_overflow: Option<Scalar>,
     pub hp_change_amount: Option<Scalar>,
     /// Effective visible shield on the event target immediately before mutation.
     pub shield_before: Option<Scalar>,

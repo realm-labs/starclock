@@ -8,7 +8,7 @@
   "input_digests": {
     "capability_inventory": {
       "path": "content-manifests/divergent-universe-runtime-v1/capability-inventory.json",
-      "sha256": "6a1aa699ad3a65efa84f2c56cd6a5f9e4fa52f936ecbef6640c05ed951c97119"
+      "sha256": "b4ccdefa9130e7ea385eb29d1cb1921e811613a07bba400375012dfc798fb2c0"
     },
     "activity_closure": {
       "path": "content-manifests/divergent-universe-runtime-v1/activity-capability-closure.json",
@@ -16,7 +16,7 @@
     },
     "combat_closure": {
       "path": "content-manifests/divergent-universe-runtime-v1/combat-capability-closure.json",
-      "sha256": "0d1c6c8a0b4eeba76bf12f1454e3e2ab7e70007cbdb4916895197812a607defd"
+      "sha256": "4059c6bb767b4baa98682544beef82aeb606a06222b0e74d0c55ef63f12faf12"
     },
     "build_closure": {
       "path": "content-manifests/divergent-universe-runtime-v1/build-capability-closure.json",
@@ -815,8 +815,8 @@
       "crates/starclock-combat/src",
       "crates/starclock-rules/src"
     ],
-    "audited_file_count": 219,
-    "audited_tree_sha256": "f1a21664f570af605da0d47b92c95d7b635d934e1c8ccfe888f9a6c5c72a730c",
+    "audited_file_count": 236,
+    "audited_tree_sha256": "f912e48fb42f1125a4c2ffa6673d9faff46dabcfe31eb7ca976d465940c71a05",
     "forbidden_mode_symbols": [
       "DivergentUniverse",
       "divergent_universe",
@@ -919,7 +919,7 @@
     "mode_affected_mechanic_programs": 20,
     "unresolved_expression_shapes": 29,
     "postfix_affected_mechanic_programs": 3,
-    "audited_shared_rust_files": 219,
+    "audited_shared_rust_files": 236,
     "admitted_native_handlers": 0,
     "frozen_partitions": 13,
     "frozen_programs": 669

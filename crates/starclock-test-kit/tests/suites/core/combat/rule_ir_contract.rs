@@ -1,3 +1,5 @@
+#[path = "rule_ir_contract/damage_overflow.rs"]
+mod damage_overflow;
 #[path = "rule_ir_contract/elation.rs"]
 mod elation;
 #[path = "rule_ir_contract/resource_event.rs"]

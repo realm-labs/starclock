@@ -88,6 +88,17 @@ Sora Elation stat lowers without an ordinary-damage-boost alias. See the
 
 ## Conditions and event filters
 
+Native `DamageOverflow` reads the committed ordinary or Break settlement's
+`max(calculated - absorbed - hp_before, 0)` as an exact Scalar. `calculated`
+already includes damage guards and the integral floor; `absorbed` is actual
+shield absorption. A nonlethal HP floor is not part of this excess, and later
+healing, rescue or phase transitions cannot change the event fact. This is
+distinct from bounded `DamageAmount`, unfloored pre-guard `DamageRawAmount` and
+resource overflow. A nondamage event has no value; reading it faults instead of
+guessing zero. General Sora expression admission and the Divergent Universe
+Weighted Curio consumer remain pending. See the
+[event observation boundary](rule-event-observation-runtime-boundary.md).
+
 `ConditionExpr` supports typed comparisons, boolean composition, tag membership, life/presence checks, resource bounds, effect/state existence, weakness/broken state, selector cardinality, and event/cause predicates.
 
 A bounded `ForEach` binds one `CurrentTarget` at a time. Operations may target
