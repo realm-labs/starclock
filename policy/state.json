@@ -128,10 +128,10 @@
       "tables": 44,
       "rows": 416,
       "reader_files": 94,
-      "bundle_bytes": 266134,
-      "bundle_sha256": "03fdcbfb2f4171dc2aead139056d47d6b4c6f99c2c36fe8c4c148bcff4424e50",
+      "bundle_bytes": 266314,
+      "bundle_sha256": "29f70998257b725f4499d57795ddf8a13e5c53256b9731c515c0587e1f2bacfc",
       "weighted_curio_elation_operands_authored": true,
-      "weighted_curio_elation_battle_effect_implemented": false,
+      "weighted_curio_elation_battle_effect_implemented": true,
       "weighted_curio_elation_shared_meter_assembly_implemented": true,
       "punchline_assembly_policy": "VersionedProjectPolicyOriginalElationZeroClampPersist",
       "punchline_initial_value": 0,
@@ -176,7 +176,7 @@
       "weighted_curio_loadout_accuracy": "VersionedProjectPolicyAcceptedCurrentCatalogLoadout",
       "weighted_curio_unsupported_equipment_rejects_battle_contribution": true,
       "weighted_curio_battle_effects_implemented": false,
-      "weighted_curio_battle_effect_definitions": 8,
+      "weighted_curio_battle_effect_definitions": 9,
       "weighted_curio_battle_effect_accuracies": [
         "VersionedProjectPolicyHitCalculatedCopyAdjacentTrueDamage",
         "VersionedProjectPolicyAllyActionResolvedReplaceTargetTurnShield",
@@ -185,7 +185,8 @@
         "VersionedProjectPolicyEntryHpAndTurnStartConsumeShield",
         "VersionedProjectPolicyPhysicalAggroAndOwnerAdditional",
         "VersionedProjectPolicyEntryHighestTeamBreakEffectCapture",
-        "VersionedProjectPolicyAttackResolvedNecrosisAndDotDamageBurnDetonation"
+        "VersionedProjectPolicyAttackResolvedNecrosisAndDotDamageBurnDetonation",
+        "VersionedProjectPolicyActionResolvedOriginalPartyRefresh"
       ],
       "grand_miracle_runtime_implemented": false,
       "forge_room_payload_implemented": false,

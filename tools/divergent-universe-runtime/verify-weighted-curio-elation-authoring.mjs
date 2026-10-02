@@ -23,7 +23,8 @@ assert.deepEqual(row.character_paths.List.map(value => value.String), ["Elation"
 assert.deepEqual([row.gain_parameter.Integer, row.bonus_parameter.Integer, row.duration_parameter.Integer], [1, 2, 3]);
 assert.deepEqual([row.punchline_gain.Integer, row.elation_bonus.String, row.duration_turns.Integer], [2, "0.5", 2]);
 assert.equal(row.policy.String, "ActionResolvedOriginalPartyRefresh");
-assert.match(row.policy_note.String, /authored but not yet executed/u);
+assert.match(row.policy_note.String, /^VersionedProjectPolicy:/u);
+assert.match(row.policy_note.String, /persistence survives provider defeat and waves/u);
 assert.match(row.policy_note.String, /separate BattleTeamResources assembly policy/u);
 assert.match(row.replacement_condition.String, /do not prove battle execution/u);
 assert.deepEqual(row.source_ids.List.map(value => value.Integer), [107, 108, 109, 110]);
@@ -38,7 +39,7 @@ const bundle = fs.readFileSync(path.join(root, "config/divergent-universe-decisi
 assert.equal(state.bundle_bytes, bundle.length);
 assert.equal(state.bundle_sha256, crypto.createHash("sha256").update(bundle).digest("hex"));
 assert.equal(state.weighted_curio_elation_operands_authored, true);
-assert.equal(state.weighted_curio_elation_battle_effect_implemented, false);
+assert.equal(state.weighted_curio_elation_battle_effect_implemented, true);
 assert.equal(state.weighted_curio_elation_shared_meter_assembly_implemented, true);
 const required = [
   [107, "hex", "ExcelOutput/RogueTournHex.json", "HexID=1015;",
@@ -92,4 +93,4 @@ if (process.argv.includes("--check-source")) {
   for (const word of ["Elation", "Basic ATK or Skill", "Punchline", "#1[i]", "#2[i]%", "#3[i]"]) assert.ok(en.includes(word));
   for (const word of ["欢愉", "非", "普攻/战技", "笑点", "欢愉度", "#1[i]", "#2[i]%", "#3[i]"]) assert.ok(zh.includes(word));
 }
-console.log("Sapient Pen production operands and provenance verified; its battle effect remains unimplemented independently of shared-meter assembly.");
+console.log("Sapient Pen production operands and provenance verified; native Cargo fixtures independently verify its mode-bound execution policy.");

@@ -1,14 +1,14 @@
-# Sapient Pen authoring boundary
+# Sapient Pen execution boundary
 
 ## Current state
 
 Production `WeightedCurioElations` now privately lowers one Sapient Pen
 (智多笔) definition through the Decision workbook and Sora 0.6.1. The three
 released operands are two Punchlines, an additive Elation bonus of `0.5`, and
-two turns. This is authored data, not an executable Curio: equipping it still
-causes typed `UnsupportedBattleEffect` rejection before battle construction.
-The current eight executable Weighted Curio definitions and all runtime
-coverage denominators/dispositions are unchanged.
+two turns. Equipped Sapient Pen now binds ordinary typed Rule IR and executes
+gain and timed property mutations in production-assembled battles. Nine of the
+17 Weighted Curio effects execute; the other eight still fail closed. All
+runtime coverage denominators and terminal dispositions remain unchanged.
 
 The private definition separates exact values from a closed, reviewed
 `VersionedProjectPolicyActionResolvedOriginalPartyRefresh` envelope. No
@@ -42,7 +42,7 @@ The independent [Sapient Pen cross-check](https://honkai-star-rail.fandom.com/wi
 inspected 2026-10-02, supports the current Arcadian Chronicles clauses, not
 hidden scheduling. Its older Quantum/Wind program is outside this definition.
 
-## Reviewed execution policy, not yet implemented
+## Executable reviewed policy, not observed parity
 
 The cached pinned source tree contains no released `StageAbility_633415`
 program path. Bounded public research also did not establish hidden trigger,
@@ -53,10 +53,15 @@ recipient, stacking or meter lifecycle details. The authored choices are:
 - Each original non-Elation owner reacts to Basic or Skill at `ActionResolved`,
   `AfterAction`, priority zero, once per action. No Attack-tag requirement or
   per-hit multiplication; other action kinds and linked actors are excluded.
+  Generic ownership-link selectors exclude even `Present` linked entities;
+  presence is not treated as proof of original-roster identity.
 - First gain two on the side's unique `shared.punchline` resource binding, then
   grant `StatKind::Elation` additive `0.5` to living/present original Elation
-  recipients in formation order. One dispellable effect replaces/refreshes
-  ownership across casters and expires after two recipient `TargetTurnEnd`s.
+  recipients in formation order. Exact original form and formation selectors
+  require living `Present` recipients, not linked or transformed actors. One
+  dispellable effect replaces/refreshes ownership across casters and expires
+  after two recipient `TargetTurnEnd`s. `PersistByScope` retains the effect
+  across provider defeat and wave entry until expiry or dispel.
 - No Curio-specific RNG, live Activity access or second combat state machine.
 
 These choices have low behavioral confidence. Alternatives include active-only
@@ -67,27 +72,44 @@ program or reproducible current traces establish them. The separate
 stat and keyed-resource primitives. The separate
 [battle resource policy](divergent-universe-battle-team-resources.md) now
 assembles the meter with explicit initialization, cap, overflow and wave/battle
-choices and command-level tests. That prerequisite does not execute Sapient
-Pen's still-unimplemented trigger or bonus.
+choices and command-level tests. Neither this Curio nor the meter compiler
+lowers character Skills' existing non-cost resource rows. Directly enabling
+them in the shared core catalog would require explicit resource provisioning
+contracts for the other mode assemblers; no silent missing-key fallback is added.
 
-Runtime admission must prove actual Basic/Skill commands in both Ordinary and
-Cyclical assemblies, no-Elation and no-eligible-owner cases, multihit and
-nonattack Skills, excluded action/entity kinds, cross-caster refresh, duration,
-defeat/presence, overflow, waves, fresh reconstruction, rejections and unequip.
-That future evidence must precede any execution or terminal coverage credit.
+Actual mapped Harmony Basic/Skill commands execute the Curio in Ordinary and
+Cyclical assemblies without replacing the character abilities. Fresh commands
+compare encoded events, hashes and RNG counters. Controlled commands retain
+the production Curio rules, original forms, formation and resource policy to
+isolate multihit/nonattack use, multiple recipients, cross-caster replacement,
+live Elation stat queries, expiry after provider defeat, missing living/present
+recipients, no eligible living owner, overflow, waves, dispel, queued excluded
+action families, rejected commands and unequip. The controlled observation
+counter is test-only; it is not a released character damage formula.
+
+No-Elation parties are mechanically inert for this effect and get no Punchline
+binding. Aha, Certified Banger, meter-driven damage, Forge offer/slot admission,
+equipment-command adapter/replay and complete-run release remain pending. No
+source obligation, mechanic program, semantic family or policy-source terminal
+count is changed by this partial equipment-effect boundary.
 
 ## Verification
 
 Data tests load the real production Sora bundle, compare fresh private lowering,
 reject wrong joins and noncanonical operands, reject missing/forged provenance
 at every required source, and reject cross-family key collisions. They are
-not battle fixtures. Workbook QA compares all existing cells/styles/controls
-against the pre-edit workbook and renders the changed numeric region using
-the existing Sora template layout.
+not battle fixtures. Mode tests separately execute the real commands. Workbook
+QA preserves all 44 sheets and all values/styles/controls except the two policy
+text cells and their locally fitted dimensions; canonical `0.5` remains a string.
+The final policy region is rendered and checked after in-memory recalculation;
+the original Sora template and native controls remain intact.
 
 ```text
 node tools/divergent-universe-runtime/verify-weighted-curio-elation-authoring.mjs --check-source
 node tools/divergent-universe-runtime/verify-decision-workbook.mjs
 cargo test -p starclock-data weighted_curio_elation
 cargo test -p starclock-mode-universe weighted_curio_unlowered_and_dirty_loadouts
+cargo test -p starclock-mode-universe weighted_curio_elation
+cargo test -p starclock-combat team_resource_update
+cargo test -p starclock-test-kit --test combat_suite ability_program_team_resource
 ```

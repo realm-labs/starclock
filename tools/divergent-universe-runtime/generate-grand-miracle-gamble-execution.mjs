@@ -47,6 +47,10 @@ const inputs = {
   weighted_necrosis_tests: "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_necrosis.rs",
   weighted_necrosis_fixture: "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_necrosis_fixture.rs",
   weighted_necrosis_data: "config/divergent-universe-decisions-generated/debug-json/DuWeightedCurioNecroses.json",
+  weighted_elation: "crates/starclock-mode-universe/src/divergent_universe/weighted_curio_elation.rs",
+  weighted_elation_tests: "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_elation.rs",
+  weighted_elation_fixture: "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_elation_fixture.rs",
+  weighted_elation_data: "config/divergent-universe-decisions-generated/debug-json/DuWeightedCurioElations.json",
   contribution_snapshot: "crates/starclock-mode-universe/src/divergent_universe/contribution_snapshot.rs",
   gamble_runtime: "crates/starclock-mode-universe/src/divergent_universe/gamble_runtime.rs",
   tests: "crates/starclock-mode-universe/src/divergent_universe/tests/gamble_runtime.rs",
@@ -85,6 +89,16 @@ export function buildGrandMiracleGambleExecution() {
   assert(!text(inputs.mode_facade).includes("grand_miracle_runtime"),
     "reference flags must not be exposed as a Grand Miracle runtime");
   const probes = [
+    ...[
+      "weighted_curio_elation_production_basic_and_nonattack_skill_execute_both_families",
+      "weighted_curio_elation_multihit_refresh_stat_query_and_overflow_are_real_mutations",
+      "weighted_curio_elation_recipient_turn_expiry_survives_caster_defeat",
+      "weighted_curio_elation_presence_and_excluded_owners_do_not_invent_recipients",
+      "weighted_curio_elation_fresh_reconstruction_rejections_and_unequip_are_inert",
+      "weighted_curio_elation_dispel_and_wave_transition_retain_recipient_scope_and_meter",
+      "weighted_curio_elation_queued_non_basic_skill_actions_never_trigger",
+      "weighted_curio_elation_actual_linked_and_shared_actors_cannot_inherit_original_owner_trigger",
+    ].map((test) => ({file: inputs.weighted_elation_tests, test})),
     { file: inputs.weighted_counter_composition_tests,
       test: "production_clara_counter_exhaustion_does_not_fault_with_weighted_curio_retaliation" },
     { file: inputs.taxonomy_tests,
@@ -196,7 +210,8 @@ export function buildGrandMiracleGambleExecution() {
         + json(inputs.weighted_prayer_data).table.rows.length
         + json(inputs.weighted_retaliation_data).table.rows.length
         + json(inputs.weighted_break_effect_data).table.rows.length
-        + json(inputs.weighted_necrosis_data).table.rows.length,
+        + json(inputs.weighted_necrosis_data).table.rows.length
+        + json(inputs.weighted_elation_data).table.rows.length,
       weighted_curio_battle_effect_accuracies: ["VersionedProjectPolicyHitCalculatedCopyAdjacentTrueDamage",
         "VersionedProjectPolicyAllyActionResolvedReplaceTargetTurnShield",
         "VersionedProjectPolicyAttackResolvedAdvanceAndTargetTurnFinalReduction",
@@ -204,11 +219,12 @@ export function buildGrandMiracleGambleExecution() {
         "VersionedProjectPolicyEntryHpAndTurnStartConsumeShield",
         "VersionedProjectPolicyPhysicalAggroAndOwnerAdditional",
         "VersionedProjectPolicyEntryHighestTeamBreakEffectCapture",
-        "VersionedProjectPolicyAttackResolvedNecrosisAndDotDamageBurnDetonation"],
+        "VersionedProjectPolicyAttackResolvedNecrosisAndDotDamageBurnDetonation",
+        "VersionedProjectPolicyActionResolvedOriginalPartyRefresh"],
       grand_miracle_runtime_implemented: false,
       forge_room_payload_implemented: false,
       terminal_coverage_credit: 0,
-      required_next_work: "Bind accepted equipment to actual Forge offers and slot-level admission; implement the remaining nine Weighted Curio effects and equipment-command replay. Establish Grand Miracle selectors independently and repair its separate source/fixture audit labels without shrinking obligations.",
+      required_next_work: "Bind accepted equipment to actual Forge offers and slot-level admission; implement the remaining eight Weighted Curio effects and equipment-command replay. Establish Grand Miracle selectors independently and repair its separate source/fixture audit labels without shrinking obligations.",
     },
     summary: { weighted_curio_references: hex.length,
       current_hex_eligibility_rules: current.length,

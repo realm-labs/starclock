@@ -357,6 +357,10 @@ def main() -> None:
     resource_sheet.column_dimensions["K"].width = 90
     resource_sheet.column_dimensions["L"].width = 90
     resource_sheet.row_dimensions[8].height = 240
+    elation_sheet = workbook["WeightedCurioElations"]
+    elation_sheet.column_dimensions["P"].width = 90
+    elation_sheet.column_dimensions["Q"].width = 90
+    elation_sheet.row_dimensions[8].height = 260
     workbook.properties.modified = datetime(2000, 1, 1)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     workbook.save(args.output)

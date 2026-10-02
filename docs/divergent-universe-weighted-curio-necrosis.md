@@ -6,7 +6,7 @@
 not a Grand Miracle. Accepted equipment contributes a complete, source-owned
 Necrosis program through production Excel/Sora lowering and shared Rule IR.
 This does not implement its Forge offer, equipment-command replay, the other
-nine equipment effects or an original-game complete run. Reference obligations
+eight remaining equipment effects or an original-game complete run. Reference obligations
 and their pending family dispositions are unchanged.
 
 ## Released facts

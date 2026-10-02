@@ -57,7 +57,7 @@ each eligible damage event copies thirty percent to adjacent enemies under an
 explicit hidden-timing/damage-copy policy. Equipment is the seventh immutable
 contribution component; unlowered equipment still rejects with typed errors
 instead of silently producing a no-effect battle. Full Forge menus/slot admission,
-the other nine Weighted Curio effects, actual Grand Miracle source selection/effects
+the other eight Weighted Curio effects, actual Grand Miracle source selection/effects
 and the Forge room payload remain unimplemented. The
 [Harmony shield](divergent-universe-weighted-curio-shield.md) executes ally-directed
 Basic/Skill/Ultimate actions, including self and full-team targets, with each
@@ -87,7 +87,7 @@ baselines and shared weighted normal-enemy primaries make the target component
 executable without a second sampler or mode-specific battle state machine.
 Reaction timing/cardinality, element, critical eligibility, zero-loss admission
 and unreconstructed target locks remain independent low-confidence policies.
-Eight of seventeen equipment effects execute; original Forge admission and
+Nine of seventeen equipment effects execute; original Forge admission and
 complete equipment replay remain pending. The current
 taxonomy/Gamble inventory emits no execution receipt or terminal coverage credit;
 the two accepted Coin units and unresolved Gamble rejection behavior remain.
@@ -1143,7 +1143,7 @@ advance/reduction definition and one support-Path crit/additional-damage
 definition and one real-capacity/turn-start consumption/shield definition and
 one Physical target-weight/nonlethal retaliation definition and one entry
 team-maximum Break Effect capture definition and one resistible Necrosis/Burn
-detonation definition and one authored, still-unexecuted Sapient Pen definition
+detonation definition and one executable policy-bound Sapient Pen definition
 and one independent shared Punchline assembly policy across 44 tables and 416
 rows. Sapient Pen preserves the released two-Punchline,
 `0.5` Elation and two-turn operands with separate reviewed timing policy;
@@ -1153,9 +1153,14 @@ production Skill gains remain authored but unbound: generic data compilation
 still omits non-cost keyed-resource deltas.
 Its zero initial value, 9,999 cap mapping, clamp overflow and within-battle wave
 persistence are explicitly replaceable project policy, not observed parity.
-Fresh battles reconstruct at zero without Activity carry. Sapient Pen battle
-execution, Aha and Certified Banger lifecycle remain pending, and equipped
-Sapient Pen still rejects. These prerequisites grant no terminal reference
+Fresh battles reconstruct at zero without Activity carry. Sapient Pen now
+separately executes two-point gains and the additive `0.5` two-recipient-turn
+Elation property policy after original non-Elation Basic/Skill actions. Its
+cross-caster replacement, provider-defeat/wave persistence, dispel and hidden
+ordering are explicit low-confidence policy. Shared Rule IR resource events now
+retain attempted/effective/overflow through the same checked update calculation
+as hit plans. Aha and Certified Banger lifecycle remain pending.
+These boundaries grant no terminal reference
 coverage credit.
 The [9074 expansion reward](divergent-universe-equation-expansion.md) has
 validated operands and an explicit finite-cascade executor. Fixed public-choice

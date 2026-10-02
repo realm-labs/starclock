@@ -55,8 +55,18 @@ The [Divergent Universe assembly policy](divergent-universe-battle-team-resource
 now provisions one such binding from the original mapped Elation roster, with
 explicit low-confidence initialization, cap mapping, overflow and wave carry.
 Its controlled resource commands execute; existing non-cost production
-`AbilityResourceDelta` rows still need generic data lowering. Sapient Pen and
-full Aha/Certified Banger lifecycle remain unimplemented.
+`AbilityResourceDelta` rows still need generic data lowering. Sapient Pen now
+separately executes its mode-owned gain and timed Elation property policy.
+Full Aha/Certified Banger lifecycle remains unimplemented.
+
+Rule IR and hit-plan keyed updates now share one checked calculation. Their
+events retain attempted gain, effective change and clamp overflow, including a
+gain at capacity; Set retains the authored value rather than its delta. Named
+keyed-resource amounts are floored explicitly into the event's `u16` domain;
+an out-of-domain amount, unaffordable Spend/Reserve or over-cap Set faults with
+command rollback. Selector cardinality remains authored, so callers select one
+owner for one side-wide update. No automatic deduplication or mode default is
+introduced.
 
 ## Holder, provider and forced-use envelope
 

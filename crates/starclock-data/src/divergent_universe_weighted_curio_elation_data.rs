@@ -1,4 +1,4 @@
-//! Sapient Pen's released operands and reviewed, still-unexecuted timing policy.
+//! Sapient Pen's released operands and reviewed mode-owned execution policy.
 
 use crate::{
     divergent_universe::DivergentUniverseBundleCandidate,
@@ -10,7 +10,7 @@ use crate::{
     },
 };
 
-/// Authored choices awaiting mode binding and command-level execution fixtures.
+/// Authored choices bound by the mode's command-level execution fixtures.
 /// This is not an observed original-game scheduling contract.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum WeightedCurioElationPolicy {

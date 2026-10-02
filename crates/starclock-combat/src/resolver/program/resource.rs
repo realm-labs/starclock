@@ -3,7 +3,8 @@
 use super::*;
 use crate::{
     Energy, EventId, Scalar, TeamSide, UnitId, catalog::CombatCatalog,
-    resolver::operation_formula::FormulaInputs,
+    catalog::action::TeamResourceChange, resolver::operation_formula::FormulaInputs,
+    resolver::operation_resource::team_resource_update,
 };
 use std::collections::BTreeSet;
 
@@ -124,26 +125,31 @@ pub(super) fn modify_resource(
                 let before = resource.current;
                 let maximum = resource.maximum;
                 let resource_id = resource.id;
-                let raw = resource_value(
-                    i64::from(before),
-                    i64::from(maximum),
+                let amount = u16::try_from(
                     amount
                         .rounded_integer(Rounding::Floor)
                         .map_err(|_| program_fault(28, 3))?,
-                    update,
-                )?;
-                let after = u16::try_from(raw).map_err(|_| program_fault(28, raw))?;
+                )
+                .map_err(|_| program_fault(28, 3))?;
+                let change = match update {
+                    ResourceUpdateKind::Gain => TeamResourceChange::Gain(amount),
+                    ResourceUpdateKind::Spend | ResourceUpdateKind::Reserve => {
+                        TeamResourceChange::Spend(amount)
+                    }
+                    ResourceUpdateKind::Set => TeamResourceChange::Set(amount),
+                };
+                let (attempted, after, overflow) = team_resource_update(before, maximum, change)?;
                 txn.set_team_resource(side, resource_id, after)?;
                 parent = txn.emit(
                     cause.with_parent(parent),
                     BattleEventKind::Resource(ResourceEventData::TeamResource {
                         side,
                         resource: resource_id,
-                        attempted: before.abs_diff(after),
+                        attempted,
                         effective: before.abs_diff(after),
                         before,
                         after,
-                        overflow: 0,
+                        overflow,
                     }),
                 );
             }

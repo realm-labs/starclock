@@ -36,7 +36,7 @@ fn production_weighted_curio_elation_preserves_all_three_operands_and_policy_bou
         WeightedCurioElationPolicy::VersionedProjectPolicyActionResolvedOriginalPartyRefresh
     );
     assert_eq!(row.sources.len(), 4);
-    assert!(row.policy_note.contains("authored but not yet executed"));
+    assert!(row.policy_note.starts_with("VersionedProjectPolicy:"));
     assert!(
         row.policy_note
             .contains("separate BattleTeamResources assembly policy")

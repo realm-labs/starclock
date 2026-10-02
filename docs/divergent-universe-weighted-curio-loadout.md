@@ -72,10 +72,10 @@ and [Road of Prayers](divergent-universe-weighted-curio-prayer.md)
 and [Self-Amusement](divergent-universe-weighted-curio-retaliation.md)
 and [Converse of Entropy](divergent-universe-weighted-curio-break-effect.md)
 and [Mock Crimson Moon](divergent-universe-weighted-curio-necrosis.md)
-definitions enter actual Rule IR; the other nine effects still reject.
-The [Sapient Pen definition](divergent-universe-weighted-curio-elation.md)
-now has privately validated production operands and an authored timing policy,
-but remains one of those nine rejected effects; data loading grants no execution credit.
+and [Sapient Pen](divergent-universe-weighted-curio-elation.md)
+definitions enter actual Rule IR; the other eight effects still reject.
+Sapient Pen's source operands are separate from its replaceable execution and
+shared-meter policies; data loading alone grants no execution credit.
 Unsupported equipment cannot become a digest-only, no-effect battle.
 After lawful unequip, the existing real proxy battle pipeline works normally.
 
@@ -84,6 +84,6 @@ bounds, canonical order, fresh command reconstruction, rejected requests and
 dirty-state rejection in both families. The normal proxy battle after unequip
 does not establish a Weighted Curio effect. Separate actual attack probes verify
 the lowered splash; they are not Forge admission or a complete public-run gate.
-Forge offers, slot-level admission, domain enhancement, the other nine effects and encoded equipment-command replay remain
+Forge offers, slot-level admission, domain enhancement, the other eight effects and encoded equipment-command replay remain
 unimplemented. No source obligation, mechanic program or semantic family is
 terminalized; genuine Grand Miracle acceptance remains separate and incomplete.

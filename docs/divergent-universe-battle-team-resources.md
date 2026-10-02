@@ -24,9 +24,9 @@ a separate pending data-lowering responsibility, not execution credit.
 The locator selects the test party through data, not a combat branch.
 
 The [Sapient Pen definition](divergent-universe-weighted-curio-elation.md)
-still rejects `UnsupportedBattleEffect`: implementing its target resource
-does not implement its trigger or bonus. Aha actor scheduling, Certified
-Banger, automatic entry gains, meter-driven damage scaling and full Elation
+now separately executes its authored trigger and timed bonus against this
+resource. The assembly policy alone grants no Curio execution credit. Aha actor
+scheduling, Certified Banger, automatic entry gains, meter-driven damage scaling and full Elation
 lifecycle remain separate pending responsibilities. No reference obligation,
 mechanic-program or policy-source terminal count changes from this prerequisite.
 

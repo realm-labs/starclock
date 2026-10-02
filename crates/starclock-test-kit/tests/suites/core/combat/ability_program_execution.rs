@@ -56,6 +56,8 @@ mod action_break;
 mod queue_action;
 #[path = "ability_program_execution/random_grouped_effect.rs"]
 mod random_grouped_effect;
+#[path = "ability_program_execution/team_resource.rs"]
+mod team_resource;
 #[path = "ability_program_execution/toughness_layers.rs"]
 mod toughness_layers;
 #[path = "ability_program_execution/trigger_phases.rs"]
@@ -145,6 +147,7 @@ fn catalog_with_trigger(
     builder.add_selector(SelectorDefinition::new(id(3)).with_unit_targets(
         UnitTargetSelector::new(TargetRelation::Opposing, TargetPattern::Single).unwrap(),
     ));
+    add_owner_selector(&mut builder);
     builder.add_selector(
         SelectorDefinition::new(id(105)).with_rule_units(
             RuleUnitSelector::new(
@@ -560,7 +563,7 @@ fn mechanics_steps() -> Vec<ProgramStep> {
     ]
 }
 
-fn add_mechanics_definitions(builder: &mut CombatCatalogBuilder) {
+fn add_owner_selector(builder: &mut CombatCatalogBuilder) {
     builder.add_selector(
         SelectorDefinition::new(id(4)).with_rule_units(
             RuleUnitSelector::new(
@@ -580,6 +583,9 @@ fn add_mechanics_definitions(builder: &mut CombatCatalogBuilder) {
             .unwrap(),
         ),
     );
+}
+
+fn add_mechanics_definitions(builder: &mut CombatCatalogBuilder) {
     builder.add_selector(SelectorDefinition::new(id(5)).with_unit_targets(
         UnitTargetSelector::new(TargetRelation::SelfUnit, TargetPattern::Single).unwrap(),
     ));

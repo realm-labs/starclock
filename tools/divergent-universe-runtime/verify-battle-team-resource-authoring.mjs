@@ -25,7 +25,7 @@ assert.ok(row.replacement_condition.String.includes("Low confidence"));
 assert.deepEqual(row.source_ids.List.map(v => v.Integer), [111, 112, 113]);
 const state = JSON.parse(fs.readFileSync(path.join(root, "policy/state.json"), "utf8")).divergent_universe.decision_authoring;
 assert.equal(state.weighted_curio_elation_shared_meter_assembly_implemented, true);
-assert.equal(state.weighted_curio_elation_battle_effect_implemented, false);
+assert.equal(state.weighted_curio_elation_battle_effect_implemented, true);
 assert.equal(state.punchline_assembly_policy, "VersionedProjectPolicyOriginalElationZeroClampPersist");
 assert.deepEqual([state.punchline_initial_value, state.punchline_maximum_value, state.punchline_wave_policy], [0, 9999, "Persist"]);
 assert.equal(state.punchline_cross_battle_carry_implemented, false);
@@ -59,4 +59,4 @@ for (const [id, suffix, file, locator, digest] of required) {
 const consumers = rows("config/generated/debug-json", "AbilityResourceDelta")
   .filter(v => v.resource_kind.String === "TeamResource" && v.character_resource_key.String === "shared.punchline");
 assert.deepEqual(consumers.map(v => [v.ability_id.Integer, v.amount_decimal.String]), [[100050,"2"], [110050,"5"], [120045,"3"], [120046,"5"]]);
-console.log("Shared Punchline source facts and independent assembly policy verified; non-cost production resource consumers, Sapient Pen and Aha remain unimplemented.");
+console.log("Shared Punchline source facts and independent assembly policy verified; production Skill resource consumers and Aha remain unimplemented independently of Sapient Pen.");

@@ -189,25 +189,25 @@ fn synthesis_offers_observations_are_inert_and_pools_are_current_owner_unique() 
             // compatibility. Update these when current inputs change.
             let golden = match (family, category) {
                 (DivergentUniverseRunFamily::Ordinary, DivergentUniverseCurioCategory::Common) => {
-                    [9099, 9205, 9231]
+                    [9008, 9060, 9066]
                 }
                 (DivergentUniverseRunFamily::Ordinary, DivergentUniverseCurioCategory::Rare) => {
-                    [9095, 9101, 9102]
+                    [9093, 9099, 9103]
                 }
                 (
                     DivergentUniverseRunFamily::Ordinary,
                     DivergentUniverseCurioCategory::Legendary,
-                ) => [9098, 9099, 9101],
+                ) => [9096, 9097, 9101],
                 (DivergentUniverseRunFamily::Cyclical, DivergentUniverseCurioCategory::Common) => {
-                    [9008, 9019, 9056]
+                    [9008, 9087, 9168]
                 }
                 (DivergentUniverseRunFamily::Cyclical, DivergentUniverseCurioCategory::Rare) => {
-                    [9101, 9160, 9182]
+                    [9096, 9160, 9182]
                 }
                 (
                     DivergentUniverseRunFamily::Cyclical,
                     DivergentUniverseCurioCategory::Legendary,
-                ) => [9101, 9187, 9234],
+                ) => [9098, 9103, 9235],
                 _ => panic!("fixture uses only the three nonnegative input qualities"),
             };
             expected_vectors.push((
