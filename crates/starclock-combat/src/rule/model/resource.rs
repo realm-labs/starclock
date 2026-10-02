@@ -26,6 +26,17 @@ pub enum RuleResourceKind {
     Team(Box<str>),
 }
 
+/// Mutation axis carried by a committed resource event, independent of its address.
+///
+/// Maximum changes retain their cap delta even when they also clamp the balance.
+/// A positive effective-gain rule must require `BalanceChanged` as well as a
+/// positive `ResourceDelta`; overflow alone is not a balance increase.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub enum RuleResourceEventKind {
+    BalanceChanged,
+    MaximumChanged,
+}
+
 /// Cause-relative attribution retained by a queued Rule IR action.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub enum RuleActionOwner {

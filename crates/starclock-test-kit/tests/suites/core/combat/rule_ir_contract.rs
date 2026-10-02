@@ -1,5 +1,7 @@
 #[path = "rule_ir_contract/elation.rs"]
 mod elation;
+#[path = "rule_ir_contract/resource_event.rs"]
+mod resource_event;
 use starclock_combat::{
     ActionGaugeChangeKind, ProgramId, Scalar, SelectorId, SourceDefinitionId,
     StateSlotDefinitionId, UnitId,

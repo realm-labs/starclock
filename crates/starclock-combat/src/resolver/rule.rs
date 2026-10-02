@@ -29,7 +29,7 @@ use crate::{
         evaluate::{BattleQueryReader, ResourceQueryReader},
         model::{
             RuleActionKind, RuleCause, RuleDamageClass, RuleEvaluationInput, RuleEventFacts,
-            RuleEventKind, RuleEventPoint, RuleOccurrence, RuleResourceKind,
+            RuleEventKind, RuleEventPoint, RuleOccurrence, RuleResourceEventKind, RuleResourceKind,
             RuleToughnessEventKind, RuleValue, SelectorResult, SourceClass, TriggerDef,
             TriggerPhase,
         },
@@ -658,6 +658,7 @@ fn event_facts(
                 overflow,
                 ..
             } => {
+                facts.resource_event = Some(RuleResourceEventKind::BalanceChanged);
                 facts.resource = Some(RuleResourceKind::SkillPoints);
                 facts.resource_delta = signed_scalar(i64::from(*after) - i64::from(*before));
                 facts.resource_overflow = signed_scalar(i64::from(*overflow));
@@ -668,6 +669,7 @@ fn event_facts(
                 overflow,
                 ..
             } => {
+                facts.resource_event = Some(RuleResourceEventKind::BalanceChanged);
                 facts.resource = Some(RuleResourceKind::Energy);
                 facts.resource_delta = Some(Scalar::from_scaled(after.scaled() - before.scaled()));
                 facts.resource_overflow = Some(Scalar::from_scaled(overflow.scaled()));
@@ -678,6 +680,7 @@ fn event_facts(
                 after,
                 ..
             } => {
+                facts.resource_event = Some(RuleResourceEventKind::BalanceChanged);
                 facts.resource = Some(RuleResourceKind::Character(resource.clone()));
                 facts.resource_delta = after.checked_sub(*before).ok();
                 facts.resource_overflow = Some(Scalar::ZERO);
@@ -690,6 +693,7 @@ fn event_facts(
                 overflow,
                 ..
             } => {
+                facts.resource_event = Some(RuleResourceEventKind::BalanceChanged);
                 facts.resource = txn
                     .state
                     .teams
@@ -701,11 +705,13 @@ fn event_facts(
                 facts.resource_overflow = signed_scalar(i64::from(*overflow));
             }
             ResourceEventData::SkillPointMaximum { before, after, .. } => {
+                facts.resource_event = Some(RuleResourceEventKind::MaximumChanged);
                 facts.resource = Some(RuleResourceKind::SkillPoints);
                 facts.resource_delta = signed_scalar(i64::from(*after) - i64::from(*before));
                 facts.resource_overflow = Some(Scalar::ZERO);
             }
             ResourceEventData::MaximumHp { before, after, .. } => {
+                facts.resource_event = Some(RuleResourceEventKind::MaximumChanged);
                 facts.resource_delta = signed_scalar(after.get() - before.get());
                 facts.resource_overflow = Some(Scalar::ZERO);
             }

@@ -69,13 +69,18 @@ exists in the shared core, but applying that state through an ordinary
 resistible effect still needs a reviewed shared capability. This batch supplies
 no implementation or control-lifecycle credit for it.
 
-Skill Point triggers also need explicit balance-versus-cap discrimination.
-The current Rule IR event facts identify both `SkillPoints` and
-`SkillPointMaximum` events as the Skill Points resource, and `resource_delta`
-on the latter is the maximum's delta. A positive delta filter alone would
-incorrectly grant Excitation when only the cap increases. Preserve the authored
-effective-balance condition through a shared typed event distinction before
-admission; a cap-only change must not be treated as a Skill Point gain.
+Shared Rule IR now distinguishes `BalanceChanged` from `MaximumChanged` through
+the typed `resource_event` fact and filter. Both `SkillPoints` and
+`SkillPointMaximum` retain the Skill Points address, and `resource_delta` on the
+latter remains the maximum's delta, including when the balance is clamped.
+A positive delta alone is still insufficient: the eventual native mode
+assembly must require `BalanceChanged`, the Skill Points address and a positive
+effective delta. Real generic battle commands verify that cap-only increases,
+cap-induced clamps and overflow-only balance events cannot satisfy that
+combination. This shared capability does not implement Excitation stacks,
+consumption or Entanglement, and supplies no Curio execution credit. Its typed
+filter is available to native catalog composition; no production Sora filter
+column is authored for it yet.
 
 ## Validation and next runtime boundary
 
@@ -101,4 +106,5 @@ node tools/divergent-universe-runtime/verify-weighted-curio-excitation-authoring
 node tools/divergent-universe-runtime/verify-decision-workbook.mjs
 cargo test -p starclock-data weighted_curio_excitation
 cargo test -p starclock-mode-universe weighted_curio_excitation_authoring
+cargo test -p starclock-test-kit --test combat_suite resource_event
 ```

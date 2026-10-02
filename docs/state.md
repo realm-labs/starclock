@@ -1150,6 +1150,14 @@ across 45 tables and 421 rows. Genius' Confusion preserves all five released
 Excitation, Quantum Additional damage and Entanglement operands with a separate
 policy stack cap. Its effect remains unsupported at battle-contribution
 assembly in both run families; data authoring grants no execution credit.
+Shared native Rule IR composition can now independently filter resource
+`BalanceChanged` and `MaximumChanged` events. Effective Skill Point-gain
+conditions require the balance axis, Skill Points address and positive delta;
+cap-only increases, cap-induced balance clamps and pure overflow are excluded
+by generic command fixtures. Maximum-event deltas still describe the cap.
+The Sora EventFilter table has no authored axis column yet, and Genius'
+Confusion's stacks, consumption and resistible non-Break Entanglement remain
+unimplemented. This prerequisite grants no terminal coverage credit.
 Sapient Pen preserves the released two-Punchline,
 `0.5` Elation and two-turn operands with separate reviewed timing policy;
 [shared-meter assembly](divergent-universe-battle-team-resources.md) now binds

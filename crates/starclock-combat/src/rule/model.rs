@@ -24,7 +24,7 @@ mod support;
 use elation::ElationDamageExpressions;
 pub use resource::{
     ResourceMaximumUpdateKind, ResourceUpdateKind, RuleActionOwner, RuleActionPaymentPolicy,
-    RuleResourceKind,
+    RuleResourceEventKind, RuleResourceKind,
 };
 pub use source::{RuleSource, RuleValue, RuleValueKind, SourceClass};
 include!("model/runtime.rs");
@@ -256,6 +256,8 @@ pub struct RuleEventFacts {
     pub effect_specific_resistance: Option<StatKind>,
     pub toughness_kind: Option<RuleToughnessEventKind>,
     pub resource: Option<RuleResourceKind>,
+    /// Balance or maximum mutation; absent on non-resource events.
+    pub resource_event: Option<RuleResourceEventKind>,
     pub action_gauge_change: Option<ActionGaugeChangeKind>,
     pub damage_amount: Option<Scalar>,
     pub damage_raw_amount: Option<Scalar>,
@@ -268,6 +270,7 @@ pub struct RuleEventFacts {
     pub hp_after: Option<Scalar>,
     /// Effective Toughness reduction carried by a `Reduced` event.
     pub toughness_reduction: Option<RawToughness>,
+    /// Signed effective balance delta, or cap delta for `MaximumChanged` events.
     pub resource_delta: Option<Scalar>,
     pub resource_overflow: Option<Scalar>,
     pub stack_count: Option<i64>,
@@ -345,6 +348,8 @@ pub struct EventFilter {
     pub effect_specific_resistance: Option<StatKind>,
     pub toughness_kind: Option<RuleToughnessEventKind>,
     pub resource: Option<RuleResourceKind>,
+    /// Requires this mutation axis; an absent event fact never matches.
+    pub resource_event: Option<RuleResourceEventKind>,
     pub action_gauge_change: Option<ActionGaugeChangeKind>,
     /// Optional requirement for an observed event to belong to an action.
     pub has_action: Option<bool>,

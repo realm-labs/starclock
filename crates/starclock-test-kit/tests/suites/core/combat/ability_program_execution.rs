@@ -56,6 +56,8 @@ mod action_break;
 mod queue_action;
 #[path = "ability_program_execution/random_grouped_effect.rs"]
 mod random_grouped_effect;
+#[path = "ability_program_execution/resource_event.rs"]
+mod resource_event;
 #[path = "ability_program_execution/team_resource.rs"]
 mod team_resource;
 #[path = "ability_program_execution/toughness_layers.rs"]

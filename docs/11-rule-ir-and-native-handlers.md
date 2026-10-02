@@ -99,10 +99,22 @@ unit.
 
 An `EventFilter` first narrows by cheap indexed fields such as included or
 excluded source, owner, actor, applier, target, action kind, ability tags,
-element, damage class, effect category, Toughness event kind, and cause
-ancestry. The condition then evaluates contextual values such as pre/post HP
+element, damage class, effect category, Toughness event kind, resource address,
+mutation axis, and cause ancestry. The condition then evaluates contextual
+values such as pre/post HP
 or signed effect-stack delta from the committed event. This split is an
 implementation optimization but must not change semantics.
+
+Resource events carry an independent `RuleResourceEventKind`: Skill Points,
+Energy, character resources and keyed team resources are `BalanceChanged`;
+Skill Point and HP maximum changes are `MaximumChanged`. The resource address
+does not distinguish these axes. `ResourceDelta` retains the signed effective
+balance delta or signed cap delta of its observed event. Maximum changes may
+also clamp a balance, but remain maximum events. Effective gain rules require
+the balance axis and a positive delta; overflow-only events have zero effective
+delta. A required axis never matches a missing fact, while an omitted filter
+leaves matching unrestricted. Native catalog composition exposes this filter;
+the production Sora EventFilter table does not yet author an axis column.
 
 Effect stack programs use the same typed boundary:
 
