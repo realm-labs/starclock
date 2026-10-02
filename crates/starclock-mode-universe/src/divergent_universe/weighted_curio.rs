@@ -5,6 +5,7 @@ use crate::digest::CanonicalDigestBuilder;
 use starclock_data::divergent_universe_decisions::weighted_curio_attack_debuffs::WeightedCurioAttackDebuffDefinition;
 use starclock_data::divergent_universe_decisions::weighted_curio_break_effects::WeightedCurioBreakEffectDefinition;
 use starclock_data::divergent_universe_decisions::weighted_curio_elations::WeightedCurioElationDefinition;
+use starclock_data::divergent_universe_decisions::weighted_curio_encouragements::WeightedCurioEncouragementDefinition;
 use starclock_data::divergent_universe_decisions::weighted_curio_excitations::WeightedCurioExcitationDefinition;
 use starclock_data::divergent_universe_decisions::weighted_curio_necroses::WeightedCurioNecrosisDefinition;
 use starclock_data::divergent_universe_decisions::weighted_curio_prayers::WeightedCurioPrayerDefinition;
@@ -89,6 +90,7 @@ pub struct WeightedCurioRuntime {
     pub(super) break_effects: Box<[WeightedCurioBreakEffectDefinition]>,
     pub(super) necroses: Box<[WeightedCurioNecrosisDefinition]>,
     pub(super) elations: Box<[WeightedCurioElationDefinition]>,
+    pub(super) encouragements: Box<[WeightedCurioEncouragementDefinition]>,
     pub(super) excitations: Box<[WeightedCurioExcitationDefinition]>,
     decision_digest: [u8; 32],
 }
@@ -138,6 +140,10 @@ impl DivergentUniverseRuntimeFactory {
             splashes: self.decision_catalog().weighted_curio_splashes().into(),
             necroses: self.decision_catalog().weighted_curio_necroses().into(),
             elations: self.decision_catalog().weighted_curio_elations().into(),
+            encouragements: self
+                .decision_catalog()
+                .weighted_curio_encouragements()
+                .into(),
             excitations: self.decision_catalog().weighted_curio_excitations().into(),
             shields: self.decision_catalog().weighted_curio_shields().into(),
             attack_debuffs: self
@@ -289,9 +295,13 @@ impl WeightedCurioRuntime {
         let equipped = self.equipped(activity)?;
         for id in &equipped {
             if !self
-                .excitations
+                .encouragements
                 .iter()
                 .any(|definition| &definition.weighted_curio == id)
+                && !self
+                    .excitations
+                    .iter()
+                    .any(|definition| &definition.weighted_curio == id)
                 && !self
                     .elations
                     .iter()

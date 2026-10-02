@@ -25,6 +25,9 @@ assert.equal(row.policy.String, "OriginalElationFollowUpDamage");
 assert.match(row.policy_note.String, /^VersionedProjectPolicy:/u);
 assert.match(row.policy_note.String, /without changing DamageClass::Elation/u);
 assert.match(row.policy_note.String, /does not implement or admit the effect/u);
+assert.match(row.policy_note.String, /BattleStarted\/AfterEvent/u);
+assert.match(row.policy_note.String, /unitless timeline actors/u);
+assert.match(row.policy_note.String, /actual original-unit producer/u);
 assert.match(row.replacement_condition.String, /do not prove battle execution/u);
 assert.deepEqual(row.source_ids.List.map(value => value.Integer), [118, 119, 120, 121]);
 const state = json("policy/state.json").divergent_universe.decision_authoring;
@@ -36,7 +39,7 @@ const bundle = fs.readFileSync(path.join(root, "config/divergent-universe-decisi
 assert.equal(state.bundle_bytes, bundle.length);
 assert.equal(state.bundle_sha256, crypto.createHash("sha256").update(bundle).digest("hex"));
 assert.equal(state.weighted_curio_encouragement_operands_authored, true);
-assert.equal(state.weighted_curio_encouragement_battle_effect_implemented, false);
+assert.equal(state.weighted_curio_encouragement_battle_effect_implemented, true);
 const required = [
   [118, "hex", "ExcelOutput/RogueTournHex.json", "HexID=1008;", "51e91a6f53ab0545330e477d806a165108f6c7e5e70ad52b02f92c1dc4d36455"],
   [119, "maze-buff", "ExcelOutput/MazeBuff.json", "ID=633408;", "2fab98b723ee20d8798c68e200cc9c3704abc347b0983b2955cbd40b85bfeeac"],

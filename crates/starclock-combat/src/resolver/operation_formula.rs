@@ -10,7 +10,7 @@ use crate::{
         action::{AbilityKind, AbilityTag},
         definition::AbilityDefinition,
     },
-    damage::{DamageSemantic, DamageSemantics},
+    damage::{DamageProducer, DamageSemantic, DamageSemantics},
     formula::{
         model::{CombatElement, DamageClass},
         sustain::{DamageCalculation, HealingCalculation},
@@ -42,6 +42,7 @@ use super::{
     operation::fault::{invariant_fault, numeric_fault},
     transaction::Transaction,
 };
+use classification::damage_producer;
 
 pub(super) struct FormulaInputs {
     bases: BTreeMap<(UnitId, StatKind), Scalar>,
@@ -132,12 +133,14 @@ impl FormulaInputs {
         } else {
             DamageSemantics::NONE
         };
+        let producer = Some(damage_producer(txn, cause, purpose)?);
         let source_context = damage_modifier_context(
             catalog,
             cause,
             modifier_context(txn, source, target, element, formula.class())?,
             ultimate_semantics,
             damage_semantics,
+            producer,
         )
         .with_formula_subject(FormulaSubject::Source);
         let incoming_context = IncomingModifierContext {
@@ -148,6 +151,7 @@ impl FormulaInputs {
             class: formula.class(),
             ultimate_semantics,
             damage_semantics,
+            producer,
         };
         if apply_source_modifiers {
             let flat = formula_modifier(
@@ -195,6 +199,7 @@ impl FormulaInputs {
                             modifier_context(txn, target, target, element, formula.class())?,
                             ultimate_semantics,
                             damage_semantics,
+                            producer,
                         )
                         .with_formula_subject(FormulaSubject::Target),
                     )?;
@@ -261,12 +266,14 @@ impl FormulaInputs {
         let resolver = self.resolver(catalog);
         let damage_semantics =
             self.damage_semantics(catalog, txn, cause, query.class, query.ultimate_semantics)?;
+        let producer = Some(damage_producer(txn, cause, purpose)?);
         let source_context = damage_modifier_context(
             catalog,
             cause,
             modifier_context(txn, source, query.target, query.element, query.class)?,
             query.ultimate_semantics,
             damage_semantics,
+            producer,
         )
         .with_formula_subject(FormulaSubject::Source);
         let rate = resolver
@@ -290,6 +297,7 @@ impl FormulaInputs {
                 modifier_context(txn, query.target, query.target, query.element, query.class)?,
                 query.ultimate_semantics,
                 damage_semantics,
+                producer,
             )
             .with_formula_subject(FormulaSubject::Target),
         )?;
@@ -623,6 +631,7 @@ impl FormulaInputs {
                 class: formula::model::DamageClass::Direct,
                 ultimate_semantics: false,
                 damage_semantics: DamageSemantics::NONE,
+                producer: None,
             },
             FormulaStage::Healing,
             FormulaPurpose::Healing,
@@ -671,6 +680,7 @@ impl FormulaInputs {
                 class: formula::model::DamageClass::Direct,
                 ultimate_semantics: false,
                 damage_semantics: DamageSemantics::NONE,
+                producer: None,
             },
             FormulaStage::Shield,
             FormulaPurpose::Shield,
@@ -747,6 +757,7 @@ struct BreakFormulaModifiers {
 #[derive(Clone, Copy)]
 struct IncomingModifierContext {
     damage_semantics: DamageSemantics,
+    producer: Option<DamageProducer>,
     cause: Cause,
     source: UnitId,
     target: UnitId,
@@ -788,6 +799,7 @@ fn incoming_formula_modifier(
         modifier_context(txn, input.target, input.target, input.element, input.class)?,
         input.ultimate_semantics,
         input.damage_semantics,
+        input.producer,
     );
     let unscoped = if input.source == input.target
         && matches!(purpose, FormulaPurpose::Healing | FormulaPurpose::Shield)
@@ -945,7 +957,9 @@ fn damage_modifier_context(
     mut context: ModifierQueryContext,
     ultimate_semantics: bool,
     semantics: DamageSemantics,
+    producer: Option<DamageProducer>,
 ) -> ModifierQueryContext {
+    context.damage_producer = producer;
     if semantics.contains(DamageSemantic::FollowUp) {
         let mut tags = context.damage_tags.into_vec();
         tags.push("follow_up".into());

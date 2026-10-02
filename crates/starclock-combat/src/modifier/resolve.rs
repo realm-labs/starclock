@@ -727,5 +727,6 @@ fn matches_filters(
             .binary_search(value)
             .is_ok(),
         ModifierFilter::FormulaSubject(value) => context.formula_subject == Some(*value),
+        ModifierFilter::DamageProducer(value) => context.damage_producer == Some(*value),
     })
 }

@@ -5,6 +5,7 @@ use std::collections::BTreeSet;
 use crate::{
     ActionId, EffectInstanceId, ModifierDefinitionId, ModifierInstanceId, ModifierStackingGroupId,
     Scalar, SelectorId, SourceDefinitionId, StateSlotDefinitionId, UnitId,
+    damage::DamageProducer,
     rule::model::{RuleValue, SourceClass, ValueExpr},
 };
 
@@ -210,6 +211,8 @@ pub enum ModifierFilter {
     Source(SourceClass),
     Target(SelectorId),
     FormulaSubject(FormulaSubject),
+    /// Filters the actual damage producer, not a borrowed formula-stat owner.
+    DamageProducer(DamageProducer),
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -316,6 +319,7 @@ pub struct ModifierQueryContext {
     pub source_class: Option<SourceClass>,
     pub target: Option<UnitId>,
     pub formula_subject: Option<FormulaSubject>,
+    pub damage_producer: Option<DamageProducer>,
     pub matched_target_selectors: Box<[SelectorId]>,
 }
 

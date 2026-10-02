@@ -8,10 +8,10 @@ use crate::{
         encounter::WaveTransitionPolicy,
     },
     event::{
-        cause::{Cause, CauseActor},
+        cause::Cause,
         model::{ActionEventData, BattleEventKind, HitEventData, PhaseEventData},
     },
-    id::{CommandId, EventId, SourceDefinitionId},
+    id::{CommandId, EventId},
     modifier::model::SnapshotPolicy,
     operation::{
         AddWeaknessOp, ApplyEffectOp, ChangePresenceOp, ConsumeHpOp, DamageOp, DetonateDotsOp,
@@ -29,6 +29,7 @@ use super::{
         ReactionWork, apply_resource_costs, apply_resource_gains, dequeue_reaction,
         project_hit_targets, resolve_scaling_damage, run_programs_at,
     },
+    command_resolution::action_cause,
     effect_boundary, entanglement, lifecycle, modifier_snapshot, operation, rule, settle,
     transaction::{Transaction, action_fault},
 };
@@ -103,17 +104,7 @@ impl ExecutionFrame {
     }
 
     fn base_cause(&self) -> Result<Cause, BattleFault> {
-        let source =
-            SourceDefinitionId::new(self.plan.ability.get()).ok_or_else(|| action_fault(7))?;
-        Ok(Cause::for_action(
-            self.root,
-            self.plan.id,
-            self.plan.owner,
-            CauseActor::Unit(self.plan.actor),
-            source,
-        )
-        .with_primary_target(self.plan.targets.primary)
-        .with_applier(self.plan.owner))
+        action_cause(self.root, &self.plan)
     }
 }
 

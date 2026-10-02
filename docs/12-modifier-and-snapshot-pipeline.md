@@ -88,8 +88,11 @@ An executable `EffectDefinition` can add labels for named non-DoT calculator
 families through strictly ordered, unique `DamageClassification` entries.
 Eligibility uses the formula producer's live effect holder, not its applier,
 queried victim or a linked combat unit's owner. Unitless timeline actors retain
-the shared formula's explicit owner fallback; mode policies that exclude such
-actors still require an actor-membership gate. Labels from multiple instances or
+the shared formula's explicit owner fallback for statistics, independently of
+actual producer eligibility. Optional `DamageProducer` filters distinguish
+original units, linked units and unitless timeline actors in classification and
+damage modifier queries. Countdown action causes retain their timeline actor;
+an owner fallback cannot bypass an original-unit filter. Labels from multiple instances or
 definitions form an idempotent union, not a multiplier. The operation-entry
 `FormulaInputs` capture determines the labels for all targets of that operation;
 later operations requery after application, removal or expiry.

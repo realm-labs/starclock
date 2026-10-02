@@ -367,7 +367,8 @@ impl EffectDefinition {
     }
     /// Adds labels for the live holder selected by the shared formula-source
     /// contract, not the effect applier or victim. Unitless actors retain that
-    /// contract's owner fallback. Multiple providers union labels idempotently.
+    /// contract's owner fallback unless an entry's producer gate excludes them.
+    /// Multiple providers union labels idempotently.
     /// Catalog validation requires a runtime and ordered nonempty non-DoT entries.
     #[must_use]
     pub fn with_damage_classifications(mut self, entries: Vec<DamageClassification>) -> Self {

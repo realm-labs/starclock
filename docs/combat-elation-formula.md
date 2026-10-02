@@ -237,9 +237,10 @@ Released operation bindings, level-table compilation and released damage
 parity remain unimplemented.
 Punchline snapshots and Aha/Certified Banger lifecycle
 remain independently owned by their authored resources, effects and actions.
-The Weighted Curio Sapient Pen is not implemented by adding this calculator.
+The Weighted Curio Sapient Pen has a separate mode-owned policy binding; this
+calculator alone does not implement it.
 No Divergent Universe obligation/program/family changes disposition; the
-17-curio denominator and eight executing equipment effects are unchanged.
+17-curio denominator is unchanged; eleven equipment effects currently execute.
 
 ```text
 cargo test -p starclock-combat formula::elation

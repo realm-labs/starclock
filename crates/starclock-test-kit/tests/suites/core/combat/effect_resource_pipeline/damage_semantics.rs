@@ -78,6 +78,7 @@ fn labels() -> Vec<DamageClassification> {
     vec![DamageClassification {
         class: DamageClass::Elation,
         semantics: DamageSemantics::new(DamageSemantic::FollowUp),
+        producer: None,
     }]
 }
 fn selector(origin: RuleSelectorOrigin, side: RuleSelectorSide) -> RuleUnitSelector {
@@ -536,6 +537,7 @@ fn damage_semantics_catalog_rejects_identity_only_empty_duplicate_unsorted_and_d
             vec![DamageClassification {
                 class: DamageClass::Elation,
                 semantics: DamageSemantics::NONE,
+                producer: None,
             }],
         ),
         (true, vec![labels()[0], labels()[0]]),
@@ -546,6 +548,7 @@ fn damage_semantics_catalog_rejects_identity_only_empty_duplicate_unsorted_and_d
                 DamageClassification {
                     class: DamageClass::Direct,
                     semantics: labels()[0].semantics,
+                    producer: None,
                 },
             ],
         ),
@@ -554,6 +557,7 @@ fn damage_semantics_catalog_rejects_identity_only_empty_duplicate_unsorted_and_d
             vec![DamageClassification {
                 class: DamageClass::Dot,
                 semantics: labels()[0].semantics,
+                producer: None,
             }],
         ),
     ] {

@@ -2,6 +2,15 @@
 
 use crate::formula::model::DamageClass;
 
+/// Actual damage producer, independent of the unit supplying formula stats.
+/// Links retain their identity even after departure; presence is not ownership.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub enum DamageProducer {
+    OriginalUnit,
+    LinkedUnit,
+    UnitlessActor,
+}
+
 /// A damage label, not an ability tag or a replacement calculator.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub enum DamageSemantic {
@@ -53,4 +62,6 @@ impl DamageSemantics {
 pub struct DamageClassification {
     pub class: DamageClass,
     pub semantics: DamageSemantics,
+    /// None accepts any producer using the holder's formula inputs.
+    pub producer: Option<DamageProducer>,
 }

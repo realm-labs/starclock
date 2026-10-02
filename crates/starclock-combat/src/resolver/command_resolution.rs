@@ -7,7 +7,7 @@ use super::{
     turn,
 };
 use crate::{
-    AbilityId, UnitId,
+    AbilityId, ActionOrigin, UnitId,
     action::{
         lower::{
             TimelineActionContext, lower_action_segment, lower_normal_action,
@@ -532,15 +532,16 @@ fn concede(txn: &mut Transaction<'_>, root: CommandId) -> Result<(), BattleFault
 
 pub(super) fn action_cause(root: CommandId, plan: &ActionPlan) -> Result<Cause, BattleFault> {
     let source = SourceDefinitionId::new(plan.ability.get()).ok_or_else(|| action_fault(42))?;
-    Ok(Cause::for_action(
-        root,
-        plan.id,
-        plan.owner,
-        CauseActor::Unit(plan.actor),
-        source,
-    )
-    .with_primary_target(plan.targets.primary)
-    .with_applier(plan.owner))
+    let actor = if plan.origin == ActionOrigin::Countdown
+        && let Some(actor) = plan.normal_turn
+    {
+        CauseActor::TimelineActor(actor)
+    } else {
+        CauseActor::Unit(plan.actor)
+    };
+    Ok(Cause::for_action(root, plan.id, plan.owner, actor, source)
+        .with_primary_target(plan.targets.primary)
+        .with_applier(plan.owner))
 }
 
 pub(super) fn commit_targets(

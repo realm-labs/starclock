@@ -11,8 +11,10 @@ facts, conjunctive event filters and event-context selectors, and remain in
 canonical replay bytes after guard consumption. Mixed-class CRIT groups retain
 one decision while requerying damage-specific CRIT DMG. Native command fixtures
 cover classification, target direction, removal, True damage and deterministic
-reconstruction. Sora authoring and Weighted Curio Encouragement battle admission
-remain pending; this prerequisite grants no additional terminal DU coverage.
+reconstruction. Actual producer qualification separates original units, linked
+units and unitless countdown actors from formula-owner fallback. Weighted Curio
+Encouragement now binds the authored policy in both run families; Forge and
+public equipment replay remain pending, with no additional terminal DU coverage.
 See the [damage semantics contract](12-modifier-and-snapshot-pipeline.md).
 
 The [shared Elation calculator](combat-elation-formula.md) now separates the
@@ -92,7 +94,7 @@ each eligible damage event copies thirty percent to adjacent enemies under an
 explicit hidden-timing/damage-copy policy. Equipment is the seventh immutable
 contribution component; unlowered equipment still rejects with typed errors
 instead of silently producing a no-effect battle. Full Forge menus/slot admission,
-the other seven Weighted Curio effects, actual Grand Miracle source selection/effects
+the other six Weighted Curio effects, actual Grand Miracle source selection/effects
 and the Forge room payload remain unimplemented. The
 [Harmony shield](divergent-universe-weighted-curio-shield.md) executes ally-directed
 Basic/Skill/Ultimate actions, including self and full-team targets, with each
@@ -122,7 +124,7 @@ baselines and shared weighted normal-enemy primaries make the target component
 executable without a second sampler or mode-specific battle state machine.
 Reaction timing/cardinality, element, critical eligibility, zero-loss admission
 and unreconstructed target locks remain independent low-confidence policies.
-Ten of seventeen equipment effects execute; original Forge admission and
+Eleven of seventeen equipment effects execute; original Forge admission and
 complete equipment replay remain pending. The current
 taxonomy/Gamble inventory emits no execution receipt or terminal coverage credit;
 the two accepted Coin units and unresolved Gamble rejection behavior remain.
@@ -1190,14 +1192,19 @@ team-maximum Break Effect capture definition and one resistible Necrosis/Burn
 detonation definition and one executable policy-bound Sapient Pen definition
 and one independent shared Punchline assembly policy and one executable
 [Genius' Confusion definition](divergent-universe-weighted-curio-excitation.md)
-and one data-only
+and one executable policy-bound
 [Encouragement for You definition](divergent-universe-weighted-curio-encouragement.md)
 across 46 tables and 426 rows. Encouragement for You preserves the released
 Elation eligibility and canonical `1.5` follow-up Crit Damage ratio, with a
 separate replaceable original-owner classification policy. Shared orthogonal
-damage-label routing and its command fixtures remain pending. Both run families
-still reject this equipped Curio without state or RNG mutation; authoring grants
-no battle-effect or terminal reference/program credit. Genius' Confusion preserves
+damage-label routing preserves Elation's calculator and action envelope. Both
+run families apply one permanent original-owner effect at BattleStarted; native
+FollowUp and relabeled Elation critical hits add `1.5` scoped CRIT DMG. Linked
+summons, memosprites, shared actors and unitless countdowns cannot borrow the
+alias or bonus through inherited definitions or formula fallback. Command tests
+cover mixed calculators, Crit/RNG, forced linked effects, refresh, waves, unequip,
+rejected commands and fresh reconstruction. No terminal reference/program
+credit follows while Forge and equipment replay remain pending. Genius' Confusion preserves
 all five released
 Excitation, Quantum Additional damage and Entanglement operands with a separate
 policy stack cap. Both run families now lower it through native shared Rule IR:

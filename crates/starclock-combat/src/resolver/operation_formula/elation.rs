@@ -1,6 +1,6 @@
 //! Live native Elation inputs and explicit common-stage modifier projection.
 use super::{
-    FormulaInputs, IncomingModifierContext, damage_modifier_context, final_damage,
+    FormulaInputs, IncomingModifierContext, damage_modifier_context, damage_producer, final_damage,
     formula_modifier, formula_source, incoming_formula_modifier, modifier_context,
 };
 use crate::{
@@ -36,6 +36,7 @@ impl FormulaInputs {
         let source = formula_source(txn, cause, purpose)?;
         let damage_semantics =
             self.damage_semantics(catalog, txn, cause, DamageClass::Elation, false)?;
+        let producer = Some(damage_producer(txn, cause, purpose)?);
         let resolver = self.resolver(catalog);
         let source_context = damage_modifier_context(
             catalog,
@@ -49,6 +50,7 @@ impl FormulaInputs {
             )?,
             false,
             damage_semantics,
+            producer,
         )
         .with_formula_subject(FormulaSubject::Source);
         let target_context = damage_modifier_context(
@@ -63,6 +65,7 @@ impl FormulaInputs {
             )?,
             false,
             damage_semantics,
+            producer,
         )
         .with_formula_subject(FormulaSubject::Target);
         let elation = resolver
@@ -98,6 +101,7 @@ impl FormulaInputs {
             class: DamageClass::Elation,
             ultimate_semantics: false,
             damage_semantics,
+            producer,
         };
         let contribution = |stage| {
             incoming_formula_modifier(&resolver, catalog, txn, incoming, stage, purpose)

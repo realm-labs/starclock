@@ -1,4 +1,4 @@
-# Encouragement for You data boundary
+# Encouragement for You runtime boundary
 
 ## Current state
 
@@ -7,10 +7,10 @@ Encouragement for You (给你鼓励) definition through openpyxl and Sora 0.6.1.
 The exact operand is canonical decimal string `1.5`, an additive 150% follow-up
 critical-damage ratio. The definition records both required clauses: Elation
 damage also qualifies as follow-up damage, and qualifying follow-up critical
-damage increases. Neither effect executes yet. Equipped Curio 1008 still fails
-closed before battle assembly; no native handler or no-op admission was added.
-The ten executable effects, seven unsupported effects and all terminal
-reference/program dispositions are unchanged.
+damage increases. Both run families now bind these clauses through native
+shared Rule IR and effect definitions. Eleven equipment effects execute and six
+remain unsupported. Terminal reference/program dispositions are unchanged;
+Forge offers and public equipment-command replay remain pending.
 
 ## Released source joins
 
@@ -36,14 +36,18 @@ Remembrance/memosprite auxiliary-ability variant is excluded, not imported as a
 current mechanic. No file containing `633408` exists in the pinned Git object
 tree, so it does not supply an executable StageAbility program.
 
-## Reviewed policy and pending native work
+## Reviewed runtime policy
 
 `VersionedProjectPolicyOriginalElationFollowUpDamage` is an explicit,
 low-confidence envelope, not observed parity. It selects these replaceable
-choices for the subsequent runtime batch:
+choices implemented by the mode-owned runtime:
 
 - Original mapped Elation party owners qualify; linked summons, memosprites and
   shared actors do not inherit eligibility through a shared form or bundle.
+- At BattleStarted/AfterEvent, once per battle per original owner, apply one
+  permanent, non-dispellable Replace effect with PersistByScope teardown.
+  Actual producer filters exclude linked and unitless actors even when the
+  effect is forcibly applied or statistics fall back to the original owner.
 - Add orthogonal follow-up **damage** semantics to Elation hits. Keep
   `DamageClass::Elation`, its dedicated calculator, action kind/origin, costs,
   hit count and Crit grouping. Do not create another action, hit or event.
@@ -77,14 +81,18 @@ forged provenance at each required source. The authoring verifier independently
 checks pinned Git blob hashes and current joins. Sora drift checks compare clean
 schema/readers/exports and a freshly openpyxl-authored workbook.
 
-Those checks prove data validity only. Command-level both-family damage,
-classification/trigger, linked-actor, Crit/RNG, wave, unequip, rejection and fresh
-reconstruction fixtures remain required before runtime admission.
+Those checks prove data validity only. Native command-level both-family fixtures
+also execute mixed damage, native queued FollowUp, shared/per-target/Never Crit,
+multihit and multitarget draws, real linked actors with inherited bundles and
+forced effects, unitless countdowns, refresh, waves, unequip, rejected commands
+and fresh event/state/RNG reconstruction. Unmodified production battles also
+construct and execute. Hidden choices remain policy, not observed parity.
 
 The [shared native prerequisite](12-modifier-and-snapshot-pipeline.md) now
 supports effect-holder additive FollowUp damage labels, scoped CRIT DMG query
 filters, captured event facts and event-context selectors without changing the
 Elation calculator or action tags. Generic command fixtures prove this boundary,
-including mixed damage and guard consumption. Encouragement still has no
-mode-owned battle binding or runtime admission; these native tests do not grant
+including mixed damage and guard consumption. Encouragement's mode-owned
+binding now uses that shared boundary and actual producer qualification;
+these native tests do not grant
 its source obligation or program terminal execution credit.
