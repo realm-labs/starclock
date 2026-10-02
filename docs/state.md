@@ -1172,6 +1172,11 @@ Wrong seeds/families and corrupt bytes reject. These six proxy-route vectors
 are adapter regressions, not complete-gameplay or terminal coverage evidence.
 
 The disposition generator grants no executable credit from batch ordinals.
+The current capability inventory projects those same dispositions and statuses,
+separating zero admitted executable programs from 663 pending and six non-runtime
+terminals. Candidate shared-IR shape mappings are not runtime execution evidence;
+the inventory rejects obsolete generic execution labels and inconsistent status
+claims instead of silently treating them as complete.
 It retains 184 metadata/exclusion obligations and six proven non-runtime
 programs as terminal; 6,578 obligations and 663 programs await reviewed
 source or behavioral evidence. This is a verification backlog, not a claim that every

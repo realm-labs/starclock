@@ -5,6 +5,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { execFileSync, spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
+import { summarizeProgramExecution } from "./capability-execution-accounting.mjs";
 
 import {
   classifySourceType,
@@ -120,6 +121,7 @@ export function buildCapabilityInventory(sourceCacheArgument = defaultSourceCach
       trigger: program.trigger,
       state_lifetime: program.state_lifetime,
       execution_disposition: program.execution_disposition,
+      runtime_status: program.runtime_status,
       execution_owner: program.execution_owner,
       execution_partition: program.execution_partition,
       domain,
@@ -204,15 +206,11 @@ export function buildCapabilityInventory(sourceCacheArgument = defaultSourceCach
       "MissingCapability is deliberately conservative when source field semantics do not map exactly to the current shared vocabulary.",
       "NonAuthoritative shapes are presentation, null-token or source-layout boundaries and cannot mutate authoritative state.",
       "Postfix byte values remain unresolved; no opcode semantics are inferred from byte identity or ordering.",
+      "Execution counts project current mechanic dispositions; terminal metadata/exclusions are not executable behavior, and candidate shape support grants no credit.",
     ],
     summary: {
       mechanic_programs: programs.length,
-      executable_programs: programs.filter(({ execution_disposition: value }) =>
-        value === "ExactExecutable").length,
-      metadata_only_programs: programs.filter(({ execution_disposition: value }) =>
-        value === "MetadataOnly").length,
-      excluded_programs: programs.filter(({ execution_disposition: value }) =>
-        value === "ExcludedWithProof").length,
+      ...summarizeProgramExecution(programs),
       unique_source_files: sourceBytes.size,
       source_scopes: countBy(programs, ({ scope }) => scope),
       domains: countBy(programs, ({ domain }) => domain),

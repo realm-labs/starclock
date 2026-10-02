@@ -5,6 +5,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
+import { summarizeProgramExecution } from "./capability-execution-accounting.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const inventoryPath = path.join(
@@ -15,7 +16,7 @@ const sourceCache = sourceCacheIndex === -1
   ? ".cache/content-reference/turnbasedgamedata"
   : required(process.argv[sourceCacheIndex + 1], "--source-cache value");
 
-execFileSync("node", [
+execFileSync(process.execPath, [
   "tools/divergent-universe-runtime/generate-capability-inventory.mjs",
   "--check", "--source-cache", sourceCache,
 ], { cwd: root, stdio: "inherit" });
@@ -28,10 +29,14 @@ assert(inventory.batch === "G22-P2-B1", "capability inventory batch drift");
 assert(inventory.programs.length === 669, "mechanic inventory denominator drift");
 assert(unique(inventory.programs.map(({ mechanic_id: id }) => id)) === 669,
   "mechanic inventory is not exact-once");
-assert(inventory.summary.executable_programs === 663
-  && inventory.summary.metadata_only_programs === 3
-  && inventory.summary.excluded_programs === 3,
-"executable/metadata/excluded program accounting drift");
+const dispositions = JSON.parse(fs.readFileSync(path.join(root,
+  "content-manifests/divergent-universe-runtime-v1/mechanic-dispositions.json"), "utf8"));
+assert(dispositions.programs.length === 669, "current disposition denominator drift");
+const projected = summarizeProgramExecution(dispositions.programs);
+for (const [field, expected] of Object.entries(projected))
+  assert(equalJson(inventory.summary[field], expected), `execution accounting drift: ${field}`);
+assert(equalJson(summarizeProgramExecution(inventory.programs), projected),
+  "inventory rows do not preserve current execution status");
 assert(inventory.summary.unique_source_files === 669, "source file denominator drift");
 assert(equalJson(inventory.summary.source_scopes, {
   Activity: 662, Battle: 3, CrossBattle: 1, EvidenceLayout: 3,
