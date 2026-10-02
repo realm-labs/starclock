@@ -37,6 +37,7 @@ from weighted_curio_necrosis_rows import append_weighted_curio_necrosis
 from weighted_curio_elation_rows import append_weighted_curio_elation
 from battle_team_resource_rows import append_battle_team_resources
 from weighted_curio_excitation_rows import append_weighted_curio_excitation
+from weighted_curio_encouragement_rows import append_weighted_curio_encouragement
 
 
 def rows() -> dict[str, list[list[object]]]:
@@ -320,6 +321,7 @@ def rows() -> dict[str, list[list[object]]]:
     append_weighted_curio_elation(data)
     append_battle_team_resources(data)
     append_weighted_curio_excitation(data)
+    append_weighted_curio_encouragement(data)
     return data
 
 
@@ -367,6 +369,14 @@ def main() -> None:
     excitation_sheet.column_dimensions["U"].width = 110
     excitation_sheet.column_dimensions["V"].width = 110
     excitation_sheet.row_dimensions[8].height = 300
+    encouragement_sheet = workbook["WeightedCurioEncouragements"]
+    encouragement_sheet.column_dimensions["D"].width = 46
+    encouragement_sheet.column_dimensions["I"].width = 48
+    encouragement_sheet.column_dimensions["J"].width = 48
+    encouragement_sheet.column_dimensions["K"].width = 54
+    encouragement_sheet.column_dimensions["L"].width = 110
+    encouragement_sheet.column_dimensions["M"].width = 110
+    encouragement_sheet.row_dimensions[8].height = 300
     workbook.properties.modified = datetime(2000, 1, 1)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     workbook.save(args.output)

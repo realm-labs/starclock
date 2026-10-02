@@ -1,0 +1,67 @@
+{
+  "table": {
+    "name": "DuWeightedCurioEncouragements",
+    "rows": [
+      {
+        "values": {
+          "character_paths": {
+            "List": [
+              {
+                "String": "Elation"
+              }
+            ]
+          },
+          "crit_parameter": {
+            "Integer": 1
+          },
+          "follow_up_crit_damage": {
+            "String": "1.5"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "maze_buff_id": {
+            "String": "633408"
+          },
+          "policy": {
+            "String": "OriginalElationFollowUpDamage"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: original mapped party forms determine Elation Path eligibility before battle assembly. Add FollowUp damage semantics to eligible owners' Elation hits without changing DamageClass::Elation, the Elation calculator, action kind/origin, hit count, costs, triggers or RNG grouping. Already-classified follow-up hits from those original owners also qualify. Add the canonical 1.5 ratio once to the eligible hit's CritDamage stat query before ordinary or Elation critical multiplication; no bonus to noncritical damage, CritRate, Elation stat or ordinary DMG Boost. Classification does not create a second action, hit, damage event or reaction. Do not transfer eligibility to summons, memosprites or shared actors through inherited forms/bundles. Battle-lifetime ownership is reconstructed from accepted equipment, persists across waves and never writes Activity state. Non-Elation owners, DoT, Break, Super Break and True damage receive no bonus. This authoring batch does not implement or admit the effect; shared orthogonal damage-label routing and command fixtures remain pending."
+          },
+          "replacement_condition": {
+            "String": "Low confidence for original-owner scope, additive label propagation to selectors/events/modifiers, preservation of action identity, and scoped critical-stat timing. Released StageAbility_633408 is absent from the pinned Git object tree. Bounded public cross-check on 2026-10-02: https://honkai-star-rail.fandom.com/wiki/Encouragement_for_You supports only the current Arcadian Chronicles clauses; its older Remembrance/memosprite variant is excluded. Alternatives: replace rather than add labels, reclassify the whole action, inherit owner eligibility for linked actors, or apply a formula-stage bonus instead of a scoped critical stat. Data tests weighted_curio_encouragement validate canonical operands, policy/provenance and exact joins; they do not prove battle execution. Replace each hidden field independently when released programs or reproducible current observations establish it. Forge, equipment replay and full-run release remain pending."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 118
+              },
+              {
+                "Integer": 119
+              },
+              {
+                "Integer": 120
+              },
+              {
+                "Integer": 121
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.weighted-curio-encouragement.encouragement-for-you"
+          },
+          "summary_en": {
+            "String": "Elation characters retain their Elation formula while their Elation damage also qualifies as follow-up damage; their follow-up critical damage gains an additive 150%."
+          },
+          "summary_zh_cn": {
+            "String": "欢愉角色的欢愉伤害保留欢愉公式并同时满足追加攻击伤害判定，其追加攻击伤害的暴击伤害额外提高150%。"
+          },
+          "weighted_curio_key": {
+            "String": "divergent-universe.weighted-curio.1008"
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1178,7 +1178,15 @@ team-maximum Break Effect capture definition and one resistible Necrosis/Burn
 detonation definition and one executable policy-bound Sapient Pen definition
 and one independent shared Punchline assembly policy and one executable
 [Genius' Confusion definition](divergent-universe-weighted-curio-excitation.md)
-across 45 tables and 421 rows. Genius' Confusion preserves all five released
+and one data-only
+[Encouragement for You definition](divergent-universe-weighted-curio-encouragement.md)
+across 46 tables and 426 rows. Encouragement for You preserves the released
+Elation eligibility and canonical `1.5` follow-up Crit Damage ratio, with a
+separate replaceable original-owner classification policy. Shared orthogonal
+damage-label routing and its command fixtures remain pending. Both run families
+still reject this equipped Curio without state or RNG mutation; authoring grants
+no battle-effect or terminal reference/program credit. Genius' Confusion preserves
+all five released
 Excitation, Quantum Additional damage and Entanglement operands with a separate
 policy stack cap. Both run families now lower it through native shared Rule IR:
 positive effective Quantum Skill Point events grant two recipient-local stacks;

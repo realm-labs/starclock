@@ -200,6 +200,8 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 160. [Automatic normal-action primary selection](combat-automatic-primary-selection.md) — opt-in battle-owned primary sampling before declaration/payment, shared multi-hit Single/Blast commitment and unchanged unbound targeting; used by the policy-bound Self-Amusement overlay without terminal Curio credit.
 161. [Self-Amusement target weights and nonlethal retaliation](divergent-universe-weighted-curio-retaliation.md) — production-authored Physical qualification, explicit path baselines, shared enemy primary sampling and victim-sourced Additional damage; hidden targeting/reaction details remain replaceable policy.
 
+162. [Encouragement for You data boundary](divergent-universe-weighted-curio-encouragement.md) — exact current Elation/follow-up critical-damage operands and a replaceable classification policy; battle execution and equipment admission remain pending.
+
 ## Delivery boundary
 
 The documentation target covers the complete core model even when implementation is staged. A playable headless vertical slice should exercise:

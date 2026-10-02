@@ -36,6 +36,7 @@ use shop::ShopStockDefinition;
 use weighted_curio_attack_debuffs::WeightedCurioAttackDebuffDefinition;
 use weighted_curio_break_effects::WeightedCurioBreakEffectDefinition;
 use weighted_curio_elations::WeightedCurioElationDefinition;
+use weighted_curio_encouragements::WeightedCurioEncouragementDefinition;
 use weighted_curio_excitations::WeightedCurioExcitationDefinition;
 use weighted_curio_necroses::WeightedCurioNecrosisDefinition;
 use weighted_curio_prayers::WeightedCurioPrayerDefinition;
@@ -50,6 +51,8 @@ pub mod battle_team_resources;
 pub mod weighted_curio_break_effects;
 #[path = "divergent_universe_weighted_curio_elation_data.rs"]
 pub mod weighted_curio_elations;
+#[path = "divergent_universe_weighted_curio_encouragement_data.rs"]
+pub mod weighted_curio_encouragements;
 #[path = "divergent_universe_weighted_curio_excitation_data.rs"]
 pub mod weighted_curio_excitations;
 #[path = "divergent_universe_weighted_curio_necrosis_data.rs"]
@@ -279,6 +282,7 @@ pub struct DecisionCatalog {
     weighted_curio_break_effects: Box<[WeightedCurioBreakEffectDefinition]>,
     weighted_curio_necroses: Box<[WeightedCurioNecrosisDefinition]>,
     weighted_curio_elations: Box<[WeightedCurioElationDefinition]>,
+    weighted_curio_encouragements: Box<[WeightedCurioEncouragementDefinition]>,
     weighted_curio_excitations: Box<[WeightedCurioExcitationDefinition]>,
     battle_team_resources: Box<[BattleTeamResourceDefinition]>,
     adventure_rewards: Box<[AdventureRewardDefinition]>,
@@ -688,7 +692,12 @@ impl DecisionCatalog {
         &self.weighted_curio_excitations
     }
 
-    /// Mode assembly policies; loading alone does not execute resource changes.
+    /// Current classification/critical operand; battle admission remains pending.
+    #[must_use]
+    pub fn weighted_curio_encouragements(&self) -> &[WeightedCurioEncouragementDefinition] {
+        &self.weighted_curio_encouragements
+    }
+    /// Independent shared-meter assembly operands; loading is not execution.
     #[must_use]
     pub fn battle_team_resources(&self) -> &[BattleTeamResourceDefinition] {
         &self.battle_team_resources

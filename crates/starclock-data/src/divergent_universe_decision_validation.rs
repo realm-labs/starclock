@@ -60,9 +60,9 @@ use super::{
 use super::{
     adventure_rewards, battle_team_resources, coin_rewards, reward_occurrences, shop,
     weighted_curio_attack_debuffs, weighted_curio_break_effects, weighted_curio_elations,
-    weighted_curio_excitations, weighted_curio_necroses, weighted_curio_prayers,
-    weighted_curio_retaliations, weighted_curio_shields, weighted_curio_splashes,
-    weighted_curio_support_attacks,
+    weighted_curio_encouragements, weighted_curio_excitations, weighted_curio_necroses,
+    weighted_curio_prayers, weighted_curio_retaliations, weighted_curio_shields,
+    weighted_curio_splashes, weighted_curio_support_attacks,
 };
 
 pub(super) fn compile(
@@ -74,6 +74,12 @@ pub(super) fn compile(
             .du_weighted_curio_elations()
             .ordered_rows()
             .map(|row| row.stable_key.as_str())
+            .chain(
+                config
+                    .du_weighted_curio_encouragements()
+                    .ordered_rows()
+                    .map(|row| row.stable_key.as_str()),
+            )
             .chain(
                 config
                     .du_weighted_curio_excitations()
@@ -520,6 +526,7 @@ pub(super) fn compile(
         weighted_curio_break_effects: weighted_curio_break_effects::compile(config, reference)?,
         weighted_curio_necroses: weighted_curio_necroses::compile(config, reference)?,
         weighted_curio_elations: weighted_curio_elations::compile(config, reference)?,
+        weighted_curio_encouragements: weighted_curio_encouragements::compile(config, reference)?,
         weighted_curio_excitations: weighted_curio_excitations::compile(config, reference)?,
         battle_team_resources: battle_team_resources::compile(config)?,
         adventure_rewards: adventure_rewards::compile(config)?,

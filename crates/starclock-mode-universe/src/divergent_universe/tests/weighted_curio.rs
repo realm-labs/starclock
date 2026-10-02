@@ -60,6 +60,47 @@ fn weighted_curio_excitation_authoring_admits_only_the_bound_sora_definition() {
 }
 
 #[test]
+fn weighted_curio_encouragement_authoring_does_not_admit_pending_effect() {
+    let fixture = DivergentUniverseBaselineFixture::production().unwrap();
+    let runtime = fixture.factory().weighted_curio_runtime().unwrap();
+    let contribution = fixture.factory().contribution_snapshot_runtime().unwrap();
+    let authored = fixture
+        .factory()
+        .decision_catalog()
+        .weighted_curio_encouragements();
+    assert_eq!(authored.len(), 1);
+    let id = &authored[0].weighted_curio;
+    assert_eq!(id.as_str(), "divergent-universe.weighted-curio.1008");
+    assert!(runtime.candidates().contains(id));
+    for family in FAMILIES {
+        let flow = fixture.flow(family).unwrap();
+        let mut activity = flow
+            .start(instance(26318), ActivityMasterSeed::from_u64(26318))
+            .unwrap()
+            .into_activity();
+        let hash = activity.state_hash();
+        runtime
+            .replace_accepted_loadout(
+                &flow,
+                &mut activity,
+                hash,
+                WeightedCurioSlotLimit::new(1).unwrap(),
+                std::slice::from_ref(id),
+            )
+            .unwrap();
+        let before = activity.canonical_state_bytes();
+        let debug = activity.debug_view();
+        let draws = reward_draws(&activity);
+        assert!(matches!(contribution.snapshot(&flow, &activity),
+            Err(DivergentUniverseContributionSnapshotError::WeightedCurio(
+                WeightedCurioError::UnsupportedBattleEffect(ref rejected))) if rejected == id));
+        assert_eq!(activity.canonical_state_bytes(), before);
+        assert_eq!(activity.debug_view(), debug);
+        assert_eq!(reward_draws(&activity), draws);
+    }
+}
+
+#[test]
 fn weighted_curio_all_current_selections_replace_unequip_and_reconstruct_both_families() {
     let fixture = DivergentUniverseBaselineFixture::production().unwrap();
     let fresh = DivergentUniverseBaselineFixture::production().unwrap();
