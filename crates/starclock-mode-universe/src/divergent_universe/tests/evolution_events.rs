@@ -72,8 +72,8 @@ fn seed(
     // Current production inputs, discovered through the explicit test below.
     // Default regression runs execute fixed public inputs, not seed searches.
     let corpus = match family {
-        DivergentUniverseRunFamily::Ordinary => [595, 707, 764, 785, 1115, 1134, 1162, 1207],
-        DivergentUniverseRunFamily::Cyclical => [2, 3, 37, 185, 187, 204, 302, 407],
+        DivergentUniverseRunFamily::Ordinary => [67, 118, 348, 465, 506, 520, 574, 608],
+        DivergentUniverseRunFamily::Cyclical => [197, 271, 315, 319, 710, 765, 978, 1114],
     };
     let seed = corpus
         .into_iter()

@@ -73,6 +73,9 @@ and [Self-Amusement](divergent-universe-weighted-curio-retaliation.md)
 and [Converse of Entropy](divergent-universe-weighted-curio-break-effect.md)
 and [Mock Crimson Moon](divergent-universe-weighted-curio-necrosis.md)
 definitions enter actual Rule IR; the other nine effects still reject.
+The [Sapient Pen definition](divergent-universe-weighted-curio-elation.md)
+now has privately validated production operands and an authored timing policy,
+but remains one of those nine rejected effects; data loading grants no execution credit.
 Unsupported equipment cannot become a digest-only, no-effect battle.
 After lawful unequip, the existing real proxy battle pipeline works normally.
 

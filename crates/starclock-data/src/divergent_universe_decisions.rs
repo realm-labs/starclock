@@ -34,6 +34,7 @@ use reward_occurrences::RewardOccurrenceDefinition;
 use shop::ShopStockDefinition;
 use weighted_curio_attack_debuffs::WeightedCurioAttackDebuffDefinition;
 use weighted_curio_break_effects::WeightedCurioBreakEffectDefinition;
+use weighted_curio_elations::WeightedCurioElationDefinition;
 use weighted_curio_necroses::WeightedCurioNecrosisDefinition;
 use weighted_curio_prayers::WeightedCurioPrayerDefinition;
 use weighted_curio_retaliations::WeightedCurioRetaliationDefinition;
@@ -43,6 +44,8 @@ use weighted_curio_support_attacks::WeightedCurioSupportAttackDefinition;
 
 #[path = "divergent_universe_weighted_curio_break_effect_data.rs"]
 pub mod weighted_curio_break_effects;
+#[path = "divergent_universe_weighted_curio_elation_data.rs"]
+pub mod weighted_curio_elations;
 #[path = "divergent_universe_weighted_curio_necrosis_data.rs"]
 pub mod weighted_curio_necroses;
 #[path = "divergent_universe_weighted_curio_prayer_data.rs"]
@@ -269,6 +272,7 @@ pub struct DecisionCatalog {
     weighted_curio_retaliations: Box<[WeightedCurioRetaliationDefinition]>,
     weighted_curio_break_effects: Box<[WeightedCurioBreakEffectDefinition]>,
     weighted_curio_necroses: Box<[WeightedCurioNecrosisDefinition]>,
+    weighted_curio_elations: Box<[WeightedCurioElationDefinition]>,
     adventure_rewards: Box<[AdventureRewardDefinition]>,
     coin_rewards: Box<[CoinRewardDefinition]>,
     reward_occurrences: Box<[RewardOccurrenceDefinition]>,
@@ -662,6 +666,12 @@ impl DecisionCatalog {
     #[must_use]
     pub fn weighted_curio_necroses(&self) -> &[WeightedCurioNecrosisDefinition] {
         &self.weighted_curio_necroses
+    }
+
+    /// Reviewed Sapient Pen operands, not battle-effect execution/admission.
+    #[must_use]
+    pub fn weighted_curio_elations(&self) -> &[WeightedCurioElationDefinition] {
+        &self.weighted_curio_elations
     }
     /// Explicit chest-only policy at reviewed Wealth presets; facilities are separate.
     pub fn coin_rewards(&self) -> &[CoinRewardDefinition] {

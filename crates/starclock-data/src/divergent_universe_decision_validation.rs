@@ -59,9 +59,9 @@ use super::{
 };
 use super::{
     adventure_rewards, coin_rewards, reward_occurrences, shop, weighted_curio_attack_debuffs,
-    weighted_curio_break_effects, weighted_curio_necroses, weighted_curio_prayers,
-    weighted_curio_retaliations, weighted_curio_shields, weighted_curio_splashes,
-    weighted_curio_support_attacks,
+    weighted_curio_break_effects, weighted_curio_elations, weighted_curio_necroses,
+    weighted_curio_prayers, weighted_curio_retaliations, weighted_curio_shields,
+    weighted_curio_splashes, weighted_curio_support_attacks,
 };
 
 pub(super) fn compile(
@@ -70,9 +70,15 @@ pub(super) fn compile(
 ) -> Result<DecisionCatalog, DecisionDataError> {
     unique(
         config
-            .du_weighted_curio_break_effects()
+            .du_weighted_curio_elations()
             .ordered_rows()
             .map(|row| row.stable_key.as_str())
+            .chain(
+                config
+                    .du_weighted_curio_break_effects()
+                    .ordered_rows()
+                    .map(|row| row.stable_key.as_str()),
+            )
             .chain(
                 config
                     .du_weighted_curio_necroses()
@@ -500,6 +506,7 @@ pub(super) fn compile(
         weighted_curio_retaliations: weighted_curio_retaliations::compile(config, reference)?,
         weighted_curio_break_effects: weighted_curio_break_effects::compile(config, reference)?,
         weighted_curio_necroses: weighted_curio_necroses::compile(config, reference)?,
+        weighted_curio_elations: weighted_curio_elations::compile(config, reference)?,
         adventure_rewards: adventure_rewards::compile(config)?,
         coin_rewards: coin_rewards::compile(config)?,
         reward_occurrences: reward_occurrences::compile(config, &occurrences)?,

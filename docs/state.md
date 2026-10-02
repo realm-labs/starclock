@@ -1143,7 +1143,11 @@ advance/reduction definition and one support-Path crit/additional-damage
 definition and one real-capacity/turn-start consumption/shield definition and
 one Physical target-weight/nonlethal retaliation definition and one entry
 team-maximum Break Effect capture definition and one resistible Necrosis/Burn
-detonation definition across 42 tables and 407 rows.
+detonation definition and one authored, still-unexecuted Sapient Pen definition
+across 43 tables and 412 rows. Sapient Pen preserves the released two-Punchline,
+`0.5` Elation and two-turn operands with separate reviewed timing policy;
+shared-meter assembly and battle execution remain pending, and equipped
+Sapient Pen still rejects. This authoring grants no runtime coverage credit.
 The [9074 expansion reward](divergent-universe-equation-expansion.md) has
 validated operands and an explicit finite-cascade executor. Fixed public-choice
 vectors in both baseline families pay for the card, trigger an additional
