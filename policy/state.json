@@ -429,6 +429,9 @@
     "cli_available": true,
     "agent_api_sessions": true,
     "agent_api_rejected_reward_preserves_offer": true,
+    "agent_api_public_baseline_route_goldens": 6,
+    "agent_api_public_baseline_trace_decision_counts": [10, 12],
+    "agent_api_public_baseline_fresh_production_replay_components": true,
     "mcp_sessions": true,
     "runtime": false,
     "playable_run": false

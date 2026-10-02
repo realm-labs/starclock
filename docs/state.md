@@ -1113,6 +1113,15 @@ The Divergent Universe Agent adapter preserves its authenticated offer after a
 rejected reward command: state, public observation, transcript length and
 idempotency cache remain unchanged. A different legal choice can still commit
 using the rejected request's unconsumed key.
+Its native public-route goldens cover three initial event branches in each
+baseline family, checking exact node/option/decision-kind order and per-step
+battle counts. Five current vectors take ten public actions; the Cyclical
+Curio vector takes twelve, including Sage's Leaf Robe II/III before the two
+later domain choices. Every live accepted request is retried without a second
+commit, terminal retries reject, and an independently loaded production factory
+verifies the exported component root, three real battles and final state.
+Wrong seeds/families and corrupt bytes reject. These six proxy-route vectors
+are adapter regressions, not complete-gameplay or terminal coverage evidence.
 
 The disposition generator grants no executable credit from batch ordinals.
 It retains 184 metadata/exclusion obligations and six proven non-runtime

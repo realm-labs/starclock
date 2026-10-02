@@ -1,7 +1,7 @@
 use super::*;
 use crate::{
     activity_action::OfferedActivityAction,
-    activity_observation::AgentActivityStatus,
+    activity_observation::{AgentActivityDecisionKind, AgentActivityStatus},
     error::AgentErrorCode,
     schema::{ActionToken, IdempotencyKey},
 };
@@ -151,28 +151,144 @@ fn rejected_reward_keeps_public_offer_and_does_not_consume_idempotency_key() {
     }
 }
 
+struct PublicRouteCase {
+    family: AgentDivergentUniverseRunFamily,
+    seed: u64,
+    event_option: u64,
+    equation_option: u64,
+    later_encounter_options: [u64; 2],
+    sage_evolutions: bool,
+}
+
+#[derive(Debug, Eq, PartialEq)]
+struct PublicRouteStep {
+    node: u64,
+    option: u64,
+    kind: AgentActivityDecisionKind,
+    nested_battles: u64,
+}
+
+fn public_step(
+    node: u64,
+    option: u64,
+    kind: AgentActivityDecisionKind,
+    nested_battles: u64,
+) -> PublicRouteStep {
+    PublicRouteStep {
+        node,
+        option,
+        kind,
+        nested_battles,
+    }
+}
+
+fn expected_public_route(case: &PublicRouteCase) -> Vec<PublicRouteStep> {
+    use AgentActivityDecisionKind::{Choice, Encounter, Preparation, Reward, Route, Service};
+    // Current three-layer proxy-route goldens, independent of production address helpers.
+    // Treasure dialogues precede each later domain; they are not extra battles.
+    let mut steps = vec![
+        public_step(10, case.equation_option, Preparation, 0),
+        public_step(1, case.event_option, Choice, 0),
+        public_step(1, 1, Encounter, 1),
+        public_step(9, 1, Reward, 0),
+    ];
+    if case.sage_evolutions {
+        steps.push(public_step(15, 1, Service, 0));
+    }
+    steps.extend([
+        public_step(19, 1, Route, 0),
+        public_step(2, case.later_encounter_options[0], Encounter, 1),
+        public_step(12, 1, Reward, 0),
+    ]);
+    if case.sage_evolutions {
+        steps.push(public_step(16, 1, Service, 0));
+    }
+    steps.extend([
+        public_step(20, 1, Route, 0),
+        public_step(3, case.later_encounter_options[1], Encounter, 1),
+        public_step(14, 1, Reward, 0),
+    ]);
+    steps
+}
+
 #[test]
 fn public_offers_complete_both_families_and_export_fresh_replays() {
     let factory = production_factory_for_tests();
-    for (family, seed, event_option) in [
-        (AgentDivergentUniverseRunFamily::Ordinary, 22_103, 1),
-        (AgentDivergentUniverseRunFamily::Cyclical, 22_104, 1),
-        (AgentDivergentUniverseRunFamily::Ordinary, 22_105, 2),
-        (AgentDivergentUniverseRunFamily::Cyclical, 22_106, 2),
-        (AgentDivergentUniverseRunFamily::Ordinary, 22_107, 3),
-        (AgentDivergentUniverseRunFamily::Cyclical, 22_108, 3),
+    let fresh = DivergentUniverseActivityAgentSessionFactory::load_production().unwrap();
+    let fresh_manifest = fresh.manifest().unwrap();
+    for case in [
+        PublicRouteCase {
+            family: AgentDivergentUniverseRunFamily::Ordinary,
+            seed: 22_103,
+            event_option: 1,
+            equation_option: 35,
+            later_encounter_options: [4, 2],
+            sage_evolutions: false,
+        },
+        PublicRouteCase {
+            family: AgentDivergentUniverseRunFamily::Cyclical,
+            seed: 22_104,
+            event_option: 1,
+            equation_option: 35,
+            later_encounter_options: [1, 3],
+            sage_evolutions: false,
+        },
+        PublicRouteCase {
+            family: AgentDivergentUniverseRunFamily::Ordinary,
+            seed: 22_105,
+            event_option: 2,
+            equation_option: 47,
+            later_encounter_options: [3, 4],
+            sage_evolutions: false,
+        },
+        PublicRouteCase {
+            family: AgentDivergentUniverseRunFamily::Cyclical,
+            seed: 22_106,
+            event_option: 2,
+            equation_option: 36,
+            later_encounter_options: [4, 3],
+            sage_evolutions: true,
+        },
+        PublicRouteCase {
+            family: AgentDivergentUniverseRunFamily::Ordinary,
+            seed: 22_107,
+            event_option: 3,
+            equation_option: 35,
+            later_encounter_options: [1, 3],
+            sage_evolutions: false,
+        },
+        PublicRouteCase {
+            family: AgentDivergentUniverseRunFamily::Cyclical,
+            seed: 22_108,
+            event_option: 3,
+            equation_option: 48,
+            later_encounter_options: [2, 2],
+            sage_evolutions: false,
+        },
     ] {
+        let family = case.family;
+        let seed = case.seed;
+        let expected = expected_public_route(&case);
         let mut session = factory
             .create(request(&format!("du_complete_{family:?}"), family, seed))
             .expect("session");
         let mut action_index = 0_u64;
         let mut nested_battles = 0_u64;
+        let mut route = Vec::new();
+        let mut evolution_keys = Vec::new();
+        let mut domain_choices = 0;
         while session.terminal().is_none() {
+            assert!(
+                route.len() < expected.len(),
+                "unexpected extra decision: {family:?} seed {seed}"
+            );
             let observation = session.observe().expect("observation");
             let selected = observation
                 .legal_actions
                 .iter()
-                .filter(|action| action_index != 1 || action.option_id.to_u64() == event_option)
+                .filter(|action| {
+                    action_index != 1 || action.option_id.to_u64() == case.event_option
+                })
                 .max_by(|left, right| {
                     priority(left)
                         .cmp(&priority(right))
@@ -180,6 +296,35 @@ fn public_offers_complete_both_families_and_export_fresh_replays() {
                 })
                 .expect("one offered action")
                 .clone();
+            let mut observed = public_step(
+                observation.current_node.to_u64(),
+                selected.option_id.to_u64(),
+                observation.decision_kind.unwrap(),
+                0,
+            );
+            if let Some(event) = session.flow.offered_evolution_event(&session.activity) {
+                evolution_keys.push(event.key.clone());
+            }
+            if session
+                .flow
+                .offered_battle_domain_choices(&session.activity)
+                .unwrap()
+                .is_some()
+            {
+                assert_eq!(
+                    observation.decision_kind,
+                    Some(AgentActivityDecisionKind::Route)
+                );
+                assert_eq!(
+                    observation
+                        .legal_actions
+                        .iter()
+                        .map(|action| action.label.as_ref())
+                        .collect::<Vec<_>>(),
+                    ["Combat Domain", "Elite Domain", "Aberration Domain"]
+                );
+                domain_choices += 1;
+            }
             let request = PlayActivityActionRequest {
                 session_id: session.session_id().clone(),
                 boundary_id: observation.boundary_id.expect("boundary"),
@@ -189,15 +334,39 @@ fn public_offers_complete_both_families_and_export_fresh_replays() {
                     .expect("key"),
             };
             let response = session.apply_action(request.clone()).expect("action");
-            if action_index == 0 {
+            let committed_hash = session.state_hash();
+            let committed_steps = session.replay_action_count();
+            if session.terminal().is_none() {
                 assert_eq!(session.apply_action(request).expect("retry"), response);
+            } else {
+                assert_eq!(
+                    session.apply_action(request).unwrap_err().code,
+                    AgentErrorCode::SessionClosed
+                );
             }
+            assert_eq!(session.state_hash(), committed_hash);
+            assert_eq!(session.replay_action_count(), committed_steps);
+            observed.nested_battles = response.settlement.nested_battles.to_u64();
+            assert_eq!(observed, expected[route.len()], "{family:?} seed {seed}");
+            route.push(observed);
             nested_battles += response.settlement.nested_battles.to_u64();
             action_index += 1;
         }
-        assert_eq!(action_index, 10);
+        assert_eq!(route, expected, "{family:?} seed {seed}");
+        let expected_actions = u64::try_from(expected.len()).unwrap();
+        assert_eq!(action_index, expected_actions);
+        assert_eq!(domain_choices, 2);
+        let expected_evolutions: &[&str] = if case.sage_evolutions {
+            &["du.evolution-event.sage.ii", "du.evolution-event.sage.iii"]
+        } else {
+            &[]
+        };
+        assert_eq!(
+            evolution_keys.iter().map(Box::as_ref).collect::<Vec<_>>(),
+            expected_evolutions
+        );
         assert_eq!(nested_battles, 3);
-        assert_eq!(session.replay_action_count(), 10);
+        assert_eq!(session.replay_action_count(), expected.len());
         assert_eq!(
             session.observe().expect("terminal").status,
             AgentActivityStatus::Completed
@@ -205,26 +374,45 @@ fn public_offers_complete_both_families_and_export_fresh_replays() {
 
         let replay = session.export_replay().expect("replay");
         assert!(replay.complete());
-        assert_eq!(replay.action_count().to_u64(), 10);
+        assert_eq!(replay.action_count().to_u64(), expected_actions);
+        let decoded = decode_replay(replay.bytes()).unwrap();
+        let family_manifest = fresh_manifest
+            .families
+            .iter()
+            .find(|manifest| manifest.family == family)
+            .unwrap();
+        assert_eq!(
+            AgentHash::from_bytes(decoded.header().components().root().bytes()),
+            family_manifest.component_root
+        );
         let verification = session
-            .verify_replay(&factory, replay.bytes())
+            .verify_replay(&fresh, replay.bytes())
             .expect("fresh verification");
-        assert_eq!(verification.action_count.to_u64(), 10);
+        assert_eq!(verification.action_count.to_u64(), expected_actions);
         assert_eq!(verification.nested_battles.to_u64(), 3);
         assert_eq!(verification.final_state_hash, session.state_hash());
+
+        let error = fresh
+            .verify_replay(
+                &AgentUInt::from_u64(seed.checked_add(1).unwrap()),
+                family,
+                replay.bytes(),
+            )
+            .expect_err("seed mismatch rejected");
+        assert_eq!(error.code, AgentErrorCode::ReplayDiverged);
 
         let other_family = match family {
             AgentDivergentUniverseRunFamily::Ordinary => AgentDivergentUniverseRunFamily::Cyclical,
             AgentDivergentUniverseRunFamily::Cyclical => AgentDivergentUniverseRunFamily::Ordinary,
         };
-        let error = factory
+        let error = fresh
             .verify_replay(&AgentUInt::from_u64(seed), other_family, replay.bytes())
             .expect_err("family mismatch rejected");
         assert_eq!(error.code, AgentErrorCode::ReplayDiverged);
 
         let mut corrupted = replay.bytes().to_vec();
         *corrupted.last_mut().expect("replay byte") ^= 1;
-        let error = factory
+        let error = fresh
             .verify_replay(&AgentUInt::from_u64(seed), family, &corrupted)
             .expect_err("corruption rejected");
         assert_eq!(error.code, AgentErrorCode::ReplayDiverged);
