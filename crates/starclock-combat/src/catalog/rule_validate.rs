@@ -29,6 +29,14 @@ pub(super) fn validate(catalog: &CombatCatalog) -> Result<(), builder::CatalogBu
             validate_selector_for_rule(catalog, runtime, *selector).map_err(invalid)?;
         }
         for trigger in runtime.triggers() {
+            if let Some(effect) = trigger.filter.shield_effect
+                && catalog.effect(effect).is_none()
+            {
+                return Err(invalid(format!(
+                    "shield filter refers to missing effect {}",
+                    effect.get()
+                )));
+            }
             if rule.programs().binary_search(&trigger.program).is_err() {
                 return Err(invalid(format!(
                     "rule {} trigger {} program {} is absent from its declared program set",
@@ -510,6 +518,12 @@ fn validate_operation(
             selector,
             amount,
             effect,
+        }
+        | RuleOperationTemplate::AdjustEffectShield {
+            selector,
+            amount,
+            effect,
+            ..
         } => {
             require_selector(catalog, *selector)?;
             require_scalar(catalog, runtime, amount)?;
@@ -901,6 +915,15 @@ fn infer_value(
         | ValueExpr::QueryMaximumHp(_) => RuleValueKind::Scalar,
         ValueExpr::QueryEffectStacks { .. } | ValueExpr::QueryEffectCategoryStacks { .. } => {
             RuleValueKind::Integer
+        }
+        ValueExpr::QueryEffectShield { effect, .. } => {
+            if catalog.effect(*effect).is_none() {
+                return Err(format!(
+                    "shield query refers to missing effect {}",
+                    effect.get()
+                ));
+            }
+            RuleValueKind::Scalar
         }
         ValueExpr::Add(lhs, rhs)
         | ValueExpr::Subtract(lhs, rhs)

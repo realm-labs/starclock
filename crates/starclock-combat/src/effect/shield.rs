@@ -40,6 +40,81 @@ pub(crate) struct ShieldStateRef<'a> {
 }
 
 impl ShieldStore {
+    pub(crate) fn effective_remaining_for_effect(
+        &self,
+        owner: UnitId,
+        effect: EffectDefinitionId,
+    ) -> Result<ShieldAmount, NumericError> {
+        let Some(shields) = self.by_owner.get(&owner) else {
+            return ShieldAmount::new(0);
+        };
+        let mut matching = shields
+            .instances
+            .iter()
+            .filter(|state| state.source_effect == Some(effect));
+        let value = match shields.policy {
+            ShieldAbsorptionPolicy::ConcurrentLargest => matching
+                .map(|state| state.remaining.get())
+                .max()
+                .unwrap_or(0),
+            ShieldAbsorptionPolicy::AdditiveByInstance => {
+                matching.try_fold(0_i64, |sum, state| {
+                    sum.checked_add(state.remaining.get())
+                        .ok_or(NumericError::Overflow)
+                })?
+            }
+        };
+        ShieldAmount::new(value)
+    }
+
+    /// Adjustment is deliberately single-instance; ambiguous authored ownership faults.
+    pub(crate) fn adjustment_state(
+        &self,
+        owner: UnitId,
+        effect: EffectDefinitionId,
+        policy: ShieldAbsorptionPolicy,
+    ) -> Result<Option<ShieldState>, NumericError> {
+        let Some(shields) = self.by_owner.get(&owner) else {
+            return Ok(None);
+        };
+        if shields.policy != policy {
+            return Err(NumericError::OutOfDomain);
+        }
+        let mut matching = shields
+            .instances
+            .iter()
+            .filter(|state| state.source_effect == Some(effect));
+        let first = matching.next().copied();
+        if matching.next().is_some() {
+            return Err(NumericError::OutOfDomain);
+        }
+        Ok(first)
+    }
+
+    /// Retains identity and original source operation until capacity reaches zero.
+    pub(crate) fn resize(
+        &mut self,
+        owner: UnitId,
+        id: ShieldInstanceId,
+        after: ShieldAmount,
+    ) -> Result<(), NumericError> {
+        let shields = self
+            .by_owner
+            .get_mut(&owner)
+            .ok_or(NumericError::OutOfDomain)?;
+        let state = shields
+            .instances
+            .iter_mut()
+            .find(|state| state.id == id)
+            .ok_or(NumericError::OutOfDomain)?;
+        state.remaining = after;
+        shields.instances.retain(|state| state.remaining.get() > 0);
+        if shields.instances.is_empty() {
+            self.by_owner.remove(&owner);
+        }
+        Ok(())
+    }
+
     pub(crate) fn remove_owner(&mut self, owner: UnitId) -> Vec<ShieldChange> {
         let Some(shields) = self.by_owner.remove(&owner) else {
             return Vec::new();
@@ -312,5 +387,81 @@ mod tests {
         assert_eq!(changes[0].after.get(), 0);
         assert_eq!(store.len(), 1);
         assert_eq!(store.effective_remaining(unit(1)).unwrap().get(), 20);
+    }
+
+    #[test]
+    fn effect_queries_follow_the_owners_absorption_policy_and_detect_sum_overflow() {
+        let effect = EffectDefinitionId::new(7).unwrap();
+        for (policy, expected) in [
+            (ShieldAbsorptionPolicy::ConcurrentLargest, 20),
+            (ShieldAbsorptionPolicy::AdditiveByInstance, 30),
+        ] {
+            let mut store = ShieldStore::default();
+            for (id, amount) in [(1, 10), (2, 20)] {
+                let mut state = shield(id, amount);
+                state.source_effect = Some(effect);
+                store.insert(unit(1), policy, state).unwrap();
+            }
+            assert_eq!(
+                store
+                    .effective_remaining_for_effect(unit(1), effect)
+                    .unwrap()
+                    .get(),
+                expected
+            );
+            assert_eq!(
+                store
+                    .effective_remaining_for_effect(unit(2), effect)
+                    .unwrap()
+                    .get(),
+                0
+            );
+            assert_eq!(
+                store.adjustment_state(unit(1), effect, policy),
+                Err(NumericError::OutOfDomain)
+            );
+        }
+        let mut store = ShieldStore::default();
+        for (id, amount) in [(1, i64::MAX), (2, 1)] {
+            let mut state = shield(id, amount);
+            state.source_effect = Some(effect);
+            store
+                .insert(unit(1), ShieldAbsorptionPolicy::AdditiveByInstance, state)
+                .unwrap();
+        }
+        assert_eq!(
+            store.effective_remaining_for_effect(unit(1), effect),
+            Err(NumericError::Overflow)
+        );
+    }
+
+    #[test]
+    fn resizing_retains_original_source_and_zero_removes_the_bucket() {
+        let effect = EffectDefinitionId::new(7).unwrap();
+        let mut state = shield(1, 10);
+        state.source_effect = Some(effect);
+        let mut store = ShieldStore::default();
+        store
+            .insert(unit(1), ShieldAbsorptionPolicy::ConcurrentLargest, state)
+            .unwrap();
+        store
+            .resize(unit(1), state.id, ShieldAmount::new(20).unwrap())
+            .unwrap();
+        let resized = store
+            .adjustment_state(unit(1), effect, ShieldAbsorptionPolicy::ConcurrentLargest)
+            .unwrap()
+            .unwrap();
+        assert_eq!(resized.source_operation, state.source_operation);
+        assert_eq!(resized.id, state.id);
+        store
+            .resize(unit(1), state.id, ShieldAmount::new(0).unwrap())
+            .unwrap();
+        assert_eq!(store.len(), 0);
+        assert_eq!(
+            store
+                .adjustment_state(unit(1), effect, ShieldAbsorptionPolicy::AdditiveByInstance)
+                .unwrap(),
+            None
+        );
     }
 }

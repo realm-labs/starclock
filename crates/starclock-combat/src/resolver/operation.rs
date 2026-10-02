@@ -1,5 +1,6 @@
 //! Line-limit exception: typed operation dispatch remains the single authoritative mutation entry point.
 pub(super) mod critical;
+mod effect_shield;
 mod elation;
 pub(super) mod fault;
 mod sustain;
@@ -68,6 +69,9 @@ pub(super) fn execute_operation(
         Operation::Heal(operation) => sustain::execute_heal(catalog, txn, cause, parent, operation),
         Operation::Shield(operation) => {
             sustain::execute_shield(catalog, txn, cause, parent, operation)
+        }
+        Operation::AdjustEffectShield(operation) => {
+            effect_shield::execute(txn, cause, parent, operation)
         }
         Operation::RemoveShields(operation) => {
             sustain::execute_remove_shields(txn, cause, parent, operation)

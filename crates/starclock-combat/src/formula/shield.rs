@@ -21,6 +21,30 @@ pub enum ShieldAbsorptionPolicy {
     AdditiveByInstance,
 }
 
+/// Capacity mutation, independent of shield creation bonuses or damage absorption.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum ShieldAdjustmentKind {
+    Increase,
+    /// Removes at most the remaining capacity; never creates a negative shield.
+    Decrease,
+}
+
+/// Checked integral capacity change. Decreases explicitly clamp at zero.
+pub fn adjust(
+    before: ShieldAmount,
+    requested: ShieldAmount,
+    kind: ShieldAdjustmentKind,
+) -> Result<ShieldAmount, NumericError> {
+    let after = match kind {
+        ShieldAdjustmentKind::Increase => before
+            .get()
+            .checked_add(requested.get())
+            .ok_or(NumericError::Overflow)?,
+        ShieldAdjustmentKind::Decrease => before.get() - before.get().min(requested.get()),
+    };
+    ShieldAmount::new(after)
+}
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ShieldDamageResult {
     pub incoming: DamageAmount,
@@ -80,4 +104,41 @@ pub fn absorb(
         absorbed: DamageAmount::new(absorbed_raw)?,
         hp_overflow: DamageAmount::new(incoming.get() - absorbed_raw)?,
     })
+}
+
+#[cfg(test)]
+mod adjustment_tests {
+    use super::*;
+
+    #[test]
+    fn integral_adjustment_boundaries_and_overflow_are_explicit() {
+        for (before, amount, kind, expected) in [
+            (0, 0, ShieldAdjustmentKind::Increase, 0),
+            (0, 9, ShieldAdjustmentKind::Increase, 9),
+            (9, 0, ShieldAdjustmentKind::Decrease, 9),
+            (9, 4, ShieldAdjustmentKind::Decrease, 5),
+            (9, 9, ShieldAdjustmentKind::Decrease, 0),
+            (9, 10, ShieldAdjustmentKind::Decrease, 0),
+            (i64::MAX, i64::MAX, ShieldAdjustmentKind::Decrease, 0),
+        ] {
+            assert_eq!(
+                adjust(
+                    ShieldAmount::new(before).unwrap(),
+                    ShieldAmount::new(amount).unwrap(),
+                    kind
+                )
+                .unwrap()
+                .get(),
+                expected
+            );
+        }
+        assert_eq!(
+            adjust(
+                ShieldAmount::new(i64::MAX).unwrap(),
+                ShieldAmount::new(1).unwrap(),
+                ShieldAdjustmentKind::Increase
+            ),
+            Err(NumericError::Overflow)
+        );
+    }
 }

@@ -104,6 +104,14 @@ unscoped source-side query. A healing reaction that is limited to once per
 action consumes the accepted action occurrence before its emitted `Heal`
 event is dispatched, so self-healing cannot reopen the same occurrence.
 
+Exact effect-owned shield adjustments use the same typed operation entry point,
+transactional rollback and ordered event/reaction queue. Zero or unchanged
+capacity produces no shield event. Capacity loss records its actual bounded
+before/after delta, not the requested removal amount. Increasing an existing
+instance does not reapply creation formulas or refresh its effect. Teardown
+remains an explicitly authored `RemoveShield` operation, not implicit effect
+removal. See the [capacity adjustment contract](12-modifier-and-snapshot-pipeline.md#effect-owned-shield-capacity-adjustments).
+
 ## Event causality
 
 Each event has a monotonic `EventId` and one cause record:

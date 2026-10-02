@@ -94,6 +94,11 @@ pub trait BattleQueryReader {
         None
     }
     fn current_shield(&self, subject: UnitId) -> Option<Scalar>;
+    /// Returns zero for a known unit with no matching shields; unavailable readers
+    /// or capacities outside the scalar domain return `None`, never a guessed zero.
+    fn effect_shield(&self, _subject: UnitId, _effect: EffectDefinitionId) -> Option<Scalar> {
+        None
+    }
     fn current_hp(&self, _subject: UnitId) -> Option<Scalar> {
         None
     }
@@ -591,6 +596,20 @@ fn evaluate_operation(
         RuleOperationTemplate::RemoveShield { selector, effect } => RuleEmission::RemoveShield {
             selector: *selector,
             effect: *effect,
+            current_target,
+        },
+        RuleOperationTemplate::AdjustEffectShield {
+            selector,
+            effect,
+            kind,
+            policy,
+            amount,
+        } => RuleEmission::AdjustEffectShield {
+            selector: *selector,
+            effect: *effect,
+            kind: *kind,
+            policy: *policy,
+            amount: evaluate_value(amount, input, current_target)?,
             current_target,
         },
         RuleOperationTemplate::ConsumeHp {
@@ -1227,6 +1246,17 @@ pub fn evaluate_value(
                 .ok_or(RuleEvaluationError {
                     kind: RuleEvaluationErrorKind::MissingValue,
                     context: 0x21e,
+                })
+        }
+        ValueExpr::QueryEffectShield { subject, effect } => {
+            let subject = query_subject(*subject, input, current_target)?;
+            input
+                .battle_query_reader
+                .and_then(|reader| reader.effect_shield(subject, *effect))
+                .map(RuleValue::Scalar)
+                .ok_or(RuleEvaluationError {
+                    kind: RuleEvaluationErrorKind::MissingValue,
+                    context: 0x221,
                 })
         }
         ValueExpr::QueryMaximumHp(subject) => {

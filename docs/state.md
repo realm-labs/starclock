@@ -3,6 +3,17 @@
 Starclock maintains only the current source, data, behavior and test outputs.
 Git history is the only historical record.
 
+Shared combat now supports native effect-specific shield queries and exact
+Increase/Decrease operations with a live-effect admission guard. Positive resize
+preserves instance identity, zero exhausts it, and conflicting policies or
+ambiguous ownership fault transactionally. Separate typed shield event filters
+and canonical Adjusted payloads carry exact signed capacity changes into bounded
+reaction healing. Program-input snapshots and explicit RemoveShield teardown
+retain the established semantics. Production Sora authoring and Dignity and
+Passion binding remain pending; this shared prerequisite grants no additional
+terminal Divergent Universe coverage. See the
+[shield adjustment contract](12-modifier-and-snapshot-pipeline.md#effect-owned-shield-capacity-adjustments).
+
 Shared combat supports operation-entry additive damage semantics independent
 of action tags and calculator family. Executable holder effects can label a
 named non-DoT family as FollowUp; duplicate providers union idempotently. The

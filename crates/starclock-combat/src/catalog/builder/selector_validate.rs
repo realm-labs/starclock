@@ -303,6 +303,7 @@ fn historical_value_safe(expression: &ValueExpr) -> bool {
         | ValueExpr::QueryMaximumEnergy(_)
         | ValueExpr::QueryMaximumHp(_)
         | ValueExpr::QueryShield { .. }
+        | ValueExpr::QueryEffectShield { .. }
         | ValueExpr::QueryEffectStacks { .. }
         | ValueExpr::QueryEffectCategoryStacks { .. } => false,
         ValueExpr::SelectorSum { value, .. }

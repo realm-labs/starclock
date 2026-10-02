@@ -188,6 +188,9 @@ fn program_references(steps: &[ProgramStep]) -> (Box<[SelectorId]>, Box<[EffectD
             O::Shield {
                 selector, effect, ..
             }
+            | O::AdjustEffectShield {
+                selector, effect, ..
+            }
             | O::RemoveShield { selector, effect }
             | O::ApplyEffect {
                 selector, effect, ..
@@ -289,7 +292,8 @@ fn value_references(
             selectors.insert(*selector);
             value_references(value, selectors, effects);
         }
-        ValueExpr::QueryEffectStacks { effect, .. } => {
+        ValueExpr::QueryEffectStacks { effect, .. }
+        | ValueExpr::QueryEffectShield { effect, .. } => {
             effects.insert(*effect);
         }
         ValueExpr::Add(lhs, rhs)

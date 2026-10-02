@@ -18,6 +18,7 @@ use crate::{
         },
         definition::{AbilityDefinition, SelectorDefinition},
     },
+    effect::shield::ShieldStore,
     event::cause::CauseActor,
     formula::{
         model::{CombatElement, DamageClass},
@@ -30,8 +31,8 @@ use crate::{
         model::{
             RuleActionKind, RuleCause, RuleDamageClass, RuleEvaluationInput, RuleEventFacts,
             RuleEventKind, RuleEventPoint, RuleOccurrence, RuleResourceEventKind, RuleResourceKind,
-            RuleToughnessEventKind, RuleValue, SelectorResult, SourceClass, TriggerDef,
-            TriggerPhase,
+            RuleShieldEventKind, RuleToughnessEventKind, RuleValue, SelectorResult, SourceClass,
+            TriggerDef, TriggerPhase,
         },
     },
 };
@@ -590,9 +591,19 @@ fn event_facts(
             facts.hp_after = scalar_from_u64(data.hp_after.get());
         }
         BattleEventKind::Shield(data) => {
+            facts.shield_event = Some(match data {
+                ShieldEventData::Applied { .. } => RuleShieldEventKind::Applied,
+                ShieldEventData::Absorbed { .. } => RuleShieldEventKind::Absorbed,
+                ShieldEventData::Removed { .. } => RuleShieldEventKind::Removed,
+                ShieldEventData::Adjusted { .. } => RuleShieldEventKind::Adjusted,
+            });
+            if let ShieldEventData::Adjusted { effect, .. } = data {
+                facts.shield_effect = Some(*effect);
+            }
             facts.shield_change_amount = match data {
                 ShieldEventData::Applied { amount, .. } => scalar_from_u64(amount.get()),
-                ShieldEventData::Absorbed { before, after, .. } => {
+                ShieldEventData::Absorbed { before, after, .. }
+                | ShieldEventData::Adjusted { before, after, .. } => {
                     signed_scalar(after.get() - before.get())
                 }
                 ShieldEventData::Removed { before, .. } => signed_scalar(-before.get()),
@@ -869,6 +880,7 @@ struct UnitQuerySnapshot {
 }
 
 pub(super) struct BattleQuerySnapshot {
+    effect_shields: ShieldStore,
     units: BTreeMap<UnitId, UnitQuerySnapshot>,
     skill_points: [Scalar; 2],
     team_resources: [BTreeMap<Box<str>, Scalar>; 2],
@@ -971,6 +983,7 @@ impl BattleQuerySnapshot {
                 .map(|effect| effect.owner),
         );
         Self {
+            effect_shields: txn.state.shields.clone(),
             units,
             skill_points,
             team_resources,
@@ -997,6 +1010,13 @@ impl ResourceQueryReader for BattleQuerySnapshot {
 }
 
 impl BattleQueryReader for BattleQuerySnapshot {
+    fn effect_shield(&self, subject: UnitId, effect: EffectDefinitionId) -> Option<Scalar> {
+        self.units.get(&subject)?;
+        self.effect_shields
+            .effective_remaining_for_effect(subject, effect)
+            .ok()
+            .and_then(|value| Scalar::checked_from_integer(value.get()).ok())
+    }
     fn life_presence(&self, subject: UnitId) -> Option<(LifeState, PresenceState)> {
         self.units
             .get(&subject)

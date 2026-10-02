@@ -15,6 +15,7 @@ use starclock_combat::{
     WaveEventData,
     catalog::{action::AbilityTags, encounter::EnemyPhaseTransitionModel},
     formula::model::{CombatElement, DamageClass},
+    formula::shield::ShieldAdjustmentKind,
     rule::model::RuleValue,
 };
 
@@ -535,6 +536,29 @@ fn encode_shield(encoder: &mut Encoder<Vec<u8>>, value: ShieldEventData) {
             encoder.u64(shield.get());
             encoder.u64(target.get());
             encoder.i64(before.get());
+        }
+        ShieldEventData::Adjusted {
+            operation,
+            shield,
+            target,
+            effect,
+            kind,
+            requested,
+            before,
+            after,
+        } => {
+            encoder.u8(3);
+            encoder.u64(operation.get());
+            encoder.u64(shield.get());
+            encoder.u64(target.get());
+            encoder.u32(effect.get());
+            encoder.u8(match kind {
+                ShieldAdjustmentKind::Increase => 0,
+                ShieldAdjustmentKind::Decrease => 1,
+            });
+            encoder.i64(requested.get());
+            encoder.i64(before.get());
+            encoder.i64(after.get());
         }
     }
 }
@@ -1268,4 +1292,37 @@ fn optional_element(encoder: &mut Encoder<Vec<u8>>, value: Option<CombatElement>
 
 fn element(encoder: &mut Encoder<Vec<u8>>, value: CombatElement) {
     encoder.u8(value as u8);
+}
+
+#[cfg(test)]
+mod shield_adjustment_tests {
+    use super::*;
+    use starclock_combat::{
+        EffectDefinitionId, OperationId, ShieldAmount, ShieldInstanceId, UnitId,
+    };
+
+    #[test]
+    fn shield_adjustment_payload_retains_every_typed_field() {
+        let mut encoder = Encoder::new(Vec::new());
+        encode_shield(
+            &mut encoder,
+            ShieldEventData::Adjusted {
+                operation: OperationId::new(1).unwrap(),
+                shield: ShieldInstanceId::new(2).unwrap(),
+                target: UnitId::new(3).unwrap(),
+                effect: EffectDefinitionId::new(4).unwrap(),
+                kind: ShieldAdjustmentKind::Decrease,
+                requested: ShieldAmount::new(100).unwrap(),
+                before: ShieldAmount::new(60).unwrap(),
+                after: ShieldAmount::new(0).unwrap(),
+            },
+        );
+        assert_eq!(
+            encoder.into_inner(),
+            vec![
+                3, 1, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0,
+                0, 1, 100, 0, 0, 0, 0, 0, 0, 0, 60, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            ]
+        );
+    }
 }

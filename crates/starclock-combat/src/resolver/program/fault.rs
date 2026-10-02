@@ -14,6 +14,7 @@ pub(super) const fn emission_code(emission: &RuleEmission) -> i64 {
         RuleEmission::DeductActionValue { .. } => 22,
         RuleEmission::UnboostedDamage { .. } => 20,
         RuleEmission::Shield { .. } => 4,
+        RuleEmission::AdjustEffectShield { .. } => 24,
         RuleEmission::RemoveShield { .. } => 18,
         RuleEmission::Break { .. } => 5,
         RuleEmission::RemoveWeakness { .. } => 6,

@@ -50,6 +50,9 @@ use starclock_combat::{
 #[path = "ability_program_execution/cleanse.rs"]
 mod cleanse;
 
+#[path = "ability_program_execution/effect_shield.rs"]
+mod effect_shield;
+
 #[path = "ability_program_execution/action_break.rs"]
 mod action_break;
 #[path = "ability_program_execution/queue_action.rs"]

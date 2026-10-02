@@ -364,6 +364,7 @@ fn collect_value_queries(
         ValueExpr::QueryStat { .. }
         | ValueExpr::QueryFormulaStage { .. }
         | ValueExpr::QueryShield { .. }
+        | ValueExpr::QueryEffectShield { .. }
         | ValueExpr::QueryEffectStacks { .. }
         | ValueExpr::QueryEffectCategoryStacks { .. }
         | ValueExpr::Literal(_)

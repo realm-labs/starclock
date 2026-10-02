@@ -169,6 +169,48 @@ expressions in that program. A subsequent independently evaluated program stage
 can observe the resulting state. No capture reads mutable Activity/build state
 or introduces mode-specific arithmetic.
 
+## Effect-owned shield capacity adjustments
+
+`QueryEffectShield` reads only instances matching one effect definition on the
+queried recipient, using that recipient's absorption policy (largest or checked
+sum). It is distinct from total visible `QueryShield`. A known recipient without
+matching capacity returns zero; a missing recipient/reader or unrepresentable
+capacity is a typed evaluation failure, not a guessed zero. Both queries read
+the immutable program-input snapshot. Later ordered mutations in that program
+do not change previously evaluated operands. Independently evaluated reaction
+programs read their own fresh snapshot, which can include later mutations; event
+facts retain the observed event's exact signed capacity delta.
+
+`AdjustEffectShield` declares recipient selector, effect definition, absorption
+policy, Increase/Decrease and a nonnegative Scalar amount. Amount finalization
+floors once. Adjustment requires that effect to be live on the recipient; a
+missing effect or zero amount is a no-op. Exactly one matching positive instance
+may be adjusted. Multiple matching instances or a conflicting owner policy fault
+with transactional rollback. Increase uses checked addition; Decrease explicitly
+removes at most the existing capacity. This is exact capacity arithmetic, without
+reapplying creation bonuses or incoming-damage modifiers.
+
+Positive resize preserves shield ID and original source operation. Increase from
+zero creates an instance; reaching zero removes it, with a later increase using
+a new ID. Adjustment and ordinary absorption never refresh the owning effect's
+stacks, duration or captures. `source_effect` remains a definition-based identity,
+not an automatic instance-lifetime attachment: authored teardown explicitly emits
+`RemoveShield`, separately from effect removal/expiry. Content that needs linked
+teardown must supply that operation in its lifecycle program.
+
+Every effective adjustment emits `ShieldEventData::Adjusted`, retaining operation,
+shield, recipient, effect, kind, requested amount and before/after capacities in
+canonical replay bytes. Typed `RuleShieldEventKind` filters distinguish Applied,
+Absorbed, Removed and Adjusted; optional shield-effect filters conjunctively match
+the Adjusted payload, not an unrelated effect-lifecycle fact. Exact lost-capacity
+healing uses the negative committed delta rather than a later shield query and
+the existing unmodified Heal operation. No-op changes emit no shield event.
+
+The [native command corpus](../crates/starclock-test-kit/tests/suites/core/combat/ability_program_execution/effect_shield.rs)
+verifies queries, identity, absorption, explicit teardown, rejected commands,
+fault rollback, signed-event healing and fresh reconstruction. These capabilities
+have no production Sora authoring or Divergent Universe admission credit yet.
+
 ## Semantic DoT detonation filters
 
 Ordinary effect-store DoTs may declare one `DotFamily`: Burn, Bleed, Shock or

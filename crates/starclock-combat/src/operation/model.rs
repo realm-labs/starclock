@@ -3,14 +3,18 @@ use crate::{
     AbilityId, ActionOrigin, CountdownDefinition, DotDetonationDefinition,
     EffectApplicationDefinition, EffectChancePolicy, EffectDefinitionId, EffectRemovalDefinition,
     EffectRuntimeDefinition, EnemyPhaseId, Hp, LinkedUnitDefinition, PresenceState, RawToughness,
-    ReviveDefinition, RuleId, RuleInstanceId, Scalar, SourceDefinitionId,
+    ReviveDefinition, RuleId, RuleInstanceId, Scalar, ShieldAmount, SourceDefinitionId,
     ToughnessReductionDefinition, TransformationDefinition, TriggerId, UnitId,
     catalog::action::{
         HealingDefinition, HitCritPolicy, HpConsumptionDefinition, OrdinaryDamageDefinition,
         QueueActionDefinition, ReactionBoundary, ShieldDefinition, SkillPointPaymentPolicy,
         TeamResourceChangeDefinition, WeaknessApplicationDefinition,
     },
-    formula::{model::CombatElement, toughness::SuperBreakDefinition},
+    formula::{
+        model::CombatElement,
+        shield::{ShieldAbsorptionPolicy, ShieldAdjustmentKind},
+        toughness::SuperBreakDefinition,
+    },
     id::OperationId,
     rng::types::DrawPurpose,
     rule::model::RuleSlotMutationDefinition,
@@ -23,6 +27,7 @@ pub(crate) enum Operation {
     ElationDamage(ElationDamageOp),
     Heal(HealOp),
     Shield(ShieldOp),
+    AdjustEffectShield(AdjustEffectShieldOp),
     RemoveShields(RemoveShieldsOp),
     ConsumeHp(ConsumeHpOp),
     ReduceMaximumHp(ReduceMaximumHpOp),
@@ -59,6 +64,7 @@ impl Operation {
             Self::ElationDamage(operation) => operation.id,
             Self::Heal(operation) => operation.id,
             Self::Shield(operation) => operation.id,
+            Self::AdjustEffectShield(operation) => operation.id,
             Self::RemoveShields(operation) => operation.id,
             Self::ConsumeHp(operation) => operation.id,
             Self::ReduceMaximumHp(operation) => operation.id,
@@ -88,6 +94,16 @@ impl Operation {
             Self::TransitionEnemyPhase(operation) => operation.id,
         }
     }
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct AdjustEffectShieldOp {
+    pub(crate) id: OperationId,
+    pub(crate) targets: Box<[UnitId]>,
+    pub(crate) effect: EffectDefinitionId,
+    pub(crate) amount: ShieldAmount,
+    pub(crate) kind: ShieldAdjustmentKind,
+    pub(crate) policy: ShieldAbsorptionPolicy,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]

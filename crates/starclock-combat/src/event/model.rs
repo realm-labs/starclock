@@ -15,6 +15,7 @@ use crate::{
     command::model::{ActionFrameInput, DecisionKind, DecisionOwner},
     damage::DamageSemantics,
     formula::model::{CombatElement, DamageClass},
+    formula::shield::ShieldAdjustmentKind,
     id::{
         AbilityId, ActionBoundaryId, ActionFrameId, ActionId, DecisionId, EventId, HitId,
         OperationId, PhaseId, SpawnSequence, TimelineActorId, UnitId, WaveInstanceId,
@@ -354,6 +355,17 @@ pub enum ShieldEventData {
         shield: ShieldInstanceId,
         target: UnitId,
         before: ShieldAmount,
+    },
+    /// Exact capacity mutation, including creation from zero. No creation formula is reapplied.
+    Adjusted {
+        operation: OperationId,
+        shield: ShieldInstanceId,
+        target: UnitId,
+        effect: EffectDefinitionId,
+        kind: ShieldAdjustmentKind,
+        requested: ShieldAmount,
+        before: ShieldAmount,
+        after: ShieldAmount,
     },
 }
 

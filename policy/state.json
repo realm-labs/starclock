@@ -5,6 +5,11 @@
   "historical_evidence": false,
   "runtime": {
     "combat": true,
+    "combat_effect_owned_shield_capacity_queries": true,
+    "combat_effect_owned_shield_capacity_adjustments": true,
+    "combat_typed_shield_event_filters": true,
+    "combat_shield_adjustment_canonical_events": true,
+    "combat_effect_shield_adjustment_sora_authoring": false,
     "combat_additive_damage_semantics": true,
     "combat_damage_semantics_formula_event_selector_projection": true,
     "combat_damage_semantics_operation_entry_capture": true,

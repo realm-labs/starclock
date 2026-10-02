@@ -132,6 +132,7 @@ pub(super) const fn emission_current_target(emission: &RuleEmission) -> Option<U
         | RuleEmission::NonlethalTrueDamage { current_target, .. }
         | RuleEmission::Heal { current_target, .. }
         | RuleEmission::Shield { current_target, .. }
+        | RuleEmission::AdjustEffectShield { current_target, .. }
         | RuleEmission::RemoveShield { current_target, .. }
         | RuleEmission::ConsumeHp { current_target, .. }
         | RuleEmission::ReduceMaximumHp { current_target, .. }

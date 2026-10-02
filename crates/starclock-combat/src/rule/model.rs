@@ -12,6 +12,7 @@ use crate::{
     damage::{DamageSemantic, DamageSemantics},
     formula::{
         model::{CombatElement, DamageClass},
+        shield::{ShieldAbsorptionPolicy, ShieldAdjustmentKind},
         toughness::EnemyRank,
     },
     modifier::model::{FormulaPurpose, FormulaStage, StatKind, StatQuerySubject},
@@ -269,6 +270,9 @@ pub struct RuleEventFacts {
     pub shield_before: Option<Scalar>,
     /// Signed capacity delta carried by a shield mutation event.
     pub shield_change_amount: Option<Scalar>,
+    pub shield_event: Option<RuleShieldEventKind>,
+    /// Effect-owned capacity adjustment identity; absent on ordinary shield events.
+    pub shield_effect: Option<EffectDefinitionId>,
     pub hp_before: Option<Scalar>,
     pub hp_after: Option<Scalar>,
     /// Effective Toughness reduction carried by a `Reduced` event.
@@ -329,6 +333,8 @@ pub enum OnceScope {
 /// Cheap indexed cause fields checked before contextual conditions.
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct EventFilter {
+    pub shield_event: Option<RuleShieldEventKind>,
+    pub shield_effect: Option<EffectDefinitionId>,
     /// Conjunctive additive damage label; does not match an action tag.
     pub damage_semantic: Option<DamageSemantic>,
     pub owner: Option<UnitId>,
@@ -408,6 +414,11 @@ pub enum ValueExpr {
         subject: StatQuerySubject,
         observation: ShieldObservation,
     },
+    /// Effective capacity from only this effect's shields in the immutable snapshot.
+    QueryEffectShield {
+        subject: StatQuerySubject,
+        effect: EffectDefinitionId,
+    },
     /// Reads current HP from the immutable battle-query snapshot.
     QueryHp {
         subject: StatQuerySubject,
@@ -463,6 +474,15 @@ pub enum ShieldObservation {
     Current,
     /// Capacity immediately before the observed event mutated the event target.
     BeforeEvent,
+}
+
+/// Shield mutation axis, independent of the trigger point and signed delta.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum RuleShieldEventKind {
+    Applied,
+    Absorbed,
+    Removed,
+    Adjusted,
 }
 
 /// Typed comparison operator.
@@ -668,6 +688,17 @@ pub enum RuleOperationTemplate {
         selector: SelectorId,
         amount: ValueExpr,
         effect: EffectDefinitionId,
+    },
+    /// Exact floored capacity change; requires a live owning effect on each target.
+    /// Preserves a single positive instance, creates on increase from zero, and
+    /// faults on ambiguous instances or conflicting absorption policies.
+    /// Removal/expiry teardown remains an explicitly authored `RemoveShield`.
+    AdjustEffectShield {
+        selector: SelectorId,
+        effect: EffectDefinitionId,
+        kind: ShieldAdjustmentKind,
+        policy: ShieldAbsorptionPolicy,
+        amount: ValueExpr,
     },
     RemoveShield {
         selector: SelectorId,
@@ -1055,6 +1086,14 @@ pub enum RuleEmission {
         selector: SelectorId,
         amount: RuleValue,
         effect: EffectDefinitionId,
+        current_target: Option<UnitId>,
+    },
+    AdjustEffectShield {
+        selector: SelectorId,
+        effect: EffectDefinitionId,
+        kind: ShieldAdjustmentKind,
+        policy: ShieldAbsorptionPolicy,
+        amount: RuleValue,
         current_target: Option<UnitId>,
     },
     RemoveShield {

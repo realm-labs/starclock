@@ -17,8 +17,8 @@ use super::{program_break, program_effect, program_timeline, rule, stat_input, t
 use crate::{
     AbilityId, ActionId, ActionOrigin, EffectRemovalDefinition, EventId, HitId, Hp, Probability,
     ProgramId, Ratio, RawToughness, Rounding, RuleId, RuleInstanceId, RuleSignalEventData, Scalar,
-    SelectorId, ToughnessReductionDefinition, TransformEndPolicy, TransformationDefinition,
-    TriggerId, UnitId,
+    SelectorId, ShieldAmount, ToughnessReductionDefinition, TransformEndPolicy,
+    TransformationDefinition, TriggerId, UnitId,
     battle::fault::BattleFault,
     catalog::{
         CombatCatalog,
@@ -40,11 +40,12 @@ use crate::{
     },
     modifier::resolve::StatResolver,
     operation::{
-        AddWeaknessFromAlliedElementsOp, AddWeaknessOp, ChangePresenceOp, ConsumeHpOp,
-        CreateCountdownOp, CreateToughnessLayerOp, DamageOp, DeductActionValueOp, DetonateDotsOp,
-        ForceBreakOp, HitOperationScratch, Operation, QueueRuleActionOp, ReduceMaximumHpOp,
-        ReduceToughnessOp, RemoveEffectsOp, RemoveShieldsOp, RemoveToughnessLayerOp, ShieldOp,
-        SummonLinkedOp, SuperBreakOp, TransformOp, UnitLifecycleOp,
+        AddWeaknessFromAlliedElementsOp, AddWeaknessOp, AdjustEffectShieldOp, ChangePresenceOp,
+        ConsumeHpOp, CreateCountdownOp, CreateToughnessLayerOp, DamageOp, DeductActionValueOp,
+        DetonateDotsOp, ForceBreakOp, HitOperationScratch, Operation, QueueRuleActionOp,
+        ReduceMaximumHpOp, ReduceToughnessOp, RemoveEffectsOp, RemoveShieldsOp,
+        RemoveToughnessLayerOp, ShieldOp, SummonLinkedOp, SuperBreakOp, TransformOp,
+        UnitLifecycleOp,
     },
     rule::{
         evaluate::{EvaluationBudget, evaluate_program},
@@ -652,6 +653,26 @@ fn execute_emission(
                 targets: emission_targets(catalog, resolved, selector, current_target)?,
                 effect,
             }),
+            RuleEmission::AdjustEffectShield {
+                selector,
+                effect,
+                kind,
+                policy,
+                amount,
+                ..
+            } => {
+                let amount =
+                    ShieldAmount::from_scalar(non_negative_scalar(amount)?, Rounding::Floor)
+                        .map_err(|_| program_fault(60, 0))?;
+                Operation::AdjustEffectShield(AdjustEffectShieldOp {
+                    id: operation_id,
+                    targets: emission_targets(catalog, resolved, selector, current_target)?,
+                    effect,
+                    kind,
+                    policy,
+                    amount,
+                })
+            }
             RuleEmission::ConsumeHp {
                 selector,
                 amount,
