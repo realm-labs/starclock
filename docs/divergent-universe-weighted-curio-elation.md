@@ -99,8 +99,8 @@ Data tests load the real production Sora bundle, compare fresh private lowering,
 reject wrong joins and noncanonical operands, reject missing/forged provenance
 at every required source, and reject cross-family key collisions. They are
 not battle fixtures. Mode tests separately execute the real commands. Workbook
-QA preserves all 44 sheets and all values/styles/controls except the two policy
-text cells and their locally fitted dimensions; canonical `0.5` remains a string.
+QA checks current values, styles, native controls and locally fitted policy
+dimensions; canonical `0.5` remains a string.
 The final policy region is rendered and checked after in-memory recalculation;
 the original Sora template and native controls remain intact.
 

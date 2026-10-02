@@ -1,0 +1,94 @@
+{
+  "table": {
+    "name": "DuWeightedCurioExcitations",
+    "rows": [
+      {
+        "values": {
+          "attack_multiplier": {
+            "String": "2.5"
+          },
+          "base_chance": {
+            "String": "0.5"
+          },
+          "chance_parameter": {
+            "Integer": 4
+          },
+          "character_elements": {
+            "List": [
+              {
+                "String": "Quantum"
+              }
+            ]
+          },
+          "consume_parameter": {
+            "Integer": 2
+          },
+          "damage_parameter": {
+            "Integer": 3
+          },
+          "duration_parameter": {
+            "Integer": 5
+          },
+          "duration_turns": {
+            "Integer": 1
+          },
+          "gain_parameter": {
+            "Integer": 1
+          },
+          "id": {
+            "Integer": 1
+          },
+          "maze_buff_id": {
+            "String": "633406"
+          },
+          "policy": {
+            "String": "EffectiveGainActionResolvedTeamConsumption"
+          },
+          "policy_maximum_stacks": {
+            "Integer": 65535
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: original mapped party elements qualify Skill Point gain actors; exclude linked/shared actors even when Present. Observe positive effective Skill Point balance changes AfterMutation, once per resource event, granting two stacks per event rather than per point. Cap each living/present original party recipient at the authored policy maximum 65535; zero stacks at fresh battle entry, nondispellable, persist across waves and provider defeat, no Activity carry. At ActionResolved AfterAction priority zero, once per original party Basic/Skill action tagged Attack, require the living/present actor's positive Excitation; subtract up to one from each living/present original party recipient before damage. Resolve one actor-sourced Quantum Additional packet per surviving attacked target in formation order, using actor ATK queried at the trigger boundary times 2.5, ordinary target-dynamic stages and independent crit. Then attempt one Entanglement per surviving target through ordinary effect-hit/control-resistance and labeled battle RNG. Do not reclassify Additional damage as another action. Entanglement must retain delay, hit accumulation and delayed damage, not just a marker or action skip; use the reviewed shared Quantum base-effect calculation as replaceable policy without setting Weakness Broken, reducing Toughness, dealing initial Break damage or adding the universal Break delay. Refresh same-definition Entanglement across casters without repeating delay while active; cleanse removes it without expiry damage. This authoring batch does not implement or admit the effect."
+          },
+          "replacement_condition": {
+            "String": "Low confidence for effective rather than attempted gains, cause-actor attribution, per-event rather than per-point gain, original-party scope, stack cap, gain-before-consumption ordering, actor stack admission, partial-team subtraction, source snapshots, crit, refresh and non-Break Entanglement internals. Pinned Git tree has no StageAbility_633406 program. Bounded 2026-10-02 public cross-check: https://honkai-star-rail.fandom.com/wiki/Divergent_Universe%3A_Arcadian_Chronicles/Curio confirms current player-facing clauses only. Alternatives include overflow-triggered or per-point stacks, shared single counter, all-recipient positive-stack admission, independent caster Entanglement and repeat delay. Data fixtures weighted_curio_excitation verify operands, joins, cap-policy separation, provenance and rejection; they do not prove battle execution. Implement native Ordinary/Cyclical gain, cap, consumption, damage, control, cleanse, wave, provider-defeat and fresh-reconstruction fixtures before admission. Replace each unavailable field independently when released StageAbility_633406 or reproducible current observations establish it. Entanglement formula/lifecycle and equipment execution remain pending; Forge and full-run release credit remain pending."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 114
+              },
+              {
+                "Integer": 115
+              },
+              {
+                "Integer": 116
+              },
+              {
+                "Integer": 117
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.weighted-curio-excitation.genius-confusion"
+          },
+          "stack_consumption": {
+            "Integer": 1
+          },
+          "stack_gain": {
+            "Integer": 2
+          },
+          "summary_en": {
+            "String": "Quantum allies gaining Skill Points grant two Excitation stacks to all allies. Basic or Skill attacks consume one team-wide stack to deal 250% ATK Quantum Additional damage and have a 50% base chance of one-turn Entanglement."
+          },
+          "summary_zh_cn": {
+            "String": "量子属性我方获得战技点后，全体获得两层激发；普攻或战技攻击后消耗全体一层，造成250%攻击力量子附加伤害，并有50%基础概率施加一回合纠缠。"
+          },
+          "weighted_curio_key": {
+            "String": "divergent-universe.weighted-curio.1006"
+          }
+        }
+      }
+    ]
+  }
+}

@@ -43,7 +43,7 @@
     },
     "weighted_loadout_tests": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio.rs",
-      "sha256": "8b08b4e76883b89dc71afc08dd8da6f2097d622e59ce4367fc18eb59902ae8f0"
+      "sha256": "0391779117fa2ff87a8d7648e7c38ea4e3e784056a1c36bce4cffc9f7204eaa4"
     },
     "weighted_splash": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/weighted_curio_splash.rs",
@@ -165,6 +165,14 @@
       "path": "config/divergent-universe-decisions-generated/debug-json/DuWeightedCurioElations.json",
       "sha256": "e447f4c074973e5bc9a2658c8c60a3d3160909e1c2b4fd1a6f17c20badd92b11"
     },
+    "weighted_excitation_authoring": {
+      "path": "crates/starclock-data/src/divergent_universe_weighted_curio_excitation_data.rs",
+      "sha256": "cb0119ff7ac088b892182d4eceac6f0e52557e67cfe413b7c4c0b45a969661eb"
+    },
+    "weighted_excitation_data": {
+      "path": "config/divergent-universe-decisions-generated/debug-json/DuWeightedCurioExcitations.json",
+      "sha256": "19100ff1dfb65eb93aeaed8ddb9f5590765e38bbfafe4922b0a79ecf63c34a81"
+    },
     "contribution_snapshot": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/contribution_snapshot.rs",
       "sha256": "1462ff564b8643fc9567bc0b11482c4bb8df0a0b1ca37ee5b79f7debd7dae22c"
@@ -243,6 +251,10 @@
     "unresolved_gamble_units": 87
   },
   "native_test_targets": [
+    {
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio.rs",
+      "test": "weighted_curio_excitation_authoring_does_not_admit_the_pending_battle_effect"
+    },
     {
       "file": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_elation.rs",
       "test": "weighted_curio_elation_production_basic_and_nonattack_skill_execute_both_families"

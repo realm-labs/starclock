@@ -51,6 +51,8 @@ const inputs = {
   weighted_elation_tests: "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_elation.rs",
   weighted_elation_fixture: "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_elation_fixture.rs",
   weighted_elation_data: "config/divergent-universe-decisions-generated/debug-json/DuWeightedCurioElations.json",
+  weighted_excitation_authoring: "crates/starclock-data/src/divergent_universe_weighted_curio_excitation_data.rs",
+  weighted_excitation_data: "config/divergent-universe-decisions-generated/debug-json/DuWeightedCurioExcitations.json",
   contribution_snapshot: "crates/starclock-mode-universe/src/divergent_universe/contribution_snapshot.rs",
   gamble_runtime: "crates/starclock-mode-universe/src/divergent_universe/gamble_runtime.rs",
   tests: "crates/starclock-mode-universe/src/divergent_universe/tests/gamble_runtime.rs",
@@ -89,6 +91,8 @@ export function buildGrandMiracleGambleExecution() {
   assert(!text(inputs.mode_facade).includes("grand_miracle_runtime"),
     "reference flags must not be exposed as a Grand Miracle runtime");
   const probes = [
+    {file: inputs.weighted_loadout_tests,
+      test: "weighted_curio_excitation_authoring_does_not_admit_the_pending_battle_effect"},
     ...[
       "weighted_curio_elation_production_basic_and_nonattack_skill_execute_both_families",
       "weighted_curio_elation_multihit_refresh_stat_query_and_overflow_are_real_mutations",

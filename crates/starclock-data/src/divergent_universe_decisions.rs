@@ -36,6 +36,7 @@ use shop::ShopStockDefinition;
 use weighted_curio_attack_debuffs::WeightedCurioAttackDebuffDefinition;
 use weighted_curio_break_effects::WeightedCurioBreakEffectDefinition;
 use weighted_curio_elations::WeightedCurioElationDefinition;
+use weighted_curio_excitations::WeightedCurioExcitationDefinition;
 use weighted_curio_necroses::WeightedCurioNecrosisDefinition;
 use weighted_curio_prayers::WeightedCurioPrayerDefinition;
 use weighted_curio_retaliations::WeightedCurioRetaliationDefinition;
@@ -49,6 +50,8 @@ pub mod battle_team_resources;
 pub mod weighted_curio_break_effects;
 #[path = "divergent_universe_weighted_curio_elation_data.rs"]
 pub mod weighted_curio_elations;
+#[path = "divergent_universe_weighted_curio_excitation_data.rs"]
+pub mod weighted_curio_excitations;
 #[path = "divergent_universe_weighted_curio_necrosis_data.rs"]
 pub mod weighted_curio_necroses;
 #[path = "divergent_universe_weighted_curio_prayer_data.rs"]
@@ -276,6 +279,7 @@ pub struct DecisionCatalog {
     weighted_curio_break_effects: Box<[WeightedCurioBreakEffectDefinition]>,
     weighted_curio_necroses: Box<[WeightedCurioNecrosisDefinition]>,
     weighted_curio_elations: Box<[WeightedCurioElationDefinition]>,
+    weighted_curio_excitations: Box<[WeightedCurioExcitationDefinition]>,
     battle_team_resources: Box<[BattleTeamResourceDefinition]>,
     adventure_rewards: Box<[AdventureRewardDefinition]>,
     coin_rewards: Box<[CoinRewardDefinition]>,
@@ -676,6 +680,12 @@ impl DecisionCatalog {
     #[must_use]
     pub fn weighted_curio_elations(&self) -> &[WeightedCurioElationDefinition] {
         &self.weighted_curio_elations
+    }
+
+    /// Complete released Excitation operands; its battle effect remains pending.
+    #[must_use]
+    pub fn weighted_curio_excitations(&self) -> &[WeightedCurioExcitationDefinition] {
+        &self.weighted_curio_excitations
     }
 
     /// Mode assembly policies; loading alone does not execute resource changes.

@@ -3,7 +3,7 @@
   "project_id": "starclock_divergent_universe_decisions",
   "contract_id": "starclock_divergent_universe_decisions/default",
   "view": "default",
-  "fingerprint": "8c69274d64d597e8",
+  "fingerprint": "3408389ad1976184",
   "schema": {
     "project_id": "starclock_divergent_universe_decisions",
     "contract_id": "starclock_divergent_universe_decisions/default",
@@ -810,6 +810,20 @@
           {
             "id": 0,
             "name": "OriginalElationZeroClampPersist"
+          }
+        ]
+      },
+      {
+        "name": "DuCurioExcitationPolicy",
+        "groups": {
+          "values": [
+            "common"
+          ]
+        },
+        "values": [
+          {
+            "id": 0,
+            "name": "EffectiveGainActionResolvedTeamConsumption"
           }
         ]
       }
@@ -12576,6 +12590,463 @@
             "name": "policy",
             "ty": {
               "Enum": "DuBattleTeamResourcePolicy"
+            },
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "summary_en",
+            "ty": "String",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4000
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "summary_zh_cn",
+            "ty": "String",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4000
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "policy_note",
+            "ty": "String",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4000
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "replacement_condition",
+            "ty": "String",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4000
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "source_ids",
+            "ty": {
+              "List": {
+                "Ref": {
+                  "table": "DuDecisionSources",
+                  "field": "id"
+                }
+              }
+            },
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": {
+              "kind": "split",
+              "options": {
+                "separator": "|"
+              }
+            },
+            "derived_from": null
+          }
+        ],
+        "indexes": [
+          {
+            "name": "by_stable_key",
+            "fields": [
+              "stable_key"
+            ],
+            "unique": true
+          }
+        ]
+      },
+      {
+        "id": "weightedcurioexcitations",
+        "name": "DuWeightedCurioExcitations",
+        "canonical_name": "DuWeightedCurioExcitations",
+        "groups": {
+          "values": [
+            "common"
+          ]
+        },
+        "mode": "Map",
+        "key": "id",
+        "source": {
+          "file": "DivergentUniverseDecisions.xlsx",
+          "sheet": "WeightedCurioExcitations"
+        },
+        "fields": [
+          {
+            "name": "id",
+            "ty": "I32",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": true,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "stable_key",
+            "ty": "String",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4000
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "weighted_curio_key",
+            "ty": "String",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4000
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "maze_buff_id",
+            "ty": "String",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4000
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "character_elements",
+            "ty": {
+              "List": "String"
+            },
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": {
+              "kind": "split",
+              "options": {
+                "separator": "|"
+              }
+            },
+            "derived_from": null
+          },
+          {
+            "name": "gain_parameter",
+            "ty": "I32",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              64
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "stack_gain",
+            "ty": "I32",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              65535
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "consume_parameter",
+            "ty": "I32",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              64
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "stack_consumption",
+            "ty": "I32",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              65535
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "damage_parameter",
+            "ty": "I32",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              64
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "attack_multiplier",
+            "ty": "String",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4000
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "chance_parameter",
+            "ty": "I32",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              64
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "base_chance",
+            "ty": "String",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4000
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "duration_parameter",
+            "ty": "I32",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              64
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "duration_turns",
+            "ty": "I32",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              65535
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "policy_maximum_stacks",
+            "ty": "I32",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              65535
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "policy",
+            "ty": {
+              "Enum": "DuCurioExcitationPolicy"
             },
             "groups": {
               "values": [

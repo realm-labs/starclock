@@ -1144,8 +1144,13 @@ definition and one real-capacity/turn-start consumption/shield definition and
 one Physical target-weight/nonlethal retaliation definition and one entry
 team-maximum Break Effect capture definition and one resistible Necrosis/Burn
 detonation definition and one executable policy-bound Sapient Pen definition
-and one independent shared Punchline assembly policy across 44 tables and 416
-rows. Sapient Pen preserves the released two-Punchline,
+and one independent shared Punchline assembly policy and one pending
+[Genius' Confusion definition](divergent-universe-weighted-curio-excitation.md)
+across 45 tables and 421 rows. Genius' Confusion preserves all five released
+Excitation, Quantum Additional damage and Entanglement operands with a separate
+policy stack cap. Its effect remains unsupported at battle-contribution
+assembly in both run families; data authoring grants no execution credit.
+Sapient Pen preserves the released two-Punchline,
 `0.5` Elation and two-turn operands with separate reviewed timing policy;
 [shared-meter assembly](divergent-universe-battle-team-resources.md) now binds
 the resource and executes controlled generic gain/cost/Set commands. Existing
