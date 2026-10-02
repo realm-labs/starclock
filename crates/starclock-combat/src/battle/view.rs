@@ -1,4 +1,5 @@
 //! Line-limit exception: the closed battle observation contract stays together while detail records live in submodules.
+mod entanglement;
 mod team_resource;
 mod timeline_detail;
 mod unit_detail;

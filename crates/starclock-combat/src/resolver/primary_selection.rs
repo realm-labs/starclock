@@ -9,7 +9,7 @@ use crate::{
 };
 
 use super::{
-    program, stat_input,
+    stat_input,
     target::RuleSelectorResolution,
     transaction::{Transaction, action_fault},
 };
@@ -34,7 +34,7 @@ pub(super) fn resolve(
         .selector(id)
         .and_then(|definition| definition.rule_units())
         .ok_or_else(|| action_fault(134))?;
-    let bases = program::stat_bases(txn)?;
+    let bases = stat_input::stat_bases(txn)?;
     let modifiers = txn
         .state
         .modifiers

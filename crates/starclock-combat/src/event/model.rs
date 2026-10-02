@@ -139,6 +139,14 @@ pub enum DamageKind {
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum EffectEventData {
+    /// A completed hit increments a delayed-damage effect's separate counter.
+    HitAccumulated {
+        operation: OperationId,
+        effect: EffectInstanceId,
+        target: UnitId,
+        before: u8,
+        after: u8,
+    },
     Applied {
         operation: OperationId,
         effect: EffectInstanceId,

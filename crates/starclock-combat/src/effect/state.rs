@@ -3,7 +3,8 @@
 use std::collections::BTreeMap;
 
 use crate::{
-    EffectDefinitionId, EffectInstanceId, OperationId, Scalar, SourceDefinitionId, UnitId,
+    EffectDefinitionId, EffectInstanceId, HitId, OperationId, Ratio, Scalar, SourceDefinitionId,
+    UnitId, formula::toughness::BreakDamageDefinition,
 };
 
 use super::model::{
@@ -35,7 +36,18 @@ pub(crate) struct EffectState {
     pub(crate) tags: Box<[SourceDefinitionId]>,
     pub(crate) controlled_actions: Box<[ControlledAction]>,
     pub(crate) dot: Option<DotDefinition>,
+    pub(crate) entanglement: Option<EntanglementState>,
     pub(crate) application_sequence: u64,
+}
+
+/// Independent of effect stacks and of the Weakness Break store.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(crate) struct EntanglementState {
+    pub(crate) damage: BreakDamageDefinition,
+    pub(crate) base: Scalar,
+    pub(crate) delay: Ratio,
+    pub(crate) hits: u8,
+    pub(crate) application_hit: Option<HitId>,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -76,6 +88,7 @@ impl EffectState {
             tags: runtime.tags().into(),
             controlled_actions: runtime.controlled_actions().into(),
             dot: runtime.dot(),
+            entanglement: None,
             application_sequence: id.get(),
         }
     }

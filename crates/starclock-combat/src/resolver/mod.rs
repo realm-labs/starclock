@@ -6,6 +6,7 @@ mod dot_detonation;
 mod effect_boundary;
 mod effect_duration;
 mod effect_operation;
+mod entanglement;
 pub(crate) mod journal;
 pub(crate) mod lifecycle;
 pub(crate) mod modifier_snapshot;

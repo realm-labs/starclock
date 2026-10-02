@@ -29,7 +29,7 @@ use super::{
         ReactionWork, apply_resource_costs, apply_resource_gains, dequeue_reaction,
         project_hit_targets, resolve_scaling_damage, run_programs_at,
     },
-    effect_boundary, lifecycle, modifier_snapshot, operation, rule, settle,
+    effect_boundary, entanglement, lifecycle, modifier_snapshot, operation, rule, settle,
     transaction::{Transaction, action_fault},
 };
 
@@ -449,6 +449,7 @@ fn execute_hit(
         frame.parent = rule::dispatch_pending_after_events(catalog, txn, frame.parent)?;
     }
     txn.increment_entanglement_for_hit(&targets)?;
+    frame.parent = entanglement::accumulate(txn, hit_cause, frame.parent)?;
     frame.parent = txn.emit(
         hit_cause.with_parent(frame.parent),
         BattleEventKind::Hit(HitEventData::Ended {

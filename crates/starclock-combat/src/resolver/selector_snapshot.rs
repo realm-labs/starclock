@@ -9,8 +9,8 @@ use crate::{
     },
     formula::toughness::attacker_level_multiplier,
     modifier::model::StatKind::{
-        self, Aggro, Atk, BreakBaseDamage, BreakEffect, CritDamage, CritRate, Def,
-        DotDurationAddition, Elation, EnergyRegenerationRate, FireDamageBoost, Hp as HpStat,
+        self, Aggro, Atk, BreakBaseDamage, BreakEffect, ControlResistance, CritDamage, CritRate,
+        Def, DotDurationAddition, Elation, EnergyRegenerationRate, FireDamageBoost, Hp as HpStat,
         IceDamageBoost, ImaginaryDamageBoost, LightningDamageBoost, OutgoingHealing,
         PhysicalDamageBoost, QuantumDamageBoost, Spd, ToughnessDamage, ToughnessRecovery,
         WindDamageBoost,
@@ -180,6 +180,7 @@ impl RuleSelectorSnapshot {
                 .checked_add(critical_damage)?,
             );
             bases.insert((*id, BreakEffect), break_effect);
+            bases.insert((*id, ControlResistance), Scalar::ZERO);
             bases.insert((*id, OutgoingHealing), outgoing);
             bases.insert((*id, ToughnessDamage), Scalar::ZERO);
             bases.insert(

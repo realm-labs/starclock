@@ -282,7 +282,35 @@ fn encode_state<S: Sink>(state: &BattleState, sink: &mut S) {
             e.u8(*action as u8);
         }
         match effect.dot {
-            None => e.u8(0),
+            None => match effect.entanglement {
+                None => e.u8(0),
+                Some(delayed) => {
+                    e.u8(2);
+                    e.i64(delayed.base.scaled());
+                    e.i64(delayed.delay.scaled());
+                    e.u8(delayed.hits);
+                    match delayed.application_hit {
+                        None => e.u8(0),
+                        Some(hit) => {
+                            e.u8(1);
+                            e.u64(hit.get());
+                        }
+                    }
+                    e.i64(delayed.damage.attacker_level_multiplier.scaled());
+                    for factor in [
+                        delayed.damage.ability_multiplier,
+                        delayed.damage.break_effect,
+                        delayed.damage.break_damage_increase,
+                        delayed.damage.defense_multiplier,
+                        delayed.damage.resistance_multiplier,
+                        delayed.damage.vulnerability_multiplier,
+                        delayed.damage.mitigation_multiplier,
+                        delayed.damage.unbroken_multiplier,
+                    ] {
+                        e.i64(factor.scaled());
+                    }
+                }
+            },
             Some(dot) => {
                 e.u8(1);
                 e.u8(dot.element() as u8);

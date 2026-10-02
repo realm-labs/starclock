@@ -19,11 +19,11 @@ use crate::{
     rule::model::{ConditionExpr, ValueExpr},
 };
 
+use super::stat_input;
 use super::{
     journal::MutationField,
     transaction::{Transaction, action_fault},
 };
-use super::{program, stat_input};
 
 pub(crate) fn initialize_battle(
     catalog: &CombatCatalog,
@@ -96,7 +96,7 @@ pub(super) fn initialize(
     let definition = catalog
         .modifier(instance.definition)
         .ok_or_else(|| action_fault(135))?;
-    let bases = program::stat_bases(txn)?;
+    let bases = stat_input::stat_bases(txn)?;
     let shields = stat_input::shield_values(txn);
     let active = txn
         .state
@@ -137,7 +137,7 @@ pub(super) fn refresh(
         boundary,
         SnapshotPolicy::OnActionStart | SnapshotPolicy::OnPhaseStart | SnapshotPolicy::OnHitStart
     ));
-    let bases = program::stat_bases(txn)?;
+    let bases = stat_input::stat_bases(txn)?;
     let shields = stat_input::shield_values(txn);
     let active = txn
         .state
@@ -246,7 +246,7 @@ pub(super) fn refresh_effect_stacks(
             );
         }
     }
-    let bases = program::stat_bases(txn)?;
+    let bases = stat_input::stat_bases(txn)?;
     let shields = stat_input::shield_values(txn);
     let active = txn
         .state
@@ -445,11 +445,11 @@ fn stat_bases(
     state: &BattleState,
 ) -> Result<std::collections::BTreeMap<(UnitId, StatKind), Scalar>, NumericError> {
     use crate::modifier::model::StatKind::{
-        Aggro, Atk, BreakBaseDamage, BreakEffect, CritDamage, CritRate, DebuffDurationMultiplier,
-        Def, DotDurationAddition, EffectHitRate, EffectResistance, Elation, EnergyRegenerationRate,
-        FireDamageBoost, FreezeResistance, Hp, IceDamageBoost, ImaginaryDamageBoost,
-        LightningDamageBoost, OutgoingHealing, PhysicalDamageBoost, QuantumDamageBoost, Spd,
-        ToughnessDamage, ToughnessRecovery, WindDamageBoost,
+        Aggro, Atk, BreakBaseDamage, BreakEffect, ControlResistance, CritDamage, CritRate,
+        DebuffDurationMultiplier, Def, DotDurationAddition, EffectHitRate, EffectResistance,
+        Elation, EnergyRegenerationRate, FireDamageBoost, FreezeResistance, Hp, IceDamageBoost,
+        ImaginaryDamageBoost, LightningDamageBoost, OutgoingHealing, PhysicalDamageBoost,
+        QuantumDamageBoost, Spd, ToughnessDamage, ToughnessRecovery, WindDamageBoost,
     };
 
     let mut bases = std::collections::BTreeMap::new();
@@ -493,6 +493,7 @@ fn stat_bases(
         bases.insert((unit.id, BreakEffect), break_effect);
         bases.insert((unit.id, OutgoingHealing), outgoing_healing);
         bases.insert((unit.id, FreezeResistance), Scalar::ZERO);
+        bases.insert((unit.id, ControlResistance), Scalar::ZERO);
         bases.insert(
             (unit.id, EnergyRegenerationRate),
             Scalar::ONE.checked_add(energy_regeneration)?,

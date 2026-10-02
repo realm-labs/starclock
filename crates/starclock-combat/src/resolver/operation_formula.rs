@@ -1,5 +1,6 @@
 //! Modifier-aware formula preparation separated from authoritative state mutation.
 mod elation;
+mod entanglement;
 pub(super) mod final_damage;
 
 use crate::{
@@ -34,11 +35,11 @@ use crate::{
     },
 };
 
+use super::stat_input;
 use super::{
     operation::fault::{invariant_fault, numeric_fault},
     transaction::Transaction,
 };
-use super::{program, stat_input};
 
 pub(super) struct FormulaInputs {
     bases: BTreeMap<(UnitId, StatKind), Scalar>,
@@ -101,7 +102,7 @@ impl FormulaInputs {
 
     pub(super) fn new(txn: &Transaction<'_>) -> Result<Self, BattleFault> {
         Ok(Self {
-            bases: program::stat_bases(txn)?,
+            bases: stat_input::stat_bases(txn)?,
             shields: stat_input::shield_values(txn),
             effect_stacks: effect_stacks(txn)?,
             effect_category_stacks: effect_category_stacks(txn)?,

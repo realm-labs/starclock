@@ -17,8 +17,8 @@ use super::{program_break, program_effect, program_timeline, rule, stat_input, t
 use crate::{
     AbilityId, ActionId, ActionOrigin, EffectRemovalDefinition, EventId, HitId, Hp, Probability,
     ProgramId, Ratio, RawToughness, Rounding, RuleId, RuleInstanceId, RuleSignalEventData, Scalar,
-    SelectorId, TeamSide, ToughnessReductionDefinition, TransformEndPolicy,
-    TransformationDefinition, TriggerId, UnitId,
+    SelectorId, ToughnessReductionDefinition, TransformEndPolicy, TransformationDefinition,
+    TriggerId, UnitId,
     battle::fault::BattleFault,
     catalog::{
         CombatCatalog,
@@ -36,12 +36,9 @@ use crate::{
     formula::{
         model::{CombatElement, DamageClass},
         shield::ShieldAbsorptionPolicy,
-        toughness::{
-            BreakDamageDefinition, SuperBreakDefinition, ToughnessReductionContext,
-            attacker_level_multiplier,
-        },
+        toughness::{BreakDamageDefinition, SuperBreakDefinition, ToughnessReductionContext},
     },
-    modifier::{model::StatKind, resolve::StatResolver},
+    modifier::resolve::StatResolver,
     operation::{
         AddWeaknessFromAlliedElementsOp, AddWeaknessOp, ChangePresenceOp, ConsumeHpOp,
         CreateCountdownOp, CreateToughnessLayerOp, DamageOp, DeductActionValueOp, DetonateDotsOp,
@@ -71,7 +68,6 @@ use operation_support::{
 use random_damage::execute_random_repeated_damage;
 use random_grouped_effect::execute_random_grouped_effect;
 use resource::{modify_resource, modify_skill_point_maximum};
-use std::collections::BTreeMap;
 pub(super) use value::{non_negative_scalar, probability, ratio};
 use value::{scale, weakness_duration};
 
@@ -162,7 +158,7 @@ fn execute_program(
     event_kind: RuleEventKind,
     event_point: RuleEventPoint,
 ) -> Result<EventId, BattleFault> {
-    let bases = stat_bases(txn)?;
+    let bases = stat_input::stat_bases(txn)?;
     let modifiers = txn
         .state
         .modifiers
@@ -283,94 +279,6 @@ fn execute_program(
     execute_emissions(
         catalog, txn, cause, parent, &context, input, emissions, scratch, &owned,
     )
-}
-
-pub(super) fn stat_bases(
-    txn: &Transaction<'_>,
-) -> Result<BTreeMap<(UnitId, StatKind), Scalar>, BattleFault> {
-    use crate::modifier::model::StatKind::{
-        Aggro, Atk, BreakBaseDamage, BreakEffect, CritDamage, CritRate, DebuffDurationMultiplier,
-        Def, DotDurationAddition, EffectHitRate, EffectResistance, Elation, EnergyRegenerationRate,
-        FireDamageBoost, FreezeResistance, Hp, IceDamageBoost, ImaginaryDamageBoost,
-        LightningDamageBoost, OutgoingHealing, PhysicalDamageBoost, QuantumDamageBoost, Spd,
-        ToughnessDamage, ToughnessRecovery, WindDamageBoost,
-    };
-
-    let mut bases = BTreeMap::new();
-    for unit in txn.state.units.iter_by_id() {
-        bases.insert((unit.id, Aggro), Scalar::ONE);
-        bases.insert((unit.id, Elation), Scalar::ZERO);
-        bases.insert(
-            (unit.id, Hp),
-            Scalar::checked_from_integer(unit.maximum_hp.get())
-                .map_err(|_| program_fault(44, unit.maximum_hp.get()))?,
-        );
-        bases.insert(
-            (unit.id, Atk),
-            Scalar::from_scaled(unit.base_attack.scaled()),
-        );
-        bases.insert(
-            (unit.id, Def),
-            Scalar::from_scaled(unit.base_defense.scaled()),
-        );
-        bases.insert(
-            (unit.id, Spd),
-            Scalar::from_scaled(unit.base_speed.scaled()),
-        );
-        let player = unit.side == TeamSide::Player;
-        let [
-            critical_rate,
-            critical_damage,
-            break_effect,
-            energy_regeneration,
-            outgoing_healing,
-        ] = unit.build_bonuses.secondary();
-        bases.insert(
-            (unit.id, CritRate),
-            Scalar::from_scaled(if player { 50_000 } else { 0 })
-                .checked_add(critical_rate)
-                .map_err(|_| program_fault(45, critical_rate.scaled()))?,
-        );
-        bases.insert(
-            (unit.id, CritDamage),
-            Scalar::from_scaled(if player { 500_000 } else { 0 })
-                .checked_add(critical_damage)
-                .map_err(|_| program_fault(46, critical_damage.scaled()))?,
-        );
-        bases.insert((unit.id, EffectHitRate), unit.base_effect_hit_rate);
-        bases.insert((unit.id, EffectResistance), unit.base_effect_resistance);
-        bases.insert((unit.id, BreakEffect), break_effect);
-        bases.insert(
-            (unit.id, EnergyRegenerationRate),
-            Scalar::ONE
-                .checked_add(energy_regeneration)
-                .map_err(|_| program_fault(47, energy_regeneration.scaled()))?,
-        );
-        bases.insert((unit.id, OutgoingHealing), outgoing_healing);
-        for (stat, value) in [
-            PhysicalDamageBoost,
-            FireDamageBoost,
-            IceDamageBoost,
-            LightningDamageBoost,
-            WindDamageBoost,
-            QuantumDamageBoost,
-            ImaginaryDamageBoost,
-        ]
-        .into_iter()
-        .zip(unit.build_bonuses.element_damage_boosts())
-        {
-            bases.insert((unit.id, stat), value);
-        }
-        bases.insert((unit.id, FreezeResistance), Scalar::ZERO);
-        bases.insert((unit.id, ToughnessDamage), Scalar::ZERO);
-        bases.insert((unit.id, ToughnessRecovery), Scalar::ONE);
-        if let Some(value) = attacker_level_multiplier(unit.level) {
-            bases.insert((unit.id, BreakBaseDamage), value);
-        }
-        bases.insert((unit.id, DotDurationAddition), Scalar::ZERO);
-        bases.insert((unit.id, DebuffDurationMultiplier), Scalar::ONE);
-    }
-    Ok(bases)
 }
 
 #[allow(clippy::too_many_arguments)]

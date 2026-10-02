@@ -152,6 +152,37 @@ from that fact. They must not compare a Blessing, Formation or equipment ID in
 the resolver. A guaranteed negative effect is still an application and is
 therefore guardable.
 
+Native ordinary effects may declare `with_entanglement` with an explicit
+immutable `BreakDamageDefinition`. This is a finite cleanseable Control using
+`Refresh`, one ordinary effect stack, `TargetTurnStart`, no periodic tick,
+action suppression or ordinary DoT payload. Its template and resolved runtime
+select the independent `ControlResistance` stat (neutral base zero), in
+addition to Effect RES and applier Effect Hit Rate. Specific resistance is read
+from either runtime or template; a missing declared channel is not silently
+ignored. Existing guards, labeled probability draws and command faults apply.
+
+The shared Quantum fallback captures a per-hit base from the supplied level
+multiplier and lowest-key ordinary Toughness maximum (zero if absent;
+Exo/Sequential/Shared bars are excluded), and an initial delay using authored
+plus live applier Break Effect. It neither reduces Toughness, changes Weakness
+Broken, deals initial Break damage nor adds universal Break delay. Its separate
+counter starts at zero and increments once per subsequent completed damaging
+hit, capped at five, in effect-instance order. Positive calculated ordinary or
+Break damage qualifies even if shields absorb it; nondamaging hits and the
+first application hit do not. `HitAccumulated` retains explicit before/after
+facts and canonical replay bytes; it is not a normal effect-stack change.
+
+Cross-caster refresh retains original applier, formula, captured base and hit
+count, resets duration and does not recapture or repeat delay. On the final
+target turn start only, the captured base times the hit count uses normal live
+Break modifiers, actual target broken state and shared final damage/guard/HP
+settlement, before normal effect expiry. Intermediate turns have no damage,
+cleanse has no expiry burst, and the effect never skips an action. Declared
+teardown governs applier defeat. These are explicit shared fallback semantics,
+not observed parity for any non-Break content application. Native catalog
+composition supports them; production Sora does not yet author this payload
+or the new control-resistance stat. This grants no mode/content completion.
+
 ## Selectors
 
 A selector declares:

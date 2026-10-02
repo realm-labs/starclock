@@ -9,8 +9,8 @@ use super::operation_formula::final_damage::FinalBreakDamage;
 use super::{operation_formula::FormulaInputs, transaction::Transaction};
 
 use super::{
-    clock, dot_detonation, effect_boundary, effect_duration, effect_operation, lifecycle,
-    modifier_snapshot, operation_break, operation_resource, schedule, settle,
+    clock, dot_detonation, effect_boundary, effect_duration, effect_operation, entanglement,
+    lifecycle, modifier_snapshot, operation_break, operation_resource, schedule, settle,
 };
 use crate::{
     BreakCreditPolicy, CauseActor, DamageAmount, DurationClock, EffectCategory, EffectChancePolicy,
@@ -498,7 +498,7 @@ pub(super) struct BreakDamageApplication {
     pub(super) raw: Scalar,
 }
 
-fn apply_break_damage(
+pub(super) fn apply_break_damage(
     catalog: &CombatCatalog,
     txn: &mut Transaction<'_>,
     cause: Cause,
@@ -702,6 +702,7 @@ pub(super) fn settle_effects_at_turn_start(
     mut parent: EventId,
     owner: UnitId,
 ) -> Result<EventId, BattleFault> {
+    parent = entanglement::tick(catalog, txn, cause, parent, owner)?;
     parent = effect_boundary::tick(
         catalog,
         txn,
@@ -1126,7 +1127,7 @@ fn execute_apply_effect(
             continue;
         }
         let candidate_id = txn.allocate_effect();
-        let candidate = EffectState::from_definition(
+        let mut candidate = EffectState::from_definition(
             candidate_id,
             operation.definition.effect,
             runtime,
@@ -1138,6 +1139,15 @@ fn execute_apply_effect(
                 stacks: operation.definition.stacks,
             },
         );
+        candidate.entanglement = runtime
+            .entanglement()
+            .filter(|_| {
+                !txn.state.effects.iter_by_id().any(|effect| {
+                    effect.definition == operation.definition.effect && effect.target == target
+                })
+            })
+            .map(|damage| entanglement::capture(catalog, txn, cause, target, damage))
+            .transpose()?;
         let removed_definitions = txn
             .state
             .effects
@@ -1181,6 +1191,7 @@ fn execute_apply_effect(
                     }),
                 );
                 effect_operation::instantiate_attachments(catalog, txn, effect)?;
+                parent = entanglement::delay(txn, cause, parent, effect)?;
             }
             EffectApplyResult::Refreshed {
                 effect,

@@ -66,8 +66,15 @@ Alternatives, rationale and replacement conditions are authored alongside the
 operands. Replace each policy field independently with a released executable
 binding or reproducible current observation. Ordinary weak-point Quantum Break
 exists in the shared core, but applying that state through an ordinary
-resistible effect still needs a reviewed shared capability. This batch supplies
-no implementation or control-lifecycle credit for it.
+resistible effect now has a separate native shared capability. It uses the
+ordinary effect/chance/cleanse store and never applies Weakness Break. The
+[shared contract](11-rule-ir-and-native-handlers.md) explicitly defines capture,
+five subsequent damaging hits, one initial delay, cross-caster refresh,
+target-turn expiry, actual broken-state factors and declared applier teardown.
+Real generic commands verify these lifecycle boundaries, live Effect Hit Rate,
+Effect RES and template-declared Control Resistance, and fresh reconstruction.
+These are shared fallback tests, not execution of this Curio's policy or
+original-game parity. Its contribution still rejects as unsupported.
 
 Shared Rule IR now distinguishes `BalanceChanged` from `MaximumChanged` through
 the typed `resource_event` fact and filter. Both `SkillPoints` and
@@ -81,6 +88,12 @@ combination. This shared capability does not implement Excitation stacks,
 consumption or Entanglement, and supplies no Curio execution credit. Its typed
 filter is available to native catalog composition; no production Sora filter
 column is authored for it yet.
+
+The next mode assembly must bind the explicit Entanglement formula and duration
+to this Curio's immutable policy, through normal `ApplyEffect` emissions. No
+production Sora Entanglement payload or Control Resistance column is authored
+yet. Excitation acquisition/consumption, the Additional packet, eligible roster
+ownership and complete both-family battle/Activity replay remain pending.
 
 ## Validation and next runtime boundary
 

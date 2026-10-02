@@ -1,10 +1,12 @@
 //! Generic authored effect semantics. Content identities remain catalog data.
+mod entanglement;
 
 use crate::{
     DotDetonationFilter, DotDetonationScope, EffectDefinitionId, Probability, Ratio, Scalar,
     SourceDefinitionId,
     catalog::action::{OrdinaryDamageDefinition, OrdinaryDamageMultipliers},
     formula::model::{CombatElement, DamageClass},
+    formula::toughness::BreakDamageDefinition,
     modifier::model::StatKind,
     rng::types::DrawPurpose,
     rule::model::ValueExpr,
@@ -315,6 +317,7 @@ pub struct EffectRuntimeDefinition {
     prevents_toughness_reduction: bool,
     forced_normal_action: Option<ForcedNormalAction>,
     specific_resistance_stat: Option<StatKind>,
+    entanglement: Option<BreakDamageDefinition>,
 }
 
 /// Authored effect semantics whose expression-backed values are resolved at application time.
@@ -339,6 +342,7 @@ pub struct EffectRuntimeTemplate {
     prevents_toughness_reduction: bool,
     forced_normal_action: Option<ForcedNormalAction>,
     specific_resistance_stat: Option<StatKind>,
+    entanglement: Option<BreakDamageDefinition>,
 }
 
 impl EffectRuntimeTemplate {
@@ -375,6 +379,7 @@ impl EffectRuntimeTemplate {
             prevents_toughness_reduction: false,
             forced_normal_action: None,
             specific_resistance_stat: None,
+            entanglement: None,
         })
     }
 
@@ -439,7 +444,7 @@ impl EffectRuntimeTemplate {
     /// Blocks selected actions while this control effect is active.
     #[must_use]
     pub fn with_control(mut self, mut actions: Vec<ControlledAction>) -> Option<Self> {
-        if self.category != EffectCategory::Control {
+        if self.category != EffectCategory::Control || self.entanglement.is_some() {
             return None;
         }
         actions.sort_unstable();
@@ -450,7 +455,7 @@ impl EffectRuntimeTemplate {
     /// Replaces the affected unit's ordinary timeline action.
     #[must_use]
     pub fn with_forced_normal_action(mut self, action: ForcedNormalAction) -> Option<Self> {
-        if self.category != EffectCategory::Control {
+        if self.category != EffectCategory::Control || self.entanglement.is_some() {
             return None;
         }
         self.forced_normal_action = Some(action);
@@ -497,7 +502,9 @@ impl EffectRuntimeTemplate {
         element: CombatElement,
         detonation_tag: Option<SourceDefinitionId>,
     ) -> Option<Self> {
-        if !matches!(self.category, EffectCategory::Control | EffectCategory::Dot) {
+        if !matches!(self.category, EffectCategory::Control | EffectCategory::Dot)
+            || self.entanglement.is_some()
+        {
             return None;
         }
         self.dot = Some((element, detonation_tag));
@@ -570,6 +577,9 @@ impl EffectRuntimeTemplate {
             .with_class(DamageClass::Dot);
             runtime = runtime.with_dot(DotDefinition::new(formula, element, detonation_tag))?;
         }
+        if let Some(damage) = self.entanglement {
+            runtime = runtime.with_entanglement(damage)?;
+        }
         Some(runtime)
     }
 }
@@ -612,6 +622,7 @@ impl EffectRuntimeDefinition {
             prevents_toughness_reduction: false,
             forced_normal_action: None,
             specific_resistance_stat: None,
+            entanglement: None,
         })
     }
     #[must_use]
@@ -625,7 +636,7 @@ impl EffectRuntimeDefinition {
     }
     #[must_use]
     pub fn with_control(mut self, mut actions: Vec<ControlledAction>) -> Option<Self> {
-        if self.category != EffectCategory::Control {
+        if self.category != EffectCategory::Control || self.entanglement.is_some() {
             return None;
         }
         actions.sort_unstable();
@@ -678,7 +689,7 @@ impl EffectRuntimeDefinition {
     /// Replaces the affected unit's ordinary timeline action.
     #[must_use]
     pub fn with_forced_normal_action(mut self, action: ForcedNormalAction) -> Option<Self> {
-        if self.category != EffectCategory::Control {
+        if self.category != EffectCategory::Control || self.entanglement.is_some() {
             return None;
         }
         self.forced_normal_action = Some(action);
@@ -691,7 +702,9 @@ impl EffectRuntimeDefinition {
     }
     #[must_use]
     pub fn with_dot(mut self, dot: DotDefinition) -> Option<Self> {
-        if !matches!(self.category, EffectCategory::Control | EffectCategory::Dot) {
+        if !matches!(self.category, EffectCategory::Control | EffectCategory::Dot)
+            || self.entanglement.is_some()
+        {
             return None;
         }
         self.dot = Some(dot);

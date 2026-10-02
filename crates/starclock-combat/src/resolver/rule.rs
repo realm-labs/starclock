@@ -39,7 +39,7 @@ use crate::{
 use std::collections::{BTreeMap, BTreeSet};
 
 use super::{
-    program::{AbilityProgramContext, execute_emissions, stat_bases},
+    program::{AbilityProgramContext, execute_emissions},
     transaction::Transaction,
 };
 use super::{stat_input, target};
@@ -197,7 +197,7 @@ fn evaluate_candidate(
     let program = catalog
         .program(candidate.trigger.program)
         .ok_or_else(|| rule_fault(2, i64::from(candidate.trigger.program.get())))?;
-    let bases = stat_bases(txn)?;
+    let bases = stat_input::stat_bases(txn)?;
     let modifiers = txn
         .state
         .modifiers
@@ -612,6 +612,9 @@ fn event_facts(
                 EffectEventData::Refreshed { effect, .. }
                 | EffectEventData::Ticked { effect, .. }
                 | EffectEventData::Detonated { effect, .. } => {
+                    txn.state.effects.get(*effect).map(|state| state.definition)
+                }
+                EffectEventData::HitAccumulated { effect, .. } => {
                     txn.state.effects.get(*effect).map(|state| state.definition)
                 }
                 EffectEventData::Removed { definition, .. } => Some(*definition),

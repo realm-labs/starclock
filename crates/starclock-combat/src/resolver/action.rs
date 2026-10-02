@@ -34,7 +34,7 @@ use super::{
     program::{AbilityProgramContext, execute_ability_program},
     transaction::{Transaction, action_fault},
 };
-use super::{operation, operation_formula, program, stat_input};
+use super::{operation, operation_formula, stat_input};
 
 const MAX_REACTIONS_PER_COMMAND: usize = 256;
 
@@ -203,7 +203,7 @@ pub(super) fn resolve_scaling_damage(
         rule::evaluate::StatQueryReader,
     };
 
-    let bases = program::stat_bases(txn)?;
+    let bases = stat_input::stat_bases(txn)?;
     let modifiers = txn
         .state
         .modifiers

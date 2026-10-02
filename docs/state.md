@@ -36,6 +36,20 @@ This prerequisite grants no additional Divergent Universe content execution
 credit. See the
 [DoT filter contract](12-modifier-and-snapshot-pipeline.md).
 
+Native shared combat now supports ordinary resistible Entanglement in the
+generic effect store, independently of Weakness Break. An explicit immutable
+formula captures a Quantum per-hit base and initial delay; subsequent damaging
+hits have an eventful zero-to-five counter. Cross-caster refresh retains the
+original applier/capture/hits without another delay; cleanse removes without
+burst, and only final target-turn expiry deals delayed damage with actual
+broken-state factors. Finite multi-turn durations do not tick damage early or
+skip actions. Declared persistence retains credit after provider defeat.
+Rule IR reads template-declared Control Resistance as well as live Effect Hit
+Rate/Effect RES; native probability and fresh command/event reconstruction
+tests cover the boundary. The fallback and ordinary-bar selection are explicit
+shared policy, not non-Break content parity. Sora payload/stat authoring and
+Genius' Confusion's effect assembly remain pending; no DU completion credit.
+
 ## Divergent Universe release readiness
 
 The [Hex source taxonomy boundary](divergent-universe-hex-content-taxonomy.md)
@@ -1164,9 +1178,11 @@ Shared native Rule IR composition can now independently filter resource
 conditions require the balance axis, Skill Points address and positive delta;
 cap-only increases, cap-induced balance clamps and pure overflow are excluded
 by generic command fixtures. Maximum-event deltas still describe the cap.
-The Sora EventFilter table has no authored axis column yet, and Genius'
-Confusion's stacks, consumption and resistible non-Break Entanglement remain
-unimplemented. This prerequisite grants no terminal coverage credit.
+The Sora EventFilter table has no authored axis column yet. Ordinary resistible
+non-Break Entanglement now has a native shared lifecycle, but Genius'
+Confusion's stacks, consumption, Additional damage and policy-bound effect
+assembly remain unimplemented. These prerequisites grant no terminal coverage
+credit.
 Sapient Pen preserves the released two-Punchline,
 `0.5` Elation and two-turn operands with separate reviewed timing policy;
 [shared-meter assembly](divergent-universe-battle-team-resources.md) now binds

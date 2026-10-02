@@ -558,6 +558,18 @@ fn encode_break_damage(encoder: &mut Encoder<Vec<u8>>, value: BreakDamageEventDa
 
 fn encode_effect(encoder: &mut Encoder<Vec<u8>>, value: EffectEventData) {
     match value {
+        EffectEventData::HitAccumulated {
+            operation,
+            effect,
+            target,
+            before,
+            after,
+        } => {
+            encoder.u8(6);
+            operation_effect_target(encoder, operation.get(), effect.get(), target.get());
+            encoder.u8(before);
+            encoder.u8(after);
+        }
         EffectEventData::Applied {
             operation,
             effect,

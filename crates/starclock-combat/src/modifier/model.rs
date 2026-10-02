@@ -71,6 +71,9 @@ pub enum StatKind {
     /// It is not ordinary DMG Boost and does not change an existing damage
     /// operation merely because that operation carries the Elation class.
     Elation,
+    /// Specific resistance for ordinary Control applications, neutral at zero.
+    /// Native definitions may select this channel independently of Effect RES.
+    ControlResistance,
 }
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]

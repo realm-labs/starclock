@@ -231,10 +231,16 @@ fn resolve_chances(
         EffectChancePolicy::Resistible { base_chance, .. } => base_chance,
         _ => unreachable!("resistible rule chance"),
     };
-    let specific_stat = catalog
-        .effect(effect)
-        .and_then(|definition| definition.runtime())
-        .and_then(EffectRuntimeDefinition::specific_resistance_stat);
+    let specific_stat = catalog.effect(effect).and_then(|definition| {
+        definition
+            .runtime()
+            .and_then(EffectRuntimeDefinition::specific_resistance_stat)
+            .or_else(|| {
+                definition
+                    .runtime_template()
+                    .and_then(EffectRuntimeTemplate::specific_resistance_stat)
+            })
+    });
     let ignores_specific = matches!(
         chance,
         RuleEffectChancePolicy::ResistibleIgnoringSpecificResistance
