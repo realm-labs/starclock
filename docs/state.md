@@ -9,9 +9,10 @@ preserves instance identity, zero exhausts it, and conflicting policies or
 ambiguous ownership fault transactionally. Separate typed shield event filters
 and canonical Adjusted payloads carry exact signed capacity changes into bounded
 reaction healing. Program-input snapshots and explicit RemoveShield teardown
-retain the established semantics. Production Sora authoring and Dignity and
-Passion binding remain pending; this shared prerequisite grants no additional
-terminal Divergent Universe coverage. See the
+retain the established semantics. Production Dignity and Passion now binds
+the native capacity operations through an explicit mode-owned execution policy;
+general schema admission of these Rule IR nodes remains pending. No additional
+terminal Divergent Universe coverage follows. See the
 [shield adjustment contract](12-modifier-and-snapshot-pipeline.md#effect-owned-shield-capacity-adjustments).
 
 Shared combat supports operation-entry additive damage semantics independent
@@ -1210,7 +1211,15 @@ and one independent shared Punchline assembly policy and one executable
 [Genius' Confusion definition](divergent-universe-weighted-curio-excitation.md)
 and one executable policy-bound
 [Encouragement for You definition](divergent-universe-weighted-curio-encouragement.md)
-across 46 tables and 426 rows. Encouragement for You preserves the released
+and one executable policy-bound
+[Dignity and Passion definition](divergent-universe-weighted-curio-transfer.md)
+across 47 tables and 431 rows. Dignity and Passion preserves the four released
+`0.75/0.3/0.9/0.1` operands. Ordinary shield grant events grow a recipient-local
+special shield; owner turns decay only its capacity above live maximum HP's
+30% threshold, and a distinct reaction heals from the actual negative adjustment.
+Absorption and removal do not heal; linked actors do not inherit admission.
+ConcurrentLargest overlap and hidden order remain replaceable non-parity policy.
+Encouragement for You preserves the released
 Elation eligibility and canonical `1.5` follow-up Crit Damage ratio, with a
 separate replaceable original-owner classification policy. Shared orthogonal
 damage-label routing preserves Elation's calculator and action envelope. Both

@@ -146,11 +146,13 @@
     "decision_authoring": {
       "project": "starclock_divergent_universe_decisions",
       "workbooks": 1,
-      "tables": 46,
-      "rows": 426,
-      "reader_files": 98,
-      "bundle_bytes": 282298,
-      "bundle_sha256": "713c97ad9e5d3c2419644f5aeef46739cb3fd7bfd44011fcc7437beee4ca03c7",
+      "tables": 47,
+      "rows": 431,
+      "reader_files": 100,
+      "bundle_bytes": 290448,
+      "bundle_sha256": "2c2675f6b62ba0878193fb56db43148ab17759fd534739c45e288a9dcf8e3a78",
+      "weighted_curio_transfer_operands_authored": true,
+      "weighted_curio_transfer_battle_effect_implemented": true,
       "weighted_curio_encouragement_operands_authored": true,
       "weighted_curio_encouragement_battle_effect_implemented": true,
       "weighted_curio_excitation_operands_authored": true,
@@ -201,7 +203,7 @@
       "weighted_curio_loadout_accuracy": "VersionedProjectPolicyAcceptedCurrentCatalogLoadout",
       "weighted_curio_unsupported_equipment_rejects_battle_contribution": true,
       "weighted_curio_battle_effects_implemented": false,
-      "weighted_curio_battle_effect_definitions": 11,
+      "weighted_curio_battle_effect_definitions": 12,
       "weighted_curio_battle_effect_accuracies": [
         "VersionedProjectPolicyHitCalculatedCopyAdjacentTrueDamage",
         "VersionedProjectPolicyAllyActionResolvedReplaceTargetTurnShield",
@@ -213,7 +215,8 @@
         "VersionedProjectPolicyAttackResolvedNecrosisAndDotDamageBurnDetonation",
         "VersionedProjectPolicyActionResolvedOriginalPartyRefresh",
         "VersionedProjectPolicyEffectiveGainActionResolvedTeamConsumption",
-        "VersionedProjectPolicyOriginalElationFollowUpDamage"
+        "VersionedProjectPolicyOriginalElationFollowUpDamage",
+        "VersionedProjectPolicyOtherShieldAppliedOwnerTurnExcessDecay"
       ],
       "grand_miracle_runtime_implemented": false,
       "forge_room_payload_implemented": false,

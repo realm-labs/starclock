@@ -52,6 +52,8 @@ mod weighted_curio_shields;
 mod weighted_curio_splashes;
 #[path = "divergent_universe_weighted_curio_support_attack_tests.rs"]
 mod weighted_curio_support_attacks;
+#[path = "divergent_universe_weighted_curio_transfer_tests.rs"]
+mod weighted_curio_transfers;
 
 use super::{
     BUNDLE, BattleRewardDomain, CurioAcquisitionGrant, CurioAcquisitionPolicy, DecisionCatalog,
@@ -63,7 +65,7 @@ use super::{
 fn production_decision_workbook_lowers_three_ordered_policy_choices() {
     let reference = load_divergent_universe_bundle().unwrap();
     let catalog = DecisionCatalog::production(&reference).unwrap();
-    assert_eq!(catalog.sources().len(), 121);
+    assert_eq!(catalog.sources().len(), 125);
     expansion_policy::production(&catalog);
     reward_policies::production_battle_stats(&catalog);
     assert_eq!(

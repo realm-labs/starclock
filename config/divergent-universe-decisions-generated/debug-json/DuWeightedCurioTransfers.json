@@ -1,0 +1,81 @@
+{
+  "table": {
+    "name": "DuWeightedCurioTransfers",
+    "rows": [
+      {
+        "values": {
+          "character_path": {
+            "String": "Knight"
+          },
+          "decay_fraction": {
+            "String": "0.9"
+          },
+          "decay_parameter": {
+            "Integer": 3
+          },
+          "heal_fraction": {
+            "String": "0.1"
+          },
+          "heal_parameter": {
+            "Integer": 4
+          },
+          "id": {
+            "Integer": 1
+          },
+          "maze_buff_id": {
+            "String": "633409"
+          },
+          "policy": {
+            "String": "OtherShieldAppliedOwnerTurnExcessDecay"
+          },
+          "policy_note": {
+            "String": "VersionedProjectPolicy: immutable mapped original party Paths admit the whole party if any is Preservation, irrespective of later caster death or absence. Bind only original player recipients; no automatic linked/new summon inheritance. At BattleStarted/AfterEvent install a permanent NonDispellable Replace marker with initially zero capacity; retain through waves with PersistByScope. Each positive ordinary Shield Applied event targeting a living present owner transfers its actual post-formula applied capacity once at AfterMutation, including independent repeated or replacement grants, without reapplying shield bonuses. Ensure the marker exists before a transfer. Exact effect-owned capacity uses ConcurrentLargest coexistence with ordinary shields. At recipient TurnStarted/AfterEvent once per turn, read current special capacity and current maximum HP from one immutable snapshot; decrease floor(0.9 * max(capacity - 0.3 * maximum HP, 0)), retaining fractional threshold until the final integer boundary. A separate AfterMutation reaction filters Adjusted events for this definition and a negative actual delta, healing floor(0.1 * actual loss) without healing modifiers. Absorption, removal, other definitions, increases, actions and other recipients' turns cannot heal. Explicit marker removal clears only its shield when no replacement marker exists. Alive/present selectors prevent death from producing gains/decay/healing. Stable participant/event order, checked fixed-point arithmetic, no RNG and no Activity mutation. Equipment changes affect future battle snapshots only."
+          },
+          "replacement_condition": {
+            "String": "Low confidence, not observed parity: original-party eligibility snapshot, birth/linked scope, event ordering, replacement-grant interpretation, ConcurrentLargest overlap, dynamic maximum HP, threshold precision, shield/healing modifier handling and marker teardown. Pinned StageAbility_633409 is absent from the filename tree; bounded public cross-check cannot establish hidden timing. Alternatives include additive absorption, per-caster layers, initial HP-based capacity, inheritance by summons, threshold flooring before decay, or boosted healing. Replace each independently with released programs or reproducible current traces. Data and both-family battle fixtures must cover exact operands, eligibility, repeated grants, zero/threshold/fractional decay, actual-loss-only healing, absorption, teardown and fresh deterministic commands. Original Forge admission, equipment replay and full-run release remain pending."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 122
+              },
+              {
+                "Integer": 123
+              },
+              {
+                "Integer": 124
+              },
+              {
+                "Integer": 125
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.weighted-curio-transfer.dignity-and-passion"
+          },
+          "summary_en": {
+            "String": "A Preservation teammate enables an ally special shield. Other shields add 75% of their applied capacity. At its owner's turn start, 90% of capacity above 30% maximum HP is lost, healing for 10% of the actual loss."
+          },
+          "summary_zh_cn": {
+            "String": "队伍中有存护角色时，我方获得特殊护盾；其他护盾实际获得量的75%转存至此护盾。本人回合开始时，超过生命上限30%的部分衰减90%，按实际衰减量的10%回复生命。"
+          },
+          "threshold_fraction": {
+            "String": "0.3"
+          },
+          "threshold_parameter": {
+            "Integer": 2
+          },
+          "transfer_fraction": {
+            "String": "0.75"
+          },
+          "transfer_parameter": {
+            "Integer": 1
+          },
+          "weighted_curio_key": {
+            "String": "divergent-universe.weighted-curio.1009"
+          }
+        }
+      }
+    ]
+  }
+}

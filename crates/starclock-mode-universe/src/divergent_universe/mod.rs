@@ -80,6 +80,7 @@ mod weighted_curio_retaliation;
 mod weighted_curio_shield;
 mod weighted_curio_splash;
 mod weighted_curio_support_attack;
+mod weighted_curio_transfer;
 mod workbench_curse_runtime;
 
 pub use activity_decision_mechanic_runtime::{

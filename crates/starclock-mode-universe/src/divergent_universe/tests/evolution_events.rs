@@ -72,8 +72,8 @@ fn seed(
     // Current production inputs, discovered through the explicit test below.
     // Default regression runs execute fixed public inputs, not seed searches.
     let corpus = match family {
-        DivergentUniverseRunFamily::Ordinary => [6, 63, 208, 211, 217, 320, 341, 512],
-        DivergentUniverseRunFamily::Cyclical => [97, 167, 281, 310, 329, 420, 676, 753],
+        DivergentUniverseRunFamily::Ordinary => [259, 266, 285, 523, 530, 623, 741, 857],
+        DivergentUniverseRunFamily::Cyclical => [22, 27, 122, 166, 247, 306, 374, 386],
     };
     let seed = corpus
         .into_iter()
@@ -123,15 +123,22 @@ fn evolution_events_discover_current_public_seed_corpus() {
                 })
             {
                 let success = if family == DivergentUniverseRunFamily::Ordinary {
-                    until_event(&fixture, &flow, &mut activity, &mut steps, 2);
+                    if !discovery_until_event(&fixture, &flow, &mut activity, &mut steps, 2) {
+                        continue;
+                    }
                     steps.push(advance(&fixture, &flow, &mut activity, Some(1)));
-                    until_event(&fixture, &flow, &mut activity, &mut steps, 3);
+                    if !discovery_until_event(&fixture, &flow, &mut activity, &mut steps, 3) {
+                        continue;
+                    }
                     steps.push(advance(&fixture, &flow, &mut activity, Some(2)));
                     let success = owns(&fixture, &activity, "9197");
                     assert_eq!(!success, owns(&fixture, &activity, "9196"));
                     outcomes[usize::from(success)] = true;
                     Some(success)
                 } else {
+                    if !discovery_until_event(&fixture, &flow, &mut activity, &mut steps, 2) {
+                        continue;
+                    }
                     None
                 };
                 if found.len() < 8 {
@@ -161,6 +168,27 @@ fn evolution_events_discover_current_public_seed_corpus() {
         }
         eprintln!("current public Green Miracle corpus {family:?}: {found:?}");
     }
+}
+
+// Acquisition alone does not prove the public route used by the fixed corpus:
+// other acquired Curios may insert an additional event at the same layer.
+fn discovery_until_event(
+    fixture: &DivergentUniverseBaselineFixture,
+    flow: &DivergentUniverseFlowInstance,
+    activity: &mut GraphActivity,
+    steps: &mut Vec<DivergentUniverseBaselineStep>,
+    layer: u16,
+) -> bool {
+    while flow.offered_evolution_event(activity).is_none() {
+        if steps.len() >= 12 || activity.player_view().terminal().is_some() {
+            return false;
+        }
+        steps.push(advance(fixture, flow, activity, None));
+    }
+    flow.offered_evolution_event(activity)
+        .unwrap()
+        .layer_ordinal
+        == layer
 }
 
 fn until_event(

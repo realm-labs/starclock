@@ -208,8 +208,11 @@ the existing unmodified Heal operation. No-op changes emit no shield event.
 
 The [native command corpus](../crates/starclock-test-kit/tests/suites/core/combat/ability_program_execution/effect_shield.rs)
 verifies queries, identity, absorption, explicit teardown, rejected commands,
-fault rollback, signed-event healing and fresh reconstruction. These capabilities
-have no production Sora authoring or Divergent Universe admission credit yet.
+fault rollback, signed-event healing and fresh reconstruction. General Rule IR
+schema admission remains pending. The mode-owned
+[Dignity and Passion binding](divergent-universe-weighted-curio-transfer.md)
+uses production Sora operands and these native operations, without granting
+terminal Divergent Universe coverage or observed-parity credit.
 
 ## Semantic DoT detonation filters
 

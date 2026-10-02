@@ -62,6 +62,11 @@ const inputs = {
   weighted_encouragement: "crates/starclock-mode-universe/src/divergent_universe/weighted_curio_encouragement.rs",
   weighted_encouragement_runtime_tests: "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_encouragement.rs",
   weighted_encouragement_fixture: "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_encouragement_fixture.rs",
+  weighted_transfer_authoring: "crates/starclock-data/src/divergent_universe_weighted_curio_transfer_data.rs",
+  weighted_transfer_data: "config/divergent-universe-decisions-generated/debug-json/DuWeightedCurioTransfers.json",
+  weighted_transfer: "crates/starclock-mode-universe/src/divergent_universe/weighted_curio_transfer.rs",
+  weighted_transfer_tests: "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_transfer.rs",
+  weighted_transfer_fixture: "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_transfer_fixture.rs",
   contribution_snapshot: "crates/starclock-mode-universe/src/divergent_universe/contribution_snapshot.rs",
   gamble_runtime: "crates/starclock-mode-universe/src/divergent_universe/gamble_runtime.rs",
   tests: "crates/starclock-mode-universe/src/divergent_universe/tests/gamble_runtime.rs",
@@ -100,6 +105,15 @@ export function buildGrandMiracleGambleExecution() {
   assert(!text(inputs.mode_facade).includes("grand_miracle_runtime"),
     "reference flags must not be exposed as a Grand Miracle runtime");
   const probes = [
+    ...[
+      "weighted_curio_transfer_binds_all_original_recipients_only_with_preservation_party",
+      "weighted_curio_transfer_preserves_threshold_precision_and_heals_only_actual_decay",
+      "weighted_curio_transfer_uses_recipient_turn_and_live_maximum_hp_not_other_turns",
+      "weighted_curio_transfer_absorption_and_explicit_removal_do_not_heal_or_recurse",
+      "weighted_curio_transfer_fresh_commands_are_deterministic_and_stale_commands_inert",
+      "weighted_curio_transfer_provider_defeat_absence_and_inherited_linked_bundles_do_not_change_scope",
+      "weighted_curio_transfer_unmodified_production_battle_starts_with_four_zero_capacity_markers",
+    ].map(test => ({file: inputs.weighted_transfer_tests, test})),
     {file: inputs.weighted_loadout_tests,
       test: "weighted_curio_excitation_authoring_admits_only_the_bound_sora_definition"},
     {file: inputs.weighted_loadout_tests,
@@ -247,7 +261,8 @@ export function buildGrandMiracleGambleExecution() {
       weighted_curio_loadout_accuracy: "VersionedProjectPolicyAcceptedCurrentCatalogLoadout",
       weighted_curio_unsupported_equipment_rejects_battle_contribution: true,
       weighted_curio_battle_effects_implemented: false,
-      weighted_curio_battle_effect_definitions: json(inputs.weighted_splash_data).table.rows.length
+      weighted_curio_battle_effect_definitions: json(inputs.weighted_transfer_data).table.rows.length
+        + json(inputs.weighted_splash_data).table.rows.length
         + json(inputs.weighted_shield_data).table.rows.length
         + json(inputs.weighted_attack_debuff_data).table.rows.length
         + json(inputs.weighted_support_attack_data).table.rows.length
@@ -260,6 +275,8 @@ export function buildGrandMiracleGambleExecution() {
         + json(inputs.weighted_encouragement_data).table.rows.length,
       weighted_curio_encouragement_operands_authored: json(inputs.weighted_encouragement_data).table.rows.length === 1,
       weighted_curio_encouragement_battle_effect_implemented: true,
+      weighted_curio_transfer_operands_authored: json(inputs.weighted_transfer_data).table.rows.length === 1,
+      weighted_curio_transfer_battle_effect_implemented: true,
       weighted_curio_battle_effect_accuracies: ["VersionedProjectPolicyHitCalculatedCopyAdjacentTrueDamage",
         "VersionedProjectPolicyAllyActionResolvedReplaceTargetTurnShield",
         "VersionedProjectPolicyAttackResolvedAdvanceAndTargetTurnFinalReduction",
@@ -270,11 +287,12 @@ export function buildGrandMiracleGambleExecution() {
         "VersionedProjectPolicyAttackResolvedNecrosisAndDotDamageBurnDetonation",
         "VersionedProjectPolicyActionResolvedOriginalPartyRefresh",
         "VersionedProjectPolicyEffectiveGainActionResolvedTeamConsumption",
-        "VersionedProjectPolicyOriginalElationFollowUpDamage"],
+        "VersionedProjectPolicyOriginalElationFollowUpDamage",
+        "VersionedProjectPolicyOtherShieldAppliedOwnerTurnExcessDecay"],
       grand_miracle_runtime_implemented: false,
       forge_room_payload_implemented: false,
       terminal_coverage_credit: 0,
-      required_next_work: "Bind accepted equipment to actual Forge offers and slot-level admission; implement the remaining six Weighted Curio effects and equipment-command replay. Establish Grand Miracle selectors independently and repair its separate source/fixture audit labels without shrinking obligations.",
+      required_next_work: "Bind accepted equipment to actual Forge offers and slot-level admission; implement the remaining five Weighted Curio effects and equipment-command replay. Establish Grand Miracle selectors independently and repair its separate source/fixture audit labels without shrinking obligations.",
     },
     summary: { weighted_curio_references: hex.length,
       current_hex_eligibility_rules: current.length,

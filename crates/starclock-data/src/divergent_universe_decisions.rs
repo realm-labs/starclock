@@ -44,6 +44,7 @@ use weighted_curio_retaliations::WeightedCurioRetaliationDefinition;
 use weighted_curio_shields::WeightedCurioShieldDefinition;
 use weighted_curio_splashes::WeightedCurioSplashDefinition;
 use weighted_curio_support_attacks::WeightedCurioSupportAttackDefinition;
+use weighted_curio_transfers::WeightedCurioTransferDefinition;
 
 #[path = "divergent_universe_battle_team_resource_data.rs"]
 pub mod battle_team_resources;
@@ -68,6 +69,8 @@ pub mod weighted_curio_attack_debuffs;
 pub mod weighted_curio_shields;
 #[path = "divergent_universe_weighted_curio_support_attack_data.rs"]
 pub mod weighted_curio_support_attacks;
+#[path = "divergent_universe_weighted_curio_transfer_data.rs"]
+pub mod weighted_curio_transfers;
 
 #[path = "divergent_universe_weighted_curio_splash_data.rs"]
 pub mod weighted_curio_splashes;
@@ -275,6 +278,7 @@ pub struct CurioFragmentGainDefinition {
 pub struct DecisionCatalog {
     weighted_curio_splashes: Box<[WeightedCurioSplashDefinition]>,
     weighted_curio_shields: Box<[WeightedCurioShieldDefinition]>,
+    weighted_curio_transfers: Box<[WeightedCurioTransferDefinition]>,
     weighted_curio_attack_debuffs: Box<[WeightedCurioAttackDebuffDefinition]>,
     weighted_curio_support_attacks: Box<[WeightedCurioSupportAttackDefinition]>,
     weighted_curio_prayers: Box<[WeightedCurioPrayerDefinition]>,
@@ -648,6 +652,11 @@ impl DecisionCatalog {
     #[must_use]
     pub fn weighted_curio_shields(&self) -> &[WeightedCurioShieldDefinition] {
         &self.weighted_curio_shields
+    }
+
+    #[must_use]
+    pub fn weighted_curio_transfers(&self) -> &[WeightedCurioTransferDefinition] {
+        &self.weighted_curio_transfers
     }
 
     #[must_use]
