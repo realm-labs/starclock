@@ -47,8 +47,9 @@ skip actions. Declared persistence retains credit after provider defeat.
 Rule IR reads template-declared Control Resistance as well as live Effect Hit
 Rate/Effect RES; native probability and fresh command/event reconstruction
 tests cover the boundary. The fallback and ordinary-bar selection are explicit
-shared policy, not non-Break content parity. Sora payload/stat authoring and
-Genius' Confusion's effect assembly remain pending; no DU completion credit.
+shared policy, not non-Break content parity. Sora payload/stat authoring remains
+pending; Genius' Confusion now composes it natively at the mode boundary.
+Full Forge/equipment replay and terminal DU coverage remain pending.
 
 Ordinary Entanglement also supports an explicit native first-applier level
 source. Its shared Break table multiplier is captured once and retained across
@@ -79,7 +80,7 @@ each eligible damage event copies thirty percent to adjacent enemies under an
 explicit hidden-timing/damage-copy policy. Equipment is the seventh immutable
 contribution component; unlowered equipment still rejects with typed errors
 instead of silently producing a no-effect battle. Full Forge menus/slot admission,
-the other eight Weighted Curio effects, actual Grand Miracle source selection/effects
+the other seven Weighted Curio effects, actual Grand Miracle source selection/effects
 and the Forge room payload remain unimplemented. The
 [Harmony shield](divergent-universe-weighted-curio-shield.md) executes ally-directed
 Basic/Skill/Ultimate actions, including self and full-team targets, with each
@@ -109,7 +110,7 @@ baselines and shared weighted normal-enemy primaries make the target component
 executable without a second sampler or mode-specific battle state machine.
 Reaction timing/cardinality, element, critical eligibility, zero-loss admission
 and unreconstructed target locks remain independent low-confidence policies.
-Nine of seventeen equipment effects execute; original Forge admission and
+Ten of seventeen equipment effects execute; original Forge admission and
 complete equipment replay remain pending. The current
 taxonomy/Gamble inventory emits no execution receipt or terminal coverage credit;
 the two accepted Coin units and unresolved Gamble rejection behavior remain.
@@ -1175,22 +1176,30 @@ definition and one real-capacity/turn-start consumption/shield definition and
 one Physical target-weight/nonlethal retaliation definition and one entry
 team-maximum Break Effect capture definition and one resistible Necrosis/Burn
 detonation definition and one executable policy-bound Sapient Pen definition
-and one independent shared Punchline assembly policy and one pending
+and one independent shared Punchline assembly policy and one executable
 [Genius' Confusion definition](divergent-universe-weighted-curio-excitation.md)
 across 45 tables and 421 rows. Genius' Confusion preserves all five released
 Excitation, Quantum Additional damage and Entanglement operands with a separate
-policy stack cap. Its effect remains unsupported at battle-contribution
-assembly in both run families; data authoring grants no execution credit.
+policy stack cap. Both run families now lower it through native shared Rule IR:
+positive effective Quantum Skill Point events grant two recipient-local stacks;
+original Basic/Skill attacks consume up to one team-wide and emit actor-sourced
+Quantum Additional damage with independent Crit, followed by ordinary resistible
+Entanglement on surviving targets. Original mapped roster ownership excludes
+linked/shared actors even with inherited producer rules. Hidden ordering and
+the ordinary non-Break Entanglement fallback remain low-confidence policy.
 Shared native Rule IR composition can now independently filter resource
 `BalanceChanged` and `MaximumChanged` events. Effective Skill Point-gain
 conditions require the balance axis, Skill Points address and positive delta;
 cap-only increases, cap-induced balance clamps and pure overflow are excluded
 by generic command fixtures. Maximum-event deltas still describe the cap.
 The Sora EventFilter table has no authored axis column yet. Ordinary resistible
-non-Break Entanglement now has a native shared lifecycle, but Genius'
-Confusion's stacks, consumption, Additional damage and policy-bound effect
-assembly remain unimplemented. These prerequisites grant no terminal coverage
-credit.
+non-Break Entanglement now supplies its native shared lifecycle. Actual mode
+commands cover overflow, partial rosters, caps, multihit/multi-target boundaries,
+Crit and effect-chance RNG, Control Resistance, refresh, hit accumulation,
+cleanse, expiry damage, provider defeat, wave carry, rejected commands and
+fresh reconstruction. Unequip removes the definitions and fresh battles start
+at zero. Full Forge and public equipment replay remain pending; these changes
+grant no terminal reference/program coverage credit.
 Sapient Pen preserves the released two-Punchline,
 `0.5` Elation and two-turn operands with separate reviewed timing policy;
 [shared-meter assembly](divergent-universe-battle-team-resources.md) now binds

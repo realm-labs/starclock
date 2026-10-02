@@ -139,7 +139,7 @@
       "bundle_bytes": 275463,
       "bundle_sha256": "5cb5558fe7e09c5c45fa5ecf60e978675b003faaf3b25a452462122ccfd0c5fc",
       "weighted_curio_excitation_operands_authored": true,
-      "weighted_curio_excitation_battle_effect_implemented": false,
+      "weighted_curio_excitation_battle_effect_implemented": true,
       "weighted_curio_elation_operands_authored": true,
       "weighted_curio_elation_battle_effect_implemented": true,
       "weighted_curio_elation_shared_meter_assembly_implemented": true,
@@ -186,7 +186,7 @@
       "weighted_curio_loadout_accuracy": "VersionedProjectPolicyAcceptedCurrentCatalogLoadout",
       "weighted_curio_unsupported_equipment_rejects_battle_contribution": true,
       "weighted_curio_battle_effects_implemented": false,
-      "weighted_curio_battle_effect_definitions": 9,
+      "weighted_curio_battle_effect_definitions": 10,
       "weighted_curio_battle_effect_accuracies": [
         "VersionedProjectPolicyHitCalculatedCopyAdjacentTrueDamage",
         "VersionedProjectPolicyAllyActionResolvedReplaceTargetTurnShield",
@@ -196,7 +196,8 @@
         "VersionedProjectPolicyPhysicalAggroAndOwnerAdditional",
         "VersionedProjectPolicyEntryHighestTeamBreakEffectCapture",
         "VersionedProjectPolicyAttackResolvedNecrosisAndDotDamageBurnDetonation",
-        "VersionedProjectPolicyActionResolvedOriginalPartyRefresh"
+        "VersionedProjectPolicyActionResolvedOriginalPartyRefresh",
+        "VersionedProjectPolicyEffectiveGainActionResolvedTeamConsumption"
       ],
       "grand_miracle_runtime_implemented": false,
       "forge_room_payload_implemented": false,

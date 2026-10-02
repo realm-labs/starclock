@@ -16,7 +16,7 @@ pub enum WeightedCurioExcitationPolicy {
     VersionedProjectPolicyEffectiveGainActionResolvedTeamConsumption,
 }
 
-/// Immutable exact operands and separate policy cap for a pending battle effect.
+/// Immutable exact operands and separate policy cap; execution belongs to the mode.
 /// Quantum qualification is validated against the current reference eligibility.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WeightedCurioExcitationDefinition {

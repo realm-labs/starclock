@@ -21,7 +21,7 @@ const FAMILIES: [DivergentUniverseRunFamily; 2] = [
 ];
 
 #[test]
-fn weighted_curio_excitation_authoring_does_not_admit_the_pending_battle_effect() {
+fn weighted_curio_excitation_authoring_admits_only_the_bound_sora_definition() {
     let fixture = DivergentUniverseBaselineFixture::production().unwrap();
     let runtime = fixture.factory().weighted_curio_runtime().unwrap();
     let contribution = fixture.factory().contribution_snapshot_runtime().unwrap();
@@ -52,9 +52,7 @@ fn weighted_curio_excitation_authoring_does_not_admit_the_pending_battle_effect(
         let before = activity.canonical_state_bytes();
         let debug = activity.debug_view();
         let draws = reward_draws(&activity);
-        assert!(matches!(contribution.snapshot(&flow, &activity),
-            Err(DivergentUniverseContributionSnapshotError::WeightedCurio(
-                WeightedCurioError::UnsupportedBattleEffect(ref rejected))) if rejected == id));
+        assert!(contribution.snapshot(&flow, &activity).is_ok());
         assert_eq!(activity.canonical_state_bytes(), before);
         assert_eq!(activity.debug_view(), debug);
         assert_eq!(reward_draws(&activity), draws);
@@ -267,9 +265,15 @@ fn weighted_curio_unlowered_and_dirty_loadouts_reject_contribution_without_mutat
             if fixture
                 .factory()
                 .decision_catalog()
-                .weighted_curio_break_effects()
+                .weighted_curio_excitations()
                 .iter()
                 .any(|definition| &definition.weighted_curio == id)
+                || fixture
+                    .factory()
+                    .decision_catalog()
+                    .weighted_curio_break_effects()
+                    .iter()
+                    .any(|definition| &definition.weighted_curio == id)
                 || fixture
                     .factory()
                     .decision_catalog()

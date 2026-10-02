@@ -190,9 +190,10 @@ Treat the date, not an assumed game version number, as the baseline. Character k
     [Self-Amusement](divergent-universe-weighted-curio-retaliation.md) and
     [Converse of Entropy](divergent-universe-weighted-curio-break-effect.md) and
     [Mock Crimson Moon](divergent-universe-weighted-curio-necrosis.md) and
-    [Sapient Pen](divergent-universe-weighted-curio-elation.md) execute source-attributed Rule IR; eight other effects and Forge admission remain pending.
+    [Sapient Pen](divergent-universe-weighted-curio-elation.md) and
+    [Genius' Confusion](divergent-universe-weighted-curio-excitation.md) execute source-attributed Rule IR; seven other effects and Forge admission remain pending.
     Sapient Pen executes source-backed gains and a timed property bonus under explicit policy; [shared Punchline assembly](divergent-universe-battle-team-resources.md) owns its independent resource lifecycle. Non-cost production Skill delta lowering and Aha lifecycle remain pending.
-    [Genius' Confusion authoring](divergent-universe-weighted-curio-excitation.md) preserves all five Excitation/damage/Entanglement operands with separate review policy; its battle effect remains unsupported.
+    [Genius' Confusion execution](divergent-universe-weighted-curio-excitation.md) binds all five Excitation/damage/Entanglement operands to native Rule IR in both run families, with replaceable hidden-timing policy; full Forge/equipment replay remains pending.
 157. [Titan effect boundary](divergent-universe-titan-effects.md) — source descriptors versus execution, fail-closed current battle assembly, exact-once pending assignments and inventory without pass receipts.
 158. [Owner-sourced rule damage](combat-owner-sourced-damage.md) — explicit damage producer with original trigger evaluation, retained ancestry, independent Crit groups and shared nonlethal/formula execution; no new equipment completion credit.
 159. [Authored Aggro weight factors](combat-aggro-weight-factors.md) — normalized live/captured query inputs, explicit content-owned weights and real integer target sampling; fixed targeting and pending equipment credit are unchanged.

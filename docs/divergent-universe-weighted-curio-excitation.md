@@ -1,10 +1,12 @@
-# Genius' Confusion authoring and pending execution
+# Genius' Confusion policy execution
 
 The current decision bundle contains an immutable definition for Weighted Curio
-1006, **Genius' Confusion / 天才的迷茫时间**. It does not yet execute or admit this
-equipment to a battle. The [loadout boundary](divergent-universe-weighted-curio-loadout.md)
-still rejects it as `UnsupportedBattleEffect`; the nine implemented Weighted
-Curio effects and eight pending effects remain unchanged.
+1006, **Genius' Confusion / 天才的迷茫时间**. The
+[accepted loadout boundary](divergent-universe-weighted-curio-loadout.md) admits
+its native shared Rule IR assembly in both run families. Ten Weighted Curio
+effects execute; seven still reject as `UnsupportedBattleEffect`. Hidden
+timing and the ordinary Entanglement fallback remain replaceable project
+policy, not observed original-game parity or complete Forge admission.
 
 ## Released facts
 
@@ -73,49 +75,65 @@ five subsequent damaging hits, one initial delay, cross-caster refresh,
 target-turn expiry, actual broken-state factors and declared applier teardown.
 Real generic commands verify these lifecycle boundaries, live Effect Hit Rate,
 Effect RES and template-declared Control Resistance, and fresh reconstruction.
-These are shared fallback tests, not execution of this Curio's policy or
-original-game parity. Its contribution still rejects as unsupported.
+The mode assembly now binds this lifecycle to the Curio's policy through normal
+resistible `ApplyEffect` emissions. It captures the first successful applier's
+actual battle-level Break base, rather than assuming equal party levels.
+Unavailable initial level entries fault without guessing. Core fallback tests
+and mode commands establish execution, not original-game parity.
 
 Shared Rule IR now distinguishes `BalanceChanged` from `MaximumChanged` through
 the typed `resource_event` fact and filter. Both `SkillPoints` and
 `SkillPointMaximum` retain the Skill Points address, and `resource_delta` on the
 latter remains the maximum's delta, including when the balance is clamped.
-A positive delta alone is still insufficient: the eventual native mode
-assembly must require `BalanceChanged`, the Skill Points address and a positive
+A positive delta alone is insufficient: the native mode assembly requires
+`BalanceChanged`, the Skill Points address and a positive
 effective delta. Real generic battle commands verify that cap-only increases,
 cap-induced clamps and overflow-only balance events cannot satisfy that
-combination. This shared capability does not implement Excitation stacks,
-consumption or Entanglement, and supplies no Curio execution credit. Its typed
-filter is available to native catalog composition; no production Sora filter
-column is authored for it yet.
+combination. The mode binds that filter to a separate nondispellable per-member
+stack effect and consumes it through checked `AdjustEffectStacks` operations.
+No production Sora filter column is authored for the resource axis yet.
 
-The next mode assembly must bind the explicit Entanglement formula and duration
-to this Curio's immutable policy, through normal `ApplyEffect` emissions. Native
-composition can now capture the first successful applier's battle-level Break
-base; it must not assume all mapped party members have the same level.
-Independent level-70/80 command vectors verify cross-caster capture retention,
-expiry and fresh reconstruction; unavailable first-caster level entries fault
-without guessing. These remain shared fallback tests, not Curio execution. No
-production Sora Entanglement payload or Control Resistance column is authored
-yet. Excitation acquisition/consumption, the Additional packet, eligible roster
-ownership and complete both-family battle/Activity replay remain pending.
+The immutable Sora operands and decision digest determine the mode assembly.
+Original membership uses mapped form and formation together; linked ownership
+is excluded even if the linked actor inherits the producer's rule bundle.
+Owner selectors use a direct `First` anchor, not an all-team candidate pool.
+After consumption, `DamageFromOwner` produces Quantum Additional damage with
+an independent Crit context. A source-filtered `DamageApplied` AfterEvent
+reaction reselects the surviving damaged primary before attempting Entanglement.
+This avoids attaching control to a target defeated by the Additional packet;
+unrelated Additional damage cannot invoke the Curio's application program.
+Each trigger has priority zero and an explicit Event or Action once-scope.
+Stacks and effects remain battle-local; no live Activity mutation occurs.
 
-## Validation and next runtime boundary
+Independent shared level-70/80 vectors additionally verify cross-caster capture
+retention and expiry. No production Sora Entanglement payload or Control
+Resistance column is authored yet; this mode uses native catalog composition,
+not an alternative runtime loader or a content-specific resolver branch.
+Complete public battle/Activity equipment replay remains pending.
+
+## Validation and remaining boundaries
 
 Native data fixtures verify all five operands, eligibility/reference joins,
 policy-cap separation, fresh catalog reconstruction, malformed/noncanonical
 values, cross-family key collisions and forged/missing/duplicate provenance.
 The authoring verifier optionally re-reads and hashes the pinned Git objects.
 Sora drift validation covers the schema, workbook, readers, binary and debug
-export. The workbook's existing 44 sheets are preserved, with only four source
-rows and the new definition sheet added; rendering checks the new policy cells.
+export. The workbook contains 45 sheets, including the definition and its four
+provenance rows; rendering checks the policy cells.
 
-These are **data checks**, not battle fixtures. Before runtime admission, both
-Ordinary and Cyclical fixtures must execute real gain/consumption commands,
-overflow and partial-team stack boundaries, multi-target damage and Crit,
-cap-only changes without false gains,
-Entanglement chance/resistance/delay/hit accumulation/delayed damage, refresh,
-cleanse, provider defeat, wave carry, rejection and fresh reconstruction.
+Those are **data checks**, not battle fixtures. Separate Ordinary and Cyclical
+fixtures execute unchanged production Quantum Basic attacks and controlled real
+commands for effective gains versus point counts, overflow, non-Quantum and
+empty Quantum rosters, cap-only changes, negative balance, recipient-local
+partial-team counts, the safety cap, multihit once-per-action consumption,
+nonattack/Ultimate exclusions, multi-target Additional damage and independent
+Crit. Actual Summon, Memosprite and SharedActor commands retain inherited
+producer rules while proving they cannot gain or consume original-party stacks.
+Effect commands exercise Effect RES, Control Resistance, labeled chance draws,
+one delay, refresh capture, zero-to-five hit accumulation, expiry damage,
+cleanse, lethal Additional exclusion, provider defeat and wave carry. Fresh
+construction compares event payloads, hashes and RNG; stale commands are inert
+and unequip removes both definitions. Fresh battles start with no stacks.
 Forge admission, full-run release and terminal reference/program dispositions
 remain pending. Catalog loading grants none of those credits.
 
@@ -123,6 +141,6 @@ remain pending. Catalog loading grants none of those credits.
 node tools/divergent-universe-runtime/verify-weighted-curio-excitation-authoring.mjs --check-source
 node tools/divergent-universe-runtime/verify-decision-workbook.mjs
 cargo test -p starclock-data weighted_curio_excitation
-cargo test -p starclock-mode-universe weighted_curio_excitation_authoring
+cargo test -p starclock-mode-universe weighted_curio_excitation
 cargo test -p starclock-test-kit --test combat_suite resource_event
 ```

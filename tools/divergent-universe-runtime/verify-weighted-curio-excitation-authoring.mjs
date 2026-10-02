@@ -42,7 +42,7 @@ const bundle = fs.readFileSync(path.join(root, "config/divergent-universe-decisi
 assert.equal(state.bundle_bytes, bundle.length);
 assert.equal(state.bundle_sha256, crypto.createHash("sha256").update(bundle).digest("hex"));
 assert.equal(state.weighted_curio_excitation_operands_authored, true);
-assert.equal(state.weighted_curio_excitation_battle_effect_implemented, false);
+assert.equal(state.weighted_curio_excitation_battle_effect_implemented, true);
 assert.equal(state.weighted_curio_battle_effects_implemented, false);
 const required = [
   [114, "hex", "ExcelOutput/RogueTournHex.json", "HexID=1006;",
@@ -98,4 +98,4 @@ if (process.argv.includes("--check-source")) {
   assert.equal(tree.split("\n").filter(file => file.includes("633406")).length, 0,
     "released program now exists; replace the missing-program policy premise");
 }
-console.log("Genius' Confusion operands and provenance verified; battle execution/admission remains pending.");
+console.log("Genius' Confusion operands and provenance verified; authoring checks do not prove native battle execution or original-game parity.");

@@ -164,6 +164,7 @@ impl WeightedCurioRuntime {
         self.assemble_break_effects(builder, snapshot, core, players, assembly_digest)?;
         self.assemble_necroses(builder, snapshot, core, players, assembly_digest)?;
         self.assemble_elations(builder, snapshot, core, players, assembly_digest)?;
+        self.assemble_excitations(builder, snapshot, core, players, assembly_digest)?;
         self.assemble_retaliations(builder, snapshot, core, players, enemies, assembly_digest)
     }
 }
