@@ -50,6 +50,14 @@ tests cover the boundary. The fallback and ordinary-bar selection are explicit
 shared policy, not non-Break content parity. Sora payload/stat authoring and
 Genius' Confusion's effect assembly remain pending; no DU completion credit.
 
+Ordinary Entanglement also supports an explicit native first-applier level
+source. Its shared Break table multiplier is captured once and retained across
+different-level caster refresh; 70/80-level command vectors verify expiry and
+fresh event/hash reconstruction. Unavailable first-caster levels fault with
+transactional rollback rather than a guessed multiplier. The separately
+declared authored-level path is unchanged. This supports mixed-level Arithmetic
+Mapping without adding Curio admission, Sora authoring or terminal coverage.
+
 ## Divergent Universe release readiness
 
 The [Hex source taxonomy boundary](divergent-universe-hex-content-taxonomy.md)

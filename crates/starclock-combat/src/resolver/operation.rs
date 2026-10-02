@@ -1146,7 +1146,16 @@ fn execute_apply_effect(
                     effect.definition == operation.definition.effect && effect.target == target
                 })
             })
-            .map(|damage| entanglement::capture(catalog, txn, cause, target, damage))
+            .map(|damage| {
+                entanglement::capture(
+                    catalog,
+                    txn,
+                    cause,
+                    target,
+                    damage,
+                    runtime.entanglement_level_source(),
+                )
+            })
             .transpose()?;
         let removed_definitions = txn
             .state

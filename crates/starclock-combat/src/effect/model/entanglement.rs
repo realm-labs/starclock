@@ -2,7 +2,7 @@
 
 use super::{
     DispelCategory, DurationClock, EffectCategory, EffectRuntimeDefinition, EffectRuntimeTemplate,
-    EffectStackPolicy, EffectTickPhase,
+    EffectStackPolicy, EffectTickPhase, EntanglementLevelSource,
 };
 use crate::{
     Scalar,
@@ -35,6 +35,7 @@ impl EffectRuntimeDefinition {
             return None;
         }
         self.entanglement = Some(damage);
+        self.entanglement_level_source = EntanglementLevelSource::Authored;
         self.specific_resistance_stat = Some(StatKind::ControlResistance);
         Some(self)
     }
@@ -43,6 +44,26 @@ impl EffectRuntimeDefinition {
     #[must_use]
     pub const fn entanglement(&self) -> Option<BreakDamageDefinition> {
         self.entanglement
+    }
+
+    /// Declares ordinary Entanglement using the first successful applier's
+    /// battle level from the shared Break level table. The supplied formula's
+    /// level multiplier must be nonnegative but is replaced during capture;
+    /// its other factors are unchanged. Unsupported levels cause a typed
+    /// transactional fault, never a guessed level base. Refresh keeps the
+    /// original resolved formula even when another caster has a different level.
+    #[must_use]
+    pub fn with_entanglement_from_applier_level(
+        self,
+        damage: BreakDamageDefinition,
+    ) -> Option<Self> {
+        let mut runtime = self.with_entanglement(damage)?;
+        runtime.entanglement_level_source = EntanglementLevelSource::Applier;
+        Some(runtime)
+    }
+
+    pub(crate) const fn entanglement_level_source(&self) -> EntanglementLevelSource {
+        self.entanglement_level_source
     }
 }
 
@@ -56,6 +77,7 @@ impl EffectRuntimeTemplate {
         self.resolve(Some(1), Scalar::ZERO, None)?
             .with_entanglement(damage)?;
         self.entanglement = Some(damage);
+        self.entanglement_level_source = EntanglementLevelSource::Authored;
         self.specific_resistance_stat = Some(StatKind::ControlResistance);
         Some(self)
     }
@@ -63,6 +85,18 @@ impl EffectRuntimeTemplate {
     #[must_use]
     pub const fn entanglement(&self) -> Option<BreakDamageDefinition> {
         self.entanglement
+    }
+
+    /// Resolves duration normally, then captures the first successful applier's
+    /// level exactly as `EffectRuntimeDefinition::with_entanglement_from_applier_level`.
+    #[must_use]
+    pub fn with_entanglement_from_applier_level(
+        self,
+        damage: BreakDamageDefinition,
+    ) -> Option<Self> {
+        let mut template = self.with_entanglement(damage)?;
+        template.entanglement_level_source = EntanglementLevelSource::Applier;
+        Some(template)
     }
 }
 
@@ -100,6 +134,49 @@ mod tests {
             EffectStackPolicy::Refresh,
         )
         .unwrap()
+    }
+
+    #[test]
+    fn ordinary_entanglement_level_source_is_explicit_and_survives_template_resolution() {
+        let template = EffectRuntimeTemplate::new(
+            EffectCategory::Control,
+            DispelCategory::CleanseableControl,
+            1,
+            Some(ValueExpr::Literal(RuleValue::Integer(1))),
+            DurationClock::TargetTurnStart,
+            EffectTickPhase::None,
+            EffectStackPolicy::Refresh,
+        )
+        .unwrap()
+        .with_entanglement_from_applier_level(formula())
+        .unwrap();
+        let resolved = template.resolve(Some(1), Scalar::ZERO, None).unwrap();
+        assert_eq!(resolved.entanglement(), Some(formula()));
+        assert_eq!(
+            resolved.entanglement_level_source(),
+            EntanglementLevelSource::Applier
+        );
+        let authored = template
+            .with_entanglement(formula())
+            .unwrap()
+            .resolve(Some(1), Scalar::ZERO, None)
+            .unwrap();
+        assert_eq!(
+            authored.entanglement_level_source(),
+            EntanglementLevelSource::Authored
+        );
+        let authored = resolved.with_entanglement(formula()).unwrap();
+        assert_eq!(
+            authored.entanglement_level_source(),
+            EntanglementLevelSource::Authored
+        );
+        let mut invalid = formula();
+        invalid.break_effect = Ratio::from_scaled(-1);
+        assert!(
+            runtime()
+                .with_entanglement_from_applier_level(invalid)
+                .is_none()
+        );
     }
 
     #[test]

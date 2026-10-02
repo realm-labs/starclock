@@ -318,6 +318,7 @@ pub struct EffectRuntimeDefinition {
     forced_normal_action: Option<ForcedNormalAction>,
     specific_resistance_stat: Option<StatKind>,
     entanglement: Option<BreakDamageDefinition>,
+    entanglement_level_source: EntanglementLevelSource,
 }
 
 /// Authored effect semantics whose expression-backed values are resolved at application time.
@@ -343,6 +344,14 @@ pub struct EffectRuntimeTemplate {
     forced_normal_action: Option<ForcedNormalAction>,
     specific_resistance_stat: Option<StatKind>,
     entanglement: Option<BreakDamageDefinition>,
+    entanglement_level_source: EntanglementLevelSource,
+}
+
+/// The level multiplier is captured once, independently of refresh or expiry.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(crate) enum EntanglementLevelSource {
+    Authored,
+    Applier,
 }
 
 impl EffectRuntimeTemplate {
@@ -380,6 +389,7 @@ impl EffectRuntimeTemplate {
             forced_normal_action: None,
             specific_resistance_stat: None,
             entanglement: None,
+            entanglement_level_source: EntanglementLevelSource::Authored,
         })
     }
 
@@ -578,7 +588,12 @@ impl EffectRuntimeTemplate {
             runtime = runtime.with_dot(DotDefinition::new(formula, element, detonation_tag))?;
         }
         if let Some(damage) = self.entanglement {
-            runtime = runtime.with_entanglement(damage)?;
+            runtime = match self.entanglement_level_source {
+                EntanglementLevelSource::Authored => runtime.with_entanglement(damage)?,
+                EntanglementLevelSource::Applier => {
+                    runtime.with_entanglement_from_applier_level(damage)?
+                }
+            };
         }
         Some(runtime)
     }
@@ -623,6 +638,7 @@ impl EffectRuntimeDefinition {
             forced_normal_action: None,
             specific_resistance_stat: None,
             entanglement: None,
+            entanglement_level_source: EntanglementLevelSource::Authored,
         })
     }
     #[must_use]

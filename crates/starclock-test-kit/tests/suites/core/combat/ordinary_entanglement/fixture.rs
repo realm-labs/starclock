@@ -60,6 +60,8 @@ pub(super) struct Inputs {
     pub(super) duration: u16,
     pub(super) application_damage: bool,
     pub(super) ordinary_maximum: Option<i64>,
+    pub(super) applier_level_base: bool,
+    pub(super) player_levels: [u8; 2],
 }
 
 impl Default for Inputs {
@@ -73,6 +75,8 @@ impl Default for Inputs {
             duration: 1,
             application_damage: false,
             ordinary_maximum: Some(60),
+            applier_level_base: false,
+            player_levels: [80, 80],
         }
     }
 }
@@ -155,6 +159,13 @@ fn catalog(input: Inputs) -> Arc<CombatCatalog> {
     .with_teardown(EffectTeardownPolicy::PersistByScope)
     .with_entanglement(damage_formula())
     .unwrap();
+    let runtime = if input.applier_level_base {
+        runtime
+            .with_entanglement_from_applier_level(damage_formula())
+            .unwrap()
+    } else {
+        runtime
+    };
     builder.add_effect(EffectDefinition::new(id(1), vec![], vec![]).with_runtime_template(runtime));
     builder.add_program(
         ProgramDefinition::new(id(1), vec![], vec![id(2)], vec![id(1)], vec![]).with_steps(vec![
@@ -261,7 +272,12 @@ fn spec(input: Inputs) -> BattleSpec {
         let player = index < 2;
         let combatant = ResolvedCombatantSpec::new(
             id(if player { 1 } else { 2 }),
-            UnitLevel::new(80).unwrap(),
+            UnitLevel::new(if player {
+                input.player_levels[usize::from(index)]
+            } else {
+                80
+            })
+            .unwrap(),
             Hp::new(10_000).unwrap(),
             Speed::from_scaled(speed).unwrap(),
             ResolvedDefinitionBindings::new(

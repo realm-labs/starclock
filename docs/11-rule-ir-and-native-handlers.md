@@ -183,6 +183,18 @@ not observed parity for any non-Break content application. Native catalog
 composition supports them; production Sora does not yet author this payload
 or the new control-resistance stat. This grants no mode/content completion.
 
+Native `with_entanglement_from_applier_level` selects the first successful
+applier's actual battle level through the shared Break level table, instead of
+the supplied formula's level multiplier. All other authored factors remain
+unchanged. The concrete multiplier is captured in the effect's immutable
+formula and canonical state; cross-caster refresh retains it and never looks
+up the new caster's level. Missing table entries cause a typed numeric rollback
+fault before initial effect/delay mutation, not a guessed level. Ordinary
+`with_entanglement` continues to use its explicit authored multiplier, even
+when the applier's level has no table entry. This native input distinction is
+necessary for mixed-level mapped parties; it does not admit any Curio or add a
+production Sora binding.
+
 ## Selectors
 
 A selector declares:

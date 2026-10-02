@@ -5,7 +5,7 @@ use crate::{
     EffectEventData, EffectInstanceId, EventId, LifeState, PresenceState, UnitId,
     battle::fault::BattleFault,
     catalog::CombatCatalog,
-    effect::state::EntanglementState,
+    effect::{model::EntanglementLevelSource, state::EntanglementState},
     event::{
         cause::Cause,
         model::{BattleEventKind, BreakDamageKind},
@@ -190,8 +190,20 @@ pub(super) fn capture(
     txn: &Transaction<'_>,
     cause: Cause,
     target: UnitId,
-    damage: toughness::BreakDamageDefinition,
+    mut damage: toughness::BreakDamageDefinition,
+    level_source: EntanglementLevelSource,
 ) -> Result<EntanglementState, BattleFault> {
+    if level_source == EntanglementLevelSource::Applier {
+        let applier = cause.applier().ok_or_else(|| invariant_fault(86))?;
+        let level = txn
+            .state
+            .units
+            .get(applier)
+            .ok_or_else(|| invariant_fault(86))?
+            .level;
+        damage.attacker_level_multiplier = toughness::attacker_level_multiplier(level)
+            .ok_or_else(|| numeric_fault(86, i64::from(level.get())))?;
+    }
     let plan = FormulaInputs::new(txn)?.entanglement_plan(catalog, txn, cause, target, damage)?;
     Ok(EntanglementState {
         damage,

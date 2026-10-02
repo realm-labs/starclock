@@ -12,6 +12,124 @@ use starclock_combat::{
 use starclock_replay::battle_event::encode_battle_event_payload;
 
 #[test]
+fn ordinary_entanglement_applier_level_captures_first_caster_and_refresh_preserves_it() {
+    // Independent pinned table vectors: level 70 = 2659.6406, 80 = 3767.5533.
+    // Ordinary maximum 60 gives a 0.6 * (0.5 + 60/40) = 1.2 base factor.
+    for (levels, level_multiplier, base, expiry) in [
+        ([70, 80], 2_659_640_600, 3_191_568_720, 14_362),
+        ([80, 70], 3_767_553_300, 4_521_063_960, 20_344),
+        // A refresh never needs a new level base, even if its caster's level
+        // lacks a released shared table entry.
+        ([70, 81], 2_659_640_600, 3_191_568_720, 14_362),
+    ] {
+        let input = Inputs {
+            applier_level_base: true,
+            player_levels: levels,
+            ..Inputs::default()
+        };
+        let mut live = battle(input, 0xac);
+        let mut fresh = battle(input, 0xac);
+        start(&mut live);
+        start(&mut fresh);
+        for (actor, ability) in [(1, 1), (2, 1), (1, 2)] {
+            let events = play(&mut live, actor, ability);
+            let rebuilt = play(&mut fresh, actor, ability);
+            assert_eq!(events, rebuilt);
+            assert_eq!(live.state_hash(), fresh.state_hash());
+            assert!(live.view().fault().is_none());
+            let effect = live.view().effects_by_id().next().unwrap();
+            assert_eq!(effect.applier().get(), 1);
+            assert_eq!(effect.entanglement_base(), Some(Scalar::from_scaled(base)));
+            assert_eq!(
+                effect
+                    .entanglement_damage()
+                    .unwrap()
+                    .attacker_level_multiplier,
+                Scalar::from_scaled(level_multiplier)
+            );
+            if actor == 2 {
+                assert!(events.iter().all(|event| !matches!(
+                    event.kind(),
+                    BattleEventKind::Turn(TurnEventData::ActionGaugeChanged { .. })
+                )));
+            }
+            let settled = settle_ready_boundaries(&mut live);
+            let reconstructed = settle_ready_boundaries(&mut fresh);
+            assert_eq!(settled, reconstructed);
+            assert_eq!(live.state_hash(), fresh.state_hash());
+            assert_eq!(live.view().rng_draw_count(), fresh.view().rng_draw_count());
+            if ability == 2 {
+                let damage = settled
+                    .iter()
+                    .find_map(|event| match event.kind() {
+                        BattleEventKind::BreakDamage(data) => Some((event.cause(), data)),
+                        _ => None,
+                    })
+                    .unwrap();
+                assert_eq!(damage.0.applier().unwrap().get(), 1);
+                assert_eq!(damage.1.calculated.get(), expiry);
+                assert_eq!(live.view().effects_by_id().count(), 0);
+            }
+        }
+    }
+}
+
+#[test]
+fn ordinary_entanglement_missing_applier_level_base_faults_without_guessing_or_partial_effects() {
+    let input = Inputs {
+        applier_level_base: true,
+        player_levels: [81, 70],
+        ..Inputs::default()
+    };
+    let mut live = battle(input, 0xad);
+    let mut fresh = battle(input, 0xad);
+    start(&mut live);
+    start(&mut fresh);
+    let before_rng = live.view().rng_draw_count();
+    let events = play(&mut live, 1, 1);
+    assert_eq!(events, play(&mut fresh, 1, 1));
+    assert_eq!(live.state_hash(), fresh.state_hash());
+    assert_eq!(live.view().phase(), BattlePhase::Faulted);
+    let fault = live.view().fault().unwrap();
+    assert_eq!(fault.kind(), FaultKind::Numeric);
+    assert_eq!(fault.policy(), FaultPolicy::Rollback);
+    assert_eq!(live.view().effects_by_id().count(), 0);
+    assert_eq!(live.view().rng_draw_count(), before_rng);
+    assert!(events.iter().all(|event| !matches!(
+        event.kind(),
+        BattleEventKind::Effect(_)
+            | BattleEventKind::BreakDamage(_)
+            | BattleEventKind::Turn(TurnEventData::ActionGaugeChanged { .. })
+    )));
+}
+
+#[test]
+fn ordinary_entanglement_authored_level_base_does_not_infer_an_applier_level() {
+    let mut live = battle(
+        Inputs {
+            player_levels: [81, 70],
+            ..Inputs::default()
+        },
+        0xae,
+    );
+    start(&mut live);
+    play(&mut live, 1, 1);
+    assert!(live.view().fault().is_none());
+    let effect = live.view().effects_by_id().next().unwrap();
+    assert_eq!(
+        effect.entanglement_base(),
+        Some(Scalar::from_scaled(120_000_000))
+    );
+    assert_eq!(
+        effect
+            .entanglement_damage()
+            .unwrap()
+            .attacker_level_multiplier,
+        Scalar::from_scaled(100_000_000)
+    );
+}
+
+#[test]
 fn ordinary_entanglement_refreshes_across_casters_caps_hits_and_expires_without_break_or_skip() {
     let mut battle = battle(Inputs::default(), 0xa3);
     start(&mut battle);

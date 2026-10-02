@@ -90,7 +90,12 @@ filter is available to native catalog composition; no production Sora filter
 column is authored for it yet.
 
 The next mode assembly must bind the explicit Entanglement formula and duration
-to this Curio's immutable policy, through normal `ApplyEffect` emissions. No
+to this Curio's immutable policy, through normal `ApplyEffect` emissions. Native
+composition can now capture the first successful applier's battle-level Break
+base; it must not assume all mapped party members have the same level.
+Independent level-70/80 command vectors verify cross-caster capture retention,
+expiry and fresh reconstruction; unavailable first-caster level entries fault
+without guessing. These remain shared fallback tests, not Curio execution. No
 production Sora Entanglement payload or Control Resistance column is authored
 yet. Excitation acquisition/consumption, the Additional packet, eligible roster
 ownership and complete both-family battle/Activity replay remain pending.
