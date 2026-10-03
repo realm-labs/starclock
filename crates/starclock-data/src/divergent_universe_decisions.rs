@@ -39,6 +39,7 @@ use weighted_curio_elations::WeightedCurioElationDefinition;
 use weighted_curio_encouragements::WeightedCurioEncouragementDefinition;
 use weighted_curio_excitations::WeightedCurioExcitationDefinition;
 use weighted_curio_necroses::WeightedCurioNecrosisDefinition;
+use weighted_curio_overflows::WeightedCurioOverflowDefinition;
 use weighted_curio_prayers::WeightedCurioPrayerDefinition;
 use weighted_curio_retaliations::WeightedCurioRetaliationDefinition;
 use weighted_curio_shields::WeightedCurioShieldDefinition;
@@ -65,6 +66,8 @@ pub mod weighted_curio_retaliations;
 
 #[path = "divergent_universe_weighted_curio_attack_debuff_data.rs"]
 pub mod weighted_curio_attack_debuffs;
+#[path = "divergent_universe_weighted_curio_overflow_data.rs"]
+pub mod weighted_curio_overflows;
 #[path = "divergent_universe_weighted_curio_shield_data.rs"]
 pub mod weighted_curio_shields;
 #[path = "divergent_universe_weighted_curio_support_attack_data.rs"]
@@ -279,6 +282,7 @@ pub struct DecisionCatalog {
     weighted_curio_splashes: Box<[WeightedCurioSplashDefinition]>,
     weighted_curio_shields: Box<[WeightedCurioShieldDefinition]>,
     weighted_curio_transfers: Box<[WeightedCurioTransferDefinition]>,
+    weighted_curio_overflows: Box<[WeightedCurioOverflowDefinition]>,
     weighted_curio_attack_debuffs: Box<[WeightedCurioAttackDebuffDefinition]>,
     weighted_curio_support_attacks: Box<[WeightedCurioSupportAttackDefinition]>,
     weighted_curio_prayers: Box<[WeightedCurioPrayerDefinition]>,
@@ -657,6 +661,13 @@ impl DecisionCatalog {
     #[must_use]
     pub fn weighted_curio_transfers(&self) -> &[WeightedCurioTransferDefinition] {
         &self.weighted_curio_transfers
+    }
+
+    /// Released operands and callback evidence only. These definitions do not
+    /// admit an equipped native effect or establish the hidden base-DMG formula.
+    #[must_use]
+    pub fn weighted_curio_overflows(&self) -> &[WeightedCurioOverflowDefinition] {
+        &self.weighted_curio_overflows
     }
 
     #[must_use]

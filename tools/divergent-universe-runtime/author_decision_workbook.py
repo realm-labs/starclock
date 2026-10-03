@@ -38,6 +38,7 @@ from weighted_curio_elation_rows import append_weighted_curio_elation
 from battle_team_resource_rows import append_battle_team_resources
 from weighted_curio_excitation_rows import append_weighted_curio_excitation
 from weighted_curio_encouragement_rows import append_weighted_curio_encouragement
+from weighted_curio_overflow_rows import append_weighted_curio_overflow
 from weighted_curio_transfer_rows import append_weighted_curio_transfer
 
 
@@ -324,6 +325,7 @@ def rows() -> dict[str, list[list[object]]]:
     append_weighted_curio_excitation(data)
     append_weighted_curio_encouragement(data)
     append_weighted_curio_transfer(data)
+    append_weighted_curio_overflow(data)
     return data
 
 
@@ -385,6 +387,14 @@ def main() -> None:
     for column in ["R", "S"]:
         transfer_sheet.column_dimensions[column].width = 110
     transfer_sheet.row_dimensions[8].height = 340
+    overflow_sheet = workbook["WeightedCurioOverflows"]
+    overflow_sheet.column_dimensions["F"].width = 40
+    overflow_sheet.column_dimensions["M"].width = 48
+    for column in ["N", "O"]:
+        overflow_sheet.column_dimensions[column].width = 65
+    for column in ["P", "Q"]:
+        overflow_sheet.column_dimensions[column].width = 110
+    overflow_sheet.row_dimensions[8].height = 250
     workbook.properties.modified = datetime(2000, 1, 1)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     workbook.save(args.output)

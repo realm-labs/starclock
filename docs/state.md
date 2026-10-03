@@ -3,6 +3,14 @@
 Starclock maintains only the current source, data, behavior and test outputs.
 Git history is the only historical record.
 
+The current Parallel Universe Walkie-Talkie production definition preserves
+canonical `10/1/0.8` operands and five pinned released sources, including its
+merged StageAbility program. Named callbacks establish marked highest-current-HP
+retargeting and random ties; hidden base-DMG and native callback correspondence
+remain unimplemented. This source/data closure does not change the 12/17
+Weighted Curio effect count or grant terminal execution credit. See the
+[overflow authoring boundary](divergent-universe-weighted-curio-overflow.md).
+
 Shared combat exposes native `DamageOverflow` from committed ordinary and Break
 settlements. It reads exact finalized post-guard, post-shield damage above
 pre-operation HP, with a zero lower bound. Nonlethal floors and later healing
@@ -1223,7 +1231,9 @@ and one executable policy-bound
 [Encouragement for You definition](divergent-universe-weighted-curio-encouragement.md)
 and one executable policy-bound
 [Dignity and Passion definition](divergent-universe-weighted-curio-transfer.md)
-across 47 tables and 431 rows. Dignity and Passion preserves the four released
+and one exact-operand, native-pending
+[Walkie-Talkie definition](divergent-universe-weighted-curio-overflow.md)
+across 48 tables and 437 rows. Dignity and Passion preserves the four released
 `0.75/0.3/0.9/0.1` operands. Ordinary shield grant events grow a recipient-local
 special shield; owner turns decay only its capacity above live maximum HP's
 30% threshold, and a distinct reaction heals from the actual negative adjustment.

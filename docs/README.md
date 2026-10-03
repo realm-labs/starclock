@@ -194,6 +194,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
     [Genius' Confusion](divergent-universe-weighted-curio-excitation.md),
     [Encouragement for You](divergent-universe-weighted-curio-encouragement.md) and
     [Dignity and Passion](divergent-universe-weighted-curio-transfer.md) execute source-attributed Rule IR; five other effects and Forge admission remain pending.
+    [Parallel Universe Walkie-Talkie](divergent-universe-weighted-curio-overflow.md) preserves released operands and merged death-callback evidence; its base-DMG bridge and native effect remain pending.
     Sapient Pen executes source-backed gains and a timed property bonus under explicit policy; [shared Punchline assembly](divergent-universe-battle-team-resources.md) owns its independent resource lifecycle. Non-cost production Skill delta lowering and Aha lifecycle remain pending.
     [Genius' Confusion execution](divergent-universe-weighted-curio-excitation.md) binds all five Excitation/damage/Entanglement operands to native Rule IR in both run families, with replaceable hidden-timing policy; full Forge/equipment replay remains pending.
 157. [Titan effect boundary](divergent-universe-titan-effects.md) — source descriptors versus execution, fail-closed current battle assembly, exact-once pending assignments and inventory without pass receipts.
