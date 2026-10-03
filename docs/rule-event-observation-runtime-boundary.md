@@ -32,3 +32,39 @@ Verification:
 - `cargo test -p starclock-data probe_tests`
 - `node tools/config-schema/verify-rule-ir.mjs`
 - `node tools/config-production/verify.mjs`
+
+## Unit-level query
+
+Native `ValueExpr::QueryUnitLevel(subject)` reads the resolved unit's own
+`UnitLevel` (1–95) as an Integer. The live bridge captures this fact in the same
+immutable `BattleQuerySnapshot` used by trigger and ability-program evaluation.
+It does not consult a build catalog, account data, mode difficulty or owner level.
+A newly committed summon is visible at the next query boundary; an uncommitted
+summon cannot change the current program's read snapshot. Life/presence filtering
+belongs to the selector, not this read leaf.
+
+Owner follows existing rule-owner precedence. Actor, Applier and EventTarget
+require their exact cause role. CurrentTarget requires a bound iteration or
+candidate subject; it does not fall back to the primary target. Missing subjects
+produce `MissingValue` context `0x202`; missing readers or units produce
+`MissingValue` context `0x222`, never a guessed zero/default or linked-owner value.
+Integer arithmetic is checked; Scalar formulas require explicit conversion.
+
+Current-state `MaximumValue` predicates can compare candidate levels. Historical
+selectors reject this leaf because their stat snapshot is not this current
+battle-query snapshot; automatic-primary validation rejects it because the
+pre-declaration frame supplies no battle-query reader. Modifier-only readers do
+not supply levels. General Sora expression authoring remains unimplemented.
+
+The [pure read corpus](../crates/starclock-test-kit/tests/suites/core/combat/rule_ir_contract/unit_level.rs)
+covers every subject role, rule-owner precedence, missing frames/readers/units,
+Integer typing, explicit conversion and overflow. The
+[native command corpus](../crates/starclock-test-kit/tests/suites/core/combat/unit_level_query.rs)
+executes level-based True damage on 1/81/95-level targets, level-based maximum
+selection, slot mutation, committed summon observation, fresh canonical events,
+rejected-command hash/RNG identity, rollback on missing iteration subjects and
+static rejection of mistyped or unsupported historical expressions. Run both
+with `cargo test -p starclock-test-kit --test combat_suite unit_level`.
+
+This is shared capability evidence, not admission or exact base-DMG evidence for
+any Curio. The Parallel Universe Walkie-Talkie consumer remains pending.

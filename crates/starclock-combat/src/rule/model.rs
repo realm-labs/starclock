@@ -428,6 +428,9 @@ pub enum ValueExpr {
     QueryHp {
         subject: StatQuerySubject,
     },
+    /// Reads the selected unit's own resolved level from the immutable battle
+    /// query snapshot as an Integer. Never substitutes a linked unit's owner.
+    QueryUnitLevel(StatQuerySubject),
     /// Reads live HP resource capacity, not the effective HP stat or entry base.
     QueryMaximumHp(StatQuerySubject),
     QueryMaximumEnergy(StatQuerySubject),

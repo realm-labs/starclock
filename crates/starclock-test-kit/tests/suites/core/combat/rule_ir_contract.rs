@@ -4,6 +4,8 @@ mod damage_overflow;
 mod elation;
 #[path = "rule_ir_contract/resource_event.rs"]
 mod resource_event;
+#[path = "rule_ir_contract/unit_level.rs"]
+mod unit_level;
 use starclock_combat::{
     ActionGaugeChangeKind, ProgramId, Scalar, SelectorId, SourceDefinitionId,
     StateSlotDefinitionId, UnitId,

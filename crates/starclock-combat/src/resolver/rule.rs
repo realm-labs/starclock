@@ -8,7 +8,7 @@ use crate::{
     FormationIndex, HitEventData, Hp, LifeState, PhaseEventData, PresenceState, Ratio,
     ResourceEventData, RuleId, RuleInstanceId, Scalar, SelectorId, ShieldEventData,
     SourceDefinitionId, StateSlotDefinitionId, TeamSide, ToughnessEventData, TurnEventData,
-    UnitDefinitionId, UnitEventData, UnitId, WaveEventData,
+    UnitDefinitionId, UnitEventData, UnitId, UnitLevel, WaveEventData,
     action::model::ActionOrigin as ModelActionOrigin,
     catalog::{
         CombatCatalog,
@@ -872,6 +872,7 @@ fn toughness_kind(data: &ToughnessEventData) -> RuleToughnessEventKind {
 struct UnitQuerySnapshot {
     side: TeamSide,
     formation: FormationIndex,
+    level: UnitLevel,
     life: LifeState,
     presence: PresenceState,
     energy: Scalar,
@@ -908,6 +909,7 @@ impl BattleQuerySnapshot {
                     UnitQuerySnapshot {
                         side: unit.side,
                         formation: unit.formation,
+                        level: unit.level,
                         life: unit.life,
                         presence: unit.presence,
                         energy: Scalar::from_scaled(unit.current_energy.scaled()),
@@ -1075,6 +1077,10 @@ impl BattleQueryReader for BattleQuerySnapshot {
 
     fn current_hp(&self, subject: UnitId) -> Option<Scalar> {
         self.units.get(&subject).map(|unit| unit.hp)
+    }
+
+    fn unit_level(&self, subject: UnitId) -> Option<UnitLevel> {
+        self.units.get(&subject).map(|unit| unit.level)
     }
 
     fn maximum_energy(&self, subject: UnitId) -> Option<Scalar> {

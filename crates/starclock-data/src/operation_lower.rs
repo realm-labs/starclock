@@ -341,6 +341,7 @@ fn value_references(
         | ValueExpr::QueryBaseStat { .. }
         | ValueExpr::QueryShield { .. }
         | ValueExpr::QueryHp { .. }
+        | ValueExpr::QueryUnitLevel(_)
         | ValueExpr::QueryMaximumEnergy(_)
         | ValueExpr::QueryMaximumHp(_)
         | ValueExpr::QueryEffectCategoryStacks { .. } => {}

@@ -357,6 +357,7 @@ fn value_dependencies(expression: &ValueExpr, output: &mut BTreeSet<SelectorId>)
         | ValueExpr::QueryShield { .. }
         | ValueExpr::QueryEffectShield { .. }
         | ValueExpr::QueryHp { .. }
+        | ValueExpr::QueryUnitLevel(_)
         | ValueExpr::QueryMaximumEnergy(_)
         | ValueExpr::QueryMaximumHp(_)
         | ValueExpr::QueryEffectStacks { .. }

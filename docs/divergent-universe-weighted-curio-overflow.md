@@ -56,6 +56,14 @@ merely because a simple attack passes. Existing
 [DamageOverflow](rule-event-observation-runtime-boundary.md) is only a shared
 settlement prerequisite, not the entire source mechanism.
 
+Native `QueryUnitLevel` now exposes each resolved target's own checked level
+through immutable Rule IR reads and current-state selector expressions. Actual
+commands prove 1/81/95-level damage and a committed summon with a level distinct
+from its owner. This removes the level-read capability gap, but does not decode
+the source HPRatio/postfix program, select a base-DMG policy or implement the
+death conversion. See the
+[unit-level query contract](rule-event-observation-runtime-boundary.md#unit-level-query).
+
 ## Verification
 
 `cargo test -p starclock-data weighted_curio_overflow` loads the actual Sora

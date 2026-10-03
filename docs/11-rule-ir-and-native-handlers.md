@@ -68,6 +68,8 @@ Examples include a character counter, once-per-turn marker, boss phase, blessing
 - literal integer, fixed scalar, ratio, probability, or stable ID;
 - read state slot or resource;
 - query source/target stat through a declared `StatQuery`;
+- native `QueryUnitLevel(subject)` reads the selected combat unit's own resolved
+  level as an Integer from the immutable current battle-query snapshot;
 - read event/cause property;
 - count or sum a selector result with explicit order;
 - checked add, subtract, multiply, divide, minimum, maximum, clamp, or negate;
@@ -75,6 +77,14 @@ Examples include a character counter, once-per-turn marker, boss phase, blessing
 - convert through an explicit checked domain conversion and rounding policy.
 
 Expressions cannot mutate state, draw RNG, perform unbounded iteration, recurse, read wall-clock time, or access presentation data. Invalid arithmetic becomes a typed fault rather than false/zero.
+
+Unit-level reads use the existing Owner/Actor/Applier/EventTarget/CurrentTarget
+subject contract, with no linked-owner, alive-unit or default-level fallback.
+Converting a level into a damage Scalar requires an explicit checked conversion.
+Historical selector and pre-declaration automatic-primary contexts cannot read
+this current battle-query bridge and reject such expressions. General Sora
+authoring and the Walkie-Talkie base-DMG consumer remain pending. See the
+[battle query boundary](rule-event-observation-runtime-boundary.md#unit-level-query).
 
 The native `ElationDamage` template resolves nine explicit Scalar operands into
 a checked immutable dedicated damage definition before program emissions commit.

@@ -3,6 +3,17 @@
 Starclock maintains only the current source, data, behavior and test outputs.
 Git history is the only historical record.
 
+Shared combat's native `QueryUnitLevel` reads each resolved unit's own 1–95
+level as an Integer from an immutable battle-query snapshot. Missing reads
+fault without default/linked-owner fallback; Scalar formulas require explicit
+conversion. Native commands cover level-based damage, maximum selection, slot
+mutation, committed summon observation, fresh canonical events and rejected
+commands. Historical selectors and automatic-primary reads are rejected;
+modifier-only readers do not provide levels. General Sora authoring and the
+Walkie-Talkie consumer remain
+pending; no Weighted Curio or terminal execution count changes. See the
+[unit-level query boundary](rule-event-observation-runtime-boundary.md#unit-level-query).
+
 Shared combat's native `MaximumValue` selector predicate retains all exact
 Integer/Scalar maxima after preceding eligibility filters. Existing uniform
 choice then samples only tied maxima through registered battle RNG; no extra

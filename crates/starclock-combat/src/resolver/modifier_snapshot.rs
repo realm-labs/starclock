@@ -380,6 +380,7 @@ fn collect_value_queries(
         | ValueExpr::EventTarget
         | ValueExpr::CurrentTarget
         | ValueExpr::QueryHp { .. }
+        | ValueExpr::QueryUnitLevel(_)
         | ValueExpr::QueryMaximumEnergy(_)
         | ValueExpr::QueryMaximumHp(_) => {}
     }

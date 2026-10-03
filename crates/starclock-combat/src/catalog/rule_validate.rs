@@ -925,9 +925,9 @@ fn infer_value(
         | ValueExpr::QueryHp { .. }
         | ValueExpr::QueryMaximumEnergy(_)
         | ValueExpr::QueryMaximumHp(_) => RuleValueKind::Scalar,
-        ValueExpr::QueryEffectStacks { .. } | ValueExpr::QueryEffectCategoryStacks { .. } => {
-            RuleValueKind::Integer
-        }
+        ValueExpr::QueryUnitLevel(_)
+        | ValueExpr::QueryEffectStacks { .. }
+        | ValueExpr::QueryEffectCategoryStacks { .. } => RuleValueKind::Integer,
         ValueExpr::QueryEffectShield { effect, .. } => {
             if catalog.effect(*effect).is_none() {
                 return Err(format!(

@@ -57,6 +57,8 @@ mod combat_segmented_actions;
 mod combat_selector_maximum_value;
 #[path = "suites/core/combat/toughness_formula.rs"]
 mod combat_toughness_formula;
+#[path = "suites/core/combat/unit_level_query.rs"]
+mod combat_unit_level_query;
 
 #[path = "suites/core/build/ability_trace_compilation.rs"]
 mod build_ability_trace_compilation;

@@ -93,6 +93,10 @@ current HP, not maximum HP or HP ratio. Historical current-HP queries remain
 rejected until the battle-query snapshot contract supports them; historical stat
 queries retain their existing semantics. Automatic-primary validation also
 rejects maximum expressions that require an unavailable trigger frame.
+Native `QueryUnitLevel(CurrentTarget)` provides an Integer comparison key from
+the current battle-query snapshot. Historical and automatic-primary contexts
+reject that read; they do not substitute a current or owner level. See the
+[unit-level query contract](rule-event-observation-runtime-boundary.md#unit-level-query).
 
 After maximum filtering, the existing `RngUniform` choice samples only tied
 maxima in the authored stable order through its registered RNG purpose. This

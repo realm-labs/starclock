@@ -301,6 +301,7 @@ fn historical_value_safe(expression: &ValueExpr) -> bool {
     match expression {
         ValueExpr::ReadResource { .. }
         | ValueExpr::QueryHp { .. }
+        | ValueExpr::QueryUnitLevel(_)
         | ValueExpr::QueryFormulaStage { .. }
         | ValueExpr::QueryMaximumEnergy(_)
         | ValueExpr::QueryMaximumHp(_)

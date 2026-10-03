@@ -88,6 +88,7 @@ fn automatic_primary_maximum_predicate_rejects_trigger_reads_and_accepts_safe_st
         ValueExpr::QueryHp {
             subject: StatQuerySubject::CurrentTarget,
         },
+        ValueExpr::QueryUnitLevel(StatQuerySubject::CurrentTarget),
         ValueExpr::QueryStat {
             subject: StatQuerySubject::EventTarget,
             stat: StatKind::Hp,

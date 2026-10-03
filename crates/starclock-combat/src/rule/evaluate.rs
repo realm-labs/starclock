@@ -14,7 +14,7 @@ use super::model::{
 use super::model;
 use crate::{
     AbilityId, EffectCategory, EffectDefinitionId, EventId, LifeState, PresenceState, ProgramId,
-    RuleId, Scalar, SourceDefinitionId, UnitId,
+    RuleId, Scalar, SourceDefinitionId, UnitId, UnitLevel,
     formula::{model::CombatElement, toughness::EnemyRank},
     modifier::model::{FormulaPurpose, FormulaStage, StatKind, StatQuerySubject},
 };
@@ -100,6 +100,11 @@ pub trait BattleQueryReader {
         None
     }
     fn current_hp(&self, _subject: UnitId) -> Option<Scalar> {
+        None
+    }
+    /// Returns the unit's own resolved level at this immutable query boundary.
+    /// Missing units/readers return `None`, never an owner level or a default.
+    fn unit_level(&self, _subject: UnitId) -> Option<UnitLevel> {
         None
     }
     fn maximum_energy(&self, _subject: UnitId) -> Option<Scalar> {
@@ -1246,6 +1251,17 @@ pub fn evaluate_value(
                 .ok_or(RuleEvaluationError {
                     kind: RuleEvaluationErrorKind::MissingValue,
                     context: 0x21e,
+                })
+        }
+        ValueExpr::QueryUnitLevel(subject) => {
+            let subject = query_subject(*subject, input, current_target)?;
+            input
+                .battle_query_reader
+                .and_then(|reader| reader.unit_level(subject))
+                .map(|level| RuleValue::Integer(i64::from(level.get())))
+                .ok_or(RuleEvaluationError {
+                    kind: RuleEvaluationErrorKind::MissingValue,
+                    context: 0x222,
                 })
         }
         ValueExpr::QueryEffectShield { subject, effect } => {
