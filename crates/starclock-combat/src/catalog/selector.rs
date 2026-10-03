@@ -111,6 +111,11 @@ pub enum RuleSelectorPredicate {
     OwnedBy(SelectorId),
     /// Removes every unit selected by the referenced selector.
     Excludes(SelectorId),
+    /// Retains every candidate whose evaluated value equals the maximum in the
+    /// pool remaining at this predicate. Does not order, truncate or draw RNG.
+    /// Values must be uniformly Integer or Scalar; evaluation or a type error
+    /// faults rather than silently dropping a target.
+    MaximumValue(ValueExpr),
     StatCompare {
         stat: StatKind,
         comparison: Comparison,
@@ -273,7 +278,8 @@ impl RuleUnitSelector {
                 | RuleSelectorPredicate::Excludes(selector) => {
                     output.insert(*selector);
                 }
-                RuleSelectorPredicate::StatCompare { value, .. } => {
+                RuleSelectorPredicate::StatCompare { value, .. }
+                | RuleSelectorPredicate::MaximumValue(value) => {
                     value_dependencies(value, &mut output);
                 }
                 _ => {}

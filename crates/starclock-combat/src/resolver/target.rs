@@ -35,6 +35,8 @@ use crate::{
 use super::selector_snapshot;
 use super::transaction::{Transaction, action_fault};
 
+mod maximum_value;
+
 pub(super) enum RuleSelectorResolution {
     Selected(Box<[UnitId]>),
     Skip,
@@ -246,7 +248,14 @@ impl Transaction<'_> {
             })
         });
         for predicate in selector.predicates() {
+            if let RuleSelectorPredicate::MaximumValue(expression) = predicate {
+                pool = maximum_value::retain(pool, expression, input)?;
+                continue;
+            }
             pool.retain(|id| match predicate {
+                RuleSelectorPredicate::MaximumValue(_) => {
+                    unreachable!("pool-wide maximum predicate was already resolved")
+                }
                 RuleSelectorPredicate::EventDamageSemantic(semantic) => {
                     input.event_facts.damage_semantics.contains(*semantic)
                 }

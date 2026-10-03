@@ -64,6 +64,7 @@ pub(super) fn validate(catalog: &CombatCatalog) -> Result<(), CatalogBuildError>
                     matches!(
                         predicate,
                         RuleSelectorPredicate::StatCompare { value, .. }
+                            | RuleSelectorPredicate::MaximumValue(value)
                             if !historical_value_safe(value)
                     )
                 }))
@@ -171,7 +172,8 @@ fn validate_automatic_primaries(catalog: &CombatCatalog) -> Result<(), CatalogBu
                 .iter()
                 .all(|predicate| match predicate {
                     RuleSelectorPredicate::AdjacentToPrimary => false,
-                    RuleSelectorPredicate::StatCompare { value, .. } => primary_value_safe(value),
+                    RuleSelectorPredicate::StatCompare { value, .. }
+                    | RuleSelectorPredicate::MaximumValue(value) => primary_value_safe(value),
                     _ => true,
                 });
         if !valid {

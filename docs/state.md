@@ -3,6 +3,15 @@
 Starclock maintains only the current source, data, behavior and test outputs.
 Git history is the only historical record.
 
+Shared combat's native `MaximumValue` selector predicate retains all exact
+Integer/Scalar maxima after preceding eligibility filters. Existing uniform
+choice then samples only tied maxima through registered battle RNG; no extra
+HP ordering or mode branch is introduced. Missing/invalid reads fault before
+choice, empty pools do not evaluate or draw, and unsafe historical/current-HP
+queries remain rejected. The Walkie-Talkie battle consumer and general Sora
+predicate authoring remain pending; the Weighted Curio count stays 12/17. See
+the [selector contract](selector-and-target-set-runtime-boundary.md).
+
 The current Parallel Universe Walkie-Talkie production definition preserves
 canonical `10/1/0.8` operands and five pinned released sources, including its
 merged StageAbility program. Named callbacks establish marked highest-current-HP

@@ -80,6 +80,50 @@ fn primary() -> RuleUnitSelector {
     )
 }
 
+#[test]
+fn automatic_primary_maximum_predicate_rejects_trigger_reads_and_accepts_safe_stats() {
+    for value in [
+        ValueExpr::EventId,
+        ValueExpr::Slot(id(1)),
+        ValueExpr::QueryHp {
+            subject: StatQuerySubject::CurrentTarget,
+        },
+        ValueExpr::QueryStat {
+            subject: StatQuerySubject::EventTarget,
+            stat: StatKind::Hp,
+            purpose: FormulaPurpose::Stat,
+        },
+    ] {
+        let plan = primary().with_predicates(vec![RuleSelectorPredicate::MaximumValue(value)]);
+        assert_eq!(
+            builder(true, TargetPattern::Single, Some(plan), [0; 3])
+                .build()
+                .unwrap_err()
+                .kind(),
+            CatalogBuildErrorKind::InvalidDefinition
+        );
+    }
+    let plan = primary().with_predicates(vec![RuleSelectorPredicate::MaximumValue(
+        ValueExpr::QueryStat {
+            subject: StatQuerySubject::CurrentTarget,
+            stat: StatKind::Aggro,
+            purpose: FormulaPurpose::Aggro,
+        },
+    )]);
+    let catalog = builder(true, TargetPattern::Single, Some(plan), [0, 1_000_000, 0])
+        .build()
+        .unwrap();
+    let mut battle = battle(catalog, 1, None);
+    let result = attack(&mut battle);
+    assert!(result.fault().is_none());
+    // The inherited weighted selector keeps its existing singleton draw policy.
+    assert_eq!(battle.view().rng_draw_count(), 1);
+    assert!(result.events().iter().any(|event| matches!(event.kind(),
+        BattleEventKind::Damage(data) if data.target == UnitId::new(2).unwrap())));
+    assert!(!result.events().iter().any(|event| matches!(event.kind(),
+        BattleEventKind::Damage(data) if data.target != UnitId::new(2).unwrap())));
+}
+
 fn builder(
     automatic: bool,
     pattern: TargetPattern,

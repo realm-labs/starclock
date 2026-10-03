@@ -89,6 +89,17 @@ fn validate_selector_for_rule(
         return Err(format!("selector {} weight is not numeric", selector.get()));
     }
     for predicate in definition.predicates() {
+        if let RuleSelectorPredicate::MaximumValue(value) = predicate
+            && !matches!(
+                infer_value(catalog, runtime, value, 0)?,
+                RuleValueKind::Integer | RuleValueKind::Scalar
+            )
+        {
+            return Err(format!(
+                "selector {} maximum predicate is not numeric",
+                selector.get()
+            ));
+        }
         if let RuleSelectorPredicate::StatCompare { value, .. } = predicate
             && infer_value(catalog, runtime, value, 0)? != RuleValueKind::Scalar
         {

@@ -69,7 +69,7 @@ construction.
 
 ## Predicates
 
-Predicate rows execute in authored sequence as an intersection:
+Predicates execute in authored sequence as a filtering pipeline:
 
 - `FormationRange` compares the exact formation index;
 - `HasMark` requires the exact effect definition and catalog validation proves
@@ -79,6 +79,27 @@ Predicate rows execute in authored sequence as an intersection:
 - `HasTag` matches a content-identity tag on an active effect;
 - `OwnedBy` matches an active linked-unit owner selected by another selector;
 - `StatCompare` compares the effective candidate stat with a scalar expression.
+- Native `MaximumValue` evaluates an Integer or Scalar expression once per
+  remaining candidate and retains **all** exact maxima. It does not truncate,
+  reorder or sample. Its position matters: an earlier mark/eligibility predicate
+  restricts the comparison pool; a later predicate can remove a maximum without
+  admitting a lower-valued candidate. Empty pools neither evaluate nor draw.
+
+`MaximumValue` uses the existing dependency, historical-expression safety and
+typed comparison contracts. Missing reads, numeric failures and heterogeneous
+values cause deterministic rollback faults before choice; they never silently
+remove a candidate or introduce a default value. `QueryHp(CurrentTarget)` reads
+current HP, not maximum HP or HP ratio. Historical current-HP queries remain
+rejected until the battle-query snapshot contract supports them; historical stat
+queries retain their existing semantics. Automatic-primary validation also
+rejects maximum expressions that require an unavailable trigger frame.
+
+After maximum filtering, the existing `RngUniform` choice samples only tied
+maxima in the authored stable order through its registered RNG purpose. This
+also retains the existing singleton draw policy; `First` remains deterministic
+and consumes no draw. This is a generic native catalog capability, not a second
+highest-HP ordering or mode-specific selector. General Sora predicate admission
+and the Walkie-Talkie consumer remain pending.
 
 An evaluation error in a predicate does not turn into a match. Invalid static
 types and references are rejected before a battle is created.
@@ -130,3 +151,10 @@ missing weighted keys, invalid RNG contracts and selector dependency cycles.
 The production Sora bundle contains a behavior-neutral formation predicate so
 the Excel → Sora → generated reader → domain selector path cannot regress to an
 unlowered table.
+
+The [maximum-value command corpus](../crates/starclock-test-kit/tests/suites/core/combat/selector_maximum_value.rs)
+verifies current-HP ties versus maximum HP/HP ratio, negative keys, ordered
+filtering, labeled tie draws, fresh reconstruction, rejected-command identity,
+post-action re-selection, empty/missing reads and invalid dependencies/types or
+historical expressions. Run it with
+`cargo test -p starclock-test-kit --test combat_suite combat_selector_maximum_value`.
