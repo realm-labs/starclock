@@ -55,6 +55,7 @@ pub mod du_curio_excitation_policy;
 pub mod du_curio_encouragement_policy;
 pub mod du_curio_transfer_policy;
 pub mod du_curio_overflow_status;
+pub mod du_curio_overflow_base_policy;
 pub mod du_decision_sources;
 pub mod du_decision_policies;
 pub mod du_decision_occurrences;
@@ -103,9 +104,10 @@ pub mod du_weighted_curio_excitations;
 pub mod du_weighted_curio_encouragements;
 pub mod du_weighted_curio_transfers;
 pub mod du_weighted_curio_overflows;
+pub mod du_weighted_curio_overflow_levels;
 pub type SoraMap<K, V> = std::collections::HashMap<K, V>;
 
-pub const SCHEMA_FINGERPRINT: &str = "458a8cd332d5ba37";
+pub const SCHEMA_FINGERPRINT: &str = "9943783b2941c951";
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum SoraTableShape {
@@ -188,7 +190,7 @@ impl SoraConfig {
             )));
         }
         let mut tables: SoraMap<&'static str, Box<dyn ErasedSoraTable>> =
-            sora_map_with_capacity(48);
+            sora_map_with_capacity(49);
         tables.insert(du_decision_sources::DuDecisionSourcesTable::NAME, Box::new(du_decision_sources::DuDecisionSourcesTable::from_rows(source.decode_table::<du_decision_sources::DuDecisionSources>(du_decision_sources::DuDecisionSourcesTable::NAME)?)?));
         tables.insert(du_decision_policies::DuDecisionPoliciesTable::NAME, Box::new(du_decision_policies::DuDecisionPoliciesTable::from_rows(source.decode_table::<du_decision_policies::DuDecisionPolicies>(du_decision_policies::DuDecisionPoliciesTable::NAME)?)?));
         tables.insert(du_decision_occurrences::DuDecisionOccurrencesTable::NAME, Box::new(du_decision_occurrences::DuDecisionOccurrencesTable::from_rows(source.decode_table::<du_decision_occurrences::DuDecisionOccurrences>(du_decision_occurrences::DuDecisionOccurrencesTable::NAME)?)?));
@@ -237,6 +239,7 @@ impl SoraConfig {
         tables.insert(du_weighted_curio_encouragements::DuWeightedCurioEncouragementsTable::NAME, Box::new(du_weighted_curio_encouragements::DuWeightedCurioEncouragementsTable::from_rows(source.decode_table::<du_weighted_curio_encouragements::DuWeightedCurioEncouragements>(du_weighted_curio_encouragements::DuWeightedCurioEncouragementsTable::NAME)?)?));
         tables.insert(du_weighted_curio_transfers::DuWeightedCurioTransfersTable::NAME, Box::new(du_weighted_curio_transfers::DuWeightedCurioTransfersTable::from_rows(source.decode_table::<du_weighted_curio_transfers::DuWeightedCurioTransfers>(du_weighted_curio_transfers::DuWeightedCurioTransfersTable::NAME)?)?));
         tables.insert(du_weighted_curio_overflows::DuWeightedCurioOverflowsTable::NAME, Box::new(du_weighted_curio_overflows::DuWeightedCurioOverflowsTable::from_rows(source.decode_table::<du_weighted_curio_overflows::DuWeightedCurioOverflows>(du_weighted_curio_overflows::DuWeightedCurioOverflowsTable::NAME)?)?));
+        tables.insert(du_weighted_curio_overflow_levels::DuWeightedCurioOverflowLevelsTable::NAME, Box::new(du_weighted_curio_overflow_levels::DuWeightedCurioOverflowLevelsTable::from_rows(source.decode_table::<du_weighted_curio_overflow_levels::DuWeightedCurioOverflowLevels>(du_weighted_curio_overflow_levels::DuWeightedCurioOverflowLevelsTable::NAME)?)?));
         Ok(Self { tables })
     }
 
@@ -449,6 +452,10 @@ impl SoraConfig {
 
     pub fn du_weighted_curio_overflows(&self) -> &du_weighted_curio_overflows::DuWeightedCurioOverflowsTable {
         self.table(du_weighted_curio_overflows::DuWeightedCurioOverflowsTable::NAME)
+    }
+
+    pub fn du_weighted_curio_overflow_levels(&self) -> &du_weighted_curio_overflow_levels::DuWeightedCurioOverflowLevelsTable {
+        self.table(du_weighted_curio_overflow_levels::DuWeightedCurioOverflowLevelsTable::NAME)
     }
 }
 

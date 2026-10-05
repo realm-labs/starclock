@@ -5,6 +5,7 @@
 pub enum DuDecisionEvidence {
     ExactStructured = 0,
     ObservedCommunity = 1,
+    ProjectPolicy = 2,
 }
 
 impl super::runtime::SoraDecode for DuDecisionEvidence {
@@ -12,6 +13,7 @@ impl super::runtime::SoraDecode for DuDecisionEvidence {
         match reader.read_var_u32()? {
             0 => Ok(Self::ExactStructured),
             1 => Ok(Self::ObservedCommunity),
+            2 => Ok(Self::ProjectPolicy),
             value => Err(super::runtime::SoraReadError::new(format!("invalid enum id {} for DuDecisionEvidence", value))),
         }
     }

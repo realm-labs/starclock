@@ -147,6 +147,35 @@ base policy, ATK modifier, eligibility/teardown coverage and actual both-family
 battle construction and accepted-command fixtures. The count remains 12/17;
 no obligation/program/family/gap/policy terminal disposition changes.
 
+### Base damage policy
+
+Production now authors 95 exact Group 1 HPRatio rows, with canonical decimal
+strings and level-specific stable keys, in `WeightedCurioOverflowLevels`.
+Source 131 pins `ExcelOutput/HardLevelGroup.json` at the same released revision,
+SHA-256 `d185c09b5388f4eeb368199276ee8a815b406fd9902744027b72a5011b962978`,
+accessed 2026-10-05. Levels 1/40/80/95 retain `0.8/9.524581/148.01102/294.42172`
+exactly; no quantization or Excel/Python/JavaScript float transport occurs.
+
+`EnemyGroupOneHpRatioProtocolHpMultiplierFloor` is a separately authored
+`VersionedProjectPolicy`: multiply the factual fixed operand `100` by Group 1's
+HPRatio at the selected enemy's own level, then by `1 +` the immutable battle
+Protocol maximum-HP increase. Checked multiplication floors to six fractional
+places at each boundary; final native TrueDamage floors to integral damage.
+Choosing Group 1, interpreting the hidden query as Protocol HP scaling, operator
+order and rounding remain low-confidence policy. None is decoded postfix or
+observed parity. Alternatives and independent replacement conditions live beside
+the policy. Source 132 has explicit `ProjectPolicy` quality: its URL/revision
+identify released context, its locator identifies this local contract, and its
+SHA-256 binds the authored policy note, not an upstream Git blob.
+
+The loader validates exact-once 1..95 identity, Curio/group/source joins,
+positive canonical millionths and distinct factual/policy provenance. The source
+verifier independently matches every decimal against the pinned Git blob.
+This is a data-construction prerequisite only: the normal battle assembly still
+rejects 1016, and the existing bridge tests still use their explicit fixture
+base. Native lowering of this curve/Protocol policy, the ATK modifier and actual
+both-family equipment commands remain required before production admission.
+
 ### Production admission still pending
 
 The base-DMG expression reads a hard-level `HPRatio`, an opaque difficulty query
@@ -177,7 +206,8 @@ death conversion. See the
 `cargo test -p starclock-data weighted_curio_overflow` loads the actual Sora
 bundle and tests exact ratios, stable reconstruction, pending status,
 missing/duplicate rows, eligibility and operand drift, numeric transport,
-false-parity status and forged evidence at each of five required sources.
+false-parity status, all-level row/precision rejection and forged evidence at
+each of seven required sources.
 `verify-weighted-curio-overflow-authoring.mjs --check-source` verifies exact Git
 blob hashes, current joins and named callback/target structure independently.
 The normal decision-workbook verifier regenerates schema/readers/exports and a

@@ -215,8 +215,18 @@ fn reward_occurrence_sampled_cards_grant_each_choice_finish_then_leave_and_recon
         for ordinal in 1..=3 {
             let profile = compile(&source, family);
             let fresh = compile(&fresh_source, family);
-            let mut activity = start(&profile.flow);
-            let mut rebuilt = start(&fresh.flow);
+            // Current configuration-bound positive vector: both families sample
+            // two Reward cards for every choice, including fresh reconstruction.
+            let mut activity = profile
+                .flow
+                .start(instance(26314), ActivityMasterSeed::from_u64(3))
+                .unwrap()
+                .into_activity();
+            let mut rebuilt = fresh
+                .flow
+                .start(instance(26314), ActivityMasterSeed::from_u64(3))
+                .unwrap()
+                .into_activity();
             let mut events = 0;
             for _ in 0..128 {
                 assert_eq!(

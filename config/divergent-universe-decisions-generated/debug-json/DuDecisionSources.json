@@ -4421,6 +4421,74 @@
             "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
           }
         }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-10-05"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 131
+          },
+          "locator": {
+            "String": "ExcelOutput/HardLevelGroup.json; HardLevelGroup=1; Level=1..95; HPRatio.Value"
+          },
+          "note": {
+            "String": "Exact released Group 1 HPRatio decimals. Membership of this group in the Curio formula is not source-proven."
+          },
+          "quality": {
+            "String": "ExactStructured"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "d185c09b5388f4eeb368199276ee8a815b406fd9902744027b72a5011b962978"
+          },
+          "stable_key": {
+            "String": "du.source.weighted-curio-overflow.hard-level"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-10-05"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 132
+          },
+          "locator": {
+            "String": "docs/divergent-universe-weighted-curio-overflow.md#base-damage-policy"
+          },
+          "note": {
+            "String": "VersionedProjectPolicy: base damage is 100 times released HardLevelGroup 1 HPRatio at the selected enemy's own immutable level, then multiplied by one plus the immutable battle contribution's Protocol maximum-HP increase. Use checked fixed-point multiplication, flooring to six fractional places after each multiplication; the shared final TrueDamage operation floors to integral damage. The source contains FixedValues 100 and a HPRatio read but does not establish this group, the opaque difficulty-query mapping, operator order or rounding. Group 1, Protocol HP scaling and these multiplication boundaries are independent low-confidence policies, not decoded postfix or observed parity."
+          },
+          "quality": {
+            "String": "ProjectPolicy"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "1d0cf9d303e321dde4867bd315189f31bfb041766c082bc7f0babc95017b55e1"
+          },
+          "stable_key": {
+            "String": "du.source.weighted-curio-overflow.base-policy"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
       }
     ]
   }

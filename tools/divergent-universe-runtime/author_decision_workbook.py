@@ -395,6 +395,12 @@ def main() -> None:
     for column in ["P", "Q"]:
         overflow_sheet.column_dimensions[column].width = 110
     overflow_sheet.row_dimensions[8].height = 250
+    for column in ["V", "W"]:
+        overflow_sheet.column_dimensions[column].width = 110
+    overflow_sheet.column_dimensions["U"].width = 60
+    level_sheet = workbook["WeightedCurioOverflowLevels"]
+    level_sheet.column_dimensions["C"].width = 55
+    level_sheet.column_dimensions["D"].width = 55
     workbook.properties.modified = datetime(2000, 1, 1)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     workbook.save(args.output)

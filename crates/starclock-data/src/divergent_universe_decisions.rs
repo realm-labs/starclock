@@ -116,6 +116,8 @@ impl DecisionChoiceId {
 pub enum DecisionEvidence {
     ExactStructured,
     ObservedCommunity,
+    /// Authored deterministic choice; source URL/revision supplies context only.
+    ProjectPolicy,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]

@@ -16,7 +16,7 @@ name = "DuCurioDomainExpiryPolicy"
 values = [{ id = 0, name = "ActiveFutureSelectedDomainsDiscard" }, { id = 1, name = "ActiveFutureSelectedDomainsGrantThenDiscard" }]
 [[enums]]
 name = "DuDecisionEvidence"
-values = [{ id = 0, name = "ExactStructured" }, { id = 1, name = "ObservedCommunity" }]
+values = [{ id = 0, name = "ExactStructured" }, { id = 1, name = "ObservedCommunity" }, { id = 2, name = "ProjectPolicy" }]
 [[enums]]
 name = "DuDecisionBinding"
 values = [{ id = 0, name = "VersionedProjectPolicy" }]
@@ -155,6 +155,9 @@ values = [{ id = 0, name = "OtherShieldAppliedOwnerTurnExcessDecay" }]
 [[enums]]
 name = "DuCurioOverflowStatus"
 values = [{ id = 0, name = "PendingNativeDeathCallbackAndBaseDamage" }]
+[[enums]]
+name = "DuCurioOverflowBasePolicy"
+values = [{ id = 0, name = "EnemyGroupOneHpRatioProtocolHpMultiplierFloor" }]
 [[tables]]
 id = "sources"
 name = "DuDecisionSources"
@@ -3107,6 +3110,65 @@ type = "string"
 length = [1, 4000]
 [[tables.fields]]
 name = "unresolved_runtime"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "source_ids"
+type = "list<ref<DuDecisionSources.id>>"
+parser = { kind = "split", separator = "|" }
+[[tables.fields]]
+name = "base_fixed_damage"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "base_hard_level_group"
+type = "i32"
+range = [1,1]
+[[tables.fields]]
+name = "base_policy"
+type = "enum<DuCurioOverflowBasePolicy>"
+[[tables.fields]]
+name = "base_policy_note"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "base_replacement_condition"
+type = "string"
+length = [1, 4000]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+[[tables]]
+id = "weightedcuriooverflowlevels"
+name = "DuWeightedCurioOverflowLevels"
+mode = "map"
+key = "id"
+[tables.source]
+file = "DivergentUniverseDecisions.xlsx"
+sheet = "WeightedCurioOverflowLevels"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1,2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "weighted_curio_key"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "hard_level_group"
+type = "i32"
+range = [1,1]
+[[tables.fields]]
+name = "unit_level"
+type = "i32"
+range = [1,95]
+[[tables.fields]]
+name = "hp_ratio"
 type = "string"
 length = [1, 4000]
 [[tables.fields]]

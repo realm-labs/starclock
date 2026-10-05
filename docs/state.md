@@ -27,7 +27,13 @@ The current Parallel Universe Walkie-Talkie production definition preserves
 canonical `10/1/0.8` operands and five pinned released sources, including its
 merged StageAbility program. Named callbacks establish marked highest-current-HP
 retargeting and random ties; hidden base-DMG and native callback correspondence
-remain unimplemented. A separate explicit death-conversion bridge now compiles
+remain unimplemented. Production additionally authors all 95 exact Group 1
+HPRatios and a separate low-confidence base formula policy using fixed operand
+100 and immutable Protocol HP scaling. Its source quality is explicitly
+ProjectPolicy, with a note-bound digest rather than a false upstream blob claim.
+The exact group values do not prove Curio group membership or postfix order.
+Native lowering/equipment admission of this base policy remains pending.
+A separate explicit death-conversion bridge now compiles
 the released multipliers into native Rule IR with a caller-bound base expression.
 Accepted commands prove multi-death aggregation at HitEnded, attacked-pool
 maximum selection, one labeled tie draw, empty/unready zero draws, post-shield
@@ -1280,7 +1286,7 @@ and one executable policy-bound
 [Dignity and Passion definition](divergent-universe-weighted-curio-transfer.md)
 and one exact-operand, native-pending
 [Walkie-Talkie definition](divergent-universe-weighted-curio-overflow.md)
-across 48 tables and 437 rows. Dignity and Passion preserves the four released
+across 49 tables and 534 rows. Dignity and Passion preserves the four released
 `0.75/0.3/0.9/0.1` operands. Ordinary shield grant events grow a recipient-local
 special shield; owner turns decay only its capacity above live maximum HP's
 30% threshold, and a distinct reaction heals from the actual negative adjustment.

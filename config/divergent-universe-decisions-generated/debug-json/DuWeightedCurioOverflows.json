@@ -10,11 +10,26 @@
           "attack_parameter": {
             "Integer": 3
           },
+          "base_fixed_damage": {
+            "String": "100"
+          },
+          "base_hard_level_group": {
+            "Integer": 1
+          },
           "base_multiplier": {
             "String": "10"
           },
           "base_parameter": {
             "Integer": 1
+          },
+          "base_policy": {
+            "String": "EnemyGroupOneHpRatioProtocolHpMultiplierFloor"
+          },
+          "base_policy_note": {
+            "String": "VersionedProjectPolicy: base damage is 100 times released HardLevelGroup 1 HPRatio at the selected enemy's own immutable level, then multiplied by one plus the immutable battle contribution's Protocol maximum-HP increase. Use checked fixed-point multiplication, flooring to six fractional places after each multiplication; the shared final TrueDamage operation floors to integral damage. The source contains FixedValues 100 and a HPRatio read but does not establish this group, the opaque difficulty-query mapping, operator order or rounding. Group 1, Protocol HP scaling and these multiplication boundaries are independent low-confidence policies, not decoded postfix or observed parity."
+          },
+          "base_replacement_condition": {
+            "String": "Preserves known enemy-level and Threshold-Protocol dependence without substituting owner ATK, zero or an arbitrary level polynomial. Alternatives include other released HardLevelGroups, a Protocol-specific scaling field, additive difficulty or a different postfix order. Replace each field when released typed operands or reproducible current observations establish it. Data fixtures cover all 95 levels, canonical precision, missing/duplicate/foreign rows and provenance; native base-expression and both-family equipment tests are still required. Callback, ATK, Forge, replay and terminal runtime admission remain pending."
           },
           "character_paths": {
             "List": [
@@ -54,6 +69,12 @@
               },
               {
                 "Integer": 130
+              },
+              {
+                "Integer": 131
+              },
+              {
+                "Integer": 132
               }
             ]
           },

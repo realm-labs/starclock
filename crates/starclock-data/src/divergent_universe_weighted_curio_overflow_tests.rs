@@ -40,7 +40,20 @@ fn production_weighted_curio_overflow_preserves_exact_ratios_and_pending_admissi
         row.status,
         WeightedCurioOverflowStatus::PendingNativeDeathCallbackAndBaseDamage
     );
-    assert_eq!(row.sources.len(), 5);
+    assert_eq!(row.sources.len(), 7);
+    assert_eq!(row.base.fixed_damage_millionths, 100_000_000);
+    assert_eq!(row.base.hard_level_group, 1);
+    assert_eq!(row.base.hp_ratios_millionths.len(), 95);
+    for (level, expected) in [
+        (1, 800_000),
+        (40, 9_524_581),
+        (80, 148_011_020),
+        (95, 294_421_720),
+    ] {
+        assert_eq!(row.base.hp_ratios_millionths[level - 1], expected);
+    }
+    assert!(row.base.policy_note.starts_with("VersionedProjectPolicy:"));
+    assert!(!row.base.replacement_condition.is_empty());
     assert!(row.source_semantics.contains("random ties"));
     assert!(row.source_semantics.contains("death/deathrattle"));
     assert!(row.unresolved_runtime.starts_with("Unimplemented:"));
@@ -80,6 +93,13 @@ fn weighted_curio_overflow_rejects_changed_exact_fields_or_false_admission() {
         ("attack_increase", json!("1")),
         ("attack_increase", json!(0.8)),
         ("status", json!("ExactIntegrated")),
+        ("base_fixed_damage", json!("100.0")),
+        ("base_fixed_damage", json!("0")),
+        ("base_hard_level_group", json!(2)),
+        ("base_policy", json!("ExactObservedPostfix")),
+        ("base_policy_note", json!("Exact observed parity")),
+        ("base_policy_note", json!("VersionedProjectPolicy: forged")),
+        ("base_replacement_condition", json!("")),
         ("summary_en", json!("")),
         ("summary_zh_cn", json!("")),
         ("source_semantics", json!("")),
@@ -110,7 +130,7 @@ fn weighted_curio_overflow_rejects_forged_evidence_at_each_required_source() {
             .collect::<Vec<_>>(),
     )
     .unwrap();
-    for id in 126..=130 {
+    for id in 126..=132 {
         for field in [
             "stable_key",
             "url",
@@ -132,4 +152,54 @@ fn weighted_curio_overflow_rejects_forged_evidence_at_each_required_source() {
             rejects("DuDecisionSources", rows);
         }
     }
+}
+
+#[test]
+fn weighted_curio_overflow_level_curve_rejects_incomplete_noncanonical_and_foreign_rows() {
+    let config = SoraConfig::from_source(&SoraBundle::parse(BUNDLE).unwrap()).unwrap();
+    let baseline = serde_json::to_value(
+        config
+            .du_weighted_curio_overflow_levels()
+            .ordered_rows()
+            .collect::<Vec<_>>(),
+    )
+    .unwrap();
+    for (field, value) in [
+        ("id", json!(0)),
+        ("unit_level", json!(2)),
+        ("stable_key", json!("du.weighted-curio-overflow.level.002")),
+        (
+            "weighted_curio_key",
+            json!("divergent-universe.weighted-curio.1009"),
+        ),
+        ("hard_level_group", json!(2)),
+        ("source_ids", json!([130])),
+        ("source_ids", json!([131, 131])),
+    ] {
+        let mut rows = baseline.clone();
+        rows[0][field] = value;
+        rejects("DuWeightedCurioOverflowLevels", rows);
+    }
+    for value in [
+        json!("0"),
+        json!("-1"),
+        json!("0.80"),
+        json!("0.8000001"),
+        json!("01"),
+        json!(".8"),
+        json!("9999999999999999999"),
+        json!(0.8),
+    ] {
+        let mut rows = baseline.clone();
+        rows[0]["hp_ratio"] = value;
+        rejects("DuWeightedCurioOverflowLevels", rows);
+    }
+    let mut missing = baseline.clone();
+    missing.as_array_mut().unwrap().remove(40);
+    rejects("DuWeightedCurioOverflowLevels", missing);
+    let mut extra = baseline.clone();
+    extra.as_array_mut().unwrap().push(baseline[0].clone());
+    extra[95]["id"] = json!(96);
+    rejects("DuWeightedCurioOverflowLevels", extra);
+    rejects("DuWeightedCurioOverflowLevels", json!([]));
 }

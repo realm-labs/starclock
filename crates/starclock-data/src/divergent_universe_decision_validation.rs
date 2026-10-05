@@ -377,6 +377,7 @@ pub(super) fn compile(
                 quality: match row.quality {
                     DuDecisionEvidence::ExactStructured => DecisionEvidence::ExactStructured,
                     DuDecisionEvidence::ObservedCommunity => DecisionEvidence::ObservedCommunity,
+                    DuDecisionEvidence::ProjectPolicy => DecisionEvidence::ProjectPolicy,
                 },
             })
         })
