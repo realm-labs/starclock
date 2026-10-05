@@ -93,7 +93,7 @@ fn discover_current_reward_card_seed() {
     panic!("bounded current Reward search lacks a positive vector");
 }
 fn start(flow: &DivergentUniverseFlowInstance) -> GraphActivity {
-    flow.start(instance(26314), ActivityMasterSeed::from_u64(0))
+    flow.start(instance(26314), ActivityMasterSeed::from_u64(1))
         .unwrap()
         .into_activity()
 }
@@ -217,16 +217,8 @@ fn reward_occurrence_sampled_cards_grant_each_choice_finish_then_leave_and_recon
             let fresh = compile(&fresh_source, family);
             // Current configuration-bound positive vector: both families sample
             // two Reward cards for every choice, including fresh reconstruction.
-            let mut activity = profile
-                .flow
-                .start(instance(26314), ActivityMasterSeed::from_u64(0))
-                .unwrap()
-                .into_activity();
-            let mut rebuilt = fresh
-                .flow
-                .start(instance(26314), ActivityMasterSeed::from_u64(0))
-                .unwrap()
-                .into_activity();
+            let mut activity = start(&profile.flow);
+            let mut rebuilt = start(&fresh.flow);
             let mut events = 0;
             for _ in 0..128 {
                 assert_eq!(

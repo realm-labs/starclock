@@ -57,6 +57,9 @@ pub mod du_curio_transfer_policy;
 pub mod du_curio_overflow_status;
 pub mod du_curio_overflow_base_policy;
 pub mod du_curio_footstep_policy;
+pub mod du_deflagration_status;
+pub mod du_deflagration_policy;
+pub mod du_deflagration_base_policy;
 pub mod du_decision_sources;
 pub mod du_decision_policies;
 pub mod du_decision_occurrences;
@@ -107,9 +110,11 @@ pub mod du_weighted_curio_transfers;
 pub mod du_weighted_curio_overflows;
 pub mod du_weighted_curio_overflow_levels;
 pub mod du_weighted_curio_footsteps;
+pub mod du_weighted_curio_deflagrations;
+pub mod du_weighted_curio_deflagration_levels;
 pub type SoraMap<K, V> = std::collections::HashMap<K, V>;
 
-pub const SCHEMA_FINGERPRINT: &str = "5c385cad0b899fa9";
+pub const SCHEMA_FINGERPRINT: &str = "1cca7241d1de3dd0";
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum SoraTableShape {
@@ -192,7 +197,7 @@ impl SoraConfig {
             )));
         }
         let mut tables: SoraMap<&'static str, Box<dyn ErasedSoraTable>> =
-            sora_map_with_capacity(50);
+            sora_map_with_capacity(52);
         tables.insert(du_decision_sources::DuDecisionSourcesTable::NAME, Box::new(du_decision_sources::DuDecisionSourcesTable::from_rows(source.decode_table::<du_decision_sources::DuDecisionSources>(du_decision_sources::DuDecisionSourcesTable::NAME)?)?));
         tables.insert(du_decision_policies::DuDecisionPoliciesTable::NAME, Box::new(du_decision_policies::DuDecisionPoliciesTable::from_rows(source.decode_table::<du_decision_policies::DuDecisionPolicies>(du_decision_policies::DuDecisionPoliciesTable::NAME)?)?));
         tables.insert(du_decision_occurrences::DuDecisionOccurrencesTable::NAME, Box::new(du_decision_occurrences::DuDecisionOccurrencesTable::from_rows(source.decode_table::<du_decision_occurrences::DuDecisionOccurrences>(du_decision_occurrences::DuDecisionOccurrencesTable::NAME)?)?));
@@ -243,6 +248,8 @@ impl SoraConfig {
         tables.insert(du_weighted_curio_overflows::DuWeightedCurioOverflowsTable::NAME, Box::new(du_weighted_curio_overflows::DuWeightedCurioOverflowsTable::from_rows(source.decode_table::<du_weighted_curio_overflows::DuWeightedCurioOverflows>(du_weighted_curio_overflows::DuWeightedCurioOverflowsTable::NAME)?)?));
         tables.insert(du_weighted_curio_overflow_levels::DuWeightedCurioOverflowLevelsTable::NAME, Box::new(du_weighted_curio_overflow_levels::DuWeightedCurioOverflowLevelsTable::from_rows(source.decode_table::<du_weighted_curio_overflow_levels::DuWeightedCurioOverflowLevels>(du_weighted_curio_overflow_levels::DuWeightedCurioOverflowLevelsTable::NAME)?)?));
         tables.insert(du_weighted_curio_footsteps::DuWeightedCurioFootstepsTable::NAME, Box::new(du_weighted_curio_footsteps::DuWeightedCurioFootstepsTable::from_rows(source.decode_table::<du_weighted_curio_footsteps::DuWeightedCurioFootsteps>(du_weighted_curio_footsteps::DuWeightedCurioFootstepsTable::NAME)?)?));
+        tables.insert(du_weighted_curio_deflagrations::DuWeightedCurioDeflagrationsTable::NAME, Box::new(du_weighted_curio_deflagrations::DuWeightedCurioDeflagrationsTable::from_rows(source.decode_table::<du_weighted_curio_deflagrations::DuWeightedCurioDeflagrations>(du_weighted_curio_deflagrations::DuWeightedCurioDeflagrationsTable::NAME)?)?));
+        tables.insert(du_weighted_curio_deflagration_levels::DuWeightedCurioDeflagrationLevelsTable::NAME, Box::new(du_weighted_curio_deflagration_levels::DuWeightedCurioDeflagrationLevelsTable::from_rows(source.decode_table::<du_weighted_curio_deflagration_levels::DuWeightedCurioDeflagrationLevels>(du_weighted_curio_deflagration_levels::DuWeightedCurioDeflagrationLevelsTable::NAME)?)?));
         Ok(Self { tables })
     }
 
@@ -463,6 +470,14 @@ impl SoraConfig {
 
     pub fn du_weighted_curio_footsteps(&self) -> &du_weighted_curio_footsteps::DuWeightedCurioFootstepsTable {
         self.table(du_weighted_curio_footsteps::DuWeightedCurioFootstepsTable::NAME)
+    }
+
+    pub fn du_weighted_curio_deflagrations(&self) -> &du_weighted_curio_deflagrations::DuWeightedCurioDeflagrationsTable {
+        self.table(du_weighted_curio_deflagrations::DuWeightedCurioDeflagrationsTable::NAME)
+    }
+
+    pub fn du_weighted_curio_deflagration_levels(&self) -> &du_weighted_curio_deflagration_levels::DuWeightedCurioDeflagrationLevelsTable {
+        self.table(du_weighted_curio_deflagration_levels::DuWeightedCurioDeflagrationLevelsTable::NAME)
     }
 }
 

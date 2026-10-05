@@ -1,10 +1,13 @@
 # Typed Divergent Universe decisions
 
 This project owns executable decision definitions, not the reference pack's
-identity/evidence catalog. Its 50 tables and 543 rows include policy-bound
+identity/evidence catalog. Its 52 tables and 647 rows include policy-bound
 choices, rewards and reviewed Curio components used by the production Activity
 graph, plus nine explicitly selected source decks and their 125 distinct card
-instances, and fourteen policy-bound Weighted Curio effect definitions. Deck compilation
+instances, fourteen equipment-supported policy-bound Weighted Curio definitions,
+and one [Deflagration definition](../../docs/divergent-universe-weighted-curio-deflagration.md)
+with 95 factual level rows explicitly `AuthoredOperandsPendingNative`. Loading
+the latter does not admit equipment or execute an effect. Deck compilation
 is available, but automatic mask selection and
 production domain routing remain unbound. This is partial executable coverage,
 not complete gameplay parity.

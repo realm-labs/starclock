@@ -40,6 +40,7 @@ from weighted_curio_excitation_rows import append_weighted_curio_excitation
 from weighted_curio_encouragement_rows import append_weighted_curio_encouragement
 from weighted_curio_overflow_rows import append_weighted_curio_overflow
 from weighted_curio_footstep_rows import append_weighted_curio_footstep
+from weighted_curio_deflagration_rows import append_weighted_curio_deflagration
 from weighted_curio_transfer_rows import append_weighted_curio_transfer
 
 
@@ -328,6 +329,7 @@ def rows() -> dict[str, list[list[object]]]:
     append_weighted_curio_transfer(data)
     append_weighted_curio_overflow(data)
     append_weighted_curio_footstep(data)
+    append_weighted_curio_deflagration(data)
     return data
 
 
@@ -417,6 +419,19 @@ def main() -> None:
     for column in ["P", "Q", "R", "S"]:
         footstep_sheet.column_dimensions[column].width = 110
     footstep_sheet.row_dimensions[8].height = 220
+    deflagration_sheet = workbook["WeightedCurioDeflagrations"]
+    for column in ["C", "D", "N", "O", "P"]:
+        deflagration_sheet.column_dimensions[column].width = 55
+    for column in ["Q", "R"]:
+        deflagration_sheet.column_dimensions[column].width = 70
+    for column in ["S", "T", "U", "V"]:
+        deflagration_sheet.column_dimensions[column].width = 110
+    deflagration_sheet.row_dimensions[8].height = 330
+    deflagration_levels = workbook["WeightedCurioDeflagrationLevels"]
+    for column in ["C", "D"]:
+        deflagration_levels.column_dimensions[column].width = 55
+    for row in range(148, 156):
+        workbook["Sources"].row_dimensions[row].height = 360
     workbook.properties.modified = datetime(2000, 1, 1)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     workbook.save(args.output)

@@ -1,0 +1,119 @@
+{
+  "table": {
+    "name": "DuWeightedCurioDeflagrations",
+    "rows": [
+      {
+        "values": {
+          "base_fixed_damage": {
+            "String": "100"
+          },
+          "base_hard_level_group": {
+            "Integer": 1
+          },
+          "base_policy": {
+            "String": "TargetGroupOneHpRatioProtocolHpFloor"
+          },
+          "base_policy_note": {
+            "String": "VersionedProjectPolicy: use the selected enemy's own level to choose released Group 1 HPRatio, multiply fixed operand 100 by that ratio, then by one plus immutable Protocol maximum-HP increase, flooring each checked Scalar multiplication to six places. The hidden postfix, Group 1 selection, target-level correspondence, Protocol interpretation, operator order and rounding remain independently replaceable low-confidence fields, not decoded or observed parity. Preserve level/Protocol dependence rather than substituting owner ATK or a level-independent constant."
+          },
+          "base_replacement_condition": {
+            "String": "Alternatives include stage-level scaling, a different hard-level group, a separately decoded difficulty factor or different operation/rounding order. Group 1 is the existing deterministic source-backed curve policy, not source membership evidence for this mechanic. Replace each field independently when released typed postfix semantics or reproducible current numerical traces establish it. Data tests check exact-once 95 rows, canonical decimals, policy/source isolation and operand drift; native all-level and Protocol command consumers remain pending."
+          },
+          "burn_fractions": {
+            "List": [
+              {
+                "String": "0.5"
+              },
+              {
+                "String": "1"
+              },
+              {
+                "String": "1.5"
+              },
+              {
+                "String": "2"
+              }
+            ]
+          },
+          "damage_multiplier": {
+            "String": "2"
+          },
+          "damage_parameter": {
+            "Integer": 5
+          },
+          "duration_parameter": {
+            "Integer": 6
+          },
+          "duration_turns": {
+            "Integer": 2
+          },
+          "elements": {
+            "List": [
+              {
+                "String": "Fire"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 1
+          },
+          "maze_buff_id": {
+            "String": "633412"
+          },
+          "policy": {
+            "String": "OriginalFireAfterActionNaturalTickBurns"
+          },
+          "runtime_policy_note": {
+            "String": "VersionedProjectPolicy: canonical Basic scaling-damage element proves each original entry-form Fire member; original party formations zero through three only, excluding owned linked units. At BattleStarted capture the alive/present original Fire count once, selecting the factual one/two/three/four-member Burn fractions; no recapture after defeat, revival, transformation or waves. Each eligible original Unit attack applies Deflagration once at complete ActionResolved AfterAction priority zero to distinct living/present opposing EventTargets, with Guaranteed application, no chance roll. Replace the prior target Deflagration across casters, capture twice the selected target's authored level/Protocol base, one dispellable Burn stack, SourceSnapshotTargetDynamic, TurnStart tick, TargetTurnEnd two-turn lifetime. Only own-source DotTick DamageApplied AfterEvent priority zero once per event detonates other classified Burns, including periodic Break Burns, in shared stable effect-instance order; exclude all Deflagration instances and preserve original other-Burn sources/lifetimes. DotDetonation never triggers other Burns. Timing, chance, cross-caster replacement, source snapshot, recipient presence, original-actor borrowing and count retention are independent low-confidence fields, not hidden callback parity."
+          },
+          "runtime_replacement_condition": {
+            "String": "Alternatives include hit-end application, source ReplaceByCaster coexistence, enemy-owned effects, resistible application, live Fire counts, inherited actors or other native reaction priorities. Complete-action application and single cross-caster effect use the existing bounded command/effect pipeline without introducing a second state machine. Replace each field independently with released typed semantics or reproducible current traces; retain the source-backed natural-tick versus custom-event distinction. Native tests must cover one through four originals, no-Fire admission, duplicate hits/targets, multi-caster replacement, two real turns, ordinary/Break Burns, external detonation nonrecursion, linked and transformed actors, rejection, fresh payloads/hashes and unequip in both families. Forge, equipment-command replay and complete-run release remain separate pending work."
+          },
+          "source_ids": {
+            "List": [
+              {
+                "Integer": 141
+              },
+              {
+                "Integer": 142
+              },
+              {
+                "Integer": 143
+              },
+              {
+                "Integer": 144
+              },
+              {
+                "Integer": 145
+              },
+              {
+                "Integer": 146
+              },
+              {
+                "Integer": 147
+              },
+              {
+                "Integer": 148
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "du.weighted-curio-deflagration.most-raucous"
+          },
+          "status": {
+            "String": "AuthoredOperandsPendingNative"
+          },
+          "summary_en": {
+            "String": "Fire originals apply two-turn Deflagration, counted as Burn; natural ticks deal twice base damage and detonate other Burns at the original Fire-count fraction."
+          },
+          "summary_zh_cn": {
+            "String": "火属性原角色施加两回合爆燃（视为灼烧）；自然周期结算造成两倍基础伤害，并按入场火角色人数比例引爆其他灼烧。"
+          },
+          "weighted_curio_key": {
+            "String": "divergent-universe.weighted-curio.1012"
+          }
+        }
+      }
+    ]
+  }
+}

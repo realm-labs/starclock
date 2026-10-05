@@ -3,6 +3,16 @@
 Starclock maintains only the current source, data, behavior and test outputs.
 Git history is the only historical record.
 
+Most Raucous now has a production-authored Deflagration operand row, all 95
+canonical Group 1 HPRatio rows and eight exact/policy provenance records.
+Its six source parameters, Fire membership, natural-tick versus external
+detonation distinction and separately hashed base/execution policies validate
+through current Sora/domain loading. Status is `AuthoredOperandsPendingNative`:
+native construction and equipment still reject the unsupported identity, and
+the supported equipment-definition count remains 14/17. The decision input is
+52 tables / 647 rows; no terminal disposition or complete-run gate changes.
+See the [Deflagration authoring boundary](divergent-universe-weighted-curio-deflagration.md).
+
 Shared Rule IR now retains the exact Direct/DotTick/DotDetonation kind of each
 committed common damage event and exposes a conjunctive native filter. Formula
 class and action ownership do not imply periodicity; Break and non-damage facts
@@ -1360,7 +1370,8 @@ and one executable policy-bound
 and one executable policy-bound
 [Walkie-Talkie definition](divergent-universe-weighted-curio-overflow.md)
 and one policy-bound [Footstep of Gods definition](divergent-universe-weighted-curio-footstep.md)
-across 50 tables and 543 rows. Dignity and Passion preserves the four released
+across 52 tables and 647 rows, including the separately pending authored
+Deflagration/level definitions. Dignity and Passion preserves the four released
 `0.75/0.3/0.9/0.1` operands. Ordinary shield grant events grow a recipient-local
 special shield; owner turns decay only its capacity above live maximum HP's
 30% threshold, and a distinct reaction heals from the actual negative adjustment.
