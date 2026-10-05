@@ -29,7 +29,7 @@
             "String": "VersionedProjectPolicy: base damage is 100 times released HardLevelGroup 1 HPRatio at the selected enemy's own immutable level, then multiplied by one plus the immutable battle contribution's Protocol maximum-HP increase. Use checked fixed-point multiplication, flooring to six fractional places after each multiplication; the shared final TrueDamage operation floors to integral damage. The source contains FixedValues 100 and a HPRatio read but does not establish this group, the opaque difficulty-query mapping, operator order or rounding. Group 1, Protocol HP scaling and these multiplication boundaries are independent low-confidence policies, not decoded postfix or observed parity."
           },
           "base_replacement_condition": {
-            "String": "Preserves known enemy-level and Threshold-Protocol dependence without substituting owner ATK, zero or an arbitrary level polynomial. Alternatives include other released HardLevelGroups, a Protocol-specific scaling field, additive difficulty or a different postfix order. Replace each field when released typed operands or reproducible current observations establish it. Data fixtures cover all 95 levels, canonical precision, missing/duplicate/foreign rows and provenance; native base-expression and both-family equipment tests are still required. Callback, ATK, Forge, replay and terminal runtime admission remain pending."
+            "String": "Preserves known enemy-level and Threshold-Protocol dependence without substituting owner ATK, zero or an arbitrary level polynomial. Alternatives include other released HardLevelGroups, a Protocol-specific scaling field, additive difficulty or a different postfix order. Replace each field when released typed operands or reproducible current observations establish it. Data fixtures cover all 95 levels, canonical precision, missing/duplicate/foreign rows and provenance. Native expression tests cover every level and immutable Protocol snapshots. This policy is not decoded postfix or observed numeric parity."
           },
           "character_paths": {
             "List": [
@@ -53,6 +53,12 @@
           "overflow_parameter": {
             "Integer": 2
           },
+          "runtime_policy_note": {
+            "String": "VersionedProjectPolicy: original entry-form Hunt/Erudition only. BattleStarted/AfterEvent grants 80% base ATK, permanent, non-dispellable and unique per source. Original actor/applier Ability attacks collect positive post-shield excess only from defeated marked enemies, confirmed by UnitDefeated. HitEnded converts once to a living marked current-HP maximum; damage-target uniformly samples ties and draws once for a singleton, zero for empty/unready pools. Capture total, reset, then emit 10*authored base+overflow TrueDamage. Mode kills cannot recollect. ActionResolved/WaveEnded/Won/Lost clear. Nested starts reset owner-local state; resumed hits reopen. Linked/countdown actors are excluded. No separate delayed-deathrattle replay."
+          },
+          "runtime_replacement_condition": {
+            "String": "Released named structure does not establish callback ordering, ATK creation timing/stacking, historical mark snapshots or reentrant/deathrattle correspondence. These independently replaceable low-confidence policies preserve original-Path eligibility, attack-kill excess, marked current-HP retargeting, random ties and owner credit using shared commands/events only. Alternatives are immediate first-death conversion (misses same-hit later settlements), attack-end-only conversion (delays all conversions), or a second action stack/callback engine (violates shared ownership). A death confirmed only after ActionResolved has no active attack collector and does not replay earlier excess. Replace each field when released typed semantics or reproducible current observations establish it. Native tests cover multi-death, shields, phase/HP-floor/guard exclusion, original transform/restore, real linked/countdown exclusion, same-owner queued envelopes, target isolation, fresh hashes and rejected commands. Separate player-rescue and delayed-deathrattle interaction coverage, Forge and complete-run release gates are not implied by this policy's equipment admission."
+          },
           "source_ids": {
             "List": [
               {
@@ -75,6 +81,9 @@
               },
               {
                 "Integer": 132
+              },
+              {
+                "Integer": 133
               }
             ]
           },
@@ -85,16 +94,13 @@
             "String": "du.weighted-curio-overflow.parallel-universe-walkie-talkie"
           },
           "status": {
-            "String": "PendingNativeDeathCallbackAndBaseDamage"
+            "String": "NativeProjectPolicyHitEnded"
           },
           "summary_en": {
             "String": "Erudition and Hunt characters gain 80% ATK. Attack-kill overflow converts into True damage of ten times base damage plus the overflow, aimed at the highest-current-HP attacked enemy."
           },
           "summary_zh_cn": {
             "String": "智识和巡猎角色攻击力提高80%。攻击消灭敌人后的溢出值转化为10倍基础伤害加溢出值的真实伤害，目标为已攻击敌人中当前生命值最高者。"
-          },
-          "unresolved_runtime": {
-            "String": "Unimplemented: native death/deathrattle callback correspondence, hit/attack observation ordering, accumulator expression decoding, linked-actor ownership, tied-target labeled RNG and last-kill behavior. The base-DMG expression reads HPRatio, an opaque difficulty query and unresolved postfix operands; its exact level/difficulty formula is not established. Do not substitute character ATK, a constant or zero and claim parity. Replace each uncertainty with released typed semantics or a separately reviewed deterministic VersionedProjectPolicy preserving the known constraints. Bounded public cross-check on 2026-10-03: https://honkai-star-rail.fandom.com/wiki/Parallel_Universe_Walkie-Talkie corroborates current Arcadian Chronicles terms and level/Threshold-Protocol dependence, not the hidden formula. Ordinary/Cyclical consumer, Forge, replay and terminal coverage remain pending."
           },
           "weighted_curio_key": {
             "String": "divergent-universe.weighted-curio.1016"

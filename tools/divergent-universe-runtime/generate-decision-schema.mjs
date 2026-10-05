@@ -427,7 +427,7 @@ tables.push(["DuWeightedCurioTransfers", "WeightedCurioTransfers", fields([
   ["policy_note", "string"], ["replacement_condition", "string"],
   ["source_ids", "list<ref<DuDecisionSources.id>>"],
 ])]);
-enums.push(["DuCurioOverflowStatus", ["PendingNativeDeathCallbackAndBaseDamage"]]);
+enums.push(["DuCurioOverflowStatus", ["NativeProjectPolicyHitEnded"]]);
 enums.push(["DuCurioOverflowBasePolicy", ["EnemyGroupOneHpRatioProtocolHpMultiplierFloor"]]);
 tables.push(["DuWeightedCurioOverflows", "WeightedCurioOverflows", fields([
   ["weighted_curio_key", "string"], ["maze_buff_id", "string"], ["character_paths", "list<string>"],
@@ -435,11 +435,12 @@ tables.push(["DuWeightedCurioOverflows", "WeightedCurioOverflows", fields([
   ["overflow_parameter", "i32", [1, 64]], ["overflow_multiplier", "string"],
   ["attack_parameter", "i32", [1, 64]], ["attack_increase", "string"],
   ["status", "enum<DuCurioOverflowStatus>"], ["summary_en", "string"], ["summary_zh_cn", "string"],
-  ["source_semantics", "string"], ["unresolved_runtime", "string"],
+  ["source_semantics", "string"], ["runtime_policy_note", "string"],
   ["source_ids", "list<ref<DuDecisionSources.id>>"],
   ["base_fixed_damage", "string"], ["base_hard_level_group", "i32", [1, 1]],
   ["base_policy", "enum<DuCurioOverflowBasePolicy>"],
   ["base_policy_note", "string"], ["base_replacement_condition", "string"],
+  ["runtime_replacement_condition", "string"],
 ])]);
 tables.push(["DuWeightedCurioOverflowLevels", "WeightedCurioOverflowLevels", fields([
   ["weighted_curio_key", "string"], ["hard_level_group", "i32", [1, 1]],

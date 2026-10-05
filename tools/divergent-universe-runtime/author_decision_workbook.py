@@ -395,7 +395,7 @@ def main() -> None:
     for column in ["P", "Q"]:
         overflow_sheet.column_dimensions[column].width = 110
     overflow_sheet.row_dimensions[8].height = 250
-    for column in ["V", "W"]:
+    for column in ["V", "W", "X"]:
         overflow_sheet.column_dimensions[column].width = 110
     overflow_sheet.column_dimensions["U"].width = 60
     level_sheet = workbook["WeightedCurioOverflowLevels"]

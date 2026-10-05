@@ -1,4 +1,4 @@
-//! Actual ATK queries through commands; normal equipment remains pending.
+//! Explicit-constructor ATK queries through commands; normal equipment has separate probes.
 use crate::divergent_universe::{
     DivergentUniverseBaselineFixture,
     tests::{

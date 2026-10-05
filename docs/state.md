@@ -9,9 +9,9 @@ fault without default/linked-owner fallback; Scalar formulas require explicit
 conversion. Native commands cover level-based damage, maximum selection, slot
 mutation, committed summon observation, fresh canonical events and rejected
 commands. Historical selectors and automatic-primary reads are rejected;
-modifier-only readers do not provide levels. General Sora authoring and the
-Walkie-Talkie production consumer remain
-pending; no Weighted Curio or terminal execution count changes. See the
+modifier-only readers do not provide levels. General Sora authoring remains
+pending; Walkie-Talkie equipment uses the native query through its separately
+authored policy. No terminal execution credit follows. See the
 [unit-level query boundary](rule-event-observation-runtime-boundary.md#unit-level-query).
 
 Shared combat's native `MaximumValue` selector predicate retains all exact
@@ -19,15 +19,16 @@ Integer/Scalar maxima after preceding eligibility filters. Existing uniform
 choice then samples only tied maxima through registered battle RNG; no extra
 HP ordering or mode branch is introduced. Missing/invalid reads fault before
 choice, empty pools do not evaluate or draw, and unsafe historical/current-HP
-queries remain rejected. The Walkie-Talkie production battle consumer and general Sora
-predicate authoring remain pending; the Weighted Curio count stays 12/17. See
+queries remain rejected. Walkie-Talkie equipment uses the native maximum
+predicate; general Sora predicate authoring remains pending. The Weighted Curio
+count is 13/17 under explicit project policies. See
 the [selector contract](selector-and-target-set-runtime-boundary.md).
 
 The current Parallel Universe Walkie-Talkie production definition preserves
 canonical `10/1/0.8` operands and five pinned released sources, including its
 merged StageAbility program. Named callbacks establish marked highest-current-HP
-retargeting and random ties; hidden base-DMG and native callback correspondence
-remain unimplemented. Production additionally authors all 95 exact Group 1
+retargeting and random ties; exact hidden base-DMG and callback correspondence
+remain unproven. Production additionally authors all 95 exact Group 1
 HPRatios and a separate low-confidence base formula policy using fixed operand
 100 and immutable Protocol HP scaling. Its source quality is explicitly
 ProjectPolicy, with a note-bound digest rather than a false upstream blob claim.
@@ -39,7 +40,13 @@ identity changes. The separate native ATK constructor now proves entry-form
 Hunt/Erudition eligibility through the build catalog and applies 80% of base ATK
 to the original unit. Commands cover all nine Paths, transformation/restoration,
 actual linked-unit exclusion, fresh hashes and victory/concede cleanup.
-Equipment admission remains pending.
+Normal equipment now binds both contributions using immutable original-Path
+proof and Protocol input. Both-family normal materializations start successfully;
+retained-binding command probes prove 100-to-180 ATK, excluded other Paths,
+level-1 conversion `10 * 80 + 150 = 950`, singleton RNG, fresh events/hashes and
+unequipped absence of effects/conversion/draws. Assembly preserves Activity
+bytes and its debug/RNG view. Production status is `NativeProjectPolicyHitEnded`,
+with a separate note-bound ProjectPolicy source and replacement condition.
 A separate explicit death-conversion bridge now compiles
 the released multipliers into native Rule IR with a caller-bound base expression.
 Accepted commands prove multi-death aggregation at HitEnded, attacked-pool
@@ -69,12 +76,12 @@ mark/readiness cleanup are verified. Player-only lethal rescue and delayed
 deathrattle remain unverified consumers.
 Shared actor ID/selector owner projection remains unchanged; raw actor-kind
 facts are an independent conjunctive filter, not new source or Path evidence. This
-bridge is a ProjectPolicy construction API, not production equipment admission,
-an ATK buff, a decoded base formula or exact death/deathrattle parity. The actual
-workbook status remains Pending; both-family battle snapshot admission rejects
-the effect. Accepted caller-selected loadout storage remains unchanged. This
-native bridge does not change the 12/17
-Weighted Curio effect count or grant terminal execution credit. See the
+bridge itself is a ProjectPolicy construction API, not an ATK buff, a decoded
+base formula or exact death/deathrattle parity. Normal equipment assembles it
+together with the separate ATK contribution and authored base compiler.
+Accepted caller-selected loadout storage remains unchanged. The Weighted Curio
+effect count is 13/17; Forge/full-run release and terminal execution credit
+remain pending. See the
 [overflow authoring boundary](divergent-universe-weighted-curio-overflow.md).
 
 Shared combat exposes native `DamageOverflow` from committed ordinary and Break
@@ -83,8 +90,9 @@ pre-operation HP, with a zero lower bound. Nonlethal floors and later healing
 do not inflate or rewrite it; missing facts fail with a typed evaluation error.
 The pure formula and native command corpus cover guards, shields, fractional
 finalization, Break damage, fresh reconstruction and rejected commands. General
-Sora admission and the Parallel Universe Walkie-Talkie production consumer remain pending;
-the 12/17 Weighted Curio battle-effect count and terminal coverage are unchanged.
+Sora admission remains pending; Walkie-Talkie equipment consumes the native
+query through its explicitly authored policy. The Weighted Curio battle-effect
+count is 13/17; terminal coverage is unchanged.
 See the [event observation contract](rule-event-observation-runtime-boundary.md).
 
 Shared combat now supports native effect-specific shield queries and exact
@@ -1297,9 +1305,9 @@ and one executable policy-bound
 [Encouragement for You definition](divergent-universe-weighted-curio-encouragement.md)
 and one executable policy-bound
 [Dignity and Passion definition](divergent-universe-weighted-curio-transfer.md)
-and one exact-operand, native-pending
+and one executable policy-bound
 [Walkie-Talkie definition](divergent-universe-weighted-curio-overflow.md)
-across 49 tables and 534 rows. Dignity and Passion preserves the four released
+across 49 tables and 535 rows. Dignity and Passion preserves the four released
 `0.75/0.3/0.9/0.1` operands. Ordinary shield grant events grow a recipient-local
 special shield; owner turns decay only its capacity above live maximum HP's
 30% threshold, and a distinct reaction heals from the actual negative adjustment.

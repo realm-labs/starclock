@@ -12,7 +12,7 @@ fn rejects(table: &'static str, rows: Value) {
 }
 
 #[test]
-fn production_weighted_curio_overflow_preserves_exact_ratios_and_pending_admission() {
+fn production_weighted_curio_overflow_preserves_exact_ratios_and_native_policy() {
     let reference = load_divergent_universe_bundle().unwrap();
     let catalog = DecisionCatalog::production(&reference).unwrap();
     let fresh = DecisionCatalog::production(&reference).unwrap();
@@ -38,9 +38,9 @@ fn production_weighted_curio_overflow_preserves_exact_ratios_and_pending_admissi
     );
     assert_eq!(
         row.status,
-        WeightedCurioOverflowStatus::PendingNativeDeathCallbackAndBaseDamage
+        WeightedCurioOverflowStatus::NativeProjectPolicyHitEnded
     );
-    assert_eq!(row.sources.len(), 7);
+    assert_eq!(row.sources.len(), 8);
     assert_eq!(row.base.fixed_damage_millionths, 100_000_000);
     assert_eq!(row.base.hard_level_group, 1);
     assert_eq!(row.base.hp_ratios_millionths.len(), 95);
@@ -56,8 +56,15 @@ fn production_weighted_curio_overflow_preserves_exact_ratios_and_pending_admissi
     assert!(!row.base.replacement_condition.is_empty());
     assert!(row.source_semantics.contains("random ties"));
     assert!(row.source_semantics.contains("death/deathrattle"));
-    assert!(row.unresolved_runtime.starts_with("Unimplemented:"));
-    assert!(row.unresolved_runtime.contains("not established"));
+    assert!(
+        row.runtime_policy_note
+            .starts_with("VersionedProjectPolicy:")
+    );
+    assert!(
+        row.runtime_policy_note
+            .contains("No separate delayed-deathrattle replay")
+    );
+    assert!(row.runtime_replacement_condition.contains("low-confidence"));
 }
 
 #[test]
@@ -103,7 +110,12 @@ fn weighted_curio_overflow_rejects_changed_exact_fields_or_false_admission() {
         ("summary_en", json!("")),
         ("summary_zh_cn", json!("")),
         ("source_semantics", json!("")),
-        ("unresolved_runtime", json!("Exact observed parity")),
+        ("runtime_policy_note", json!("Exact observed parity")),
+        (
+            "runtime_policy_note",
+            json!("VersionedProjectPolicy: forged"),
+        ),
+        ("runtime_replacement_condition", json!("")),
         ("source_ids", json!([126, 127, 128, 129])),
         ("source_ids", json!([126, 127, 128, 129, 129])),
         ("source_ids", json!([122, 123, 124, 125, 126])),
@@ -130,7 +142,7 @@ fn weighted_curio_overflow_rejects_forged_evidence_at_each_required_source() {
             .collect::<Vec<_>>(),
     )
     .unwrap();
-    for id in 126..=132 {
+    for id in 126..=133 {
         for field in [
             "stable_key",
             "url",

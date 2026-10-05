@@ -1,8 +1,8 @@
-//! Explicit, replaceable death-conversion bridge, not production equipment admission.
+//! Replaceable native death conversion over shared battle commands and Rule IR.
 //!
 //! Embedders may use the authored base-policy compiler or supply an explicit
-//! immutable expression/digest. The normal Activity assembly must continue to
-//! reject the pending Curio until ATK and complete equipment admission exist.
+//! immutable expression/digest. Normal equipment assembly binds both the authored
+//! base/Protocol policy and original-entry-form ATK eligibility.
 
 use crate::{
     digest::CanonicalDigestBuilder,
@@ -41,6 +41,7 @@ use starclock_data::divergent_universe_decisions::weighted_curio_overflows::Weig
 
 pub mod attack_increase;
 mod base_damage;
+mod equipment;
 
 /// Fail-closed construction errors for the separately authored base policy.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -59,7 +60,7 @@ impl core::fmt::Display for OverflowBaseDamagePolicyError {
 impl std::error::Error for OverflowBaseDamagePolicyError {}
 
 /// Explicit base-DMG input for the bridge. Neither an expression nor its digest
-/// establishes source parity or admits a pending production workbook row.
+/// establishes source parity or bypasses the normal equipment handoff.
 #[derive(Clone, Debug)]
 pub struct OverflowBaseDamagePolicy {
     expression: ValueExpr,
@@ -99,8 +100,8 @@ impl OverflowBaseDamagePolicy {
 /// original Hunt/Erudition roster member, preserving existing passive bindings.
 ///
 /// This is a catalog construction API, not an Activity equipment bypass. The
-/// caller owns Path proof and the base formula; production battle admission
-/// remains fail-closed until its Sora policy is promoted. Formation must be 0..=3.
+/// caller owns Path proof and the base formula. Normal equipment assembly
+/// proves the original form's Path and lowers the authored base. Formation must be 0..=3.
 /// Admission follows the original roster identity in Present or Transformed
 /// presence, not its initial form. Linked units cannot inherit that identity.
 /// Reusing a formation collides in the catalog and rejects normal construction.
@@ -442,6 +443,9 @@ pub fn bind_death_conversion_policy(
     hash.update(definition.key.as_bytes());
     hash.update(definition.base_multiplier_millionths.to_le_bytes());
     hash.update(definition.overflow_multiplier_millionths.to_le_bytes());
+    hash.update(definition.runtime_policy_note.as_bytes());
+    hash.update([0]);
+    hash.update(definition.runtime_replacement_condition.as_bytes());
     let contribution_digest = hash.finalize();
     let source = RuleSource::new(source_id, SourceClass::Mode, vec![], contribution_digest);
     let attack = EventFilter {

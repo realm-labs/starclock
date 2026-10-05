@@ -1,4 +1,4 @@
-//! Authored policy through real commands, not production equipment admission.
+//! Authored formula boundary probes; normal equipment has separate command tests.
 use crate::divergent_universe::{
     DivergentUniverseBaselineFixture, DivergentUniverseEntry,
     contribution_snapshot::DivergentUniverseDifficultyProtocolSnapshot,

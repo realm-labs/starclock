@@ -27,6 +27,7 @@ mod weighted_curio_necrosis_fixture;
 mod weighted_curio_overflow;
 mod weighted_curio_overflow_attack;
 mod weighted_curio_overflow_base;
+mod weighted_curio_overflow_equipment;
 mod weighted_curio_overflow_fixture;
 #[path = "tests/weighted_curio_overflow_lifecycle.rs"]
 mod weighted_curio_overflow_lifecycle;

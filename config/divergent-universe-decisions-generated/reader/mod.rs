@@ -107,7 +107,7 @@ pub mod du_weighted_curio_overflows;
 pub mod du_weighted_curio_overflow_levels;
 pub type SoraMap<K, V> = std::collections::HashMap<K, V>;
 
-pub const SCHEMA_FINGERPRINT: &str = "9943783b2941c951";
+pub const SCHEMA_FINGERPRINT: &str = "006a131edf022b27";
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum SoraTableShape {

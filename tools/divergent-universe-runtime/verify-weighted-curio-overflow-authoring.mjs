@@ -21,11 +21,11 @@ for (const [field,operand,decimal] of [["base",1,"10"],["overflow",2,"1"],["atta
   assert.equal(row[`${field}_parameter`].Integer,operand);
   assert.equal(row[{base:"base_multiplier",overflow:"overflow_multiplier",attack:"attack_increase"}[field]].String,decimal);
 }
-assert.equal(row.status.String,"PendingNativeDeathCallbackAndBaseDamage");
+assert.equal(row.status.String,"NativeProjectPolicyHitEnded");
 assert.match(row.source_semantics.String,/random ties/u);
-assert.match(row.unresolved_runtime.String,/^Unimplemented:/u);
-assert.match(row.unresolved_runtime.String,/not established/u);
-assert.deepEqual(row.source_ids.List.map(value=>value.Integer),[126,127,128,129,130,131,132]);
+assert.match(row.runtime_policy_note.String,/^VersionedProjectPolicy:/u);
+assert.match(row.runtime_replacement_condition.String,/low-confidence/u);
+assert.deepEqual(row.source_ids.List.map(value=>value.Integer),[126,127,128,129,130,131,132,133]);
 assert.equal(row.base_fixed_damage.String,"100");
 assert.equal(row.base_hard_level_group.Integer,1);
 assert.equal(row.base_policy.String,"EnemyGroupOneHpRatioProtocolHpMultiplierFloor");
@@ -52,6 +52,16 @@ assert.equal(policySource.access_date.String,"2026-10-05");
 assert.equal(policySource.locator.String,"docs/divergent-universe-weighted-curio-overflow.md#base-damage-policy");
 assert.equal(policySource.note.String,row.base_policy_note.String);
 assert.equal(policySource.sha256.String,crypto.createHash("sha256").update(policySource.note.String).digest("hex"));
+const runtimeSource = rows("DuDecisionSources").find(source=>source.id.Integer===133);
+assert.equal(runtimeSource.stable_key.String,"du.source.weighted-curio-overflow.runtime-policy");
+assert.equal(runtimeSource.quality.String,"ProjectPolicy");
+assert.equal(runtimeSource.url.String,"https://gitlab.com/Dimbreath/turnbasedgamedata");
+assert.equal(runtimeSource.revision.String,revision);
+assert.equal(runtimeSource.game_version.String,"4.4");
+assert.equal(runtimeSource.access_date.String,"2026-10-05");
+assert.equal(runtimeSource.locator.String,"docs/divergent-universe-weighted-curio-overflow.md#native-equipment-policy");
+assert.equal(runtimeSource.note.String,row.runtime_policy_note.String);
+assert.equal(runtimeSource.sha256.String,crypto.createHash("sha256").update(runtimeSource.note.String).digest("hex"));
 const required = [
   [126,"hex","ExcelOutput/RogueTournHex.json","HexID=1016;","51e91a6f53ab0545330e477d806a165108f6c7e5e70ad52b02f92c1dc4d36455"],
   [127,"maze-buff","ExcelOutput/MazeBuff.json","ID=633416;","2fab98b723ee20d8798c68e200cc9c3704abc347b0983b2955cbd40b85bfeeac"],
@@ -127,7 +137,7 @@ if (process.argv.includes("--check-source")) {
   }
   // Do not interpret unknown task types, opcode bytes or hash operands here.
 }
-console.log("Walkie-Talkie exact operands, all 95 released HPRatios, separately labeled base policy and pending admission verified; no battle-execution claim.");
+console.log("Walkie-Talkie exact operands, all 95 released HPRatios and separately labeled base/native policies verified; native Cargo owns execution proof.");
 
 function objects(value) {
   if (Array.isArray(value)) return value.flatMap(objects);

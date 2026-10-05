@@ -3,13 +3,13 @@
 #[repr(u32)]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, serde::Serialize, serde::Deserialize)]
 pub enum DuCurioOverflowStatus {
-    PendingNativeDeathCallbackAndBaseDamage = 0,
+    NativeProjectPolicyHitEnded = 0,
 }
 
 impl super::runtime::SoraDecode for DuCurioOverflowStatus {
     fn decode(reader: &mut super::runtime::SoraReader<'_>) -> Result<Self, super::runtime::SoraReadError> {
         match reader.read_var_u32()? {
-            0 => Ok(Self::PendingNativeDeathCallbackAndBaseDamage),
+            0 => Ok(Self::NativeProjectPolicyHitEnded),
             value => Err(super::runtime::SoraReadError::new(format!("invalid enum id {} for DuCurioOverflowStatus", value))),
         }
     }

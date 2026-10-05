@@ -154,7 +154,7 @@ name = "DuCurioTransferPolicy"
 values = [{ id = 0, name = "OtherShieldAppliedOwnerTurnExcessDecay" }]
 [[enums]]
 name = "DuCurioOverflowStatus"
-values = [{ id = 0, name = "PendingNativeDeathCallbackAndBaseDamage" }]
+values = [{ id = 0, name = "NativeProjectPolicyHitEnded" }]
 [[enums]]
 name = "DuCurioOverflowBasePolicy"
 values = [{ id = 0, name = "EnemyGroupOneHpRatioProtocolHpMultiplierFloor" }]
@@ -3109,7 +3109,7 @@ name = "source_semantics"
 type = "string"
 length = [1, 4000]
 [[tables.fields]]
-name = "unresolved_runtime"
+name = "runtime_policy_note"
 type = "string"
 length = [1, 4000]
 [[tables.fields]]
@@ -3133,6 +3133,10 @@ type = "string"
 length = [1, 4000]
 [[tables.fields]]
 name = "base_replacement_condition"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "runtime_replacement_condition"
 type = "string"
 length = [1, 4000]
 [[tables.indexes]]

@@ -1,4 +1,4 @@
-//! Released Walkie-Talkie operands; native death and base-damage admission is pending.
+//! Released Walkie-Talkie operands with separately authored native policies.
 use crate::{
     catalog::parse_decimal,
     divergent_universe::DivergentUniverseBundleCandidate,
@@ -31,13 +31,14 @@ pub struct WeightedCurioOverflowBaseDefinition {
     pub replacement_condition: Box<str>,
 }
 
-/// Incomplete native admission, not a terminal execution or parity disposition.
+/// Native equipment policy, not an observed-parity or complete-run disposition.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum WeightedCurioOverflowStatus {
-    PendingNativeDeathCallbackAndBaseDamage,
+    NativeProjectPolicyHitEnded,
 }
 
-/// Exact ratios and source facts do not establish an executable battle effect.
+/// Exact ratios plus replaceable timing/ownership policy. Loading alone does
+/// not execute the effect; the normal immutable battle assembly owns binding.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WeightedCurioOverflowDefinition {
     pub key: Box<str>,
@@ -51,7 +52,8 @@ pub struct WeightedCurioOverflowDefinition {
     pub summary_en: Box<str>,
     pub summary_zh_cn: Box<str>,
     pub source_semantics: Box<str>,
-    pub unresolved_runtime: Box<str>,
+    pub runtime_policy_note: Box<str>,
+    pub runtime_replacement_condition: Box<str>,
     pub sources: Box<[Box<str>]>,
 }
 
@@ -109,16 +111,19 @@ pub(super) fn compile(
         &row.summary_en,
         &row.summary_zh_cn,
         &row.source_semantics,
-        &row.unresolved_runtime,
+        &row.runtime_policy_note,
+        &row.runtime_replacement_condition,
     ]
     .iter()
     .any(|value| value.trim().is_empty())
-        || !row.unresolved_runtime.starts_with("Unimplemented:")
+        || !row
+            .runtime_policy_note
+            .starts_with("VersionedProjectPolicy:")
     {
         return Err(DecisionDataError::InvalidPolicy);
     }
     let sources = source_keys(config, &row.source_ids)?;
-    if sources.len() != 7 {
+    if sources.len() != 8 {
         return Err(DecisionDataError::InvalidProvenance);
     }
     for (suffix, prefix, locator, digest) in [
@@ -170,6 +175,7 @@ pub(super) fn compile(
             return Err(DecisionDataError::InvalidProvenance);
         }
     }
+    validate_runtime_policy_source(config, row)?;
     Ok(vec![WeightedCurioOverflowDefinition {
         key: key(&row.stable_key)?,
         weighted_curio: curio.id.clone(),
@@ -179,17 +185,47 @@ pub(super) fn compile(
         attack_increase_millionths,
         base: compile_base(config, row)?,
         status: match row.status {
-            DuCurioOverflowStatus::PendingNativeDeathCallbackAndBaseDamage => {
-                WeightedCurioOverflowStatus::PendingNativeDeathCallbackAndBaseDamage
+            DuCurioOverflowStatus::NativeProjectPolicyHitEnded => {
+                WeightedCurioOverflowStatus::NativeProjectPolicyHitEnded
             }
         },
         summary_en: row.summary_en.clone().into(),
         summary_zh_cn: row.summary_zh_cn.clone().into(),
         source_semantics: row.source_semantics.clone().into(),
-        unresolved_runtime: row.unresolved_runtime.clone().into(),
+        runtime_policy_note: row.runtime_policy_note.clone().into(),
+        runtime_replacement_condition: row.runtime_replacement_condition.clone().into(),
         sources,
     }]
     .into_boxed_slice())
+}
+
+fn validate_runtime_policy_source(
+    config: &SoraConfig,
+    row: &DuWeightedCurioOverflows,
+) -> Result<(), DecisionDataError> {
+    let source = config
+        .du_decision_sources()
+        .get(&133)
+        .ok_or(DecisionDataError::InvalidProvenance)?;
+    let digest = Sha256::digest(row.runtime_policy_note.as_bytes())
+        .iter()
+        .map(|byte| format!("{byte:02x}"))
+        .collect::<String>();
+    if !row.source_ids.contains(&133)
+        || source.stable_key != "du.source.weighted-curio-overflow.runtime-policy"
+        || source.quality != DuDecisionEvidence::ProjectPolicy
+        || source.url != "https://gitlab.com/Dimbreath/turnbasedgamedata"
+        || source.revision != "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+        || source.game_version != "4.4"
+        || source.access_date != "2026-10-05"
+        || source.locator
+            != "docs/divergent-universe-weighted-curio-overflow.md#native-equipment-policy"
+        || source.sha256 != digest
+        || source.note != row.runtime_policy_note
+    {
+        return Err(DecisionDataError::InvalidProvenance);
+    }
+    Ok(())
 }
 
 fn compile_base(

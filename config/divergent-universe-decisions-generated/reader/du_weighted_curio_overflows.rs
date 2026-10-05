@@ -35,8 +35,8 @@ pub struct DuWeightedCurioOverflows {
     pub summary_zh_cn: String,
     #[serde(rename = "source_semantics")]
     pub source_semantics: String,
-    #[serde(rename = "unresolved_runtime")]
-    pub unresolved_runtime: String,
+    #[serde(rename = "runtime_policy_note")]
+    pub runtime_policy_note: String,
     #[serde(rename = "source_ids")]
     pub source_ids: Vec<i32>,
     #[serde(rename = "base_fixed_damage")]
@@ -49,6 +49,8 @@ pub struct DuWeightedCurioOverflows {
     pub base_policy_note: String,
     #[serde(rename = "base_replacement_condition")]
     pub base_replacement_condition: String,
+    #[serde(rename = "runtime_replacement_condition")]
+    pub runtime_replacement_condition: String,
 }
 
 impl super::runtime::SoraDecode for DuWeightedCurioOverflows {
@@ -69,13 +71,14 @@ impl super::runtime::SoraDecode for DuWeightedCurioOverflows {
             summary_en: <String as super::runtime::SoraDecode>::decode(reader)?,
             summary_zh_cn: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_semantics: <String as super::runtime::SoraDecode>::decode(reader)?,
-            unresolved_runtime: <String as super::runtime::SoraDecode>::decode(reader)?,
+            runtime_policy_note: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_ids: { let len = reader.read_var_u32()? as usize; let mut values = Vec::with_capacity(len); for _ in 0..len { values.push(<i32 as super::runtime::SoraDecode>::decode(reader)?); } values },
             base_fixed_damage: <String as super::runtime::SoraDecode>::decode(reader)?,
             base_hard_level_group: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             base_policy: <DuCurioOverflowBasePolicy as super::runtime::SoraDecode>::decode(reader)?,
             base_policy_note: <String as super::runtime::SoraDecode>::decode(reader)?,
             base_replacement_condition: <String as super::runtime::SoraDecode>::decode(reader)?,
+            runtime_replacement_condition: <String as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

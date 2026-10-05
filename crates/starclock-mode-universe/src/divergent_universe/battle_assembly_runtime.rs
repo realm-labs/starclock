@@ -328,6 +328,14 @@ impl DivergentUniverseBattleAssemblyRuntime {
             &enemy_participants,
             assembly_digest,
         )?;
+        flow.weighted_curio.assemble_overflows(
+            &mut builder,
+            contribution.weighted_curios(),
+            core,
+            &mut participants,
+            contribution.difficulty_protocol(),
+            assembly_digest,
+        )?;
         let player_resources = player_resources(&flow.battle_team_resources, core, &participants)?;
         participants.extend(enemy_participants);
         builder.add_encounter(definition);

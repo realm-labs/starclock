@@ -4489,6 +4489,40 @@
             "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
           }
         }
+      },
+      {
+        "values": {
+          "access_date": {
+            "String": "2026-10-05"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 133
+          },
+          "locator": {
+            "String": "docs/divergent-universe-weighted-curio-overflow.md#native-equipment-policy"
+          },
+          "note": {
+            "String": "VersionedProjectPolicy: original entry-form Hunt/Erudition only. BattleStarted/AfterEvent grants 80% base ATK, permanent, non-dispellable and unique per source. Original actor/applier Ability attacks collect positive post-shield excess only from defeated marked enemies, confirmed by UnitDefeated. HitEnded converts once to a living marked current-HP maximum; damage-target uniformly samples ties and draws once for a singleton, zero for empty/unready pools. Capture total, reset, then emit 10*authored base+overflow TrueDamage. Mode kills cannot recollect. ActionResolved/WaveEnded/Won/Lost clear. Nested starts reset owner-local state; resumed hits reopen. Linked/countdown actors are excluded. No separate delayed-deathrattle replay."
+          },
+          "quality": {
+            "String": "ProjectPolicy"
+          },
+          "revision": {
+            "String": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+          },
+          "sha256": {
+            "String": "59232d8757967cde076c43e6df41353919c2e44b5e87b34183d7c455453fcb9f"
+          },
+          "stable_key": {
+            "String": "du.source.weighted-curio-overflow.runtime-policy"
+          },
+          "url": {
+            "String": "https://gitlab.com/Dimbreath/turnbasedgamedata"
+          }
+        }
       }
     ]
   }

@@ -3,7 +3,7 @@
   "project_id": "starclock_divergent_universe_decisions",
   "contract_id": "starclock_divergent_universe_decisions/default",
   "view": "default",
-  "fingerprint": "9943783b2941c951",
+  "fingerprint": "006a131edf022b27",
   "schema": {
     "project_id": "starclock_divergent_universe_decisions",
     "contract_id": "starclock_divergent_universe_decisions/default",
@@ -869,7 +869,7 @@
         "values": [
           {
             "id": 0,
-            "name": "PendingNativeDeathCallbackAndBaseDamage"
+            "name": "NativeProjectPolicyHitEnded"
           }
         ]
       },
@@ -14223,7 +14223,7 @@
             "derived_from": null
           },
           {
-            "name": "unresolved_runtime",
+            "name": "runtime_policy_note",
             "ty": "String",
             "groups": {
               "values": [
@@ -14346,6 +14346,25 @@
           },
           {
             "name": "base_replacement_condition",
+            "ty": "String",
+            "groups": {
+              "values": [
+                "common"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4000
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "runtime_replacement_condition",
             "ty": "String",
             "groups": {
               "values": [

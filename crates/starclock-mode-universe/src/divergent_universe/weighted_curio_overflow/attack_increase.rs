@@ -48,7 +48,7 @@ use starclock_data::{
 /// explicitly removed at BattleWon/Lost. Owned linked units cannot receive it,
 /// even when they inherit bundles, sources, form and formation. Borrowing the
 /// original unit's actual ATK still follows the shared stat-query contract.
-/// This explicit construction API does not admit pending Activity equipment.
+/// This explicit construction API cannot bypass the normal Activity loadout.
 /// On any construction error discard the builder; definitions may be appended
 /// before passive validation fails. No live battle or Activity is mutated.
 pub fn bind_attack_increase_policy(
@@ -206,6 +206,8 @@ pub fn bind_attack_increase_policy(
     digest.digest(assembly_digest);
     digest.text(&definition.key);
     digest.i64(definition.attack_increase_millionths);
+    digest.text(&definition.runtime_policy_note);
+    digest.text(&definition.runtime_replacement_condition);
     digest.digest(
         core.build_catalog()
             .character_digest(player.combatant().form())
@@ -268,7 +270,13 @@ fn select(
         0,
         maximum,
         RuleEmptyPoolPolicy::NoOp,
-        RuleSelectorChoice::All,
+        // Owner must anchor the original unit before any cardinality limit.
+        // All would enumerate the team and truncate to formation zero first.
+        if origin == RuleSelectorOrigin::Owner {
+            RuleSelectorChoice::First
+        } else {
+            RuleSelectorChoice::All
+        },
         None,
         false,
     )
