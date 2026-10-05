@@ -1,6 +1,8 @@
 //! Flow/controller equipment choices reach real immutable battle consumers.
 #[path = "weighted_curio_room_profile_fixture.rs"]
 mod fixture;
+#[path = "weighted_curio_room_replay.rs"]
+mod replay;
 
 use crate::baseline_controller::{
     ActivityBaselineHints, ActivityOptionHint, ActivityScoreComponents,

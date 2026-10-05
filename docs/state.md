@@ -18,9 +18,22 @@ Deflagration carries into an immutable contribution and applies real Burn in
 the next actual Boss proxy execution. All 17 remain selectable and both
 unsupported effects fail later controller battle construction atomically. This
 is explicit menu/controller policy, not original Forge slot-level selection,
-automatic admission, encoded equipment replay, default full-position gameplay
+automatic admission, automatic replay reconstruction, default full-position gameplay
 or complete-run release credit. Terminal coverage is unchanged.
 See [the authenticated equipment service](divergent-universe-weighted-curio-loadout.md#authenticated-source-position-equipment-service).
+
+Caller-rebuilt bound position profiles now seal and verify encoded equipment
+commands through the same current replay envelope and reconstruction engine.
+The Controller component binds canonical hints/all five integer score components,
+fallback encounter group/stage and step budget; current graph/profile/source
+identities remain exact. Four replay tests cover both families, toggle/clear,
+64 changes, real Burn events and three actual Boss proxies, fresh current bytes
+and first semantic corruption boundaries. A hint identity golden covers key/order
+and every component. The default verifier still rejects non-default position
+identities. Automatic production position-recipe reconstruction, default/adapter
+integration and genuine complete-run release remain pending; controlled other
+room probes grant no terminal coverage. See
+[the bound-profile replay boundary](divergent-universe-weighted-curio-loadout.md#bound-profile-encoded-replay).
 
 Most Raucous now has a production-authored Deflagration operand row, all 95
 canonical Group 1 HPRatio rows and eight exact/policy provenance records.

@@ -15,6 +15,7 @@ use crate::{
         ActivityBaselineController, ActivityBaselineDecision, ActivityBaselineHints,
         ActivityDecisionError,
     },
+    digest::Encoder,
     nested_battle_executor::NestedBattleExecutionReport,
 };
 
@@ -38,6 +39,15 @@ pub struct DivergentUniverseBaselinePolicy {
 }
 
 impl DivergentUniverseBaselinePolicy {
+    pub(super) fn configuration_digest(&self) -> [u8; 32] {
+        let mut encoder = Encoder::new(b"starclock.du.baseline-policy.current");
+        encoder.digest(self.hints.configuration_digest());
+        encoder.text(self.encounter_group.as_str());
+        encoder.text(&self.encounter_stage);
+        encoder.u32(self.max_steps);
+        encoder.finish()
+    }
+
     pub fn new(
         hints: ActivityBaselineHints,
         encounter_group: DivergentUniverseEncounterGroupId,

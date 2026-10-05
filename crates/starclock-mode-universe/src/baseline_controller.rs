@@ -1,5 +1,6 @@
 //! Deterministic baseline scoring over generic Activity option views.
 
+use crate::digest::Encoder;
 use starclock_activity::{
     ActivityDecisionId, ActivityDecisionKind, ActivityDecisionView, ActivityOptionId,
     ActivityPreparationOptionKind, ActivityPreparationView,
@@ -78,6 +79,25 @@ pub struct ActivityBaselineHints {
 }
 
 impl ActivityBaselineHints {
+    pub(crate) fn configuration_digest(&self) -> [u8; 32] {
+        let mut encoder = Encoder::new(b"starclock.activity-baseline-hints.current");
+        // Canonical sorted keys and fixed-width components make row boundaries
+        // unambiguous; no platform-sized collection length enters the digest.
+        for hint in &self.options {
+            encoder.u64(hint.option.get());
+            for value in [
+                hint.components.progress,
+                hint.components.survival,
+                hint.components.resources,
+                hint.components.synergy,
+                hint.components.risk,
+            ] {
+                encoder.i64(i64::from(value));
+            }
+        }
+        encoder.finish()
+    }
+
     pub fn new(mut options: Vec<ActivityOptionHint>) -> Result<Self, ActivityHintError> {
         options.sort_by_key(|hint| hint.option);
         if options
@@ -344,6 +364,59 @@ mod tests {
             )
             .unwrap_err(),
             ActivityDecisionError::DuplicateOffer
+        );
+    }
+
+    #[test]
+    fn hint_configuration_digest_is_canonical_and_binds_every_component() {
+        let values = [1, 2, 3, 4, 5];
+        let hint = |key, components: [i32; 5]| {
+            ActivityOptionHint::new(
+                option(key),
+                ActivityScoreComponents::new(
+                    components[0],
+                    components[1],
+                    components[2],
+                    components[3],
+                    components[4],
+                )
+                .unwrap(),
+            )
+        };
+        let base = ActivityBaselineHints::new(vec![hint(2, values)]).unwrap();
+        let hex = base
+            .configuration_digest()
+            .iter()
+            .map(|byte| format!("{byte:02x}"))
+            .collect::<String>();
+        assert_eq!(
+            hex,
+            "bf42479a86b2aed18c419a1081d01699fb912cb91135c383725499c817381726"
+        );
+        for index in 0..5 {
+            let mut changed = values;
+            changed[index] += 1;
+            assert_ne!(
+                base.configuration_digest(),
+                ActivityBaselineHints::new(vec![hint(2, changed)])
+                    .unwrap()
+                    .configuration_digest()
+            );
+        }
+        assert_ne!(
+            base.configuration_digest(),
+            ActivityBaselineHints::new(vec![hint(3, values)])
+                .unwrap()
+                .configuration_digest()
+        );
+        let other = hint(3, [0; 5]);
+        assert_eq!(
+            ActivityBaselineHints::new(vec![hint(2, values), other])
+                .unwrap()
+                .configuration_digest(),
+            ActivityBaselineHints::new(vec![other, hint(2, values)])
+                .unwrap()
+                .configuration_digest()
         );
     }
 }

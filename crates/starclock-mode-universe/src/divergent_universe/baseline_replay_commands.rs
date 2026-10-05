@@ -4,22 +4,27 @@ use starclock_activity::{
     ActivityDecisionId, ActivityInstanceId, ActivityMasterSeed, ActivityOptionId,
     MAX_ACTIVITY_OPTIONS,
 };
-use starclock_replay::{format::DecodedReplay, record::RecordKind};
+use starclock_replay::{
+    component::ConfigurationComponentSet, format::DecodedReplay, record::RecordKind,
+};
 
 use super::{
     DivergentUniverseRecordedRun, DivergentUniverseReplayDivergenceKind,
     DivergentUniverseReplayError, decision_kind, divergence, record_divergence_kind,
-    record_divergent_universe_transcript, replay_payloads,
+    replay_payloads, seal_transcript,
 };
 use crate::divergent_universe::{
-    DivergentUniverseBaselineFixture, DivergentUniverseBaselineRunner,
-    DivergentUniverseFlowInstance, DivergentUniverseOfferedSelection,
+    DivergentUniverseBaselineFixture, DivergentUniverseBaselinePolicy,
+    DivergentUniverseBaselineRunner, DivergentUniverseFlowInstance,
+    DivergentUniverseOfferedSelection,
 };
 
 pub(super) fn reconstruct(
     decoded: &DecodedReplay<'_>,
     fixture: &DivergentUniverseBaselineFixture,
     flow: &DivergentUniverseFlowInstance,
+    policy: &DivergentUniverseBaselinePolicy,
+    components: ConfigurationComponentSet,
 ) -> Result<DivergentUniverseRecordedRun, DivergentUniverseReplayError> {
     let seed = decoded.header().master_seed();
     let mut activity = flow
@@ -29,9 +34,6 @@ pub(super) fn reconstruct(
         )
         .map_err(|_| DivergentUniverseReplayError::ActivityStart)?
         .into_activity();
-    let policy = fixture
-        .policy()
-        .map_err(DivergentUniverseReplayError::Fixture)?;
     let mut steps = Vec::new();
     let initial = decoded
         .records()
@@ -84,7 +86,7 @@ pub(super) fn reconstruct(
                 flow,
                 &mut activity,
                 fixture.core(),
-                &policy,
+                policy,
                 DivergentUniverseOfferedSelection::new(decision, option),
             )
             .map_err(|_| invalid())?;
@@ -112,7 +114,7 @@ pub(super) fn reconstruct(
             u32::try_from(cursor).map_err(|_| DivergentUniverseReplayError::TooManyRecords)?,
         ));
     }
-    record_divergent_universe_transcript(fixture, flow, &activity, seed, steps)
+    seal_transcript(flow, &activity, seed, steps, components)
 }
 
 fn parse_selection(payload: &[u8]) -> Option<(u8, ActivityDecisionId, ActivityOptionId)> {

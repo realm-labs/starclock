@@ -1,6 +1,8 @@
 //! Canonical replay envelope for deterministic complete baseline runs.
 
-use starclock_activity::{ActivityInstanceId, ActivityMasterSeed, ActivityTerminalOutcome};
+use starclock_activity::{
+    ActivityInstanceId, ActivityMasterSeed, ActivityTerminalOutcome, GraphActivity,
+};
 use starclock_data::divergent_universe_catalog::DivergentUniverseRunFamily;
 use starclock_replay::{
     component::{
@@ -8,7 +10,9 @@ use starclock_replay::{
     },
     digest::{DefinitionDigest, EntrySpecDigest, StateDigest},
     entry::ReplayEntry,
-    format::{ReplayEnvironment, ReplayError, ReplayHeader, decode_replay, encode_replay},
+    format::{
+        DecodedReplay, ReplayEnvironment, ReplayError, ReplayHeader, decode_replay, encode_replay,
+    },
     nested_battle::{
         NestedBattleCommandPayload, NestedBattlePayloadError, encode_nested_battle_command_payload,
         encode_nested_battle_state_payload,
@@ -19,10 +23,13 @@ use starclock_replay::{
 use super::baseline_runtime::completed_report;
 use super::{
     DivergentUniverseBaselineError, DivergentUniverseBaselineFixture,
-    DivergentUniverseBaselineFixtureError, DivergentUniverseBaselineReport,
-    DivergentUniverseBaselineRunner, DivergentUniverseBaselineStep,
+    DivergentUniverseBaselineFixtureError, DivergentUniverseBaselinePolicy,
+    DivergentUniverseBaselineReport, DivergentUniverseBaselineRunner,
+    DivergentUniverseBaselineStep, DivergentUniverseFlowInstance,
 };
 
+#[path = "baseline_replay_bound.rs"]
+mod bound;
 #[path = "baseline_replay_commands.rs"]
 mod commands;
 #[path = "baseline_replay_entry.rs"]
@@ -200,15 +207,25 @@ fn record_flow(
 /// component and replay identity as the deterministic baseline runner.
 pub fn record_divergent_universe_transcript(
     fixture: &DivergentUniverseBaselineFixture,
-    flow: &super::DivergentUniverseFlowInstance,
-    activity: &starclock_activity::GraphActivity,
+    flow: &DivergentUniverseFlowInstance,
+    activity: &GraphActivity,
     seed: u64,
     steps: Vec<DivergentUniverseBaselineStep>,
 ) -> Result<DivergentUniverseRecordedRun, DivergentUniverseReplayError> {
-    let identity = flow.definition().identity();
     let components = fixture
         .components(flow)
         .map_err(DivergentUniverseReplayError::Fixture)?;
+    seal_transcript(flow, activity, seed, steps, components)
+}
+
+fn seal_transcript(
+    flow: &DivergentUniverseFlowInstance,
+    activity: &GraphActivity,
+    seed: u64,
+    steps: Vec<DivergentUniverseBaselineStep>,
+    components: ConfigurationComponentSet,
+) -> Result<DivergentUniverseRecordedRun, DivergentUniverseReplayError> {
+    let identity = flow.definition().identity();
     let report =
         completed_report(flow, activity, steps).map_err(DivergentUniverseReplayError::Baseline)?;
     Ok(DivergentUniverseRecordedRun {
@@ -326,20 +343,40 @@ pub fn verify_divergent_universe_selected_replay(
     let components = fixture
         .components(&flow)
         .map_err(DivergentUniverseReplayError::Fixture)?;
+    let policy = fixture
+        .policy()
+        .map_err(DivergentUniverseReplayError::Fixture)?;
+    verify_flow(&decoded, fixture, &flow, &policy, components)
+}
+
+fn verify_flow(
+    decoded: &DecodedReplay<'_>,
+    fixture: &DivergentUniverseBaselineFixture,
+    flow: &DivergentUniverseFlowInstance,
+    policy: &DivergentUniverseBaselinePolicy,
+    components: ConfigurationComponentSet,
+) -> Result<DivergentUniverseReplayReport, DivergentUniverseReplayError> {
     decoded
         .header()
         .components()
         .verify_exact(&components)
         .map_err(component_divergence)?;
-    validate_entry(decoded.header().entry(), &flow)?;
-    let actual = commands::reconstruct(&decoded, fixture, &flow)?;
+    validate_entry(decoded.header().entry(), flow)?;
+    let inputs = EntryInputs::decode(decoded)?;
+    if inputs != EntryInputs::from_flow(flow) {
+        return Err(divergence(
+            DivergentUniverseReplayDivergenceKind::ActivityCommand,
+            0,
+        ));
+    }
+    let actual = commands::reconstruct(decoded, fixture, flow, policy, components)?;
     let reconstructed = encode_divergent_universe_replay(&actual)?;
     compare_records(
-        &decoded,
+        decoded,
         &decode_replay(&reconstructed).map_err(DivergentUniverseReplayError::Replay)?,
     )?;
     Ok(DivergentUniverseReplayReport {
-        run_family: family,
+        run_family: flow.run_family(),
         tawot_forge_level: inputs.tawot,
         action_count: u32::try_from(actual.action_count())
             .map_err(|_| DivergentUniverseReplayError::TooManyRecords)?,

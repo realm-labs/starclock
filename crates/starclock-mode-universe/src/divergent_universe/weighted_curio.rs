@@ -189,6 +189,14 @@ impl DivergentUniverseRuntimeFactory {
 }
 
 impl WeightedCurioRuntime {
+    pub(in crate::divergent_universe) fn matches_factory(
+        &self,
+        factory: &DivergentUniverseRuntimeFactory,
+    ) -> bool {
+        self.component == factory.bundle_identity().component_digest().bytes()
+            && self.decision_digest == factory.decision_catalog().digest()
+    }
+
     #[must_use]
     pub fn candidates(&self) -> &[DivergentUniverseWeightedCurioId] {
         &self.ids

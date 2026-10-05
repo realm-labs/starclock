@@ -91,7 +91,8 @@ bounds, canonical order, fresh command reconstruction, rejected requests and
 dirty-state rejection in both families. The normal proxy battle after unequip
 does not establish a Weighted Curio effect. Separate actual attack probes verify
 the lowered splash; they are not Forge admission or a complete public-run gate.
-Automatic Forge offers, slot-level admission, domain enhancement, the other two effects and encoded equipment-command replay remain
+Automatic Forge offers, slot-level admission, domain enhancement, the other two
+effects and automatic source-position replay reconstruction remain
 unimplemented. No source obligation, mechanic program or semantic family is
 terminalized; genuine Grand Miracle acceptance remains separate and incomplete.
 
@@ -149,8 +150,8 @@ canonical order, clear, independent Leave, all nine decks' Reforge construction,
 raw/stale/foreign/hidden/dirty rejections, exact budget exhaustion, next-entry
 rollback, hostile definitions, no RNG and fresh event/state reconstruction in
 both families. Other room payloads are isolated out: these tests do not complete
-an original run or terminalize source obligations. Encoded equipment-command
-replay, automatic Forge admission, domain enhancement,
+an original run or terminalize source obligations. Automatic source-position
+replay reconstruction, automatic Forge admission, domain enhancement,
 divination and the two remaining effects are separate requirements.
 
 ## Source-position flow and controller dispatch
@@ -188,5 +189,39 @@ through untouched production assembly and controller battle execution. All 17
 menu identities remain selectable; both unsupported effects still fail the
 controller's battle construction atomically. The other room payloads remain
 explicit probes, and the Boss combat is a calibrated proxy. No original complete
-run, default Forge placement, encoded equipment replay or terminal source
+run, default Forge placement, automatic replay reconstruction or terminal source
 coverage is claimed by these tests.
+
+## Bound-profile encoded replay
+
+The existing Flow's `record_bound_transcript` seals a terminal caller-driven
+position transcript in the same current replay envelope. `verify_bound_replay`
+requires the caller to independently rebuild and bind the exact trusted current
+profile and supply its immutable controller policy. It creates a fresh Activity,
+reapplies the actually offered commands and executes real nested battles; it
+does not deserialize a graph, trust equipment prefix operations or resubmit
+recorded battle outcomes. Sealing alone is not verification.
+
+The Controller component binds the canonical scored-hint keys and all five
+integer components, fallback encounter group/stage, and explicit step budget.
+Other components retain exact current build/combat/source, graph and profile
+identities. Changed capacity, deck, family or policy rejects before command
+execution. Full current entry inputs must match the trusted flow. Foreign
+source/decision inputs and foreign whole Activity definitions reject sealing.
+The existing default-entry verifier still reconstructs only its default topology
+and rejects these custom position identities rather than silently substituting
+another graph. No old-format decoder or parallel replay executor is introduced.
+
+Four native replay tests cover Ordinary/Cyclical current-byte reconstruction,
+sampled equipment admission, toggle/clear/re-equip, exact 64-change exhaustion and
+independent Leave, three actual Boss proxy battles, actual Deflagration Burn
+events, and first command/embedded-score/Activity-state/battle-event divergence.
+Tampered record envelopes are re-encoded with valid transport integrity so these
+are semantic checks, not merely checksum failures. A separate canonical hint
+digest golden binds all five components and stable key/order rules.
+
+This is executable encoded replay for a caller-rebuilt bound profile. An owned
+production position recipe that automatically reconstructs every service from
+replay entry data, adapter/default integration and complete original runs remain
+required. Other room payloads in these controlled tests are still explicit probes;
+they grant no source/mechanic terminal credit or complete-run release credit.

@@ -28,6 +28,9 @@ assert(artifact.current_boundary.weighted_curio_accepted_loadout_boundary
   && artifact.current_boundary.weighted_curio_equipment_service_change_limit === 64
   && artifact.current_boundary.weighted_curio_equipment_service_flow_controller_bound
   && !artifact.current_boundary.weighted_curio_equipment_service_encoded_replay_implemented
+  && artifact.current_boundary.weighted_curio_equipment_service_bound_profile_encoded_replay
+  && artifact.current_boundary.position_bound_profile_replay_policy_identity
+  && !artifact.current_boundary.position_profile_automatic_replay_reconstruction
   && artifact.current_boundary.weighted_curio_transfer_operands_authored
   && artifact.current_boundary.weighted_curio_transfer_battle_effect_implemented
   && artifact.current_boundary.weighted_curio_encouragement_operands_authored
