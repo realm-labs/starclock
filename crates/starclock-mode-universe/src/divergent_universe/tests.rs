@@ -24,6 +24,8 @@ mod weighted_curio_excitation;
 mod weighted_curio_excitation_fixture;
 mod weighted_curio_necrosis;
 mod weighted_curio_necrosis_fixture;
+mod weighted_curio_overflow;
+mod weighted_curio_overflow_fixture;
 mod weighted_curio_prayer;
 mod weighted_curio_retaliation;
 mod weighted_curio_shield;

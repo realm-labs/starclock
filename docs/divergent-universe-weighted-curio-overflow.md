@@ -41,13 +41,86 @@ provide the hidden numeric formula or establish callback timing.
 
 ## Remaining native contract
 
+### Executable death-conversion bridge
+
+`weighted_curio_overflow::bind_death_conversion_policy` is an explicit catalog
+construction API. It takes a production-lowered definition, one caller-proven
+eligible original roster member and an immutable base-DMG expression/identity.
+The normal Activity battle assembly path does **not** call it or admit the
+pending effect. Existing caller-selected loadout storage may retain the identity;
+the battle snapshot rejects it. It does not implement the ATK modifier or select a production
+HPRatio/difficulty formula. Caller-provided expressions are not factual evidence.
+
+The bridge uses a replaceable `ProjectPolicy` for callback correspondence:
+
+- Only original actor/applier `SourceClass::Ability` attacks collect. One private
+  rule instance, private target mark and NeutralState readiness effect per roster formation prevent another
+  original or an inherited form from sharing its accumulator or target pool.
+- ActionStarted clears accumulated overflow, death confirmation and old marks.
+  HitStarted marks the committed opposing living targets and enables observation.
+  Marks persist across hits until conversion or ActionResolved.
+- DamageApplied adds the immutable exact `DamageOverflow` for a currently
+  defeated marked target. A separate eligible UnitDefeated event with positive
+  accumulated overflow confirms death and makes living attacked targets ready.
+  Readiness is a NeutralState effect, not an extra gameplay mark or debuff.
+  Current lifecycle state is an explicit policy read, not a historical snapshot.
+- HitEnded performs one conversion after all settlements. Only living,
+  present, attacked **and ready** enemies enter the current-HP maximum pool.
+  All equal maxima remain eligible; registered `damage-target` uniform RNG picks
+  one. A singleton draws once; an empty/unready pool draws zero times.
+- The entire program reads one immutable snapshot. Ordered SetSlot emissions
+  reset the accumulator/death flag before the captured old value becomes
+  `10 * caller_base + 1 * total_overflow` TrueDamage. Mark and readiness are then removed,
+  including when no living target remains. Converted kills keep native owner,
+  actor, applier and action ancestry but their Mode source cannot recollect.
+- ActionResolved, WaveEnded, BattleWon and BattleLost clear marks, readiness and slots.
+  A nested same-owner attack start resets actor-local state; its end clears it;
+  an outer resumed HitStarted enables observation again. This is not a new
+  action stack or proven source reentrant/deathrattle semantics.
+
+Readiness is mechanically necessary: shared dispatch eagerly resolves declared
+program selectors before trigger conditions. Referencing a random selector in
+every program or relying only on a false condition would consume unrelated
+draws. Each program declares only its actual selectors/filter dependencies;
+the conversion selector also requires readiness before choosing.
+
+The selected policy uses existing shared events, operations, scopes, checked
+arithmetic and budgets. Alternatives were immediate conversion at the first
+death (which misses later settlements in the same operation), end-of-attack
+only conversion (which delays every conversion), or a separate callback/state
+machine (which violates shared ownership). Confidence in **source parity is
+low**; confidence in the specified bridge behavior comes from native commands.
+Replace callback timing, reentrancy, marked-target lifetime and attribution
+individually when released typed semantics or reproducible observations establish
+them. Phase transitions, lethal rescue, genuine linked actors, delayed
+deathrattle and nested queued attacks still need consumer-specific fixtures;
+they are not credited by ordinary hit tests or the inherited-form fixture.
+
+Eight native tests load the actual Sora definition and use a clearly labeled
+fixture-only base `selected_enemy_level * explicit_factor`, not a production
+formula. They verify multiple deaths before one conversion, a higher-HP
+unattacked enemy remaining untouched, all-tie/empty/unready pools, singleton and
+tie draw counts, shields and ShieldOverflowOnce, converted kill credit without
+self-recursion, multi-hit reset, inherited-form exclusion, rejected decisions,
+fresh canonical events/hashes, policy-bound participant state and the current seed 1..8 vector
+`[5, 4, 5, 4, 4, 4, 4, 4]`. Run
+`cargo test -p starclock-mode-universe weighted_curio_overflow`.
+
+These are executable bridge tests, **not** Ordinary/Cyclical equipment or
+complete-run release evidence. Production promotion still requires the authored
+base policy, ATK modifier, eligibility/teardown coverage and actual both-family
+battle construction and accepted-command fixtures. The count remains 12/17;
+no obligation/program/family/gap/policy terminal disposition changes.
+
+### Production admission still pending
+
 The base-DMG expression reads a hard-level `HPRatio`, an opaque difficulty query
 and unresolved postfix operands. No constant, owner ATK or zero is substituted
 as exact base DMG. Exact postfix semantics and callback correspondence need
 released typed evidence or a separately reviewed replaceable
 `VersionedProjectPolicy` preserving the known level/Protocol constraints.
 
-The consumer still needs hit/attack observation timing, accumulator ownership,
+The production consumer still needs reviewed hit/attack observation timing, accumulator ownership,
 death versus deathrattle mapping, phase/rescue/nonlethal exclusion, linked-actor
 eligibility, marked-target lifetime, labeled tied-target RNG, last-kill recursion
 limits, battle teardown and actual Ordinary/Cyclical command fixtures. An

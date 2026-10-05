@@ -10,7 +10,7 @@ conversion. Native commands cover level-based damage, maximum selection, slot
 mutation, committed summon observation, fresh canonical events and rejected
 commands. Historical selectors and automatic-primary reads are rejected;
 modifier-only readers do not provide levels. General Sora authoring and the
-Walkie-Talkie consumer remain
+Walkie-Talkie production consumer remain
 pending; no Weighted Curio or terminal execution count changes. See the
 [unit-level query boundary](rule-event-observation-runtime-boundary.md#unit-level-query).
 
@@ -19,7 +19,7 @@ Integer/Scalar maxima after preceding eligibility filters. Existing uniform
 choice then samples only tied maxima through registered battle RNG; no extra
 HP ordering or mode branch is introduced. Missing/invalid reads fault before
 choice, empty pools do not evaluate or draw, and unsafe historical/current-HP
-queries remain rejected. The Walkie-Talkie battle consumer and general Sora
+queries remain rejected. The Walkie-Talkie production battle consumer and general Sora
 predicate authoring remain pending; the Weighted Curio count stays 12/17. See
 the [selector contract](selector-and-target-set-runtime-boundary.md).
 
@@ -27,7 +27,18 @@ The current Parallel Universe Walkie-Talkie production definition preserves
 canonical `10/1/0.8` operands and five pinned released sources, including its
 merged StageAbility program. Named callbacks establish marked highest-current-HP
 retargeting and random ties; hidden base-DMG and native callback correspondence
-remain unimplemented. This source/data closure does not change the 12/17
+remain unimplemented. A separate explicit death-conversion bridge now compiles
+the released multipliers into native Rule IR with a caller-bound base expression.
+Accepted commands prove multi-death aggregation at HitEnded, attacked-pool
+maximum selection, one labeled tie draw, empty/unready zero draws, post-shield
+excess, guard exclusion, per-hit cleanup, inherited-form exclusion and converted
+kill credit without self-recursion. An explicit NeutralState readiness effect prevents eager
+selector resolution from drawing on unrelated programs or unready hits. This
+bridge is a ProjectPolicy construction API, not production equipment admission,
+an ATK buff, a decoded base formula or exact death/deathrattle parity. The actual
+workbook status remains Pending; both-family battle snapshot admission rejects
+the effect. Accepted caller-selected loadout storage remains unchanged. This
+native bridge does not change the 12/17
 Weighted Curio effect count or grant terminal execution credit. See the
 [overflow authoring boundary](divergent-universe-weighted-curio-overflow.md).
 
@@ -37,7 +48,7 @@ pre-operation HP, with a zero lower bound. Nonlethal floors and later healing
 do not inflate or rewrite it; missing facts fail with a typed evaluation error.
 The pure formula and native command corpus cover guards, shields, fractional
 finalization, Break damage, fresh reconstruction and rejected commands. General
-Sora admission and the Parallel Universe Walkie-Talkie consumer remain pending;
+Sora admission and the Parallel Universe Walkie-Talkie production consumer remain pending;
 the 12/17 Weighted Curio battle-effect count and terminal coverage are unchanged.
 See the [event observation contract](rule-event-observation-runtime-boundary.md).
 
