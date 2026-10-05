@@ -22,8 +22,13 @@ An explicit native Burn constructor now has bounded real command consumers in
 both families: mapped Fire entry counts, complete-action application, target-level
 capture, cross-caster replacement, natural-tick other-Burn detonation, two ticks
 and expiry, reserved-member restoration, terminal-loss cleanup and deterministic
-reconstruction. Normal equipment admission, transformation/linked/countdown/wave
-consumers and terminal coverage remain pending; no release gate is credited.
+reconstruction. Real reversible transformations retain original Fire membership
+and tick reactions; inherited linked Assist attacks and original-applier
+unitless countdowns cannot borrow application. Real waves retain entry counts,
+isolate arriving targets from departed effect records and clear captures on
+final victory. These constructor lifecycle consumers run in both families with
+fresh payloads/hashes and inert rejections. Normal equipment admission and
+terminal coverage remain pending; no release gate is credited.
 
 Shared Rule IR now retains the exact Direct/DotTick/DotDetonation kind of each
 committed common damage event and exposes a conjunctive native filter. Formula

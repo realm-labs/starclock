@@ -26,14 +26,14 @@ use starclock_data::{
 use starclock_replay::battle_event::encode_battle_event_payload;
 use std::sync::Arc;
 
-const EFFECT: u32 = 0x7f75_0001;
-const FAMILIES: [DivergentUniverseRunFamily; 2] = [
+pub(super) const EFFECT: u32 = 0x7f75_0001;
+pub(super) const FAMILIES: [DivergentUniverseRunFamily; 2] = [
     DivergentUniverseRunFamily::Ordinary,
     DivergentUniverseRunFamily::Cyclical,
 ];
 const FIRE: [u32; 4] = [1009, 1003, 1112, 1301];
 const OTHER: [u32; 4] = [1008, 1105, 1211, 1002];
-fn fixture(count: usize) -> DivergentUniverseBaselineFixture {
+pub(super) fn fixture(count: usize) -> DivergentUniverseBaselineFixture {
     let party = std::array::from_fn(|index| {
         if index < count {
             FIRE[index]
@@ -43,7 +43,7 @@ fn fixture(count: usize) -> DivergentUniverseBaselineFixture {
     });
     DivergentUniverseBaselineFixture::production_for_source_party(party).unwrap()
 }
-fn parts(
+pub(super) fn parts(
     fixture: &DivergentUniverseBaselineFixture,
     family: DivergentUniverseRunFamily,
 ) -> (Arc<CombatCatalog>, Vec<ParticipantSpec>) {
@@ -80,7 +80,10 @@ fn parts(
     assert_eq!(activity.canonical_state_bytes(), before);
     (builder.build().unwrap(), players)
 }
-fn scenario(parts: &(Arc<CombatCatalog>, Vec<ParticipantSpec>), input: Probe) -> Scenario {
+pub(super) fn scenario(
+    parts: &(Arc<CombatCatalog>, Vec<ParticipantSpec>),
+    input: Probe,
+) -> Scenario {
     scenario_with_players(
         &parts.0,
         &parts.1,
@@ -91,10 +94,10 @@ fn scenario(parts: &(Arc<CombatCatalog>, Vec<ParticipantSpec>), input: Probe) ->
         },
     )
 }
-fn source(formation: u32) -> SourceDefinitionId {
+pub(super) fn source(formation: u32) -> SourceDefinitionId {
     SourceDefinitionId::new(0x7f74_0000 + (formation + 1) * 32).unwrap()
 }
-fn applications(events: &[BattleEvent]) -> usize {
+pub(super) fn applications(events: &[BattleEvent]) -> usize {
     events.iter().filter(|event| matches!(event.kind(), BattleEventKind::Effect(EffectEventData::Applied { definition, .. }) if definition.get() == EFFECT)).count()
 }
 fn values(events: &[BattleEvent], kind: DamageKind) -> Vec<i64> {
@@ -106,7 +109,7 @@ fn values(events: &[BattleEvent], kind: DamageKind) -> Vec<i64> {
         })
         .collect()
 }
-fn payloads(events: &[BattleEvent]) -> Vec<Vec<u8>> {
+pub(super) fn payloads(events: &[BattleEvent]) -> Vec<Vec<u8>> {
     events
         .iter()
         .map(|event| encode_battle_event_payload(event).unwrap())

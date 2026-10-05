@@ -1,5 +1,8 @@
 //! Controlled actions retain independently constructed source-owned Burn rules.
 use crate::divergent_universe::DivergentUniverseAssembledBattle;
+use crate::divergent_universe::tests::weighted_curio_burn_lifecycle_fixture::{
+    END_TRANSFORM, SETUP, Setup, add_setup,
+};
 use starclock_combat::{
     AbilityId, AssemblyDigest, Battle, BattleEvent, BattleEventKind, BattleSeed, BattleSpec,
     CombatantSpecDigest, Command, ConcedePolicy, DispelCategory, DotDefinition,
@@ -40,8 +43,9 @@ use std::sync::Arc;
 pub(super) const ATTACK: u32 = 0x7dc3_0001;
 pub(super) const DETONATE: u32 = 0x7dc3_0004;
 pub(super) const RESTORE: u32 = 0x7dc3_0005;
-const SEED: u32 = 0x7dc3_0002;
-const IDLE: u32 = 0x7dc3_0003;
+pub(super) const CLEAR_WAVE: u32 = 0x7dc3_0006;
+pub(super) const SEED: u32 = 0x7dc3_0002;
+pub(super) const IDLE: u32 = 0x7dc3_0003;
 pub(super) const BURN: u32 = 0x7dc6_0001;
 pub(super) const UNCLASSIFIED: u32 = 0x7dc6_0002;
 pub(super) const SHOCK: u32 = 0x7dc6_0003;
@@ -71,6 +75,8 @@ pub(super) struct Probe {
     pub(super) second_owner: bool,
     pub(super) full_party: bool,
     pub(super) absent_formation: Option<u8>,
+    pub(super) lifecycle: Option<Setup>,
+    pub(super) waves: bool,
 }
 impl Default for Probe {
     fn default() -> Self {
@@ -91,6 +97,8 @@ impl Default for Probe {
             second_owner: false,
             full_party: false,
             absent_formation: None,
+            lifecycle: None,
+            waves: false,
         }
     }
 }
@@ -155,6 +163,7 @@ pub(super) fn scenario_with_players(
         (2, SEED, true),
         (3, IDLE, false),
         (4, DETONATE, false),
+        (6, CLEAR_WAVE, true),
     ] {
         let program = id(0x7dc2_0000 + offset);
         let selector = id(0x7dc1_0000 + offset);
@@ -182,10 +191,10 @@ pub(super) fn scenario_with_players(
             vec![],
             vec![],
         ));
-        let mut operations = vec![HitOperationDefinition::Damage(damage(if raw == ATTACK {
-            2
-        } else {
-            0
+        let mut operations = vec![HitOperationDefinition::Damage(damage(match raw {
+            ATTACK => 2,
+            CLEAR_WAVE => 2_000_000,
+            _ => 0,
         }))];
         if raw == DETONATE {
             operations.push(HitOperationDefinition::DetonateDots(
@@ -270,6 +279,9 @@ pub(super) fn scenario_with_players(
         );
     }
     let mut abilities = vec![id(ATTACK), id(SEED), id(IDLE), id(DETONATE)];
+    if input.waves {
+        abilities.push(id(CLEAR_WAVE));
+    }
     if let Some(formation) = input.absent_formation {
         abilities.push(id(RESTORE));
         let selector = id(0x7dc1_0005);
@@ -329,19 +341,28 @@ pub(super) fn scenario_with_players(
                 ]),
         );
     }
+    abilities.sort_unstable();
     builder.add_unit(UnitDefinition::new(form, abilities.clone(), vec![]));
     let original = players
         .iter()
         .find(|p| p.side() == TeamSide::Player && p.formation().get() == input.formation)
         .unwrap()
         .combatant();
+    let mut actor_abilities = vec![id(ATTACK), id(IDLE)];
+    if input.lifecycle.is_some() {
+        actor_abilities.extend([id::<AbilityId>(SETUP), id(END_TRANSFORM)]);
+    }
     let actor = ResolvedCombatantSpec::new(
-        form,
+        if input.lifecycle.is_some() {
+            original.form()
+        } else {
+            form
+        },
         UnitLevel::new(80).unwrap(),
         Hp::new(10_000).unwrap(),
         Speed::from_scaled(200_000_000).unwrap(),
         ResolvedDefinitionBindings::new(
-            vec![id(ATTACK), id(IDLE)],
+            actor_abilities,
             original.rule_bundles().to_vec(),
             original.modifiers().to_vec(),
         )
@@ -425,6 +446,9 @@ pub(super) fn scenario_with_players(
             seeder,
         ),
     ];
+    if let Some(setup) = input.lifecycle {
+        add_setup(&mut builder, catalog, &participants[0], setup);
+    }
     if input.full_party {
         for original in players
             .iter()
@@ -490,15 +514,26 @@ pub(super) fn scenario_with_players(
             vec![ToughnessLayerSpec::ordinary(1, RawToughness::new(100).unwrap()).unwrap()],
         )
         .unwrap();
-        participants.push(ParticipantSpec::new(
+        let enemy = ParticipantSpec::new(
             TeamSide::Enemy,
             FormationIndex::new(index).unwrap(),
             ParticipantSource::EncounterEnemy(enemy_id),
             enemy,
-        ));
+        );
+        participants.push(enemy.clone());
+        if input.waves {
+            participants.push(enemy.with_wave(2).unwrap());
+        }
     }
     let encounter = id(0x7dc7_0001);
-    builder.add_encounter(EncounterDefinition::new(encounter, enemies, vec![]));
+    let encounter_definition = if input.waves {
+        EncounterDefinition::new(encounter, vec![], vec![])
+            .with_waves(vec![enemies.clone(), enemies])
+            .unwrap()
+    } else {
+        EncounterDefinition::new(encounter, enemies, vec![])
+    };
+    builder.add_encounter(encounter_definition);
     let spec = BattleSpec::new(
         AssemblyDigest::new([0xc3; 32]).unwrap(),
         encounter,

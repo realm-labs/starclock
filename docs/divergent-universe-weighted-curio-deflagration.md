@@ -125,7 +125,23 @@ operands, including doubled-magnitude overflow even when the base fits.
 These are explicit constructor consumers, not accepted equipment handoffs or
 proof of observed parity for the separately authored execution policy.
 
-Transformation, linked/countdown exclusion, wave continuity and normal equipment
-handoff/unequip consumers remain pending. Forge admission, accepted-equipment
+Four additional real lifecycle command tests verify reversible transformations
+between registered mapped forms without changing original Fire qualification,
+including natural-tick detonation while the Fire original is transformed into
+a non-Fire form. Genuine Summon, Memosprite and SharedActor units inherit the
+original bundles, sources and form; their forced Attack-tagged Assist Skills
+cannot borrow admission, even at the original's formation index. Unitless
+Attack-tagged countdowns with the original applier also cannot apply Deflagration.
+The original's ordinary Attack remains a positive control in both cases.
+
+Two real waves preserve the captured entry count after a reserved Fire original
+is restored. The declared CarryExact policy retains old effects on departed
+targets without migrating them to arriving enemies. Fresh second-wave attacks
+and ticks use the original fraction; final victory clears captures and all
+Deflagration records. Each lifecycle scenario checks rejected-command hash,
+decision and RNG invariance, and fresh event payload/hash reconstruction in
+both families. These still test explicit constructors, not normal equipment.
+
+Normal equipment handoff/unequip consumers remain pending. Forge admission, accepted-equipment
 replay and both complete-run release gates also remain pending. No reference
 obligation, mechanic program, semantic family, gap or policy is terminalized.
