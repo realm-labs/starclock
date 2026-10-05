@@ -25,7 +25,7 @@ const FAMILIES: [DivergentUniverseRunFamily; 2] = [
     DivergentUniverseRunFamily::Ordinary,
     DivergentUniverseRunFamily::Cyclical,
 ];
-fn equipped(
+pub(super) fn equipped(
     fixture: &DivergentUniverseBaselineFixture,
     family: DivergentUniverseRunFamily,
 ) -> DivergentUniverseAssembledBattle {
@@ -49,9 +49,14 @@ fn equipped(
         .unwrap();
     assemble(fixture, &flow, &activity)
 }
-fn finish_loss(battle: &mut Battle) {
+pub(super) fn finish_loss(battle: &mut Battle) {
     for _ in 0..64 {
-        if battle.decision().is_some() {
+        if battle.decision().is_some_and(|decision| {
+            decision
+                .legal_commands()
+                .iter()
+                .any(|command| matches!(command, Command::Concede { .. }))
+        }) {
             concede(battle);
             return;
         }
@@ -59,13 +64,13 @@ fn finish_loss(battle: &mut Battle) {
     }
     panic!("manual concede boundary not reached");
 }
-fn repeated(events: &[BattleEvent]) -> Vec<Vec<u8>> {
+pub(super) fn repeated(events: &[BattleEvent]) -> Vec<Vec<u8>> {
     events
         .iter()
         .map(|event| encode_battle_event_payload(event).unwrap())
         .collect()
 }
-fn stale_is_inert(battle: &mut Battle) {
+pub(super) fn stale_is_inert(battle: &mut Battle) {
     let hash = battle.state_hash();
     let draws = battle.view().rng_draw_count();
     assert!(

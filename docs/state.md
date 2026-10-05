@@ -21,8 +21,13 @@ original owners, unequip, stale commands and fresh hashes. Genuine reversible
 transformations retain original Path qualification, HP residue and Skill stacks.
 Inherited Summon/Memosprite/SharedActor Assist Skills and unitless countdowns
 cannot borrow points, stacks or damage bonuses, even with forced effects and
-colliding formation indices. Periodic consumers, Break/Elation and waves still
-need separate equipment fixtures; Forge and full-run acceptance remain pending. No terminal coverage
+colliding formation indices. Real target-turn DoTs read the live original
+applier's stack bonus. Incoming periodic and initial Break/Super Break packets
+accumulate actual victim HP loss and return points without changing damager
+attribution. Mixed damage commands retain Direct/Additional bonuses but exclude
+dedicated Elation and Break/Super Break. Real waves retain residue/layers;
+the final win clears both clauses. The bounded lifecycle corpus does not
+substitute for Forge or full-run equipment replay, which remain pending. No terminal coverage
 credit follows and the equipment-definition count is 14/17. See the
 [native execution policy boundary](divergent-universe-weighted-curio-footstep.md).
 

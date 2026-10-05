@@ -23,6 +23,8 @@ mod weighted_curio_encouragement_fixture;
 mod weighted_curio_excitation;
 mod weighted_curio_excitation_fixture;
 mod weighted_curio_footstep;
+mod weighted_curio_footstep_damage_consumers;
+mod weighted_curio_footstep_damage_fixture;
 mod weighted_curio_footstep_equipment;
 mod weighted_curio_footstep_equipment_fixture;
 mod weighted_curio_footstep_fixture;

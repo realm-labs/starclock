@@ -5,9 +5,9 @@ contributions through shared Rule IR, battle commands, slots, effects and
 resource/formula operations. Normal immutable equipment assembly now reads
 their operands and independently replaceable policy identity from Sora.
 The current Weighted Curio equipment-definition count is **14/17**, not a
-complete-mechanic count. Real transformations and linked/unitless timeline
-actors now have equipment consumer fixtures. Waves and periodic damage
-consumers still require their own equipment fixtures;
+complete-mechanic count. Real transformations, linked/unitless timeline
+actors, periodic damage, dedicated damage channels and wave transitions now
+have a bounded equipment consumer corpus in both run families.
 Forge and complete-run equipment replay remain pending. No terminal reference
 or mechanic-program credit follows.
 
@@ -50,8 +50,25 @@ indices are tested. A transformed original's genuinely unitless countdown
 likewise deals 100 rather than borrowing the owner's bonus. These command
 fixtures cover stale rejection, terminal cleanup, no RNG and fresh canonical
 events/hashes; they are not claims about a released character's transformation
-or Assist program. Periodic DoT, Break/Elation consumers, waves, Forge and
-full-run acceptance remain pending.
+or Assist program. Forge and full-run acceptance remain pending.
+
+Real target-turn DoT ticks retain an original applier distinct from the ticking
+target. Applying a DoT before a Skill yields 100 then 108 for eligible originals,
+showing live stack reads; Hunt remains at 100. Two incoming 20-HP ticks or actual
+25-HP initial Break plus 15-HP Super Break combine with retained 30-HP residue
+to grant exactly one point and leave 20 residue only for eligible victims.
+The noneligible damager's attribution stays intact. Real Direct/Additional hits
+increase from 100 to 124 at three stacks, while dedicated Elation remains 100
+and initial Break/Super Break remain 25/15. These are policy reach checks, not
+released calculator parity.
+
+A real two-wave encounter emits wave-end/start facts and retains 30 HP residue
+and two Skill layers. Loss in the second wave returns one point, retains 10
+residue and raises the original to three layers; damage is still 124. Winning
+the last wave clears both clauses. The corpus retains production rules and
+source/modifier bindings, rejected-command inertness, no RNG and fresh canonical
+events/hashes. These controlled encounter consumers do not substitute for Forge
+or a complete Activity equipment replay.
 
 The composition retains production Clara's bounded representative Counter
 rule. Its [presence admission policy](representative-character-v1b-production.md#bounded-counter-admission)
@@ -149,11 +166,11 @@ roster isolation, independent formation-one ownership, shields, consumption
 floors, overflow disposal, live and fractional thresholds, lethal loss,
 terminal reset, invalid fractions, policy identity, rollback, rejected commands,
 fresh event payloads and canonical hashes. Production equipment fixtures above
-add actual linked actor creation and real transformation. Break/DoT packet
-producers and wave transitions need separate consumer fixtures before complete
-equipment acceptance; their selector/slot
-design is not proof of those scenarios. The bounded production handoff above
-does not substitute for those fixtures or full-run equipment construction.
+add actual linked actor creation, real transformation, target-turn periodic
+DoTs, initial Break/Super Break loss and wave transitions. Their proof comes
+from accepted commands and actual packets, not selector/slot declarations.
+The bounded production handoffs do not substitute for Forge or full-run
+equipment construction.
 
 ## After-Skill damage policy
 
@@ -206,10 +223,10 @@ cleanup, invalid operands, policy hashes, stale commands, checked formula
 rollback retaining prior stacks/HP and fresh canonical
 events/hashes. A Direct/DoT/Additional class vector checks the ordinary
 calculator's named channels; the DoT-class vector is not a periodic effect
-producer fixture. Real linked/timeline actors and transformations have the
-equipment fixtures above. Periodic DoTs, Break/Elation negative consumer
-vectors and wave transitions still need their
-own command fixtures before complete equipment acceptance.
+producer fixture. Separate production-equipment consumers above execute real
+target-turn DoTs, initial Break/Super Break, dedicated Elation, linked/timeline
+actors, transformations and wave transitions. Forge and complete-run equipment
+replay remain independent pending acceptance boundaries.
 
 ```text
 cargo test -p starclock-mode-universe weighted_curio_footstep

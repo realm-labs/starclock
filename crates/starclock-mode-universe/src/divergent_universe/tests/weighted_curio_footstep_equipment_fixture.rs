@@ -2,6 +2,7 @@
 use crate::divergent_universe::{
     DivergentUniverseAssembledBattle,
     tests::{
+        weighted_curio_footstep_damage_fixture::{ABILITIES, add_consumers, toughness},
         weighted_curio_footstep_lifecycle_fixture::{RESTORE, SETUP, Setup, add_setup},
         weighted_curio_overflow_fixture::{accept, id, start},
     },
@@ -51,7 +52,26 @@ pub(super) fn probe_with_setup(
     source: &DivergentUniverseAssembledBattle,
     setup: Option<(u8, Setup)>,
 ) -> Battle {
+    build_probe(source, setup, false, false)
+}
+
+pub(super) fn probe_with_consumers(
+    source: &DivergentUniverseAssembledBattle,
+    waves: bool,
+) -> Battle {
+    build_probe(source, None, true, waves)
+}
+
+fn build_probe(
+    source: &DivergentUniverseAssembledBattle,
+    setup: Option<(u8, Setup)>,
+    consumers: bool,
+    waves: bool,
+) -> Battle {
     let mut builder = CombatCatalogBuilder::from_catalog(source.combat_catalog(), [0xb1; 32]);
+    if consumers {
+        add_consumers(&mut builder);
+    }
     let rule_selector = id(0x7f61_0000);
     builder.add_selector(
         SelectorDefinition::new(rule_selector).with_rule_units(
@@ -156,13 +176,16 @@ pub(super) fn probe_with_setup(
     {
         let base = original.combatant();
         let mut abilities: Vec<AbilityId> = vec![id(IDLE), id(LOSS), id(HEAL), id(DAMAGE)];
+        if consumers {
+            abilities.extend(ABILITIES.map(id::<AbilityId>));
+        }
         if setup.is_some_and(|(formation, _)| formation == original.formation().get()) {
             abilities.push(id(SETUP));
             abilities.push(id(RESTORE));
         }
         // Crucially retain normal assembly's bundles, sources and modifier bindings.
         // No Footstep policy constructor is invoked in this probe.
-        let spec = ResolvedCombatantSpec::new(
+        let mut spec = ResolvedCombatantSpec::new(
             base.form(),
             base.level(),
             Hp::new(100).unwrap(),
@@ -180,6 +203,9 @@ pub(super) fn probe_with_setup(
         .unwrap()
         .with_modifier_bindings(base.modifier_bindings().to_vec())
         .unwrap();
+        if consumers {
+            spec = toughness(spec);
+        }
         players.push(ParticipantSpec::new(
             original.side(),
             original.formation(),
@@ -201,21 +227,35 @@ pub(super) fn probe_with_setup(
     let encounter = id(0x7f66_0001);
     builder.add_unit(UnitDefinition::new(form, vec![id(IDLE)], vec![]));
     builder.add_enemy(EnemyDefinition::new(enemy, form, vec![id(IDLE)]));
-    builder.add_encounter(EncounterDefinition::new(encounter, vec![enemy], vec![]));
-    players.push(ParticipantSpec::new(
+    let mut enemy_spec = ResolvedCombatantSpec::new(
+        form,
+        UnitLevel::new(1).unwrap(),
+        Hp::new(100_000).unwrap(),
+        Speed::from_scaled(if consumers { 100_000_000 } else { 1_000_000 }).unwrap(),
+        ResolvedDefinitionBindings::new(vec![id(IDLE)], vec![], vec![]).unwrap(),
+        CombatantSpecDigest::new([0xb2; 32]).unwrap(),
+    )
+    .unwrap();
+    if consumers {
+        enemy_spec = toughness(enemy_spec);
+    }
+    let enemy_participant = ParticipantSpec::new(
         TeamSide::Enemy,
         FormationIndex::new(0).unwrap(),
         ParticipantSource::EncounterEnemy(enemy),
-        ResolvedCombatantSpec::new(
-            form,
-            UnitLevel::new(1).unwrap(),
-            Hp::new(100_000).unwrap(),
-            Speed::from_scaled(1_000_000).unwrap(),
-            ResolvedDefinitionBindings::new(vec![id(IDLE)], vec![], vec![]).unwrap(),
-            CombatantSpecDigest::new([0xb2; 32]).unwrap(),
-        )
-        .unwrap(),
-    ));
+        enemy_spec,
+    );
+    players.push(enemy_participant.clone());
+    if waves {
+        players.push(enemy_participant.with_wave(2).unwrap());
+        builder.add_encounter(
+            EncounterDefinition::new(encounter, vec![], vec![])
+                .with_waves(vec![vec![enemy], vec![enemy]])
+                .unwrap(),
+        );
+    } else {
+        builder.add_encounter(EncounterDefinition::new(encounter, vec![enemy], vec![]));
+    }
     let spec = BattleSpec::new(
         AssemblyDigest::new([0xb3; 32]).unwrap(),
         encounter,
