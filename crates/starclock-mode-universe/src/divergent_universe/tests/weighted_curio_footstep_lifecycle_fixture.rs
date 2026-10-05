@@ -13,9 +13,9 @@ use starclock_combat::{
     catalog::{
         action::{
             AbilityActionDefinition, AbilityKind, AbilityProgramBinding, AbilityProgramTiming,
-            ActionHitDefinition, ActionResourcePolicy, HitCritPolicy, HitOperationDefinition,
-            HitTargetGroup, OrdinaryDamageDefinition, OrdinaryDamageMultipliers, ReactionBoundary,
-            TargetInvalidationPolicy,
+            AbilityTag, ActionHitDefinition, ActionResourcePolicy, HitCritPolicy,
+            HitOperationDefinition, HitTargetGroup, OrdinaryDamageDefinition,
+            OrdinaryDamageMultipliers, ReactionBoundary, TargetInvalidationPolicy,
         },
         builder::CombatCatalogBuilder,
         definition::{AbilityDefinition, ProgramDefinition, SelectorDefinition},
@@ -56,22 +56,24 @@ fn action(
     selector: u32,
     operations: Vec<HitOperationDefinition>,
 ) -> AbilityDefinition {
-    AbilityDefinition::new(id(raw), id(IDLE + 0x20000), id(selector), vec![]).with_action(
-        AbilityActionDefinition::new(
-            kind,
-            1,
-            TargetInvalidationPolicy::CancelRemainingForTarget,
-            ActionResourcePolicy::new(0, 0, Energy::ZERO, Energy::ZERO),
-        )
-        .unwrap()
-        .with_hits(vec![ActionHitDefinition::new(operations).with_profile(
-            HitTargetGroup::Selected,
-            Ratio::ONE,
-            Ratio::ONE,
-            HitCritPolicy::Never,
-        )])
-        .unwrap(),
+    let mut action = AbilityActionDefinition::new(
+        kind,
+        1,
+        TargetInvalidationPolicy::CancelRemainingForTarget,
+        ActionResourcePolicy::new(0, 0, Energy::ZERO, Energy::ZERO),
     )
+    .unwrap()
+    .with_hits(vec![ActionHitDefinition::new(operations).with_profile(
+        HitTargetGroup::Selected,
+        Ratio::ONE,
+        Ratio::ONE,
+        HitCritPolicy::Never,
+    )])
+    .unwrap();
+    if raw == LINKED_SKILL {
+        action = action.with_tags(&[AbilityTag::Attack, AbilityTag::Skill, AbilityTag::Assist]);
+    }
+    AbilityDefinition::new(id(raw), id(IDLE + 0x20000), id(selector), vec![]).with_action(action)
 }
 fn damage() -> Vec<HitOperationDefinition> {
     vec![HitOperationDefinition::Damage(
@@ -264,7 +266,8 @@ pub(super) fn add_setup(
                 )
                 .with_steps(steps),
             );
-            // Deliberate Skill kind: exclusion cannot rely only on Summon/Memosprite kinds.
+            // A genuinely forced Assist Skill retains Skill kind: exclusion
+            // cannot rely only on Summon/Memosprite kinds or queue admission.
             builder.add_ability(
                 action(LINKED_SKILL, AbilityKind::Skill, DAMAGE + 0x10000, damage()).with_programs(
                     vec![
@@ -367,13 +370,6 @@ pub(super) fn add_setup(
     } = setup
     {
         let target = 0x7f61_0102;
-        selector(
-            builder,
-            target,
-            RuleSelectorOrigin::Encounter,
-            RuleSelectorSide::Opposing,
-            vec![],
-        );
         let program = id(SETUP + 0x20000);
         builder.add_program(
             ProgramDefinition::new(

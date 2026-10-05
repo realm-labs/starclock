@@ -312,8 +312,9 @@ def generate(stable_ids: dict[str, int]) -> tuple[dict[str, list[dict[str, Any]]
     # Production Counter admission is bounded; the frozen non-production
     # mechanic probe remains independent and deliberately unchanged.
     for table, guarded in guard_rows().items():
-        output[table] = [row for row in output[table] if row["id"] != guarded["id"]]
-        output[table].append(guarded)
+        owned = {record["id"] for record in guarded}
+        output[table] = [row for row in output[table] if row["id"] not in owned]
+        output[table].extend(guarded)
 
     # Firefly's Ultimate composes the four-operation mode entry with the
     # three-operation form/ability replacement program in one authored phase.

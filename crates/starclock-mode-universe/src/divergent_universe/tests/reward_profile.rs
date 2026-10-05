@@ -219,12 +219,12 @@ fn reward_occurrence_sampled_cards_grant_each_choice_finish_then_leave_and_recon
             // two Reward cards for every choice, including fresh reconstruction.
             let mut activity = profile
                 .flow
-                .start(instance(26314), ActivityMasterSeed::from_u64(3))
+                .start(instance(26314), ActivityMasterSeed::from_u64(0))
                 .unwrap()
                 .into_activity();
             let mut rebuilt = fresh
                 .flow
-                .start(instance(26314), ActivityMasterSeed::from_u64(3))
+                .start(instance(26314), ActivityMasterSeed::from_u64(0))
                 .unwrap()
                 .into_activity();
             let mut events = 0;

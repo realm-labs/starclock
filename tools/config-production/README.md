@@ -11,11 +11,14 @@
   no-overwrite/read-only-sync negatives and compares rebuilt readers/exports
   directly with the current committed generated output.
 - `character-probe-promotion.py --write-counter-guard <new-root>` creates
-  complete `openpyxl` targets for the two owned Clara Counter admission
-  expressions and verifies every unowned cell's value, type and style.
+  complete `openpyxl` targets for the Clara Counter charge/presence admission
+  expressions and owner selector. It verifies every unowned cell's value,
+  type, style, comment and hyperlink, and preserves native sheet settings.
   Review the targets and source workbook hashes before explicitly installing
-  them; production workbooks are not overwritten by this command.
-  `--check-counter-guard` checks the current authored expressions. This is a
+  them; production workbooks are not overwritten by this command. Install
+  only reviewed targets with actual authored changes; the unchanged ValueExpression
+  target needs no installation. `--check-counter-guard` checks all five current
+  authored rows. This is a
   bounded representative-program safety correction, not full Clara kit parity.
 - `author-elation-inputs.py --write-clean <new-root>` creates complete
   `openpyxl` targets for the dedicated Elation authoring capability. It owns

@@ -59,7 +59,9 @@ pub(super) fn probe_with_setup(
                 RuleSelectorOrigin::PrimaryTarget,
                 RuleSelectorSide::Same,
                 RuleLifePredicate::Alive,
-                RulePresencePredicate::Present,
+                // The action's committed target pool already requires an active
+                // unit; the controlled HP operation also supports Transformed.
+                RulePresencePredicate::Any,
                 RuleSelectorReference::CurrentState,
                 RuleSelectorOrdering::Formation,
                 0,

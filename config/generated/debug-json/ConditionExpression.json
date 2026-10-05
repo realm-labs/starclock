@@ -29,22 +29,23 @@
           },
           "node": {
             "Object": {
-              "comparison": {
-                "String": "Greater"
-              },
-              "left_expression_id": {
-                "Integer": 24204
-              },
-              "right_expression_id": {
-                "Integer": 24202
+              "condition_ids": {
+                "List": [
+                  {
+                    "Integer": 24202
+                  },
+                  {
+                    "Integer": 24203
+                  }
+                ]
               },
               "type": {
-                "String": "Compare"
+                "String": "All"
               }
             }
           },
           "stable_key": {
-            "String": "program.clara.condition.has-counter-charge"
+            "String": "program.clara.condition.admitted-counter-owner"
           }
         }
       },
@@ -1339,6 +1340,58 @@
           },
           "stable_key": {
             "String": "goal07.enemy.s06.condition.adjacent-frozen"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24202
+          },
+          "node": {
+            "Object": {
+              "comparison": {
+                "String": "Greater"
+              },
+              "left_expression_id": {
+                "Integer": 24204
+              },
+              "right_expression_id": {
+                "Integer": 24202
+              },
+              "type": {
+                "String": "Compare"
+              }
+            }
+          },
+          "stable_key": {
+            "String": "program.clara.condition.has-counter-charge"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 24203
+          },
+          "node": {
+            "Object": {
+              "maximum_count": {
+                "Integer": 1
+              },
+              "minimum_count": {
+                "Integer": 1
+              },
+              "selector_id": {
+                "Integer": 24251
+              },
+              "type": {
+                "String": "SelectorCardinality"
+              }
+            }
+          },
+          "stable_key": {
+            "String": "program.clara.condition.has-present-owner"
           }
         }
       }

@@ -222,13 +222,13 @@ fn expansion_rewards_paid_public_fixed_vectors() {
     for (family, seed, initial, boundary) in [
         (
             DivergentUniverseRunFamily::Ordinary,
-            1779079,
+            3124538,
             1,
             ActivityDecisionKind::Service,
         ),
         (
             DivergentUniverseRunFamily::Cyclical,
-            864807,
+            394478,
             2,
             ActivityDecisionKind::Encounter,
         ),

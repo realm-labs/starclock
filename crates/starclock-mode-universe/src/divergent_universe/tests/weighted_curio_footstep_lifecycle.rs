@@ -15,8 +15,8 @@ use crate::divergent_universe::{
     weighted_curio::WeightedCurioSlotLimit,
 };
 use starclock_combat::{
-    Battle, BattleEvent, BattleEventKind, CauseActor, Command, DecisionId, LinkedEntityKind,
-    PresenceState, Scalar, TeamSide, UnitEventData,
+    ActionEventData, Battle, BattleEvent, BattleEventKind, CauseActor, Command, DecisionId,
+    LinkedEntityKind, PresenceState, Scalar, TeamSide, UnitEventData, rule::model::RuleValue,
 };
 use starclock_data::divergent_universe_catalog::DivergentUniverseRunFamily;
 use starclock_replay::battle_event::encode_battle_event_payload;
@@ -77,6 +77,92 @@ fn stale_is_inert(battle: &mut Battle) {
     );
     assert_eq!(battle.state_hash(), hash);
     assert_eq!(battle.view().rng_draw_count(), draws);
+}
+
+fn representative_counter_charges(battle: &Battle, owner: u64) -> Option<RuleValue> {
+    battle
+        .view()
+        .rule_instances_by_id()
+        .filter(|rule| {
+            rule.rule().get() == 24205 && rule.owner().is_some_and(|unit| unit.get() == owner)
+        })
+        .flat_map(|rule| rule.slots())
+        .find(|(slot, _)| slot.get() == 24206)
+        .map(|(_, value)| value.clone())
+}
+
+#[test]
+fn weighted_curio_footstep_equipment_transform_preserves_unavailable_representative_counter_charges()
+ {
+    let fixture =
+        DivergentUniverseBaselineFixture::production_for_source_party([1107, 1402, 1009, 1002])
+            .unwrap();
+    for family in FAMILIES {
+        let source = equipped(&fixture, family);
+        let form = source
+            .battle_spec()
+            .participants()
+            .iter()
+            .find(|participant| {
+                participant.side() == TeamSide::Player && participant.formation().get() == 3
+            })
+            .unwrap()
+            .combatant()
+            .form();
+        let run = || {
+            let mut battle = probe_with_setup(
+                &source,
+                Some((
+                    0,
+                    Setup::Transform {
+                        form,
+                        countdown: false,
+                    },
+                )),
+            );
+            // Transform before any other probe action can exhaust the broad
+            // representative HitEnded rule. Do not hide the missing-owner case
+            // by observing only an already empty charge slot.
+            assert_eq!(
+                representative_counter_charges(&battle, 1),
+                Some(RuleValue::Integer(2))
+            );
+            let mut events = cast(&mut battle, 1, SETUP);
+            assert_eq!(
+                representative_counter_charges(&battle, 1),
+                Some(RuleValue::Integer(2))
+            );
+            let hit = cast(&mut battle, 1, DAMAGE);
+            assert_eq!(damage(&hit), [108]);
+            events.extend(hit);
+            assert_eq!(
+                representative_counter_charges(&battle, 1),
+                Some(RuleValue::Integer(2))
+            );
+            assert!(!events.iter().any(|event| matches!(event.kind(),
+                BattleEventKind::RuleState(data) if data.slot.get() == 24206)));
+            assert!(!events.iter().any(|event| matches!(event.kind(),
+                BattleEventKind::Action(ActionEventData::Cancelled { ability, .. }) if ability.get() == 24201)));
+            let restore = cast(&mut battle, 1, RESTORE);
+            assert_eq!(
+                representative_counter_charges(&battle, 1),
+                Some(RuleValue::Integer(1))
+            );
+            // Binding/executing the internal Counter remains a separate gap.
+            assert_eq!(restore.iter().filter(|event| matches!(event.kind(),
+                BattleEventKind::Action(ActionEventData::Cancelled { ability, .. }) if ability.get() == 24201)).count(), 1);
+            events.extend(restore);
+            assert_eq!(stacks(&battle, 1), 2);
+            assert_eq!(battle.view().rng_draw_count(), 0);
+            stale_is_inert(&mut battle);
+            let payload = repeated(&events);
+            finish_loss(&mut battle);
+            assert_eq!(stacks(&battle, 1), 0);
+            assert_eq!(remainder(&battle, 1), Scalar::ZERO);
+            (events, payload, battle.state_hash())
+        };
+        assert_eq!(run(), run());
+    }
 }
 
 #[test]
@@ -144,10 +230,9 @@ fn weighted_curio_footstep_equipment_real_transform_anchors_entry_path_and_retai
                     PresenceState::Transformed
                 );
                 assert_eq!(stacks(&battle, owner), if eligible { 3 } else { 0 });
-                assert_eq!(
-                    damage(&cast(&mut battle, owner, DAMAGE)),
-                    [if eligible { 124 } else { 100 }]
-                );
+                let hit = cast(&mut battle, owner, DAMAGE);
+                assert_eq!(damage(&hit), [if eligible { 124 } else { 100 }]);
+                events.extend(hit);
                 events.extend(cast(&mut battle, owner, LOSS));
                 assert_eq!(
                     battle.view().team(TeamSide::Player).skill_points(),
@@ -166,10 +251,9 @@ fn weighted_curio_footstep_equipment_real_transform_anchors_entry_path_and_retai
                     if unit.get() == owner && *restored_form == original)));
                 events.extend(restore);
                 assert_eq!(stacks(&battle, owner), if eligible { 5 } else { 0 });
-                assert_eq!(
-                    damage(&cast(&mut battle, owner, DAMAGE)),
-                    [if eligible { 140 } else { 100 }]
-                );
+                let hit = cast(&mut battle, owner, DAMAGE);
+                assert_eq!(damage(&hit), [if eligible { 140 } else { 100 }]);
+                events.extend(hit);
                 assert_eq!(battle.view().rng_draw_count(), 0);
                 stale_is_inert(&mut battle);
                 let payload = repeated(&events);

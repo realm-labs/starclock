@@ -5,8 +5,9 @@ contributions through shared Rule IR, battle commands, slots, effects and
 resource/formula operations. Normal immutable equipment assembly now reads
 their operands and independently replaceable policy identity from Sora.
 The current Weighted Curio equipment-definition count is **14/17**, not a
-complete-mechanic count. Linked/timeline actors, real transformations, waves
-and periodic damage consumers still require their own equipment fixtures;
+complete-mechanic count. Real transformations and linked/unitless timeline
+actors now have equipment consumer fixtures. Waves and periodic damage
+consumers still require their own equipment fixtures;
 Forge and complete-run equipment replay remain pending. No terminal reference
 or mechanic-program credit follows.
 
@@ -33,6 +34,32 @@ damage. Harmony/Hunt originals receive neither contribution. Tests also cover
 stale loadout/battle rejection, independent owners, teardown, unequip, fresh
 canonical events/hashes, no RNG and unmodified production start/concede.
 These bounded handoffs are not full-run or missing lifecycle-consumer proof.
+
+Both run families additionally execute genuine reversible transformations on
+the original unit: eligible Destruction/Remembrance originals become Hunt,
+and the Hunt original becomes Destruction. Neither current-form change
+requalifies the immutable entry Path. HP residue and Skill stacks survive
+transformation/restoration and still affect actual resource gains and damage.
+
+Actual Summon, Memosprite and SharedActor units inherit the original form,
+bundles, sources and modifier bindings. A queued, explicitly tagged Assist
+Skill consumes their own HP and deals damage; it cannot earn the original's
+points or stacks. Even force-applying the genuine ten-stack effect leaves
+linked damage at 100 rather than 180. Both colliding and distinct formation
+indices are tested. A transformed original's genuinely unitless countdown
+likewise deals 100 rather than borrowing the owner's bonus. These command
+fixtures cover stale rejection, terminal cleanup, no RNG and fresh canonical
+events/hashes; they are not claims about a released character's transformation
+or Assist program. Periodic DoT, Break/Elation consumers, waves, Forge and
+full-run acceptance remain pending.
+
+The composition retains production Clara's bounded representative Counter
+rule. Its [presence admission policy](representative-character-v1b-production.md#bounded-counter-admission)
+does not fault or spend charges while its Present-only owner is transformed.
+A separate transform-first fixture starts with two real charges, retains both
+through damage while transformed, and resumes admission after restoration.
+The unbound internal Counter is explicitly cancelled, never credited as an
+executed Counter or complete Clara kit.
 
 ## Released evidence
 
@@ -121,9 +148,10 @@ multiple events in one action, original Path exclusion, inherited unrelated
 roster isolation, independent formation-one ownership, shields, consumption
 floors, overflow disposal, live and fractional thresholds, lethal loss,
 terminal reset, invalid fractions, policy identity, rollback, rejected commands,
-fresh event payloads and canonical hashes. Linked actor creation, real
-transformation, Break/DoT packet producers and wave transitions need separate
-consumer fixtures before complete equipment acceptance; their selector/slot
+fresh event payloads and canonical hashes. Production equipment fixtures above
+add actual linked actor creation and real transformation. Break/DoT packet
+producers and wave transitions need separate consumer fixtures before complete
+equipment acceptance; their selector/slot
 design is not proof of those scenarios. The bounded production handoff above
 does not substitute for those fixtures or full-run equipment construction.
 
@@ -178,8 +206,9 @@ cleanup, invalid operands, policy hashes, stale commands, checked formula
 rollback retaining prior stacks/HP and fresh canonical
 events/hashes. A Direct/DoT/Additional class vector checks the ordinary
 calculator's named channels; the DoT-class vector is not a periodic effect
-producer fixture. Real linked/timeline actors, transformations, periodic DoTs,
-Break/Elation negative consumer vectors and wave transitions still need their
+producer fixture. Real linked/timeline actors and transformations have the
+equipment fixtures above. Periodic DoTs, Break/Elation negative consumer
+vectors and wave transitions still need their
 own command fixtures before complete equipment acceptance.
 
 ```text

@@ -43,16 +43,29 @@ character-ID branch to combat resolution.
 
 The representative Clara program initializes its Battle-owned, OwnerLifetime
 integer slot to two, bounded by zero and two. Its HitEnded/AfterEvent trigger
-now requires a current slot value greater than zero before executing the
+requires both a current slot value greater than zero and exactly one live
+Present owner before executing the
 ordered QueueAction then Subtract-one operations. All such mutation remains
 in shared Rule IR; integer bounds still fault on invalid operations.
 
+The owner selector admits an empty pool without a fault; an explicit
+SelectorCardinality condition rejects that empty pool before either operation.
+The policy deliberately keeps Present-only admission: owners with Transformed,
+Linked or absent presence, or defeated owners, do not become newly qualified
+by this repair. A linked entity explicitly authored as Present retains the
+representative rule's existing admission; this is not a new ownership filter.
+In particular, unrelated hits after a genuine transformation must not fault
+because the rule eagerly resolves its owner selector. Empty-owner admission
+also preserves the charge slot instead of subtracting for an unavailable actor.
+
 This correction is `VersionedProjectPolicyBoundedRepresentativeCounterAdmission`,
 not an observed reconstruction of Clara's released Talent or Ultimate. The
-existing per-event trigger, broad filter, queue ownership and battle-initial
+existing per-event trigger, broad filter, Present-only admission, queue ownership and battle-initial
 charges remain representative limitations. An unconditional subtraction or
 silent underflow clamp was rejected because it faults or hides exhausted
-admission. Confidence is high only for the authored slot invariant, and low
+admission. Broadening presence to Any, silently consuming unavailable-owner
+charges, or removing this rule from consumer fixtures was also rejected.
+Confidence is high only for the authored slot/admission invariant, and low
 for released kit parity. Replace the representative rule after an exact/observed
 dossier covers basic and enhanced counters, victim admission, action cardinality,
 Ultimate refill, duration and ownership. No character completeness or DU
@@ -62,6 +75,13 @@ The native `production_clara_counter_exhaustion_does_not_fault_with_weighted_cur
 fixture runs both DU families with real production Clara bindings, one/three/nine
 hit attacks, both with and without Self-Amusement, exhaustion and fresh
 reconstruction. The frozen non-production probe retains its separate contract.
+
+The Footstep equipment transform-first fixture retains the production rule,
+starts with two real charges and preserves both across transformation and
+damage. Restoring Present resumes admission and consumes one charge. It runs
+both DU families, rejected commands and fresh canonical reconstruction. Data
+tests assert the complete conjunction and nonfaulting owner selector lowered
+from the real Sora bundle.
 
 The fixture also exposes a separate production gap: internal Counter 24201 is
 not bound to Clara's combatant, so queued reactions are cancelled as unavailable

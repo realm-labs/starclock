@@ -17,9 +17,12 @@ filters. Terminal cleanup and explicit effect removal tear down captures.
 Hidden timing, arithmetic, formula reach and cause attribution remain
 replaceable policy. Both run-family equipment handoffs retain the authored
 bindings and verify actual HP loss, healing, Skill stacks and damage, independent
-original owners, unequip, stale commands and fresh hashes. Linked/timeline actors,
-real transformations, periodic consumers and waves need separate equipment
-fixtures; Forge and full-run acceptance remain pending. No terminal coverage
+original owners, unequip, stale commands and fresh hashes. Genuine reversible
+transformations retain original Path qualification, HP residue and Skill stacks.
+Inherited Summon/Memosprite/SharedActor Assist Skills and unitless countdowns
+cannot borrow points, stacks or damage bonuses, even with forced effects and
+colliding formation indices. Periodic consumers, Break/Elation and waves still
+need separate equipment fixtures; Forge and full-run acceptance remain pending. No terminal coverage
 credit follows and the equipment-definition count is 14/17. See the
 [native execution policy boundary](divergent-universe-weighted-curio-footstep.md).
 
@@ -739,9 +742,12 @@ prerequisite adds no DU terminal credit or Clara Counter binding. See
 [queue resolution](10-lifecycle-and-resolution.md#queue-order-and-budgets).
 
 Production Clara's representative Counter now gates its QueueAction and
-Subtract-one program on remaining charges greater than zero. Shared integer
+Subtract-one program on remaining charges greater than zero and a live Present
+owner. Its nonfaulting empty-owner selector and explicit cardinality guard
+preserve charges during genuine transformation instead of faulting unrelated
+commands; restoring Present resumes admission. Shared integer
 bounds are unchanged. Both DU families test charge exhaustion with and without
-Self-Amusement and fresh reconstruction. The
+Self-Amusement, transform-first nonempty charges, and fresh reconstruction. The
 [bounded Counter policy](representative-character-v1b-production.md#bounded-counter-admission)
 does not implement full basic/enhanced Counter admission or Ultimate refill and
 adds no terminal DU content credit. Internal Counter 24201 remains unbound;
