@@ -9,11 +9,17 @@ all 17 identities, clear and independently leave; the same replacement validator
 enforces canonical equipment and capacities 1–3. A 64-change logical-room budget
 retains safe exit. Raw/stale/foreign/dirty choices and downstream entry failure
 are byte-inert; exact immutable binding rejects entry bypass, changed programs
-and wrong scopes. Seven focused tests cover both families and all nine authored
-decks, fresh events/state and no RNG. Two unsupported effects still reject later
-battle assembly. This is explicit menu policy, not original Forge slot-level
-selection, automatic admission, encoded equipment replay or complete
-source-position flow/controller integration. Terminal coverage is unchanged.
+and wrong scopes. Seven fragment tests and four flow/controller tests cover both
+families and all nine authored decks. The existing position profile now binds
+exact equipment capabilities; actual sampled Reforge cards reach the menu, and
+explicit selected commands reconstruct from fresh production catalogs. The
+unattended controller leaves while preserving equipment. Menu-equipped
+Deflagration carries into an immutable contribution and applies real Burn in
+the next actual Boss proxy execution. All 17 remain selectable and both
+unsupported effects fail later controller battle construction atomically. This
+is explicit menu/controller policy, not original Forge slot-level selection,
+automatic admission, encoded equipment replay, default full-position gameplay
+or complete-run release credit. Terminal coverage is unchanged.
 See [the authenticated equipment service](divergent-universe-weighted-curio-loadout.md#authenticated-source-position-equipment-service).
 
 Most Raucous now has a production-authored Deflagration operand row, all 95

@@ -149,6 +149,44 @@ canonical order, clear, independent Leave, all nine decks' Reforge construction,
 raw/stale/foreign/hidden/dirty rejections, exact budget exhaustion, next-entry
 rollback, hostile definitions, no RNG and fresh event/state reconstruction in
 both families. Other room payloads are isolated out: these tests do not complete
-an original run or terminalize source obligations. Flow/controller dispatch,
-encoded equipment-command replay, automatic Forge admission, domain enhancement,
+an original run or terminalize source obligations. Encoded equipment-command
+replay, automatic Forge admission, domain enhancement,
 divination and the two remaining effects are separate requirements.
+
+## Source-position flow and controller dispatch
+
+`bind_position_weighted_curio_rooms` attaches compiled equipment capabilities to
+the existing immutable battle-position profile. Attachments authenticate current
+factory/decision inputs, area/layer placement, unique fragments, exact programs,
+slots, scopes and full definitions. Empty, duplicate, changed, foreign and repeated
+attachments reject. The host still binds every room digest, explicit capacity and
+slot namespace into the profile payload before attaching; this is not a new
+state machine or a default room-placement rule.
+
+`offered_weighted_curio_equipment` observes only the actual authenticated Service
+boundary. `choose_weighted_curio_equipment` and the baseline runner's
+`advance_selected` dispatch the current offered IDs through the same atomic
+equipment capability. Ordinary generic choices cannot bypass its acceptance
+gate, and an unattached profile does not gain equipment authority from its
+Service kind or option IDs. Stale, hidden, raw and foreign choices preserve state,
+pending offers, events and RNG.
+
+The unattended baseline runner chooses the independent Leave and preserves the
+loadout, even when a generic hint prefers an equipment option. It does not infer
+an optimizer or an equipment recommendation from stable-ID order or effect
+support. Explicit caller selections remain scored/auditable and can toggle,
+clear or leave. This deterministic controller choice is project policy, not a
+released Forge behavior claim; replace it independently when an explicitly
+authored optimizer is available.
+
+Four additional native tests bind all nine current decks in both families,
+reject altered/repeated/capacity-mismatched attachments, exercise actual sampled
+Reforge card admission and reconstruct selected commands from fresh production
+catalogs. Menu-equipped Deflagration carries to the next actual Boss proxy,
+appears in the immutable contribution snapshot, and applies real Burn events
+through untouched production assembly and controller battle execution. All 17
+menu identities remain selectable; both unsupported effects still fail the
+controller's battle construction atomically. The other room payloads remain
+explicit probes, and the Boss combat is a calibrated proxy. No original complete
+run, default Forge placement, encoded equipment replay or terminal source
+coverage is claimed by these tests.

@@ -47,7 +47,7 @@
     },
     "weighted_equipment_room": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/weighted_curio_room.rs",
-      "sha256": "e114ed2b63cd09734a5649c48415ec75b9da18d72332d25c5e88bf511df00ea6"
+      "sha256": "8acc40144454242bbfe76df2796cb687a9f1625430727837c0732cd170f042f3"
     },
     "weighted_equipment_room_binding": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/weighted_curio_room_binding.rs",
@@ -56,6 +56,26 @@
     "weighted_equipment_room_tests": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_room.rs",
       "sha256": "98179acc634c738337cdae2bd8f2cb8fe11afa662a03419b966a6a8032437673"
+    },
+    "weighted_equipment_position_binding": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/position_weighted_curio.rs",
+      "sha256": "35a6b9fe588908062d53e34ff92ce8c518fe93a3f9c1c9367cda696cf6e0e1fe"
+    },
+    "weighted_equipment_profile_binding": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/battle_room_binding.rs",
+      "sha256": "67b42a7a233783d7912fb305ce1ef12d661aede64cf1eae1a367d581e6f6048f"
+    },
+    "weighted_equipment_controller": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/baseline_runtime.rs",
+      "sha256": "ce5b8dec359f9d9a0376a9122f5be9947e4f609b95948bc8278c46c4f7666c65"
+    },
+    "weighted_equipment_profile_tests": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_room_profile.rs",
+      "sha256": "ff11d50fcd718fe4699c8b815cbeb6ef8078e700bbb4a65ef433116218cd2ae3"
+    },
+    "weighted_equipment_profile_fixture": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_room_profile_fixture.rs",
+      "sha256": "da002a9e0dc905cda2621ce49093b94de77d3d6efa2907fb9f756627c30461fc"
     },
     "weighted_overflow": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/weighted_curio_overflow.rs",
@@ -322,7 +342,7 @@
     "weighted_curio_source_position_equipment_service_implemented": true,
     "weighted_curio_equipment_service_accuracy": "VersionedProjectPolicyExplicitReforgeCapacityCanonicalToggle64Changes",
     "weighted_curio_equipment_service_change_limit": 64,
-    "weighted_curio_equipment_service_flow_controller_bound": false,
+    "weighted_curio_equipment_service_flow_controller_bound": true,
     "weighted_curio_equipment_service_encoded_replay_implemented": false,
     "weighted_curio_accepted_loadout_maximum": 3,
     "weighted_curio_loadout_accuracy": "VersionedProjectPolicyAcceptedCurrentCatalogLoadout",
@@ -353,7 +373,7 @@
     "grand_miracle_runtime_implemented": false,
     "forge_room_payload_implemented": false,
     "terminal_coverage_credit": 0,
-    "required_next_work": "Bind the authenticated source-position equipment service to flow/controller and encoded equipment replay; establish original Forge slot-level selection and automatic admission, and implement the remaining two effects and other Forge services. Establish Grand Miracle selectors independently and repair its separate source/fixture audit labels without shrinking obligations."
+    "required_next_work": "Implement encoded source-position equipment replay and default complete-position integration; establish original Forge slot-level selection and automatic admission, and implement the remaining two effects and other Forge services. Establish Grand Miracle selectors independently and repair its separate source/fixture audit labels without shrinking obligations."
   },
   "summary": {
     "weighted_curio_references": 17,
@@ -393,6 +413,22 @@
     {
       "file": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_room.rs",
       "test": "equipment_room_compiles_each_current_reforge_in_all_nine_authored_decks"
+    },
+    {
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_room_profile.rs",
+      "test": "weighted_curio_profile_authenticates_all_decks_and_rejects_altered_attachments"
+    },
+    {
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_room_profile.rs",
+      "test": "weighted_curio_profile_raw_unbound_foreign_stale_and_hidden_choices_are_inert"
+    },
+    {
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_room_profile.rs",
+      "test": "weighted_curio_profile_selected_equipment_reconstructs_and_executes_real_battle_effects"
+    },
+    {
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_room_profile.rs",
+      "test": "weighted_curio_profile_unsupported_menu_selection_still_rejects_controller_battle_atomically"
     },
     {
       "file": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_transfer.rs",

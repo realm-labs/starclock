@@ -26,7 +26,7 @@ assert(artifact.current_boundary.weighted_curio_accepted_loadout_boundary
   && artifact.current_boundary.weighted_curio_source_position_equipment_service_implemented
   && artifact.current_boundary.weighted_curio_equipment_service_accuracy === "VersionedProjectPolicyExplicitReforgeCapacityCanonicalToggle64Changes"
   && artifact.current_boundary.weighted_curio_equipment_service_change_limit === 64
-  && !artifact.current_boundary.weighted_curio_equipment_service_flow_controller_bound
+  && artifact.current_boundary.weighted_curio_equipment_service_flow_controller_bound
   && !artifact.current_boundary.weighted_curio_equipment_service_encoded_replay_implemented
   && artifact.current_boundary.weighted_curio_transfer_operands_authored
   && artifact.current_boundary.weighted_curio_transfer_battle_effect_implemented

@@ -14,6 +14,8 @@ mod domain_deck;
 mod respite;
 #[path = "position_shop.rs"]
 mod shop;
+#[path = "position_weighted_curio.rs"]
+mod weighted_curio;
 
 use std::{collections::BTreeSet, sync::Arc};
 
@@ -33,6 +35,7 @@ use crate::divergent_universe::{
     shop_purchase::room::BoundShopRoom,
     state::BATTLE_DOMAIN_SLOT,
     tawot_room::{BoundTawotRoom, CompiledTawotRoom},
+    weighted_curio::room::BoundWeightedCurioRoom,
 };
 use starclock_activity::{
     ActivityConfigDigest, ActivityDecisionKind, ActivityDefinitionDigest,
@@ -58,6 +61,7 @@ pub(in crate::divergent_universe) struct BoundBattleRooms {
     coins: Vec<BoundCoinRoom>,
     adventures: Vec<BoundAdventureRoom>,
     blanks: Vec<BoundBlankRoom>,
+    equipment: Vec<BoundWeightedCurioRoom>,
 }
 
 impl DivergentUniverseRuntimeFactory {
@@ -334,6 +338,7 @@ impl DivergentUniverseRuntimeFactory {
             coins: Vec::new(),
             adventures: Vec::new(),
             blanks: Vec::new(),
+            equipment: Vec::new(),
             rooms: bound,
             services,
             occurrences,

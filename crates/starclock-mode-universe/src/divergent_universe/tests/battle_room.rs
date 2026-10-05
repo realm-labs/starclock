@@ -89,7 +89,7 @@ pub(super) fn base(
     }
     fixture.factory().compile(entry).unwrap()
 }
-fn probe(context: &DomainRoomContext) -> Result<DomainRoomProgram, DomainRouteError> {
+pub(super) fn probe(context: &DomainRoomContext) -> Result<DomainRoomProgram, DomainRouteError> {
     let node = context.entry_node();
     Ok(DomainRoomProgram {
         exit_node: node,

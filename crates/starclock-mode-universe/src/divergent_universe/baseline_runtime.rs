@@ -24,7 +24,7 @@ use super::{
     DivergentUniverseBattleSettlementError, DivergentUniverseContributionSnapshotError,
     DivergentUniverseEncounterReachabilityError, DivergentUniverseFlowInstance,
     DivergentUniverseRuntimeFactory, adventure_room::AdventureEarnedChests,
-    occurrence_binding::OccurrenceExecutionError,
+    occurrence_binding::OccurrenceExecutionError, weighted_curio::room::LEAVE_EQUIPMENT,
 };
 
 /// Immutable controller policy. Group/stage are fallback inputs only for
@@ -181,10 +181,18 @@ impl DivergentUniverseBaselineRunner {
             let decision = view
                 .decision()
                 .ok_or(DivergentUniverseBaselineError::MissingOfferedDecision)?;
-            let selected = self
-                .controller
-                .decide(decision, policy.hints())
-                .map_err(DivergentUniverseBaselineError::Controller)?;
+            // Equipment optimization is not inferred from catalog order or
+            // implemented-effect membership. The unattended runner preserves
+            // the loadout; adapters use advance_selected for actual changes.
+            let selected = if flow.offered_weighted_curio_equipment(activity) {
+                let leave = ActivityOptionId::new(LEAVE_EQUIPMENT)
+                    .ok_or(DivergentUniverseBaselineError::MissingOfferedDecision)?;
+                self.controller
+                    .select_offered(decision, leave, policy.hints())
+            } else {
+                self.controller.decide(decision, policy.hints())
+            }
+            .map_err(DivergentUniverseBaselineError::Controller)?;
             (view.state_hash(), selected)
         };
         advance_decision(factory, flow, activity, core, policy, state_hash, selected)
@@ -334,6 +342,21 @@ fn advance_decision(
         && flow.offered_curio_synthesis(activity).is_some()
     {
         flow.choose_curio_synthesis_option(
+            activity,
+            state_hash,
+            selected.decision(),
+            selected.option(),
+        )
+        .map_err(DivergentUniverseBaselineError::ActivityCommand)?;
+        return Ok(DivergentUniverseBaselineStep::ActivityDecision {
+            decision: selected,
+            state_hash: activity.state_hash(),
+        });
+    }
+    if selected.kind() == ActivityDecisionKind::Service
+        && flow.offered_weighted_curio_equipment(activity)
+    {
+        flow.choose_weighted_curio_equipment(
             activity,
             state_hash,
             selected.decision(),
