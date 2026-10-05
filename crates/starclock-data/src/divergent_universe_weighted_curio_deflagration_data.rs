@@ -1,4 +1,4 @@
-//! Deflagration facts and authored policies; no native battle admission.
+//! Deflagration facts and independently authored native execution policies.
 use crate::{
     catalog::parse_decimal,
     divergent_universe::DivergentUniverseBundleCandidate,
@@ -13,10 +13,10 @@ use crate::{
 };
 use sha2::{Digest, Sha256};
 
-/// Data readiness only; this status must not admit an equipped battle effect.
+/// Current execution readiness; data loading alone does not execute equipment.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum WeightedCurioDeflagrationStatus {
-    AuthoredOperandsPendingNative,
+    NativeProjectPolicy,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -249,7 +249,7 @@ pub(super) fn compile(
         burn_fractions_millionths: [500_000, 1_000_000, 1_500_000, 2_000_000],
         damage_multiplier_millionths: 2_000_000, duration_turns: 2,
         fixed_base_damage_millionths: 100_000_000, hard_level_group: 1, hp_ratios_millionths,
-        status: match row.status { DuDeflagrationStatus::AuthoredOperandsPendingNative => WeightedCurioDeflagrationStatus::AuthoredOperandsPendingNative },
+        status: match row.status { DuDeflagrationStatus::NativeProjectPolicy => WeightedCurioDeflagrationStatus::NativeProjectPolicy },
         policy: match row.policy { DuDeflagrationPolicy::OriginalFireAfterActionNaturalTickBurns => WeightedCurioDeflagrationPolicy::VersionedProjectPolicyOriginalFireAfterActionNaturalTickBurns },
         base_policy: match row.base_policy { DuDeflagrationBasePolicy::TargetGroupOneHpRatioProtocolHpFloor => WeightedCurioDeflagrationBasePolicy::VersionedProjectPolicyTargetGroupOneHpRatioProtocolHpFloor },
         summary_en: row.summary_en.clone().into(), summary_zh_cn: row.summary_zh_cn.clone().into(),

@@ -6,7 +6,7 @@ overflow and an 80% ATK increase. Eligibility is Erudition/Hunt, with no element
 restriction. Normal equipment admits both contributions as independently
 replaceable `VersionedProjectPolicy` behavior, not exact hidden-formula parity
 or terminal execution credit. The current Weighted Curio equipment-definition
-count is 14/17, including the separately policy-bound Footstep contribution.
+count is 15/17, including the separately policy-bound Footstep and Deflagration contributions.
 
 ## Released joins and program evidence
 
@@ -267,7 +267,7 @@ boundary vectors cover zero, one millionth, negative input and checked overflow.
 This is executable authored-policy lowering, not observed formula parity.
 Normal battle assembly uses it with the ATK and callback policies; existing
 callback/survival fixtures continue using their explicit test base. Equipment
-admission contributes to the current 14/17 equipment-definition count, not
+admission contributes to the current 15/17 equipment-definition count, not
 terminal dispositions.
 
 ### Remaining parity and release boundaries

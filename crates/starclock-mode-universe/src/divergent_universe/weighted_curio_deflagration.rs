@@ -1,4 +1,6 @@
-//! Independent Most Raucous base/Burn constructors; normal equipment remains gated.
+//! Authored Most Raucous base/Burn policies and immutable equipment assembly.
+#[path = "weighted_curio_deflagration/equipment.rs"]
+mod equipment;
 #[path = "weighted_curio_deflagration/native.rs"]
 pub mod native;
 use crate::{

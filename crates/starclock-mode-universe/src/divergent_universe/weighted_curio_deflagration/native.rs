@@ -63,7 +63,8 @@ struct OriginalFireRoster {
 ///
 /// Returns new participant specs and preserves existing passives. Never mutates
 /// live battle or Activity state. Discard the builder if construction fails:
-/// partial definitions can have been appended. Normal equipment remains gated.
+/// partial definitions can have been appended. Normal assembly invokes this
+/// constructor only after its equipped snapshot has been validated.
 pub fn bind_mapped_deflagration_policy(
     builder: &mut CombatCatalogBuilder,
     definition: &WeightedCurioDeflagrationDefinition,

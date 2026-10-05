@@ -4,7 +4,7 @@ Separate explicit constructors compile the HP-loss/point and after-Skill damage
 contributions through shared Rule IR, battle commands, slots, effects and
 resource/formula operations. Normal immutable equipment assembly now reads
 their operands and independently replaceable policy identity from Sora.
-The current Weighted Curio equipment-definition count is **14/17**, not a
+The current Weighted Curio equipment-definition count is **15/17**, not a
 complete-mechanic count. Real transformations, linked/unitless timeline
 actors, periodic damage, dedicated damage channels and wave transitions now
 have a bounded equipment consumer corpus in both run families.

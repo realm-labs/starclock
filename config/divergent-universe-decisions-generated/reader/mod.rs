@@ -114,7 +114,7 @@ pub mod du_weighted_curio_deflagrations;
 pub mod du_weighted_curio_deflagration_levels;
 pub type SoraMap<K, V> = std::collections::HashMap<K, V>;
 
-pub const SCHEMA_FINGERPRINT: &str = "1cca7241d1de3dd0";
+pub const SCHEMA_FINGERPRINT: &str = "2274413d732fdc36";
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum SoraTableShape {

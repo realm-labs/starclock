@@ -7,9 +7,9 @@ Most Raucous now has a production-authored Deflagration operand row, all 95
 canonical Group 1 HPRatio rows and eight exact/policy provenance records.
 Its six source parameters, Fire membership, natural-tick versus external
 detonation distinction and separately hashed base/execution policies validate
-through current Sora/domain loading. Status is `AuthoredOperandsPendingNative`:
-normal equipment assembly and admission still reject the unsupported identity, and
-the supported equipment-definition count remains 14/17. The decision input is
+through current Sora/domain loading. Status is `NativeProjectPolicy`:
+normal equipment admission and immutable battle assembly execute this identity,
+and the supported equipment-definition count is 15/17. The decision input is
 52 tables / 647 rows; no terminal disposition or complete-run gate changes.
 See the [Deflagration authoring boundary](divergent-universe-weighted-curio-deflagration.md).
 
@@ -27,7 +27,10 @@ and tick reactions; inherited linked Assist attacks and original-applier
 unitless countdowns cannot borrow application. Real waves retain entry counts,
 isolate arriving targets from departed effect records and clear captures on
 final victory. These constructor lifecycle consumers run in both families with
-fresh payloads/hashes and inert rejections. Normal equipment admission and
+fresh payloads/hashes and inert rejections, retaining normal equipment bindings.
+Untouched production catalogs/specs execute offered Fire Attacks and natural
+ticks; a three-Curio composition and unequip verify fresh handoffs, byte-inert
+stale changes and old assembly immutability. Forge/full-run admission and
 terminal coverage remain pending; no release gate is credited.
 
 Shared Rule IR now retains the exact Direct/DotTick/DotDetonation kind of each
@@ -37,8 +40,8 @@ remain absent. Real direct damage, external detonation and target-turn tick
 commands verify separate reactions over the same effect/source, inert rejected
 commands, no RNG and fresh canonical reconstruction. This closes a prerequisite
 for Most Raucous, not its mechanic or equipment definition. Sora filter authoring
-and the Curio's normal equipment/Forge/full-run admission remain pending. The
-Weighted Curio definition count stays 14/17, with no terminal coverage credit.
+and the Curio's Forge/full-run admission remain pending. The
+Weighted Curio definition count is 15/17, with no terminal coverage credit.
 See the [damage settlement observation boundary](rule-event-observation-runtime-boundary.md#damage-settlement-kind).
 
 Footstep of Gods has authored Sora operands, independently replaceable HP-loss
@@ -66,7 +69,7 @@ attribution. Mixed damage commands retain Direct/Additional bonuses but exclude
 dedicated Elation and Break/Super Break. Real waves retain residue/layers;
 the final win clears both clauses. The bounded lifecycle corpus does not
 substitute for Forge or full-run equipment replay, which remain pending. No terminal coverage
-credit follows and the equipment-definition count is 14/17. See the
+credit follows and the equipment-definition count is 15/17. See the
 [native execution policy boundary](divergent-universe-weighted-curio-footstep.md).
 
 Shared Rule IR Skill Point updates now retain requested gain/spend/Set values
@@ -76,7 +79,7 @@ cannot masquerade as effective gain. Command fixtures cover zero/full caps,
 fractional flooring, the full request domain, trigger reactions, transactional
 rollback, fresh canonical events/hashes and stale-command inertness. This fixes
 resource event accounting, not source parity. Footstep of Gods equipment uses
-this accounting under explicit policy; the definition count is 14/17. See the
+this accounting under explicit policy; the definition count is 15/17. See the
 [Rule IR resource contract](11-rule-ir-and-native-handlers.md).
 
 Shared combat's native `QueryUnitLevel` reads each resolved unit's own 1–95
@@ -97,7 +100,7 @@ HP ordering or mode branch is introduced. Missing/invalid reads fault before
 choice, empty pools do not evaluate or draw, and unsafe historical/current-HP
 queries remain rejected. Walkie-Talkie equipment uses the native maximum
 predicate; general Sora predicate authoring remains pending. The Weighted Curio
-count is 14/17 under explicit project policies. See
+count is 15/17 under explicit project policies. See
 the [selector contract](selector-and-target-set-runtime-boundary.md).
 
 The current Parallel Universe Walkie-Talkie production definition preserves
@@ -156,7 +159,7 @@ bridge itself is a ProjectPolicy construction API, not an ATK buff, a decoded
 base formula or exact death/deathrattle parity. Normal equipment assembles it
 together with the separate ATK contribution and authored base compiler.
 Accepted caller-selected loadout storage remains unchanged. The Weighted Curio
-effect-definition count is 14/17; Forge/full-run release and terminal execution credit
+effect-definition count is 15/17; Forge/full-run release and terminal execution credit
 remain pending. See the
 [overflow authoring boundary](divergent-universe-weighted-curio-overflow.md).
 
@@ -168,7 +171,7 @@ The pure formula and native command corpus cover guards, shields, fractional
 finalization, Break damage, fresh reconstruction and rejected commands. General
 Sora admission remains pending; Walkie-Talkie equipment consumes the native
 query through its explicitly authored policy. The Weighted Curio battle-effect
-count is 14/17; terminal coverage is unchanged.
+count is 15/17; terminal coverage is unchanged.
 See the [event observation contract](rule-event-observation-runtime-boundary.md).
 
 Shared combat now supports native effect-specific shield queries and exact
@@ -1387,8 +1390,9 @@ and one executable policy-bound
 and one executable policy-bound
 [Walkie-Talkie definition](divergent-universe-weighted-curio-overflow.md)
 and one policy-bound [Footstep of Gods definition](divergent-universe-weighted-curio-footstep.md)
-across 52 tables and 647 rows, including the separately pending authored
-Deflagration/level definitions. Dignity and Passion preserves the four released
+and one policy-bound [Deflagration definition](divergent-universe-weighted-curio-deflagration.md)
+across 52 tables and 647 rows, including 95 factual Deflagration level rows.
+Dignity and Passion preserves the four released
 `0.75/0.3/0.9/0.1` operands. Ordinary shield grant events grow a recipient-local
 special shield; owner turns decay only its capacity above live maximum HP's
 30% threshold, and a distinct reaction heals from the actual negative adjustment.

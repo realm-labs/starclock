@@ -49,7 +49,7 @@ fn check(table: &'static str, rows: Vec<Value>) -> Result<(), DecisionDataError>
 }
 
 #[test]
-fn weighted_curio_deflagration_production_loads_exact_operands_without_native_status() {
+fn weighted_curio_deflagration_production_loads_exact_operands_with_native_policy_status() {
     let reference = load_divergent_universe_bundle().unwrap();
     let a = DecisionCatalog::production(&reference).unwrap();
     let b = DecisionCatalog::production(&reference).unwrap();
@@ -79,7 +79,7 @@ fn weighted_curio_deflagration_production_loads_exact_operands_without_native_st
     );
     assert_eq!(
         row.status,
-        WeightedCurioDeflagrationStatus::AuthoredOperandsPendingNative
+        WeightedCurioDeflagrationStatus::NativeProjectPolicy
     );
     assert_eq!(row.policy, WeightedCurioDeflagrationPolicy::VersionedProjectPolicyOriginalFireAfterActionNaturalTickBurns);
     assert_eq!(row.base_policy, WeightedCurioDeflagrationBasePolicy::VersionedProjectPolicyTargetGroupOneHpRatioProtocolHpFloor);

@@ -1,4 +1,4 @@
-//! Real command consumers of the constructor; no Activity equipment bypass.
+//! Real commands over normal equipment bindings; malformed constructors reject.
 use crate::divergent_universe::{
     DivergentUniverseBaselineFixture,
     tests::{
@@ -9,6 +9,7 @@ use crate::divergent_universe::{
             scenario_with_players, until_source_tick,
         },
     },
+    weighted_curio::WeightedCurioSlotLimit,
     weighted_curio::deflagration::{
         DeflagrationBaseDamagePolicy, native::bind_mapped_deflagration_policy,
     },
@@ -47,38 +48,35 @@ pub(super) fn parts(
     fixture: &DivergentUniverseBaselineFixture,
     family: DivergentUniverseRunFamily,
 ) -> (Arc<CombatCatalog>, Vec<ParticipantSpec>) {
-    let (flow, activity) = ready(fixture, family);
+    let (flow, mut activity) = ready(fixture, family);
+    let definition = &fixture
+        .factory()
+        .decision_catalog()
+        .weighted_curio_deflagrations()[0];
+    let hash = activity.state_hash();
+    fixture
+        .factory()
+        .weighted_curio_runtime()
+        .unwrap()
+        .replace_accepted_loadout(
+            &flow,
+            &mut activity,
+            hash,
+            WeightedCurioSlotLimit::new(1).unwrap(),
+            std::slice::from_ref(&definition.weighted_curio),
+        )
+        .unwrap();
     let before = activity.canonical_state_bytes();
     let assembled = assemble(fixture, &flow, &activity);
-    let snapshot = fixture
-        .factory()
-        .contribution_snapshot_runtime()
-        .unwrap()
-        .snapshot(&flow, &activity)
-        .unwrap();
-    let mut builder =
-        CombatCatalogBuilder::from_catalog(assembled.combat_catalog(), assembled.assembly_digest());
-    let original = assembled
+    let players = assembled
         .battle_spec()
         .participants()
         .iter()
         .filter(|p| p.side() == TeamSide::Player)
         .cloned()
         .collect::<Vec<_>>();
-    let players = bind_mapped_deflagration_policy(
-        &mut builder,
-        &fixture
-            .factory()
-            .decision_catalog()
-            .weighted_curio_deflagrations()[0],
-        fixture.core(),
-        &original,
-        snapshot.difficulty_protocol(),
-        assembled.assembly_digest(),
-    )
-    .unwrap();
     assert_eq!(activity.canonical_state_bytes(), before);
-    (builder.build().unwrap(), players)
+    (Arc::clone(assembled.combat_catalog()), players)
 }
 pub(super) fn scenario(
     parts: &(Arc<CombatCatalog>, Vec<ParticipantSpec>),

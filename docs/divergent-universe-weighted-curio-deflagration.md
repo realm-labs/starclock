@@ -95,9 +95,10 @@ field independently with released typed evidence or reproducible current traces.
 The production workbook owns one `WeightedCurioDeflagrations` row and 95
 `WeightedCurioDeflagrationLevels` rows. Sora/domain loading validates all exact
 joins, decimals, provenance and independently hashed policy notes. Status is
-`AuthoredOperandsPendingNative`: loading alone does not execute Deflagration.
-Normal equipment assembly and admission still reject this
-unsupported identity; the equipment-definition count remains 14/17.
+`NativeProjectPolicy`: normal equipment snapshots admit this identity and
+immutable battle assembly binds the authored policies. Loading alone does not
+execute Deflagration. The equipment-definition count is 15/17, not a terminal
+mechanic or released-run coverage count.
 
 Formula-only real command probes execute all 95 target levels for Ordinary,
 Cyclical and two immutable Protocol snapshots. Independent integer oracles
@@ -114,16 +115,16 @@ causes have no per-hit applier/source; admission therefore checks the raw Unit
 actor, original-owner selector and aggregate Attack tag. Detonation separately
 requires the exact source, original applier and DotTick settlement kind.
 
-Eight bounded command tests use mapped player specs in controlled battle
-catalogs for both families. They verify zero through four Fire originals,
+Eight bounded command tests retain normal equipment assembly's mapped player
+bindings in controlled battle catalogs for both families. They verify zero through four Fire originals,
 multihit/multitarget cardinality, independent casters and cross-caster replacement,
 two real ticks and expiry, ordinary and Break Burns, external detonation
 nonrecursion, entry-count retention after restoring a reserved member,
 target-owned level capture, terminal-loss cleanup, rejected-command invariance,
 fresh payloads/hashes and no RNG. Construction rejects malformed rosters and
 operands, including doubled-magnitude overflow even when the base fits.
-These are explicit constructor consumers, not accepted equipment handoffs or
-proof of observed parity for the separately authored execution policy.
+Malformed inputs also reject the explicit constructor. Accepted equipment
+handoffs do not prove observed parity for the separately authored execution policy.
 
 Four additional real lifecycle command tests verify reversible transformations
 between registered mapped forms without changing original Fire qualification,
@@ -140,8 +141,15 @@ targets without migrating them to arriving enemies. Fresh second-wave attacks
 and ticks use the original fraction; final victory clears captures and all
 Deflagration records. Each lifecycle scenario checks rejected-command hash,
 decision and RNG invariance, and fresh event payload/hash reconstruction in
-both families. These still test explicit constructors, not normal equipment.
+both families, retaining normal equipment assembly's bindings without invoking
+a second constructor in the controlled scenario.
 
-Normal equipment handoff/unequip consumers remain pending. Forge admission, accepted-equipment
+Untouched production battle specs/catalogs additionally execute an actual
+offered Fire Attack and natural Deflagration tick, with an independent integer
+oracle for captured target-level/Protocol magnitudes and fresh event/hash/RNG
+reconstruction. A three-Curio loadout composes with Footstep and Overflow;
+stale changes are byte-inert, unequip removes the next battle's bindings, and
+already assembled battles remain immutable. No-Fire equipment is legal and
+does not invent an eligible participant. Forge admission, accepted-equipment
 replay and both complete-run release gates also remain pending. No reference
 obligation, mechanic program, semantic family, gap or policy is terminalized.

@@ -686,8 +686,8 @@ impl DecisionCatalog {
         &self.weighted_curio_footsteps
     }
 
-    /// Released Deflagration operands and policies pending native construction.
-    /// These rows do not authorize supported equipment or imply execution.
+    /// Released Deflagration operands and replaceable native execution policies.
+    /// Loading these rows alone does not equip a Curio or execute its policy.
     #[must_use]
     pub fn weighted_curio_deflagrations(&self) -> &[WeightedCurioDeflagrationDefinition] {
         &self.weighted_curio_deflagrations

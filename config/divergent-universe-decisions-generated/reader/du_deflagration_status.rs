@@ -3,13 +3,13 @@
 #[repr(u32)]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, serde::Serialize, serde::Deserialize)]
 pub enum DuDeflagrationStatus {
-    AuthoredOperandsPendingNative = 0,
+    NativeProjectPolicy = 0,
 }
 
 impl super::runtime::SoraDecode for DuDeflagrationStatus {
     fn decode(reader: &mut super::runtime::SoraReader<'_>) -> Result<Self, super::runtime::SoraReadError> {
         match reader.read_var_u32()? {
-            0 => Ok(Self::AuthoredOperandsPendingNative),
+            0 => Ok(Self::NativeProjectPolicy),
             value => Err(super::runtime::SoraReadError::new(format!("invalid enum id {} for DuDeflagrationStatus", value))),
         }
     }

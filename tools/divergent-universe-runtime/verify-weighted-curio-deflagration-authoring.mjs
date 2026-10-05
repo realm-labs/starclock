@@ -34,7 +34,7 @@ assert.equal(row.duration_parameter.Integer, 6);
 assert.equal(row.duration_turns.Integer, 2);
 assert.equal(row.base_fixed_damage.String, "100");
 assert.equal(row.base_hard_level_group.Integer, 1);
-assert.equal(row.status.String, "AuthoredOperandsPendingNative");
+assert.equal(row.status.String, "NativeProjectPolicy");
 assert.equal(row.policy.String, "OriginalFireAfterActionNaturalTickBurns");
 assert.equal(row.base_policy.String, "TargetGroupOneHpRatioProtocolHpFloor");
 assert.deepEqual(row.source_ids.List.map(value => value.Integer), [141,142,143,144,145,146,147,148]);
@@ -134,7 +134,7 @@ if (process.argv.includes("--check-source")) {
     assert.equal(level.HPRatio.Value,levels[index].hp_ratio.String);
   }
 }
-console.log("Deflagration six released operands, 95 exact HPRatios, natural/custom callback distinction and two independent policy digests verified; native execution remains pending.");
+console.log("Deflagration six released operands, 95 exact HPRatios, natural/custom callback distinction and two independent policy digests verified; native equipment admission remains separate from release coverage.");
 function objects(value) {
   return Array.isArray(value)?value.flatMap(objects):value && typeof value==="object"?[value,...Object.values(value).flatMap(objects)]:[];
 }

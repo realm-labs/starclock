@@ -20,6 +20,7 @@ mod weighted_curio_burn_lifecycle_fixture;
 mod weighted_curio_counter_composition;
 mod weighted_curio_deflagration_base;
 mod weighted_curio_deflagration_base_fixture;
+mod weighted_curio_deflagration_equipment;
 mod weighted_curio_deflagration_lifecycle;
 mod weighted_curio_deflagration_native;
 mod weighted_curio_elation;

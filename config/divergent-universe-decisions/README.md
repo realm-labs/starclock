@@ -4,10 +4,10 @@ This project owns executable decision definitions, not the reference pack's
 identity/evidence catalog. Its 52 tables and 647 rows include policy-bound
 choices, rewards and reviewed Curio components used by the production Activity
 graph, plus nine explicitly selected source decks and their 125 distinct card
-instances, fourteen equipment-supported policy-bound Weighted Curio definitions,
-and one [Deflagration definition](../../docs/divergent-universe-weighted-curio-deflagration.md)
-with 95 factual level rows explicitly `AuthoredOperandsPendingNative`. Loading
-the latter does not admit equipment or execute an effect. Deck compilation
+instances and fifteen equipment-supported policy-bound Weighted Curio definitions.
+The [Deflagration definition](../../docs/divergent-universe-weighted-curio-deflagration.md)
+retains 95 factual level rows with `NativeProjectPolicy` execution through normal
+equipment assembly; loading alone does not execute an effect. Deck compilation
 is available, but automatic mask selection and
 production domain routing remain unbound. This is partial executable coverage,
 not complete gameplay parity.
@@ -80,9 +80,9 @@ Physical target weights/nonlethal retaliation, team-maximum Break Effect capture
 and [Mock Crimson Moon Necrosis/Burn detonation](../../docs/divergent-universe-weighted-curio-necrosis.md).
 The [Footstep of Gods contract](../../docs/divergent-universe-weighted-curio-footstep.md)
 binds exact released HP-loss/Skill operands and two separately digest-bound
-execution policies through normal equipment assembly. The total is fourteen
-effect definitions, not fourteen complete mechanics: Footstep lifecycle consumers
-and full-run acceptance remain pending. Three other effect definitions and a
+execution policies through normal equipment assembly. The total is fifteen
+effect definitions, not fifteen complete mechanics: bounded lifecycle consumers
+do not establish full-run acceptance. Two other effect definitions and a
 Forge menu remain unimplemented.
 The [Tawot service definitions](../../docs/divergent-universe-tawot-service.md)
 drive an explicitly admitted shared Activity purchase graph; automatic Forge

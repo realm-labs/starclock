@@ -4,6 +4,7 @@
 use crate::digest::CanonicalDigestBuilder;
 use starclock_data::divergent_universe_decisions::weighted_curio_attack_debuffs::WeightedCurioAttackDebuffDefinition;
 use starclock_data::divergent_universe_decisions::weighted_curio_break_effects::WeightedCurioBreakEffectDefinition;
+use starclock_data::divergent_universe_decisions::weighted_curio_deflagrations::WeightedCurioDeflagrationDefinition;
 use starclock_data::divergent_universe_decisions::weighted_curio_elations::WeightedCurioElationDefinition;
 use starclock_data::divergent_universe_decisions::weighted_curio_encouragements::WeightedCurioEncouragementDefinition;
 use starclock_data::divergent_universe_decisions::weighted_curio_excitations::WeightedCurioExcitationDefinition;
@@ -103,6 +104,7 @@ pub struct WeightedCurioRuntime {
     pub(super) excitations: Box<[WeightedCurioExcitationDefinition]>,
     pub(super) overflows: Box<[WeightedCurioOverflowDefinition]>,
     pub(super) footsteps: Box<[WeightedCurioFootstepDefinition]>,
+    pub(super) deflagrations: Box<[WeightedCurioDeflagrationDefinition]>,
     decision_digest: [u8; 32],
 }
 
@@ -158,6 +160,10 @@ impl DivergentUniverseRuntimeFactory {
             excitations: self.decision_catalog().weighted_curio_excitations().into(),
             overflows: self.decision_catalog().weighted_curio_overflows().into(),
             footsteps: self.decision_catalog().weighted_curio_footsteps().into(),
+            deflagrations: self
+                .decision_catalog()
+                .weighted_curio_deflagrations()
+                .into(),
             shields: self.decision_catalog().weighted_curio_shields().into(),
             transfers: self.decision_catalog().weighted_curio_transfers().into(),
             attack_debuffs: self
@@ -309,9 +315,13 @@ impl WeightedCurioRuntime {
         let equipped = self.equipped(activity)?;
         for id in &equipped {
             if !self
-                .footsteps
+                .deflagrations
                 .iter()
                 .any(|definition| &definition.weighted_curio == id)
+                && !self
+                    .footsteps
+                    .iter()
+                    .any(|definition| &definition.weighted_curio == id)
                 && !self
                     .overflows
                     .iter()

@@ -24,9 +24,9 @@ def append_weighted_curio_deflagration(data: dict[str, list[list[object]]]) -> N
         data["Sources"].append([ordinal, f"du.source.weighted-curio-deflagration.{suffix}",
             "https://gitlab.com/Dimbreath/turnbasedgamedata", "fd978d6ef09f941fba644c731ab54abd6f7c3568", "4.4", "2026-10-05",
             f"docs/divergent-universe-weighted-curio-deflagration.md#{anchor}", sha256(note.encode("utf-8")).hexdigest(), "ProjectPolicy",
-            f"Digest binds the corresponding {suffix} note in WeightedCurioDeflagrations, not an upstream blob. Replace fields independently; native execution remains pending."])
+            f"Digest binds the corresponding {suffix} note in WeightedCurioDeflagrations, not an upstream blob. Replace fields independently; normal equipment executes the native policy, not observed parity."])
     data["WeightedCurioDeflagrations"] = [[1, "du.weighted-curio-deflagration.most-raucous", "divergent-universe.weighted-curio.1012", "633412", "Fire",
-        "0.5|1|1.5|2", 5, "2", 6, 2, "100", 1, "AuthoredOperandsPendingNative",
+        "0.5|1|1.5|2", 5, "2", 6, 2, "100", 1, "NativeProjectPolicy",
         "OriginalFireAfterActionNaturalTickBurns", "TargetGroupOneHpRatioProtocolHpFloor",
         "Fire originals apply two-turn Deflagration, counted as Burn; natural ticks deal twice base damage and detonate other Burns at the original Fire-count fraction.",
         "火属性原角色施加两回合爆燃（视为灼烧）；自然周期结算造成两倍基础伤害，并按入场火角色人数比例引爆其他灼烧。",

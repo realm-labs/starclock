@@ -1,4 +1,4 @@
-//! Real lifecycle commands over explicit native constructors, not equipment admission.
+//! Real lifecycle commands retain normal equipment assembly's authored bindings.
 use crate::divergent_universe::tests::{
     weighted_curio_burn_fixture::{
         CLEAR_WAVE, Probe, RESTORE, SEED, Scenario, attack, command, idle_step, until_source_tick,

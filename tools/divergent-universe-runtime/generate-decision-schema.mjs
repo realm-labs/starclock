@@ -458,7 +458,7 @@ tables.push(["DuWeightedCurioFootsteps", "WeightedCurioFootsteps", fields([
   ["skill_policy_note", "string"], ["skill_replacement_condition", "string"],
   ["source_ids", "list<ref<DuDecisionSources.id>>"],
 ])]);
-enums.push(["DuDeflagrationStatus", ["AuthoredOperandsPendingNative"]]);
+enums.push(["DuDeflagrationStatus", ["NativeProjectPolicy"]]);
 enums.push(["DuDeflagrationPolicy", ["OriginalFireAfterActionNaturalTickBurns"]]);
 enums.push(["DuDeflagrationBasePolicy", ["TargetGroupOneHpRatioProtocolHpFloor"]]);
 tables.push(["DuWeightedCurioDeflagrations", "WeightedCurioDeflagrations", fields([
