@@ -2,6 +2,7 @@
 use crate::divergent_universe::{
     DivergentUniverseBaselineFixture,
     tests::weighted_curio_overflow_lifecycle_fixture::{Setup, add_setup},
+    tests::weighted_curio_overflow_queued_fixture::bind_queued_probe,
     weighted_curio_overflow::{
         OverflowBaseDamagePolicy, attack_increase::bind_attack_increase_policy,
         bind_death_conversion_policy,
@@ -17,7 +18,7 @@ use starclock_combat::{
         action::{
             AbilityActionDefinition, AbilityKind, AbilityProgramBinding, AbilityProgramTiming,
             ActionHitDefinition, ActionResourcePolicy, HitCritPolicy, HitOperationDefinition,
-            HitTargetGroup, OrdinaryDamageDefinition, OrdinaryDamageMultipliers,
+            HitTargetGroup, OrdinaryDamageDefinition, OrdinaryDamageMultipliers, ReactionBoundary,
             TargetInvalidationPolicy, TargetPattern, TargetRelation, UnitTargetSelector,
         },
         builder::CombatCatalogBuilder,
@@ -67,6 +68,8 @@ pub(super) struct Probe {
     pub(super) hp_floor: Option<Ratio>,
     pub(super) phase_targets: u8,
     pub(super) setup: Option<Setup>,
+    pub(super) queued: Option<ReactionBoundary>,
+    pub(super) queued_single: bool,
 }
 impl Default for Probe {
     fn default() -> Self {
@@ -85,6 +88,8 @@ impl Default for Probe {
             hp_floor: None,
             phase_targets: 0,
             setup: None,
+            queued: None,
+            queued_single: false,
         }
     }
 }
@@ -290,6 +295,9 @@ pub(super) fn scenario_with_base(
     } else {
         vec![id(1)]
     };
+    if probe.queued.is_some() {
+        player_abilities.push(id(8));
+    }
     if probe.attack_probe {
         player_abilities.push(id(7));
         builder.add_selector(
@@ -442,6 +450,10 @@ pub(super) fn scenario_with_base(
         )
         .unwrap()
     };
+    let player = probe.queued.map_or_else(
+        || player.clone(),
+        |boundary| bind_queued_probe(&mut builder, &player, boundary, probe.queued_single),
+    );
     if let Some(setup) = probe.setup {
         add_setup(&mut builder, &player, setup);
     }

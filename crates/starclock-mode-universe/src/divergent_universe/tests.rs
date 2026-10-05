@@ -32,6 +32,8 @@ mod weighted_curio_overflow_fixture;
 mod weighted_curio_overflow_lifecycle;
 #[path = "tests/weighted_curio_overflow_lifecycle_fixture.rs"]
 mod weighted_curio_overflow_lifecycle_fixture;
+mod weighted_curio_overflow_queued;
+mod weighted_curio_overflow_queued_fixture;
 #[path = "tests/weighted_curio_overflow_survival.rs"]
 mod weighted_curio_overflow_survival;
 mod weighted_curio_prayer;

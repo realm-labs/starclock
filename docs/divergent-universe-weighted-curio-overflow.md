@@ -100,8 +100,9 @@ machine (which violates shared ownership). Confidence in **source parity is
 low**; confidence in the specified bridge behavior comes from native commands.
 Replace callback timing, reentrancy, marked-target lifetime and attribution
 individually when released typed semantics or reproducible observations establish
-them. Player-only lethal rescue, delayed deathrattle and nested same-owner queued
-attacks still need consumer-specific fixtures. Phase resets and enemy damage
+them. Player-only lethal rescue and delayed deathrattle still need
+consumer-specific fixtures. Nested same-owner queued attacks now have native
+consumer coverage described below. Phase resets and enemy damage
 guards now have native consumer coverage described below. Linked exclusion is covered by
 actual summon, memosprite, shared-actor and countdown commands, not merely the
 copied-form fixture. The linked-unit vectors use both formation 4 and the
@@ -142,6 +143,24 @@ enemy at 1 HP, while the second enemy's actual death still converts its own
 marks/readiness without removing unrelated persistent floors. These tests do
 not establish hidden callback parity, player-rescue correspondence or equipment
 admission.
+
+Two queued-action tests now cover actor-local state across real same-owner
+FollowUp envelopes. One queues after the first HitEnded, once per battle,
+at AfterHit or AfterAction through native Rule IR. The between-hit case really
+starts and resolves its child before the outer action resolves; the deferred
+case starts the child after the outer action resolves. Both orders confirm
+separate 100 and 150 excess values, giving 1,100 and 1,150 under the explicitly
+fixture-only `selected_enemy_level * 2` base, rather than a combined 1,250.
+Conversion retains the correct inner/outer ActionId and original owner in each
+order. Both draw twice and finish with no marks/readiness. Fresh event payloads
+and hashes match, and a stale command changes neither hash nor draws.
+
+The second test queues a single-target child during a multi-target outer action.
+The child kills its only target with 100 excess, but cannot convert into the
+living enemy marked only by the suspended outer action. It draws zero times;
+the resumed outer hit reopens observation and records no unrelated death or
+conversion. This verifies the declared reset policy, not a source action stack,
+delayed deathrattle callback, normal equipment or complete-run admission.
 
 These are executable bridge tests, **not** Ordinary/Cyclical equipment or
 complete-run release evidence. Production promotion still requires normal
