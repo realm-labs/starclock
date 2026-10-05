@@ -1,9 +1,10 @@
-# Footstep of Gods native HP-loss policy
+# Footstep of Gods native execution policies
 
-The explicit constructor compiles one real HP-loss contribution through shared
-Rule IR, battle commands, slots and resource operations. It is not normal Curio
-equipment admission. The Skill-use damage-stack clause, production Sora operand
-authoring, Forge and complete-run equipment replay remain pending. The current
+Separate explicit constructors compile the HP-loss/point and after-Skill damage
+contributions through shared Rule IR, battle commands, slots, effects and
+resource/formula operations. They are not normal Curio equipment admission.
+Production Sora operand authoring, Forge and complete-run equipment replay
+remain pending. The current
 Weighted Curio equipment count stays **13/17** and no terminal reference or
 mechanic-program credit follows.
 
@@ -33,6 +34,11 @@ owner changes through named LoseHP/TotalLoseHP/AvatarMaxHP/BoostBP values and
 requests team Boost Point gain. Its dynamic postfix arithmetic and hidden
 callback timing have not been proven equivalent to this native policy. Raw
 programs stay in the source cache, not the repository's authored runtime surface.
+The Skill callback predicates `ByCurrentSkillType = Skill`, then adds
+`Modifier_StageAbility_633411_Effect` to the modifier owner. The effect callback
+updates `_Layer` and stacks `AllDamageTypeAddedRatio`. The engine's dynamic
+postfix layer/property behavior and hidden callback ordering are not a decoded
+native binding; the text's per-stack ratio/cap remain independently factual.
 
 ## Independently replaceable execution policy
 
@@ -91,8 +97,63 @@ terminal reset, invalid fractions, policy identity, rollback, rejected commands,
 fresh event payloads and canonical hashes. Linked actor creation, real
 transformation, Break/DoT packet producers and wave transitions need separate
 consumer fixtures before normal equipment admission; their selector/slot design
-is not proof of those scenarios. No fixture substitutes for the missing
-Skill-use damage clause or formal workbook authoring.
+is not proof of those scenarios. No fixture substitutes for formal workbook
+authoring or full-run equipment construction.
+
+## After-Skill damage policy
+
+`SkillDamagePolicy` separately binds a positive additive fixed Scalar ratio,
+nonzero `u16` cap and immutable caller identity. The capped bonus product must
+fit checked Scalar before catalog mutation. Tests supply the released `0.08`
+and `10`; there is no shipping default, workbook loader or content-ID resolver
+branch. Source identity includes both operands, caller identity, assembly,
+immutable entry-form build digest and formation.
+
+- Use the same immutable Destruction/Remembrance original-Path proof and
+  Present/Transformed formation anchoring as the HP policy. Other Paths append
+  no contribution. Inherited rules on unrelated originals cannot acquire the
+  effect. The policies have distinct typed source/rule/effect identities and
+  can compose on the same participant without a second state machine.
+- Observe `ActionResolved`, `AfterAction`, priority zero, with an explicit
+  Skill/action-bearing original actor filter and `OnceScope::Action`. A
+  complete Skill adds one effect stack, even without damage. Multiple targets,
+  hits or HP facts cannot multiply it; other action kinds do not add stacks.
+  Its already-resolved damage cannot receive the new layer retroactively.
+- Use a permanent non-dispellable Buff with `RefreshAndAddStacks`, capped by
+  the explicit operand, and `PersistByScope` teardown. Each original has an
+  independent holder and effect definition. Dynamic modifier-local stack
+  slots multiply the ratio with six-place Floor and the shared final damage
+  floor remains authoritative. Explicit removal deletes its modifier captures;
+  later Skills create a fresh one-stack instance.
+- Add the ratio only at `DamageBoost` for Ordinary, DoT and Additional
+  formula purposes. `DamageProducer::OriginalUnit` rejects linked/unitless
+  formula-owner fallback. No ATK base is changed, and no True, Break, Super Break
+  or dedicated Elation damage alias is introduced. This channel choice is
+  policy, not proof that the source property has identical calculator reach.
+- Waves retain the permanent effect. Win/loss uses an unconditional direct-owner
+  cleanup selector, including defeated/absent holders; fresh construction has
+  no stack. Checked errors use normal command rollback and no RNG is consumed.
+
+Unavailable fields are exact callback order, same-Skill eligibility, bonus
+calculator reach, linked/statistic fallback, and removal/transformation/wave
+retention. They are low-confidence independently replaceable execution fields.
+Alternatives include declaration-time stacking, same-action snapshots, different
+damage-purpose sets, shared/linked recipients and reset-on-transformation/wave.
+This policy selects the shared complete-action envelope, explicit original
+ownership and ordinary additive formula blocks. Replace a field when released
+executable evidence or reproducible observations prove its exact behavior.
+
+The Skill command corpus exercises three-hit versus one-envelope accounting,
+the cap, nondamaging Skills, composition with two HP losses in one action, all
+original Paths, inherited and formation-one isolation, actual common-channel
+damage changes, True exclusion, explicit removal/reapplication, terminal
+cleanup, invalid operands, policy hashes, stale commands, checked formula
+rollback retaining prior stacks/HP and fresh canonical
+events/hashes. A Direct/DoT/Additional class vector checks the ordinary
+calculator's named channels; the DoT-class vector is not a periodic effect
+producer fixture. Real linked/timeline actors, transformations, periodic DoTs,
+Break/Elation negative consumer vectors and wave transitions still need their
+own command fixtures before equipment admission.
 
 ```text
 cargo test -p starclock-mode-universe weighted_curio_footstep

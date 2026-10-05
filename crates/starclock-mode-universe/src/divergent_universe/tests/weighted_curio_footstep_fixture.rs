@@ -2,20 +2,24 @@
 use crate::divergent_universe::{
     DivergentUniverseBaselineFixture,
     tests::weighted_curio_overflow_fixture::{accept, id, start},
-    weighted_curio_footstep::{HpLossPointPolicy, bind_hp_loss_point_policy},
+    weighted_curio_footstep::{
+        HpLossPointPolicy, bind_hp_loss_point_policy,
+        skill_damage::{SkillDamagePolicy, bind_skill_damage_policy},
+    },
 };
 use starclock_build::light_cone::CombatPath;
 use starclock_combat::{
     AssemblyDigest, Battle, BattleEvent, BattleSeed, BattleSpec, CombatantSpecDigest, Command,
     ConcedePolicy, DispelCategory, DurationClock, EffectCategory, EffectRuntimeTemplate,
     EffectStackPolicy, EffectTickPhase, Energy, FormationIndex, Hp, ParticipantSource,
-    ParticipantSpec, ResolvedCombatantSpec, ResolvedDefinitionBindings, Rounding, Scalar, Speed,
-    TeamResourceSpec, TeamSide, UnitLevel,
+    ParticipantSpec, Ratio, ResolvedCombatantSpec, ResolvedDefinitionBindings, Rounding, Scalar,
+    Speed, TeamResourceSpec, TeamSide, UnitLevel,
     catalog::{
         action::{
             AbilityActionDefinition, AbilityKind, AbilityProgramBinding, AbilityProgramTiming,
-            ActionResourcePolicy, TargetInvalidationPolicy, TargetPattern, TargetRelation,
-            UnitTargetSelector,
+            ActionHitDefinition, ActionResourcePolicy, HitCritPolicy, HitOperationDefinition,
+            HitTargetGroup, OrdinaryDamageDefinition, OrdinaryDamageMultipliers,
+            TargetInvalidationPolicy, TargetPattern, TargetRelation, UnitTargetSelector,
         },
         builder::CombatCatalogBuilder,
         definition::{
@@ -28,6 +32,7 @@ use starclock_combat::{
             RuleUnitSelector,
         },
     },
+    formula::model::DamageClass,
     rule::model::{
         ProgramStep, ResourceUpdateKind, RuleEffectChancePolicy, RuleOperationTemplate,
         RuleResourceKind, RuleValue, ValueExpr,
@@ -43,6 +48,7 @@ pub(super) struct Probe {
     pub(super) bind_buddy: bool,
     pub(super) inherit_buddy: bool,
     pub(super) identity: [u8; 32],
+    pub(super) skill: Option<SkillDamagePolicy>,
 }
 impl Default for Probe {
     fn default() -> Self {
@@ -55,6 +61,7 @@ impl Default for Probe {
             bind_buddy: false,
             inherit_buddy: false,
             identity: [0x91; 32],
+            skill: None,
         }
     }
 }
@@ -177,7 +184,10 @@ pub(super) fn scenario(fixture: &DivergentUniverseBaselineFixture, probe: &Probe
         })],
         vec![],
     ];
-    let abilities = (1..=10).map(id).collect::<Vec<_>>();
+    let abilities = (1..=18)
+        .filter(|raw| *raw != 15)
+        .map(id)
+        .collect::<Vec<_>>();
     for (index, steps) in programs.into_iter().enumerate() {
         let raw = u32::try_from(index).unwrap() + 1;
         builder.add_program(
@@ -188,7 +198,11 @@ pub(super) fn scenario(fixture: &DivergentUniverseBaselineFixture, probe: &Probe
             AbilityDefinition::new(id(raw), id(raw), target, vec![])
                 .with_action(
                     AbilityActionDefinition::new(
-                        AbilityKind::Skill,
+                        if raw == 10 {
+                            AbilityKind::Basic
+                        } else {
+                            AbilityKind::Skill
+                        },
                         1,
                         TargetInvalidationPolicy::CancelRemainingForTarget,
                         ActionResourcePolicy::new(0, 0, Energy::ZERO, Energy::ZERO),
@@ -200,6 +214,137 @@ pub(super) fn scenario(fixture: &DivergentUniverseBaselineFixture, probe: &Probe
                 ]),
         );
     }
+    let opposing = id(3);
+    builder.add_selector(SelectorDefinition::new(opposing).with_unit_targets(
+        UnitTargetSelector::new(TargetRelation::Opposing, TargetPattern::Single).unwrap(),
+    ));
+    for (raw, kind, class, amount, hit_count) in [
+        (11, AbilityKind::Skill, DamageClass::Direct, 100, 3),
+        (12, AbilityKind::Basic, DamageClass::Direct, 100, 1),
+        (14, AbilityKind::Basic, DamageClass::Additional, 100, 1),
+        (16, AbilityKind::Basic, DamageClass::Dot, 100, 1),
+        (18, AbilityKind::Skill, DamageClass::Direct, 100_000, 1),
+    ] {
+        builder.add_program(ProgramDefinition::new(
+            id(raw),
+            vec![],
+            vec![],
+            vec![],
+            vec![],
+        ));
+        let hits = (0..hit_count)
+            .map(|_| {
+                ActionHitDefinition::new(vec![HitOperationDefinition::Damage(
+                    OrdinaryDamageDefinition::new(
+                        Scalar::checked_from_integer(amount).unwrap(),
+                        OrdinaryDamageMultipliers::new([Ratio::ONE; 9]).unwrap(),
+                    )
+                    .unwrap()
+                    .with_class(class),
+                )])
+                .with_profile(
+                    HitTargetGroup::Selected,
+                    Ratio::ONE,
+                    Ratio::ONE,
+                    HitCritPolicy::Never,
+                )
+            })
+            .collect();
+        builder.add_ability(
+            AbilityDefinition::new(id(raw), id(raw), opposing, vec![]).with_action(
+                AbilityActionDefinition::new(
+                    kind,
+                    1,
+                    TargetInvalidationPolicy::CancelRemainingForTarget,
+                    ActionResourcePolicy::new(0, 0, Energy::ZERO, Energy::ZERO),
+                )
+                .unwrap()
+                .with_hits(hits)
+                .unwrap(),
+            ),
+        );
+    }
+    builder.add_selector(
+        SelectorDefinition::new(id(4)).with_rule_units(
+            RuleUnitSelector::new(
+                RuleSelectorOrigin::PrimaryTarget,
+                RuleSelectorSide::Opposing,
+                RuleLifePredicate::Alive,
+                RulePresencePredicate::Present,
+                RuleSelectorReference::CurrentState,
+                RuleSelectorOrdering::Formation,
+                0,
+                1,
+                RuleEmptyPoolPolicy::NoOp,
+                RuleSelectorChoice::First,
+                None,
+                false,
+            )
+            .unwrap(),
+        ),
+    );
+    builder.add_program(
+        ProgramDefinition::new(id(13), vec![], vec![id(4)], vec![], vec![]).with_steps(vec![op(
+            RuleOperationTemplate::TrueDamage {
+                selector: id(4),
+                amount: scalar(100),
+            },
+        )]),
+    );
+    builder.add_ability(
+        AbilityDefinition::new(id(13), id(13), opposing, vec![])
+            .with_action(
+                AbilityActionDefinition::new(
+                    AbilityKind::Basic,
+                    1,
+                    TargetInvalidationPolicy::CancelRemainingForTarget,
+                    ActionResourcePolicy::new(0, 0, Energy::ZERO, Energy::ZERO),
+                )
+                .unwrap(),
+            )
+            .with_programs(vec![
+                AbilityProgramBinding::new(1, AbilityProgramTiming::Entry, id(13)).unwrap(),
+            ]),
+    );
+    // Explicit removal tests modifier teardown, not dispel eligibility.
+    let footstep_effect = id(0x7f2c_0010);
+    if probe.skill.is_some()
+        && matches!(
+            probe.path,
+            CombatPath::Destruction | CombatPath::Remembrance
+        )
+    {
+        builder.add_program(
+            ProgramDefinition::new(id(17), vec![], vec![id(2)], vec![footstep_effect], vec![])
+                .with_steps(vec![op(RuleOperationTemplate::RemoveEffect {
+                    selector: id(2),
+                    effect: footstep_effect,
+                })]),
+        );
+    } else {
+        builder.add_program(ProgramDefinition::new(
+            id(17),
+            vec![],
+            vec![],
+            vec![],
+            vec![],
+        ));
+    }
+    builder.add_ability(
+        AbilityDefinition::new(id(17), id(17), target, vec![])
+            .with_action(
+                AbilityActionDefinition::new(
+                    AbilityKind::Basic,
+                    1,
+                    TargetInvalidationPolicy::CancelRemainingForTarget,
+                    ActionResourcePolicy::new(0, 0, Energy::ZERO, Energy::ZERO),
+                )
+                .unwrap(),
+            )
+            .with_programs(vec![
+                AbilityProgramBinding::new(1, AbilityProgramTiming::Entry, id(17)).unwrap(),
+            ]),
+    );
     builder.add_unit(UnitDefinition::new(form, abilities.clone(), vec![]));
     let make = |formation: u8, side, source, form, hp, bindings| {
         ParticipantSpec::new(
@@ -231,9 +376,13 @@ pub(super) fn scenario(fixture: &DivergentUniverseBaselineFixture, probe: &Probe
         probe.hp,
         ResolvedDefinitionBindings::new(abilities.clone(), vec![], vec![]).unwrap(),
     );
-    let player =
+    let mut player =
         bind_hp_loss_point_policy(&mut builder, fixture.core(), &player, &policy, [0x93; 32])
             .unwrap();
+    if let Some(skill) = &probe.skill {
+        player = bind_skill_damage_policy(&mut builder, fixture.core(), &player, skill, [0x93; 32])
+            .unwrap();
+    }
     let mut buddy = make(
         1,
         TeamSide::Player,
@@ -246,6 +395,11 @@ pub(super) fn scenario(fixture: &DivergentUniverseBaselineFixture, probe: &Probe
         buddy =
             bind_hp_loss_point_policy(&mut builder, fixture.core(), &buddy, &policy, [0x93; 32])
                 .unwrap();
+        if let Some(skill) = &probe.skill {
+            buddy =
+                bind_skill_damage_policy(&mut builder, fixture.core(), &buddy, skill, [0x93; 32])
+                    .unwrap();
+        }
     } else if probe.inherit_buddy {
         let inherited = make(
             1,
@@ -303,11 +457,19 @@ pub(super) fn begin(battle: &mut Battle) {
     start(battle);
 }
 pub(super) fn cast(battle: &mut Battle, ability: u32, target: u64) -> Vec<BattleEvent> {
+    cast_as(battle, 1, ability, target)
+}
+pub(super) fn cast_as(
+    battle: &mut Battle,
+    actor_id: u64,
+    ability: u32,
+    target: u64,
+) -> Vec<BattleEvent> {
     for _ in 0..32 {
         let offered = battle.decision().map(|decision| decision.legal_commands());
         if let Some(command) = offered.and_then(|commands| commands.iter().find(|command| matches!(command,
             Command::UseAbility {actor,ability:observed,primary_target,..}
-            if actor.get()==1 && observed.get()==ability && primary_target.is_some_and(|unit|unit.get()==target)))).cloned() {
+            if actor.get()==actor_id && observed.get()==ability && primary_target.is_some_and(|unit|unit.get()==target)))).cloned() {
             return accept(battle,command);
         }
         // Advance through another original member's real offered inert action.

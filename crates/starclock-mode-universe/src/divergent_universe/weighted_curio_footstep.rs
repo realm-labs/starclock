@@ -29,6 +29,8 @@ use starclock_combat::{
 };
 use starclock_data::catalog::SimulationCatalog;
 
+pub mod skill_damage;
+
 /// Invalid immutable constructor inputs, rejected before catalog mutation.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum HpLossPointPolicyError {

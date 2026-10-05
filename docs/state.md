@@ -3,16 +3,21 @@
 Starclock maintains only the current source, data, behavior and test outputs.
 Git history is the only historical record.
 
-Footstep of Gods has an explicit native HP-loss policy compiler, separate from
-production equipment admission. Immutable original Destruction/Remembrance
-Path proof selects the contribution; battle-local absolute HP residue accumulates
+Footstep of Gods has explicit native HP-loss and after-Skill damage policy
+compilers, separate from production equipment admission. Immutable original
+Destruction/Remembrance Path proof selects the contribution; battle-local
+absolute HP residue accumulates
 negative effective damage/consumption events and grants floored points against
 live maximum HP. Healing preserves residue, maximum clamps do not add loss,
-and capped/discarded gains consume thresholds. Hidden timing, arithmetic and
-cause attribution remain replaceable policy. Skill damage stacks, Sora operand
-authoring and normal equipment/Forge admission are still missing. No terminal
-coverage credit follows and the equipment count remains 13/17. See the
-[HP-loss policy boundary](divergent-universe-weighted-curio-footstep.md).
+and capped/discarded gains consume thresholds. Complete Skills add one capped
+dynamic additive damage stack after resolution, independent per original, using
+shared Ordinary/DoT/Additional channels and explicit original-producer
+filters. Terminal cleanup and explicit effect removal tear down captures.
+Hidden timing, arithmetic, formula reach and cause attribution remain
+replaceable policy. Sora operand authoring and normal equipment/Forge admission
+are still missing. No terminal coverage credit follows and the equipment count
+remains 13/17. See the
+[native execution policy boundary](divergent-universe-weighted-curio-footstep.md).
 
 Shared Rule IR Skill Point updates now retain requested gain/spend/Set values
 and discarded capped gain through the same checked `u16` calculation as keyed
