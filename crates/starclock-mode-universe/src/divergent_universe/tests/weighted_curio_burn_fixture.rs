@@ -1,35 +1,45 @@
-//! Controlled actions retain the production Sora-lowered Necrosis rules.
+//! Controlled actions retain independently constructed source-owned Burn rules.
 use crate::divergent_universe::DivergentUniverseAssembledBattle;
 use starclock_combat::{
     AbilityId, AssemblyDigest, Battle, BattleEvent, BattleEventKind, BattleSeed, BattleSpec,
     CombatantSpecDigest, Command, ConcedePolicy, DispelCategory, DotDefinition,
     DotDetonationDefinition, DotFamily, DurationClock, EffectApplicationDefinition, EffectCategory,
     EffectChancePolicy, EffectRuntimeDefinition, EffectStackPolicy, EffectTickPhase, Energy,
-    FormationIndex, Hp, ParticipantSource, ParticipantSpec, Probability, Ratio, RawToughness,
-    ResolvedCombatantSpec, ResolvedDefinitionBindings, Scalar, Speed, StatValue, TeamResourceSpec,
+    FormationIndex, Hp, LifeState, ParticipantInitialState, ParticipantSource, ParticipantSpec,
+    PresenceState, Probability, Ratio, RawToughness, ResolvedCombatantSpec,
+    ResolvedDefinitionBindings, Scalar, SourceDefinitionId, Speed, StatValue, TeamResourceSpec,
     TeamSide, ToughnessLayerSpec, ToughnessReductionDefinition, UnitId, UnitLevel,
     catalog::{
+        CombatCatalog,
         action::{
-            AbilityActionDefinition, AbilityKind, AbilityTag, ActionHitDefinition,
-            ActionResourcePolicy, HitCritPolicy, HitOperationDefinition, HitTargetGroup,
-            OrdinaryDamageDefinition, OrdinaryDamageMultipliers, TargetInvalidationPolicy,
-            TargetPattern, TargetRelation, UnitTargetSelector,
+            AbilityActionDefinition, AbilityKind, AbilityProgramBinding, AbilityProgramTiming,
+            AbilityTag, ActionHitDefinition, ActionResourcePolicy, HitCritPolicy,
+            HitOperationDefinition, HitTargetGroup, OrdinaryDamageDefinition,
+            OrdinaryDamageMultipliers, TargetInvalidationPolicy, TargetPattern, TargetRelation,
+            UnitTargetSelector,
         },
         builder::CombatCatalogBuilder,
         definition::{
             AbilityDefinition, EffectDefinition, EncounterDefinition, EnemyDefinition,
             ProgramDefinition, SelectorDefinition, UnitDefinition,
         },
+        selector::{
+            RuleEmptyPoolPolicy, RuleLifePredicate, RulePresencePredicate, RuleSelectorChoice,
+            RuleSelectorOrdering, RuleSelectorOrigin, RuleSelectorPredicate, RuleSelectorReference,
+            RuleSelectorSide, RuleUnitSelector,
+        },
     },
     formula::{
         model::{CombatElement, DamageClass},
         toughness::{BreakDamageDefinition, EnemyRank, ToughnessReductionContext},
     },
+    rule::model::{ProgramStep, RuleOperationTemplate},
 };
+use std::sync::Arc;
 
-pub(super) const NECROSIS: u32 = 0x7eb6_0001;
 pub(super) const ATTACK: u32 = 0x7dc3_0001;
 pub(super) const DETONATE: u32 = 0x7dc3_0004;
+pub(super) const RESTORE: u32 = 0x7dc3_0005;
 const SEED: u32 = 0x7dc3_0002;
 const IDLE: u32 = 0x7dc3_0003;
 pub(super) const BURN: u32 = 0x7dc6_0001;
@@ -57,7 +67,10 @@ pub(super) struct Probe {
     pub(super) hit_rate: i64,
     pub(super) seed: u8,
     pub(super) enemy_hp: i64,
-    pub(super) second_abundance: bool,
+    pub(super) enemy_level: u8,
+    pub(super) second_owner: bool,
+    pub(super) full_party: bool,
+    pub(super) absent_formation: Option<u8>,
 }
 impl Default for Probe {
     fn default() -> Self {
@@ -74,7 +87,10 @@ impl Default for Probe {
             hit_rate: 0,
             seed: 85,
             enemy_hp: 1_000_000,
-            second_abundance: false,
+            enemy_level: 80,
+            second_owner: false,
+            full_party: false,
+            absent_formation: None,
         }
     }
 }
@@ -84,12 +100,28 @@ pub(super) struct Scenario {
     pub(super) actor: UnitId,
     pub(super) seeder: UnitId,
     pub(super) targets: Vec<UnitId>,
+    pub(super) started: Vec<BattleEvent>,
     all: bool,
     allied: bool,
 }
 
 pub(super) fn scenario(assembled: &DivergentUniverseAssembledBattle, input: Probe) -> Scenario {
-    let mut builder = CombatCatalogBuilder::from_catalog(assembled.combat_catalog(), [0xc3; 32]);
+    let players = assembled
+        .battle_spec()
+        .participants()
+        .iter()
+        .filter(|player| player.side() == TeamSide::Player)
+        .cloned()
+        .collect::<Vec<_>>();
+    scenario_with_players(assembled.combat_catalog(), &players, input)
+}
+
+pub(super) fn scenario_with_players(
+    catalog: &Arc<CombatCatalog>,
+    players: &[ParticipantSpec],
+    input: Probe,
+) -> Scenario {
+    let mut builder = CombatCatalogBuilder::from_catalog(catalog, [0xc3; 32]);
     let form = id(0x7dc4_0001);
     for (raw, amount, family) in [
         (BURN, 100, Some(DotFamily::Burn)),
@@ -237,14 +269,68 @@ pub(super) fn scenario(assembled: &DivergentUniverseAssembledBattle, input: Prob
             AbilityDefinition::new(id(raw), program, selector, vec![]).with_action(action),
         );
     }
-    builder.add_unit(UnitDefinition::new(
-        form,
-        vec![id(ATTACK), id(SEED), id(IDLE), id(DETONATE)],
-        vec![],
-    ));
-    let original = assembled
-        .battle_spec()
-        .participants()
+    let mut abilities = vec![id(ATTACK), id(SEED), id(IDLE), id(DETONATE)];
+    if let Some(formation) = input.absent_formation {
+        abilities.push(id(RESTORE));
+        let selector = id(0x7dc1_0005);
+        let program = id(0x7dc2_0005);
+        builder.add_selector(
+            SelectorDefinition::new(selector)
+                .with_unit_targets(
+                    UnitTargetSelector::new(TargetRelation::Allied, TargetPattern::All).unwrap(),
+                )
+                .with_rule_units(
+                    RuleUnitSelector::new(
+                        RuleSelectorOrigin::Team,
+                        RuleSelectorSide::Same,
+                        RuleLifePredicate::Any,
+                        RulePresencePredicate::Any,
+                        RuleSelectorReference::CurrentState,
+                        RuleSelectorOrdering::Formation,
+                        0,
+                        1,
+                        RuleEmptyPoolPolicy::NoOp,
+                        RuleSelectorChoice::All,
+                        None,
+                        false,
+                    )
+                    .unwrap()
+                    .with_predicates(vec![
+                        RuleSelectorPredicate::FormationRange {
+                            minimum: formation,
+                            maximum: formation,
+                        },
+                    ]),
+                ),
+        );
+        builder.add_program(
+            ProgramDefinition::new(program, vec![], vec![selector], vec![], vec![]).with_steps(
+                vec![ProgramStep::Operation(
+                    RuleOperationTemplate::ChangePresence {
+                        selector,
+                        presence: PresenceState::Present,
+                    },
+                )],
+            ),
+        );
+        builder.add_ability(
+            AbilityDefinition::new(id(RESTORE), id(0x7dc2_0003), id(0x7dc1_0005), vec![])
+                .with_action(
+                    AbilityActionDefinition::new(
+                        AbilityKind::Skill,
+                        1,
+                        TargetInvalidationPolicy::CancelRemainingForTarget,
+                        ActionResourcePolicy::new(0, 0, Energy::ZERO, Energy::ZERO),
+                    )
+                    .unwrap(),
+                )
+                .with_programs(vec![
+                    AbilityProgramBinding::new(1, AbilityProgramTiming::Entry, program).unwrap(),
+                ]),
+        );
+    }
+    builder.add_unit(UnitDefinition::new(form, abilities.clone(), vec![]));
+    let original = players
         .iter()
         .find(|p| p.side() == TeamSide::Player && p.formation().get() == input.formation)
         .unwrap()
@@ -272,10 +358,10 @@ pub(super) fn scenario(assembled: &DivergentUniverseAssembledBattle, input: Prob
         StatValue::from_scaled(0).unwrap(),
     )
     .with_base_effect_stats(Scalar::from_scaled(input.hit_rate), Scalar::ZERO);
-    let plain = |speed, hp, abilities, resistance| {
+    let plain = |level, speed, hp, abilities, resistance| {
         ResolvedCombatantSpec::new(
             form,
-            UnitLevel::new(80).unwrap(),
+            UnitLevel::new(level).unwrap(),
             Hp::new(hp).unwrap(),
             Speed::from_scaled(speed).unwrap(),
             ResolvedDefinitionBindings::new(abilities, vec![], vec![]).unwrap(),
@@ -288,10 +374,8 @@ pub(super) fn scenario(assembled: &DivergentUniverseAssembledBattle, input: Prob
         )
         .with_base_effect_stats(Scalar::ZERO, Scalar::from_scaled(resistance))
     };
-    let seeder = if input.second_abundance {
-        let original = assembled
-            .battle_spec()
-            .participants()
+    let seeder = if input.second_owner {
+        let original = players
             .iter()
             .find(|p| p.side() == TeamSide::Player && p.formation().get() == 1)
             .unwrap()
@@ -302,7 +386,7 @@ pub(super) fn scenario(assembled: &DivergentUniverseAssembledBattle, input: Prob
             Hp::new(10_000).unwrap(),
             Speed::from_scaled(300_000_000).unwrap(),
             ResolvedDefinitionBindings::new(
-                vec![id(ATTACK), id(SEED), id(IDLE), id(DETONATE)],
+                abilities,
                 original.rule_bundles().to_vec(),
                 original.modifiers().to_vec(),
             )
@@ -320,6 +404,7 @@ pub(super) fn scenario(assembled: &DivergentUniverseAssembledBattle, input: Prob
         )
     } else {
         plain(
+            80,
             300_000_000,
             10_000,
             vec![id(SEED), id(IDLE), id(DETONATE)],
@@ -340,12 +425,60 @@ pub(super) fn scenario(assembled: &DivergentUniverseAssembledBattle, input: Prob
             seeder,
         ),
     ];
+    if input.full_party {
+        for original in players
+            .iter()
+            .filter(|player| player.formation().get() >= 2)
+        {
+            let spec = ResolvedCombatantSpec::new(
+                form,
+                original.combatant().level(),
+                Hp::new(10_000).unwrap(),
+                Speed::from_scaled(1_000_000).unwrap(),
+                ResolvedDefinitionBindings::new(
+                    vec![id(IDLE)],
+                    original.combatant().rule_bundles().to_vec(),
+                    original.combatant().modifiers().to_vec(),
+                )
+                .unwrap(),
+                original.combatant().digest(),
+            )
+            .unwrap()
+            .with_sources(original.combatant().sources().to_vec())
+            .unwrap()
+            .with_modifier_bindings(original.combatant().modifier_bindings().to_vec())
+            .unwrap();
+            let mut participant = ParticipantSpec::new(
+                TeamSide::Player,
+                original.formation(),
+                ParticipantSource::Player,
+                spec,
+            );
+            if input.absent_formation == Some(original.formation().get()) {
+                participant = participant
+                    .with_initial_state(
+                        ParticipantInitialState::new(
+                            Hp::new(10_000).unwrap(),
+                            Hp::new(10_000).unwrap(),
+                            Energy::ZERO,
+                            Energy::ZERO,
+                            LifeState::Alive,
+                            PresenceState::Reserved,
+                        )
+                        .unwrap(),
+                    )
+                    .unwrap();
+            }
+            participants.push(participant);
+        }
+    }
     let mut enemies = Vec::new();
     for index in 0..3 {
         let enemy_id = id(0x7dc5_0001 + u32::from(index));
         builder.add_enemy(EnemyDefinition::new(enemy_id, form, vec![id(IDLE)]));
         enemies.push(enemy_id);
         let enemy = plain(
+            input.enemy_level,
             100_000_000,
             input.enemy_hp,
             vec![id(IDLE)],
@@ -395,16 +528,19 @@ pub(super) fn scenario(assembled: &DivergentUniverseAssembledBattle, input: Prob
         .filter(|u| u.side() == TeamSide::Enemy)
         .map(|u| u.id())
         .collect();
-    battle
+    let started = battle
         .apply(Command::StartBattle {
             decision: battle.decision().unwrap().id(),
         })
-        .unwrap();
+        .unwrap()
+        .events()
+        .to_vec();
     let mut scenario = Scenario {
         battle,
         actor,
         seeder,
         targets,
+        started,
         all: input.all,
         allied: input.allied,
     };
@@ -455,7 +591,7 @@ fn wait_for(scenario: &mut Scenario, actor: UnitId) {
     }
     panic!("controlled actor did not receive a decision");
 }
-fn command(
+pub(super) fn command(
     scenario: &mut Scenario,
     actor: UnitId,
     ability: AbilityId,
@@ -494,15 +630,18 @@ pub(super) fn cast(scenario: &mut Scenario, actor: UnitId, raw: u32) -> Vec<Batt
     let command = command(scenario, actor, id(raw), Some(scenario.targets[0]));
     accept(&mut scenario.battle, command)
 }
-pub(super) fn until_tick(scenario: &mut Scenario) -> Vec<BattleEvent> {
+pub(super) fn until_source_tick(
+    scenario: &mut Scenario,
+    source: SourceDefinitionId,
+) -> Vec<BattleEvent> {
     let mut events = vec![];
     for _ in 0..128 {
         let next = idle_step(scenario);
-        let tick=next.iter().any(|e| matches!(e.kind(), BattleEventKind::Damage(data) if data.class==DamageClass::Dot && e.cause().source_definition().is_some_and(|s|s.get()==0x7eb3_0001)));
+        let tick=next.iter().any(|e| matches!(e.kind(), BattleEventKind::Damage(data) if data.class==DamageClass::Dot && e.cause().source_definition()==Some(source)));
         events.extend(next);
         if tick {
             return events;
         }
     }
-    panic!("Necrosis did not tick");
+    panic!("the selected source-owned Burn did not tick");
 }

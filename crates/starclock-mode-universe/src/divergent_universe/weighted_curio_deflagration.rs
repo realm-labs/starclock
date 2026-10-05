@@ -1,4 +1,6 @@
-//! Independent Most Raucous base-policy lowering; equipment remains unsupported.
+//! Independent Most Raucous base/Burn constructors; normal equipment remains gated.
+#[path = "weighted_curio_deflagration/native.rs"]
+pub mod native;
 use crate::{
     digest::Encoder,
     divergent_universe::{

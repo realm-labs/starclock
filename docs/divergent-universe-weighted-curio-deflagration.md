@@ -95,8 +95,8 @@ field independently with released typed evidence or reproducible current traces.
 The production workbook owns one `WeightedCurioDeflagrations` row and 95
 `WeightedCurioDeflagrationLevels` rows. Sora/domain loading validates all exact
 joins, decimals, provenance and independently hashed policy notes. Status is
-`AuthoredOperandsPendingNative`: neither loading nor this contract executes
-Deflagration. Native assembly and normal equipment admission still reject this
+`AuthoredOperandsPendingNative`: loading alone does not execute Deflagration.
+Normal equipment assembly and admission still reject this
 unsupported identity; the equipment-definition count remains 14/17.
 
 Formula-only real command probes execute all 95 target levels for Ordinary,
@@ -107,10 +107,25 @@ overflow fail construction, rejected commands preserve canonical hashes and
 decisions, and fresh commands reproduce event payloads and hashes. These probes
 verify the base expression, not Deflagration tick/attack/Forge behavior.
 
-Required command consumers include zero through four Fire originals,
-multihit/multitarget cardinality, independent casters, two real ticks/expiry,
-ordinary and Break Burns, external detonation nonrecursion, transformation,
-linked/countdown exclusion, rejected-command invariance, fresh event payloads
-and hashes, and unequip in both families. Forge admission, accepted-equipment
-replay and both complete-run release gates remain pending. No reference
+An explicit native Burn constructor now binds the mapped original Fire roster,
+immutable entry count, after-action application, captured target-level magnitude
+and own-source natural-tick reactions through shared Rule IR. Complete-action
+causes have no per-hit applier/source; admission therefore checks the raw Unit
+actor, original-owner selector and aggregate Attack tag. Detonation separately
+requires the exact source, original applier and DotTick settlement kind.
+
+Eight bounded command tests use mapped player specs in controlled battle
+catalogs for both families. They verify zero through four Fire originals,
+multihit/multitarget cardinality, independent casters and cross-caster replacement,
+two real ticks and expiry, ordinary and Break Burns, external detonation
+nonrecursion, entry-count retention after restoring a reserved member,
+target-owned level capture, terminal-loss cleanup, rejected-command invariance,
+fresh payloads/hashes and no RNG. Construction rejects malformed rosters and
+operands, including doubled-magnitude overflow even when the base fits.
+These are explicit constructor consumers, not accepted equipment handoffs or
+proof of observed parity for the separately authored execution policy.
+
+Transformation, linked/countdown exclusion, wave continuity and normal equipment
+handoff/unequip consumers remain pending. Forge admission, accepted-equipment
+replay and both complete-run release gates also remain pending. No reference
 obligation, mechanic program, semantic family, gap or policy is terminalized.

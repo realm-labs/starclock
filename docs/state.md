@@ -8,7 +8,7 @@ canonical Group 1 HPRatio rows and eight exact/policy provenance records.
 Its six source parameters, Fire membership, natural-tick versus external
 detonation distinction and separately hashed base/execution policies validate
 through current Sora/domain loading. Status is `AuthoredOperandsPendingNative`:
-native construction and equipment still reject the unsupported identity, and
+normal equipment assembly and admission still reject the unsupported identity, and
 the supported equipment-definition count remains 14/17. The decision input is
 52 tables / 647 rows; no terminal disposition or complete-run gate changes.
 See the [Deflagration authoring boundary](divergent-universe-weighted-curio-deflagration.md).
@@ -18,7 +18,12 @@ the 95 authored HPRatios and immutable Protocol HP scaling to shared Rule IR.
 Real formula-probe commands cover every level and exact rounding with no RNG;
 policy/curve changes bind fresh identities and invalid inputs fail construction.
 Overflow reuses only the unchanged balanced curve lowering, not this policy.
-Burn execution, equipment admission and terminal coverage remain pending.
+An explicit native Burn constructor now has bounded real command consumers in
+both families: mapped Fire entry counts, complete-action application, target-level
+capture, cross-caster replacement, natural-tick other-Burn detonation, two ticks
+and expiry, reserved-member restoration, terminal-loss cleanup and deterministic
+reconstruction. Normal equipment admission, transformation/linked/countdown/wave
+consumers and terminal coverage remain pending; no release gate is credited.
 
 Shared Rule IR now retains the exact Direct/DotTick/DotDetonation kind of each
 committed common damage event and exposes a conjunctive native filter. Formula
@@ -27,7 +32,7 @@ remain absent. Real direct damage, external detonation and target-turn tick
 commands verify separate reactions over the same effect/source, inert rejected
 commands, no RNG and fresh canonical reconstruction. This closes a prerequisite
 for Most Raucous, not its mechanic or equipment definition. Sora filter authoring
-and the Curio's base-DMG/effect/Forge/full-run admission remain pending. The
+and the Curio's normal equipment/Forge/full-run admission remain pending. The
 Weighted Curio definition count stays 14/17, with no terminal coverage credit.
 See the [damage settlement observation boundary](rule-event-observation-runtime-boundary.md#damage-settlement-kind).
 

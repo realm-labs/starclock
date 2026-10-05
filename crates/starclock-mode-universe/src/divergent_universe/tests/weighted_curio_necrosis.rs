@@ -4,15 +4,17 @@ use crate::divergent_universe::{
     tests::{
         curio_battle_grants::{ready, result},
         curio_battle_stats::assemble,
-        weighted_curio_necrosis_fixture::{
-            ATTACK, BURN, DETONATE, NECROSIS, Probe, attack, cast, idle_step, scenario, until_tick,
+        weighted_curio_burn_fixture::{
+            ATTACK, BURN, DETONATE, Probe, Scenario, attack, cast, idle_step, scenario,
+            until_source_tick,
         },
     },
     weighted_curio::WeightedCurioSlotLimit,
 };
 use starclock_combat::{
     BattleEvent, BattleEventKind, BreakDamageKind, Command, DamageKind, EffectEventData,
-    ToughnessEventData, catalog::action::AbilityKind, formula::model::DamageClass,
+    SourceDefinitionId, ToughnessEventData, catalog::action::AbilityKind,
+    formula::model::DamageClass,
 };
 use starclock_data::divergent_universe_catalog::DivergentUniverseRunFamily;
 use starclock_replay::battle_event::encode_battle_event_payload;
@@ -22,6 +24,10 @@ const FAMILIES: [DivergentUniverseRunFamily; 2] = [
     DivergentUniverseRunFamily::Cyclical,
 ];
 const PARTY: [u32; 4] = [1105, 1211, 1009, 1008];
+const NECROSIS: u32 = 0x7eb6_0001;
+fn until_tick(test: &mut Scenario) -> Vec<BattleEvent> {
+    until_source_tick(test, SourceDefinitionId::new(0x7eb3_0001).unwrap())
+}
 fn equipped(
     fixture: &DivergentUniverseBaselineFixture,
     family: DivergentUniverseRunFamily,
@@ -338,7 +344,7 @@ fn weighted_curio_necrosis_replaces_cross_caster_source_and_recaptures_attack() 
         let mut test = scenario(
             &assembled,
             Probe {
-                second_abundance: true,
+                second_owner: true,
                 ..Probe::default()
             },
         );
