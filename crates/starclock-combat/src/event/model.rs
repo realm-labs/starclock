@@ -584,7 +584,9 @@ pub enum SkillPointPayer {
 /// Checked resource changes applied at action-envelope boundaries.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum ResourceEventData {
-    /// Team Skill Points changed; overflow records discarded ordinary gain.
+    /// Team Skill Points changed; overflow records discarded capped gain.
+    /// For balance operations, attempted is the requested gain/spend or Set
+    /// destination, while effective is the absolute before/after difference.
     SkillPoints {
         side: TeamSide,
         attempted: u16,

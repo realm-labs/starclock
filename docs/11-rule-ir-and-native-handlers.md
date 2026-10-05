@@ -137,6 +137,23 @@ delta. A required axis never matches a missing fact, while an omitted filter
 leaves matching unrestricted. Native catalog composition exposes this filter;
 the production Sora EventFilter table does not yet author an axis column.
 
+Skill Point balance operations share the checked `u16` team-resource update
+calculation. `attempted` retains the floored requested gain/spend/reservation
+or the Set destination; `effective` is the absolute before/after difference.
+Gain clamps at the declared maximum and preserves its discarded `overflow`,
+including a wholly discarded gain. Spend/reservation and Set never saturate;
+insufficient balance, an out-of-cap Set or an out-of-domain request faults with
+command rollback. Integer flooring precedes `u16` admission, including for
+fractional native requests. `ResourceDelta` remains the signed effective delta,
+and `ResourceOverflow` reads the actual discarded gain; an overflow-only event
+cannot satisfy a positive effective-gain condition. This applies equally to
+ability programs and queued trigger reactions, without changing event layout,
+cause attribution, maximum events or the existing target iteration contract.
+The [native command corpus](../crates/starclock-test-kit/tests/suites/core/combat/ability_program_execution/resource_event/skill_point_update.rs)
+covers these values, full-domain boundaries, rollback, fresh canonical events
+and rejected commands. Run `cargo test -p starclock-test-kit --test combat_suite
+skill_point_update`.
+
 Effect stack programs use the same typed boundary:
 
 - `ApplyEffect { stacks }` requires a positive integer at runtime;

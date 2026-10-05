@@ -21,6 +21,9 @@ use starclock_combat::{
     },
 };
 
+#[path = "resource_event/skill_point_update.rs"]
+mod skill_point_update;
+
 fn scalar(amount: i64) -> ValueExpr {
     ValueExpr::Literal(RuleValue::Scalar(
         Scalar::checked_from_integer(amount).unwrap(),
@@ -47,6 +50,14 @@ fn maximum(update: ResourceMaximumUpdateKind, amount: i64) -> ProgramStep {
 }
 
 fn resource_battle(steps: Vec<ProgramStep>, skill_point_gain: u16) -> Battle {
+    resource_battle_with_reaction(steps, skill_point_gain, None)
+}
+
+fn resource_battle_with_reaction(
+    steps: Vec<ProgramStep>,
+    skill_point_gain: u16,
+    reaction: Option<Vec<ProgramStep>>,
+) -> Battle {
     let program =
         ProgramDefinition::new(id(1), vec![], vec![id(4)], vec![], vec![]).with_steps(steps);
     // The form declares a personal charge resource; the resolved build binds our observer rule.
@@ -123,15 +134,33 @@ fn resource_battle(steps: Vec<ProgramStep>, skill_point_gain: u16) -> Battle {
             program: id(raw),
         });
     }
+    let mut programs = vec![id(3), id(4), id(5), id(6)];
+    let mut selectors = vec![];
+    if let Some(steps) = reaction {
+        builder.add_program(
+            ProgramDefinition::new(id(7), vec![], vec![id(4)], vec![], vec![]).with_steps(steps),
+        );
+        programs.push(id(7));
+        selectors.push(id(4));
+        triggers.push(TriggerDef {
+            id: id(7),
+            event: RuleEventKind::Action,
+            event_point: RuleEventPoint::ActionResolved,
+            phase: TriggerPhase::AfterAction,
+            filter: EventFilter::default(),
+            condition: ConditionExpr::Literal(true),
+            once_scope: OnceScope::Action,
+            priority: ReactionPriority::new(0),
+            program: id(7),
+        });
+    }
     builder.add_rule(
-        RuleDefinition::new(id(1), vec![id(3), id(4), id(5), id(6)], vec![]).with_runtime(
-            BattleRuleDefinition::new(
-                RuleSource::new(id(80), SourceClass::Synthetic, vec![], [0x80; 32]),
-                vec![],
-                triggers,
-                None,
-            ),
-        ),
+        RuleDefinition::new(id(1), programs, selectors).with_runtime(BattleRuleDefinition::new(
+            RuleSource::new(id(80), SourceClass::Synthetic, vec![], [0x80; 32]),
+            vec![],
+            triggers,
+            None,
+        )),
     );
     builder.add_rule_bundle(RuleBundle::new(id(1), vec![id(1)]));
     let base_spec = battle_spec(false, true, false);

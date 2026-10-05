@@ -3,6 +3,16 @@
 Starclock maintains only the current source, data, behavior and test outputs.
 Git history is the only historical record.
 
+Shared Rule IR Skill Point updates now retain requested gain/spend/Set values
+and discarded capped gain through the same checked `u16` calculation as keyed
+team resources. Effective deltas remain signed event facts; overflow-only gain
+cannot masquerade as effective gain. Command fixtures cover zero/full caps,
+fractional flooring, the full request domain, trigger reactions, transactional
+rollback, fresh canonical events/hashes and stale-command inertness. This fixes
+resource event accounting, not Footstep of Gods equipment or its missing
+HP-loss/Skill-stack execution; the Weighted Curio count remains 13/17. See the
+[Rule IR resource contract](11-rule-ir-and-native-handlers.md).
+
 Shared combat's native `QueryUnitLevel` reads each resolved unit's own 1–95
 level as an Integer from an immutable battle-query snapshot. Missing reads
 fault without default/linked-owner fallback; Scalar formulas require explicit

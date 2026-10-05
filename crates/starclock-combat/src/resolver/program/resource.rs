@@ -62,27 +62,33 @@ pub(super) fn modify_resource(
                     .ok_or_else(|| program_fault(25, 0))?
                     .side;
                 let state = txn.state.teams.get(side);
-                let raw = resource_value(
-                    i64::from(state.skill_points),
-                    i64::from(state.maximum_skill_points),
+                let before = state.skill_points;
+                let amount = u16::try_from(
                     amount
                         .rounded_integer(Rounding::Floor)
                         .map_err(|_| program_fault(26, 0))?,
-                    update,
-                )?;
-                let after = u16::try_from(raw).map_err(|_| program_fault(27, raw))?;
-                let before = state.skill_points;
+                )
+                .map_err(|_| program_fault(27, amount.scaled()))?;
+                let change = match update {
+                    ResourceUpdateKind::Gain => TeamResourceChange::Gain(amount),
+                    ResourceUpdateKind::Spend | ResourceUpdateKind::Reserve => {
+                        TeamResourceChange::Spend(amount)
+                    }
+                    ResourceUpdateKind::Set => TeamResourceChange::Set(amount),
+                };
+                let (attempted, after, overflow) =
+                    team_resource_update(before, state.maximum_skill_points, change)?;
                 txn.set_skill_points(side, after);
                 parent = txn.emit(
                     cause.with_parent(parent),
                     BattleEventKind::Resource(ResourceEventData::SkillPoints {
                         side,
-                        attempted: before.abs_diff(after),
+                        attempted,
                         payer: SkillPointPayer::TeamSkillPoints,
                         effective: before.abs_diff(after),
                         before,
                         after,
-                        overflow: 0,
+                        overflow,
                     }),
                 );
             }
