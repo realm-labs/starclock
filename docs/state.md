@@ -42,6 +42,12 @@ borrowing it. Exact cause actor-kind filtering separately prevents unitless
 countdowns from borrowing the transformed owner's identity. Native commands
 exercise each linked kind, both linked formation variants, restoration followed
 by a winning conversion, zero extra draws/marks and fresh transformed replay.
+Native survival-boundary commands also prove phase-reset exclusion despite
+positive event overflow, mixed phase/death accumulation of only the actual
+death, final-phase defeat on the next attack without carryover, persistent HP
+floor exclusion and one-use team-guard exclusion. Phase commands retain fresh
+canonical events/hashes and stale-command inertness. Player-only lethal rescue,
+delayed deathrattle and nested same-owner attacks remain unverified consumers.
 Shared actor ID/selector owner projection remains unchanged; raw actor-kind
 facts are an independent conjunctive filter, not new source or Path evidence. This
 bridge is a ProjectPolicy construction API, not production equipment admission,

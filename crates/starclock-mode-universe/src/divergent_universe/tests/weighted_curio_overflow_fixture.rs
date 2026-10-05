@@ -22,6 +22,12 @@ use starclock_combat::{
             AbilityDefinition, EffectDefinition, EncounterDefinition, EnemyDefinition,
             ProgramDefinition, SelectorDefinition, UnitDefinition,
         },
+        encounter::{
+            AiCandidateDefinition, AiCandidateSelection, AiGraphDefinition, AiNoTargetFallback,
+            AiStateDefinition, EncounterWaveDefinition, EnemyPhaseCarry, EnemyPhaseDefinition,
+            EnemyPhaseTransitionModel, PhaseCarryPolicy, WaveCarry, WaveSlotDefinition,
+            WaveTransitionPolicy,
+        },
         selector::{
             RuleEmptyPoolPolicy, RuleLifePredicate, RulePresencePredicate, RuleSelectorChoice,
             RuleSelectorOrdering, RuleSelectorOrigin, RuleSelectorPredicate, RuleSelectorReference,
@@ -30,8 +36,8 @@ use starclock_combat::{
     },
     modifier::model::StatQuerySubject,
     rule::model::{
-        ProgramStep, RuleEffectChancePolicy, RuleOperationTemplate, RuleValue, RuleValueKind,
-        ValueExpr,
+        ConditionExpr, ProgramStep, RuleEffectChancePolicy, RuleOperationTemplate, RuleValue,
+        RuleValueKind, ValueExpr,
     },
 };
 
@@ -53,6 +59,8 @@ pub(super) struct Probe {
     pub(super) inherited: bool,
     pub(super) shield: i64,
     pub(super) guard: Option<EffectDamageGuard>,
+    pub(super) hp_floor: Option<Ratio>,
+    pub(super) phase_targets: u8,
     pub(super) setup: Option<Setup>,
 }
 impl Default for Probe {
@@ -67,6 +75,8 @@ impl Default for Probe {
             inherited: false,
             shield: 0,
             guard: None,
+            hp_floor: None,
+            phase_targets: 0,
             setup: None,
         }
     }
@@ -164,36 +174,38 @@ pub(super) fn scenario(fixture: &DivergentUniverseBaselineFixture, probe: &Probe
         EffectStackPolicy::Replace,
     )
     .unwrap();
-    builder.add_effect(
-        EffectDefinition::new(id(10), vec![], vec![]).with_runtime(
-            probe
-                .guard
-                .map_or(runtime.clone(), |guard| runtime.with_damage_guard(guard)),
-        ),
-    );
+    let runtime = probe
+        .guard
+        .map_or(runtime.clone(), |guard| runtime.with_damage_guard(guard));
+    let runtime = probe.hp_floor.map_or(runtime.clone(), |floor| {
+        runtime.with_hp_floor(floor).unwrap()
+    });
+    builder.add_effect(EffectDefinition::new(id(10), vec![], vec![]).with_runtime(runtime));
     builder.add_program(
         ProgramDefinition::new(id(10), vec![], vec![shield_selector], vec![id(10)], vec![])
-            .with_steps(if probe.shield > 0 || probe.guard.is_some() {
-                vec![
-                    ProgramStep::Operation(RuleOperationTemplate::ApplyEffect {
-                        selector: shield_selector,
-                        effect: id(10),
-                        stacks: ValueExpr::Literal(RuleValue::Integer(1)),
-                        chance: RuleEffectChancePolicy::Guaranteed,
-                        base_chance: None,
-                        rng_purpose: None,
-                    }),
-                    ProgramStep::Operation(RuleOperationTemplate::Shield {
-                        selector: shield_selector,
-                        effect: id(10),
-                        amount: ValueExpr::Literal(RuleValue::Scalar(
-                            Scalar::checked_from_integer(probe.shield).unwrap(),
-                        )),
-                    }),
-                ]
-            } else {
-                vec![]
-            }),
+            .with_steps(
+                if probe.shield > 0 || probe.guard.is_some() || probe.hp_floor.is_some() {
+                    vec![
+                        ProgramStep::Operation(RuleOperationTemplate::ApplyEffect {
+                            selector: shield_selector,
+                            effect: id(10),
+                            stacks: ValueExpr::Literal(RuleValue::Integer(1)),
+                            chance: RuleEffectChancePolicy::Guaranteed,
+                            base_chance: None,
+                            rng_purpose: None,
+                        }),
+                        ProgramStep::Operation(RuleOperationTemplate::Shield {
+                            selector: shield_selector,
+                            effect: id(10),
+                            amount: ValueExpr::Literal(RuleValue::Scalar(
+                                Scalar::checked_from_integer(probe.shield).unwrap(),
+                            )),
+                        }),
+                    ]
+                } else {
+                    vec![]
+                },
+            ),
     );
     let hits = probe
         .damages
@@ -269,7 +281,41 @@ pub(super) fn scenario(fixture: &DivergentUniverseBaselineFixture, probe: &Probe
         builder.add_unit(UnitDefinition::new(id(form), abilities, vec![]));
     }
     builder.add_enemy(EnemyDefinition::new(id(1), id(2), vec![id(2)]));
-    builder.add_encounter(EncounterDefinition::new(id(1), vec![id(1)], vec![]));
+    let mut encounter_enemies = vec![id(1)];
+    if probe.phase_targets > 0 {
+        assert!(probe.phase_targets <= 2);
+        add_phase_enemy(&mut builder);
+        encounter_enemies.push(id(2));
+    }
+    let encounter = EncounterDefinition::new(id(1), encounter_enemies, vec![]);
+    let encounter = if probe.phase_targets > 0 {
+        let slots = (0..probe.hp.len())
+            .map(|index| {
+                let phased = index < usize::from(probe.phase_targets);
+                WaveSlotDefinition::new(
+                    u16::try_from(index + 1).unwrap(),
+                    FormationIndex::new(u8::try_from(index).unwrap()).unwrap(),
+                    id(if phased { 2 } else { 1 }),
+                    None,
+                    phased.then(|| id(1)),
+                    true,
+                )
+                .unwrap()
+            })
+            .collect();
+        encounter
+            .with_authored_waves(
+                WaveTransitionPolicy::AfterAction,
+                vec![
+                    EncounterWaveDefinition::new(id(1), 1, None, None, WaveCarry::CARRY_ALL, slots)
+                        .unwrap(),
+                ],
+            )
+            .unwrap()
+    } else {
+        encounter
+    };
+    builder.add_encounter(encounter);
     let player = ParticipantSpec::new(
         TeamSide::Player,
         FormationIndex::new(0).unwrap(),
@@ -328,7 +374,11 @@ pub(super) fn scenario(fixture: &DivergentUniverseBaselineFixture, probe: &Probe
         participants.push(ParticipantSpec::new(
             TeamSide::Enemy,
             FormationIndex::new(u8::try_from(index).unwrap()).unwrap(),
-            ParticipantSource::EncounterEnemy(id(1)),
+            ParticipantSource::EncounterEnemy(id(if index < usize::from(probe.phase_targets) {
+                2
+            } else {
+                1
+            })),
             combatant(2, *level, *hp, false, vec![]),
         ));
     }
@@ -346,6 +396,64 @@ pub(super) fn scenario(fixture: &DivergentUniverseBaselineFixture, probe: &Probe
         BattleSeed::new([probe.seed; 32]),
     )
     .unwrap()
+}
+
+fn add_phase_enemy(builder: &mut CombatCatalogBuilder) {
+    builder.add_ai_graph(
+        AiGraphDefinition::new(
+            id(1),
+            id(1),
+            4,
+            vec![AiStateDefinition::new(
+                id(1),
+                None,
+                id(2),
+                false,
+                vec![AiCandidateDefinition::new(
+                    id(1),
+                    id(2),
+                    ConditionExpr::Literal(true),
+                    id(2),
+                    0,
+                    AiCandidateSelection::FirstLegal,
+                    AiNoTargetFallback::StayInState,
+                )],
+                vec![],
+            )],
+        )
+        .unwrap(),
+    );
+    let phases = (1..=2)
+        .map(|sequence| {
+            EnemyPhaseDefinition::new(
+                id(u32::from(sequence)),
+                sequence,
+                ConditionExpr::Literal(true),
+                ConditionExpr::Literal(false),
+                0,
+                id(1),
+                true,
+                EnemyPhaseTransitionModel::TransformSameUnit,
+                None,
+                EnemyPhaseCarry {
+                    hp: if sequence == 2 {
+                        PhaseCarryPolicy::Reset
+                    } else {
+                        PhaseCarryPolicy::CarryExact
+                    },
+                    action_gauge: PhaseCarryPolicy::CarryExact,
+                    effects: PhaseCarryPolicy::CarryExact,
+                    toughness: PhaseCarryPolicy::CarryExact,
+                    summons: PhaseCarryPolicy::CarryExact,
+                },
+            )
+        })
+        .collect();
+    builder.add_enemy(
+        EnemyDefinition::new(id(2), id(2), vec![id(2)])
+            .with_orchestration(id(1), phases)
+            .unwrap(),
+    );
 }
 
 pub(super) fn accept(battle: &mut Battle, command: Command) -> Vec<BattleEvent> {

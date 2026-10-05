@@ -98,8 +98,9 @@ machine (which violates shared ownership). Confidence in **source parity is
 low**; confidence in the specified bridge behavior comes from native commands.
 Replace callback timing, reentrancy, marked-target lifetime and attribution
 individually when released typed semantics or reproducible observations establish
-them. Phase transitions, lethal rescue, delayed deathrattle and nested queued
-attacks still need consumer-specific fixtures. Linked exclusion is covered by
+them. Player-only lethal rescue, delayed deathrattle and nested same-owner queued
+attacks still need consumer-specific fixtures. Phase resets and enemy damage
+guards now have native consumer coverage described below. Linked exclusion is covered by
 actual summon, memosprite, shared-actor and countdown commands, not merely the
 copied-form fixture. The linked-unit vectors use both formation 4 and the
 original's formation 0, proving that the owner-link exclusion is not redundant
@@ -124,6 +125,21 @@ residual bridge effects. Resolving the countdown as its owner would wrongly
 permit a 1,320 conversion; the raw actor-kind filter excludes that fallback
 without changing shared legacy actor-selector resolution. These tests still
 use the explicit fixture base, not a production HPRatio policy.
+
+Four survival-boundary tests additionally construct real authored enemy phases,
+persistent HP floors and one-use team defeat guards. A phase reset retains
+positive event overflow (`150/170`) but emits no confirmed defeat, conversion
+or random draw. The final phase can then really die on a subsequent attack;
+fresh event/hash reconstruction and stale-command rejection prove the earlier
+phase overflow does not carry into that attack. A mixed phase reset and actual
+death in one hit converts only `170`, not `150 + 170`, giving `2,070` rather
+than `2,220` under the fixture base. A 25% HP floor leaves both protected enemies
+alive with zero overflow/readiness; a one-use team guard preserves the first
+enemy at 1 HP, while the second enemy's actual death still converts its own
+`170`. All cases retain the native post-guard damage facts and clear bridge
+marks/readiness without removing unrelated persistent floors. These tests do
+not establish hidden callback parity, player-rescue correspondence or equipment
+admission.
 
 These are executable bridge tests, **not** Ordinary/Cyclical equipment or
 complete-run release evidence. Production promotion still requires the authored
