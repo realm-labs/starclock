@@ -24,11 +24,11 @@ use crate::divergent_universe::{
 };
 use starclock_activity::{
     ActivityComparison, ActivityCondition, ActivityDecisionId, ActivityDecisionKind,
-    ActivityEdgeCondition, ActivityEdgeDefinition, ActivityExpression, ActivityNodeDefinition,
-    ActivityNodeKind, ActivityOperation, ActivityOptionDefinition, ActivityOptionId,
-    ActivityProgramDefinition, ActivityProgramId, ActivitySlotDefinition, ActivityStateHash,
-    ActivityValue, GraphActivity, GraphActivityCommandError, GraphActivityDefinition,
-    GraphActivityNodeProgram, GraphActivityRuntimeError, NodeId,
+    ActivityEdgeCondition, ActivityEdgeDefinition, ActivityExpression, ActivityInteractionBindings,
+    ActivityNodeDefinition, ActivityNodeKind, ActivityOperation, ActivityOptionDefinition,
+    ActivityOptionId, ActivityProgramDefinition, ActivityProgramId, ActivitySlotDefinition,
+    ActivityStateHash, ActivityValue, GraphActivity, GraphActivityCommandError,
+    GraphActivityDefinition, GraphActivityNodeProgram, GraphActivityRuntimeError, NodeId,
 };
 use starclock_data::divergent_universe_domain_layout::FixedDomainKind;
 use starclock_data::divergent_universe_service_catalog::DivergentUniverseWorkbenchId;
@@ -489,12 +489,23 @@ impl CompiledRespiteRoom {
         {
             return Err(RespiteRoomError::DefinitionMismatch);
         }
-        if definition.interactions().is_some()
-            || self
-                .fragment
-                .nodes
+        // Authored outcomes in other rooms are allowed, not interactions that
+        // target this service or add executable handler registrations.
+        if definition.interactions().is_some_and(|interactions| {
+            interactions
+                .bindings()
                 .iter()
-                .any(|node| graph.node(node.id()) != Some(node))
+                .any(|binding| owns(binding.node()) || binding.handler().is_some())
+                || interactions
+                    .registry()
+                    .bundles()
+                    .iter()
+                    .any(|bundle| !bundle.registrations().is_empty())
+        }) || self
+            .fragment
+            .nodes
+            .iter()
+            .any(|node| graph.node(node.id()) != Some(node))
             || self
                 .fragment
                 .edges
@@ -572,7 +583,20 @@ impl BoundRespiteRoom {
                 && actual.bootstrap() == self.definition.bootstrap()
                 && actual.random_offers() == self.definition.random_offers()
                 && actual.random_checkpoints() == self.definition.random_checkpoints()
-                && actual.interactions().is_none());
+                && actual
+                    .interactions()
+                    .map(ActivityInteractionBindings::bindings)
+                    == self
+                        .definition
+                        .interactions()
+                        .map(ActivityInteractionBindings::bindings)
+                && actual
+                    .interactions()
+                    .map(|bindings| bindings.registry().digest())
+                    == self
+                        .definition
+                        .interactions()
+                        .map(|bindings| bindings.registry().digest()));
         (matches
             && self.room.menus.contains(&activity.current_node())
             && activity

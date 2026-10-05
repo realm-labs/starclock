@@ -9,6 +9,7 @@ include!("tests/curio_runtime.rs");
 include!("tests/gamble_runtime.rs");
 include!("tests/titan_runtime.rs");
 mod battle_team_resources;
+mod position_profile;
 #[path = "tests/titan_entry.rs"]
 mod titan_entry;
 #[path = "tests/weighted_curio.rs"]

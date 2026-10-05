@@ -14,6 +14,8 @@ use std::fmt::{Display, Formatter};
 
 #[path = "domain_route_compilation.rs"]
 mod compilation;
+#[path = "position_profile.rs"]
+pub mod profile;
 #[path = "domain_route_validation.rs"]
 mod validation;
 

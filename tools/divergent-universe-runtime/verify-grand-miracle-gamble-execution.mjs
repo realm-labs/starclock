@@ -30,6 +30,10 @@ assert(artifact.current_boundary.weighted_curio_accepted_loadout_boundary
   && !artifact.current_boundary.weighted_curio_equipment_service_encoded_replay_implemented
   && artifact.current_boundary.weighted_curio_equipment_service_bound_profile_encoded_replay
   && artifact.current_boundary.position_bound_profile_replay_policy_identity
+  && artifact.current_boundary.position_native_recipe_compiler
+  && artifact.current_boundary.position_native_recipe_missing_payloads_reject
+  && artifact.current_boundary.position_native_recipe_accuracy === "VersionedProjectPolicyExplicitNativeRoomRecipeNoMissingPayloadFallback"
+  && !artifact.current_boundary.position_default_native_recipe_bound
   && !artifact.current_boundary.position_profile_automatic_replay_reconstruction
   && artifact.current_boundary.weighted_curio_transfer_operands_authored
   && artifact.current_boundary.weighted_curio_transfer_battle_effect_implemented

@@ -5,8 +5,9 @@
 The [base domain-deck compiler](divergent-universe-domain-deck.md) provides shared
 Activity draw/discard programs and nine explicitly selected authored source
 decks. The production factory now also compiles these exact positions into a
-shared Activity graph, with an explicitly selected deck and caller-supplied room
-programs. The public baseline does not yet bind its gameplay to this compiler;
+shared Activity graph, with an explicitly selected deck and either caller-supplied
+room programs or the owned native recipe below. The public baseline does not yet
+bind its gameplay to this compiler;
 automatic mask selection and complete room payloads remain absent. Tests with
 room probes do not establish production room execution or terminal source coverage.
 
@@ -70,7 +71,8 @@ An [authenticated equipment-room compiler](divergent-universe-weighted-curio-loa
 supplies actual toggle/clear/Leave commands on proven current Reforge cards,
 with caller-authored capacity and exact whole-graph binding. Original slot-level
 selection, automatic Forge admission and complete Forge services are not inferred.
-Flow/controller and encoded equipment replay remain unbound.
+Exact equipment capabilities now bind to the flow/controller and caller-rebuilt
+bound-profile encoded replay. Automatic recipe reconstruction remains pending.
 
 The [fixed Blank-room compiler](divergent-universe-blank-room.md) now executes
 the current guide's admitted empty room without intrinsic rewards, retaining
@@ -106,6 +108,63 @@ two-node room probes test route composition only: they are not room gameplay,
 encoded profile replay or full-run release evidence. The current baseline's
 encounter/service/boss content still needs production binding before replacing
 the three-battle proxy. No source obligation is terminalized by this compiler.
+
+## Explicit native position recipe
+
+`domain_route::profile::PositionProfileRecipe` supplies a closed, production-owned
+composition through `DivergentUniverseRuntimeFactory::compile_position_profile`.
+It requires a plain mapped battle-route entry, explicit deck/hand width, four
+independent battle-role stage/domain selections, bounded battle and Conversion
+sequence counts, an Event variant and explicit following variants, authored Shop
+stock/Reward selection, a Respite workbench/enhancement policy and equipment
+capacity. It accepts no arbitrary room programs, no test probes and no missing-room
+fallback. The counts and capacity are caller policies, never inferred from preset
+level. The composition accuracy is
+`VersionedProjectPolicyExplicitNativeRoomRecipeNoMissingPayloadFallback`; each
+room's existing, independently replaceable accuracy contract remains unchanged.
+
+Original automatic deck/mask selection, room-specific stage pools, counts and
+capacity selectors remain unavailable. This policy chooses explicit typed inputs
+and existing native fragments to make composition executable without inventing
+those facts. Alternatives are disabling composition or automatically guessing
+defaults; neither supplies observed parity. Original-parity confidence is unproven.
+Replace each input policy independently when released selectors/programs or
+reproducible observations establish it, updating the native configuration and
+fresh-profile/replay tests. No source membership is inferred from successful
+composition.
+
+Battle/Boss/Elite/Encounter use actual encounter/Battle/reward fragments; Conversion
+uses its explicit loss-tolerant sequence policy. Event/Reward use authored occurrence
+transactions; Shop, Coin, Adventure, Respite and fixed Blank use their existing
+native compilers. Reforge currently supplies only the equipment service, not the
+complete Forge. Current Adventure inputs still use externally supplied results.
+Unknown selections, missing rewards and conflicting slot declarations reject the
+whole construction. Current level-one/two Coin presets use their exact authored
+reward rows, without filtering or downgrading the selected decks. All nine current
+decks compile on the controlled Ordinary/Cyclical entries; this is not proof of
+original pool or room parity. Missing native payloads in future reviewed inputs
+remain typed construction errors rather than automatic replacements.
+
+Composition authenticates every consumed native fragment's configuration digest
+in stable entry-node order, exact current decision inputs, deck and width. The
+existing graph/profile identity additionally binds programs, scopes and battle/
+occurrence payloads; native capability binders authenticate the same immutable
+definition. Inputs unused by the selected graph do not create fictitious execution
+identity. Repeated identical slot declarations merge; conflicting declarations
+fail. The result uses the same shared Activity graph, labeled RNG, flow dispatch,
+controller and current replay engine, without a second executor or live-state
+rebinding.
+
+Focused native tests reconstruct profiles from fresh current catalogs, account for
+all nine decks in both families, compile both guides and the 17/20-position
+Conversion layouts, reject changed/unknown/already-attached inputs,
+and run actual source rooms through equipment toggle/clear, subsequent real Burn
+events and caller-bound encoded replay. Other rooms in this corpus are native
+fragments, not completion probes. Stages, rewards and services remain explicit
+project-policy selections; these bounded runs are not complete-run release gates.
+The recipe is not yet encoded and automatically reconstructed by default replay,
+and it does not replace public baseline/adapter admission. Terminal source/program
+coverage remains unchanged.
 
 ## Admitted released records
 

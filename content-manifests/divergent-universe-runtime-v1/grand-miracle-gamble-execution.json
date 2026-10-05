@@ -97,6 +97,26 @@
       "path": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_room_replay.rs",
       "sha256": "d12fe92b0531202456197d11a482dd8438a20758cab05155f330fd6d932e8963"
     },
+    "position_native_recipe": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/position_profile.rs",
+      "sha256": "c3876b0f0a191955621aed1c91572c59f2e06836fc2152782a3dfcf05001b228"
+    },
+    "position_native_recipe_rooms": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/position_profile_rooms.rs",
+      "sha256": "41fb879dbbcd5d166ce29227750012ec5d1e65eb2bbe721f3c08ee3cc30ac777"
+    },
+    "position_native_recipe_occurrence": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/occurrence_room.rs",
+      "sha256": "d3f9208acb6dff25a5b03bf4214121793d57ae93019306f39b176cb85f22e5cd"
+    },
+    "position_native_recipe_respite": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/respite_room.rs",
+      "sha256": "d7532cf35bac6f9923b23b2c79ad0b762314a6057a97c9e79b556243b76dc594"
+    },
+    "position_native_recipe_tests": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/tests/position_profile.rs",
+      "sha256": "33bd0c53478949cb047dd4c273b947430b0ce383038ecf30d2ff15417096c32d"
+    },
     "weighted_overflow": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/weighted_curio_overflow.rs",
       "sha256": "551ae2f7c2e069cfdb5e60415b30e8a8179ffa689b29ba056aa3548168c61d7d"
@@ -366,6 +386,10 @@
     "weighted_curio_equipment_service_encoded_replay_implemented": false,
     "weighted_curio_equipment_service_bound_profile_encoded_replay": true,
     "position_bound_profile_replay_policy_identity": true,
+    "position_native_recipe_compiler": true,
+    "position_native_recipe_missing_payloads_reject": true,
+    "position_native_recipe_accuracy": "VersionedProjectPolicyExplicitNativeRoomRecipeNoMissingPayloadFallback",
+    "position_default_native_recipe_bound": false,
     "position_profile_automatic_replay_reconstruction": false,
     "weighted_curio_accepted_loadout_maximum": 3,
     "weighted_curio_loadout_accuracy": "VersionedProjectPolicyAcceptedCurrentCatalogLoadout",
@@ -396,7 +420,7 @@
     "grand_miracle_runtime_implemented": false,
     "forge_room_payload_implemented": false,
     "terminal_coverage_credit": 0,
-    "required_next_work": "Implement owned production position recipes for automatic replay reconstruction and default/adapter complete-position integration; establish original Forge slot-level selection and automatic admission, and implement the remaining two effects and other Forge services. Establish Grand Miracle selectors independently and repair its separate source/fixture audit labels without shrinking obligations."
+    "required_next_work": "Encode and automatically reconstruct explicit native position recipes for replay and default/adapter complete-position integration; establish original room pools and remaining room services independently. Establish original Forge slot-level selection and automatic admission, and implement the remaining two effects and other Forge services. Establish Grand Miracle selectors independently and repair its separate source/fixture audit labels without shrinking obligations."
   },
   "summary": {
     "weighted_curio_references": 17,
@@ -409,6 +433,22 @@
     "unresolved_gamble_units": 87
   },
   "native_test_targets": [
+    {
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/position_profile.rs",
+      "test": "native_position_profile_accounts_all_nine_decks_without_missing_program_fallback"
+    },
+    {
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/position_profile.rs",
+      "test": "native_position_profile_rejects_changed_unknown_and_already_attached_inputs"
+    },
+    {
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/position_profile.rs",
+      "test": "native_position_profile_compiles_guide_blank_coin_and_both_conversion_layouts"
+    },
+    {
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/position_profile.rs",
+      "test": "native_position_profile_actual_source_rooms_menu_effects_and_encoded_replay_reconstruct"
+    },
     {
       "file": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_room.rs",
       "test": "equipment_room_all_seventeen_toggle_through_authenticated_offers_without_rng"

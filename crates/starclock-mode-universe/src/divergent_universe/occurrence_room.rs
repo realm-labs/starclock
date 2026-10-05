@@ -16,9 +16,10 @@ use crate::divergent_universe::{
 use starclock_activity::{
     ActivityCondition, ActivityDecisionId, ActivityDecisionKind, ActivityEdgeCondition,
     ActivityEdgeDefinition, ActivityExpression, ActivityGeneratedBoundaryResolution,
-    ActivityNodeDefinition, ActivityNodeKind, ActivityOperation, ActivityOptionDefinition,
-    ActivityOptionId, ActivityProgramDefinition, ActivityProgramId, ActivityStateHash,
-    ActivityValue, GraphActivity, GraphActivityDefinition, GraphActivityNodeProgram, NodeId,
+    ActivityInteractionBindings, ActivityNodeDefinition, ActivityNodeKind, ActivityOperation,
+    ActivityOptionDefinition, ActivityOptionId, ActivityProgramDefinition, ActivityProgramId,
+    ActivityStateHash, ActivityValue, GraphActivity, GraphActivityDefinition,
+    GraphActivityNodeProgram, NodeId,
 };
 use starclock_data::divergent_universe_decisions::reward_occurrences::RewardOccurrenceId;
 use starclock_data::divergent_universe_service_catalog::DivergentUniverseOccurrenceVariantId;
@@ -314,8 +315,19 @@ impl CompiledOccurrenceRoom {
         let graph = definition.graph();
         let owns = |id| self.fragment.nodes.iter().any(|owned| owned.id() == id);
         let scopes = definition.state_definition().logical_scopes();
-        if definition.interactions().is_some()
-            || (owns(graph.entry()) && graph.entry() != node)
+        // Other rooms may carry authored external outcomes, but none may target
+        // this event fragment or introduce executable handler registrations.
+        if definition.interactions().is_some_and(|interactions| {
+            interactions
+                .bindings()
+                .iter()
+                .any(|binding| owns(binding.node()) || binding.handler().is_some())
+                || interactions
+                    .registry()
+                    .bundles()
+                    .iter()
+                    .any(|bundle| !bundle.registrations().is_empty())
+        }) || (owns(graph.entry()) && graph.entry() != node)
             || !graph.edges().iter().any(|edge| {
                 edge.id() == self.context.exit_edge()
                     && edge.from() == self.fragment.exit_node
@@ -433,7 +445,20 @@ impl BoundOccurrenceRoom {
                 && actual.bootstrap() == self.definition.bootstrap()
                 && actual.random_offers() == self.definition.random_offers()
                 && actual.random_checkpoints() == self.definition.random_checkpoints()
-                && actual.interactions().is_none())
+                && actual
+                    .interactions()
+                    .map(ActivityInteractionBindings::bindings)
+                    == self
+                        .definition
+                        .interactions()
+                        .map(ActivityInteractionBindings::bindings)
+                && actual
+                    .interactions()
+                    .map(|bindings| bindings.registry().digest())
+                    == self
+                        .definition
+                        .interactions()
+                        .map(|bindings| bindings.registry().digest()))
     }
 }
 

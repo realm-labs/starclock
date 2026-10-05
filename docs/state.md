@@ -3,6 +3,22 @@
 Starclock maintains only the current source, data, behavior and test outputs.
 Git history is the only historical record.
 
+An explicit production-owned native position recipe now composes every reachable
+fixed/card alternative without caller programs or completion probes. Typed inputs
+select deck/width, independent battle roles and counts, Event sequences, authored
+Shop/Reward, Respite enhancement and equipment capacity. All nine decks
+compile in both controlled run families, retaining exact authored level-one/two
+Coin reward selections without filtering or downgrading their presets.
+Native Event/Respite capabilities can coexist with other rooms' authored Adventure
+outcomes, rejecting interactions targeting their own fragments or executable
+handlers and authenticating exact whole-profile interactions. Fresh native-profile
+tests cover configuration/rejection boundaries and actual source rooms, menu
+toggle/clear, real subsequent Burn and caller-bound encoded replay. Room semantics
+retain existing explicit project policies; default/adapter admission, automatic
+recipe replay reconstruction, original selectors and genuine full-run release
+remain pending. No terminal obligation/program credit is added. See
+[the native recipe boundary](divergent-universe-domain-layout.md#explicit-native-position-recipe).
+
 Current source-position Reforge contexts have an explicitly capacity-bound
 Weighted Curio equipment service. Authenticated shared Activity offers toggle
 all 17 identities, clear and independently leave; the same replacement validator
