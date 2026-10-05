@@ -33,6 +33,25 @@ Verification:
 - `node tools/config-schema/verify-rule-ir.mjs`
 - `node tools/config-production/verify.mjs`
 
+## Cause actor representation
+
+Native event and ability-program observation retains the raw cause-envelope
+`CauseActorKind` as an optional fact. `EventFilter.actor_kind` requires exactly
+Unit or TimelineActor; an absent fact does not match either requirement. This
+filter is conjunctive with existing actor ID/selector filters. Their established
+timeline-owner projection is unchanged: that resolved owner is not evidence
+that the captured actor was a Unit. A Unit kind alone does not prove an original
+roster member, Path eligibility or the absence of a linked-owner relationship.
+
+No event payload, state codec, owner attribution or damage mutation changes.
+General Sora actor-kind filter authoring remains pending. The
+[pure filter corpus](../crates/starclock-test-kit/tests/suites/core/combat/rule_ir_contract/actor_kind.rs)
+covers Unit/TimelineActor/absent facts against all optional filter choices and
+conjunctive actor identities. Run `cargo test -p starclock-test-kit --test
+combat_suite actor_kind`. Native Walkie-Talkie bridge commands separately prove
+that a transformed original still qualifies and its unitless countdown does
+not; production equipment admission remains pending.
+
 ## Unit-level query
 
 Native `ValueExpr::QueryUnitLevel(subject)` reads the resolved unit's own

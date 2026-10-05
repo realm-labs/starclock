@@ -34,6 +34,16 @@ maximum selection, one labeled tie draw, empty/unready zero draws, post-shield
 excess, guard exclusion, per-hit cleanup, inherited-form exclusion and converted
 kill credit without self-recursion. An explicit NeutralState readiness effect prevents eager
 selector resolution from drawing on unrelated programs or unready hits. This
+bridge now follows the original roster identity across native transformation
+and restoration instead of binding the initial form. A Present/Transformed
+selector union preserves presence eligibility; linked-owner exclusion prevents
+same-form, same-slot inherited summons, memosprites and shared actors from
+borrowing it. Exact cause actor-kind filtering separately prevents unitless
+countdowns from borrowing the transformed owner's identity. Native commands
+exercise each linked kind, both linked formation variants, restoration followed
+by a winning conversion, zero extra draws/marks and fresh transformed replay.
+Shared actor ID/selector owner projection remains unchanged; raw actor-kind
+facts are an independent conjunctive filter, not new source or Path evidence. This
 bridge is a ProjectPolicy construction API, not production equipment admission,
 an ATK buff, a decoded base formula or exact death/deathrattle parity. The actual
 workbook status remains Pending; both-family battle snapshot admission rejects

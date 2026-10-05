@@ -1,3 +1,5 @@
+#[path = "rule_ir_contract/actor_kind.rs"]
+mod actor_kind;
 #[path = "rule_ir_contract/damage_overflow.rs"]
 mod damage_overflow;
 #[path = "rule_ir_contract/elation.rs"]

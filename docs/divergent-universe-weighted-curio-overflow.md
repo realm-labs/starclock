@@ -56,6 +56,12 @@ The bridge uses a replaceable `ProjectPolicy` for callback correspondence:
 - Only original actor/applier `SourceClass::Ability` attacks collect. One private
   rule instance, private target mark and NeutralState readiness effect per roster formation prevent another
   original or an inherited form from sharing its accumulator or target pool.
+  The exact cause actor must be a Unit, not a timeline actor resolved through
+  its owner. Original roster admission follows Present or Transformed presence
+  through a stable selector union; it does not compare the current unit form
+  with the entry form. Reserved, Departed, Untargetable and Linked presence do
+  not qualify. Owned linked units remain excluded even if they copy the same
+  form, source, rule bundle and roster formation.
 - ActionStarted clears accumulated overflow, death confirmation and old marks.
   HitStarted marks the committed opposing living targets and enables observation.
   Marks persist across hits until conversion or ActionResolved.
@@ -92,9 +98,12 @@ machine (which violates shared ownership). Confidence in **source parity is
 low**; confidence in the specified bridge behavior comes from native commands.
 Replace callback timing, reentrancy, marked-target lifetime and attribution
 individually when released typed semantics or reproducible observations establish
-them. Phase transitions, lethal rescue, genuine linked actors, delayed
-deathrattle and nested queued attacks still need consumer-specific fixtures;
-they are not credited by ordinary hit tests or the inherited-form fixture.
+them. Phase transitions, lethal rescue, delayed deathrattle and nested queued
+attacks still need consumer-specific fixtures. Linked exclusion is covered by
+actual summon, memosprite, shared-actor and countdown commands, not merely the
+copied-form fixture. The linked-unit vectors use both formation 4 and the
+original's formation 0, proving that the owner-link exclusion is not redundant
+with the roster-slot filter.
 
 Eight native tests load the actual Sora definition and use a clearly labeled
 fixture-only base `selected_enemy_level * explicit_factor`, not a production
@@ -105,6 +114,16 @@ self-recursion, multi-hit reset, inherited-form exclusion, rejected decisions,
 fresh canonical events/hashes, policy-bound participant state and the current seed 1..8 vector
 `[5, 4, 5, 4, 4, 4, 4, 4]`. Run
 `cargo test -p starclock-mode-universe weighted_curio_overflow`.
+
+Three lifecycle tests additionally exercise a real original transformation,
+fresh canonical events/hashes, restoration and a subsequent conversion ending
+the battle; genuine inherited summons, memosprites and queued shared actors;
+and a unitless countdown with its original owner still Transformed. Each linked
+attack executes and kills enemies but produces no conversion, extra draw or
+residual bridge effects. Resolving the countdown as its owner would wrongly
+permit a 1,320 conversion; the raw actor-kind filter excludes that fallback
+without changing shared legacy actor-selector resolution. These tests still
+use the explicit fixture base, not a production HPRatio policy.
 
 These are executable bridge tests, **not** Ordinary/Cyclical equipment or
 complete-run release evidence. Production promotion still requires the authored

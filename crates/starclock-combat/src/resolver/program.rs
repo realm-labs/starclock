@@ -171,6 +171,7 @@ fn execute_program(
         StatResolver::new(catalog.modifier_registry(), &bases, &modifiers).with_shields(&shields);
     let battle_queries = rule::BattleQuerySnapshot::new(txn);
     let event_facts = RuleEventFacts {
+        actor_kind: cause.actor().map(|actor| actor.kind()),
         point: Some(event_point),
         has_parent: true,
         has_action: true,

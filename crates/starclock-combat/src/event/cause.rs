@@ -11,6 +11,24 @@ pub enum CauseActor {
     TimelineActor(TimelineActorId),
 }
 
+/// Exact cause-envelope actor representation, independent of owner fallback.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub enum CauseActorKind {
+    Unit,
+    TimelineActor,
+}
+
+impl CauseActor {
+    /// Returns the captured actor kind without resolving a timeline actor's owner.
+    #[must_use]
+    pub const fn kind(self) -> CauseActorKind {
+        match self {
+            Self::Unit(_) => CauseActorKind::Unit,
+            Self::TimelineActor(_) => CauseActorKind::TimelineActor,
+        }
+    }
+}
+
 /// Complete immutable attribution carried by every battle event.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct Cause {

@@ -2,11 +2,11 @@
 //! Closed battle-domain Rule IR values accepted after data lowering.
 
 use crate::{
-    AbilityId, ActionGaugeChangeKind, ActionId, CommandId, DotDetonationFilter, DotDetonationScope,
-    DotDetonationSelection, EffectCategory, EffectDefinitionId, EffectRemovalOrder, EventId, HitId,
-    LifeState, NativeHandlerId, PhaseId, PresenceState, ProgramId, RawToughness, Rounding, RuleId,
-    RuleInstanceId, Scalar, SelectorId, SourceDefinitionId, StateSlotDefinitionId, TriggerId,
-    UnitDefinitionId, UnitId, WaveInstanceId,
+    AbilityId, ActionGaugeChangeKind, ActionId, CauseActorKind, CommandId, DotDetonationFilter,
+    DotDetonationScope, DotDetonationSelection, EffectCategory, EffectDefinitionId,
+    EffectRemovalOrder, EventId, HitId, LifeState, NativeHandlerId, PhaseId, PresenceState,
+    ProgramId, RawToughness, Rounding, RuleId, RuleInstanceId, Scalar, SelectorId,
+    SourceDefinitionId, StateSlotDefinitionId, TriggerId, UnitDefinitionId, UnitId, WaveInstanceId,
     catalog::action::elation::ElationDamageDefinition,
     catalog::action::{AbilityTag, AbilityTags, ReactionBoundary, TargetPattern},
     damage::{DamageSemantic, DamageSemantics},
@@ -246,6 +246,8 @@ pub enum EventValueProperty {
 
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct RuleEventFacts {
+    /// Raw cause-envelope actor representation; never inferred from a resolved owner.
+    pub actor_kind: Option<CauseActorKind>,
     /// Captured damage labels; empty for events that are not damage settlements.
     pub damage_semantics: DamageSemantics,
     pub point: Option<RuleEventPoint>,
@@ -338,6 +340,9 @@ pub enum OnceScope {
 /// Cheap indexed cause fields checked before contextual conditions.
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct EventFilter {
+    /// Requires this exact raw actor kind; an absent actor never matches.
+    /// Conjunctive with existing selector/ID filters, whose owner resolution is unchanged.
+    pub actor_kind: Option<CauseActorKind>,
     pub shield_event: Option<RuleShieldEventKind>,
     pub shield_effect: Option<EffectDefinitionId>,
     /// Conjunctive additive damage label; does not match an action tag.

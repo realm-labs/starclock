@@ -102,8 +102,11 @@ pub(super) fn ancestry_matches(value: CauseAncestry, input: RuleEvaluationInput<
 #[must_use]
 pub(super) fn matches_filter(filter: &EventFilter, input: RuleEvaluationInput<'_>) -> bool {
     filter
-        .shield_event
-        .is_none_or(|value| input.event_facts.shield_event == Some(value))
+        .actor_kind
+        .is_none_or(|value| input.event_facts.actor_kind == Some(value))
+        && filter
+            .shield_event
+            .is_none_or(|value| input.event_facts.shield_event == Some(value))
         && filter
             .shield_effect
             .is_none_or(|value| input.event_facts.shield_effect == Some(value))

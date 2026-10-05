@@ -26,6 +26,10 @@ mod weighted_curio_necrosis;
 mod weighted_curio_necrosis_fixture;
 mod weighted_curio_overflow;
 mod weighted_curio_overflow_fixture;
+#[path = "tests/weighted_curio_overflow_lifecycle.rs"]
+mod weighted_curio_overflow_lifecycle;
+#[path = "tests/weighted_curio_overflow_lifecycle_fixture.rs"]
+mod weighted_curio_overflow_lifecycle_fixture;
 mod weighted_curio_prayer;
 mod weighted_curio_retaliation;
 mod weighted_curio_shield;

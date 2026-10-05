@@ -6,6 +6,8 @@
   "runtime": {
     "combat": true,
     "combat_rule_resolved_unit_level_query": true,
+    "combat_rule_raw_cause_actor_kind_filter": true,
+    "combat_rule_actor_kind_filter_sora_authoring": false,
     "combat_rule_unit_level_query_historical_selector_admission": false,
     "combat_rule_unit_level_query_automatic_primary_admission": false,
     "combat_rule_unit_level_query_sora_authoring": false,
@@ -164,6 +166,9 @@
       "weighted_curio_overflow_battle_effect_implemented": false,
       "weighted_curio_overflow_native_death_bridge_implemented": true,
       "weighted_curio_overflow_death_bridge_policy": "HitEndedOriginalActorConfirmedDeathReadinessEffect",
+      "weighted_curio_overflow_original_transform_identity_implemented": true,
+      "weighted_curio_overflow_real_linked_actor_exclusion_implemented": true,
+      "weighted_curio_overflow_unitless_countdown_exclusion_implemented": true,
       "weighted_curio_overflow_base_formula_production_admitted": false,
       "weighted_curio_overflow_attack_buff_implemented": false,
       "weighted_curio_transfer_operands_authored": true,

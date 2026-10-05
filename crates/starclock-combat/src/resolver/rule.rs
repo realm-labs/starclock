@@ -499,6 +499,7 @@ fn event_facts(
         .and_then(SelectorDefinition::unit_targets)
         .map(UnitTargetSelector::pattern);
     let mut facts = RuleEventFacts {
+        actor_kind: cause.actor().map(CauseActor::kind),
         point: Some(point),
         source_class: source_class(catalog, cause.source_definition()),
         action_kind: action.map(|action| {

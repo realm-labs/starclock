@@ -1,11 +1,12 @@
 //! Real battle commands using production Sora operands and an explicit test base formula.
 use crate::divergent_universe::{
     DivergentUniverseBaselineFixture,
+    tests::weighted_curio_overflow_lifecycle_fixture::{Setup, add_setup},
     weighted_curio_overflow::{OverflowBaseDamagePolicy, bind_death_conversion_policy},
 };
 use starclock_combat::{
-    AssemblyDigest, Battle, BattleEvent, BattleSeed, BattleSpec, CombatantSpecDigest, Command,
-    ConcedePolicy, DispelCategory, DurationClock, EffectCategory, EffectDamageGuard,
+    AbilityId, AssemblyDigest, Battle, BattleEvent, BattleSeed, BattleSpec, CombatantSpecDigest,
+    Command, ConcedePolicy, DispelCategory, DurationClock, EffectCategory, EffectDamageGuard,
     EffectRuntimeDefinition, EffectStackPolicy, EffectTickPhase, Energy, FormationIndex, Hp,
     ParticipantSource, ParticipantSpec, Ratio, ResolvedCombatantSpec, ResolvedDefinitionBindings,
     Rounding, RuleBundleId, Scalar, Speed, TeamResourceSpec, TeamSide, UnitLevel,
@@ -52,6 +53,7 @@ pub(super) struct Probe {
     pub(super) inherited: bool,
     pub(super) shield: i64,
     pub(super) guard: Option<EffectDamageGuard>,
+    pub(super) setup: Option<Setup>,
 }
 impl Default for Probe {
     fn default() -> Self {
@@ -65,6 +67,7 @@ impl Default for Probe {
             inherited: false,
             shield: 0,
             guard: None,
+            setup: None,
         }
     }
 }
@@ -75,6 +78,24 @@ fn combatant(
     hp: i64,
     player: bool,
     bundles: Vec<RuleBundleId>,
+) -> ResolvedCombatantSpec {
+    combatant_with_abilities(
+        form,
+        level,
+        hp,
+        player,
+        bundles,
+        vec![id(if player { 1 } else { 2 })],
+    )
+}
+
+pub(super) fn combatant_with_abilities(
+    form: u32,
+    level: u8,
+    hp: i64,
+    player: bool,
+    bundles: Vec<RuleBundleId>,
+    abilities: Vec<AbilityId>,
 ) -> ResolvedCombatantSpec {
     ResolvedCombatantSpec::new(
         id(form),
@@ -88,8 +109,7 @@ fn combatant(
             1_000_000
         })
         .unwrap(),
-        ResolvedDefinitionBindings::new(vec![id(if player { 1 } else { 2 })], bundles, vec![])
-            .unwrap(),
+        ResolvedDefinitionBindings::new(abilities, bundles, vec![]).unwrap(),
         CombatantSpecDigest::new([level; 32]).unwrap(),
     )
     .unwrap()
@@ -222,8 +242,31 @@ pub(super) fn scenario(fixture: &DivergentUniverseBaselineFixture, probe: &Probe
             .unwrap(),
         ),
     );
-    for (form, ability) in [(1, 1), (2, 2), (3, 1)] {
-        builder.add_unit(UnitDefinition::new(id(form), vec![id(ability)], vec![]));
+    let player_abilities = if probe.setup.is_some() {
+        vec![id(1), id(3)]
+    } else {
+        vec![id(1)]
+    };
+    for (form, abilities) in [
+        (
+            1,
+            if matches!(probe.setup, Some(Setup::Linked(..))) {
+                vec![id(1), id(3), id(6)]
+            } else {
+                player_abilities.clone()
+            },
+        ),
+        (2, vec![id(2)]),
+        (
+            3,
+            if probe.setup.is_some() {
+                vec![id(1), id(4)]
+            } else {
+                vec![id(1)]
+            },
+        ),
+    ] {
+        builder.add_unit(UnitDefinition::new(id(form), abilities, vec![]));
     }
     builder.add_enemy(EnemyDefinition::new(id(1), id(2), vec![id(2)]));
     builder.add_encounter(EncounterDefinition::new(id(1), vec![id(1)], vec![]));
@@ -231,7 +274,7 @@ pub(super) fn scenario(fixture: &DivergentUniverseBaselineFixture, probe: &Probe
         TeamSide::Player,
         FormationIndex::new(0).unwrap(),
         ParticipantSource::Player,
-        combatant(1, 70, 10_000, true, vec![]),
+        combatant_with_abilities(1, 70, 10_000, true, vec![], player_abilities),
     );
     // Fixture-only base = selected enemy's own level * explicit factor. It is
     // deliberately not presented as decoded HPRatio/difficulty semantics.
@@ -260,6 +303,9 @@ pub(super) fn scenario(fixture: &DivergentUniverseBaselineFixture, probe: &Probe
         [0x82; 32],
     )
     .unwrap();
+    if let Some(setup) = probe.setup {
+        add_setup(&mut builder, &player, setup);
+    }
     let mut participants = vec![player.clone()];
     if probe.inherited {
         let spec = combatant(
@@ -316,9 +362,18 @@ pub(super) fn start(battle: &mut Battle) {
     );
 }
 pub(super) fn cast(battle: &mut Battle, actor: u64, target: Option<u64>) -> Vec<BattleEvent> {
+    cast_ability(battle, actor, 1, target)
+}
+
+pub(super) fn cast_ability(
+    battle: &mut Battle,
+    actor: u64,
+    ability: u32,
+    target: Option<u64>,
+) -> Vec<BattleEvent> {
     for _ in 0..32 {
         if let Some(command) = battle.decision().and_then(|decision| decision.legal_commands().iter().find(|command| {
-            matches!(command,Command::UseAbility {actor:a,ability,primary_target,..} if a.get()==actor && ability.get()==1 && primary_target.map(|t|t.get())==target)
+            matches!(command,Command::UseAbility {actor:a,ability:offered,primary_target,..} if a.get()==actor && offered.get()==ability && primary_target.map(|t|t.get())==target)
         })).cloned() {return accept(battle,command);}
         let command = battle.advance_command().unwrap();
         accept(battle, command);

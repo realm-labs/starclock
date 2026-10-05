@@ -12,10 +12,10 @@ use crate::{
     },
 };
 use starclock_combat::{
-    DispelCategory, DurationClock, EffectCategory, EffectDefinitionId, EffectRuntimeTemplate,
-    EffectStackPolicy, EffectTeardownPolicy, EffectTickPhase, ParticipantSpec, ProgramId, Rounding,
-    RuleBundleId, RuleId, Scalar, SelectorId, SourceDefinitionId, StateSlotDefinitionId, TeamSide,
-    TriggerId,
+    CauseActorKind, DispelCategory, DurationClock, EffectCategory, EffectDefinitionId,
+    EffectRuntimeTemplate, EffectStackPolicy, EffectTeardownPolicy, EffectTickPhase,
+    ParticipantSpec, ProgramId, Rounding, RuleBundleId, RuleId, Scalar, SelectorId,
+    SourceDefinitionId, StateSlotDefinitionId, TeamSide, TriggerId,
     catalog::{
         action::AbilityTag,
         builder::CombatCatalogBuilder,
@@ -66,6 +66,8 @@ impl OverflowBaseDamagePolicy {
 /// This is a catalog construction API, not an Activity equipment bypass. The
 /// caller owns Path proof and the base formula; production battle admission
 /// remains fail-closed until its Sora policy is promoted. Formation must be 0..=3.
+/// Admission follows the original roster identity in Present or Transformed
+/// presence, not its initial form. Linked units cannot inherit that identity.
 /// Reusing a formation collides in the catalog and rejects normal construction.
 /// Mutates only the caller's catalog builder, never a live battle/Activity.
 /// On a construction error, discard the builder; partial definitions may have
@@ -119,6 +121,8 @@ pub fn bind_death_conversion_policy(
     let highest = selector(6)?;
     let current = selector(7)?;
     let marked_alive = selector(8)?;
+    let owner_present = selector(9)?;
+    let owner_transformed = selector(10)?;
     let all = select(
         RuleSelectorOrigin::Team,
         RuleSelectorSide::Same,
@@ -133,19 +137,34 @@ pub fn bind_death_conversion_policy(
         SelectorDefinition::new(linked)
             .with_rule_units(all.with_predicates(vec![RuleSelectorPredicate::OwnedBy(team)])),
     );
+    for (id, presence) in [
+        (owner_present, RulePresencePredicate::Present),
+        (owner_transformed, RulePresencePredicate::Transformed),
+    ] {
+        builder.add_selector(SelectorDefinition::new(id).with_rule_units(select(
+            RuleSelectorOrigin::Owner,
+            RuleSelectorSide::Same,
+            RuleLifePredicate::Any,
+            presence,
+            1,
+            RuleSelectorChoice::First,
+            None,
+        )?));
+    }
     builder.add_selector(
         SelectorDefinition::new(owner).with_rule_units(
             select(
                 RuleSelectorOrigin::Owner,
                 RuleSelectorSide::Same,
                 RuleLifePredicate::Any,
-                RulePresencePredicate::Present,
+                RulePresencePredicate::Any,
                 1,
                 RuleSelectorChoice::First,
                 None,
             )?
+            .with_candidate_union(vec![owner_present, owner_transformed])
+            .ok_or_else(invalid)?
             .with_predicates(vec![
-                RuleSelectorPredicate::UnitForm(player.combatant().form()),
                 RuleSelectorPredicate::FormationRange {
                     minimum: player.formation().get(),
                     maximum: player.formation().get(),
@@ -247,6 +266,8 @@ pub fn bind_death_conversion_policy(
         highest,
         current,
         marked_alive,
+        owner_present,
+        owner_transformed,
     ];
     // Readiness is implementation state, not a second gameplay mark/debuff.
     for (effect, category) in [
@@ -380,7 +401,7 @@ pub fn bind_death_conversion_policy(
         );
     }
     let mut hash = CanonicalDigestBuilder::new();
-    hash.update(b"starclock.divergent-universe.overflow.hit-ended-original-actor-policy");
+    hash.update(b"starclock.divergent-universe.overflow.hit-ended-original-roster-present-or-transformed-policy");
     hash.update(assembly_digest);
     hash.update(base.identity);
     hash.update(definition.key.as_bytes());
@@ -389,6 +410,7 @@ pub fn bind_death_conversion_policy(
     let contribution_digest = hash.finalize();
     let source = RuleSource::new(source_id, SourceClass::Mode, vec![], contribution_digest);
     let attack = EventFilter {
+        actor_kind: Some(CauseActorKind::Unit),
         actor_selector: Some(owner),
         applier_selector: Some(owner),
         source_class: Some(SourceClass::Ability),

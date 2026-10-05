@@ -96,7 +96,7 @@ pub use effect::model::{
     EffectStackPolicy, EffectTeardownPolicy, EffectTickPhase, ForcedNormalAction,
     NEGATIVE_EFFECT_GUARDED_SIGNAL, TEAM_DEFEAT_GUARDED_SIGNAL,
 };
-pub use event::cause::{Cause, CauseActor};
+pub use event::cause::{Cause, CauseActor, CauseActorKind};
 pub use event::model::{
     ActionBoundaryEventData, ActionEventData, ActionGaugeChangeKind, BattleClockEventData,
     BattleEvent, BattleEventData, BattleEventKind, BreakDamageEventData, BreakDamageKind,
