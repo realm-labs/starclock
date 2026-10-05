@@ -16,6 +16,8 @@ mod weighted_curio;
 mod weighted_curio_attack_debuff;
 mod weighted_curio_break_effect;
 mod weighted_curio_counter_composition;
+mod weighted_curio_deflagration_base;
+mod weighted_curio_deflagration_base_fixture;
 mod weighted_curio_elation;
 mod weighted_curio_elation_fixture;
 mod weighted_curio_encouragement;

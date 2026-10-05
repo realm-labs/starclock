@@ -13,6 +13,13 @@ the supported equipment-definition count remains 14/17. The decision input is
 52 tables / 647 rows; no terminal disposition or complete-run gate changes.
 See the [Deflagration authoring boundary](divergent-universe-weighted-curio-deflagration.md).
 
+The independent Deflagration base-policy compiler now lowers target-owned level,
+the 95 authored HPRatios and immutable Protocol HP scaling to shared Rule IR.
+Real formula-probe commands cover every level and exact rounding with no RNG;
+policy/curve changes bind fresh identities and invalid inputs fail construction.
+Overflow reuses only the unchanged balanced curve lowering, not this policy.
+Burn execution, equipment admission and terminal coverage remain pending.
+
 Shared Rule IR now retains the exact Direct/DotTick/DotDetonation kind of each
 committed common damage event and exposes a conjunctive native filter. Formula
 class and action ownership do not imply periodicity; Break and non-damage facts

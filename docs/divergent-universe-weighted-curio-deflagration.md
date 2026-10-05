@@ -53,7 +53,11 @@ decoded difficulty factor or different arithmetic boundaries. Source 147
 has `ProjectPolicy` quality and hashes the authored base note, not an upstream
 blob. Replace each field independently when released typed semantics or
 reproducible numerical traces establish it. Native all-level/Protocol consumers
-are required before battle admission.
+are required before battle admission. The current native base-policy compiler
+now reads the selected target's own checked level through shared Rule IR and
+binds all 95 ratios and the immutable Protocol snapshot. It is independent of
+Overflow's policy identity; only the balanced target-level curve lowering is
+shared. This compiler does not apply Burn or authorize equipment.
 
 ## Execution policy
 
@@ -94,6 +98,14 @@ joins, decimals, provenance and independently hashed policy notes. Status is
 `AuthoredOperandsPendingNative`: neither loading nor this contract executes
 Deflagration. Native assembly and normal equipment admission still reject this
 unsupported identity; the equipment-definition count remains 14/17.
+
+Formula-only real command probes execute all 95 target levels for Ordinary,
+Cyclical and two immutable Protocol snapshots. Independent integer oracles
+verify both six-place floor boundaries and final integral TrueDamage probe
+settlement; no owner-level substitution or RNG is used. Invalid curves and
+overflow fail construction, rejected commands preserve canonical hashes and
+decisions, and fresh commands reproduce event payloads and hashes. These probes
+verify the base expression, not Deflagration tick/attack/Forge behavior.
 
 Required command consumers include zero through four Fire originals,
 multihit/multitarget cardinality, independent casters, two real ticks/expiry,

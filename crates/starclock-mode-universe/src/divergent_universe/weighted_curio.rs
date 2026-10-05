@@ -18,6 +18,11 @@ use starclock_data::divergent_universe_decisions::weighted_curio_support_attacks
 use starclock_data::divergent_universe_decisions::weighted_curio_transfers::WeightedCurioTransferDefinition;
 use std::sync::Arc;
 
+#[path = "weighted_curio_deflagration.rs"]
+pub mod deflagration;
+#[path = "target_level_hp_curve.rs"]
+pub(super) mod target_level_hp_curve;
+
 use crate::divergent_universe::{
     DivergentUniverseFlowInstance, DivergentUniverseRuntimeFactory,
     state::WEIGHTED_CURIO_REFERENCES_SLOT,
