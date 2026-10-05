@@ -76,7 +76,11 @@ and [Sapient Pen](divergent-universe-weighted-curio-elation.md)
 and [Genius' Confusion](divergent-universe-weighted-curio-excitation.md)
 and [Encouragement for You](divergent-universe-weighted-curio-encouragement.md)
 and [Dignity and Passion](divergent-universe-weighted-curio-transfer.md)
-definitions enter actual Rule IR; the other five effects still reject.
+and [Walkie-Talkie](divergent-universe-weighted-curio-overflow.md),
+[Footstep of Gods](divergent-universe-weighted-curio-footstep.md) and
+[Deflagration](divergent-universe-weighted-curio-deflagration.md)
+definitions enter actual Rule IR: 15/17 equipment effects are supported;
+the other two effects still reject.
 Sapient Pen's source operands are separate from its replaceable execution and
 shared-meter policies; data loading alone grants no execution credit.
 Unsupported equipment cannot become a digest-only, no-effect battle.
@@ -87,6 +91,64 @@ bounds, canonical order, fresh command reconstruction, rejected requests and
 dirty-state rejection in both families. The normal proxy battle after unequip
 does not establish a Weighted Curio effect. Separate actual attack probes verify
 the lowered splash; they are not Forge admission or a complete public-run gate.
-Forge offers, slot-level admission, domain enhancement, the other five effects and encoded equipment-command replay remain
+Automatic Forge offers, slot-level admission, domain enhancement, the other two effects and encoded equipment-command replay remain
 unimplemented. No source obligation, mechanic program or semantic family is
 terminalized; genuine Grand Miracle acceptance remains separate and incomplete.
+
+## Authenticated source-position equipment service
+
+`weighted_curio_room_compiler(capacity, slots)` supplies an executable equipment
+fragment only for a proven current `Reforge` card context. All nine authored
+decks contain such level-one presets. The compiler validates exact current
+area/layer/position/preset/kind/level joins; other rooms, historical presets and
+upgraded levels reject. It does not infer automatic Forge placement or the
+original level-to-slot selector. The caller supplies a one-through-three
+capacity independently of the source level.
+
+`VersionedProjectPolicyExplicitReforgeCapacityCanonicalToggle64Changes` adds
+these independently replaceable menu rules to the accepted-loadout boundary:
+
+- Offer all 17 identities in canonical stable-ID order, not a random pool or
+  the implemented-effect subset. Selecting an equipped identity removes it;
+  selecting another adds it when capacity permits. Full-capacity offers retain
+  removal and clear but omit additions. Empty clear is not offered. Unsupported
+  effects remain selectable and still return `UnsupportedBattleEffect` during
+  later battle construction; menu selection does not invent their execution.
+- Toggle and clear use the same replacement validator and typed operations as
+  the trusted accepted-service API, without currency, RNG or ordinary Curio
+  changes. Existing equipment above the bound capacity rejects entry atomically
+  rather than silently discarding it.
+- Permit 64 equipment changes per logical room, then retain an independent
+  Leave that preserves equipment. Budget survives internal menu loops and resets
+  at another logical room. The physical-node acceptance gate resets after each
+  accepted choice; equipment remains Run-scoped.
+- Authenticate the whole immutable graph and actual offered decision/option
+  before mutation. Equipment, budget, gate, events and graph movement share the
+  shared Activity transaction. Failed next-room entry restores pre-command
+  state, pending offer and RNG.
+
+The host supplies two isolated service slots, includes exact declarations
+(including the existing production equipped slot), binds each compiled room's
+configuration digest into its profile identity and composes through
+`compile_curio_domain_route`. Binding requires the exact normal Curio entry
+lifecycle, nodes, internal edges, sole exit, slots and logical room path.
+Menu-entry bypass, added internal edges, changed programs, room RNG and
+interactions reject. Freshly reconstructed identical whole definitions pass;
+foreign rooms/graphs do not. The capability owns no mutable state or state machine.
+
+The pinned released evidence above proves current identities and the level-one
+Reforge capability, not these execution edges, free-toggle timing, 64-change
+budget or per-level capacity. Hidden-timing parity confidence is low. Alternatives
+include inactive inventory, paid confirmation, full-set confirmation and random
+offers; none is asserted as observed behavior. Replace each policy field
+independently when released graphs or reproducible current observations establish
+menu transitions, slot selection and replacement timing.
+
+Seven focused command/binding tests cover all 17 selections, capacities 1–3,
+canonical order, clear, independent Leave, all nine decks' Reforge construction,
+raw/stale/foreign/hidden/dirty rejections, exact budget exhaustion, next-entry
+rollback, hostile definitions, no RNG and fresh event/state reconstruction in
+both families. Other room payloads are isolated out: these tests do not complete
+an original run or terminalize source obligations. Flow/controller dispatch,
+encoded equipment-command replay, automatic Forge admission, domain enhancement,
+divination and the two remaining effects are separate requirements.

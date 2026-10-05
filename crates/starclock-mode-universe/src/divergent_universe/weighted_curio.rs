@@ -21,6 +21,8 @@ use std::sync::Arc;
 
 #[path = "weighted_curio_deflagration.rs"]
 pub mod deflagration;
+#[path = "weighted_curio_room.rs"]
+pub mod room;
 #[path = "target_level_hp_curve.rs"]
 pub(super) mod target_level_hp_curve;
 
@@ -29,8 +31,9 @@ use crate::divergent_universe::{
     state::WEIGHTED_CURIO_REFERENCES_SLOT,
 };
 use starclock_activity::{
-    ActivityOperation, ActivityProgramDefinition, ActivityProgramId, ActivityStateHash,
-    ActivityTransactionEvent, ActivityValue, GraphActivity, GraphActivityCommandError,
+    ActivityOperation, ActivityPlayerView, ActivityProgramDefinition, ActivityProgramId,
+    ActivityStateHash, ActivityTransactionEvent, ActivityValue, GraphActivity,
+    GraphActivityCommandError,
 };
 use starclock_data::divergent_universe_curio_catalog::{
     DivergentUniverseHexContentKind, DivergentUniverseWeightedCurioId,
@@ -198,7 +201,13 @@ impl WeightedCurioRuntime {
         &self,
         activity: &GraphActivity,
     ) -> Result<Vec<DivergentUniverseWeightedCurioId>, WeightedCurioError> {
-        let view = activity.player_view();
+        self.equipped_view(&activity.player_view())
+    }
+
+    pub(super) fn equipped_view(
+        &self,
+        view: &ActivityPlayerView,
+    ) -> Result<Vec<DivergentUniverseWeightedCurioId>, WeightedCurioError> {
         let slot = view
             .slots()
             .iter()
@@ -263,10 +272,30 @@ impl WeightedCurioRuntime {
         if flow.component_digest != self.component || !matches {
             return Err(WeightedCurioError::DefinitionMismatch);
         }
-        if activity.player_view().terminal().is_some() {
+        let operations = self.replacement_operations(&activity.player_view(), limit, selection)?;
+        let program = ActivityProgramDefinition::new(
+            ActivityProgramId::new(REPLACE_PROGRAM).expect("fixed nonzero equipment program"),
+            operations,
+        )
+        .map_err(|_| WeightedCurioError::InvalidCatalog)?;
+        activity
+            .apply_boundary_program(expected, &program)
+            .map(|events| events.into_vec())
+            .map_err(WeightedCurioError::Command)
+    }
+
+    // Both authenticated room choices and the trusted boundary use this exact
+    // replacement validator. It produces operations, never mutates live state.
+    pub(super) fn replacement_operations(
+        &self,
+        view: &ActivityPlayerView,
+        limit: WeightedCurioSlotLimit,
+        selection: &[DivergentUniverseWeightedCurioId],
+    ) -> Result<Vec<ActivityOperation>, WeightedCurioError> {
+        if view.terminal().is_some() {
             return Err(WeightedCurioError::ActivityCompleted);
         }
-        let current = self.equipped(activity)?;
+        let current = self.equipped_view(view)?;
         if selection.len() > usize::from(limit.get()) {
             return Err(WeightedCurioError::CapacityExceeded);
         }
@@ -292,18 +321,10 @@ impl WeightedCurioRuntime {
         if current == selected {
             return Err(WeightedCurioError::UnchangedLoadout);
         }
-        let program = ActivityProgramDefinition::new(
-            ActivityProgramId::new(REPLACE_PROGRAM).expect("fixed nonzero equipment program"),
-            vec![ActivityOperation::SetCounterMap {
-                slot: WEIGHTED_CURIO_REFERENCES_SLOT,
-                values: values.into_boxed_slice(),
-            }],
-        )
-        .map_err(|_| WeightedCurioError::InvalidCatalog)?;
-        activity
-            .apply_boundary_program(expected, &program)
-            .map(|events| events.into_vec())
-            .map_err(WeightedCurioError::Command)
+        Ok(vec![ActivityOperation::SetCounterMap {
+            slot: WEIGHTED_CURIO_REFERENCES_SLOT,
+            values: values.into_boxed_slice(),
+        }])
     }
 
     /// Validate equipped state and actual current effect admission before

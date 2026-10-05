@@ -66,6 +66,12 @@ caller-selected position. Completion and door publication share the reward
 transaction; Leave is separate. Original event/card membership and remaining
 room payloads are not inferred, and the default baseline is unchanged.
 
+An [authenticated equipment-room compiler](divergent-universe-weighted-curio-loadout.md#authenticated-source-position-equipment-service)
+supplies actual toggle/clear/Leave commands on proven current Reforge cards,
+with caller-authored capacity and exact whole-graph binding. Original slot-level
+selection, automatic Forge admission and complete Forge services are not inferred.
+Flow/controller and encoded equipment replay remain unbound.
+
 The [fixed Blank-room compiler](divergent-universe-blank-room.md) now executes
 the current guide's admitted empty room without intrinsic rewards, retaining
 normal Curio entry effects, ordered completion/doors and an independent atomic

@@ -21,6 +21,17 @@ const inputs = {
   mode_facade: "crates/starclock-mode-universe/src/divergent_universe/mod.rs",
   weighted_loadout: "crates/starclock-mode-universe/src/divergent_universe/weighted_curio.rs",
   weighted_loadout_tests: "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio.rs",
+  weighted_equipment_room: "crates/starclock-mode-universe/src/divergent_universe/weighted_curio_room.rs",
+  weighted_equipment_room_binding: "crates/starclock-mode-universe/src/divergent_universe/weighted_curio_room_binding.rs",
+  weighted_equipment_room_tests: "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_room.rs",
+  weighted_overflow: "crates/starclock-mode-universe/src/divergent_universe/weighted_curio_overflow.rs",
+  weighted_overflow_data: "config/divergent-universe-decisions-generated/debug-json/DuWeightedCurioOverflows.json",
+  weighted_footstep: "crates/starclock-mode-universe/src/divergent_universe/weighted_curio_footstep.rs",
+  weighted_footstep_data: "config/divergent-universe-decisions-generated/debug-json/DuWeightedCurioFootsteps.json",
+  weighted_deflagration: "crates/starclock-mode-universe/src/divergent_universe/weighted_curio_deflagration.rs",
+  weighted_deflagration_native: "crates/starclock-mode-universe/src/divergent_universe/weighted_curio_deflagration/native.rs",
+  weighted_deflagration_equipment: "crates/starclock-mode-universe/src/divergent_universe/weighted_curio_deflagration/equipment.rs",
+  weighted_deflagration_data: "config/divergent-universe-decisions-generated/debug-json/DuWeightedCurioDeflagrations.json",
   weighted_splash: "crates/starclock-mode-universe/src/divergent_universe/weighted_curio_splash.rs",
   weighted_splash_tests: "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_splash.rs",
   weighted_splash_data: "config/divergent-universe-decisions-generated/debug-json/DuWeightedCurioSplashes.json",
@@ -45,7 +56,7 @@ const inputs = {
   weighted_break_effect_data: "config/divergent-universe-decisions-generated/debug-json/DuWeightedCurioBreakEffects.json",
   weighted_necrosis: "crates/starclock-mode-universe/src/divergent_universe/weighted_curio_necrosis.rs",
   weighted_necrosis_tests: "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_necrosis.rs",
-  weighted_necrosis_fixture: "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_necrosis_fixture.rs",
+  weighted_burn_fixture: "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_burn_fixture.rs",
   weighted_necrosis_data: "config/divergent-universe-decisions-generated/debug-json/DuWeightedCurioNecroses.json",
   weighted_elation: "crates/starclock-mode-universe/src/divergent_universe/weighted_curio_elation.rs",
   weighted_elation_tests: "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_elation.rs",
@@ -105,6 +116,15 @@ export function buildGrandMiracleGambleExecution() {
   assert(!text(inputs.mode_facade).includes("grand_miracle_runtime"),
     "reference flags must not be exposed as a Grand Miracle runtime");
   const probes = [
+    ...[
+      "equipment_room_all_seventeen_toggle_through_authenticated_offers_without_rng",
+      "equipment_room_capacity_clear_canonical_order_and_independent_leave_reconstruct",
+      "equipment_room_exact_change_budget_keeps_a_safe_leave_and_rejections_inert",
+      "equipment_room_foreign_dirty_and_next_entry_failure_restore_the_entire_activity",
+      "equipment_room_binding_rejects_missing_entry_lifecycle_and_spoofed_programs",
+      "equipment_room_binding_rejects_menu_entry_bypass_and_wrong_logical_room",
+      "equipment_room_compiles_each_current_reforge_in_all_nine_authored_decks",
+    ].map(test => ({file: inputs.weighted_equipment_room_tests, test})),
     ...[
       "weighted_curio_transfer_binds_all_original_recipients_only_with_preservation_party",
       "weighted_curio_transfer_preserves_threshold_precision_and_heals_only_actual_decay",
@@ -257,6 +277,11 @@ export function buildGrandMiracleGambleExecution() {
       grand_miracles_admitted_from_hex: 0,
       weighted_curio_loadout_implemented: false,
       weighted_curio_accepted_loadout_boundary: true,
+      weighted_curio_source_position_equipment_service_implemented: true,
+      weighted_curio_equipment_service_accuracy: "VersionedProjectPolicyExplicitReforgeCapacityCanonicalToggle64Changes",
+      weighted_curio_equipment_service_change_limit: 64,
+      weighted_curio_equipment_service_flow_controller_bound: false,
+      weighted_curio_equipment_service_encoded_replay_implemented: false,
       weighted_curio_accepted_loadout_maximum: 3,
       weighted_curio_loadout_accuracy: "VersionedProjectPolicyAcceptedCurrentCatalogLoadout",
       weighted_curio_unsupported_equipment_rejects_battle_contribution: true,
@@ -272,7 +297,10 @@ export function buildGrandMiracleGambleExecution() {
         + json(inputs.weighted_necrosis_data).table.rows.length
         + json(inputs.weighted_elation_data).table.rows.length
         + json(inputs.weighted_excitation_data).table.rows.length
-        + json(inputs.weighted_encouragement_data).table.rows.length,
+        + json(inputs.weighted_encouragement_data).table.rows.length
+        + json(inputs.weighted_overflow_data).table.rows.length
+        + json(inputs.weighted_footstep_data).table.rows.length
+        + json(inputs.weighted_deflagration_data).table.rows.length,
       weighted_curio_encouragement_operands_authored: json(inputs.weighted_encouragement_data).table.rows.length === 1,
       weighted_curio_encouragement_battle_effect_implemented: true,
       weighted_curio_transfer_operands_authored: json(inputs.weighted_transfer_data).table.rows.length === 1,
@@ -288,11 +316,14 @@ export function buildGrandMiracleGambleExecution() {
         "VersionedProjectPolicyActionResolvedOriginalPartyRefresh",
         "VersionedProjectPolicyEffectiveGainActionResolvedTeamConsumption",
         "VersionedProjectPolicyOriginalElationFollowUpDamage",
-        "VersionedProjectPolicyOtherShieldAppliedOwnerTurnExcessDecay"],
+        "VersionedProjectPolicyOtherShieldAppliedOwnerTurnExcessDecay",
+        "VersionedProjectPolicyHitEndedOriginalActorConfirmedDeathReadinessEffect",
+        "VersionedProjectPolicyEffectiveHpLossAfterSkillOriginalDamage",
+        "VersionedProjectPolicyOriginalFireAfterActionNaturalTickBurns"],
       grand_miracle_runtime_implemented: false,
       forge_room_payload_implemented: false,
       terminal_coverage_credit: 0,
-      required_next_work: "Bind accepted equipment to actual Forge offers and slot-level admission; implement the remaining five Weighted Curio effects and equipment-command replay. Establish Grand Miracle selectors independently and repair its separate source/fixture audit labels without shrinking obligations.",
+      required_next_work: "Bind the authenticated source-position equipment service to flow/controller and encoded equipment replay; establish original Forge slot-level selection and automatic admission, and implement the remaining two effects and other Forge services. Establish Grand Miracle selectors independently and repair its separate source/fixture audit labels without shrinking obligations.",
     },
     summary: { weighted_curio_references: hex.length,
       current_hex_eligibility_rules: current.length,

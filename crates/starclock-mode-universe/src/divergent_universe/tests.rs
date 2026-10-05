@@ -54,6 +54,7 @@ mod weighted_curio_overflow_queued_fixture;
 mod weighted_curio_overflow_survival;
 mod weighted_curio_prayer;
 mod weighted_curio_retaliation;
+mod weighted_curio_room;
 mod weighted_curio_shield;
 #[path = "tests/weighted_curio_splash.rs"]
 mod weighted_curio_splash;

@@ -35,19 +35,63 @@
     },
     "mode_facade": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/mod.rs",
-      "sha256": "d153813943d9e5815a7cd86217aa7e076fea554198dbcae562616540ca853a70"
+      "sha256": "8dd5e7ed3c0563cd1390e5d796228aabab0a25550f3ec647759fae931f78cf4a"
     },
     "weighted_loadout": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/weighted_curio.rs",
-      "sha256": "72ac9f32e457792eb6003b41f77cdaf6e0cb04caca062790834b2a7bcacbcc20"
+      "sha256": "c1886029c0bb902c25b4cafe457016b043e2d32f171cd8cde7cb9d64ba1e7638"
     },
     "weighted_loadout_tests": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio.rs",
-      "sha256": "a91d3faca705f924e355759fa414658157fac069b7500e32cef33dd47f76345b"
+      "sha256": "6ad0ea6855e1a4449aa5dc137a2aa4baf4629a941a090af54b9926ace54142d8"
+    },
+    "weighted_equipment_room": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/weighted_curio_room.rs",
+      "sha256": "e114ed2b63cd09734a5649c48415ec75b9da18d72332d25c5e88bf511df00ea6"
+    },
+    "weighted_equipment_room_binding": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/weighted_curio_room_binding.rs",
+      "sha256": "e65f332c679bdad180735731470b67d1629c0b3e211e9278c363eb9b90e4df8a"
+    },
+    "weighted_equipment_room_tests": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_room.rs",
+      "sha256": "98179acc634c738337cdae2bd8f2cb8fe11afa662a03419b966a6a8032437673"
+    },
+    "weighted_overflow": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/weighted_curio_overflow.rs",
+      "sha256": "551ae2f7c2e069cfdb5e60415b30e8a8179ffa689b29ba056aa3548168c61d7d"
+    },
+    "weighted_overflow_data": {
+      "path": "config/divergent-universe-decisions-generated/debug-json/DuWeightedCurioOverflows.json",
+      "sha256": "cf97f53316e48e5d5b1a8da4e044993e822d91b248b1467196dedd3c20518b2a"
+    },
+    "weighted_footstep": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/weighted_curio_footstep.rs",
+      "sha256": "32a1555ef67e4a354714bb0a5d9118fc89e19288616c85accda4c128e49383cf"
+    },
+    "weighted_footstep_data": {
+      "path": "config/divergent-universe-decisions-generated/debug-json/DuWeightedCurioFootsteps.json",
+      "sha256": "5c8acfef8a3439ab9a63c4e4adea7cbe0822123c04095200b8eadb5337c389c0"
+    },
+    "weighted_deflagration": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/weighted_curio_deflagration.rs",
+      "sha256": "e76488489c0463232711c6166ff183014c7365f057d46e5914398aba61189b57"
+    },
+    "weighted_deflagration_native": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/weighted_curio_deflagration/native.rs",
+      "sha256": "181b984f95820e3052566d41bad5e34c670f40af4f8d559e6fa07213c4e35580"
+    },
+    "weighted_deflagration_equipment": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/weighted_curio_deflagration/equipment.rs",
+      "sha256": "72a4d65f9e22df6293d2a0eb9b6d40b03f2ac502bc59f139634501749b205f03"
+    },
+    "weighted_deflagration_data": {
+      "path": "config/divergent-universe-decisions-generated/debug-json/DuWeightedCurioDeflagrations.json",
+      "sha256": "26cc264af4a43a958eba8835b322d3a5384163b674dc926799f545d84a56f527"
     },
     "weighted_splash": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/weighted_curio_splash.rs",
-      "sha256": "42930163bc85c7b8c670f57dc6905443bfb94542b943cf4d108c7a2f597304d5"
+      "sha256": "291c75a3ab0527052f34c4baf05743c5296f28179ccfa6c93446f52c67f8a2c1"
     },
     "weighted_splash_tests": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_splash.rs",
@@ -139,11 +183,11 @@
     },
     "weighted_necrosis_tests": {
       "path": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_necrosis.rs",
-      "sha256": "3efeffd43903641fa05a311579f2489ef3dbf8d753c6c2127082d701c4c260f7"
+      "sha256": "03c988d92fa1e6749d841432de8552b4628f23716daec0f62e514f4ccd765fcd"
     },
-    "weighted_necrosis_fixture": {
-      "path": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_necrosis_fixture.rs",
-      "sha256": "bdd28c7bb4d2eeb1b8e56e09121de5cbe3704f6f6610ad6f96b2792d1fc465c3"
+    "weighted_burn_fixture": {
+      "path": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_burn_fixture.rs",
+      "sha256": "f9e217ea67d50a1cbc13df7fcc80a14cd5d07efb0942063b1fa4833d4288099a"
     },
     "weighted_necrosis_data": {
       "path": "config/divergent-universe-decisions-generated/debug-json/DuWeightedCurioNecroses.json",
@@ -275,11 +319,16 @@
     "grand_miracles_admitted_from_hex": 0,
     "weighted_curio_loadout_implemented": false,
     "weighted_curio_accepted_loadout_boundary": true,
+    "weighted_curio_source_position_equipment_service_implemented": true,
+    "weighted_curio_equipment_service_accuracy": "VersionedProjectPolicyExplicitReforgeCapacityCanonicalToggle64Changes",
+    "weighted_curio_equipment_service_change_limit": 64,
+    "weighted_curio_equipment_service_flow_controller_bound": false,
+    "weighted_curio_equipment_service_encoded_replay_implemented": false,
     "weighted_curio_accepted_loadout_maximum": 3,
     "weighted_curio_loadout_accuracy": "VersionedProjectPolicyAcceptedCurrentCatalogLoadout",
     "weighted_curio_unsupported_equipment_rejects_battle_contribution": true,
     "weighted_curio_battle_effects_implemented": false,
-    "weighted_curio_battle_effect_definitions": 12,
+    "weighted_curio_battle_effect_definitions": 15,
     "weighted_curio_encouragement_operands_authored": true,
     "weighted_curio_encouragement_battle_effect_implemented": true,
     "weighted_curio_transfer_operands_authored": true,
@@ -296,12 +345,15 @@
       "VersionedProjectPolicyActionResolvedOriginalPartyRefresh",
       "VersionedProjectPolicyEffectiveGainActionResolvedTeamConsumption",
       "VersionedProjectPolicyOriginalElationFollowUpDamage",
-      "VersionedProjectPolicyOtherShieldAppliedOwnerTurnExcessDecay"
+      "VersionedProjectPolicyOtherShieldAppliedOwnerTurnExcessDecay",
+      "VersionedProjectPolicyHitEndedOriginalActorConfirmedDeathReadinessEffect",
+      "VersionedProjectPolicyEffectiveHpLossAfterSkillOriginalDamage",
+      "VersionedProjectPolicyOriginalFireAfterActionNaturalTickBurns"
     ],
     "grand_miracle_runtime_implemented": false,
     "forge_room_payload_implemented": false,
     "terminal_coverage_credit": 0,
-    "required_next_work": "Bind accepted equipment to actual Forge offers and slot-level admission; implement the remaining five Weighted Curio effects and equipment-command replay. Establish Grand Miracle selectors independently and repair its separate source/fixture audit labels without shrinking obligations."
+    "required_next_work": "Bind the authenticated source-position equipment service to flow/controller and encoded equipment replay; establish original Forge slot-level selection and automatic admission, and implement the remaining two effects and other Forge services. Establish Grand Miracle selectors independently and repair its separate source/fixture audit labels without shrinking obligations."
   },
   "summary": {
     "weighted_curio_references": 17,
@@ -314,6 +366,34 @@
     "unresolved_gamble_units": 87
   },
   "native_test_targets": [
+    {
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_room.rs",
+      "test": "equipment_room_all_seventeen_toggle_through_authenticated_offers_without_rng"
+    },
+    {
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_room.rs",
+      "test": "equipment_room_capacity_clear_canonical_order_and_independent_leave_reconstruct"
+    },
+    {
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_room.rs",
+      "test": "equipment_room_exact_change_budget_keeps_a_safe_leave_and_rejections_inert"
+    },
+    {
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_room.rs",
+      "test": "equipment_room_foreign_dirty_and_next_entry_failure_restore_the_entire_activity"
+    },
+    {
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_room.rs",
+      "test": "equipment_room_binding_rejects_missing_entry_lifecycle_and_spoofed_programs"
+    },
+    {
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_room.rs",
+      "test": "equipment_room_binding_rejects_menu_entry_bypass_and_wrong_logical_room"
+    },
+    {
+      "file": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_room.rs",
+      "test": "equipment_room_compiles_each_current_reforge_in_all_nine_authored_decks"
+    },
     {
       "file": "crates/starclock-mode-universe/src/divergent_universe/tests/weighted_curio_transfer.rs",
       "test": "weighted_curio_transfer_binds_all_original_recipients_only_with_preservation_party"

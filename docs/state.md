@@ -3,6 +3,19 @@
 Starclock maintains only the current source, data, behavior and test outputs.
 Git history is the only historical record.
 
+Current source-position Reforge contexts have an explicitly capacity-bound
+Weighted Curio equipment service. Authenticated shared Activity offers toggle
+all 17 identities, clear and independently leave; the same replacement validator
+enforces canonical equipment and capacities 1–3. A 64-change logical-room budget
+retains safe exit. Raw/stale/foreign/dirty choices and downstream entry failure
+are byte-inert; exact immutable binding rejects entry bypass, changed programs
+and wrong scopes. Seven focused tests cover both families and all nine authored
+decks, fresh events/state and no RNG. Two unsupported effects still reject later
+battle assembly. This is explicit menu policy, not original Forge slot-level
+selection, automatic admission, encoded equipment replay or complete
+source-position flow/controller integration. Terminal coverage is unchanged.
+See [the authenticated equipment service](divergent-universe-weighted-curio-loadout.md#authenticated-source-position-equipment-service).
+
 Most Raucous now has a production-authored Deflagration operand row, all 95
 canonical Group 1 HPRatio rows and eight exact/policy provenance records.
 Its six source parameters, Fire membership, natural-tick versus external
@@ -307,7 +320,7 @@ baselines and shared weighted normal-enemy primaries make the target component
 executable without a second sampler or mode-specific battle state machine.
 Reaction timing/cardinality, element, critical eligibility, zero-loss admission
 and unreconstructed target locks remain independent low-confidence policies.
-Eleven of seventeen equipment effects execute; original Forge admission and
+Fifteen of seventeen equipment effects execute; original Forge admission and
 complete equipment replay remain pending. The current
 taxonomy/Gamble inventory emits no execution receipt or terminal coverage credit;
 the two accepted Coin units and unresolved Gamble rejection behavior remain.

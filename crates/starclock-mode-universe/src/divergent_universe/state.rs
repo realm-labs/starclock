@@ -411,13 +411,7 @@ pub(super) fn compile_state(
             38,
             235,
         )?,
-        counter_slot_with_limit(
-            WEIGHTED_CURIO_REFERENCES_SLOT,
-            ActivityScope::Activity,
-            SlotCarryPolicy::CarryExact,
-            39,
-            17,
-        )?,
+        weighted_curio_slot()?,
         optional_slot(
             TITAN_TYPE_SLOT,
             ActivityScope::Activity,
@@ -677,6 +671,17 @@ fn counter_slot(
     source: u64,
 ) -> Result<ActivitySlotDefinition, DivergentUniverseEntryFlowError> {
     counter_slot_with_limit(id, owner, carry, source, 256)
+}
+
+pub(super) fn weighted_curio_slot()
+-> Result<ActivitySlotDefinition, DivergentUniverseEntryFlowError> {
+    counter_slot_with_limit(
+        WEIGHTED_CURIO_REFERENCES_SLOT,
+        ActivityScope::Activity,
+        SlotCarryPolicy::CarryExact,
+        39,
+        17,
+    )
 }
 
 fn counter_slot_with_limit(
