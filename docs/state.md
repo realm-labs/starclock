@@ -32,7 +32,10 @@ HPRatios and a separate low-confidence base formula policy using fixed operand
 100 and immutable Protocol HP scaling. Its source quality is explicitly
 ProjectPolicy, with a note-bound digest rather than a false upstream blob claim.
 The exact group values do not prove Curio group membership or postfix order.
-Native lowering/equipment admission of this base policy remains pending.
+Native lowering now compiles a balanced 95-level Rule IR lookup and checked
+six-place floor multiplications against an immutable Protocol snapshot. Accepted
+commands cover all levels and Protocol 1/2, fresh events/hashes and full-curve
+identity changes. Equipment admission and the ATK modifier remain pending.
 A separate explicit death-conversion bridge now compiles
 the released multipliers into native Rule IR with a caller-bound base expression.
 Accepted commands prove multi-death aggregation at HitEnded, attacked-pool

@@ -1,14 +1,15 @@
 //! Explicit, replaceable death-conversion bridge, not production equipment admission.
 //!
-//! The production row still lacks an admitted base-DMG policy. Embedders may
-//! compile this contribution with an explicit immutable expression/digest; the
-//! normal Activity assembly must continue to reject the pending Curio.
+//! Embedders may use the authored base-policy compiler or supply an explicit
+//! immutable expression/digest. The normal Activity assembly must continue to
+//! reject the pending Curio until ATK and complete equipment admission exist.
 
 use crate::{
     digest::CanonicalDigestBuilder,
     divergent_universe::{
         DivergentUniverseBattleAssemblyError,
         battle_passive_bindings::{PassiveBindings, bind_passives},
+        contribution_snapshot::DivergentUniverseDifficultyProtocolSnapshot,
     },
 };
 use starclock_combat::{
@@ -38,6 +39,24 @@ use starclock_combat::{
 };
 use starclock_data::divergent_universe_decisions::weighted_curio_overflows::WeightedCurioOverflowDefinition;
 
+mod base_damage;
+
+/// Fail-closed construction errors for the separately authored base policy.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum OverflowBaseDamagePolicyError {
+    InvalidDefinition,
+    InvalidProtocol,
+    Arithmetic,
+}
+
+impl core::fmt::Display for OverflowBaseDamagePolicyError {
+    fn fmt(&self, formatter: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(formatter, "overflow base damage policy error: {self:?}")
+    }
+}
+
+impl std::error::Error for OverflowBaseDamagePolicyError {}
+
 /// Explicit base-DMG input for the bridge. Neither an expression nor its digest
 /// establishes source parity or admits a pending production workbook row.
 #[derive(Clone, Debug)]
@@ -47,6 +66,21 @@ pub struct OverflowBaseDamagePolicy {
 }
 
 impl OverflowBaseDamagePolicy {
+    /// Compile the authored Group-1/Protocol-HP policy, not observed source parity.
+    /// Reads the selected conversion target's own checked level (1..=95) through
+    /// native Rule IR. Both multiplications floor to six fractional places;
+    /// final integral rounding belongs to the shared TrueDamage operation.
+    /// Binds the full curve, policy notes and immutable Protocol snapshot into
+    /// identity. Does not read live Activity state or admit equipment. Invalid
+    /// definitions, negative/overflowing Protocol scaling and any level whose
+    /// base multiplications cannot fit are rejected before catalog construction.
+    pub fn from_authored(
+        definition: &WeightedCurioOverflowDefinition,
+        protocol: &DivergentUniverseDifficultyProtocolSnapshot,
+    ) -> Result<Self, OverflowBaseDamagePolicyError> {
+        base_damage::compile_authored(&definition.base, protocol)
+    }
+
     /// The expression is evaluated once for the selected conversion target as
     /// `CurrentTarget`. It must yield a nonnegative Scalar; the shared catalog
     /// validator and command fault policy handle invalid types/reads/arithmetic.

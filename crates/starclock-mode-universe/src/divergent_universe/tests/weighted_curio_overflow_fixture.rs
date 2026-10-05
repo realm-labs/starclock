@@ -126,6 +126,30 @@ pub(super) fn combatant_with_abilities(
 }
 
 pub(super) fn scenario(fixture: &DivergentUniverseBaselineFixture, probe: &Probe) -> Battle {
+    // Fixture-only base = selected enemy's own level * explicit factor. It is
+    // deliberately not presented as decoded HPRatio/difficulty semantics.
+    let policy = OverflowBaseDamagePolicy::new(
+        ValueExpr::Multiply {
+            lhs: Box::new(ValueExpr::Convert {
+                value: Box::new(ValueExpr::QueryUnitLevel(StatQuerySubject::CurrentTarget)),
+                target: RuleValueKind::Scalar,
+                rounding: Rounding::Floor,
+            }),
+            rhs: Box::new(ValueExpr::Literal(RuleValue::Scalar(
+                Scalar::checked_from_integer(probe.base_factor).unwrap(),
+            ))),
+            rounding: Rounding::Floor,
+        },
+        [u8::try_from(probe.base_factor).unwrap(); 32],
+    );
+    scenario_with_base(fixture, probe, &policy)
+}
+
+pub(super) fn scenario_with_base(
+    fixture: &DivergentUniverseBaselineFixture,
+    probe: &Probe,
+    policy: &OverflowBaseDamagePolicy,
+) -> Battle {
     let mut builder = CombatCatalogBuilder::new([0x81; 32]);
     builder.add_selector(SelectorDefinition::new(id(1)).with_unit_targets(
         UnitTargetSelector::new(TargetRelation::Opposing, probe.pattern).unwrap(),
@@ -322,22 +346,6 @@ pub(super) fn scenario(fixture: &DivergentUniverseBaselineFixture, probe: &Probe
         ParticipantSource::Player,
         combatant_with_abilities(1, 70, 10_000, true, vec![], player_abilities),
     );
-    // Fixture-only base = selected enemy's own level * explicit factor. It is
-    // deliberately not presented as decoded HPRatio/difficulty semantics.
-    let policy = OverflowBaseDamagePolicy::new(
-        ValueExpr::Multiply {
-            lhs: Box::new(ValueExpr::Convert {
-                value: Box::new(ValueExpr::QueryUnitLevel(StatQuerySubject::CurrentTarget)),
-                target: RuleValueKind::Scalar,
-                rounding: Rounding::Floor,
-            }),
-            rhs: Box::new(ValueExpr::Literal(RuleValue::Scalar(
-                Scalar::checked_from_integer(probe.base_factor).unwrap(),
-            ))),
-            rounding: Rounding::Floor,
-        },
-        [u8::try_from(probe.base_factor).unwrap(); 32],
-    );
     let player = bind_death_conversion_policy(
         &mut builder,
         &fixture
@@ -345,7 +353,7 @@ pub(super) fn scenario(fixture: &DivergentUniverseBaselineFixture, probe: &Probe
             .decision_catalog()
             .weighted_curio_overflows()[0],
         &player,
-        &policy,
+        policy,
         [0x82; 32],
     )
     .unwrap();

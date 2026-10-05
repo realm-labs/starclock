@@ -48,8 +48,10 @@ construction API. It takes a production-lowered definition, one caller-proven
 eligible original roster member and an immutable base-DMG expression/identity.
 The normal Activity battle assembly path does **not** call it or admit the
 pending effect. Existing caller-selected loadout storage may retain the identity;
-the battle snapshot rejects it. It does not implement the ATK modifier or select a production
-HPRatio/difficulty formula. Caller-provided expressions are not factual evidence.
+the battle snapshot rejects it. The bridge does not implement the ATK modifier.
+The separate `OverflowBaseDamagePolicy::from_authored` constructor now compiles
+the reviewed HPRatio/Protocol policy described below; `new` still accepts an
+explicit caller-provided expression, which is not factual evidence.
 
 The bridge uses a replaceable `ProjectPolicy` for callback correspondence:
 
@@ -142,9 +144,10 @@ not establish hidden callback parity, player-rescue correspondence or equipment
 admission.
 
 These are executable bridge tests, **not** Ordinary/Cyclical equipment or
-complete-run release evidence. Production promotion still requires the authored
-base policy, ATK modifier, eligibility/teardown coverage and actual both-family
-battle construction and accepted-command fixtures. The count remains 12/17;
+complete-run release evidence. Production promotion still requires the ATK
+modifier, normal assembly using the authored base policy, eligibility/teardown
+coverage and actual both-family battle construction and accepted-command fixtures.
+The count remains 12/17;
 no obligation/program/family/gap/policy terminal disposition changes.
 
 ### Base damage policy
@@ -171,10 +174,31 @@ SHA-256 binds the authored policy note, not an upstream Git blob.
 The loader validates exact-once 1..95 identity, Curio/group/source joins,
 positive canonical millionths and distinct factual/policy provenance. The source
 verifier independently matches every decimal against the pinned Git blob.
-This is a data-construction prerequisite only: the normal battle assembly still
-rejects 1016, and the existing bridge tests still use their explicit fixture
-base. Native lowering of this curve/Protocol policy, the ATK modifier and actual
-both-family equipment commands remain required before production admission.
+`OverflowBaseDamagePolicy::from_authored` now lowers the complete curve into
+native Rule IR: a balanced selection tree performs at most seven comparisons
+against `CurrentTarget`'s own checked level. The two checked Scalar multiplications
+explicitly floor to six fractional places. Construction preflights every level
+and rejects incomplete/nonpositive curves, invalid policy metadata, negative
+Protocol scaling or overflow. The canonical identity binds all 95 ratios,
+fixed/group/policy fields, notes/replacement condition and the full immutable
+Protocol snapshot. No live Activity query or new shared resolver branch exists.
+
+Native command tests execute all 95 levels with both-family no-Protocol
+snapshots and real Protocol 1/2 snapshots, comparing an independent integer
+oracle including final integral TrueDamage. The selected target's level varies
+independently of the fixed original-owner and defeated-target levels.
+Representative levels 1/40/80/95
+reconstruct fresh events, canonical payloads and hashes. Changes to an unselected
+level, policy metadata or Protocol alter the initial battle identity; malformed
+definitions and arithmetic overflow reject construction. Signed Protocol-factor
+boundary vectors cover zero, one millionth, negative input and checked overflow.
+
+This is executable authored-policy lowering, not observed formula parity or
+equipment admission. The normal battle assembly still rejects 1016; existing
+callback/survival fixtures continue using their explicit test base. The ATK
+modifier and actual both-family equipment commands remain required before
+production admission. The count remains 12/17 and terminal dispositions do not
+change.
 
 ### Production admission still pending
 
@@ -197,8 +221,7 @@ Native `QueryUnitLevel` now exposes each resolved target's own checked level
 through immutable Rule IR reads and current-state selector expressions. Actual
 commands prove 1/81/95-level damage and a committed summon with a level distinct
 from its owner. This removes the level-read capability gap, but does not decode
-the source HPRatio/postfix program, select a base-DMG policy or implement the
-death conversion. See the
+the source HPRatio/postfix program or equip the pending Curio. See the
 [unit-level query contract](rule-event-observation-runtime-boundary.md#unit-level-query).
 
 ## Verification
