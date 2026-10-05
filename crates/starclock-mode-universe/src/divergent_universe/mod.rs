@@ -74,6 +74,7 @@ mod weighted_curio_break_effect;
 mod weighted_curio_elation;
 mod weighted_curio_encouragement;
 mod weighted_curio_excitation;
+pub mod weighted_curio_footstep;
 mod weighted_curio_necrosis;
 pub mod weighted_curio_overflow;
 mod weighted_curio_prayer;
