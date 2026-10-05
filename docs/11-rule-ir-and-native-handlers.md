@@ -120,11 +120,20 @@ unit.
 
 An `EventFilter` first narrows by cheap indexed fields such as included or
 excluded source, owner, actor, applier, target, action kind, ability tags,
-element, damage class, effect category, Toughness event kind, resource address,
+element, damage class, damage settlement kind, effect category, Toughness event kind, resource address,
 mutation axis, and cause ancestry. The condition then evaluates contextual
 values such as pre/post HP
 or signed effect-stack delta from the committed event. This split is an
 implementation optimization but must not change semantics.
+
+Native `EventFilter.damage_kind` independently requires Direct, DotTick or
+DotDetonation from the committed `Damage` payload. Formula class, source,
+actor and action ownership do not establish that kind. Break and non-damage
+events have no such fact and never match a required kind; omitting the filter
+preserves unrestricted kind admission. Kind and class requirements are
+conjunctive, so a periodic-DoT trigger can exclude external detonations without
+relabeling their formula or changing attribution. General Sora EventFilter
+authoring does not yet expose this native filter.
 
 Resource events carry an independent `RuleResourceEventKind`: Skill Points,
 Energy, character resources and keyed team resources are `BalanceChanged`;

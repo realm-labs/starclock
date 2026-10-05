@@ -2,10 +2,10 @@
 //! Closed battle-domain Rule IR values accepted after data lowering.
 
 use crate::{
-    AbilityId, ActionGaugeChangeKind, ActionId, CauseActorKind, CommandId, DotDetonationFilter,
-    DotDetonationScope, DotDetonationSelection, EffectCategory, EffectDefinitionId,
-    EffectRemovalOrder, EventId, HitId, LifeState, NativeHandlerId, PhaseId, PresenceState,
-    ProgramId, RawToughness, Rounding, RuleId, RuleInstanceId, Scalar, SelectorId,
+    AbilityId, ActionGaugeChangeKind, ActionId, CauseActorKind, CommandId, DamageKind,
+    DotDetonationFilter, DotDetonationScope, DotDetonationSelection, EffectCategory,
+    EffectDefinitionId, EffectRemovalOrder, EventId, HitId, LifeState, NativeHandlerId, PhaseId,
+    PresenceState, ProgramId, RawToughness, Rounding, RuleId, RuleInstanceId, Scalar, SelectorId,
     SourceDefinitionId, StateSlotDefinitionId, TriggerId, UnitDefinitionId, UnitId, WaveInstanceId,
     catalog::action::elation::ElationDamageDefinition,
     catalog::action::{AbilityTag, AbilityTags, ReactionBoundary, TargetPattern},
@@ -260,6 +260,9 @@ pub struct RuleEventFacts {
     pub target_pattern: Option<TargetPattern>,
     pub element: Option<CombatElement>,
     pub damage_class: Option<RuleDamageClass>,
+    /// Exact Damage-event settlement kind; absent on Break and non-damage facts.
+    /// Independent of formula class, actor, source and action-envelope presence.
+    pub damage_kind: Option<DamageKind>,
     pub effect_category: Option<EffectCategory>,
     /// Specific-resistance stat declared by the observed effect definition.
     pub effect_specific_resistance: Option<StatKind>,
@@ -365,6 +368,9 @@ pub struct EventFilter {
     pub target_pattern: Option<TargetPattern>,
     pub element: Option<CombatElement>,
     pub damage_class: Option<RuleDamageClass>,
+    /// Requires an exact damage settlement kind. Missing facts never match;
+    /// this does not infer periodicity from formula class or action ownership.
+    pub damage_kind: Option<DamageKind>,
     pub effect_category: Option<EffectCategory>,
     pub effect_specific_resistance: Option<StatKind>,
     pub toughness_kind: Option<RuleToughnessEventKind>,

@@ -2,7 +2,7 @@
 
 This boundary makes authored rule observations exact instead of reducing them to broad event families. `RuleTrigger` retains the complete `EventPattern` point, and dispatch requires both its indexed family and exact point to match. A trigger authored for `ActionStarted`, for example, cannot run on `ActionResolved`.
 
-The immutable event projection exposes generic source class, cause roles, selector-relative owner/actor/applier/target membership, action kind, ability tag, element, damage class, resource kind, ancestry, and typed event values. Missing facts fail closed. Runtime filtering never infers one cause role from another.
+The immutable event projection exposes generic source class, cause roles, selector-relative owner/actor/applier/target membership, action kind, ability tag, element, damage class, damage settlement kind, resource kind, ancestry, and typed event values. Missing facts fail closed. Runtime filtering never infers one cause role from another.
 
 Expressions can read Energy, Skill Points, named character resources, named team resources, event properties, and selector sums. Conditions can query life/presence, effect existence, weakness, broken state, selector cardinality, resource bounds, and event-property comparisons. These reads use immutable snapshots captured before rule proposals execute, so evaluation cannot observe its own uncommitted mutations.
 
@@ -32,6 +32,36 @@ Verification:
 - `cargo test -p starclock-data probe_tests`
 - `node tools/config-schema/verify-rule-ir.mjs`
 - `node tools/config-production/verify.mjs`
+
+## Damage settlement kind
+
+`RuleEventFacts.damage_kind` copies Direct, DotTick or DotDetonation directly
+from the committed `DamageEventData`. `EventFilter.damage_kind` requires that
+exact optional fact, conjunctively with damage class and the other filters.
+Direct settlements may use distinct ordinary, Additional or dedicated Elation
+calculators; periodic ticks and detonations both use DoT class. No formula class,
+source ID, effect instance, actor or action-envelope presence substitutes for
+the settlement kind. Break and non-damage events leave it absent rather than
+inventing Direct.
+
+The [pure filter corpus](../crates/starclock-test-kit/tests/suites/core/combat/rule_ir_contract/damage_kind.rs)
+crosses optional kinds, classes and action facts. The
+[command corpus](../crates/starclock-test-kit/tests/suites/core/combat/effect_resource_pipeline/damage_kind_filter.rs)
+creates direct damage, an immediate external detonation and a later real
+target-turn tick over the same effect/source. Tick-only and detonation-only
+rules emit separate ordered signals; a DoT-class rule observes both. Missing
+kind facts and mismatched class conjunctions do not emit signals. Rejected
+commands are inert, and fresh construction reproduces event payloads/hashes
+without RNG.
+
+This is shared observation capability, not a new damage path or a Weighted
+Curio implementation. Most Raucous needs tick-only observation so externally
+detonating its own Deflagration cannot recursively trigger other Burns. Its
+production operands, base-DMG interpretation, effect lifecycle and equipment
+admission remain pending. General Sora damage-kind filter authoring is also
+pending; no source/program terminal credit follows from this native filter.
+
+Run `cargo test -p starclock-test-kit --test combat_suite damage_kind`.
 
 ## Cause actor representation
 

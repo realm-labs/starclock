@@ -3,6 +3,17 @@
 Starclock maintains only the current source, data, behavior and test outputs.
 Git history is the only historical record.
 
+Shared Rule IR now retains the exact Direct/DotTick/DotDetonation kind of each
+committed common damage event and exposes a conjunctive native filter. Formula
+class and action ownership do not imply periodicity; Break and non-damage facts
+remain absent. Real direct damage, external detonation and target-turn tick
+commands verify separate reactions over the same effect/source, inert rejected
+commands, no RNG and fresh canonical reconstruction. This closes a prerequisite
+for Most Raucous, not its mechanic or equipment definition. Sora filter authoring
+and the Curio's base-DMG/effect/Forge/full-run admission remain pending. The
+Weighted Curio definition count stays 14/17, with no terminal coverage credit.
+See the [damage settlement observation boundary](rule-event-observation-runtime-boundary.md#damage-settlement-kind).
+
 Footstep of Gods has authored Sora operands, independently replaceable HP-loss
 and after-Skill damage policies, and immutable production equipment assembly.
 Immutable original

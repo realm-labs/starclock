@@ -157,6 +157,9 @@ pub(super) fn matches_filter(filter: &EventFilter, input: RuleEvaluationInput<'_
             .damage_class
             .is_none_or(|value| input.event_facts.damage_class == Some(value))
         && filter
+            .damage_kind
+            .is_none_or(|value| input.event_facts.damage_kind == Some(value))
+        && filter
             .effect_category
             .is_none_or(|value| input.event_facts.effect_category == Some(value))
         && filter
