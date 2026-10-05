@@ -39,6 +39,7 @@ use starclock_combat::{
 };
 use starclock_data::divergent_universe_decisions::weighted_curio_overflows::WeightedCurioOverflowDefinition;
 
+pub mod attack_increase;
 mod base_damage;
 
 /// Fail-closed construction errors for the separately authored base policy.

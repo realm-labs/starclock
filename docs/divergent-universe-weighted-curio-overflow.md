@@ -144,11 +144,41 @@ not establish hidden callback parity, player-rescue correspondence or equipment
 admission.
 
 These are executable bridge tests, **not** Ordinary/Cyclical equipment or
-complete-run release evidence. Production promotion still requires the ATK
-modifier, normal assembly using the authored base policy, eligibility/teardown
+complete-run release evidence. Production promotion still requires normal
+assembly using the authored base and ATK policies, eligibility/teardown
 coverage and actual both-family battle construction and accepted-command fixtures.
 The count remains 12/17;
 no obligation/program/family/gap/policy terminal disposition changes.
+
+### Original-roster ATK policy
+
+`weighted_curio_overflow::attack_increase::bind_attack_increase_policy` now
+constructs the separate 80% base-ATK contribution. Eligibility comes from the
+immutable entry form's actual build-catalog Path: Hunt/Erudition qualify, while
+all other Paths return the unchanged participant. Unknown forms, non-player
+participants, formations outside 0..=3 and altered exact ratios reject before
+construction. The source identity binds the exact character-definition digest,
+authored ratio/key and caller's assembly identity.
+
+One BattleStarted/AfterEvent trigger applies a non-dispellable permanent Buff
+to the original unit only. Its ATK modifier uses Dynamic/PercentOfBase and
+UniquePerSource, not an inheritable static participant modifier or a
+damage-producer filter. The original's grant persists through transformations
+and waves. Owned linked units are excluded even when their form, sources,
+bundles and formation copy the original. Borrowing the original's actual ATK
+remains governed by the shared stat-query contract; this is not an independent
+grant to a borrower. BattleWon/Lost explicitly remove the effect using an
+all-presence original-owner selector. No new resolver branch or live Activity
+read exists. Battle-start correspondence, original-roster scoping and generic
+ATK stacking are replaceable native policies, not proven hidden callback parity.
+
+Actual commands query 100 base ATK as 180 for Hunt/Erudition and 100 for all
+seven other Paths. They verify rejected-command hash/RNG stability, fresh event
+payloads/hashes, transformation and restoration, and real summon/memosprite/
+shared-actor attacks at formations 0 and 4 that still read their own ATK as 100.
+Victory and concede remove the effect. These tests exercise the explicit
+construction API, not Ordinary/Cyclical equipment, Forge or complete-run
+admission. Those remain pending and the implemented count remains 12/17.
 
 ### Base damage policy
 
@@ -195,8 +225,9 @@ boundary vectors cover zero, one millionth, negative input and checked overflow.
 
 This is executable authored-policy lowering, not observed formula parity or
 equipment admission. The normal battle assembly still rejects 1016; existing
-callback/survival fixtures continue using their explicit test base. The ATK
-modifier and actual both-family equipment commands remain required before
+callback/survival fixtures continue using their explicit test base. Normal
+assembly using both native contributions and actual both-family equipment
+commands remain required before
 production admission. The count remains 12/17 and terminal dispositions do not
 change.
 

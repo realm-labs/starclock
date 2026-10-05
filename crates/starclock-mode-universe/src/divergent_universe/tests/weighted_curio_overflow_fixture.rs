@@ -2,14 +2,17 @@
 use crate::divergent_universe::{
     DivergentUniverseBaselineFixture,
     tests::weighted_curio_overflow_lifecycle_fixture::{Setup, add_setup},
-    weighted_curio_overflow::{OverflowBaseDamagePolicy, bind_death_conversion_policy},
+    weighted_curio_overflow::{
+        OverflowBaseDamagePolicy, attack_increase::bind_attack_increase_policy,
+        bind_death_conversion_policy,
+    },
 };
 use starclock_combat::{
     AbilityId, AssemblyDigest, Battle, BattleEvent, BattleSeed, BattleSpec, CombatantSpecDigest,
     Command, ConcedePolicy, DispelCategory, DurationClock, EffectCategory, EffectDamageGuard,
     EffectRuntimeDefinition, EffectStackPolicy, EffectTickPhase, Energy, FormationIndex, Hp,
     ParticipantSource, ParticipantSpec, Ratio, ResolvedCombatantSpec, ResolvedDefinitionBindings,
-    Rounding, RuleBundleId, Scalar, Speed, TeamResourceSpec, TeamSide, UnitLevel,
+    Rounding, RuleBundleId, Scalar, Speed, StatValue, TeamResourceSpec, TeamSide, UnitLevel,
     catalog::{
         action::{
             AbilityActionDefinition, AbilityKind, AbilityProgramBinding, AbilityProgramTiming,
@@ -34,7 +37,7 @@ use starclock_combat::{
             RuleSelectorSide, RuleUnitSelector,
         },
     },
-    modifier::model::StatQuerySubject,
+    modifier::model::{FormulaPurpose, StatKind, StatQuerySubject},
     rule::model::{
         ConditionExpr, ProgramStep, RuleEffectChancePolicy, RuleOperationTemplate, RuleValue,
         RuleValueKind, ValueExpr,
@@ -50,6 +53,8 @@ where
 
 #[derive(Clone)]
 pub(super) struct Probe {
+    pub(super) player_form: u32,
+    pub(super) attack_probe: bool,
     pub(super) hp: Vec<i64>,
     pub(super) levels: Vec<u8>,
     pub(super) pattern: TargetPattern,
@@ -66,6 +71,8 @@ pub(super) struct Probe {
 impl Default for Probe {
     fn default() -> Self {
         Self {
+            player_form: 1,
+            attack_probe: false,
             hp: vec![100, 80, 3_000, 9_000],
             levels: vec![1, 81, 95, 50],
             pattern: TargetPattern::Blast,
@@ -278,14 +285,63 @@ pub(super) fn scenario_with_base(
             .unwrap(),
         ),
     );
-    let player_abilities = if probe.setup.is_some() {
+    let mut player_abilities = if probe.setup.is_some() {
         vec![id(1), id(3)]
     } else {
         vec![id(1)]
     };
+    if probe.attack_probe {
+        player_abilities.push(id(7));
+        builder.add_selector(
+            SelectorDefinition::new(id(7)).with_rule_units(
+                RuleUnitSelector::new(
+                    RuleSelectorOrigin::Encounter,
+                    RuleSelectorSide::Opposing,
+                    RuleLifePredicate::Alive,
+                    RulePresencePredicate::Present,
+                    RuleSelectorReference::CurrentState,
+                    RuleSelectorOrdering::Formation,
+                    0,
+                    1,
+                    RuleEmptyPoolPolicy::NoOp,
+                    RuleSelectorChoice::First,
+                    None,
+                    false,
+                )
+                .unwrap(),
+            ),
+        );
+        builder.add_program(
+            ProgramDefinition::new(id(7), vec![], vec![id(7)], vec![], vec![]).with_steps(vec![
+                ProgramStep::Operation(RuleOperationTemplate::TrueDamage {
+                    selector: id(7),
+                    amount: ValueExpr::QueryStat {
+                        subject: StatQuerySubject::Actor,
+                        stat: StatKind::Atk,
+                        purpose: FormulaPurpose::Stat,
+                    },
+                }),
+            ]),
+        );
+        builder.add_ability(
+            AbilityDefinition::new(id(7), id(7), id(2), vec![])
+                .with_action(
+                    AbilityActionDefinition::new(
+                        AbilityKind::Skill,
+                        1,
+                        TargetInvalidationPolicy::CancelRemainingForTarget,
+                        ActionResourcePolicy::new(0, 0, Energy::ZERO, Energy::ZERO),
+                    )
+                    .unwrap(),
+                )
+                .with_programs(vec![
+                    AbilityProgramBinding::new(1, AbilityProgramTiming::Entry, id(7)).unwrap(),
+                ]),
+        );
+    }
     for (form, abilities) in [
         (
-            1,
+            probe.player_form,
             if matches!(probe.setup, Some(Setup::Linked(..))) {
                 vec![id(1), id(3), id(6)]
             } else {
@@ -302,6 +358,10 @@ pub(super) fn scenario_with_base(
             },
         ),
     ] {
+        let mut abilities = abilities;
+        if probe.attack_probe && form != 2 && !abilities.contains(&id(7)) {
+            abilities.push(id(7));
+        }
         builder.add_unit(UnitDefinition::new(id(form), abilities, vec![]));
     }
     builder.add_enemy(EnemyDefinition::new(id(1), id(2), vec![id(2)]));
@@ -344,19 +404,44 @@ pub(super) fn scenario_with_base(
         TeamSide::Player,
         FormationIndex::new(0).unwrap(),
         ParticipantSource::Player,
-        combatant_with_abilities(1, 70, 10_000, true, vec![], player_abilities),
+        combatant_with_abilities(
+            probe.player_form,
+            70,
+            10_000,
+            true,
+            vec![],
+            player_abilities,
+        )
+        .with_base_attack_defense(
+            StatValue::from_scaled(if probe.attack_probe { 100_000_000 } else { 0 }).unwrap(),
+            StatValue::from_scaled(0).unwrap(),
+        ),
     );
-    let player = bind_death_conversion_policy(
-        &mut builder,
-        &fixture
-            .factory()
-            .decision_catalog()
-            .weighted_curio_overflows()[0],
-        &player,
-        policy,
-        [0x82; 32],
-    )
-    .unwrap();
+    let player = if probe.attack_probe {
+        bind_attack_increase_policy(
+            &mut builder,
+            &fixture
+                .factory()
+                .decision_catalog()
+                .weighted_curio_overflows()[0],
+            fixture.core(),
+            &player,
+            [0x82; 32],
+        )
+        .unwrap()
+    } else {
+        bind_death_conversion_policy(
+            &mut builder,
+            &fixture
+                .factory()
+                .decision_catalog()
+                .weighted_curio_overflows()[0],
+            &player,
+            policy,
+            [0x82; 32],
+        )
+        .unwrap()
+    };
     if let Some(setup) = probe.setup {
         add_setup(&mut builder, &player, setup);
     }

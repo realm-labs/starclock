@@ -35,7 +35,11 @@ The exact group values do not prove Curio group membership or postfix order.
 Native lowering now compiles a balanced 95-level Rule IR lookup and checked
 six-place floor multiplications against an immutable Protocol snapshot. Accepted
 commands cover all levels and Protocol 1/2, fresh events/hashes and full-curve
-identity changes. Equipment admission and the ATK modifier remain pending.
+identity changes. The separate native ATK constructor now proves entry-form
+Hunt/Erudition eligibility through the build catalog and applies 80% of base ATK
+to the original unit. Commands cover all nine Paths, transformation/restoration,
+actual linked-unit exclusion, fresh hashes and victory/concede cleanup.
+Equipment admission remains pending.
 A separate explicit death-conversion bridge now compiles
 the released multipliers into native Rule IR with a caller-bound base expression.
 Accepted commands prove multi-death aggregation at HitEnded, attacked-pool

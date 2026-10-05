@@ -55,7 +55,11 @@ pub(super) fn add_setup(
         Setup::Transform | Setup::Countdown => HitOperationDefinition::Transform(
             TransformationDefinition::new(
                 id(3),
-                vec![id(1), id(4)],
+                if player.combatant().abilities().contains(&id(7)) {
+                    vec![id(1), id(4), id(7)]
+                } else {
+                    vec![id(1), id(4)]
+                },
                 matches!(setup, Setup::Countdown).then_some(countdown),
                 TransformEndPolicy::End,
                 TransformEndPolicy::End,
@@ -63,7 +67,9 @@ pub(super) fn add_setup(
             .unwrap(),
         ),
         Setup::Linked(kind, formation) => {
-            builder.add_ability(ability(
+            let original = player.combatant();
+            let attack_probe = original.abilities().contains(&id(7));
+            let linked_ability = ability(
                 6,
                 1,
                 match kind {
@@ -71,21 +77,34 @@ pub(super) fn add_setup(
                     LinkedEntityKind::Memosprite => AbilityKind::Memosprite,
                     _ => AbilityKind::ExtraAction,
                 },
-                damage(),
-            ));
-            let original = player.combatant();
+                if attack_probe { vec![] } else { damage() },
+            );
+            let linked_ability = if attack_probe {
+                linked_ability.with_programs(vec![
+                    AbilityProgramBinding::new(1, AbilityProgramTiming::Entry, id(7)).unwrap(),
+                ])
+            } else {
+                linked_ability
+            };
+            builder.add_ability(linked_ability);
             // Same form, bundles and sources as the original. Only the accepted
             // link/formation/runtime identity separates this unit from its owner.
             let spec = combatant_with_abilities(
-                1,
+                original.form().get(),
                 13,
                 10_000,
                 true,
                 original.rule_bundles().to_vec(),
-                vec![id(6)],
+                if original.abilities().contains(&id(7)) {
+                    vec![id(6), id(7)]
+                } else {
+                    vec![id(6)]
+                },
             )
             .with_sources(original.sources().to_vec())
             .unwrap();
+            let spec =
+                spec.with_base_attack_defense(original.base_attack(), original.base_defense());
             HitOperationDefinition::SummonLinked(Box::new(
                 LinkedUnitDefinition::new(
                     spec,
