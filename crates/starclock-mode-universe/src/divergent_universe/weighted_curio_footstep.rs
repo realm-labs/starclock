@@ -1,4 +1,4 @@
-//! Explicit, replaceable HP-loss contribution; production equipment is not admitted.
+//! Replaceable HP-loss contribution, also bound by authored equipment assembly.
 use crate::{
     digest::Encoder,
     divergent_universe::{
@@ -29,6 +29,7 @@ use starclock_combat::{
 };
 use starclock_data::catalog::SimulationCatalog;
 
+mod equipment;
 pub mod skill_damage;
 
 /// Invalid immutable constructor inputs, rejected before catalog mutation.

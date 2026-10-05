@@ -3,8 +3,9 @@
 Starclock maintains only the current source, data, behavior and test outputs.
 Git history is the only historical record.
 
-Footstep of Gods has explicit native HP-loss and after-Skill damage policy
-compilers, separate from production equipment admission. Immutable original
+Footstep of Gods has authored Sora operands, independently replaceable HP-loss
+and after-Skill damage policies, and immutable production equipment assembly.
+Immutable original
 Destruction/Remembrance Path proof selects the contribution; battle-local
 absolute HP residue accumulates
 negative effective damage/consumption events and grants floored points against
@@ -14,9 +15,12 @@ dynamic additive damage stack after resolution, independent per original, using
 shared Ordinary/DoT/Additional channels and explicit original-producer
 filters. Terminal cleanup and explicit effect removal tear down captures.
 Hidden timing, arithmetic, formula reach and cause attribution remain
-replaceable policy. Sora operand authoring and normal equipment/Forge admission
-are still missing. No terminal coverage credit follows and the equipment count
-remains 13/17. See the
+replaceable policy. Both run-family equipment handoffs retain the authored
+bindings and verify actual HP loss, healing, Skill stacks and damage, independent
+original owners, unequip, stale commands and fresh hashes. Linked/timeline actors,
+real transformations, periodic consumers and waves need separate equipment
+fixtures; Forge and full-run acceptance remain pending. No terminal coverage
+credit follows and the equipment-definition count is 14/17. See the
 [native execution policy boundary](divergent-universe-weighted-curio-footstep.md).
 
 Shared Rule IR Skill Point updates now retain requested gain/spend/Set values
@@ -25,8 +29,8 @@ team resources. Effective deltas remain signed event facts; overflow-only gain
 cannot masquerade as effective gain. Command fixtures cover zero/full caps,
 fractional flooring, the full request domain, trigger reactions, transactional
 rollback, fresh canonical events/hashes and stale-command inertness. This fixes
-resource event accounting, not Footstep of Gods equipment or its missing
-HP-loss/Skill-stack execution; the Weighted Curio count remains 13/17. See the
+resource event accounting, not source parity. Footstep of Gods equipment uses
+this accounting under explicit policy; the definition count is 14/17. See the
 [Rule IR resource contract](11-rule-ir-and-native-handlers.md).
 
 Shared combat's native `QueryUnitLevel` reads each resolved unit's own 1–95
@@ -47,7 +51,7 @@ HP ordering or mode branch is introduced. Missing/invalid reads fault before
 choice, empty pools do not evaluate or draw, and unsafe historical/current-HP
 queries remain rejected. Walkie-Talkie equipment uses the native maximum
 predicate; general Sora predicate authoring remains pending. The Weighted Curio
-count is 13/17 under explicit project policies. See
+count is 14/17 under explicit project policies. See
 the [selector contract](selector-and-target-set-runtime-boundary.md).
 
 The current Parallel Universe Walkie-Talkie production definition preserves
@@ -106,7 +110,7 @@ bridge itself is a ProjectPolicy construction API, not an ATK buff, a decoded
 base formula or exact death/deathrattle parity. Normal equipment assembles it
 together with the separate ATK contribution and authored base compiler.
 Accepted caller-selected loadout storage remains unchanged. The Weighted Curio
-effect count is 13/17; Forge/full-run release and terminal execution credit
+effect-definition count is 14/17; Forge/full-run release and terminal execution credit
 remain pending. See the
 [overflow authoring boundary](divergent-universe-weighted-curio-overflow.md).
 
@@ -118,7 +122,7 @@ The pure formula and native command corpus cover guards, shields, fractional
 finalization, Break damage, fresh reconstruction and rejected commands. General
 Sora admission remains pending; Walkie-Talkie equipment consumes the native
 query through its explicitly authored policy. The Weighted Curio battle-effect
-count is 13/17; terminal coverage is unchanged.
+count is 14/17; terminal coverage is unchanged.
 See the [event observation contract](rule-event-observation-runtime-boundary.md).
 
 Shared combat now supports native effect-specific shield queries and exact
@@ -1333,7 +1337,8 @@ and one executable policy-bound
 [Dignity and Passion definition](divergent-universe-weighted-curio-transfer.md)
 and one executable policy-bound
 [Walkie-Talkie definition](divergent-universe-weighted-curio-overflow.md)
-across 49 tables and 535 rows. Dignity and Passion preserves the four released
+and one policy-bound [Footstep of Gods definition](divergent-universe-weighted-curio-footstep.md)
+across 50 tables and 543 rows. Dignity and Passion preserves the four released
 `0.75/0.3/0.9/0.1` operands. Ordinary shield grant events grow a recipient-local
 special shield; owner turns decay only its capacity above live maximum HP's
 30% threshold, and a distinct reaction heals from the actual negative adjustment.

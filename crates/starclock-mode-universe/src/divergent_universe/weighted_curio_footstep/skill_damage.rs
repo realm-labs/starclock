@@ -1,4 +1,4 @@
-//! Independently replaceable after-Skill stacks, not equipment admission.
+//! Independently replaceable after-Skill stacks, also bound by authored equipment.
 use super::{invalid, literal, multiply, select};
 use crate::{
     digest::Encoder,

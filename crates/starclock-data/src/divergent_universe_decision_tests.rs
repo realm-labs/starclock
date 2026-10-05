@@ -40,6 +40,8 @@ mod weighted_curio_elations;
 mod weighted_curio_encouragements;
 #[path = "divergent_universe_weighted_curio_excitation_tests.rs"]
 mod weighted_curio_excitations;
+#[path = "divergent_universe_weighted_curio_footstep_tests.rs"]
+mod weighted_curio_footsteps;
 #[path = "divergent_universe_weighted_curio_necrosis_tests.rs"]
 mod weighted_curio_necroses;
 #[path = "divergent_universe_weighted_curio_overflow_tests.rs"]
@@ -67,7 +69,7 @@ use super::{
 fn production_decision_workbook_lowers_three_ordered_policy_choices() {
     let reference = load_divergent_universe_bundle().unwrap();
     let catalog = DecisionCatalog::production(&reference).unwrap();
-    assert_eq!(catalog.sources().len(), 133);
+    assert_eq!(catalog.sources().len(), 140);
     expansion_policy::production(&catalog);
     reward_policies::production_battle_stats(&catalog);
     assert_eq!(

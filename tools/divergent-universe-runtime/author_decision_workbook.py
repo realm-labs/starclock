@@ -39,6 +39,7 @@ from battle_team_resource_rows import append_battle_team_resources
 from weighted_curio_excitation_rows import append_weighted_curio_excitation
 from weighted_curio_encouragement_rows import append_weighted_curio_encouragement
 from weighted_curio_overflow_rows import append_weighted_curio_overflow
+from weighted_curio_footstep_rows import append_weighted_curio_footstep
 from weighted_curio_transfer_rows import append_weighted_curio_transfer
 
 
@@ -326,6 +327,7 @@ def rows() -> dict[str, list[list[object]]]:
     append_weighted_curio_encouragement(data)
     append_weighted_curio_transfer(data)
     append_weighted_curio_overflow(data)
+    append_weighted_curio_footstep(data)
     return data
 
 
@@ -401,6 +403,20 @@ def main() -> None:
     level_sheet = workbook["WeightedCurioOverflowLevels"]
     level_sheet.column_dimensions["C"].width = 55
     level_sheet.column_dimensions["D"].width = 55
+    for row in [138, 139, 140]:
+        workbook["Sources"].row_dimensions[row].height = 360
+    for row in range(141, 148):
+        workbook["Sources"].row_dimensions[row].height = 240
+    footstep_sheet = workbook["WeightedCurioFootsteps"]
+    footstep_sheet.column_dimensions["C"].width = 55
+    footstep_sheet.column_dimensions["D"].width = 55
+    footstep_sheet.column_dimensions["F"].width = 40
+    footstep_sheet.column_dimensions["M"].width = 62
+    for column in ["N", "O"]:
+        footstep_sheet.column_dimensions[column].width = 60
+    for column in ["P", "Q", "R", "S"]:
+        footstep_sheet.column_dimensions[column].width = 110
+    footstep_sheet.row_dimensions[8].height = 220
     workbook.properties.modified = datetime(2000, 1, 1)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     workbook.save(args.output)

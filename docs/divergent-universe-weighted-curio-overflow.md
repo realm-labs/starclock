@@ -5,7 +5,8 @@ definition. Canonical ratios `10`, `1`, `0.8` mean ten times base DMG, one times
 overflow and an 80% ATK increase. Eligibility is Erudition/Hunt, with no element
 restriction. Normal equipment admits both contributions as independently
 replaceable `VersionedProjectPolicy` behavior, not exact hidden-formula parity
-or terminal execution credit. The implemented Weighted Curio count is 13/17.
+or terminal execution credit. The current Weighted Curio equipment-definition
+count is 14/17, including the separately policy-bound Footstep contribution.
 
 ## Released joins and program evidence
 
@@ -266,7 +267,8 @@ boundary vectors cover zero, one millionth, negative input and checked overflow.
 This is executable authored-policy lowering, not observed formula parity.
 Normal battle assembly uses it with the ATK and callback policies; existing
 callback/survival fixtures continue using their explicit test base. Equipment
-admission raises the implemented count to 13/17, not terminal dispositions.
+admission contributes to the current 14/17 equipment-definition count, not
+terminal dispositions.
 
 ### Remaining parity and release boundaries
 

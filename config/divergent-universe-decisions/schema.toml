@@ -158,6 +158,9 @@ values = [{ id = 0, name = "NativeProjectPolicyHitEnded" }]
 [[enums]]
 name = "DuCurioOverflowBasePolicy"
 values = [{ id = 0, name = "EnemyGroupOneHpRatioProtocolHpMultiplierFloor" }]
+[[enums]]
+name = "DuCurioFootstepPolicy"
+values = [{ id = 0, name = "EffectiveHpLossAfterSkillOriginalDamage" }]
 [[tables]]
 id = "sources"
 name = "DuDecisionSources"
@@ -3173,6 +3176,93 @@ type = "i32"
 range = [1,95]
 [[tables.fields]]
 name = "hp_ratio"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "source_ids"
+type = "list<ref<DuDecisionSources.id>>"
+parser = { kind = "split", separator = "|" }
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+[[tables]]
+id = "weightedcuriofootsteps"
+name = "DuWeightedCurioFootsteps"
+mode = "map"
+key = "id"
+[tables.source]
+file = "DivergentUniverseDecisions.xlsx"
+sheet = "WeightedCurioFootsteps"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1,2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "weighted_curio_key"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "maze_buff_id"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "character_paths"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+[[tables.fields]]
+name = "loss_parameter"
+type = "i32"
+range = [1,64]
+[[tables.fields]]
+name = "loss_fraction"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "damage_parameter"
+type = "i32"
+range = [1,64]
+[[tables.fields]]
+name = "damage_per_stack"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "cap_parameter"
+type = "i32"
+range = [1,64]
+[[tables.fields]]
+name = "maximum_stacks"
+type = "i32"
+range = [1,65535]
+[[tables.fields]]
+name = "policy"
+type = "enum<DuCurioFootstepPolicy>"
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "hp_policy_note"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "hp_replacement_condition"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "skill_policy_note"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "skill_replacement_condition"
 type = "string"
 length = [1, 4000]
 [[tables.fields]]

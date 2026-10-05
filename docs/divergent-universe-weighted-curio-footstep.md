@@ -1,12 +1,38 @@
-# Footstep of Gods native execution policies
+# Footstep of Gods authored execution policies
 
 Separate explicit constructors compile the HP-loss/point and after-Skill damage
 contributions through shared Rule IR, battle commands, slots, effects and
-resource/formula operations. They are not normal Curio equipment admission.
-Production Sora operand authoring, Forge and complete-run equipment replay
-remain pending. The current
-Weighted Curio equipment count stays **13/17** and no terminal reference or
-mechanic-program credit follows.
+resource/formula operations. Normal immutable equipment assembly now reads
+their operands and independently replaceable policy identity from Sora.
+The current Weighted Curio equipment-definition count is **14/17**, not a
+complete-mechanic count. Linked/timeline actors, real transformations, waves
+and periodic damage consumers still require their own equipment fixtures;
+Forge and complete-run equipment replay remain pending. No terminal reference
+or mechanic-program credit follows.
+
+## Production authoring and equipment boundary
+
+`WeightedCurioFootsteps` authors canonical decimal strings `0.5` and `0.08`,
+integer cap `10`, released Path membership and parameter locators. Sources
+134–138 bind five pinned released blobs; Sources 139–140 are explicitly
+`ProjectPolicy` and bind the corresponding HP/Skill policy-note bytes rather
+than an upstream blob. Each clause has its own replacement condition. The
+loader rejects missing/duplicate definitions, eligibility/operand drift,
+false-parity policy labels and forged provenance. Runtime loads only the
+generated binary Sora bundle, never the workbook or debug JSON.
+
+Both Ordinary and Cyclical accepted loadouts lower the same authored clauses
+through the existing constructors into immutable battle bundles. Configuration,
+policy notes, source identities, build identity and original formation bind the
+assembled contribution identity. No live Activity mutation or shared resolver
+content branch is introduced. Equipment command probes retain those assembled
+bindings without rebinding a policy: Destruction/Remembrance originals return
+one point from two 30-HP losses separated by healing at 100 maximum HP, retain
+10 residue and acquire three Skill stacks, yielding 124 rather than 100 Basic
+damage. Harmony/Hunt originals receive neither contribution. Tests also cover
+stale loadout/battle rejection, independent owners, teardown, unequip, fresh
+canonical events/hashes, no RNG and unmodified production start/concede.
+These bounded handoffs are not full-run or missing lifecycle-consumer proof.
 
 ## Released evidence
 
@@ -44,8 +70,9 @@ native binding; the text's per-stack ratio/cap remain independently factual.
 
 `HpLossPointPolicy` is a `VersionedProjectPolicy` construction boundary.
 The caller supplies a validated `(0, 1]` fixed Scalar fraction and immutable
-provenance/policy identity; there is no production default or workbook loader.
-The native tests bind `0.5`, not a new shipping hardcoded Curio operand.
+provenance/policy identity. Production supplies both from its validated Sora
+definition; explicit callers can still bind other validated policy inputs.
+The native tests bind `0.5`, not a shipping hardcoded Curio default.
 
 - Qualify the immutable original entry form through the core build catalog's
   Destruction/Remembrance Path. Other Paths return unchanged without adding
@@ -96,17 +123,17 @@ floors, overflow disposal, live and fractional thresholds, lethal loss,
 terminal reset, invalid fractions, policy identity, rollback, rejected commands,
 fresh event payloads and canonical hashes. Linked actor creation, real
 transformation, Break/DoT packet producers and wave transitions need separate
-consumer fixtures before normal equipment admission; their selector/slot design
-is not proof of those scenarios. No fixture substitutes for formal workbook
-authoring or full-run equipment construction.
+consumer fixtures before complete equipment acceptance; their selector/slot
+design is not proof of those scenarios. The bounded production handoff above
+does not substitute for those fixtures or full-run equipment construction.
 
 ## After-Skill damage policy
 
 `SkillDamagePolicy` separately binds a positive additive fixed Scalar ratio,
 nonzero `u16` cap and immutable caller identity. The capped bonus product must
 fit checked Scalar before catalog mutation. Tests supply the released `0.08`
-and `10`; there is no shipping default, workbook loader or content-ID resolver
-branch. Source identity includes both operands, caller identity, assembly,
+and `10`; production reads those values from validated Sora, without a shipping
+default or content-ID resolver branch. Source identity includes both operands, caller identity, assembly,
 immutable entry-form build digest and formation.
 
 - Use the same immutable Destruction/Remembrance original-Path proof and
@@ -153,8 +180,10 @@ events/hashes. A Direct/DoT/Additional class vector checks the ordinary
 calculator's named channels; the DoT-class vector is not a periodic effect
 producer fixture. Real linked/timeline actors, transformations, periodic DoTs,
 Break/Elation negative consumer vectors and wave transitions still need their
-own command fixtures before equipment admission.
+own command fixtures before complete equipment acceptance.
 
 ```text
 cargo test -p starclock-mode-universe weighted_curio_footstep
+cargo test -p starclock-data weighted_curio_footstep
+.cache/tools/node-v24.15.0-win-x64/node.exe tools/divergent-universe-runtime/verify-weighted-curio-footstep-authoring.mjs --check-source
 ```

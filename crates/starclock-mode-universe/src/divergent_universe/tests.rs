@@ -23,6 +23,7 @@ mod weighted_curio_encouragement_fixture;
 mod weighted_curio_excitation;
 mod weighted_curio_excitation_fixture;
 mod weighted_curio_footstep;
+mod weighted_curio_footstep_equipment;
 mod weighted_curio_footstep_fixture;
 mod weighted_curio_footstep_skill_damage;
 mod weighted_curio_necrosis;
